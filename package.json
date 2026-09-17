@@ -1,0 +1,46 @@
+{
+  "name": "@internship/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {
+    "@apollo/server": "^5.5.1",
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "dotenv": "^17.4.2",
+    "graphql": "^17.0.2",
+    "graphql-tag": "^2.12.7",
+    "next": "~16.1.6",
+    "pg": "^8.23.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@nx/eslint": "23.2.1",
+    "@nx/eslint-plugin": "23.2.1",
+    "@nx/js": "^23.2.1",
+    "@nx/next": "^23.2.1",
+    "@nx/workspace": "23.2.1",
+    "@swc-node/register": "~1.11.1",
+    "@swc/cli": "~0.8.1",
+    "@swc/core": "~1.15.5",
+    "@swc/helpers": "~0.5.18",
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.0.0",
+    "nx": "23.2.1",
+    "prisma": "^8.0.0-rc.15",
+    "typescript": "^7.0.2",
+    "typescript-eslint": "^8.58.0"
+  },
+  "workspaces": [
+    "apps/*/*",
+    "libs/*/*"
+  ]
+}
