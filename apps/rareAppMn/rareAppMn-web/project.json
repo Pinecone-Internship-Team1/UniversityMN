@@ -4,6 +4,38 @@
   "sourceRoot": "apps/rareAppMn/rareAppMn-web/src",
   "projectType": "application",
   "tags": [],
-  "// targets": "to see all targets run: nx show project rareAppMn-web --web",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/rareAppMn/rareAppMn-web"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/rareAppMn/rareAppMn-web"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "rareAppMn-web:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "rareAppMn-web:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "rareAppMn-web:build:production",
+          "dev": false
+        }
+      }
+    }
+  }
 }

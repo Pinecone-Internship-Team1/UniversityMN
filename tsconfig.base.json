@@ -3,7 +3,6 @@
   "compilerOptions": {
     "rootDir": ".",
     "moduleResolution": "bundler",
-    "ignoreDeprecations": "6.0",
     "resolvePackageJsonImports": true,
     "target": "es2024",
     "module": "esnext",
@@ -14,8 +13,5 @@
       ]
     }
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "exclude": ["node_modules", "dist"]
 }
