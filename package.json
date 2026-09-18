@@ -10,7 +10,9 @@
     "@prisma/adapter-pg": "^7.10.0",
     "@prisma/client": "^7.10.0",
     "@tailwindcss/postcss": "^4.3.3",
+    "clsx": "^2.1.1",
     "dotenv": "^17.4.2",
+    "framer-motion": "^13.4.0",
     "graphql": "^16.11.0",
     "graphql-tag": "^2.12.7",
     "lucide-react": "^1.47.0",
@@ -19,6 +21,7 @@
     "postcss": "^8.5.28",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3",
     "tslib": "^2.3.0"
   },
