@@ -2,8 +2,8 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Next.js options go here
-  // See: https://nextjs.org/docs/app/api-reference/config/next-config-js
+  // Required by @opennextjs/cloudflare to produce a self-contained server bundle.
+  output: "standalone",
 };
 
 module.exports = nextConfig;

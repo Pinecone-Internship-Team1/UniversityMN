@@ -36,6 +36,41 @@
           "dev": false
         }
       }
+    },
+    "cf-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/rareAppMn/rareAppMn-web",
+        "commands": [
+          "next build",
+          "opennextjs-cloudflare build --skipNextBuild"
+        ],
+        "parallel": false
+      }
+    },
+    "cf-preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/rareAppMn/rareAppMn-web",
+        "commands": [
+          "next build",
+          "opennextjs-cloudflare build --skipNextBuild",
+          "opennextjs-cloudflare preview"
+        ],
+        "parallel": false
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/rareAppMn/rareAppMn-web",
+        "commands": [
+          "next build",
+          "opennextjs-cloudflare build --skipNextBuild",
+          "opennextjs-cloudflare deploy"
+        ],
+        "parallel": false
+      }
     }
   }
 }
