@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 import { Menu, X, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +15,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const { isLoaded, isSignedIn } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur-[2px]">
@@ -46,12 +48,18 @@ export function Navbar() {
             <Search className="h-3.5 w-3.5" strokeWidth={2} />
             Сургууль хайх
           </a>
-          <a
-            href="#login"
-            className="rounded-sm border border-ink px-4 py-2 text-[13px] font-medium uppercase tracking-[0.08em] text-ink transition-colors hover:bg-ink hover:text-paper"
-          >
-            Нэвтрэх
-          </a>
+          {isLoaded && isSignedIn ? (
+            <UserButton />
+          ) : (
+            <SignInButton mode="modal">
+              <button
+                type="button"
+                className="rounded-sm border border-ink px-4 py-2 text-[13px] font-medium uppercase tracking-[0.08em] text-ink transition-colors hover:bg-ink hover:text-paper"
+              >
+                Нэвтрэх
+              </button>
+            </SignInButton>
+          )}
         </div>
 
         <button
@@ -91,13 +99,21 @@ export function Navbar() {
               <Search className="h-3.5 w-3.5" strokeWidth={2} />
               Сургууль хайх
             </a>
-            <a
-              href="#login"
-              onClick={() => setOpen(false)}
-              className="rounded-sm border border-ink bg-ink px-4 py-2.5 text-center text-[13px] font-medium uppercase tracking-[0.08em] text-paper"
-            >
-              Нэвтрэх
-            </a>
+            {isLoaded && isSignedIn ? (
+              <div className="flex justify-center py-2">
+                <UserButton />
+              </div>
+            ) : (
+              <SignInButton mode="modal">
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  className="rounded-sm border border-ink bg-ink px-4 py-2.5 text-center text-[13px] font-medium uppercase tracking-[0.08em] text-paper"
+                >
+                  Нэвтрэх
+                </button>
+              </SignInButton>
+            )}
           </div>
         </nav>
       </div>

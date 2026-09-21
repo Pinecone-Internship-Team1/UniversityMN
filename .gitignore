@@ -4,6 +4,7 @@
 dist
 tmp
 out-tsc
+*.tsbuildinfo
 
 # dependencies
 node_modules
@@ -52,6 +53,13 @@ out
 .open-next
 .wrangler
 .dev.vars
+
+# Environment variables / secrets (never commit real values)
+.env
+.env.local
+.env.production
+.env.*.local
+!.env.example
 
 # Nx-generated deployable package.json (regenerated from root package.json; do not commit)
 apps/rareAppMn/rareAppMn-web/package.json

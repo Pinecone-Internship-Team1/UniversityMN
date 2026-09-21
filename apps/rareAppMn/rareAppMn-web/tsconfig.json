@@ -15,6 +15,7 @@
       "@/*": ["src/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["node", "react", "react-dom", "@cloudflare/workers-types"],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
