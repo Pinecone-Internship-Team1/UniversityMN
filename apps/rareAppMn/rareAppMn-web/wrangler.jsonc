@@ -7,11 +7,5 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
-  },
-  "services": [
-    {
-      "binding": "GRAPHQL_SERVICE",
-      "service": "oyutan-mn-service"
-    }
-  ]
+  }
 }

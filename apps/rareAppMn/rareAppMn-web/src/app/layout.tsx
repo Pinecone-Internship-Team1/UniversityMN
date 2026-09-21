@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
 import { Unbounded, PT_Sans } from "next/font/google";
 import "./global.css";
 
@@ -29,10 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider afterSignOutUrl="/">
-      <html lang="mn" className={`${unbounded.variable} ${ptSans.variable}`}>
-        <body>{children}</body>
-      </html>
-    </ClerkProvider>
+    <html lang="mn" className={`${unbounded.variable} ${ptSans.variable}`}>
+      <body>{children}</body>
+    </html>
   );
 }
