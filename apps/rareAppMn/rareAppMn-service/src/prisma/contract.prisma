@@ -1,0 +1,24 @@
+// use prisma-8
+
+enum UniversityType {
+  @@type("pg/text@1")
+  PUBLIC  = "PUBLIC"
+  PRIVATE = "PRIVATE"
+}
+
+model University {
+  id              String         @id @default(uuid())
+  name            String
+  shortName       String?
+  logo            String?
+  description     String?
+  type            UniversityType
+  location        String?
+  address         String?
+  website         String?
+  phone           String?
+  email           String?
+  establishedYear Int?
+  createdAt       TimestamptzString @default(now())
+  updatedAt       temporal.updatedAtString()
+}

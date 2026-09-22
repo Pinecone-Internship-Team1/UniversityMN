@@ -1,0 +1,9 @@
+{
+  "name": "rareappmn-service",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "contract:emit": "prisma contract emit"
+  }
+}

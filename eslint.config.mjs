@@ -7,7 +7,9 @@ export default [
     {
         ignores: [
             "**/dist",
-            "**/out-tsc"
+            "**/out-tsc",
+            "**/src/prisma/contract.d.ts",
+            "**/migrations/snapshots/**/contract.d.ts"
         ]
     },
     {

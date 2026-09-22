@@ -1,1 +1,3 @@
-export * from './lib/rare-app-mn-service';
+export { db } from './db';
+export { resolvers } from './graphql/resolvers';
+export { typeDefs } from './graphql/schema';

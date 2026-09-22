@@ -4,6 +4,7 @@
 dist
 tmp
 out-tsc
+*.tsbuildinfo
 
 # dependencies
 node_modules
@@ -55,3 +56,8 @@ out
 
 # Nx-generated deployable package.json (regenerated from root package.json; do not commit)
 apps/rareAppMn/rareAppMn-web/package.json
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
