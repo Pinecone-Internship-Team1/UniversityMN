@@ -183,7 +183,6 @@ export default async function UniversityDetailPage({ params }: PageProps) {
 
         {/* Grid Content Section */}
         <div className="mt-10 grid gap-8 md:grid-cols-12">
-          {/* Main Info */}
           <div className="space-y-8 md:col-span-8">
             <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
               <h2 className="text-xl font-bold tracking-tight text-ink">
