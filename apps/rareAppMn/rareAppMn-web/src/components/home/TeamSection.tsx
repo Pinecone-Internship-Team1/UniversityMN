@@ -1,45 +1,62 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { SectionLabel } from "./SectionLabel";
+import Link from "next/link";
 
 interface TeamMember {
   number: string;
   name: string;
   school: string;
   role: string;
+  image?: string;
+  github?: string;
+  linkedin?: string;
 }
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
     number: "01",
-    name: "Zelme",
-    school: "Шинэ Монгол Харүмафүжи сургууль",
-    role: "Founder & Full-Stack Developer",
+    name: "Erkhes",
+    school: "130-р сургууль",
+    role: "Co-Founder & Full-Stack Developer",
+    image: "/team/erkhes-profile-pic.jpg",
+    github: "https://github.com/erkhes9632",
   },
   {
     number: "02",
-    name: "Erkhes",
-    school: "Монгол-Оросын хамтарсан сургууль",
-    role: "UI/UX Designer",
+    name: "Zelme",
+    school: "Орос 3-р сургууль",
+    role: "Co-Founder & Full-Stack Developer",
+    image: "/team/zelme.jpg",
+    github: "https://github.com/zetsu19",
   },
   {
     number: "03",
     name: "Khuslen",
-    school: "1-р сургууль",
-    role: "Research & Data",
+    school: "52-р сургууль",
+    role: "Full-Stack Developer",
+    image: "/team/khuslen.jpg",
+    github: "https://github.com",
   },
   {
     number: "04",
-    name: "Tsogt",
-    school: "Шинэ Үе сургууль",
-    role: "Content & Communications",
+    name: "Ikhbayar",
+    school: "ISU",
+    role: "Research & Data, Frontend Developer",
+    image: "/team/ikhbayar.jpg",
+    github: "https://github.com/bikhbayar01-sudo",
   },
   {
     number: "05",
-    name: "Ikhbayr",
-    school: "Орчлон сургууль",
-    role: "Frontend Developer",
+    name: "Tsogt",
+    school: "Шинэ Монгол ТК",
+    role: "Research & Data, Frontend Developer",
+    image: "/team/tsogt.jpg",
+    github: "https://github.com",
   },
 ];
 
@@ -59,54 +76,116 @@ export function TeamSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="team" className="border-t border-ink/10 bg-paper">
-      <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-8 sm:py-28 lg:py-32">
-        <div className="max-w-2xl">
-          <SectionLabel>03 — Манай баг</SectionLabel>
-          <h2 className="mt-6 text-balance font-display text-3xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-4xl md:text-[2.75rem]">
-            Энэ төслийг бүтээж буй сурагчид.
-          </h2>
+    <section
+      id="team"
+      className="relative overflow-hidden border-t border-ink/10 bg-paper py-24 sm:py-32"
+    >
+      {/* Dynamic Ambient Background Glow */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-gradient-to-b from-accent/15 via-accent/5 to-transparent blur-3xl opacity-70" />
+
+      <div className="relative mx-auto max-w-[1440px] px-6 sm:px-8">
+        {/* Header Section */}
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <SectionLabel>03 — Манай баг</SectionLabel>
+            <h2 className="mt-4 text-3xl font-black tracking-tight text-ink sm:text-4xl md:text-5xl">
+              Ирээдүйг бүтээж буй сурагчид.
+            </h2>
+            <p className="mt-3 text-base text-ink/70">
+              Монголын боловсролын салбарт шинэчлэл хийхээр хамтран ажиллаж буй
+              сурагчдын бүрэлдэхүүн.
+            </p>
+          </div>
+
+          <div className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-card/80 backdrop-blur-md px-4 py-2 text-xs font-mono font-bold tracking-wider text-ink/70 shadow-xs">
+            <Sparkles className="h-3.5 w-3.5 text-accent" />
+            <span>TOTAL MEMBERS: {TEAM_MEMBERS.length}</span>
+          </div>
         </div>
 
-        <ul className="mt-14 border-t border-ink/10 lg:mt-16">
+        {/* Team Cards Grid */}
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {TEAM_MEMBERS.map((member, i) => (
-            <motion.li
+            <motion.div
               key={member.number}
-              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "-40px" }}
               transition={{
                 duration: 0.5,
-                delay: i * 0.06,
-                ease: [0.16, 1, 0.3, 1],
+                delay: i * 0.08,
+                ease: [0.215, 0.61, 0.355, 1],
               }}
-              className="group border-b border-ink/10"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-ink/10 bg-card/80 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10"
             >
-              <div className="flex flex-col gap-4 py-6 transition-colors duration-300 group-hover:bg-paper-deep/40 sm:-mx-4 sm:flex-row sm:items-center sm:gap-6 sm:px-4 sm:py-7">
-                <span className="font-display text-sm font-semibold tabular-nums text-ink/30 transition-colors duration-300 group-hover:text-accent sm:w-8 sm:shrink-0">
+              {/* Top Accent Line on Hover */}
+              <div className="absolute inset-x-0 top-0 z-20 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+              {/* TOP: Image Banner Section */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-paper/60">
+                {member.image ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center font-mono text-4xl font-bold text-ink/20">
+                    {initialsOf(member.name)}
+                  </div>
+                )}
+
+                {/* Dark Gradient Overlay for Contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 opacity-80 transition-opacity duration-300 group-hover:opacity-90" />
+
+                {/* Number Badge */}
+                <span className="absolute top-3.5 left-3.5 z-10 rounded-full bg-black/40 backdrop-blur-md border border-white/15 px-3 py-1 font-mono text-[11px] font-bold text-white shadow-xs">
                   {member.number}
                 </span>
 
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/15 bg-card font-display text-xs font-semibold text-ink-soft transition-colors duration-300 group-hover:border-accent/40 group-hover:text-accent">
-                  {initialsOf(member.name)}
+                {/* School Tag on Image */}
+                <div className="absolute top-3.5 right-3.5 z-10 max-w-[65%]">
+                  <span className="inline-block truncate rounded-full bg-white/950 backdrop-blur-lg border border-white/50 px-3 py-1 text-[12px] font-medium text-white shadow-xs">
+                    {member.school}
+                  </span>
                 </div>
 
-                <div className="flex-1 transition-transform duration-300 sm:group-hover:translate-x-1.5">
-                  <h3 className="font-display text-lg font-semibold tracking-tight text-ink sm:text-xl">
+                {/* Name & Role Overlay */}
+                <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+                  <h3 className="text-xl font-bold tracking-tight drop-shadow-md transition-transform duration-300 group-hover:translate-x-0.5">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-[13px] text-ink-soft sm:text-sm">
-                    {member.school}
+                  <p className="mt-0.5 text-xs font-medium text-white/80 line-clamp-1">
+                    {member.role}
                   </p>
                 </div>
-
-                <p className="text-[12px] font-semibold uppercase tracking-[0.1em] text-ink-soft transition-colors duration-300 group-hover:text-accent sm:text-[13px] sm:text-right">
-                  {member.role}
-                </p>
               </div>
-            </motion.li>
+
+              {/* BOTTOM: Social Links Only */}
+              <div className="p-4 sm:p-5">
+                <div className="flex items-center justify-between border-t border-ink/10 pt-3">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-ink/40 uppercase">
+                    Connect
+                  </span>
+                  <div className="flex items-center gap-1.5">
+                    {member.github && (
+                      <Link
+                        href={member.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-full p-2 text-ink/60 transition-all duration-300 hover:bg-accent/10 hover:text-accent hover:scale-110"
+                      >
+                        <FaGithub className="h-4 w-4" />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

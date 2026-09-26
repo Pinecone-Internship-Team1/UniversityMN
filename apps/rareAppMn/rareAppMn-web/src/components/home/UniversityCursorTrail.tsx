@@ -15,31 +15,31 @@ interface UniversityCursorTrailProps {
   className?: string;
 }
 
-const ROTATION_STEPS = [-12, 8, -5, 14, -9, 6, -15, 10, -7, 4, -11];
+const ROTATION_STEPS = [-10, 6, -4, 12, -8, 5, -12, 8, -6, 3, -9];
 const OFFSET_STEPS: ReadonlyArray<readonly [number, number]> = [
-  [-0.58, 0.34],
-  [0.5, -0.46],
-  [-0.34, -0.62],
-  [0.66, 0.2],
-  [-0.5, 0.5],
-  [0.24, -0.58],
-  [-0.66, 0.12],
-  [0.4, 0.38],
-  [-0.2, -0.36],
-  [0.58, -0.16],
-  [-0.4, 0.58],
+  [-0.5, 0.3],
+  [0.4, -0.4],
+  [-0.3, -0.5],
+  [0.5, 0.2],
+  [-0.4, 0.4],
+  [0.2, -0.5],
+  [-0.5, 0.1],
+  [0.3, 0.3],
+  [-0.2, -0.3],
+  [0.5, -0.1],
+  [-0.3, 0.5],
 ];
 const IDLE_RESET_MS = 220;
 
 export function UniversityCursorTrail({
   universities,
-  spawnDistance = 76,
-  logoLifetime = 1300,
-  maxActiveLogos = 9,
-  size = 92,
-  offsetRange = 46,
-  rotationRange = 15,
-  fadeDuration = 420,
+  spawnDistance = 80,
+  logoLifetime = 1200,
+  maxActiveLogos = 8,
+  size = 84,
+  offsetRange = 40,
+  rotationRange = 12,
+  fadeDuration = 400,
   className,
 }: UniversityCursorTrailProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -69,8 +69,8 @@ export function UniversityCursorTrail({
 
       const inner = document.createElement("div");
       inner.style.position = "relative";
-      inner.style.width = "88%";
-      inner.style.height = "88%";
+      inner.style.width = "85%";
+      inner.style.height = "85%";
 
       const img = document.createElement("img");
       img.alt = "";
@@ -101,7 +101,7 @@ export function UniversityCursorTrail({
       clientX: number,
       clientY: number,
       dirX: number,
-      dirY: number
+      dirY: number,
     ) {
       const rect = getBounds();
       const localX = clientX - rect.left;
@@ -121,7 +121,7 @@ export function UniversityCursorTrail({
       seqIndex++;
       stepIndex++;
 
-      const rotate = (ROTATION_STEPS[step] / 15) * rotationRange;
+      const rotate = (ROTATION_STEPS[step] / 12) * rotationRange;
       const [ofx, ofy] = OFFSET_STEPS[step];
       const offsetX = ofx * offsetRange;
       const offsetY = ofy * offsetRange;
@@ -137,38 +137,41 @@ export function UniversityCursorTrail({
       slot.root.style.left = `${x}px`;
       slot.root.style.top = `${y}px`;
 
-      const driftX = dirX * 26;
-      const driftY = dirY * 26;
-      const holdOffset = Math.max(0, Math.min(0.7, 1 - fadeDuration / logoLifetime));
+      const driftX = dirX * 20;
+      const driftY = dirY * 20;
+      const holdOffset = Math.max(
+        0,
+        Math.min(0.7, 1 - fadeDuration / logoLifetime),
+      );
 
       slot.anim = slot.root.animate(
         [
           {
-            transform: `rotate(${rotate * 1.7}deg) scale(0.55)`,
+            transform: `rotate(${rotate * 1.5}deg) scale(0.6)`,
             opacity: 0,
             offset: 0,
           },
           {
             transform: `rotate(${rotate}deg) scale(1)`,
-            opacity: 1,
-            offset: 0.14,
+            opacity: 0.9,
+            offset: 0.15,
           },
           {
             transform: `translate3d(${driftX * 0.5}px, ${driftY * 0.5}px, 0) rotate(${rotate}deg) scale(1)`,
-            opacity: 1,
+            opacity: 0.9,
             offset: holdOffset,
           },
           {
-            transform: `translate3d(${driftX}px, ${driftY}px, 0) rotate(${rotate * 0.85}deg) scale(0.86)`,
+            transform: `translate3d(${driftX}px, ${driftY}px, 0) rotate(${rotate * 0.8}deg) scale(0.88)`,
             opacity: 0,
             offset: 1,
           },
         ],
         {
           duration: logoLifetime,
-          easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+          easing: "cubic-bezier(0.215, 0.61, 0.355, 1)",
           fill: "forwards",
-        }
+        },
       );
     }
 
@@ -245,7 +248,8 @@ export function UniversityCursorTrail({
     <div
       ref={containerRef}
       className={
-        className ?? "pointer-events-none absolute inset-0 z-[6] overflow-hidden"
+        className ??
+        "pointer-events-none absolute inset-0 z-[6] overflow-hidden"
       }
       aria-hidden="true"
     />

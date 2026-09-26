@@ -26,9 +26,9 @@ export function FloatingUniversityLogo({
 }: FloatingUniversityLogoProps) {
   const reduceMotion = useReducedMotion();
   const seed = seedFrom(university.id);
-  const floatDuration = 5.5 + seed * 3.5;
+  const floatDuration = 6 + seed * 3;
   const floatDelay = seed * 2;
-  const floatAmplitude = 2 + seed * 2.5;
+  const floatAmplitude = 2 + seed * 2;
 
   return (
     <motion.div
@@ -45,10 +45,10 @@ export function FloatingUniversityLogo({
           ? { opacity: 0 }
           : {
               opacity: 0,
-              scale: 0.82,
-              rotate: placement.rotate * 2.2,
+              scale: 0.85,
+              rotate: placement.rotate * 1.5,
               x: "-50%",
-              y: "calc(-50% + 26px)",
+              y: "calc(-50% + 20px)",
             }
       }
       animate={
@@ -65,14 +65,14 @@ export function FloatingUniversityLogo({
       transition={{
         duration: 0.6,
         delay: 0.08 + placement.order * 0.04,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.215, 0.61, 0.355, 1],
       }}
     >
       <motion.div
         animate={
           reduceMotion
             ? undefined
-            : { y: [0, -floatAmplitude, 0, floatAmplitude * 0.6, 0] }
+            : { y: [0, -floatAmplitude, 0, floatAmplitude * 0.5, 0] }
         }
         transition={
           reduceMotion
@@ -87,7 +87,7 @@ export function FloatingUniversityLogo({
         className="relative flex items-center justify-center"
         style={{ width: size, height: size }}
       >
-        <div className="relative h-[88%] w-[88%] drop-shadow-[0_10px_16px_rgba(20,18,14,0.22)]">
+        <div className="relative h-[85%] w-[85%] drop-shadow-[0_8px_12px_rgba(0,0,0,0.08)]">
           <Image
             src={university.image}
             alt={`${university.full} эмблем`}
