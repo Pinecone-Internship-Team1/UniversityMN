@@ -31,7 +31,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Zelme",
     school: "Орос 3-р сургууль",
     role: "Co-Founder & Full-Stack Developer",
-    image: "/team/zelme.jpg",
+    image: "/team/zelme-profile-pic.jpg",
     github: "https://github.com/zetsu19",
   },
   {
@@ -39,7 +39,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Khuslen",
     school: "52-р сургууль",
     role: "Full-Stack Developer",
-    image: "/team/khuslen.jpg",
+    image: "/team/khuslen-profile-pic.jpg",
     github: "https://github.com",
   },
   {
@@ -47,7 +47,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Ikhbayar",
     school: "ISU",
     role: "Research & Data, Frontend Developer",
-    image: "/team/ikhbayar.jpg",
+    image: "/team/ikhbayar-profile-pic.jpg",
     github: "https://github.com/bikhbayar01-sudo",
   },
   {
@@ -55,7 +55,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Tsogt",
     school: "Шинэ Монгол ТК",
     role: "Research & Data, Frontend Developer",
-    image: "/team/tsogt.jpg",
+    image: "/team/tsogt-profile-pic.jpg",
     github: "https://github.com",
   },
 ];
