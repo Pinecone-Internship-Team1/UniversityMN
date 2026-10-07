@@ -144,3 +144,26 @@ export const CURSOR_TRAIL_SEQUENCE = [
 export function getCursorTrailUniversities(): University[] {
   return CURSOR_TRAIL_SEQUENCE.map((id) => UNIVERSITIES[id]);
 }
+
+const UNIVERSITIES_BY_FULL_NAME: Record<string, University> = Object.values(
+  UNIVERSITIES,
+).reduce<Record<string, University>>((acc, university) => {
+  acc[university.full] = university;
+  return acc;
+}, {});
+
+/**
+ * Resolves a backend `School.name` (e.g. "Монгол Улсын Их Сургууль") to the
+ * matching static asset entry, so GraphQL-sourced schools can still render
+ * the logo images that only exist for these known universities. Backend
+ * schools outside this static set simply get no match (falls back to an
+ * initials avatar at the call site).
+ */
+export function getUniversityByFullName(name: string): University | undefined {
+  return UNIVERSITIES_BY_FULL_NAME[name];
+}
+
+/** The route slug (e.g. `"muis"`) for a known university, used to build `/university/[slug]` links. */
+export function getUniversitySlug(name: string): string | undefined {
+  return UNIVERSITIES_BY_FULL_NAME[name]?.id;
+}

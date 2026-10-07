@@ -1,0 +1,17 @@
+# Local Worker runtime vars for `wrangler dev` (loaded from `.dev.vars`, which
+# is gitignored). Copy this file to `.dev.vars`. NEVER put real secrets in
+# this .example file, since it (unlike `.dev.vars`) is committed to git.
+
+ENVIRONMENT=development
+
+# Clerk Backend API secret key. Starts with "sk_test_" / "sk_live_" once real.
+CLERK_SECRET_KEY=sk_test_mock_local_dev_only
+
+# Svix signing secret for the Clerk webhook endpoint. Starts with "whsec_" once real.
+CLERK_WEBHOOK_SECRET=whsec_mock_local_dev_only
+
+# Comma-separated Clerk user IDs granted the admin role.
+ADMIN_CLERK_USER_IDS=user_mock_admin_local_dev
+
+# Comma-separated origins allowed to call the GraphQL API.
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:4000

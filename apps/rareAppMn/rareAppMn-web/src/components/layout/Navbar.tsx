@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X, Search, UserCircle } from "lucide-react";
 import { Show, SignInButton, UserButton } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 
 const NAV_LINKS = [
@@ -43,20 +44,22 @@ export function Navbar() {
         </nav>
 
         {/* Desktop Actions */}
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <Link
-            href="#search"
+            href="/schools"
             className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[13px] font-semibold uppercase tracking-wider text-ink/70 transition-all duration-200 hover:bg-ink/[0.04] hover:text-ink"
           >
             <Search className="h-4 w-4" strokeWidth={2.2} />
             Сургууль хайх
           </Link>
 
+          <ThemeToggle />
+
           <Show when="signed-out">
             <SignInButton mode="modal">
               <button
                 type="button"
-                className="rounded-full border border-ink/20 px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-paper"
+                className="ml-1 rounded-full border border-ink/20 px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-paper"
               >
                 Нэвтрэх
               </button>
@@ -64,7 +67,14 @@ export function Navbar() {
           </Show>
 
           <Show when="signed-in">
-            <div className="flex items-center">
+            <div className="ml-1 flex items-center gap-3">
+              <Link
+                href="/profile"
+                aria-label="Миний профайл"
+                className="flex h-10 w-10 items-center justify-center rounded-lg text-ink/80 transition-colors hover:bg-ink/[0.04] hover:text-ink"
+              >
+                <UserCircle className="h-5 w-5" strokeWidth={1.8} />
+              </Link>
               <UserButton />
             </div>
           </Show>
@@ -103,13 +113,20 @@ export function Navbar() {
 
           <div className="mt-3 flex flex-col gap-2.5 border-t border-ink/10 pt-4">
             <Link
-              href="#search"
+              href="/schools"
               onClick={() => setOpen(false)}
               className="flex items-center justify-center gap-2 rounded-lg border border-ink/15 px-4 py-2.5 text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-ink/[0.03]"
             >
               <Search className="h-4 w-4" strokeWidth={2} />
               Сургууль хайх
             </Link>
+
+            <div className="flex items-center justify-center gap-2 py-1">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-ink/50">
+                Горим
+              </span>
+              <ThemeToggle />
+            </div>
 
             <Show when="signed-out">
               <SignInButton mode="modal">
@@ -124,6 +141,14 @@ export function Navbar() {
             </Show>
 
             <Show when="signed-in">
+              <Link
+                href="/profile"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-lg border border-ink/15 px-4 py-2.5 text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-ink/[0.03]"
+              >
+                <UserCircle className="h-4 w-4" strokeWidth={1.8} />
+                Миний профайл
+              </Link>
               <div className="flex justify-center py-2">
                 <UserButton />
               </div>

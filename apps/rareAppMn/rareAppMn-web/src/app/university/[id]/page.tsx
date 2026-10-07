@@ -9,124 +9,85 @@ import {
   BookOpen,
   Globe,
   Award,
+  Users,
+  CalendarDays,
 } from "lucide-react";
-import { UNIVERSITIES } from "@/lib/university-logos";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-
-// Data details ngam kala duɗal jaaɓi-haaɗtirde
-interface UniversityDetail {
-  id: string;
-  category: string;
-  location: string;
-  avgTuition: string;
-  avgEESH: string;
-  website: string;
-  description: string;
-  majors: string[];
-  scholarships: string[];
-}
-
-const UNIVERSITY_DETAILS: Record<string, UniversityDetail> = {
-  muis: {
-    id: "muis",
-    category: "Улсын их сургууль",
-    location: "Сүхбаатар дүүрэг, Улаанбаатар",
-    avgTuition: "3.8 - 5.2 сая ₮",
-    avgEESH: "580+",
-    website: "https://www.num.edu.mn",
-    description:
-      "Монгол Улсын Их Сургууль нь 1942 онд байгуулагдсан Монгол улсын анхны бөгөөд тэргүүлэх их сургууль юм.",
-    majors: [
-      "Компьютерийн ухаан",
-      "Мэдээллийн технологи",
-      "Бизнесийн удирдлага",
-      "Олон улсын харилцаа",
-      "Физик",
-    ],
-    scholarships: [
-      "Засгийн газрын тэтгэлэг",
-      "МУИС-ийн нэрэмжит тэтгэлэг",
-      "Ирээдүйн залуус тэтгэлэг",
-    ],
-  },
-  shutis: {
-    id: "shutis",
-    category: "Улсын их сургууль",
-    location: "Сүхбаатар дүүрэг, Улаанбаатар",
-    avgTuition: "3.5 - 4.8 сая ₮",
-    avgEESH: "550+",
-    website: "https://www.must.edu.mn",
-    description:
-      "Шинжлэх Ухаан Технологийн Их Сургууль нь инженер, технологийн чиглэлээр улсдаа тэргүүлэх сургууль юм.",
-    majors: [
-      "Програмгамж",
-      "Сүлжээний инженер",
-      "Барилгын инженер",
-      "Архитектур",
-      "Машин үйлдвэрлэл",
-    ],
-    scholarships: [
-      "ШУТИС-ийн захирлын нэрэмжит тэтгэлэг",
-      "Инженер ирээдүй тэтгэлэг",
-    ],
-  },
-  ashuuis: {
-    id: "ashuuis",
-    category: "Улсын их сургууль",
-    location: "Сүхбаатар дүүрэг, Улаанбаатар",
-    avgTuition: "4.2 - 6.5 сая ₮",
-    avgEESH: "620+",
-    website: "https://www.mnums.edu.mn",
-    description:
-      "Анагаахын Шинжлэх Ухааны Үндэсний Их Сургууль нь эрүүл мэнди, анагаах ухааны салбарын мэргэжилтнүүдийг бэлтгэдэг.",
-    majors: [
-      "Хүний эмч",
-      "Нүүр ам судлал",
-      "Эм зүй",
-      "Нийтийн эрүүл мэнд",
-      "Уламжлалт анагаах",
-    ],
-    scholarships: [
-      "Эрүүл мэндийн яамны тэтгэлэг",
-      "АШУҮИС-ийн нэрэмжит тэтгэлэг",
-    ],
-  },
-  sezis: {
-    id: "sezis",
-    category: "Хувийн их сургууль",
-    location: "Баянзүрх дүүрэг, Улаанбаатар",
-    avgTuition: "6.5 - 9.5 сая ₮",
-    avgEESH: "600+",
-    website: "https://www.ufe.edu.mn",
-    description:
-      "Санхүү Эдийн Засгийн Их Сургууль нь бизнес, санхүү, менежментийн сургалтаар тэргүүлэгч сургуулиудын нэг юм.",
-    majors: [
-      "Санхүү ба банк",
-      "Нягтлан бодох бүртгэл",
-      "Маркетинг",
-      "Бизнесийн аналитик",
-    ],
-    scholarships: ["UFE Merit Scholarship", "Бизнес ирээдүй тэтгэлэг"],
-  },
-};
+import { SchoolBookmarkButton } from "@/components/schools/SchoolBookmarkButton";
+import { createServerGraphqlClient } from "@/lib/graphql-server";
+import {
+  SCHOOL_QUERY,
+  SCHOOLS_QUERY,
+  type SchoolDetail,
+  type SchoolQueryResult,
+  type SchoolQueryVariables,
+  type SchoolsQueryResult,
+  type SchoolsQueryVariables,
+} from "@/lib/graphql/documents";
+import { formatDateRange, formatTuition } from "@/lib/format";
+import { UNIVERSITIES, getUniversityByFullName } from "@/lib/university-logos";
 
 interface PageProps {
   params: Promise<{ id: string }>;
 }
 
+/**
+ * The URL segment is either a known static slug (e.g. "muis", matched to
+ * its logo/display name in university-logos.ts) or a raw backend School
+ * id. Slugs are resolved to a backend id by exact name match first, since
+ * the backend itself has no concept of slugs.
+ *
+ * This deliberately does NOT use `schools(filter: { search })` for the
+ * exact-name lookup: SQLite/D1 rejects long `LIKE` patterns with "LIKE or
+ * GLOB pattern too complex" (university full names comfortably exceed that
+ * threshold, especially in Cyrillic, where the byte-based limit is hit at
+ * a shorter character count). Fetching the small full list and comparing
+ * names exactly in JS sidesteps that entirely.
+ */
+async function resolveSchool(idOrSlug: string): Promise<SchoolDetail | null> {
+  const client = createServerGraphqlClient();
+  const knownUniversity = UNIVERSITIES[idOrSlug];
+
+  if (knownUniversity) {
+    const listResult = await client
+      .query<SchoolsQueryResult, SchoolsQueryVariables>(SCHOOLS_QUERY, {
+        filter: { limit: 100 },
+      })
+      .toPromise();
+
+    const match = listResult.data?.schools.items.find(
+      (item) => item.name === knownUniversity.full,
+    );
+    if (!match) return null;
+
+    const detailResult = await client
+      .query<SchoolQueryResult, SchoolQueryVariables>(SCHOOL_QUERY, {
+        id: match.id,
+      })
+      .toPromise();
+    return detailResult.data?.school ?? null;
+  }
+
+  const detailResult = await client
+    .query<SchoolQueryResult, SchoolQueryVariables>(SCHOOL_QUERY, {
+      id: idOrSlug,
+    })
+    .toPromise();
+  return detailResult.data?.school ?? null;
+}
+
 export default async function UniversityDetailPage({ params }: PageProps) {
   const { id } = await params;
-  const baseLogo = UNIVERSITIES[id];
-  const detail = UNIVERSITY_DETAILS[id];
+  const school = await resolveSchool(id);
 
-  if (!baseLogo) {
+  if (!school) {
     notFound();
   }
 
-  const shortName = baseLogo.short;
-  const fullName = baseLogo.full;
-  const imageSrc = baseLogo.image;
+  const university = getUniversityByFullName(school.name);
+  const shortName = university?.short ?? school.name;
+  const imageSrc = university?.image;
 
   return (
     <div className="min-h-screen bg-paper text-ink">
@@ -157,28 +118,35 @@ export default async function UniversityDetailPage({ params }: PageProps) {
             )}
             <div>
               <span className="rounded-full bg-ink/5 px-3 py-1 text-xs font-semibold text-ink/70">
-                {detail?.category || "Их сургууль"}
+                {school.location ?? "Их сургууль"}
               </span>
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
                 {shortName}
               </h1>
               <p className="mt-1 text-sm font-medium text-ink/60 sm:text-base">
-                {fullName}
+                {school.name}
               </p>
             </div>
           </div>
 
-          {detail?.website && (
-            <Link
-              href={detail.website}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold uppercase tracking-wider text-paper transition-all hover:bg-accent"
-            >
-              <Globe className="h-4 w-4" />
-              Албан ёсны сайт
-            </Link>
-          )}
+          <div className="flex items-center gap-3">
+            <SchoolBookmarkButton
+              schoolId={school.id}
+              initialSaved={school.isSaved}
+              schoolName={shortName}
+            />
+            {school.website && (
+              <Link
+                href={school.website}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold uppercase tracking-wider text-paper transition-all hover:bg-accent"
+              >
+                <Globe className="h-4 w-4" />
+                Албан ёсны сайт
+              </Link>
+            )}
+          </div>
         </div>
 
         {/* Grid Content Section */}
@@ -189,35 +157,54 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                 Сургуулийн тухай
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-ink/80 sm:text-base">
-                {detail?.description ||
-                  `${fullName} нь салбартаа манлайлагч, чанартай боловсрол олгодог тэргүүлэгч сургуулиудын нэг юм.`}
+                {school.overview ??
+                  `${school.name} нь салбартаа манлайлагч, чанартай боловсрол олгодог тэргүүлэгч сургуулиудын нэг юм.`}
               </p>
             </section>
 
-            {/* Major Courses */}
+            {/* Majors */}
             <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
               <div className="flex items-center gap-2 text-ink">
                 <BookOpen className="h-5 w-5 text-accent" />
                 <h2 className="text-xl font-bold tracking-tight">
-                  Эрэлттэй мэргэжлүүд
+                  Мэргэжлүүд
                 </h2>
               </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {(
-                  detail?.majors || [
-                    "Компьютерийн ухаан",
-                    "Инженерчлэл",
-                    "Бизнес",
-                  ]
-                ).map((m) => (
-                  <span
-                    key={m}
-                    className="rounded-xl border border-ink/10 bg-paper px-4 py-2 text-xs font-semibold text-ink"
-                  >
-                    {m}
-                  </span>
-                ))}
-              </div>
+              {school.majors.length === 0 ? (
+                <p className="mt-4 text-sm text-ink/60">
+                  Мэргэжлийн мэдээлэл одоогоор бүртгэгдээгүй байна.
+                </p>
+              ) : (
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {school.majors.map((major) => (
+                    <div
+                      key={major.id}
+                      className="rounded-xl border border-ink/10 bg-paper p-4"
+                    >
+                      <p className="text-sm font-bold text-ink">
+                        {major.name}
+                      </p>
+                      {major.category && (
+                        <p className="mt-0.5 text-xs text-ink/60">
+                          {major.category}
+                        </p>
+                      )}
+                      <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
+                        {major.cutOffScore != null && (
+                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                            ЭЕШ: {major.cutOffScore}+
+                          </span>
+                        )}
+                        {major.tuitionFee != null && (
+                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                            {formatTuition(major.tuitionFee)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </section>
 
             {/* Scholarships */}
@@ -228,20 +215,60 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                   Тэтгэлэг ба Боломжууд
                 </h2>
               </div>
-              <ul className="mt-4 space-y-2 text-sm text-ink/80">
-                {(
-                  detail?.scholarships || [
-                    "Сургуулийн нэрэмжит тэтгэлэг",
-                    "Засгийн газрын тэтгэлэг",
-                  ]
-                ).map((s) => (
-                  <li key={s} className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    {s}
-                  </li>
-                ))}
-              </ul>
+              {school.scholarships.length === 0 ? (
+                <p className="mt-4 text-sm text-ink/60">
+                  Тэтгэлгийн мэдээлэл одоогоор бүртгэгдээгүй байна.
+                </p>
+              ) : (
+                <ul className="mt-4 space-y-3 text-sm text-ink/80">
+                  {school.scholarships.map((scholarship) => (
+                    <li
+                      key={scholarship.id}
+                      className="flex items-start gap-2"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      <div>
+                        <p className="font-semibold text-ink">
+                          {scholarship.name}
+                        </p>
+                        {scholarship.coverage && (
+                          <p className="text-xs text-ink/60">
+                            {scholarship.coverage}
+                          </p>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
+
+            {/* Admission schedule */}
+            {school.admissionSchedules.length > 0 && (
+              <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+                <div className="flex items-center gap-2 text-ink">
+                  <CalendarDays className="h-5 w-5 text-accent" />
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Элсэлтийн хуанли
+                  </h2>
+                </div>
+                <ul className="mt-4 space-y-3 text-sm text-ink/80">
+                  {school.admissionSchedules.map((schedule) => (
+                    <li
+                      key={schedule.id}
+                      className="flex items-center justify-between gap-4 rounded-xl border border-ink/10 bg-paper px-4 py-3"
+                    >
+                      <span className="font-semibold text-ink">
+                        {schedule.eventName}
+                      </span>
+                      <span className="text-xs font-medium text-ink/60">
+                        {formatDateRange(schedule.startDate, schedule.endDate)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
 
           {/* Sidebar Specs */}
@@ -255,7 +282,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                   <div>
                     <p className="font-semibold text-ink">Байршил</p>
                     <p className="mt-0.5">
-                      {detail?.location || "Улаанбаатар хот"}
+                      {school.location ?? "Улаанбаатар хот"}
                     </p>
                   </div>
                 </div>
@@ -263,18 +290,30 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                 <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
                   <Banknote className="mt-0.5 h-4 w-4 text-ink/40" />
                   <div>
-                    <p className="font-semibold text-ink">Сургалтын төлбөр</p>
-                    <p className="mt-0.5">
-                      {detail?.avgTuition || "3.5 - 5.0 сая ₮"}
+                    <p className="font-semibold text-ink">
+                      Дундаж сургалтын төлбөр
                     </p>
+                    <p className="mt-0.5">{formatTuition(school.tuitionFee)}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
                   <GraduationCap className="mt-0.5 h-4 w-4 text-ink/40" />
                   <div>
-                    <p className="font-semibold text-ink">ЭЕШ босго оноо</p>
-                    <p className="mt-0.5">{detail?.avgEESH || "500+"}</p>
+                    <p className="font-semibold text-ink">Дотуур байр</p>
+                    <p className="mt-0.5">
+                      {school.dormAvailable ? "Боломжтой" : "Боломжгүй"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
+                  <Users className="mt-0.5 h-4 w-4 text-ink/40" />
+                  <div>
+                    <p className="font-semibold text-ink">Тэтгэлэг</p>
+                    <p className="mt-0.5">
+                      {school.scholarshipAvailable ? "Боломжтой" : "Боломжгүй"}
+                    </p>
                   </div>
                 </div>
               </div>
