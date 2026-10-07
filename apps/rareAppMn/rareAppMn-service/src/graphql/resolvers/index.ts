@@ -1,27 +1,121 @@
-import { GraphQLScalarType, Kind } from 'graphql';
+import { GraphQLError, GraphQLScalarType, Kind, type ValueNode } from 'graphql';
+import type { GraphQLContext } from '../../context';
+import type { Major, School, User } from '../../db/schema';
+import { notFound } from '../../lib/validate';
 import { mutations } from './mutations';
 import { queries } from './queries';
 
-const DateTime = new GraphQLScalarType({
-  name: 'DateTime',
-  description: 'ISO-8601 date-time string',
-  serialize(value) {
-    if (typeof value === 'string') return value;
-    if (value instanceof Date) return value.toISOString();
-    throw new TypeError('DateTime can only serialize strings or Date objects');
-  },
-  parseValue(value) {
-    if (typeof value !== 'string') throw new TypeError('DateTime must be an ISO-8601 string');
-    return value;
-  },
-  parseLiteral(ast) {
-    if (ast.kind !== Kind.STRING) throw new TypeError('DateTime must be an ISO-8601 string');
-    return ast.value;
-  },
+function parseJsonLiteral(ast: ValueNode): unknown {
+  switch (ast.kind) {
+    case Kind.STRING:
+    case Kind.BOOLEAN:
+      return ast.value;
+    case Kind.INT:
+    case Kind.FLOAT:
+      return Number(ast.value);
+    case Kind.NULL:
+      return null;
+    case Kind.LIST:
+      return ast.values.map(parseJsonLiteral);
+    case Kind.OBJECT:
+      return ast.fields.reduce<Record<string, unknown>>((acc, field) => {
+        acc[field.name.value] = parseJsonLiteral(field.value);
+        return acc;
+      }, {});
+    default:
+      throw new GraphQLError(`JSON cannot represent value of kind: ${ast.kind}`);
+  }
+}
+
+const JSONScalar = new GraphQLScalarType({
+  name: 'JSON',
+  description: 'Arbitrary JSON value (object, array, string, number, boolean, or null).',
+  serialize: (value) => value,
+  parseValue: (value) => value,
+  parseLiteral: parseJsonLiteral,
 });
 
+async function resolveSchoolOrThrow(schoolId: string, context: GraphQLContext): Promise<School> {
+  const school = await context.loaders.schoolById.load(schoolId);
+  if (!school) throw notFound('School');
+  return school;
+}
+
+async function isSchoolSavedByCurrentUser(schoolId: string, context: GraphQLContext) {
+  if (!context.user) return false;
+  const user = await context.loaders.userByClerkUserId.load(context.user.clerkUserId);
+  if (!user) return false;
+  const savedIds = await context.loaders.savedSchoolIdsByUserId.load(user.id);
+  return savedIds.has(schoolId);
+}
+
+async function isMajorSavedByCurrentUser(majorId: string, context: GraphQLContext) {
+  if (!context.user) return false;
+  const user = await context.loaders.userByClerkUserId.load(context.user.clerkUserId);
+  if (!user) return false;
+  const savedIds = await context.loaders.savedMajorIdsByUserId.load(user.id);
+  return savedIds.has(majorId);
+}
+
 export const resolvers = {
-  DateTime,
+  JSON: JSONScalar,
   Query: queries,
   Mutation: mutations,
+
+  UserProfile: {
+    role: (parent: User) => parent.role.toUpperCase(),
+    savedSchools: async (parent: User, _args: unknown, context: GraphQLContext) => {
+      const savedIds = await context.loaders.savedSchoolIdsByUserId.load(parent.id);
+      const schools = await Promise.all(
+        [...savedIds].map((id) => context.loaders.schoolById.load(id))
+      );
+      return schools.filter((school): school is School => school !== null);
+    },
+    savedMajors: async (parent: User, _args: unknown, context: GraphQLContext) => {
+      const savedIds = await context.loaders.savedMajorIdsByUserId.load(parent.id);
+      const majors = await Promise.all(
+        [...savedIds].map((id) => context.loaders.majorById.load(id))
+      );
+      return majors.filter((major): major is Major => major !== null);
+    },
+  },
+
+  School: {
+    majors: (parent: School, _args: unknown, context: GraphQLContext) =>
+      context.loaders.majorsBySchoolId.load(parent.id),
+    scholarships: (parent: School, _args: unknown, context: GraphQLContext) =>
+      context.loaders.scholarshipsBySchoolId.load(parent.id),
+    dormitories: (parent: School, _args: unknown, context: GraphQLContext) =>
+      context.loaders.dormitoriesBySchoolId.load(parent.id),
+    admissionSchedules: (parent: School, _args: unknown, context: GraphQLContext) =>
+      context.loaders.admissionSchedulesBySchoolId.load(parent.id),
+    isSaved: (parent: School, _args: unknown, context: GraphQLContext) =>
+      isSchoolSavedByCurrentUser(parent.id, context),
+  },
+
+  Major: {
+    school: (parent: Major, _args: unknown, context: GraphQLContext) =>
+      resolveSchoolOrThrow(parent.schoolId, context),
+    isSaved: (parent: Major, _args: unknown, context: GraphQLContext) =>
+      isMajorSavedByCurrentUser(parent.id, context),
+  },
+
+  Scholarship: {
+    school: (parent: { schoolId: string }, _args: unknown, context: GraphQLContext) =>
+      resolveSchoolOrThrow(parent.schoolId, context),
+  },
+
+  Dormitory: {
+    school: (parent: { schoolId: string }, _args: unknown, context: GraphQLContext) =>
+      resolveSchoolOrThrow(parent.schoolId, context),
+  },
+
+  AdmissionSchedule: {
+    school: (parent: { schoolId: string }, _args: unknown, context: GraphQLContext) =>
+      resolveSchoolOrThrow(parent.schoolId, context),
+  },
+
+  CompareItem: {
+    __resolveType: (obj: { __typename: 'School' | 'Major' }) => obj.__typename,
+  },
 };

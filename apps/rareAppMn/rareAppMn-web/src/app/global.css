@@ -64,6 +64,33 @@
   --ring: var(--accent);
 }
 
+.dark {
+  --paper: #15130f;
+  --paper-deep: #1d1a15;
+  --card: #1c1a15;
+  --ink: #f3ede0;
+  --ink-soft: rgba(243, 237, 224, 0.64);
+  --accent: #e2693b;
+  --accent-soft: rgba(226, 105, 59, 0.16);
+  --border-ink: rgba(243, 237, 224, 0.12);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --popover: var(--card);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-deep);
+  --muted-foreground: var(--ink-soft);
+  --accent-foreground: #1b0f09;
+  --destructive: #f0695a;
+  --border: var(--border-ink);
+  --input: var(--border-ink);
+  --ring: var(--accent);
+}
+
 @layer base {
   * {
     @apply border-border outline-accent/50;
@@ -74,10 +101,11 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "ss01" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   ::selection {
     background: var(--accent);
-    color: #fff8ee;
+    color: var(--accent-foreground);
   }
 }
 
@@ -102,6 +130,14 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
