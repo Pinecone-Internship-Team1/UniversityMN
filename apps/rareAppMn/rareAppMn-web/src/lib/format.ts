@@ -28,3 +28,25 @@ export function formatDateRange(
   if (start && end) return `${start} — ${end}`;
   return start ?? end ?? "Хугацаа тодорхойгүй";
 }
+
+const DEGREE_TYPE_LABELS: Record<string, string> = {
+  BACHELOR: "Бакалавр",
+  MASTER: "Магистр",
+  DOCTORATE: "Доктор",
+  PHD: "Доктор",
+  DIPLOMA: "Диплом",
+};
+
+export function formatDegreeType(value: string | null | undefined): string | null {
+  if (!value) return null;
+  return DEGREE_TYPE_LABELS[value.toUpperCase()] ?? value;
+}
+
+export function formatAmount(amount: number | null | undefined): string {
+  if (amount == null) return "Мэдээлэл байхгүй";
+  return `${Math.round(amount).toLocaleString("mn-MN")} ₮`;
+}
+
+export function todayInMongolia(): string {
+  return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Ulaanbaatar" });
+}

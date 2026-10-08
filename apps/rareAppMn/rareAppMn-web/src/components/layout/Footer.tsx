@@ -3,17 +3,16 @@
 import Link from "next/link";
 
 const FOOTER_NAV_LINKS = [
-  { label: "Сургууль", href: "#discovery" },
-  { label: "Мэргэжил", href: "#major" },
-  { label: "Тэтгэлэг", href: "#scholarships" },
-  { label: "Элсэлт", href: "#deadlines" },
-  { label: "Харьцуулах", href: "#compare" },
+  { label: "Сургууль", href: "/schools" },
+  { label: "Мэргэжил", href: "/schools?tab=majors" },
+  { label: "Тэтгэлэг", href: "/scholarships" },
+  { label: "Элсэлт", href: "/admissions" },
+  { label: "Харьцуулах", href: "/compare" },
 ];
 
 const FOOTER_INFO_LINKS = [
-  { label: "Бидний тухай", href: "#what-we-do" },
-  { label: "Манай баг", href: "#team" },
-  { label: "Холбоо барих", href: "#contact" },
+  { label: "Бидний тухай", href: "/#what-we-do" },
+  { label: "Манай баг", href: "/#team" },
 ];
 
 export function Footer() {
@@ -24,7 +23,7 @@ export function Footer() {
           {/* Brand & Description */}
           <div className="lg:col-span-5">
             <Link
-              href="#top"
+              href="/#top"
               className="inline-flex items-baseline gap-1.5 text-xl font-bold tracking-tight text-ink"
             >
               Oyutan

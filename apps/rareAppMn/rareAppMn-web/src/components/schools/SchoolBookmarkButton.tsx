@@ -6,10 +6,12 @@ import { useState, type MouseEvent } from "react";
 import { toast } from "sonner";
 import { useMutation } from "urql";
 import {
+  SCHOOL_BOOKMARK_CACHE,
   TOGGLE_SAVE_SCHOOL_MUTATION,
   type ToggleSaveSchoolResult,
   type ToggleSaveSchoolVariables,
 } from "@/lib/graphql/documents";
+import { getErrorMessage } from "@/lib/graphql/errors";
 import { cn } from "@/lib/utils";
 
 export interface SchoolBookmarkButtonProps {
@@ -48,6 +50,11 @@ export function SchoolBookmarkButton({
 }: SchoolBookmarkButtonProps) {
   const { isSignedIn } = useAuth();
   const [saved, setSaved] = useState(initialSaved);
+  const [syncedInitialSaved, setSyncedInitialSaved] = useState(initialSaved);
+  if (syncedInitialSaved !== initialSaved) {
+    setSyncedInitialSaved(initialSaved);
+    setSaved(initialSaved);
+  }
   const [{ fetching }, toggleSaveSchool] = useMutation<
     ToggleSaveSchoolResult,
     ToggleSaveSchoolVariables
@@ -60,11 +67,11 @@ export function SchoolBookmarkButton({
     const optimisticValue = !saved;
     setSaved(optimisticValue);
 
-    const result = await toggleSaveSchool({ schoolId });
+    const result = await toggleSaveSchool({ schoolId }, SCHOOL_BOOKMARK_CACHE);
     if (result.error) {
       setSaved(!optimisticValue);
       toast.error("Хадгалахад алдаа гарлаа", {
-        description: result.error.message,
+        description: getErrorMessage(result.error),
       });
       return;
     }

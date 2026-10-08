@@ -44,7 +44,7 @@ export function Hero() {
         {/* Action Buttons */}
         <div className="mt-8 flex w-full max-w-xs flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center">
           <Link
-            href="#search"
+            href="/schools"
             className="rounded-full bg-ink px-6 py-3 text-center text-[13px] font-semibold uppercase tracking-wider text-paper transition-all hover:bg-accent"
           >
             Сургууль хайх

@@ -6,10 +6,12 @@ import { useState, type MouseEvent } from "react";
 import { toast } from "sonner";
 import { useMutation } from "urql";
 import {
+  MAJOR_BOOKMARK_CACHE,
   TOGGLE_SAVE_MAJOR_MUTATION,
   type ToggleSaveMajorResult,
   type ToggleSaveMajorVariables,
 } from "@/lib/graphql/documents";
+import { getErrorMessage } from "@/lib/graphql/errors";
 import { cn } from "@/lib/utils";
 
 export interface MajorBookmarkButtonProps {
@@ -47,6 +49,11 @@ export function MajorBookmarkButton({
 }: MajorBookmarkButtonProps) {
   const { isSignedIn } = useAuth();
   const [saved, setSaved] = useState(initialSaved);
+  const [syncedInitialSaved, setSyncedInitialSaved] = useState(initialSaved);
+  if (syncedInitialSaved !== initialSaved) {
+    setSyncedInitialSaved(initialSaved);
+    setSaved(initialSaved);
+  }
   const [{ fetching }, toggleSaveMajor] = useMutation<
     ToggleSaveMajorResult,
     ToggleSaveMajorVariables
@@ -59,11 +66,11 @@ export function MajorBookmarkButton({
     const optimisticValue = !saved;
     setSaved(optimisticValue);
 
-    const result = await toggleSaveMajor({ majorId });
+    const result = await toggleSaveMajor({ majorId }, MAJOR_BOOKMARK_CACHE);
     if (result.error) {
       setSaved(!optimisticValue);
       toast.error("Хадгалахад алдаа гарлаа", {
-        description: result.error.message,
+        description: getErrorMessage(result.error),
       });
       return;
     }

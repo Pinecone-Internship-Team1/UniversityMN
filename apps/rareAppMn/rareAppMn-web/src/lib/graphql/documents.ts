@@ -1,12 +1,18 @@
+import type { OperationContext } from "urql";
 import type {
   AdmissionSchedule,
+  CompareItem,
+  CompareType,
   Dormitory,
   MajorFilterInput,
+  MajorInput,
   MajorPage,
   Major,
+  PageInfo,
   Scholarship,
   ScoreMatchResult,
   SchoolFilterInput,
+  SchoolInput,
   School,
   SchoolPage,
   UserProfile,
@@ -19,6 +25,22 @@ import type {
  * directly. Each document is paired with its variables/result TS types so
  * call sites stay fully typed.
  */
+
+export const USER_PROFILE_CACHE: Partial<OperationContext> = {
+  additionalTypenames: ["UserProfile"],
+};
+
+export const SCHOOL_BOOKMARK_CACHE: Partial<OperationContext> = {
+  additionalTypenames: ["School", "UserProfile"],
+};
+
+export const MAJOR_BOOKMARK_CACHE: Partial<OperationContext> = {
+  additionalTypenames: ["Major", "UserProfile"],
+};
+
+export const CATALOG_CACHE: Partial<OperationContext> = {
+  additionalTypenames: ["School", "Major", "UserProfile"],
+};
 
 const SCHOOL_CARD_FIELDS = /* GraphQL */ `
   id
@@ -137,13 +159,45 @@ export const ME_QUERY = /* GraphQL */ `
       }
       savedMajors {
         ${MAJOR_FIELDS}
+        school {
+          id
+          name
+        }
       }
     }
   }
 `;
 
+export interface SavedMajor extends Omit<Major, "school"> {
+  school: Pick<School, "id" | "name">;
+}
+
+export interface MeProfile extends Omit<UserProfile, "savedMajors"> {
+  savedMajors: SavedMajor[];
+}
+
 export interface MeQueryResult {
-  me: UserProfile | null;
+  me: MeProfile | null;
+}
+
+export const VIEWER_QUERY = /* GraphQL */ `
+  query Viewer {
+    me {
+      id
+      clerkUserId
+      email
+      name
+      role
+      scores
+    }
+  }
+`;
+
+export interface ViewerQueryResult {
+  me: Pick<
+    UserProfile,
+    "id" | "clerkUserId" | "email" | "name" | "role" | "scores"
+  > | null;
 }
 
 export const TOGGLE_SAVE_SCHOOL_MUTATION = /* GraphQL */ `
@@ -289,4 +343,333 @@ export interface PersonalizedRecommendationsVariables {
 
 export interface PersonalizedRecommendationsResult {
   personalizedRecommendations: ScoreMatchResult[];
+}
+
+export const ANALYZE_SCORE_MATCH_QUERY = /* GraphQL */ `
+  query AnalyzeScoreMatch($majorId: ID!, $scores: JSON!) {
+    analyzeScoreMatch(majorId: $majorId, scores: $scores) {
+      matchScore
+      eligible
+      reason
+      major {
+        id
+        name
+        requiredSubjects
+        cutOffScore
+      }
+    }
+  }
+`;
+
+export interface AnalyzeScoreMatchVariables {
+  majorId: string;
+  scores: Record<string, number>;
+}
+
+export interface AnalyzeScoreMatchResult {
+  analyzeScoreMatch: Pick<ScoreMatchResult, "matchScore" | "eligible" | "reason"> & {
+    major: Pick<Major, "id" | "name" | "requiredSubjects" | "cutOffScore">;
+  };
+}
+
+export const COMPARE_ITEMS_QUERY = /* GraphQL */ `
+  query CompareItems($ids: [ID!]!, $type: CompareType!) {
+    compareItems(ids: $ids, type: $type) {
+      __typename
+      ... on School {
+        ${SCHOOL_CARD_FIELDS}
+        majors {
+          id
+        }
+        scholarships {
+          id
+        }
+        dormitories {
+          id
+          capacity
+          feePerMonth
+        }
+      }
+      ... on Major {
+        ${MAJOR_FIELDS}
+        school {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
+
+export interface CompareItemsVariables {
+  ids: string[];
+  type: CompareType;
+}
+
+export type CompareSchool = Extract<CompareItem, { __typename: "School" }> & {
+  majors: Pick<Major, "id">[];
+  scholarships: Pick<Scholarship, "id">[];
+  dormitories: Pick<Dormitory, "id" | "capacity" | "feePerMonth">[];
+};
+
+export type CompareMajor = Extract<CompareItem, { __typename: "Major" }> & {
+  school: Pick<School, "id" | "name">;
+};
+
+export interface CompareItemsResult {
+  compareItems: (CompareSchool | CompareMajor)[];
+}
+
+export const SCHOLARSHIP_DIRECTORY_QUERY = /* GraphQL */ `
+  query ScholarshipDirectory($filter: SchoolFilterInput) {
+    schools(filter: $filter) {
+      items {
+        id
+        name
+        location
+        scholarships {
+          id
+          schoolId
+          name
+          coverage
+          requirements
+          deadline
+        }
+      }
+      pageInfo {
+        totalCount
+        limit
+        offset
+        hasNextPage
+      }
+    }
+  }
+`;
+
+export interface ScholarshipDirectoryResult {
+  schools: {
+    items: (Pick<School, "id" | "name" | "location"> & {
+      scholarships: Scholarship[];
+    })[];
+    pageInfo: PageInfo;
+  };
+}
+
+export const ADMISSION_DIRECTORY_QUERY = /* GraphQL */ `
+  query AdmissionDirectory($filter: SchoolFilterInput) {
+    schools(filter: $filter) {
+      items {
+        id
+        name
+        location
+        admissionSchedules {
+          id
+          schoolId
+          eventName
+          startDate
+          endDate
+        }
+      }
+      pageInfo {
+        totalCount
+        limit
+        offset
+        hasNextPage
+      }
+    }
+  }
+`;
+
+export interface AdmissionDirectoryResult {
+  schools: {
+    items: (Pick<School, "id" | "name" | "location"> & {
+      admissionSchedules: AdmissionSchedule[];
+    })[];
+    pageInfo: PageInfo;
+  };
+}
+
+const ADMIN_SCHOOL_FIELDS = /* GraphQL */ `
+  id
+  name
+  logoUrl
+  coverUrl
+  location
+  tuitionFee
+  dormAvailable
+  scholarshipAvailable
+  overview
+  website
+  createdAt
+`;
+
+const ADMIN_MAJOR_FIELDS = /* GraphQL */ `
+  id
+  schoolId
+  name
+  category
+  requiredSubjects
+  cutOffScore
+  degreeType
+  tuitionFee
+`;
+
+export type AdminSchool = Omit<School, "isSaved">;
+export type AdminMajor = Omit<Major, "isSaved" | "school">;
+
+export const ADMIN_SCHOOLS_QUERY = /* GraphQL */ `
+  query AdminSchools($filter: SchoolFilterInput) {
+    schools(filter: $filter) {
+      items {
+        ${ADMIN_SCHOOL_FIELDS}
+      }
+      pageInfo {
+        totalCount
+        limit
+        offset
+        hasNextPage
+      }
+    }
+  }
+`;
+
+export interface AdminSchoolsResult {
+  schools: { items: AdminSchool[]; pageInfo: PageInfo };
+}
+
+export const ADMIN_SCHOOL_MAJORS_QUERY = /* GraphQL */ `
+  query AdminSchoolMajors($id: ID!) {
+    school(id: $id) {
+      id
+      name
+      majors {
+        ${ADMIN_MAJOR_FIELDS}
+      }
+    }
+  }
+`;
+
+export interface AdminSchoolMajorsResult {
+  school: (Pick<School, "id" | "name"> & { majors: AdminMajor[] }) | null;
+}
+
+export const CREATE_SCHOOL_MUTATION = /* GraphQL */ `
+  mutation CreateSchool($input: SchoolInput!) {
+    createSchool(input: $input) {
+      ${ADMIN_SCHOOL_FIELDS}
+    }
+  }
+`;
+
+export interface CreateSchoolResult {
+  createSchool: AdminSchool;
+}
+
+export const UPDATE_SCHOOL_MUTATION = /* GraphQL */ `
+  mutation UpdateSchool($id: ID!, $input: SchoolInput!) {
+    updateSchool(id: $id, input: $input) {
+      ${ADMIN_SCHOOL_FIELDS}
+    }
+  }
+`;
+
+export interface UpdateSchoolResult {
+  updateSchool: AdminSchool;
+}
+
+export interface SchoolMutationVariables {
+  id?: string;
+  input: SchoolInput;
+}
+
+export const DELETE_SCHOOL_MUTATION = /* GraphQL */ `
+  mutation DeleteSchool($id: ID!) {
+    deleteSchool(id: $id)
+  }
+`;
+
+export interface DeleteSchoolResult {
+  deleteSchool: boolean;
+}
+
+export const CREATE_MAJOR_MUTATION = /* GraphQL */ `
+  mutation CreateMajor($input: MajorInput!) {
+    createMajor(input: $input) {
+      ${ADMIN_MAJOR_FIELDS}
+    }
+  }
+`;
+
+export interface CreateMajorResult {
+  createMajor: AdminMajor;
+}
+
+export const UPDATE_MAJOR_MUTATION = /* GraphQL */ `
+  mutation UpdateMajor($id: ID!, $input: MajorInput!) {
+    updateMajor(id: $id, input: $input) {
+      ${ADMIN_MAJOR_FIELDS}
+    }
+  }
+`;
+
+export interface UpdateMajorResult {
+  updateMajor: AdminMajor;
+}
+
+export interface MajorMutationVariables {
+  id?: string;
+  input: MajorInput;
+}
+
+export const DELETE_MAJOR_MUTATION = /* GraphQL */ `
+  mutation DeleteMajor($id: ID!) {
+    deleteMajor(id: $id)
+  }
+`;
+
+export interface DeleteMajorResult {
+  deleteMajor: boolean;
+}
+
+export interface IdVariables {
+  id: string;
+}
+
+export const USER_BY_CLERK_ID_QUERY = /* GraphQL */ `
+  query UserByClerkId($clerkUserId: String!) {
+    userByClerkId(clerkUserId: $clerkUserId) {
+      id
+      clerkUserId
+      email
+      name
+      role
+      scores
+      createdAt
+      updatedAt
+      savedSchools {
+        id
+        name
+      }
+      savedMajors {
+        id
+        name
+      }
+    }
+  }
+`;
+
+export interface UserByClerkIdVariables {
+  clerkUserId: string;
+}
+
+export interface UserByClerkIdResult {
+  userByClerkId:
+    | (Pick<
+        UserProfile,
+        "id" | "clerkUserId" | "email" | "name" | "role" | "scores" | "createdAt" | "updatedAt"
+      > & {
+        savedSchools: Pick<School, "id" | "name">[];
+        savedMajors: Pick<Major, "id" | "name">[];
+      })
+    | null;
 }

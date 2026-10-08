@@ -6,10 +6,12 @@ import {
   LogOut,
   Plus,
   Save,
+  ShieldCheck,
   Sparkles,
   Trash2,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { useMutation, useQuery } from "urql";
 import { Badge } from "@/components/ui/Badge";
@@ -20,17 +22,27 @@ import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { MajorUnsaveButton } from "@/components/schools/MajorUnsaveButton";
 import { SchoolCard } from "@/components/schools/SchoolCard";
+import { useClerkUserSync } from "@/components/providers/ClerkUserSync";
+import { buttonClassName } from "@/components/ui/Button";
 import { formatTuition } from "@/lib/format";
 import {
   ME_QUERY,
   PERSONALIZED_RECOMMENDATIONS_QUERY,
   UPDATE_USER_PROFILE_MUTATION,
+  USER_PROFILE_CACHE,
   type MeQueryResult,
   type PersonalizedRecommendationsResult,
   type PersonalizedRecommendationsVariables,
   type UpdateUserProfileResult,
   type UpdateUserProfileVariables,
 } from "@/lib/graphql/documents";
+import { getErrorMessage } from "@/lib/graphql/errors";
+import { getUniversityByFullName, getUniversitySlug } from "@/lib/university-logos";
+import {
+  MAX_SHORT_TEXT_LENGTH,
+  parseOptionalUrl,
+  parseScoreEntries,
+} from "@/lib/validation";
 
 function SignedOutPrompt() {
   return (
@@ -81,26 +93,19 @@ function scoresToRows(scores: Record<string, number> | null): ScoreRow[] {
   return entries.map(([subject, score]) => createScoreRow(subject, String(score)));
 }
 
-function rowsToScores(rows: ScoreRow[]): Record<string, number> {
-  const scores: Record<string, number> = {};
-  for (const row of rows) {
-    const subject = row.subject.trim();
-    const score = Number(row.score);
-    if (subject && Number.isFinite(score)) {
-      scores[subject] = score;
-    }
-  }
-  return scores;
+function universityHref(school: { id: string; name: string }): string {
+  return `/university/${getUniversitySlug(school.name) ?? school.id}`;
 }
 
 function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
-  const [{ data, fetching, error }] = useQuery<
+  const [{ data, fetching, error }, reexecute] = useQuery<
     PersonalizedRecommendationsResult,
     PersonalizedRecommendationsVariables
   >({
     query: PERSONALIZED_RECOMMENDATIONS_QUERY,
     variables: { limit: 6 },
     pause: !hasScores,
+    context: USER_PROFILE_CACHE,
   });
 
   if (!hasScores) {
@@ -129,6 +134,8 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
       <ErrorState
         className="mt-4"
         title="Санал болгосон мэргэжлийг ачааллаж чадсангүй"
+        description={getErrorMessage(error)}
+        onRetry={() => reexecute({ requestPolicy: "network-only" })}
       />
     );
   }
@@ -139,7 +146,7 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
       <EmptyState
         className="mt-4"
         title="Тохирох мэргэжил олдсонгүй"
-        description="Одоогоор системд бүртгэгдсэн мэргэжлүүдтэй тохирох оноо олдсонгүй."
+        description="Таны оруулсан хичээлүүдийг шаарддаг мэргэжил одоогоор бүртгэгдээгүй байна. Хичээлийн нэрийг мэргэжлийн шаардлагатай адил бичсэн эсэхээ шалгана уу."
       />
     );
   }
@@ -147,9 +154,10 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
   return (
     <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {recommendations.map((result) => (
-        <div
+        <Link
           key={`${result.school.id}-${result.major.id}`}
-          className="flex flex-col gap-2 rounded-xl border border-ink/10 bg-card p-4"
+          href={universityHref(result.school)}
+          className="flex flex-col gap-2 rounded-xl border border-ink/10 bg-card p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-sm"
         >
           <div className="flex items-start justify-between gap-2">
             <p className="text-sm font-bold text-ink">{result.major.name}</p>
@@ -157,11 +165,13 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
               {Math.round(result.matchScore * 100)}%
             </Badge>
           </div>
-          <p className="text-xs text-ink/60">{result.school.name}</p>
+          <p className="text-xs text-ink/60">
+            {getUniversityByFullName(result.school.name)?.short ?? result.school.name}
+          </p>
           <p className="text-[11px] leading-relaxed text-ink/50">
             {result.reason}
           </p>
-        </div>
+        </Link>
       ))}
     </div>
   );
@@ -169,23 +179,14 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
 
 export function ProfileView() {
   const { isLoaded, isSignedIn } = useAuth();
+  const { status: syncStatus, errorMessage: syncError, retry: retrySync } =
+    useClerkUserSync();
 
-  const [{ data, fetching, error }, reexecuteMe] = useQuery<MeQueryResult>({
+  const [{ data, fetching, stale, error }, reexecuteMe] = useQuery<MeQueryResult>({
     query: ME_QUERY,
     pause: !isSignedIn,
+    context: USER_PROFILE_CACHE,
   });
-
-  // First-ever sign-in: ClerkUserSync's mutation may still be in flight when
-  // this query first resolves `me: null`. Retry once, shortly after.
-  const [hasRetriedSync, setHasRetriedSync] = useState(false);
-  useEffect(() => {
-    if (!isSignedIn || fetching || data?.me || hasRetriedSync) return;
-    const timeout = setTimeout(() => {
-      setHasRetriedSync(true);
-      reexecuteMe({ requestPolicy: "network-only" });
-    }, 1200);
-    return () => clearTimeout(timeout);
-  }, [isSignedIn, fetching, data, hasRetriedSync, reexecuteMe]);
 
   const [{ fetching: savingProfile }, updateUserProfile] = useMutation<
     UpdateUserProfileResult,
@@ -196,29 +197,30 @@ export function ProfileView() {
   const [name, setName] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
   const [scoreRows, setScoreRows] = useState<ScoreRow[]>([createScoreRow()]);
-  const [savedSchoolIds, setSavedSchoolIds] = useState<Set<string> | null>(null);
-  const [savedMajorIds, setSavedMajorIds] = useState<Set<string> | null>(null);
+  const [formUserId, setFormUserId] = useState<string | null>(null);
+  const [hiddenSchoolIds, setHiddenSchoolIds] = useState<Set<string>>(new Set());
+  const [hiddenMajorIds, setHiddenMajorIds] = useState<Set<string>>(new Set());
 
-  useEffect(() => {
-    if (!me) return;
+  if (me && formUserId !== me.id) {
+    setFormUserId(me.id);
     setName(me.name ?? "");
     setAvatarUrl(me.avatarUrl ?? "");
     setScoreRows(scoresToRows(me.scores));
-    setSavedSchoolIds(new Set(me.savedSchools.map((school) => school.id)));
-    setSavedMajorIds(new Set(me.savedMajors.map((major) => major.id)));
-  }, [me]);
+    setHiddenSchoolIds(new Set());
+    setHiddenMajorIds(new Set());
+  }
 
-  const visibleSavedSchools = useMemo(() => {
-    if (!me || !savedSchoolIds) return [];
-    return me.savedSchools.filter((school) => savedSchoolIds.has(school.id));
-  }, [me, savedSchoolIds]);
+  const visibleSavedSchools = useMemo(
+    () => me?.savedSchools.filter((school) => !hiddenSchoolIds.has(school.id)) ?? [],
+    [me, hiddenSchoolIds],
+  );
 
-  const visibleSavedMajors = useMemo(() => {
-    if (!me || !savedMajorIds) return [];
-    return me.savedMajors.filter((major) => savedMajorIds.has(major.id));
-  }, [me, savedMajorIds]);
+  const visibleSavedMajors = useMemo(
+    () => me?.savedMajors.filter((major) => !hiddenMajorIds.has(major.id)) ?? [],
+    [me, hiddenMajorIds],
+  );
 
-  const hasScores = Object.keys(rowsToScores(scoreRows)).length > 0;
+  const hasSavedScores = Object.keys(me?.scores ?? {}).length > 0;
 
   function updateScoreRow(key: string, patch: Partial<Omit<ScoreRow, "key">>) {
     setScoreRows((rows) =>
@@ -227,19 +229,44 @@ export function ProfileView() {
   }
 
   async function handleSaveProfile() {
+    const trimmedName = name.trim();
+    if (trimmedName.length > MAX_SHORT_TEXT_LENGTH) {
+      toast.error("Профайл хадгалах боломжгүй", {
+        description: `Нэр ${MAX_SHORT_TEXT_LENGTH} тэмдэгтээс хэтрэхгүй байх ёстой.`,
+      });
+      return;
+    }
+    const parsedAvatarUrl = parseOptionalUrl(avatarUrl, "Профайл зургийн URL");
+    if (!parsedAvatarUrl.ok) {
+      toast.error("Профайл хадгалах боломжгүй", { description: parsedAvatarUrl.error });
+      return;
+    }
+    const parsedScores = parseScoreEntries(scoreRows);
+    if (!parsedScores.ok) {
+      toast.error("Профайл хадгалах боломжгүй", { description: parsedScores.error });
+      return;
+    }
+
     const result = await updateUserProfile({
       input: {
-        name: name.trim() || undefined,
-        avatarUrl: avatarUrl.trim() || undefined,
-        scores: rowsToScores(scoreRows),
+        name: trimmedName || null,
+        avatarUrl: parsedAvatarUrl.value,
+        scores: parsedScores.value,
       },
     });
 
     if (result.error) {
       toast.error("Профайл хадгалахад алдаа гарлаа", {
-        description: result.error.message,
+        description: getErrorMessage(result.error),
       });
       return;
+    }
+
+    const updated = result.data?.updateUserProfile;
+    if (updated) {
+      setName(updated.name ?? "");
+      setAvatarUrl(updated.avatarUrl ?? "");
+      setScoreRows(scoresToRows(updated.scores));
     }
     toast.success("Профайл амжилттай хадгаллаа");
   }
@@ -250,11 +277,32 @@ export function ProfileView() {
     return (
       <ErrorState
         title="Профайл ачааллаж чадсангүй"
+        description={getErrorMessage(error)}
         onRetry={() => reexecuteMe({ requestPolicy: "network-only" })}
       />
     );
   }
-  if (!me) return <ProfileSkeleton />;
+  if (!me) {
+    if (syncStatus === "error") {
+      return (
+        <ErrorState
+          title="Профайлыг холбож чадсангүй"
+          description={syncError ?? undefined}
+          onRetry={retrySync}
+        />
+      );
+    }
+    if (syncStatus === "synced" && !fetching && !stale && data) {
+      return (
+        <ErrorState
+          title="Профайл олдсонгүй"
+          description="Таны профайл серверт үүсээгүй байна. Дахин оролдоно уу."
+          onRetry={retrySync}
+        />
+      );
+    }
+    return <ProfileSkeleton />;
+  }
 
   return (
     <div className="space-y-10">
@@ -286,12 +334,20 @@ export function ProfileView() {
           </div>
         </div>
 
-        <SignOutButton>
-          <Button variant="outline" size="sm">
-            <LogOut className="h-3.5 w-3.5" />
-            Гарах
-          </Button>
-        </SignOutButton>
+        <div className="flex flex-wrap items-center gap-2">
+          {me.role === "ADMIN" && (
+            <Link href="/admin" className={buttonClassName({ variant: "solid", size: "sm" })}>
+              <ShieldCheck className="h-3.5 w-3.5" />
+              Админ самбар
+            </Link>
+          )}
+          <SignOutButton>
+            <Button variant="outline" size="sm">
+              <LogOut className="h-3.5 w-3.5" />
+              Гарах
+            </Button>
+          </SignOutButton>
+        </div>
       </div>
 
       {/* Edit form */}
@@ -398,7 +454,7 @@ export function ProfileView() {
             Танд санал болгох мэргэжлүүд
           </h3>
         </div>
-        <RecommendationsSection hasScores={hasScores} />
+        <RecommendationsSection hasScores={hasSavedScores} />
       </section>
 
       {/* Saved schools */}
@@ -410,7 +466,7 @@ export function ProfileView() {
           <EmptyState
             className="mt-4"
             title="Хадгалсан сургууль байхгүй байна"
-            description="Сургуулиудын хуудсаас зүрхэн тэмдгийг дарж хадгалаарай."
+            description="Сургуулиудын хуудсаас хадгалах тэмдгийг дарж хадгалаарай."
           />
         ) : (
           <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -421,11 +477,7 @@ export function ProfileView() {
                 className="w-full"
                 onToggled={(saved) => {
                   if (saved) return;
-                  setSavedSchoolIds((current) => {
-                    const next = new Set(current);
-                    next.delete(school.id);
-                    return next;
-                  });
+                  setHiddenSchoolIds((current) => new Set(current).add(school.id));
                 }}
               />
             ))}
@@ -451,25 +503,25 @@ export function ProfileView() {
                 key={major.id}
                 className="flex items-center justify-between gap-4 rounded-xl border border-ink/10 bg-card px-4 py-3"
               >
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-bold text-ink">
+                <Link href={universityHref(major.school)} className="group min-w-0">
+                  <p className="truncate text-sm font-bold text-ink transition-colors group-hover:text-accent">
                     {major.name}
                   </p>
                   <p className="mt-0.5 text-xs text-ink/60">
-                    {[major.category, formatTuition(major.tuitionFee)]
+                    {[
+                      getUniversityByFullName(major.school.name)?.short ?? major.school.name,
+                      major.category,
+                      formatTuition(major.tuitionFee),
+                    ]
                       .filter(Boolean)
                       .join(" · ")}
                   </p>
-                </div>
+                </Link>
                 <MajorUnsaveButton
                   majorId={major.id}
                   majorName={major.name}
                   onUnsaved={() =>
-                    setSavedMajorIds((current) => {
-                      const next = new Set(current);
-                      next.delete(major.id);
-                      return next;
-                    })
+                    setHiddenMajorIds((current) => new Set(current).add(major.id))
                   }
                 />
               </li>

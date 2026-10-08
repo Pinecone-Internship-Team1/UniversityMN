@@ -11,10 +11,15 @@ import {
   Award,
   Users,
   CalendarDays,
+  BedDouble,
+  Scale,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MajorBookmarkButton } from "@/components/schools/MajorBookmarkButton";
+import { MajorScoreCheck } from "@/components/schools/MajorScoreCheck";
 import { SchoolBookmarkButton } from "@/components/schools/SchoolBookmarkButton";
+import { compareHref } from "@/lib/compare";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
 import {
   SCHOOL_QUERY,
@@ -25,7 +30,13 @@ import {
   type SchoolsQueryResult,
   type SchoolsQueryVariables,
 } from "@/lib/graphql/documents";
-import { formatDateRange, formatTuition } from "@/lib/format";
+import {
+  formatAmount,
+  formatDate,
+  formatDateRange,
+  formatDegreeType,
+  formatTuition,
+} from "@/lib/format";
 import { UNIVERSITIES, getUniversityByFullName } from "@/lib/university-logos";
 
 interface PageProps {
@@ -37,13 +48,6 @@ interface PageProps {
  * its logo/display name in university-logos.ts) or a raw backend School
  * id. Slugs are resolved to a backend id by exact name match first, since
  * the backend itself has no concept of slugs.
- *
- * This deliberately does NOT use `schools(filter: { search })` for the
- * exact-name lookup: SQLite/D1 rejects long `LIKE` patterns with "LIKE or
- * GLOB pattern too complex" (university full names comfortably exceed that
- * threshold, especially in Cyrillic, where the byte-based limit is hit at
- * a shorter character count). Fetching the small full list and comparing
- * names exactly in JS sidesteps that entirely.
  */
 async function resolveSchool(idOrSlug: string): Promise<SchoolDetail | null> {
   const client = createServerGraphqlClient();
@@ -52,7 +56,7 @@ async function resolveSchool(idOrSlug: string): Promise<SchoolDetail | null> {
   if (knownUniversity) {
     const listResult = await client
       .query<SchoolsQueryResult, SchoolsQueryVariables>(SCHOOLS_QUERY, {
-        filter: { limit: 100 },
+        filter: { search: knownUniversity.full, limit: 100 },
       })
       .toPromise();
 
@@ -129,12 +133,19 @@ export default async function UniversityDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <SchoolBookmarkButton
               schoolId={school.id}
               initialSaved={school.isSaved}
               schoolName={shortName}
             />
+            <Link
+              href={compareHref("schools", [school.id])}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-ink transition-all hover:border-ink hover:bg-ink hover:text-paper"
+            >
+              <Scale className="h-4 w-4" />
+              Харьцуулах
+            </Link>
             {school.website && (
               <Link
                 href={school.website}
@@ -181,12 +192,29 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                       key={major.id}
                       className="rounded-xl border border-ink/10 bg-paper p-4"
                     >
-                      <p className="text-sm font-bold text-ink">
-                        {major.name}
-                      </p>
-                      {major.category && (
-                        <p className="mt-0.5 text-xs text-ink/60">
-                          {major.category}
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="text-sm font-bold text-ink">
+                            {major.name}
+                          </p>
+                          {(major.category || major.degreeType) && (
+                            <p className="mt-0.5 text-xs text-ink/60">
+                              {[major.category, formatDegreeType(major.degreeType)]
+                                .filter(Boolean)
+                                .join(" · ")}
+                            </p>
+                          )}
+                        </div>
+                        <MajorBookmarkButton
+                          majorId={major.id}
+                          initialSaved={major.isSaved}
+                          majorName={major.name}
+                          size="sm"
+                        />
+                      </div>
+                      {(major.requiredSubjects ?? []).length > 0 && (
+                        <p className="mt-2 text-[11px] text-ink/60">
+                          Шалгалт: {(major.requiredSubjects ?? []).join(", ")}
                         </p>
                       )}
                       <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
@@ -236,12 +264,63 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                             {scholarship.coverage}
                           </p>
                         )}
+                        {scholarship.requirements && (
+                          <p className="mt-0.5 text-xs text-ink/60">
+                            Шаардлага: {scholarship.requirements}
+                          </p>
+                        )}
+                        {scholarship.deadline && (
+                          <p className="mt-0.5 text-xs font-semibold text-ink/70">
+                            Эцсийн хугацаа: {formatDate(scholarship.deadline)}
+                          </p>
+                        )}
                       </div>
                     </li>
                   ))}
                 </ul>
               )}
             </section>
+
+            {school.dormitories.length > 0 && (
+              <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+                <div className="flex items-center gap-2 text-ink">
+                  <BedDouble className="h-5 w-5 text-accent" />
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Оюутны байр
+                  </h2>
+                </div>
+                <ul className="mt-4 space-y-3 text-sm text-ink/80">
+                  {school.dormitories.map((dormitory) => (
+                    <li
+                      key={dormitory.id}
+                      className="rounded-xl border border-ink/10 bg-paper px-4 py-3"
+                    >
+                      <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
+                        {dormitory.capacity != null && (
+                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                            {dormitory.capacity.toLocaleString("mn-MN")} ор
+                          </span>
+                        )}
+                        {dormitory.feePerMonth != null && (
+                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                            Сарын төлбөр: {formatAmount(dormitory.feePerMonth)}
+                          </span>
+                        )}
+                      </div>
+                      {(dormitory.facilities ?? []).length > 0 && (
+                        <p className="mt-2 text-xs text-ink/60">
+                          {(dormitory.facilities ?? []).join(" · ")}
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {school.majors.length > 0 && (
+              <MajorScoreCheck majors={school.majors} />
+            )}
 
             {/* Admission schedule */}
             {school.admissionSchedules.length > 0 && (

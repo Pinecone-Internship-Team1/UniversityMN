@@ -119,11 +119,37 @@ export interface MajorFilterInput {
 }
 
 export interface UserProfileInput {
-  name?: string;
-  avatarUrl?: string;
-  scores?: Record<string, number>;
-  preferences?: Record<string, unknown>;
+  name?: string | null;
+  avatarUrl?: string | null;
+  scores?: Record<string, number> | null;
+  preferences?: Record<string, unknown> | null;
 }
+
+export interface SchoolInput {
+  name: string;
+  logoUrl?: string | null;
+  coverUrl?: string | null;
+  location?: string | null;
+  tuitionFee?: number | null;
+  dormAvailable?: boolean | null;
+  scholarshipAvailable?: boolean | null;
+  overview?: string | null;
+  website?: string | null;
+}
+
+export interface MajorInput {
+  schoolId: string;
+  name: string;
+  category?: string | null;
+  requiredSubjects?: string[] | null;
+  cutOffScore?: number | null;
+  degreeType?: string | null;
+  tuitionFee?: number | null;
+}
+
+export type CompareItem =
+  | (School & { __typename: "School" })
+  | (Major & { __typename: "Major" });
 
 export interface ScoreMatchResult {
   school: School;
