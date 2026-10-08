@@ -6,19 +6,20 @@ import {
   MapPin,
   GraduationCap,
   Banknote,
-  BookOpen,
   Globe,
   Award,
   Users,
   CalendarDays,
   BedDouble,
   Scale,
+  Phone,
+  Mail,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { MajorBookmarkButton } from "@/components/schools/MajorBookmarkButton";
 import { MajorScoreCheck } from "@/components/schools/MajorScoreCheck";
 import { SchoolBookmarkButton } from "@/components/schools/SchoolBookmarkButton";
+import { UniversityPrograms } from "@/components/schools/UniversityPrograms";
 import { compareHref } from "@/lib/compare";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
 import {
@@ -34,7 +35,6 @@ import {
   formatAmount,
   formatDate,
   formatDateRange,
-  formatDegreeType,
   formatTuition,
 } from "@/lib/format";
 import { UNIVERSITIES, getUniversityByFullName } from "@/lib/university-logos";
@@ -91,7 +91,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
 
   const university = getUniversityByFullName(school.name);
   const shortName = university?.short ?? school.name;
-  const imageSrc = university?.image;
+  const imageSrc = school.logoUrl ?? university?.image;
 
   return (
     <div className="min-h-screen bg-paper text-ink">
@@ -107,6 +107,18 @@ export default async function UniversityDetailPage({ params }: PageProps) {
           Буцах
         </Link>
 
+        {school.coverUrl && (
+          <div className="relative mt-8 h-48 overflow-hidden rounded-3xl border border-ink/10 bg-card sm:h-72">
+            <Image
+              src={school.coverUrl}
+              alt={`${shortName} нүүр зураг`}
+              fill
+              unoptimized
+              className="object-cover"
+            />
+          </div>
+        )}
+
         {/* Header Hero Section */}
         <div className="mt-8 flex flex-col gap-8 rounded-3xl border border-ink/10 bg-card p-6 sm:p-10 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-6">
@@ -116,6 +128,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                   src={imageSrc}
                   alt={`${shortName} лого`}
                   fill
+                  unoptimized={Boolean(school.logoUrl)}
                   className="object-contain p-1"
                 />
               </div>
@@ -173,67 +186,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
               </p>
             </section>
 
-            {/* Majors */}
-            <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-              <div className="flex items-center gap-2 text-ink">
-                <BookOpen className="h-5 w-5 text-accent" />
-                <h2 className="text-xl font-bold tracking-tight">
-                  Мэргэжлүүд
-                </h2>
-              </div>
-              {school.majors.length === 0 ? (
-                <p className="mt-4 text-sm text-ink/60">
-                  Мэргэжлийн мэдээлэл одоогоор бүртгэгдээгүй байна.
-                </p>
-              ) : (
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {school.majors.map((major) => (
-                    <div
-                      key={major.id}
-                      className="rounded-xl border border-ink/10 bg-paper p-4"
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="min-w-0">
-                          <p className="text-sm font-bold text-ink">
-                            {major.name}
-                          </p>
-                          {(major.category || major.degreeType) && (
-                            <p className="mt-0.5 text-xs text-ink/60">
-                              {[major.category, formatDegreeType(major.degreeType)]
-                                .filter(Boolean)
-                                .join(" · ")}
-                            </p>
-                          )}
-                        </div>
-                        <MajorBookmarkButton
-                          majorId={major.id}
-                          initialSaved={major.isSaved}
-                          majorName={major.name}
-                          size="sm"
-                        />
-                      </div>
-                      {(major.requiredSubjects ?? []).length > 0 && (
-                        <p className="mt-2 text-[11px] text-ink/60">
-                          Шалгалт: {(major.requiredSubjects ?? []).join(", ")}
-                        </p>
-                      )}
-                      <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
-                        {major.cutOffScore != null && (
-                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            ЭЕШ: {major.cutOffScore}+
-                          </span>
-                        )}
-                        {major.tuitionFee != null && (
-                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            {formatTuition(major.tuitionFee)}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
+            <UniversityPrograms faculties={school.faculties} majors={school.majors} />
 
             {/* Scholarships */}
             <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
@@ -365,6 +318,42 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                     </p>
                   </div>
                 </div>
+
+                {school.phones.length > 0 && (
+                  <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
+                    <Phone className="mt-0.5 h-4 w-4 text-ink/40" />
+                    <div>
+                      <p className="font-semibold text-ink">Утас</p>
+                      <ul className="mt-0.5 space-y-0.5">
+                        {school.phones.map((phone) => (
+                          <li key={phone}>
+                            <a
+                              href={`tel:${phone.replace(/[^\d+]/g, "")}`}
+                              className="transition-colors hover:text-accent"
+                            >
+                              {phone}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+
+                {school.email && (
+                  <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
+                    <Mail className="mt-0.5 h-4 w-4 text-ink/40" />
+                    <div className="min-w-0">
+                      <p className="font-semibold text-ink">И-мэйл</p>
+                      <a
+                        href={`mailto:${school.email}`}
+                        className="mt-0.5 block break-all transition-colors hover:text-accent"
+                      >
+                        {school.email}
+                      </a>
+                    </div>
+                  </div>
+                )}
 
                 <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
                   <Banknote className="mt-0.5 h-4 w-4 text-ink/40" />

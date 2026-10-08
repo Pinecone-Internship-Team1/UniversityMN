@@ -51,6 +51,7 @@ export const MAX_SHORT_TEXT_LENGTH = 200;
 export const MAX_LONG_TEXT_LENGTH = 10_000;
 export const MAX_SCORE_SUBJECTS = 50;
 export const MAX_REQUIRED_SUBJECTS = 20;
+export const MAX_PHONES = 10;
 
 const MAX_URL_LENGTH = 2048;
 const MAX_EMAIL_LENGTH = 254;
@@ -58,6 +59,8 @@ const MAX_SUBJECT_LENGTH = 100;
 const MAX_SCORE_VALUE = 1000;
 const MAX_PREFERENCES_BYTES = 10_000;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_PHONE_LENGTH = 30;
+const PHONE_PATTERN = /^\+?[\d\s()-]+$/;
 const HTTP_PROTOCOLS = new Set(['http:', 'https:']);
 
 export function isPlainObject(value: unknown): value is Record<string, unknown> {
@@ -94,6 +97,29 @@ export function optionalUrl(value: string | null | undefined, field: string): st
   }
   if (!HTTP_PROTOCOLS.has(url.protocol)) throw badInput(`${field} must be a valid http(s) URL.`);
   return text;
+}
+
+export function optionalEmail(value: string | null | undefined, field: string): string | null {
+  const email = optionalText(value, field, MAX_EMAIL_LENGTH);
+  if (email === null) return null;
+  if (!EMAIL_PATTERN.test(email)) throw badInput(`${field} must be a valid email address.`);
+  return email;
+}
+
+/** Trimmed, de-duplicated phone numbers (6-15 digits each), or null when there are none. */
+export function parsePhoneList(value: string[] | null | undefined, field: string): string[] | null {
+  if (value === null || value === undefined) return null;
+  const phones = [...new Set(value.map((phone) => phone.trim()).filter(Boolean))];
+  if (phones.length > MAX_PHONES) {
+    throw badInput(`${field} can contain at most ${MAX_PHONES} phone numbers.`);
+  }
+  for (const phone of phones) {
+    const digits = phone.replace(/\D/g, '').length;
+    if (phone.length > MAX_PHONE_LENGTH || !PHONE_PATTERN.test(phone) || digits < 6 || digits > 15) {
+      throw badInput(`"${phone}" is not a valid phone number.`);
+    }
+  }
+  return phones.length > 0 ? phones : null;
 }
 
 export function optionalNonNegativeNumber(

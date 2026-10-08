@@ -1,9 +1,10 @@
 import DataLoader from 'dataloader';
-import { inArray } from 'drizzle-orm';
+import { asc, inArray } from 'drizzle-orm';
 import type { Database } from '../db';
 import {
   admissionSchedules,
   dormitories,
+  faculties,
   majors,
   savedMajors,
   savedSchools,
@@ -12,6 +13,7 @@ import {
   users,
   type AdmissionSchedule,
   type Dormitory,
+  type Faculty,
   type Major,
   type Scholarship,
   type School,
@@ -44,6 +46,22 @@ export function createLoaders(db: Database) {
     const rows = await db.select().from(schools).where(inArray(schools.id, ids as string[]));
     const byId = new Map(rows.map((row) => [row.id, row]));
     return ids.map((id) => byId.get(id) ?? null);
+  });
+
+  const facultyById = batchLoader<Faculty | null>(async (ids) => {
+    const rows = await db.select().from(faculties).where(inArray(faculties.id, ids as string[]));
+    const byId = new Map(rows.map((row) => [row.id, row]));
+    return ids.map((id) => byId.get(id) ?? null);
+  });
+
+  const facultiesBySchoolId = batchLoader<Faculty[]>(async (schoolIds) => {
+    const rows = await db
+      .select()
+      .from(faculties)
+      .where(inArray(faculties.schoolId, schoolIds as string[]))
+      .orderBy(asc(faculties.createdAt), asc(faculties.name));
+    const bySchool = groupBy(rows, (row) => row.schoolId);
+    return schoolIds.map((id) => bySchool.get(id) ?? []);
   });
 
   const majorById = batchLoader<Major | null>(async (ids) => {
@@ -119,6 +137,8 @@ export function createLoaders(db: Database) {
 
   return {
     schoolById,
+    facultyById,
+    facultiesBySchoolId,
     majorById,
     majorsBySchoolId,
     scholarshipsBySchoolId,

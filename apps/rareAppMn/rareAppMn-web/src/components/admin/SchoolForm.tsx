@@ -1,9 +1,10 @@
 "use client";
 
-import { Save } from "lucide-react";
+import { Plus, Save, X } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useMutation } from "urql";
+import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
@@ -20,9 +21,12 @@ import { getErrorMessageWithDetail } from "@/lib/graphql/errors";
 import type { SchoolInput } from "@/lib/graphql/types";
 import {
   MAX_LONG_TEXT_LENGTH,
+  MAX_PHONES,
+  parseOptionalEmail,
   parseOptionalNumber,
   parseOptionalText,
   parseOptionalUrl,
+  parsePhoneList,
   parseRequiredText,
   type ValidationResult,
 } from "@/lib/validation";
@@ -32,6 +36,9 @@ interface SchoolFormValues {
   location: string;
   tuitionFee: string;
   website: string;
+  email: string;
+  /** One entry per phone input row; blank rows are dropped on save. */
+  phones: string[];
   logoUrl: string;
   coverUrl: string;
   overview: string;
@@ -45,6 +52,8 @@ function toFormValues(school: AdminSchool | null): SchoolFormValues {
     location: school?.location ?? "",
     tuitionFee: school?.tuitionFee != null ? String(school.tuitionFee) : "",
     website: school?.website ?? "",
+    email: school?.email ?? "",
+    phones: school?.phones.length ? [...school.phones] : [""],
     logoUrl: school?.logoUrl ?? "",
     coverUrl: school?.coverUrl ?? "",
     overview: school?.overview ?? "",
@@ -54,7 +63,7 @@ function toFormValues(school: AdminSchool | null): SchoolFormValues {
 }
 
 function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput> {
-  const name = parseRequiredText(values.name, "Сургуулийн нэр");
+  const name = parseRequiredText(values.name, "Их сургуулийн нэр");
   if (!name.ok) return name;
   const location = parseOptionalText(values.location, "Байршил");
   if (!location.ok) return location;
@@ -62,9 +71,13 @@ function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput
   if (!tuitionFee.ok) return tuitionFee;
   const website = parseOptionalUrl(values.website, "Вэбсайт");
   if (!website.ok) return website;
-  const logoUrl = parseOptionalUrl(values.logoUrl, "Лого URL");
+  const email = parseOptionalEmail(values.email, "И-мэйл");
+  if (!email.ok) return email;
+  const phones = parsePhoneList(values.phones);
+  if (!phones.ok) return phones;
+  const logoUrl = parseOptionalUrl(values.logoUrl, "Лого");
   if (!logoUrl.ok) return logoUrl;
-  const coverUrl = parseOptionalUrl(values.coverUrl, "Нүүр зургийн URL");
+  const coverUrl = parseOptionalUrl(values.coverUrl, "Нүүр зураг");
   if (!coverUrl.ok) return coverUrl;
   const overview = parseOptionalText(values.overview, "Танилцуулга", MAX_LONG_TEXT_LENGTH);
   if (!overview.ok) return overview;
@@ -76,6 +89,8 @@ function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput
       location: location.value,
       tuitionFee: tuitionFee.value,
       website: website.value,
+      email: email.value,
+      phones: phones.value,
       logoUrl: logoUrl.value,
       coverUrl: coverUrl.value,
       overview: overview.value,
@@ -93,6 +108,7 @@ export interface SchoolFormProps {
 export function SchoolForm({ school, onSaved }: SchoolFormProps) {
   const [values, setValues] = useState<SchoolFormValues>(() => toFormValues(school));
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [uploading, setUploading] = useState({ logo: false, cover: false });
   const [{ fetching: creating }, createSchool] = useMutation<
     CreateSchoolResult,
     SchoolMutationVariables
@@ -102,6 +118,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
     SchoolMutationVariables
   >(UPDATE_SCHOOL_MUTATION);
   const saving = creating || updating;
+  const uploadingImage = uploading.logo || uploading.cover;
 
   function set<K extends keyof SchoolFormValues>(key: K, value: SchoolFormValues[K]) {
     setValues((current) => ({ ...current, [key]: value }));
@@ -122,7 +139,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
     if (result.error) {
       const message = getErrorMessageWithDetail(result.error);
       setErrorMessage(message);
-      toast.error("Сургуулийг хадгалж чадсангүй", { description: message });
+      toast.error("Их сургуулийг хадгалж чадсангүй", { description: message });
       return;
     }
 
@@ -134,7 +151,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
           : null;
     if (!saved) return;
     setValues(toFormValues(saved));
-    toast.success(school ? "Сургуулийн мэдээлэл шинэчлэгдлээ" : "Шинэ сургууль нэмэгдлээ");
+    toast.success(school ? "Их сургуулийн мэдээлэл шинэчлэгдлээ" : "Шинэ их сургууль нэмэгдлээ");
     onSaved(saved);
   }
 
@@ -148,7 +165,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Сургуулийн нэр *
+          Их сургуулийн нэр *
           <Input
             value={values.name}
             onChange={(event) => set("name", event.target.value)}
@@ -183,27 +200,82 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Лого URL
+          И-мэйл
           <Input
-            value={values.logoUrl}
-            onChange={(event) => set("logoUrl", event.target.value)}
-            placeholder="https://..."
+            type="email"
+            value={values.email}
+            onChange={(event) => set("email", event.target.value)}
+            placeholder="жишээ: info@num.edu.mn"
           />
         </label>
-        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Нүүр зургийн URL
-          <Input
-            value={values.coverUrl}
-            onChange={(event) => set("coverUrl", event.target.value)}
-            placeholder="https://..."
-          />
-        </label>
+        <div className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
+          Утасны дугаар
+          <div className="space-y-2">
+            {values.phones.map((phone, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <Input
+                  type="tel"
+                  inputMode="tel"
+                  value={phone}
+                  onChange={(event) =>
+                    set(
+                      "phones",
+                      values.phones.map((current, i) => (i === index ? event.target.value : current)),
+                    )
+                  }
+                  placeholder="жишээ: +976 7730-7730"
+                  aria-label={`Утасны дугаар ${index + 1}`}
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    set(
+                      "phones",
+                      values.phones.length > 1 ? values.phones.filter((_, i) => i !== index) : [""],
+                    )
+                  }
+                  aria-label={`Утасны дугаар ${index + 1}-г хасах`}
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-ink/[0.06] hover:text-ink"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+            ))}
+          </div>
+          {values.phones.length < MAX_PHONES && (
+            <Button
+              variant="ghost"
+              size="sm"
+              className="self-start"
+              onClick={() => set("phones", [...values.phones, ""])}
+            >
+              <Plus className="h-3.5 w-3.5" />
+              Утас нэмэх
+            </Button>
+          )}
+        </div>
+        <ImageUploadField
+          label="Лого"
+          variant="logo"
+          maxSize={512}
+          value={values.logoUrl}
+          onChange={(url) => set("logoUrl", url)}
+          onUploadingChange={(logo) => setUploading((current) => ({ ...current, logo }))}
+        />
+        <ImageUploadField
+          label="Нүүр зураг"
+          variant="cover"
+          maxSize={1600}
+          value={values.coverUrl}
+          onChange={(url) => set("coverUrl", url)}
+          onUploadingChange={(cover) => setUploading((current) => ({ ...current, cover }))}
+        />
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
           Танилцуулга
           <Textarea
             value={values.overview}
             onChange={(event) => set("overview", event.target.value)}
-            placeholder="Сургуулийн товч танилцуулга"
+            placeholder="Их сургуулийн товч танилцуулга"
           />
         </label>
       </div>
@@ -231,9 +303,15 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
 
       {errorMessage && <p className="text-xs font-medium text-destructive">{errorMessage}</p>}
 
-      <Button type="submit" variant="solid" size="md" disabled={saving}>
+      <Button type="submit" variant="solid" size="md" disabled={saving || uploadingImage}>
         <Save className="h-3.5 w-3.5" />
-        {saving ? "Хадгалж байна..." : school ? "Өөрчлөлтийг хадгалах" : "Сургууль нэмэх"}
+        {saving
+          ? "Хадгалж байна..."
+          : uploadingImage
+            ? "Зураг оруулж байна..."
+            : school
+              ? "Өөрчлөлтийг хадгалах"
+              : "Их сургууль нэмэх"}
       </Button>
     </form>
   );

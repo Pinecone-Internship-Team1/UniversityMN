@@ -86,6 +86,9 @@ export const resolvers = {
   },
 
   School: {
+    phones: (parent: School) => parent.phones ?? [],
+    faculties: (parent: School, _args: unknown, context: GraphQLContext) =>
+      context.loaders.facultiesBySchoolId.load(parent.id),
     majors: (parent: School, _args: unknown, context: GraphQLContext) =>
       context.loaders.majorsBySchoolId.load(parent.id),
     scholarships: (parent: School, _args: unknown, context: GraphQLContext) =>

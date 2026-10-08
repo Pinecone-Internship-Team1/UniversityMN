@@ -1,25 +1,21 @@
 "use client";
 
-import { Pencil, Plus, Save } from "lucide-react";
+import { Pencil, Plus, Save, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useMutation, useQuery } from "urql";
-import { ConfirmDeleteButton } from "@/components/admin/ConfirmDeleteButton";
+import { useMutation } from "urql";
+import { InlineConfirm } from "@/components/admin/InlineConfirm";
 import { Button } from "@/components/ui/Button";
-import { EmptyState } from "@/components/ui/EmptyState";
-import { ErrorState } from "@/components/ui/ErrorState";
+import { DropdownMenu } from "@/components/ui/DropdownMenu";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { formatDegreeType, formatTuition } from "@/lib/format";
+import { DEGREE_TYPES, formatDegreeType, formatTuition } from "@/lib/format";
 import {
-  ADMIN_SCHOOL_MAJORS_QUERY,
   CATALOG_CACHE,
   CREATE_MAJOR_MUTATION,
   DELETE_MAJOR_MUTATION,
   UPDATE_MAJOR_MUTATION,
   type AdminMajor,
-  type AdminSchoolMajorsResult,
   type CreateMajorResult,
   type DeleteMajorResult,
   type IdVariables,
@@ -27,7 +23,7 @@ import {
   type UpdateMajorResult,
 } from "@/lib/graphql/documents";
 import { getErrorMessage, getErrorMessageWithDetail } from "@/lib/graphql/errors";
-import type { MajorInput } from "@/lib/graphql/types";
+import type { Faculty, MajorInput } from "@/lib/graphql/types";
 import {
   MAX_EXAM_SCORE,
   parseOptionalNumber,
@@ -37,9 +33,8 @@ import {
   type ValidationResult,
 } from "@/lib/validation";
 
-const DEGREE_TYPES = ["BACHELOR", "MASTER", "DOCTORATE", "DIPLOMA"];
-
 interface MajorFormValues {
+  facultyId: string;
   name: string;
   category: string;
   degreeType: string;
@@ -48,21 +43,24 @@ interface MajorFormValues {
   tuitionFee: string;
 }
 
-function toFormValues(major: AdminMajor | null): MajorFormValues {
+function toFormValues(
+  major: AdminMajor | null,
+  defaultFacultyId: string | null,
+  defaultDegreeType: string,
+): MajorFormValues {
   return {
+    facultyId: major?.facultyId ?? defaultFacultyId ?? "",
     name: major?.name ?? "",
     category: major?.category ?? "",
-    degreeType: major?.degreeType ?? "",
+    degreeType: major ? (major.degreeType ?? "") : defaultDegreeType,
     requiredSubjects: (major?.requiredSubjects ?? []).join(", "),
     cutOffScore: major?.cutOffScore != null ? String(major.cutOffScore) : "",
     tuitionFee: major?.tuitionFee != null ? String(major.tuitionFee) : "",
   };
 }
 
-function parseMajorForm(
-  values: MajorFormValues,
-  schoolId: string,
-): ValidationResult<MajorInput> {
+function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
+  if (!values.facultyId) return { ok: false, error: "Сургууль сонгоно уу." };
   const name = parseRequiredText(values.name, "Мэргэжлийн нэр");
   if (!name.ok) return name;
   const category = parseOptionalText(values.category, "Чиглэл");
@@ -79,7 +77,7 @@ function parseMajorForm(
   return {
     ok: true,
     value: {
-      schoolId,
+      facultyId: values.facultyId,
       name: name.value,
       category: category.value,
       degreeType: degreeType.value,
@@ -91,15 +89,21 @@ function parseMajorForm(
 }
 
 function MajorForm({
-  schoolId,
+  faculties,
+  defaultFacultyId,
+  defaultDegreeType,
   major,
   onDone,
 }: {
-  schoolId: string;
+  faculties: Faculty[];
+  defaultFacultyId: string | null;
+  defaultDegreeType: string;
   major: AdminMajor | null;
   onDone: () => void;
 }) {
-  const [values, setValues] = useState<MajorFormValues>(() => toFormValues(major));
+  const [values, setValues] = useState<MajorFormValues>(() =>
+    toFormValues(major, defaultFacultyId, defaultDegreeType),
+  );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [{ fetching: creating }, createMajor] = useMutation<
     CreateMajorResult,
@@ -117,7 +121,7 @@ function MajorForm({
 
   async function handleSubmit() {
     setErrorMessage(null);
-    const parsed = parseMajorForm(values, schoolId);
+    const parsed = parseMajorForm(values);
     if (!parsed.ok) {
       setErrorMessage(parsed.error);
       return;
@@ -139,7 +143,7 @@ function MajorForm({
 
   return (
     <form
-      className="space-y-4 rounded-xl border border-ink/10 bg-paper p-4"
+      className="space-y-4"
       onSubmit={(event) => {
         event.preventDefault();
         void handleSubmit();
@@ -153,6 +157,20 @@ function MajorForm({
             onChange={(event) => set("name", event.target.value)}
             placeholder="жишээ: Компьютерийн ухаан"
           />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
+          Сургууль *
+          <Select
+            value={values.facultyId}
+            onChange={(event) => set("facultyId", event.target.value)}
+          >
+            <option value="">Сонгоно уу</option>
+            {faculties.map((faculty) => (
+              <option key={faculty.id} value={faculty.id}>
+                {faculty.name}
+              </option>
+            ))}
+          </Select>
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
           Чиглэл
@@ -210,7 +228,9 @@ function MajorForm({
         </label>
       </div>
 
-      {errorMessage && <p className="text-xs font-medium text-destructive">{errorMessage}</p>}
+      {errorMessage && (
+        <p className="text-xs font-medium text-destructive">{errorMessage}</p>
+      )}
 
       <div className="flex flex-wrap gap-2">
         <Button type="submit" variant="solid" size="sm" disabled={saving}>
@@ -225,12 +245,45 @@ function MajorForm({
   );
 }
 
-export function MajorManager({ schoolId }: { schoolId: string }) {
+/** One line of secondary details: category · degree · cut-off · tuition · exam subjects. */
+function majorSummary(major: AdminMajor): string {
+  const subjects = major.requiredSubjects ?? [];
+  return [
+    major.category,
+    formatDegreeType(major.degreeType),
+    major.cutOffScore != null ? `ЭЕШ ${major.cutOffScore}+` : null,
+    major.tuitionFee != null ? formatTuition(major.tuitionFee) : null,
+    subjects.length > 0 ? `Шалгалт: ${subjects.join(", ")}` : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+}
+
+export interface MajorListProps {
+  /** Every faculty of the university, offered in the form's school picker. */
+  faculties: Faculty[];
+  /** The faculty these majors belong to; null for majors not assigned to one. */
+  facultyId: string | null;
+  majors: AdminMajor[];
+  /** False while the list is narrowed by a search, so "add" doesn't look like it adds to the results. */
+  canAdd?: boolean;
+  /** Degree preselected for new majors; most programs are bachelor's. */
+  defaultDegreeType?: string;
+  /** Shown when `majors` is empty, e.g. because a degree filter hides them all. */
+  emptyMessage?: string;
+}
+
+/** The majors of one faculty as compact rows, with edit/delete in a "⋯" menu. */
+export function MajorList({
+  faculties,
+  facultyId,
+  majors,
+  canAdd = true,
+  defaultDegreeType = "BACHELOR",
+  emptyMessage = "Энэ сургуульд мэргэжил нэмэгдээгүй байна.",
+}: MajorListProps) {
   const [editing, setEditing] = useState<AdminMajor | "new" | null>(null);
-  const [{ data, fetching, error }, reexecute] = useQuery<
-    AdminSchoolMajorsResult,
-    IdVariables
-  >({ query: ADMIN_SCHOOL_MAJORS_QUERY, variables: { id: schoolId } });
+  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null);
   const [{ fetching: deleting }, deleteMajor] = useMutation<
     DeleteMajorResult,
     IdVariables
@@ -242,93 +295,102 @@ export function MajorManager({ schoolId }: { schoolId: string }) {
       toast.error("Мэргэжлийг устгаж чадсангүй", { description: getErrorMessage(result.error) });
       return;
     }
+    setConfirmingDeleteId(null);
     if (editing !== "new" && editing?.id === major.id) setEditing(null);
     toast.success(`${major.name} устгагдлаа`);
   }
 
-  const majors = data?.school?.majors ?? [];
-
   return (
-    <div>
-      <div className="flex items-center justify-between gap-3">
-        <h3 className="text-base font-bold text-ink">Мэргэжлүүд ({majors.length})</h3>
-        <Button variant="outline" size="sm" onClick={() => setEditing("new")}>
-          <Plus className="h-3.5 w-3.5" />
-          Мэргэжил нэмэх
-        </Button>
-      </div>
-
-      {editing === "new" && (
-        <div className="mt-4">
-          <MajorForm key="new" schoolId={schoolId} major={null} onDone={() => setEditing(null)} />
-        </div>
+    <div className="space-y-2">
+      {majors.length === 0 && editing !== "new" && (
+        <p className="px-1 text-xs text-ink/50">{emptyMessage}</p>
       )}
 
-      <div className="mt-4">
-        {error ? (
-          <ErrorState
-            description={getErrorMessage(error)}
-            onRetry={() => reexecute({ requestPolicy: "network-only" })}
-          />
-        ) : fetching && !data ? (
-          <div className="space-y-2">
-            {[0, 1, 2].map((i) => (
-              <Skeleton key={i} className="h-16 w-full" />
-            ))}
-          </div>
-        ) : majors.length === 0 ? (
-          <EmptyState
-            title="Мэргэжил бүртгэгдээгүй байна"
-            description="Дээрх товчоор энэ сургуульд мэргэжил нэмнэ үү."
-          />
-        ) : (
-          <ul className="space-y-2.5">
-            {majors.map((major) => (
-              <li key={major.id} className="rounded-xl border border-ink/10 bg-card p-4">
+      {majors.length > 0 && (
+        <ul className="divide-y divide-ink/[0.07] rounded-lg border border-ink/10 bg-card">
+          {majors.map((major) => {
+            const summary = majorSummary(major);
+            return (
+              <li key={major.id} className="px-3 py-2">
                 {editing !== "new" && editing?.id === major.id ? (
-                  <MajorForm
-                    key={major.id}
-                    schoolId={schoolId}
-                    major={major}
-                    onDone={() => setEditing(null)}
-                  />
+                  <div className="py-2">
+                    <MajorForm
+                      key={major.id}
+                      faculties={faculties}
+                      defaultFacultyId={facultyId}
+                      defaultDegreeType={defaultDegreeType}
+                      major={major}
+                      onDone={() => setEditing(null)}
+                    />
+                  </div>
                 ) : (
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="min-w-0">
-                      <p className="text-sm font-bold text-ink">{major.name}</p>
-                      <p className="mt-0.5 text-xs text-ink/60">
-                        {[
-                          major.category,
-                          formatDegreeType(major.degreeType),
-                          major.cutOffScore != null ? `ЭЕШ ${major.cutOffScore}+` : null,
-                          major.tuitionFee != null ? formatTuition(major.tuitionFee) : null,
-                        ]
-                          .filter(Boolean)
-                          .join(" · ")}
+                  <div className="flex items-center gap-2">
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold text-ink">
+                        {major.name}
                       </p>
-                      {(major.requiredSubjects ?? []).length > 0 && (
-                        <p className="mt-0.5 text-[11px] text-ink/50">
-                          Шалгалт: {(major.requiredSubjects ?? []).join(", ")}
+                      {summary && (
+                        <p className="truncate text-[11px] text-ink/50">
+                          {summary}
                         </p>
                       )}
                     </div>
-                    <div className="flex shrink-0 flex-wrap items-center gap-2">
-                      <Button variant="outline" size="sm" onClick={() => setEditing(major)}>
-                        <Pencil className="h-3.5 w-3.5" />
-                        Засах
-                      </Button>
-                      <ConfirmDeleteButton
-                        disabled={deleting}
-                        onConfirm={() => handleDelete(major)}
-                      />
-                    </div>
+                    <DropdownMenu
+                      label={`${major.name}: үйлдлүүд`}
+                      items={[
+                        {
+                          label: "Засах",
+                          icon: Pencil,
+                          onSelect: () => {
+                            setConfirmingDeleteId(null);
+                            setEditing(major);
+                          },
+                        },
+                        {
+                          label: "Устгах",
+                          icon: Trash2,
+                          destructive: true,
+                          onSelect: () => setConfirmingDeleteId(major.id),
+                        },
+                      ]}
+                    />
                   </div>
                 )}
+                {confirmingDeleteId === major.id && (
+                  <InlineConfirm
+                    className="mt-2"
+                    message={`“${major.name}” мэргэжлийг устгах уу?`}
+                    busy={deleting}
+                    onConfirm={() => handleDelete(major)}
+                    onCancel={() => setConfirmingDeleteId(null)}
+                  />
+                )}
               </li>
-            ))}
-          </ul>
-        )}
-      </div>
+            );
+          })}
+        </ul>
+      )}
+
+      {editing === "new" ? (
+        <div className="rounded-lg border border-ink/10 bg-card p-3">
+          <MajorForm
+            key="new"
+            faculties={faculties}
+            defaultFacultyId={facultyId}
+            defaultDegreeType={defaultDegreeType}
+            major={null}
+            onDone={() => setEditing(null)}
+          />
+        </div>
+      ) : (
+        facultyId &&
+        canAdd && (
+          <Button variant="ghost" size="sm" onClick={() => setEditing("new")}>
+            <Plus className="h-3.5 w-3.5" />
+            Мэргэжил нэмэх
+          </Button>
+        )
+      )}
     </div>
   );
 }

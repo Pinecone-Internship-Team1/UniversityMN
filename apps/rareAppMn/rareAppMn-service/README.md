@@ -24,7 +24,8 @@ bun dev                           # start the Worker at http://localhost:8787
 
 GraphQL: `POST /graphql` (GraphiQL enabled when `ENVIRONMENT` is not
 `production`). Clerk webhooks: `POST /webhooks/clerk`. Health check: `GET
-/health`.
+/health`. Admin image uploads: `POST /images` (raw JPEG/PNG/WebP/GIF body,
+max 1 MB, returns `{ id, url }`), served publicly from `GET /images/:id`.
 
 ## Connecting real accounts later
 

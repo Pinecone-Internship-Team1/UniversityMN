@@ -37,6 +37,11 @@ export const typeDefs = /* GraphQL */ `
     scholarshipAvailable: Boolean!
     overview: String
     website: String
+    "Contact phone numbers, in display order; empty when none are known."
+    phones: [String!]!
+    email: String
+    "The university's schools (faculties), each holding its majors."
+    faculties: [Faculty!]!
     majors: [Major!]!
     scholarships: [Scholarship!]!
     dormitories: [Dormitory!]!
@@ -45,10 +50,19 @@ export const typeDefs = /* GraphQL */ `
     createdAt: String!
   }
 
+  "A school within a university, e.g. Хууль зүйн сургууль."
+  type Faculty {
+    id: ID!
+    schoolId: ID!
+    name: String!
+    createdAt: String!
+  }
+
   type Major {
     id: ID!
     schoolId: ID!
     school: School!
+    facultyId: ID
     name: String!
     category: String
     requiredSubjects: JSON
@@ -130,10 +144,18 @@ export const typeDefs = /* GraphQL */ `
     scholarshipAvailable: Boolean
     overview: String
     website: String
+    phones: [String!]
+    email: String
   }
 
-  input MajorInput {
+  input FacultyInput {
     schoolId: ID!
+    name: String!
+  }
+
+  "A major's university is always its faculty's university."
+  input MajorInput {
+    facultyId: ID!
     name: String!
     category: String
     requiredSubjects: JSON
@@ -191,6 +213,9 @@ export const typeDefs = /* GraphQL */ `
     createSchool(input: SchoolInput!): School!
     updateSchool(id: ID!, input: SchoolInput!): School!
     deleteSchool(id: ID!): Boolean!
+    createFaculty(input: FacultyInput!): Faculty!
+    updateFaculty(id: ID!, input: FacultyInput!): Faculty!
+    deleteFaculty(id: ID!): Boolean!
     createMajor(input: MajorInput!): Major!
     updateMajor(id: ID!, input: MajorInput!): Major!
     deleteMajor(id: ID!): Boolean!

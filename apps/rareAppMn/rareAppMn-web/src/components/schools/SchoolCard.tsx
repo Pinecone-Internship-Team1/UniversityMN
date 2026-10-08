@@ -19,6 +19,7 @@ export interface SchoolCardProps {
 
 export function SchoolCard({ school, className, onToggled }: SchoolCardProps) {
   const university = getUniversityByFullName(school.name);
+  const logoSrc = school.logoUrl ?? university?.image;
   const slug = getUniversitySlug(school.name) ?? school.id;
   const href = `/university/${slug}`;
 
@@ -47,13 +48,14 @@ export function SchoolCard({ school, className, onToggled }: SchoolCardProps) {
         </div>
 
         <div className="mt-5 flex items-center gap-3">
-          {university ? (
+          {logoSrc ? (
             <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-ink/10 bg-paper p-1.5 shadow-2xs">
               <Image
-                src={university.image}
+                src={logoSrc}
                 alt={`${school.name} лого`}
                 fill
                 sizes="44px"
+                unoptimized={Boolean(school.logoUrl)}
                 className="object-contain p-0.5"
               />
             </div>

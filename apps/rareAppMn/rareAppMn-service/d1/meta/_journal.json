@@ -15,6 +15,20 @@
       "when": 1791419277200,
       "tag": "0001_add_foreign_key_indexes",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791465909650,
+      "tag": "0002_add_faculties_and_images",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1791473756585,
+      "tag": "0003_add_school_contacts",
+      "breakpoints": true
     }
   ]
 }

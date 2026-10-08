@@ -1,5 +1,5 @@
 import { relations, sql } from 'drizzle-orm';
-import { index, integer, real, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
+import { blob, index, integer, real, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
 
 const isoNow = sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`;
 
@@ -32,6 +32,7 @@ export const users = sqliteTable(
   ]
 );
 
+/** A university. (Called "school" throughout the API; its own schools are `faculties`.) */
 export const schools = sqliteTable('schools', {
   id: uuid('id'),
   name: text('name').notNull(),
@@ -45,16 +46,40 @@ export const schools = sqliteTable('schools', {
     .default(false),
   overview: text('overview'),
   website: text('website'),
+  /** Contact phone numbers as written, e.g. `["+976 7730-7730", "11-320159"]`. */
+  phones: text('phones', { mode: 'json' }).$type<string[]>(),
+  email: text('email'),
   createdAt: text('created_at').notNull().default(isoNow),
 });
 
-export const majors = sqliteTable(
-  'majors',
+/** A school within a university (e.g. "Хууль зүйн сургууль"); every major belongs to one. */
+export const faculties = sqliteTable(
+  'faculties',
   {
     id: uuid('id'),
     schoolId: text('school_id')
       .notNull()
       .references(() => schools.id, { onDelete: 'cascade' }),
+    name: text('name').notNull(),
+    createdAt: text('created_at').notNull().default(isoNow),
+  },
+  (table) => [uniqueIndex('faculties_school_name_idx').on(table.schoolId, table.name)]
+);
+
+export const majors = sqliteTable(
+  'majors',
+  {
+    id: uuid('id'),
+    /** Always the faculty's university; kept on the major so catalog queries need no join. */
+    schoolId: text('school_id')
+      .notNull()
+      .references(() => schools.id, { onDelete: 'cascade' }),
+    /**
+     * Required by the API. Nullable in SQL only because SQLite can't add a
+     * NOT NULL foreign key column to an existing table without rebuilding it.
+     * Deleting a faculty that still has majors fails (no `onDelete` action).
+     */
+    facultyId: text('faculty_id').references(() => faculties.id),
     name: text('name').notNull(),
     category: text('category'),
     /** List of subject names required for admission, e.g. `["math", "physics"]`. */
@@ -63,7 +88,10 @@ export const majors = sqliteTable(
     degreeType: text('degree_type'),
     tuitionFee: real('tuition_fee'),
   },
-  (table) => [index('majors_school_id_idx').on(table.schoolId)]
+  (table) => [
+    index('majors_school_id_idx').on(table.schoolId),
+    index('majors_faculty_id_idx').on(table.facultyId),
+  ]
 );
 
 export const scholarships = sqliteTable(
@@ -109,6 +137,14 @@ export const admissionSchedules = sqliteTable(
   (table) => [index('admission_schedules_school_id_idx').on(table.schoolId)]
 );
 
+/** Images uploaded from the admin dashboard, served by `GET /images/:id`. */
+export const images = sqliteTable('images', {
+  id: uuid('id'),
+  contentType: text('content_type').notNull(),
+  data: blob('data', { mode: 'buffer' }).notNull(),
+  createdAt: text('created_at').notNull().default(isoNow),
+});
+
 export const savedSchools = sqliteTable(
   'saved_schools',
   {
@@ -151,6 +187,7 @@ export const usersRelations = relations(users, ({ many }) => ({
 }));
 
 export const schoolsRelations = relations(schools, ({ many }) => ({
+  faculties: many(faculties),
   majors: many(majors),
   scholarships: many(scholarships),
   dormitories: many(dormitories),
@@ -158,8 +195,14 @@ export const schoolsRelations = relations(schools, ({ many }) => ({
   savedByUsers: many(savedSchools),
 }));
 
+export const facultiesRelations = relations(faculties, ({ one, many }) => ({
+  school: one(schools, { fields: [faculties.schoolId], references: [schools.id] }),
+  majors: many(majors),
+}));
+
 export const majorsRelations = relations(majors, ({ one, many }) => ({
   school: one(schools, { fields: [majors.schoolId], references: [schools.id] }),
+  faculty: one(faculties, { fields: [majors.facultyId], references: [faculties.id] }),
   savedByUsers: many(savedMajors),
 }));
 
@@ -189,6 +232,8 @@ export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type School = typeof schools.$inferSelect;
 export type NewSchool = typeof schools.$inferInsert;
+export type Faculty = typeof faculties.$inferSelect;
+export type NewFaculty = typeof faculties.$inferInsert;
 export type Major = typeof majors.$inferSelect;
 export type NewMajor = typeof majors.$inferInsert;
 export type Scholarship = typeof scholarships.$inferSelect;

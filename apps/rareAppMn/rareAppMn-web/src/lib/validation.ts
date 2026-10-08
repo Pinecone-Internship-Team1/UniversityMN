@@ -5,6 +5,11 @@ export const MAX_REQUIRED_SUBJECTS = 20;
 export const MAX_SHORT_TEXT_LENGTH = 200;
 export const MAX_LONG_TEXT_LENGTH = 10_000;
 export const MAX_URL_LENGTH = 2048;
+export const MAX_PHONES = 10;
+const MAX_PHONE_LENGTH = 30;
+const MAX_EMAIL_LENGTH = 254;
+const PHONE_PATTERN = /^\+?[\d\s()-]+$/;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export type ValidationResult<T> =
   | { ok: true; value: T }
@@ -58,6 +63,30 @@ export function parseOptionalUrl(
     return invalid(`${label} нь http:// эсвэл https://-ээр эхэлсэн зөв холбоос байх ёстой.`);
   }
   return valid(value);
+}
+
+export function parseOptionalEmail(raw: string, label: string): ValidationResult<string | null> {
+  const value = raw.trim();
+  if (!value) return valid(null);
+  if (value.length > MAX_EMAIL_LENGTH || !EMAIL_PATTERN.test(value)) {
+    return invalid(`${label} зөв и-мэйл хаяг байх ёстой.`);
+  }
+  return valid(value);
+}
+
+/** Trimmed, de-duplicated phone numbers (6-15 digits each); blank rows are ignored. */
+export function parsePhoneList(raw: string[]): ValidationResult<string[]> {
+  const phones = [...new Set(raw.map((phone) => phone.trim()).filter(Boolean))];
+  if (phones.length > MAX_PHONES) {
+    return invalid(`Хамгийн ихдээ ${MAX_PHONES} утасны дугаар оруулах боломжтой.`);
+  }
+  for (const phone of phones) {
+    const digits = phone.replace(/\D/g, "").length;
+    if (phone.length > MAX_PHONE_LENGTH || !PHONE_PATTERN.test(phone) || digits < 6 || digits > 15) {
+      return invalid(`"${phone}" утасны дугаар буруу байна.`);
+    }
+  }
+  return valid(phones);
 }
 
 export function parseOptionalNumber(

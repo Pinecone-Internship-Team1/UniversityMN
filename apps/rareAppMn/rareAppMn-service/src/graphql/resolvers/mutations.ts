@@ -2,7 +2,15 @@ import { and, eq } from 'drizzle-orm';
 import type { GraphQLError } from 'graphql';
 import type { GraphQLContext } from '../../context';
 import { requireAdmin, requireUser } from '../../context';
-import { majors, savedMajors, savedSchools, schools, users, type NewUser } from '../../db/schema';
+import {
+  faculties,
+  majors,
+  savedMajors,
+  savedSchools,
+  schools,
+  users,
+  type NewUser,
+} from '../../db/schema';
 import { fetchClerkPrimaryEmail } from '../../lib/auth';
 import {
   MAX_LONG_TEXT_LENGTH,
@@ -12,10 +20,12 @@ import {
   isForeignKeyConstraintError,
   isUniqueConstraintError,
   notFound,
+  optionalEmail,
   optionalNonNegativeNumber,
   optionalText,
   optionalUrl,
   parseEmail,
+  parsePhoneList,
   parsePreferences,
   parseScores,
   parseSubjectList,
@@ -39,10 +49,17 @@ export interface SchoolInput {
   scholarshipAvailable?: boolean | null;
   overview?: string | null;
   website?: string | null;
+  phones?: string[] | null;
+  email?: string | null;
+}
+
+export interface FacultyInput {
+  schoolId: string;
+  name: string;
 }
 
 export interface MajorInput {
-  schoolId: string;
+  facultyId: string;
   name: string;
   category?: string | null;
   requiredSubjects?: unknown;
@@ -82,12 +99,21 @@ function schoolValues(input: SchoolInput) {
     scholarshipAvailable: input.scholarshipAvailable ?? false,
     overview: optionalText(input.overview, 'overview', MAX_LONG_TEXT_LENGTH),
     website: optionalUrl(input.website, 'website'),
+    phones: parsePhoneList(input.phones, 'phones'),
+    email: optionalEmail(input.email, 'email'),
+  };
+}
+
+function facultyValues(input: FacultyInput) {
+  return {
+    schoolId: input.schoolId,
+    name: requiredText(input.name, 'Faculty name'),
   };
 }
 
 function majorValues(input: MajorInput) {
   return {
-    schoolId: input.schoolId,
+    facultyId: input.facultyId,
     name: requiredText(input.name, 'Major name'),
     category: optionalText(input.category, 'category'),
     requiredSubjects: parseSubjectList(input.requiredSubjects, 'requiredSubjects'),
@@ -96,6 +122,15 @@ function majorValues(input: MajorInput) {
     tuitionFee: optionalNonNegativeNumber(input.tuitionFee, 'tuitionFee'),
   };
 }
+
+async function requireFaculty(facultyId: string, context: GraphQLContext) {
+  const faculty = await context.loaders.facultyById.load(facultyId);
+  if (!faculty) throw notFound('Faculty');
+  return faculty;
+}
+
+const duplicateFaculty = () => conflict('This university already has a faculty with that name.');
+const facultyHasMajors = () => conflict('Delete the majors in this faculty first.');
 
 export const mutations = {
   syncClerkUser: async (
@@ -261,6 +296,71 @@ export const mutations = {
     return true;
   },
 
+  createFaculty: async (
+    _parent: unknown,
+    args: { input: FacultyInput },
+    context: GraphQLContext
+  ) => {
+    requireAdmin(context);
+    const values = facultyValues(args.input);
+
+    const school = await context.loaders.schoolById.load(values.schoolId);
+    if (!school) throw notFound('School');
+
+    const [created] = await translateConstraintErrors(
+      context.db.insert(faculties).values(values).returning(),
+      { unique: duplicateFaculty(), foreignKey: notFound('School') }
+    );
+    context.loaders.facultiesBySchoolId.clear(values.schoolId);
+    return created;
+  },
+
+  updateFaculty: async (
+    _parent: unknown,
+    args: { id: string; input: FacultyInput },
+    context: GraphQLContext
+  ) => {
+    requireAdmin(context);
+    const values = facultyValues(args.input);
+
+    const existing = await requireFaculty(args.id, context);
+    if (existing.schoolId !== values.schoolId) {
+      throw badInput('A faculty cannot be moved to another university.');
+    }
+
+    const [updated] = await translateConstraintErrors(
+      context.db
+        .update(faculties)
+        .set({ name: values.name })
+        .where(eq(faculties.id, args.id))
+        .returning(),
+      { unique: duplicateFaculty() }
+    );
+    context.loaders.facultyById.clear(args.id);
+    context.loaders.facultiesBySchoolId.clear(existing.schoolId);
+    if (!updated) throw notFound('Faculty');
+    return updated;
+  },
+
+  deleteFaculty: async (_parent: unknown, args: { id: string }, context: GraphQLContext) => {
+    requireAdmin(context);
+    const [major] = await context.db
+      .select({ id: majors.id })
+      .from(majors)
+      .where(eq(majors.facultyId, args.id))
+      .limit(1);
+    if (major) throw facultyHasMajors();
+
+    const [deleted] = await translateConstraintErrors(
+      context.db.delete(faculties).where(eq(faculties.id, args.id)).returning(),
+      { foreignKey: facultyHasMajors() }
+    );
+    context.loaders.facultyById.clear(args.id);
+    if (!deleted) throw notFound('Faculty');
+    context.loaders.facultiesBySchoolId.clear(deleted.schoolId);
+    return true;
+  },
+
   createMajor: async (
     _parent: unknown,
     args: { input: MajorInput },
@@ -268,15 +368,16 @@ export const mutations = {
   ) => {
     requireAdmin(context);
     const values = majorValues(args.input);
-
-    const school = await context.loaders.schoolById.load(values.schoolId);
-    if (!school) throw notFound('School');
+    const faculty = await requireFaculty(values.facultyId, context);
 
     const [created] = await translateConstraintErrors(
-      context.db.insert(majors).values(values).returning(),
-      { foreignKey: notFound('School') }
+      context.db
+        .insert(majors)
+        .values({ ...values, schoolId: faculty.schoolId })
+        .returning(),
+      { foreignKey: notFound('Faculty') }
     );
-    context.loaders.majorsBySchoolId.clear(values.schoolId);
+    context.loaders.majorsBySchoolId.clear(faculty.schoolId);
     return created;
   },
 
@@ -290,15 +391,18 @@ export const mutations = {
 
     const existing = await context.loaders.majorById.load(args.id);
     if (!existing) throw notFound('Major');
-    const school = await context.loaders.schoolById.load(values.schoolId);
-    if (!school) throw notFound('School');
+    const faculty = await requireFaculty(values.facultyId, context);
 
     const [updated] = await translateConstraintErrors(
-      context.db.update(majors).set(values).where(eq(majors.id, args.id)).returning(),
-      { foreignKey: notFound('School') }
+      context.db
+        .update(majors)
+        .set({ ...values, schoolId: faculty.schoolId })
+        .where(eq(majors.id, args.id))
+        .returning(),
+      { foreignKey: notFound('Faculty') }
     );
     context.loaders.majorById.clear(args.id);
-    context.loaders.majorsBySchoolId.clear(existing.schoolId).clear(values.schoolId);
+    context.loaders.majorsBySchoolId.clear(existing.schoolId).clear(faculty.schoolId);
     if (!updated) throw notFound('Major');
     return updated;
   },

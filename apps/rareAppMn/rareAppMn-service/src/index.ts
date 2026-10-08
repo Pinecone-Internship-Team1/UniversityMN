@@ -5,6 +5,7 @@ import { createDb } from './db';
 import { seedDatabase } from './db/seed';
 import { typeDefs } from './graphql/typeDefs';
 import { resolvers } from './graphql/resolvers';
+import { IMAGE_PATH_PATTERN, handleImageRequest, handleImageUpload } from './images';
 import { createMaxAliasesRule, createMaxDepthRule } from './graphql/validationRules';
 import { type Env, getAllowedOrigins, isDevelopment, isLocalDevelopment } from './lib/env';
 import { handleClerkWebhook } from './webhooks/clerk';
@@ -133,6 +134,15 @@ async function route(request: Request, env: Env, ctx: ExecutionContext): Promise
 
   if (url.pathname === '/webhooks/clerk' && request.method === 'POST') {
     return handleClerkWebhook(limitedRequest, env, createDb(env.DB));
+  }
+
+  if (url.pathname === '/images' && request.method === 'POST') {
+    return handleImageUpload(limitedRequest, env, createDb(env.DB));
+  }
+
+  const imageId = IMAGE_PATH_PATTERN.exec(url.pathname)?.[1];
+  if (imageId && request.method === 'GET') {
+    return handleImageRequest(imageId, createDb(env.DB));
   }
 
   return getYoga(env).fetch(limitedRequest, { env, ctx });

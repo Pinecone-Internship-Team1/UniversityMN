@@ -9,6 +9,8 @@ import type {
   MajorPage,
   Major,
   PageInfo,
+  Faculty,
+  FacultyInput,
   Scholarship,
   ScoreMatchResult,
   SchoolFilterInput,
@@ -39,7 +41,7 @@ export const MAJOR_BOOKMARK_CACHE: Partial<OperationContext> = {
 };
 
 export const CATALOG_CACHE: Partial<OperationContext> = {
-  additionalTypenames: ["School", "Major", "UserProfile"],
+  additionalTypenames: ["School", "Faculty", "Major", "UserProfile"],
 };
 
 const SCHOOL_CARD_FIELDS = /* GraphQL */ `
@@ -53,6 +55,8 @@ const SCHOOL_CARD_FIELDS = /* GraphQL */ `
   scholarshipAvailable
   overview
   website
+  phones
+  email
   isSaved
   createdAt
 `;
@@ -60,6 +64,7 @@ const SCHOOL_CARD_FIELDS = /* GraphQL */ `
 const MAJOR_FIELDS = /* GraphQL */ `
   id
   schoolId
+  facultyId
   name
   category
   requiredSubjects
@@ -97,6 +102,12 @@ export const SCHOOL_QUERY = /* GraphQL */ `
   query School($id: ID!) {
     school(id: $id) {
       ${SCHOOL_CARD_FIELDS}
+      faculties {
+        id
+        schoolId
+        name
+        createdAt
+      }
       majors {
         ${MAJOR_FIELDS}
       }
@@ -131,6 +142,7 @@ export interface SchoolQueryVariables {
 }
 
 export interface SchoolDetail extends School {
+  faculties: Faculty[];
   majors: Major[];
   scholarships: Scholarship[];
   dormitories: Dormitory[];
@@ -500,12 +512,22 @@ const ADMIN_SCHOOL_FIELDS = /* GraphQL */ `
   scholarshipAvailable
   overview
   website
+  phones
+  email
+  createdAt
+`;
+
+const ADMIN_FACULTY_FIELDS = /* GraphQL */ `
+  id
+  schoolId
+  name
   createdAt
 `;
 
 const ADMIN_MAJOR_FIELDS = /* GraphQL */ `
   id
   schoolId
+  facultyId
   name
   category
   requiredSubjects
@@ -537,11 +559,14 @@ export interface AdminSchoolsResult {
   schools: { items: AdminSchool[]; pageInfo: PageInfo };
 }
 
-export const ADMIN_SCHOOL_MAJORS_QUERY = /* GraphQL */ `
-  query AdminSchoolMajors($id: ID!) {
+export const ADMIN_SCHOOL_FACULTIES_QUERY = /* GraphQL */ `
+  query AdminSchoolFaculties($id: ID!) {
     school(id: $id) {
       id
       name
+      faculties {
+        ${ADMIN_FACULTY_FIELDS}
+      }
       majors {
         ${ADMIN_MAJOR_FIELDS}
       }
@@ -549,8 +574,10 @@ export const ADMIN_SCHOOL_MAJORS_QUERY = /* GraphQL */ `
   }
 `;
 
-export interface AdminSchoolMajorsResult {
-  school: (Pick<School, "id" | "name"> & { majors: AdminMajor[] }) | null;
+export interface AdminSchoolFacultiesResult {
+  school:
+    | (Pick<School, "id" | "name"> & { faculties: Faculty[]; majors: AdminMajor[] })
+    | null;
 }
 
 export const CREATE_SCHOOL_MUTATION = /* GraphQL */ `
@@ -590,6 +617,45 @@ export const DELETE_SCHOOL_MUTATION = /* GraphQL */ `
 
 export interface DeleteSchoolResult {
   deleteSchool: boolean;
+}
+
+export const CREATE_FACULTY_MUTATION = /* GraphQL */ `
+  mutation CreateFaculty($input: FacultyInput!) {
+    createFaculty(input: $input) {
+      ${ADMIN_FACULTY_FIELDS}
+    }
+  }
+`;
+
+export interface CreateFacultyResult {
+  createFaculty: Faculty;
+}
+
+export const UPDATE_FACULTY_MUTATION = /* GraphQL */ `
+  mutation UpdateFaculty($id: ID!, $input: FacultyInput!) {
+    updateFaculty(id: $id, input: $input) {
+      ${ADMIN_FACULTY_FIELDS}
+    }
+  }
+`;
+
+export interface UpdateFacultyResult {
+  updateFaculty: Faculty;
+}
+
+export interface FacultyMutationVariables {
+  id?: string;
+  input: FacultyInput;
+}
+
+export const DELETE_FACULTY_MUTATION = /* GraphQL */ `
+  mutation DeleteFaculty($id: ID!) {
+    deleteFaculty(id: $id)
+  }
+`;
+
+export interface DeleteFacultyResult {
+  deleteFaculty: boolean;
 }
 
 export const CREATE_MAJOR_MUTATION = /* GraphQL */ `

@@ -29,7 +29,7 @@
       ],
       "vars": {
         "ENVIRONMENT": "production",
-        "ADMIN_CLERK_USER_IDS": "user_3KMxwrKqxumO7HT3txgvb1pasH2",
+        "ADMIN_CLERK_USER_IDS": "user_3KMxwrKqxumO7HT3txgvb1pasH2,user_3KP6V70BlxpJIqp1zUJIzf5wbu2",
         "ALLOWED_ORIGINS": "https://oyutan-mn-web.zelmeganbayr0408.workers.dev",
       },
     },

@@ -2,6 +2,7 @@ import type { Database } from './index';
 import {
   admissionSchedules,
   dormitories,
+  faculties,
   majors,
   scholarships,
   schools,
@@ -20,6 +21,8 @@ import {
 
 interface MajorSeed {
   id: string;
+  /** Name of the faculty (school within the university) the major belongs to. */
+  faculty: string;
   name: string;
   category: string;
   requiredSubjects: string[];
@@ -79,6 +82,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_muis_1',
+        faculty: 'Инженер, технологийн сургууль',
         name: 'Компьютерийн ухаан',
         category: 'Байгалийн ухаан',
         requiredSubjects: ['Математик', 'Физик'],
@@ -88,6 +92,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_muis_2',
+        faculty: 'Олон улсын харилцаа, нийтийн удирдлагын сургууль',
         name: 'Олон улсын харилцаа',
         category: 'Хүмүүнлэг',
         requiredSubjects: ['Математик', 'Англи хэл'],
@@ -97,6 +102,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_muis_3',
+        faculty: 'Бизнесийн сургууль',
         name: 'Бизнесийн удирдлага',
         category: 'Бизнес',
         requiredSubjects: ['Математик'],
@@ -150,6 +156,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_shutis_1',
+        faculty: 'Мэдээлэл, холбооны технологийн сургууль',
         name: 'Программ хангамж',
         category: 'Инженерчлэл',
         requiredSubjects: ['Математик', 'Физик'],
@@ -159,6 +166,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_shutis_2',
+        faculty: 'Мэдээлэл, холбооны технологийн сургууль',
         name: 'Сүлжээний инженер',
         category: 'Инженерчлэл',
         requiredSubjects: ['Математик', 'Физик'],
@@ -168,6 +176,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_shutis_3',
+        faculty: 'Барилга, архитектурын сургууль',
         name: 'Архитектур',
         category: 'Инженерчлэл',
         requiredSubjects: ['Математик', 'Зураг зүй'],
@@ -215,6 +224,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_sezis_1',
+        faculty: 'Санхүү, нягтлан бодох бүртгэлийн сургууль',
         name: 'Санхүү ба банк',
         category: 'Бизнес',
         requiredSubjects: ['Математик'],
@@ -224,6 +234,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_sezis_2',
+        faculty: 'Санхүү, нягтлан бодох бүртгэлийн сургууль',
         name: 'Нягтлан бодох бүртгэл',
         category: 'Бизнес',
         requiredSubjects: ['Математик'],
@@ -233,6 +244,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_sezis_3',
+        faculty: 'Бизнесийн удирдлагын сургууль',
         name: 'Маркетинг',
         category: 'Бизнес',
         requiredSubjects: ['Математик', 'Англи хэл'],
@@ -280,6 +292,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_ashuuis_1',
+        faculty: 'Анагаах ухааны сургууль',
         name: 'Хүний эмч',
         category: 'Эрүүл мэнд',
         requiredSubjects: ['Хими', 'Биологи'],
@@ -289,6 +302,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_ashuuis_2',
+        faculty: 'Эм зүйн сургууль',
         name: 'Эм зүй',
         category: 'Эрүүл мэнд',
         requiredSubjects: ['Хими', 'Биологи'],
@@ -298,6 +312,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_ashuuis_3',
+        faculty: 'Нийгмийн эрүүл мэндийн сургууль',
         name: 'Нийтийн эрүүл мэнд',
         category: 'Эрүүл мэнд',
         requiredSubjects: ['Биологи'],
@@ -351,6 +366,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_khaais_1',
+        faculty: 'Мал эмнэлгийн сургууль',
         name: 'Мал эмнэлэг',
         category: 'Хөдөө аж ахуй',
         requiredSubjects: ['Биологи', 'Хими'],
@@ -360,6 +376,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_khaais_2',
+        faculty: 'Агрономийн сургууль',
         name: 'Агрономи',
         category: 'Хөдөө аж ахуй',
         requiredSubjects: ['Биологи'],
@@ -369,6 +386,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_khaais_3',
+        faculty: 'Инженер, технологийн сургууль',
         name: 'Хөдөө аж ахуйн инженерчлэл',
         category: 'Инженерчлэл',
         requiredSubjects: ['Математик', 'Физик'],
@@ -416,6 +434,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_mubis_1',
+        faculty: 'Боловсрол судлалын сургууль',
         name: 'Боловсрол судлал',
         category: 'Боловсрол',
         requiredSubjects: ['Нийгмийн ухаан'],
@@ -425,6 +444,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_mubis_2',
+        faculty: 'Боловсрол судлалын сургууль',
         name: 'Багш (Эхлэх анги)',
         category: 'Боловсрол',
         requiredSubjects: ['Нийгмийн ухаан'],
@@ -434,6 +454,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_mubis_3',
+        faculty: 'Нийгмийн ухааны сургууль',
         name: 'Сэтгэл судлал',
         category: 'Хүмүүнлэг',
         requiredSubjects: ['Биологи'],
@@ -481,6 +502,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_otgontenger_1',
+        faculty: 'Хууль зүйн сургууль',
         name: 'Хууль зүй',
         category: 'Хууль зүй',
         requiredSubjects: ['Нийгмийн ухаан'],
@@ -490,6 +512,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_otgontenger_2',
+        faculty: 'Мэдээллийн технологийн сургууль',
         name: 'Мэдээллийн технологи',
         category: 'Инженерчлэл',
         requiredSubjects: ['Математик'],
@@ -537,6 +560,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_suis_1',
+        faculty: 'Жүжиг, кино урлагийн сургууль',
         name: 'Жүжигчин',
         category: 'Урлаг',
         requiredSubjects: ['Нийгмийн ухаан'],
@@ -546,6 +570,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_suis_2',
+        faculty: 'Дүрслэх урлаг, дизайны сургууль',
         name: 'Дизайн',
         category: 'Урлаг',
         requiredSubjects: ['Зураг зүй'],
@@ -555,6 +580,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_suis_3',
+        faculty: 'Жүжиг, кино урлагийн сургууль',
         name: 'Радио телевиз',
         category: 'Урлаг',
         requiredSubjects: ['Нийгмийн ухаан'],
@@ -602,6 +628,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_huree_1',
+        faculty: 'Мэдээллийн технологийн сургууль',
         name: 'IT / Программчлал',
         category: 'Инженерчлэл',
         requiredSubjects: ['Математик'],
@@ -611,6 +638,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_huree_2',
+        faculty: 'Мэдээллийн технологийн сургууль',
         name: 'Сүлжээ',
         category: 'Инженерчлэл',
         requiredSubjects: ['Математик'],
@@ -620,6 +648,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_huree_3',
+        faculty: 'Гадаад хэлний сургууль',
         name: 'Солонгос хэл',
         category: 'Хүмүүнлэг',
         requiredSubjects: ['Англи хэл'],
@@ -667,6 +696,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_iuu_1',
+        faculty: 'Бизнесийн сургууль',
         name: 'Олон улсын бизнес',
         category: 'Бизнес',
         requiredSubjects: ['Математик', 'Англи хэл'],
@@ -676,6 +706,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_iuu_2',
+        faculty: 'Хэл, соёлын сургууль',
         name: 'Англи хэлний багш',
         category: 'Хүмүүнлэг',
         requiredSubjects: ['Англи хэл'],
@@ -723,6 +754,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     majors: [
       {
         id: 'maj_etugen_1',
+        faculty: 'Хууль зүйн сургууль',
         name: 'Хууль зүй',
         category: 'Хууль зүй',
         requiredSubjects: ['Нийгмийн ухаан'],
@@ -732,6 +764,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
       },
       {
         id: 'maj_etugen_2',
+        faculty: 'Нийгмийн ухааны сургууль',
         name: 'Нийгмийн ажил',
         category: 'Хүмүүнлэг',
         requiredSubjects: ['Нийгмийн ухаан'],
@@ -768,8 +801,26 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
   },
 ];
 
+/** The distinct `faculty` names among a school's seeded majors, in first-seen order. */
+function facultyNames(entry: SchoolSeed): string[] {
+  return [...new Set(entry.majors.map((major) => major.faculty))];
+}
+
+function seedFacultyId(entry: SchoolSeed, facultyName: string): string {
+  return `fac_${entry.id.replace(/^sch_/, '')}_${facultyNames(entry).indexOf(facultyName) + 1}`;
+}
+
+function seedFaculties(entry: SchoolSeed) {
+  return facultyNames(entry).map((name) => ({
+    id: seedFacultyId(entry, name),
+    schoolId: entry.id,
+    name,
+  }));
+}
+
 export interface SeedSummary {
   schools: number;
+  faculties: number;
   majors: number;
   scholarships: number;
   dormitories: number;
@@ -780,7 +831,7 @@ export interface SeedSummary {
  * Wipes and re-inserts the demo dataset above. Idempotent and safe to
  * re-run: fixed ids mean repeated runs produce identical data rather than
  * duplicates. Deleting `schools` cascades (via each table's `onDelete:
- * 'cascade'` foreign key) through majors, scholarships, dormitories,
+ * 'cascade'` foreign key) through faculties, majors, scholarships, dormitories,
  * admission schedules, and any saved-school/saved-major bookmarks pointing
  * at them -- so this intentionally clears bookmarks on seeded schools too.
  * Dev/demo convenience only; never exposed in production (see the
@@ -800,10 +851,12 @@ export async function seedDatabase(db: Database): Promise<SeedSummary> {
     }),
     ...(entry.majors.length > 0
       ? [
+          db.insert(faculties).values(seedFaculties(entry)),
           db.insert(majors).values(
             entry.majors.map((major) => ({
               id: major.id,
               schoolId: entry.id,
+              facultyId: seedFacultyId(entry, major.faculty),
               name: major.name,
               category: major.category,
               requiredSubjects: major.requiredSubjects,
@@ -860,6 +913,7 @@ export async function seedDatabase(db: Database): Promise<SeedSummary> {
 
   return {
     schools: SEED_SCHOOLS.length,
+    faculties: SEED_SCHOOLS.reduce((sum, entry) => sum + seedFaculties(entry).length, 0),
     majors: SEED_SCHOOLS.reduce((sum, entry) => sum + entry.majors.length, 0),
     scholarships: SEED_SCHOOLS.reduce(
       (sum, entry) => sum + entry.scholarships.length,

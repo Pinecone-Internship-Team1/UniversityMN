@@ -33,9 +33,18 @@ export interface Scholarship {
   deadline: string | null;
 }
 
+/** A school within a university (e.g. "Хууль зүйн сургууль"); `School` is the university. */
+export interface Faculty {
+  id: string;
+  schoolId: string;
+  name: string;
+  createdAt: string;
+}
+
 export interface Major {
   id: string;
   schoolId: string;
+  facultyId: string | null;
   name: string;
   category: string | null;
   requiredSubjects: string[] | null;
@@ -57,8 +66,11 @@ export interface School {
   scholarshipAvailable: boolean;
   overview: string | null;
   website: string | null;
+  phones: string[];
+  email: string | null;
   isSaved: boolean;
   createdAt: string;
+  faculties?: Faculty[];
   majors?: Major[];
   scholarships?: Scholarship[];
   dormitories?: Dormitory[];
@@ -135,10 +147,17 @@ export interface SchoolInput {
   scholarshipAvailable?: boolean | null;
   overview?: string | null;
   website?: string | null;
+  phones?: string[] | null;
+  email?: string | null;
+}
+
+export interface FacultyInput {
+  schoolId: string;
+  name: string;
 }
 
 export interface MajorInput {
-  schoolId: string;
+  facultyId: string;
   name: string;
   category?: string | null;
   requiredSubjects?: string[] | null;
