@@ -1,14 +1,16 @@
-import { and, count, eq, gte, inArray, like, lte, sql } from 'drizzle-orm';
+import { and, count, eq, gte, inArray, lte, or, sql, type SQL } from 'drizzle-orm';
+import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type { GraphQLContext } from '../../context';
 import { requireAdmin, requireUser } from '../../context';
-import { majors, schools } from '../../db/schema';
-import { badInput, notFound } from '../../lib/validate';
-import { scoreMajorMatch } from '../../lib/scoreMatch';
+import { majors, schools, type Major, type School } from '../../db/schema';
+import { MAX_SCORE_SUBJECTS, badInput, isPlainObject, notFound, parseScores } from '../../lib/validate';
+import { hasRelevantScores, scoreMajorMatch } from '../../lib/scoreMatch';
 
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 100;
 const DEFAULT_RECOMMENDATIONS_LIMIT = 10;
 const MAX_RECOMMENDATIONS_LIMIT = 50;
+const MAX_COMPARE_ITEMS = 10;
 
 /**
  * D1/SQLite rejects `LIKE` patterns above a certain complexity with
@@ -23,16 +25,46 @@ const MAX_RECOMMENDATIONS_LIMIT = 50;
  * without ever splitting a multi-byte character mid-sequence.
  */
 const MAX_LIKE_TERM_BYTES = 40;
+const LIKE_SPECIAL_CHARACTERS = new Set(['%', '_', '\\']);
+const utf8Encoder = new TextEncoder();
 
-function clampLikeTerm(value: string): string {
-  const encoded = new TextEncoder().encode(value);
-  if (encoded.length <= MAX_LIKE_TERM_BYTES) return value;
-  const truncated = encoded.slice(0, MAX_LIKE_TERM_BYTES);
-  // A truncated multi-byte sequence decodes as trailing U+FFFD replacement
-  // characters; strip them so the pattern stays valid, human-readable text.
-  return new TextDecoder('utf-8', { fatal: false })
-    .decode(truncated)
-    .replace(/�+$/u, '');
+function escapeLikeTerm(value: string): string {
+  let escaped = '';
+  let bytes = 0;
+  for (const character of value) {
+    const piece = LIKE_SPECIAL_CHARACTERS.has(character) ? `\\${character}` : character;
+    const size = utf8Encoder.encode(piece).length;
+    if (bytes + size > MAX_LIKE_TERM_BYTES) break;
+    escaped += piece;
+    bytes += size;
+  }
+  return escaped;
+}
+
+function caseVariants(value: string): string[] {
+  const lower = value.toLowerCase();
+  return [
+    ...new Set([
+      value,
+      lower,
+      value.toUpperCase(),
+      lower.replace(/^\p{Ll}/u, (letter) => letter.toUpperCase()),
+      lower.replace(/(^|\s)(\p{Ll})/gu, (_match, prefix: string, letter: string) => prefix + letter.toUpperCase()),
+    ]),
+  ];
+}
+
+function containsText(column: SQLiteColumn, value: string | null | undefined): SQL | undefined {
+  const term = value?.trim();
+  if (!term) return undefined;
+  const patterns = new Set(caseVariants(term).map((variant) => `%${escapeLikeTerm(variant)}%`));
+  return or(...[...patterns].map((pattern) => sql`${column} like ${pattern} escape '\\'`));
+}
+
+function equalsText(column: SQLiteColumn, value: string | null | undefined): SQL | undefined {
+  const term = value?.trim();
+  if (!term) return undefined;
+  return inArray(column, caseVariants(term));
 }
 
 interface PaginationInput {
@@ -69,10 +101,7 @@ async function resolveInternalUser(context: GraphQLContext) {
 }
 
 export const queries = {
-  me: async (_parent: unknown, _args: unknown, context: GraphQLContext) => {
-    requireUser(context);
-    return resolveInternalUser(context);
-  },
+  me: (_parent: unknown, _args: unknown, context: GraphQLContext) => resolveInternalUser(context),
 
   userByClerkId: async (
     _parent: unknown,
@@ -95,13 +124,10 @@ export const queries = {
     const filter = args.filter ?? {};
     const { limit, offset } = clampPagination(filter);
 
-    const conditions = [];
-    if (filter.search) {
-      conditions.push(like(schools.name, `%${clampLikeTerm(filter.search)}%`));
-    }
-    if (filter.location) {
-      conditions.push(like(schools.location, `%${clampLikeTerm(filter.location)}%`));
-    }
+    const conditions: (SQL | undefined)[] = [
+      containsText(schools.name, filter.search),
+      containsText(schools.location, filter.location),
+    ];
     if (typeof filter.dormAvailable === 'boolean') {
       conditions.push(eq(schools.dormAvailable, filter.dormAvailable));
     }
@@ -111,10 +137,16 @@ export const queries = {
     if (typeof filter.maxTuitionFee === 'number') {
       conditions.push(lte(schools.tuitionFee, filter.maxTuitionFee));
     }
-    const whereClause = and(...conditions) ?? sql`1 = 1`;
+    const whereClause = and(...conditions);
 
-    const [items, totalRows] = await Promise.all([
-      context.db.select().from(schools).where(whereClause).limit(limit).offset(offset),
+    const [items, totalRows] = await context.db.batch([
+      context.db
+        .select()
+        .from(schools)
+        .where(whereClause)
+        .orderBy(sql`${schools}.rowid`)
+        .limit(limit)
+        .offset(offset),
       context.db.select({ value: count() }).from(schools).where(whereClause),
     ]);
     const totalCount = totalRows[0]?.value ?? 0;
@@ -137,23 +169,28 @@ export const queries = {
     const filter = args.filter ?? {};
     const { limit, offset } = clampPagination(filter);
 
-    const conditions = [];
+    const conditions: (SQL | undefined)[] = [
+      equalsText(majors.category, filter.category),
+      equalsText(majors.degreeType, filter.degreeType),
+      containsText(majors.name, filter.search),
+    ];
     if (filter.schoolId) conditions.push(eq(majors.schoolId, filter.schoolId));
-    if (filter.category) conditions.push(eq(majors.category, filter.category));
-    if (filter.degreeType) conditions.push(eq(majors.degreeType, filter.degreeType));
-    if (filter.search) {
-      conditions.push(like(majors.name, `%${clampLikeTerm(filter.search)}%`));
-    }
     if (typeof filter.minCutOffScore === 'number') {
       conditions.push(gte(majors.cutOffScore, filter.minCutOffScore));
     }
     if (typeof filter.maxCutOffScore === 'number') {
       conditions.push(lte(majors.cutOffScore, filter.maxCutOffScore));
     }
-    const whereClause = and(...conditions) ?? sql`1 = 1`;
+    const whereClause = and(...conditions);
 
-    const [items, totalRows] = await Promise.all([
-      context.db.select().from(majors).where(whereClause).limit(limit).offset(offset),
+    const [items, totalRows] = await context.db.batch([
+      context.db
+        .select()
+        .from(majors)
+        .where(whereClause)
+        .orderBy(sql`${majors}.rowid`)
+        .limit(limit)
+        .offset(offset),
       context.db.select({ value: count() }).from(majors).where(whereClause),
     ]);
     const totalCount = totalRows[0]?.value ?? 0;
@@ -174,33 +211,40 @@ export const queries = {
       throw notFound('User', 'Sync your profile with syncClerkUser before requesting recommendations.');
     }
 
-    const scores = user.scores ?? {};
-    const allMajors = await context.db.select().from(majors);
+    const scores: Record<string, number> = isPlainObject(user.scores) ? user.scores : {};
+    const scoredSubjects = Object.keys(scores).filter(
+      (subject) => typeof scores[subject] === 'number'
+    );
+    if (scoredSubjects.length === 0) return [];
+
     const limit = Math.min(
       Math.max(args.limit ?? DEFAULT_RECOMMENDATIONS_LIMIT, 1),
       MAX_RECOMMENDATIONS_LIMIT
     );
+    const candidates = await context.db
+      .select()
+      .from(majors)
+      .where(
+        scoredSubjects.length <= MAX_SCORE_SUBJECTS
+          ? sql`exists (select 1 from json_each(${majors.requiredSubjects}) where ${inArray(sql`json_each.value`, scoredSubjects)})`
+          : undefined
+      )
+      .orderBy(sql`${majors}.rowid`);
 
-    const ranked = allMajors
+    const ranked = candidates
+      .filter((major) => hasRelevantScores(major, scores))
       .map((major) => ({ major, ...scoreMajorMatch(major, scores) }))
       .sort((a, b) => b.matchScore - a.matchScore)
       .slice(0, limit);
 
-    const schoolIds = [...new Set(ranked.map((entry) => entry.major.schoolId))];
-    const schoolRows = schoolIds.length
-      ? await context.db.select().from(schools).where(inArray(schools.id, schoolIds))
-      : [];
-    const schoolsById = new Map(schoolRows.map((row) => [row.id, row]));
+    const rankedSchools = await Promise.all(
+      ranked.map((entry) => context.loaders.schoolById.load(entry.major.schoolId))
+    );
 
-    return ranked
-      .filter((entry) => schoolsById.has(entry.major.schoolId))
-      .map((entry) => ({
-        school: schoolsById.get(entry.major.schoolId),
-        major: entry.major,
-        matchScore: entry.matchScore,
-        eligible: entry.eligible,
-        reason: entry.reason,
-      }));
+    return ranked.flatMap((entry, index) => {
+      const school = rankedSchools[index];
+      return school ? [{ school, ...entry }] : [];
+    });
   },
 
   analyzeScoreMatch: async (
@@ -208,9 +252,7 @@ export const queries = {
     args: { majorId: string; scores: unknown },
     context: GraphQLContext
   ) => {
-    if (typeof args.scores !== 'object' || args.scores === null || Array.isArray(args.scores)) {
-      throw badInput('scores must be a JSON object mapping subject names to numeric scores.');
-    }
+    const scores = parseScores(args.scores);
 
     const major = await context.loaders.majorById.load(args.majorId);
     if (!major) throw notFound('Major');
@@ -218,8 +260,7 @@ export const queries = {
     const school = await context.loaders.schoolById.load(major.schoolId);
     if (!school) throw notFound('School');
 
-    const outcome = scoreMajorMatch(major, args.scores as Record<string, number>);
-    return { school, major, ...outcome };
+    return { school, major, ...scoreMajorMatch(major, scores) };
   },
 
   compareItems: async (
@@ -227,14 +268,21 @@ export const queries = {
     args: { ids: string[]; type: 'SCHOOL' | 'MAJOR' },
     context: GraphQLContext
   ) => {
-    if (!args.ids.length) return [];
-
-    if (args.type === 'SCHOOL') {
-      const rows = await context.db.select().from(schools).where(inArray(schools.id, args.ids));
-      return rows.map((row) => ({ ...row, __typename: 'School' as const }));
+    const ids = [...new Set(args.ids)];
+    if (ids.length > MAX_COMPARE_ITEMS) {
+      throw badInput(`You can compare at most ${MAX_COMPARE_ITEMS} items at once.`);
     }
 
-    const rows = await context.db.select().from(majors).where(inArray(majors.id, args.ids));
-    return rows.map((row) => ({ ...row, __typename: 'Major' as const }));
+    if (args.type === 'SCHOOL') {
+      const rows = await Promise.all(ids.map((id) => context.loaders.schoolById.load(id)));
+      return rows
+        .filter((row): row is School => row !== null)
+        .map((row) => ({ ...row, __typename: 'School' as const }));
+    }
+
+    const rows = await Promise.all(ids.map((id) => context.loaders.majorById.load(id)));
+    return rows
+      .filter((row): row is Major => row !== null)
+      .map((row) => ({ ...row, __typename: 'Major' as const }));
   },
 };

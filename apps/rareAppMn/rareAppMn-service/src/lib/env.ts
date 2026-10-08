@@ -28,8 +28,18 @@ export const MOCK_CLERK_WEBHOOK_SECRET = 'whsec_mock_local_dev_only';
 export const MOCK_ADMIN_CLERK_USER_ID = 'user_mock_admin_local_dev';
 export const DEFAULT_ALLOWED_ORIGINS = ['http://localhost:3000', 'http://localhost:4000'];
 
+const LOCAL_HOSTNAMES = new Set(['localhost', '127.0.0.1', '[::1]']);
+
 export function isDevelopment(env: Env): boolean {
   return (env.ENVIRONMENT ?? 'development') !== 'production';
+}
+
+export function isLocalRequest(request: Request): boolean {
+  return LOCAL_HOSTNAMES.has(new URL(request.url).hostname);
+}
+
+export function isLocalDevelopment(env: Env, request: Request): boolean {
+  return isDevelopment(env) && isLocalRequest(request);
 }
 
 /** True once a real Clerk secret key has been configured (via `.dev.vars` / `wrangler secret`). */
@@ -39,6 +49,10 @@ export function isClerkSecretConfigured(env: Env): boolean {
   return key !== MOCK_CLERK_SECRET_KEY && key.startsWith('sk_');
 }
 
+export function getClerkSecretKey(env: Env): string | null {
+  return isClerkSecretConfigured(env) ? (env.CLERK_SECRET_KEY ?? null) : null;
+}
+
 /** True once a real Svix webhook signing secret has been configured. */
 export function isClerkWebhookConfigured(env: Env): boolean {
   const secret = env.CLERK_WEBHOOK_SECRET;
@@ -46,20 +60,26 @@ export function isClerkWebhookConfigured(env: Env): boolean {
   return secret !== MOCK_CLERK_WEBHOOK_SECRET && secret.startsWith('whsec_');
 }
 
-export function getAdminClerkUserIds(env: Env): string[] {
-  const raw = env.ADMIN_CLERK_USER_IDS ?? MOCK_ADMIN_CLERK_USER_ID;
-  return raw
+export function getClerkWebhookSecret(env: Env): string | null {
+  return isClerkWebhookConfigured(env) ? (env.CLERK_WEBHOOK_SECRET ?? null) : null;
+}
+
+function parseList(raw: string | undefined): string[] {
+  return (raw ?? '')
     .split(',')
-    .map((id) => id.trim())
+    .map((entry) => entry.trim())
     .filter(Boolean);
 }
 
+export function getAdminClerkUserIds(env: Env): string[] {
+  if (env.ADMIN_CLERK_USER_IDS === undefined && isDevelopment(env)) {
+    return [MOCK_ADMIN_CLERK_USER_ID];
+  }
+  return parseList(env.ADMIN_CLERK_USER_IDS);
+}
+
 export function getAllowedOrigins(env: Env): string[] {
-  const raw = env.ALLOWED_ORIGINS;
-  if (!raw) return DEFAULT_ALLOWED_ORIGINS;
-  const origins = raw
-    .split(',')
-    .map((origin) => origin.trim())
-    .filter(Boolean);
-  return origins.length ? origins : DEFAULT_ALLOWED_ORIGINS;
+  const origins = parseList(env.ALLOWED_ORIGINS).map((origin) => origin.replace(/\/+$/, ''));
+  if (origins.length || !isDevelopment(env)) return origins;
+  return DEFAULT_ALLOWED_ORIGINS;
 }

@@ -787,10 +787,8 @@ export interface SeedSummary {
  * `/dev/seed` route in src/index.ts, gated by `isDevelopment(env)`).
  */
 export async function seedDatabase(db: Database): Promise<SeedSummary> {
-  await db.delete(schools);
-
-  for (const entry of SEED_SCHOOLS) {
-    await db.insert(schools).values({
+  const inserts = SEED_SCHOOLS.flatMap((entry) => [
+    db.insert(schools).values({
       id: entry.id,
       name: entry.name,
       location: entry.location,
@@ -799,60 +797,66 @@ export async function seedDatabase(db: Database): Promise<SeedSummary> {
       scholarshipAvailable: entry.scholarshipAvailable,
       overview: entry.overview,
       website: entry.website,
-    });
+    }),
+    ...(entry.majors.length > 0
+      ? [
+          db.insert(majors).values(
+            entry.majors.map((major) => ({
+              id: major.id,
+              schoolId: entry.id,
+              name: major.name,
+              category: major.category,
+              requiredSubjects: major.requiredSubjects,
+              cutOffScore: major.cutOffScore,
+              degreeType: major.degreeType,
+              tuitionFee: major.tuitionFee,
+            })),
+          ),
+        ]
+      : []),
+    ...(entry.scholarships.length > 0
+      ? [
+          db.insert(scholarships).values(
+            entry.scholarships.map((scholarship) => ({
+              id: scholarship.id,
+              schoolId: entry.id,
+              name: scholarship.name,
+              coverage: scholarship.coverage,
+              requirements: scholarship.requirements,
+              deadline: scholarship.deadline,
+            })),
+          ),
+        ]
+      : []),
+    ...(entry.dormitories.length > 0
+      ? [
+          db.insert(dormitories).values(
+            entry.dormitories.map((dormitory) => ({
+              id: dormitory.id,
+              schoolId: entry.id,
+              capacity: dormitory.capacity,
+              feePerMonth: dormitory.feePerMonth,
+              facilities: dormitory.facilities,
+            })),
+          ),
+        ]
+      : []),
+    ...(entry.admissionSchedules.length > 0
+      ? [
+          db.insert(admissionSchedules).values(
+            entry.admissionSchedules.map((schedule) => ({
+              id: schedule.id,
+              schoolId: entry.id,
+              eventName: schedule.eventName,
+              startDate: schedule.startDate,
+              endDate: schedule.endDate,
+            })),
+          ),
+        ]
+      : []),
+  ]);
 
-    if (entry.majors.length > 0) {
-      await db.insert(majors).values(
-        entry.majors.map((major) => ({
-          id: major.id,
-          schoolId: entry.id,
-          name: major.name,
-          category: major.category,
-          requiredSubjects: major.requiredSubjects,
-          cutOffScore: major.cutOffScore,
-          degreeType: major.degreeType,
-          tuitionFee: major.tuitionFee,
-        })),
-      );
-    }
-
-    if (entry.scholarships.length > 0) {
-      await db.insert(scholarships).values(
-        entry.scholarships.map((scholarship) => ({
-          id: scholarship.id,
-          schoolId: entry.id,
-          name: scholarship.name,
-          coverage: scholarship.coverage,
-          requirements: scholarship.requirements,
-          deadline: scholarship.deadline,
-        })),
-      );
-    }
-
-    if (entry.dormitories.length > 0) {
-      await db.insert(dormitories).values(
-        entry.dormitories.map((dormitory) => ({
-          id: dormitory.id,
-          schoolId: entry.id,
-          capacity: dormitory.capacity,
-          feePerMonth: dormitory.feePerMonth,
-          facilities: dormitory.facilities,
-        })),
-      );
-    }
-
-    if (entry.admissionSchedules.length > 0) {
-      await db.insert(admissionSchedules).values(
-        entry.admissionSchedules.map((schedule) => ({
-          id: schedule.id,
-          schoolId: entry.id,
-          eventName: schedule.eventName,
-          startDate: schedule.startDate,
-          endDate: schedule.endDate,
-        })),
-      );
-    }
-  }
+  await db.batch([db.delete(schools), ...inserts]);
 
   return {
     schools: SEED_SCHOOLS.length,

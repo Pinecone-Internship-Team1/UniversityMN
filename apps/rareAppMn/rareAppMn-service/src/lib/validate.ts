@@ -40,3 +40,142 @@ export function notFound(entity = 'Resource', message?: string): GraphQLError {
     extensions: { code: 'NOT_FOUND', http: { status: 404 } },
   });
 }
+
+export function conflict(message = 'The resource conflicts with existing data.'): GraphQLError {
+  return new GraphQLError(message, {
+    extensions: { code: 'CONFLICT', http: { status: 409 } },
+  });
+}
+
+export const MAX_SHORT_TEXT_LENGTH = 200;
+export const MAX_LONG_TEXT_LENGTH = 10_000;
+export const MAX_SCORE_SUBJECTS = 50;
+export const MAX_REQUIRED_SUBJECTS = 20;
+
+const MAX_URL_LENGTH = 2048;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_SUBJECT_LENGTH = 100;
+const MAX_SCORE_VALUE = 1000;
+const MAX_PREFERENCES_BYTES = 10_000;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const HTTP_PROTOCOLS = new Set(['http:', 'https:']);
+
+export function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+export function requiredText(value: string, field: string, maxLength = MAX_SHORT_TEXT_LENGTH): string {
+  const text = value.trim();
+  if (!text) throw badInput(`${field} is required.`);
+  if (text.length > maxLength) throw badInput(`${field} must be at most ${maxLength} characters.`);
+  return text;
+}
+
+export function optionalText(
+  value: string | null | undefined,
+  field: string,
+  maxLength = MAX_SHORT_TEXT_LENGTH
+): string | null {
+  if (value === null || value === undefined) return null;
+  const text = value.trim();
+  if (!text) return null;
+  if (text.length > maxLength) throw badInput(`${field} must be at most ${maxLength} characters.`);
+  return text;
+}
+
+export function optionalUrl(value: string | null | undefined, field: string): string | null {
+  const text = optionalText(value, field, MAX_URL_LENGTH);
+  if (text === null) return null;
+  let url: URL;
+  try {
+    url = new URL(text);
+  } catch {
+    throw badInput(`${field} must be a valid http(s) URL.`);
+  }
+  if (!HTTP_PROTOCOLS.has(url.protocol)) throw badInput(`${field} must be a valid http(s) URL.`);
+  return text;
+}
+
+export function optionalNonNegativeNumber(
+  value: number | null | undefined,
+  field: string
+): number | null {
+  if (value === null || value === undefined) return null;
+  if (!Number.isFinite(value) || value < 0) {
+    throw badInput(`${field} must be a non-negative number.`);
+  }
+  return value;
+}
+
+export function parseEmail(value: string): string {
+  const email = value.trim();
+  if (email.length > MAX_EMAIL_LENGTH || !EMAIL_PATTERN.test(email)) {
+    throw badInput('A valid email address is required.');
+  }
+  return email;
+}
+
+function parseSubjectName(value: unknown, field: string): string {
+  const subject = typeof value === 'string' ? value.trim() : '';
+  if (!subject || subject.length > MAX_SUBJECT_LENGTH) {
+    throw badInput(
+      `${field} must use non-empty subject names of at most ${MAX_SUBJECT_LENGTH} characters.`
+    );
+  }
+  return subject;
+}
+
+export function parseScores(value: unknown, field = 'scores'): Record<string, number> {
+  if (!isPlainObject(value)) {
+    throw badInput(`${field} must be a JSON object mapping subject names to numeric scores.`);
+  }
+  const entries = Object.entries(value);
+  if (entries.length > MAX_SCORE_SUBJECTS) {
+    throw badInput(`${field} can contain at most ${MAX_SCORE_SUBJECTS} subjects.`);
+  }
+  return Object.fromEntries(
+    entries.map(([rawSubject, score]) => {
+      const subject = parseSubjectName(rawSubject, field);
+      if (typeof score !== 'number' || !Number.isFinite(score) || score < 0 || score > MAX_SCORE_VALUE) {
+        throw badInput(`Score for "${subject}" must be a number between 0 and ${MAX_SCORE_VALUE}.`);
+      }
+      return [subject, score];
+    })
+  );
+}
+
+export function parsePreferences(value: unknown): Record<string, unknown> {
+  if (!isPlainObject(value)) throw badInput('preferences must be a JSON object.');
+  const size = new TextEncoder().encode(JSON.stringify(value)).length;
+  if (size > MAX_PREFERENCES_BYTES) {
+    throw badInput(`preferences must be at most ${MAX_PREFERENCES_BYTES} bytes.`);
+  }
+  return value;
+}
+
+export function parseSubjectList(value: unknown, field: string): string[] | null {
+  if (value === null || value === undefined) return null;
+  if (!Array.isArray(value)) throw badInput(`${field} must be a JSON array of subject names.`);
+  if (value.length > MAX_REQUIRED_SUBJECTS) {
+    throw badInput(`${field} can contain at most ${MAX_REQUIRED_SUBJECTS} subjects.`);
+  }
+  return [...new Set(value.map((entry) => parseSubjectName(entry, field)))];
+}
+
+function errorMessages(error: unknown): string {
+  const messages: string[] = [];
+  let current: unknown = error;
+  for (let depth = 0; current instanceof Error && depth < 5; depth += 1) {
+    messages.push(current.message);
+    current = current.cause;
+  }
+  return messages.join('\n');
+}
+
+export function isUniqueConstraintError(error: unknown): boolean {
+  return errorMessages(error).includes('UNIQUE constraint failed');
+}
+
+export function isForeignKeyConstraintError(error: unknown): boolean {
+  return errorMessages(error).includes('FOREIGN KEY constraint failed');
+}

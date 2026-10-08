@@ -1,14 +1,32 @@
 import { and, eq } from 'drizzle-orm';
+import type { GraphQLError } from 'graphql';
 import type { GraphQLContext } from '../../context';
 import { requireAdmin, requireUser } from '../../context';
-import { majors, savedMajors, savedSchools, schools, users } from '../../db/schema';
-import { badInput, forbidden, notFound } from '../../lib/validate';
+import { majors, savedMajors, savedSchools, schools, users, type NewUser } from '../../db/schema';
+import { fetchClerkPrimaryEmail } from '../../lib/auth';
+import {
+  MAX_LONG_TEXT_LENGTH,
+  badInput,
+  conflict,
+  forbidden,
+  isForeignKeyConstraintError,
+  isUniqueConstraintError,
+  notFound,
+  optionalNonNegativeNumber,
+  optionalText,
+  optionalUrl,
+  parseEmail,
+  parsePreferences,
+  parseScores,
+  parseSubjectList,
+  requiredText,
+} from '../../lib/validate';
 
 export interface UserProfileInput {
   name?: string | null;
   avatarUrl?: string | null;
-  scores?: Record<string, number> | null;
-  preferences?: Record<string, unknown> | null;
+  scores?: unknown;
+  preferences?: unknown;
 }
 
 export interface SchoolInput {
@@ -27,7 +45,7 @@ export interface MajorInput {
   schoolId: string;
   name: string;
   category?: string | null;
-  requiredSubjects?: string[] | null;
+  requiredSubjects?: unknown;
   cutOffScore?: number | null;
   degreeType?: string | null;
   tuitionFee?: number | null;
@@ -40,6 +58,45 @@ async function requireInternalUser(context: GraphQLContext) {
   return user;
 }
 
+async function translateConstraintErrors<T>(
+  operation: PromiseLike<T>,
+  errors: { unique?: GraphQLError; foreignKey?: GraphQLError }
+): Promise<T> {
+  try {
+    return await operation;
+  } catch (error) {
+    if (errors.unique && isUniqueConstraintError(error)) throw errors.unique;
+    if (errors.foreignKey && isForeignKeyConstraintError(error)) throw errors.foreignKey;
+    throw error;
+  }
+}
+
+function schoolValues(input: SchoolInput) {
+  return {
+    name: requiredText(input.name, 'School name'),
+    logoUrl: optionalUrl(input.logoUrl, 'logoUrl'),
+    coverUrl: optionalUrl(input.coverUrl, 'coverUrl'),
+    location: optionalText(input.location, 'location'),
+    tuitionFee: optionalNonNegativeNumber(input.tuitionFee, 'tuitionFee'),
+    dormAvailable: input.dormAvailable ?? false,
+    scholarshipAvailable: input.scholarshipAvailable ?? false,
+    overview: optionalText(input.overview, 'overview', MAX_LONG_TEXT_LENGTH),
+    website: optionalUrl(input.website, 'website'),
+  };
+}
+
+function majorValues(input: MajorInput) {
+  return {
+    schoolId: input.schoolId,
+    name: requiredText(input.name, 'Major name'),
+    category: optionalText(input.category, 'category'),
+    requiredSubjects: parseSubjectList(input.requiredSubjects, 'requiredSubjects'),
+    cutOffScore: optionalNonNegativeNumber(input.cutOffScore, 'cutOffScore'),
+    degreeType: optionalText(input.degreeType, 'degreeType'),
+    tuitionFee: optionalNonNegativeNumber(input.tuitionFee, 'tuitionFee'),
+  };
+}
+
 export const mutations = {
   syncClerkUser: async (
     _parent: unknown,
@@ -50,37 +107,42 @@ export const mutations = {
     if (authUser.clerkUserId !== args.clerkUserId) {
       throw forbidden('You can only sync your own Clerk profile.');
     }
-    if (!args.email.includes('@')) throw badInput('A valid email address is required.');
+    let email = parseEmail(args.email);
+    const name = optionalText(args.name, 'name');
+    const avatarUrl = optionalUrl(args.avatarUrl, 'avatarUrl');
 
-    const existing = await context.loaders.userByClerkUserId.load(args.clerkUserId);
-
-    if (existing) {
-      const [updated] = await context.db
-        .update(users)
-        .set({
-          email: args.email,
-          name: args.name ?? existing.name,
-          avatarUrl: args.avatarUrl ?? existing.avatarUrl,
-          updatedAt: new Date().toISOString(),
-        })
-        .where(eq(users.id, existing.id))
-        .returning();
-      context.loaders.userByClerkUserId.clear(args.clerkUserId);
-      return updated;
+    const existing = await context.loaders.userByClerkUserId.load(authUser.clerkUserId);
+    if (existing?.email !== email) {
+      const verifiedEmail = await fetchClerkPrimaryEmail(authUser.clerkUserId, context.env);
+      if (verifiedEmail === null) throw badInput('Your account does not have an email address.');
+      if (verifiedEmail !== undefined) email = verifiedEmail;
     }
 
-    const [created] = await context.db
-      .insert(users)
-      .values({
-        clerkUserId: args.clerkUserId,
-        email: args.email,
-        name: args.name ?? null,
-        avatarUrl: args.avatarUrl ?? null,
-        role: authUser.role,
-      })
-      .returning();
-    context.loaders.userByClerkUserId.clear(args.clerkUserId);
-    return created;
+    const [synced] = await translateConstraintErrors(
+      context.db
+        .insert(users)
+        .values({
+          clerkUserId: authUser.clerkUserId,
+          email,
+          name,
+          avatarUrl,
+          role: authUser.role,
+        })
+        .onConflictDoUpdate({
+          target: users.clerkUserId,
+          set: {
+            email,
+            role: authUser.role,
+            ...(name !== null ? { name } : {}),
+            ...(avatarUrl !== null ? { avatarUrl } : {}),
+            updatedAt: new Date().toISOString(),
+          },
+        })
+        .returning(),
+      { unique: conflict('This email address is already linked to another account.') }
+    );
+    context.loaders.userByClerkUserId.clear(authUser.clerkUserId);
+    return synced;
   },
 
   updateUserProfile: async (
@@ -89,19 +151,25 @@ export const mutations = {
     context: GraphQLContext
   ) => {
     const user = await requireInternalUser(context);
+    const { input } = args;
+
+    const changes: Partial<NewUser> = { updatedAt: new Date().toISOString() };
+    if (input.name !== undefined) changes.name = optionalText(input.name, 'name');
+    if (input.avatarUrl !== undefined) changes.avatarUrl = optionalUrl(input.avatarUrl, 'avatarUrl');
+    if (input.scores !== undefined) {
+      changes.scores = input.scores === null ? null : parseScores(input.scores);
+    }
+    if (input.preferences !== undefined) {
+      changes.preferences = input.preferences === null ? null : parsePreferences(input.preferences);
+    }
 
     const [updated] = await context.db
       .update(users)
-      .set({
-        name: args.input.name ?? user.name,
-        avatarUrl: args.input.avatarUrl ?? user.avatarUrl,
-        scores: args.input.scores ?? user.scores,
-        preferences: args.input.preferences ?? user.preferences,
-        updatedAt: new Date().toISOString(),
-      })
+      .set(changes)
       .where(eq(users.id, user.id))
       .returning();
     context.loaders.userByClerkUserId.clear(user.clerkUserId);
+    if (!updated) throw notFound('User');
     return updated;
   },
 
@@ -114,19 +182,21 @@ export const mutations = {
     const school = await context.loaders.schoolById.load(args.schoolId);
     if (!school) throw notFound('School');
 
-    const existingRows = await context.db
-      .select()
-      .from(savedSchools)
-      .where(and(eq(savedSchools.userId, user.id), eq(savedSchools.schoolId, args.schoolId)));
-
     context.loaders.savedSchoolIdsByUserId.clear(user.id);
 
-    if (existingRows[0]) {
-      await context.db.delete(savedSchools).where(eq(savedSchools.id, existingRows[0].id));
-      return false;
-    }
+    const removed = await context.db
+      .delete(savedSchools)
+      .where(and(eq(savedSchools.userId, user.id), eq(savedSchools.schoolId, args.schoolId)))
+      .returning({ id: savedSchools.id });
+    if (removed.length) return false;
 
-    await context.db.insert(savedSchools).values({ userId: user.id, schoolId: args.schoolId });
+    await translateConstraintErrors(
+      context.db
+        .insert(savedSchools)
+        .values({ userId: user.id, schoolId: args.schoolId })
+        .onConflictDoNothing(),
+      { foreignKey: notFound('School') }
+    );
     return true;
   },
 
@@ -139,19 +209,21 @@ export const mutations = {
     const major = await context.loaders.majorById.load(args.majorId);
     if (!major) throw notFound('Major');
 
-    const existingRows = await context.db
-      .select()
-      .from(savedMajors)
-      .where(and(eq(savedMajors.userId, user.id), eq(savedMajors.majorId, args.majorId)));
-
     context.loaders.savedMajorIdsByUserId.clear(user.id);
 
-    if (existingRows[0]) {
-      await context.db.delete(savedMajors).where(eq(savedMajors.id, existingRows[0].id));
-      return false;
-    }
+    const removed = await context.db
+      .delete(savedMajors)
+      .where(and(eq(savedMajors.userId, user.id), eq(savedMajors.majorId, args.majorId)))
+      .returning({ id: savedMajors.id });
+    if (removed.length) return false;
 
-    await context.db.insert(savedMajors).values({ userId: user.id, majorId: args.majorId });
+    await translateConstraintErrors(
+      context.db
+        .insert(savedMajors)
+        .values({ userId: user.id, majorId: args.majorId })
+        .onConflictDoNothing(),
+      { foreignKey: notFound('Major') }
+    );
     return true;
   },
 
@@ -161,23 +233,7 @@ export const mutations = {
     context: GraphQLContext
   ) => {
     requireAdmin(context);
-    const name = args.input.name.trim();
-    if (!name) throw badInput('School name is required.');
-
-    const [created] = await context.db
-      .insert(schools)
-      .values({
-        name,
-        logoUrl: args.input.logoUrl ?? null,
-        coverUrl: args.input.coverUrl ?? null,
-        location: args.input.location ?? null,
-        tuitionFee: args.input.tuitionFee ?? null,
-        dormAvailable: args.input.dormAvailable ?? false,
-        scholarshipAvailable: args.input.scholarshipAvailable ?? false,
-        overview: args.input.overview ?? null,
-        website: args.input.website ?? null,
-      })
-      .returning();
+    const [created] = await context.db.insert(schools).values(schoolValues(args.input)).returning();
     return created;
   },
 
@@ -187,22 +243,9 @@ export const mutations = {
     context: GraphQLContext
   ) => {
     requireAdmin(context);
-    const name = args.input.name.trim();
-    if (!name) throw badInput('School name is required.');
-
     const [updated] = await context.db
       .update(schools)
-      .set({
-        name,
-        logoUrl: args.input.logoUrl ?? null,
-        coverUrl: args.input.coverUrl ?? null,
-        location: args.input.location ?? null,
-        tuitionFee: args.input.tuitionFee ?? null,
-        dormAvailable: args.input.dormAvailable ?? false,
-        scholarshipAvailable: args.input.scholarshipAvailable ?? false,
-        overview: args.input.overview ?? null,
-        website: args.input.website ?? null,
-      })
+      .set(schoolValues(args.input))
       .where(eq(schools.id, args.id))
       .returning();
     context.loaders.schoolById.clear(args.id);
@@ -224,24 +267,16 @@ export const mutations = {
     context: GraphQLContext
   ) => {
     requireAdmin(context);
-    const name = args.input.name.trim();
-    if (!name) throw badInput('Major name is required.');
+    const values = majorValues(args.input);
 
-    const school = await context.loaders.schoolById.load(args.input.schoolId);
+    const school = await context.loaders.schoolById.load(values.schoolId);
     if (!school) throw notFound('School');
 
-    const [created] = await context.db
-      .insert(majors)
-      .values({
-        schoolId: args.input.schoolId,
-        name,
-        category: args.input.category ?? null,
-        requiredSubjects: args.input.requiredSubjects ?? null,
-        cutOffScore: args.input.cutOffScore ?? null,
-        degreeType: args.input.degreeType ?? null,
-        tuitionFee: args.input.tuitionFee ?? null,
-      })
-      .returning();
+    const [created] = await translateConstraintErrors(
+      context.db.insert(majors).values(values).returning(),
+      { foreignKey: notFound('School') }
+    );
+    context.loaders.majorsBySchoolId.clear(values.schoolId);
     return created;
   },
 
@@ -251,27 +286,19 @@ export const mutations = {
     context: GraphQLContext
   ) => {
     requireAdmin(context);
-    const name = args.input.name.trim();
-    if (!name) throw badInput('Major name is required.');
+    const values = majorValues(args.input);
 
-    const school = await context.loaders.schoolById.load(args.input.schoolId);
+    const existing = await context.loaders.majorById.load(args.id);
+    if (!existing) throw notFound('Major');
+    const school = await context.loaders.schoolById.load(values.schoolId);
     if (!school) throw notFound('School');
 
-    const [updated] = await context.db
-      .update(majors)
-      .set({
-        schoolId: args.input.schoolId,
-        name,
-        category: args.input.category ?? null,
-        requiredSubjects: args.input.requiredSubjects ?? null,
-        cutOffScore: args.input.cutOffScore ?? null,
-        degreeType: args.input.degreeType ?? null,
-        tuitionFee: args.input.tuitionFee ?? null,
-      })
-      .where(eq(majors.id, args.id))
-      .returning();
+    const [updated] = await translateConstraintErrors(
+      context.db.update(majors).set(values).where(eq(majors.id, args.id)).returning(),
+      { foreignKey: notFound('School') }
+    );
     context.loaders.majorById.clear(args.id);
-    context.loaders.majorsBySchoolId.clear(args.input.schoolId);
+    context.loaders.majorsBySchoolId.clear(existing.schoolId).clear(values.schoolId);
     if (!updated) throw notFound('Major');
     return updated;
   },
@@ -280,8 +307,8 @@ export const mutations = {
     requireAdmin(context);
     const [deleted] = await context.db.delete(majors).where(eq(majors.id, args.id)).returning();
     context.loaders.majorById.clear(args.id);
-    if (deleted) context.loaders.majorsBySchoolId.clear(deleted.schoolId);
     if (!deleted) throw notFound('Major');
+    context.loaders.majorsBySchoolId.clear(deleted.schoolId);
     return true;
   },
 };

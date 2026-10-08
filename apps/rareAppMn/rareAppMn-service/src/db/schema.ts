@@ -1,5 +1,5 @@
 import { relations, sql } from 'drizzle-orm';
-import { integer, real, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
+import { index, integer, real, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
 
 const isoNow = sql`(strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))`;
 
@@ -48,50 +48,66 @@ export const schools = sqliteTable('schools', {
   createdAt: text('created_at').notNull().default(isoNow),
 });
 
-export const majors = sqliteTable('majors', {
-  id: uuid('id'),
-  schoolId: text('school_id')
-    .notNull()
-    .references(() => schools.id, { onDelete: 'cascade' }),
-  name: text('name').notNull(),
-  category: text('category'),
-  /** List of subject names required for admission, e.g. `["math", "physics"]`. */
-  requiredSubjects: text('required_subjects', { mode: 'json' }).$type<string[]>(),
-  cutOffScore: real('cut_off_score'),
-  degreeType: text('degree_type'),
-  tuitionFee: real('tuition_fee'),
-});
+export const majors = sqliteTable(
+  'majors',
+  {
+    id: uuid('id'),
+    schoolId: text('school_id')
+      .notNull()
+      .references(() => schools.id, { onDelete: 'cascade' }),
+    name: text('name').notNull(),
+    category: text('category'),
+    /** List of subject names required for admission, e.g. `["math", "physics"]`. */
+    requiredSubjects: text('required_subjects', { mode: 'json' }).$type<string[]>(),
+    cutOffScore: real('cut_off_score'),
+    degreeType: text('degree_type'),
+    tuitionFee: real('tuition_fee'),
+  },
+  (table) => [index('majors_school_id_idx').on(table.schoolId)]
+);
 
-export const scholarships = sqliteTable('scholarships', {
-  id: uuid('id'),
-  schoolId: text('school_id')
-    .notNull()
-    .references(() => schools.id, { onDelete: 'cascade' }),
-  name: text('name').notNull(),
-  coverage: text('coverage'),
-  requirements: text('requirements'),
-  deadline: text('deadline'),
-});
+export const scholarships = sqliteTable(
+  'scholarships',
+  {
+    id: uuid('id'),
+    schoolId: text('school_id')
+      .notNull()
+      .references(() => schools.id, { onDelete: 'cascade' }),
+    name: text('name').notNull(),
+    coverage: text('coverage'),
+    requirements: text('requirements'),
+    deadline: text('deadline'),
+  },
+  (table) => [index('scholarships_school_id_idx').on(table.schoolId)]
+);
 
-export const dormitories = sqliteTable('dormitories', {
-  id: uuid('id'),
-  schoolId: text('school_id')
-    .notNull()
-    .references(() => schools.id, { onDelete: 'cascade' }),
-  capacity: integer('capacity'),
-  feePerMonth: real('fee_per_month'),
-  facilities: text('facilities', { mode: 'json' }).$type<string[]>(),
-});
+export const dormitories = sqliteTable(
+  'dormitories',
+  {
+    id: uuid('id'),
+    schoolId: text('school_id')
+      .notNull()
+      .references(() => schools.id, { onDelete: 'cascade' }),
+    capacity: integer('capacity'),
+    feePerMonth: real('fee_per_month'),
+    facilities: text('facilities', { mode: 'json' }).$type<string[]>(),
+  },
+  (table) => [index('dormitories_school_id_idx').on(table.schoolId)]
+);
 
-export const admissionSchedules = sqliteTable('admission_schedules', {
-  id: uuid('id'),
-  schoolId: text('school_id')
-    .notNull()
-    .references(() => schools.id, { onDelete: 'cascade' }),
-  eventName: text('event_name').notNull(),
-  startDate: text('start_date'),
-  endDate: text('end_date'),
-});
+export const admissionSchedules = sqliteTable(
+  'admission_schedules',
+  {
+    id: uuid('id'),
+    schoolId: text('school_id')
+      .notNull()
+      .references(() => schools.id, { onDelete: 'cascade' }),
+    eventName: text('event_name').notNull(),
+    startDate: text('start_date'),
+    endDate: text('end_date'),
+  },
+  (table) => [index('admission_schedules_school_id_idx').on(table.schoolId)]
+);
 
 export const savedSchools = sqliteTable(
   'saved_schools',
@@ -105,7 +121,10 @@ export const savedSchools = sqliteTable(
       .references(() => schools.id, { onDelete: 'cascade' }),
     createdAt: text('created_at').notNull().default(isoNow),
   },
-  (table) => [uniqueIndex('saved_schools_user_school_idx').on(table.userId, table.schoolId)]
+  (table) => [
+    uniqueIndex('saved_schools_user_school_idx').on(table.userId, table.schoolId),
+    index('saved_schools_school_id_idx').on(table.schoolId),
+  ]
 );
 
 export const savedMajors = sqliteTable(
@@ -120,7 +139,10 @@ export const savedMajors = sqliteTable(
       .references(() => majors.id, { onDelete: 'cascade' }),
     createdAt: text('created_at').notNull().default(isoNow),
   },
-  (table) => [uniqueIndex('saved_majors_user_major_idx').on(table.userId, table.majorId)]
+  (table) => [
+    uniqueIndex('saved_majors_user_major_idx').on(table.userId, table.majorId),
+    index('saved_majors_major_id_idx').on(table.majorId),
+  ]
 );
 
 export const usersRelations = relations(users, ({ many }) => ({

@@ -8,6 +8,27 @@ export interface ScoreMatchOutcome {
 
 type MatchableMajor = Pick<Major, 'name' | 'requiredSubjects' | 'cutOffScore'>;
 
+const MAX_MATCH_SCORE = 1.5;
+
+function requiredSubjectsOf(major: Pick<Major, 'requiredSubjects'>): string[] {
+  const subjects: unknown = major.requiredSubjects;
+  if (!Array.isArray(subjects)) return [];
+  return subjects.filter((subject): subject is string => typeof subject === 'string');
+}
+
+function scoreFor(scores: Record<string, number>, subject: string): number | undefined {
+  if (!Object.hasOwn(scores, subject)) return undefined;
+  const value: unknown = scores[subject];
+  return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
+}
+
+export function hasRelevantScores(
+  major: Pick<Major, 'requiredSubjects'>,
+  scores: Record<string, number>
+): boolean {
+  return requiredSubjectsOf(major).some((subject) => scoreFor(scores, subject) !== undefined);
+}
+
 /**
  * Compares a student's subject scores against a major's required subjects
  * and cut-off score. `matchScore` is normalized to roughly `0..1` (capped at
@@ -18,32 +39,37 @@ export function scoreMajorMatch(
   major: MatchableMajor,
   scores: Record<string, number>
 ): ScoreMatchOutcome {
-  const requiredSubjects = major.requiredSubjects ?? [];
+  const requiredSubjects = requiredSubjectsOf(major);
   const relevantScores = requiredSubjects
-    .map((subject) => scores[subject])
-    .filter((value): value is number => typeof value === 'number');
+    .map((subject) => scoreFor(scores, subject))
+    .filter((value): value is number => value !== undefined);
 
   if (requiredSubjects.length === 0 || relevantScores.length === 0) {
     return {
       matchScore: 0,
       eligible: false,
-      reason: `No matching scores were provided for ${major.name}'s required subjects.`,
+      reason: `${major.name} мэргэжлийн шаардлагатай хичээлүүдэд тохирох оноо оруулаагүй байна.`,
     };
   }
 
   const average = relevantScores.reduce((sum, value) => sum + value, 0) / relevantScores.length;
   const cutOffScore = major.cutOffScore ?? 0;
-  const matchScore = cutOffScore > 0 ? Math.min(average / cutOffScore, 1.5) : average / 100;
+  const rawMatchScore = cutOffScore > 0 ? average / cutOffScore : average / 100;
+  const matchScore = Math.min(Math.max(rawMatchScore, 0), MAX_MATCH_SCORE);
   const eligible = cutOffScore > 0 ? average >= cutOffScore : true;
 
-  const missingSubjects = requiredSubjects.filter((subject) => typeof scores[subject] !== 'number');
+  const missingSubjects = requiredSubjects.filter((subject) => scoreFor(scores, subject) === undefined);
   const missingNote = missingSubjects.length
-    ? ` Missing scores for: ${missingSubjects.join(', ')}.`
+    ? ` Дутуу хичээл: ${missingSubjects.join(', ')}.`
     : '';
+  const averageText = average.toFixed(1);
 
-  const reason = eligible
-    ? `Average score ${average.toFixed(1)} meets the ${cutOffScore || 'unspecified'} cut-off for ${major.name}.${missingNote}`
-    : `Average score ${average.toFixed(1)} is below the ${cutOffScore} cut-off for ${major.name}.${missingNote}`;
+  const reason =
+    cutOffScore <= 0
+      ? `${major.name} мэргэжилд босго оноо тогтоогоогүй. Таны дундаж оноо ${averageText}.${missingNote}`
+      : eligible
+        ? `Дундаж оноо ${averageText} нь ${major.name} мэргэжлийн ${cutOffScore} босго оноог хангаж байна.${missingNote}`
+        : `Дундаж оноо ${averageText} нь ${major.name} мэргэжлийн ${cutOffScore} босго оноонаас доогуур байна.${missingNote}`;
 
   return { matchScore, eligible, reason };
 }

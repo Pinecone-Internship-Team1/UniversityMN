@@ -5,25 +5,30 @@ import { notFound } from '../../lib/validate';
 import { mutations } from './mutations';
 import { queries } from './queries';
 
-function parseJsonLiteral(ast: ValueNode): unknown {
+function parseJsonLiteral(
+  ast: ValueNode,
+  variables?: Readonly<Record<string, unknown>> | null
+): unknown {
   switch (ast.kind) {
     case Kind.STRING:
     case Kind.BOOLEAN:
+    case Kind.ENUM:
       return ast.value;
     case Kind.INT:
     case Kind.FLOAT:
       return Number(ast.value);
     case Kind.NULL:
       return null;
+    case Kind.VARIABLE:
+      return variables?.[ast.name.value];
     case Kind.LIST:
-      return ast.values.map(parseJsonLiteral);
+      return ast.values.map((value) => parseJsonLiteral(value, variables));
     case Kind.OBJECT:
-      return ast.fields.reduce<Record<string, unknown>>((acc, field) => {
-        acc[field.name.value] = parseJsonLiteral(field.value);
-        return acc;
-      }, {});
+      return Object.fromEntries(
+        ast.fields.map((field) => [field.name.value, parseJsonLiteral(field.value, variables)])
+      );
     default:
-      throw new GraphQLError(`JSON cannot represent value of kind: ${ast.kind}`);
+      throw new GraphQLError('JSON cannot represent this value.');
   }
 }
 
