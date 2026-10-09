@@ -46,13 +46,19 @@ export const typeDefs = /* GraphQL */ `
     coverUrl: String
     location: String
     tuitionFee: Float
-    dormAvailable: Boolean!
-    scholarshipAvailable: Boolean!
+    "Shown instead of the formatted tuitionFee when set, e.g. a range."
+    tuitionText: String
+    "Null when unknown."
+    dormAvailable: Boolean
+    "Null when unknown."
+    scholarshipAvailable: Boolean
     overview: String
     website: String
     "Contact phone numbers, in display order; empty when none are known."
     phones: [String!]!
     email: String
+    "How to apply for the university's dorms; null when not known."
+    dormGuide: DormGuide
     "The university's schools (faculties), each holding its majors."
     faculties: [Faculty!]!
     majors: [Major!]!
@@ -109,9 +115,35 @@ export const typeDefs = /* GraphQL */ `
     id: ID!
     schoolId: ID!
     school: School!
+    "e.g. I байр"
+    name: String
     capacity: Int
     feePerMonth: Float
+    feePerYear: Float
+    "ISO currency of the fees; null means MNT."
+    currency: String
     facilities: JSON
+  }
+
+  type DormGuideStep {
+    title: String!
+    text: String!
+  }
+
+  type DormGuideLink {
+    title: String!
+    url: String!
+  }
+
+  type DormGuide {
+    "Caveat shown with the dorm list, e.g. that prices come from an undated page."
+    note: String
+    steps: [DormGuideStep!]!
+    priorityOrder: [String!]!
+    specialRooms: String
+    documents: [String!]!
+    rules: [String!]!
+    links: [DormGuideLink!]!
   }
 
   type AdmissionSchedule {
@@ -164,7 +196,10 @@ export const typeDefs = /* GraphQL */ `
     coverUrl: String
     location: String
     tuitionFee: Float
+    tuitionText: String
+    "Null or omitted means unknown."
     dormAvailable: Boolean
+    "Null or omitted means unknown."
     scholarshipAvailable: Boolean
     overview: String
     website: String

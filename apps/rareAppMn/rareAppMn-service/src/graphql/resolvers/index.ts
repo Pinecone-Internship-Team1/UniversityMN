@@ -87,6 +87,19 @@ export const resolvers = {
 
   School: {
     phones: (parent: School) => parent.phones ?? [],
+    dormGuide: (parent: School) => {
+      const guide = parent.dormGuide;
+      if (!guide) return null;
+      return {
+        note: guide.note ?? null,
+        steps: guide.steps ?? [],
+        priorityOrder: guide.priorityOrder ?? [],
+        specialRooms: guide.specialRooms ?? null,
+        documents: guide.documents ?? [],
+        rules: guide.rules ?? [],
+        links: guide.links ?? [],
+      };
+    },
     faculties: (parent: School, _args: unknown, context: GraphQLContext) =>
       context.loaders.facultiesBySchoolId.load(parent.id),
     majors: (parent: School, _args: unknown, context: GraphQLContext) =>

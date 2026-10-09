@@ -46,7 +46,9 @@ function scheduleStatus(
   today: string,
 ): ScheduleStatus {
   if (!startDate && !endDate) return "unknown";
-  if (endDate && endDate.slice(0, 10) < today) return "ended";
+  // A date without an end (e.g. "results announced") is a one-day event.
+  const lastDay = endDate ?? startDate;
+  if (lastDay && lastDay.slice(0, 10) < today) return "ended";
   if (startDate && startDate.slice(0, 10) > today) return "upcoming";
   return "open";
 }

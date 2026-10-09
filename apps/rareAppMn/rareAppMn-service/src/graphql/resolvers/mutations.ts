@@ -45,6 +45,7 @@ export interface SchoolInput {
   coverUrl?: string | null;
   location?: string | null;
   tuitionFee?: number | null;
+  tuitionText?: string | null;
   dormAvailable?: boolean | null;
   scholarshipAvailable?: boolean | null;
   overview?: string | null;
@@ -100,8 +101,9 @@ function schoolValues(input: SchoolInput) {
     coverUrl: optionalUrl(input.coverUrl, 'coverUrl'),
     location: optionalText(input.location, 'location'),
     tuitionFee: optionalNonNegativeNumber(input.tuitionFee, 'tuitionFee'),
-    dormAvailable: input.dormAvailable ?? false,
-    scholarshipAvailable: input.scholarshipAvailable ?? false,
+    tuitionText: optionalText(input.tuitionText, 'tuitionText'),
+    dormAvailable: input.dormAvailable ?? null,
+    scholarshipAvailable: input.scholarshipAvailable ?? null,
     overview: optionalText(input.overview, 'overview', MAX_LONG_TEXT_LENGTH),
     website: optionalUrl(input.website, 'website'),
     phones: parsePhoneList(input.phones, 'phones'),

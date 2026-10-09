@@ -52,6 +52,7 @@ const SCHOOL_CARD_FIELDS = /* GraphQL */ `
   coverUrl
   location
   tuitionFee
+  tuitionText
   dormAvailable
   scholarshipAvailable
   overview
@@ -128,9 +129,27 @@ export const SCHOOL_QUERY = /* GraphQL */ `
       dormitories {
         id
         schoolId
+        name
         capacity
         feePerMonth
+        feePerYear
+        currency
         facilities
+      }
+      dormGuide {
+        note
+        steps {
+          title
+          text
+        }
+        priorityOrder
+        specialRooms
+        documents
+        rules
+        links {
+          title
+          url
+        }
       }
       admissionSchedules {
         id
@@ -421,6 +440,8 @@ export const COMPARE_ITEMS_QUERY = /* GraphQL */ `
           id
           capacity
           feePerMonth
+          feePerYear
+          currency
         }
       }
       ... on Major {
@@ -442,7 +463,7 @@ export interface CompareItemsVariables {
 export type CompareSchool = Extract<CompareItem, { __typename: "School" }> & {
   majors: Pick<Major, "id">[];
   scholarships: Pick<Scholarship, "id">[];
-  dormitories: Pick<Dormitory, "id" | "capacity" | "feePerMonth">[];
+  dormitories: Pick<Dormitory, "id" | "capacity" | "feePerMonth" | "feePerYear" | "currency">[];
 };
 
 export type CompareMajor = Extract<CompareItem, { __typename: "Major" }> & {
@@ -529,6 +550,7 @@ const ADMIN_SCHOOL_FIELDS = /* GraphQL */ `
   coverUrl
   location
   tuitionFee
+  tuitionText
   dormAvailable
   scholarshipAvailable
   overview

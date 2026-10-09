@@ -32,6 +32,18 @@ export const users = sqliteTable(
   ]
 );
 
+/** Step-by-step dorm application guide shown on a university's dorm section. */
+export interface DormGuide {
+  /** Caveat shown with the dorm list, e.g. that prices come from an undated page. */
+  note?: string | null;
+  steps?: { title: string; text: string }[];
+  priorityOrder?: string[];
+  specialRooms?: string | null;
+  documents?: string[];
+  rules?: string[];
+  links?: { title: string; url: string }[];
+}
+
 /** A university. (Called "school" throughout the API; its own schools are `faculties`.) */
 export const schools = sqliteTable('schools', {
   id: uuid('id'),
@@ -40,11 +52,23 @@ export const schools = sqliteTable('schools', {
   coverUrl: text('cover_url'),
   location: text('location'),
   tuitionFee: real('tuition_fee'),
-  dormAvailable: integer('dorm_available', { mode: 'boolean' }).notNull().default(false),
-  scholarshipAvailable: integer('scholarship_available', { mode: 'boolean' })
+  /** Shown instead of the formatted `tuitionFee` when set, e.g. a range; `tuitionFee` still sorts and filters. */
+  tuitionText: text('tuition_text'),
+  /** Null when unknown, so the site can say "Мэдээлэл удахгүй нэмэгдэнэ" instead of guessing. */
+  dormAvailable: integer('has_dormitory', { mode: 'boolean' }),
+  scholarshipAvailable: integer('has_scholarships', { mode: 'boolean' }),
+  /**
+   * @deprecated Replaced by `has_dormitory` / `has_scholarships`, which can be null.
+   * Kept because SQLite can only drop NOT NULL by rebuilding the table, and
+   * rebuilding `schools` would cascade-delete everything that references it.
+   */
+  legacyDormAvailable: integer('dorm_available', { mode: 'boolean' }).notNull().default(false),
+  /** @deprecated See `legacyDormAvailable`. */
+  legacyScholarshipAvailable: integer('scholarship_available', { mode: 'boolean' })
     .notNull()
     .default(false),
   overview: text('overview'),
+  dormGuide: text('dorm_guide', { mode: 'json' }).$type<DormGuide>(),
   website: text('website'),
   /** Contact phone numbers as written, e.g. `["+976 7730-7730", "11-320159"]`. */
   phones: text('phones', { mode: 'json' }).$type<string[]>(),
@@ -132,8 +156,13 @@ export const dormitories = sqliteTable(
     schoolId: text('school_id')
       .notNull()
       .references(() => schools.id, { onDelete: 'cascade' }),
+    /** e.g. "I байр"; null for a university that lists dorms without names. */
+    name: text('name'),
     capacity: integer('capacity'),
     feePerMonth: real('fee_per_month'),
+    feePerYear: real('fee_per_year'),
+    /** ISO currency of the fees; null means MNT. */
+    currency: text('currency'),
     facilities: text('facilities', { mode: 'json' }).$type<string[]>(),
   },
   (table) => [index('dormitories_school_id_idx').on(table.schoolId)]

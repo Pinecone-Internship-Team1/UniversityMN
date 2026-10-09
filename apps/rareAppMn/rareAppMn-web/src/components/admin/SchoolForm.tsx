@@ -7,6 +7,7 @@ import { useMutation } from "urql";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/Textarea";
 import {
   CATALOG_CACHE,
@@ -31,10 +32,23 @@ import {
   type ValidationResult,
 } from "@/lib/validation";
 
+/** A yes/no fact that can also be not yet known. */
+type Availability = "unknown" | "yes" | "no";
+
+function toAvailability(value: boolean | null | undefined): Availability {
+  if (value == null) return "unknown";
+  return value ? "yes" : "no";
+}
+
+function fromAvailability(value: Availability): boolean | null {
+  return value === "unknown" ? null : value === "yes";
+}
+
 interface SchoolFormValues {
   name: string;
   location: string;
   tuitionFee: string;
+  tuitionText: string;
   website: string;
   email: string;
   /** One entry per phone input row; blank rows are dropped on save. */
@@ -42,8 +56,8 @@ interface SchoolFormValues {
   logoUrl: string;
   coverUrl: string;
   overview: string;
-  dormAvailable: boolean;
-  scholarshipAvailable: boolean;
+  dormAvailable: Availability;
+  scholarshipAvailable: Availability;
 }
 
 function toFormValues(school: AdminSchool | null): SchoolFormValues {
@@ -51,14 +65,15 @@ function toFormValues(school: AdminSchool | null): SchoolFormValues {
     name: school?.name ?? "",
     location: school?.location ?? "",
     tuitionFee: school?.tuitionFee != null ? String(school.tuitionFee) : "",
+    tuitionText: school?.tuitionText ?? "",
     website: school?.website ?? "",
     email: school?.email ?? "",
     phones: school?.phones.length ? [...school.phones] : [""],
     logoUrl: school?.logoUrl ?? "",
     coverUrl: school?.coverUrl ?? "",
     overview: school?.overview ?? "",
-    dormAvailable: school?.dormAvailable ?? false,
-    scholarshipAvailable: school?.scholarshipAvailable ?? false,
+    dormAvailable: toAvailability(school?.dormAvailable),
+    scholarshipAvailable: toAvailability(school?.scholarshipAvailable),
   };
 }
 
@@ -69,6 +84,8 @@ function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput
   if (!location.ok) return location;
   const tuitionFee = parseOptionalNumber(values.tuitionFee, "Сургалтын төлбөр");
   if (!tuitionFee.ok) return tuitionFee;
+  const tuitionText = parseOptionalText(values.tuitionText, "Сургалтын төлбөр (текст)");
+  if (!tuitionText.ok) return tuitionText;
   const website = parseOptionalUrl(values.website, "Вэбсайт");
   if (!website.ok) return website;
   const email = parseOptionalEmail(values.email, "И-мэйл");
@@ -88,14 +105,15 @@ function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput
       name: name.value,
       location: location.value,
       tuitionFee: tuitionFee.value,
+      tuitionText: tuitionText.value,
       website: website.value,
       email: email.value,
       phones: phones.value,
       logoUrl: logoUrl.value,
       coverUrl: coverUrl.value,
       overview: overview.value,
-      dormAvailable: values.dormAvailable,
-      scholarshipAvailable: values.scholarshipAvailable,
+      dormAvailable: fromAvailability(values.dormAvailable),
+      scholarshipAvailable: fromAvailability(values.scholarshipAvailable),
     },
   };
 }
@@ -191,6 +209,14 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
             placeholder="жишээ: 4500000"
           />
         </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
+          Сургалтын төлбөр (сайтад харагдах текст, заавал биш)
+          <Input
+            value={values.tuitionText}
+            onChange={(event) => set("tuitionText", event.target.value)}
+            placeholder="жишээ: ≈ 5.8–8.5 сая ₮/жил (хөтөлбөрөөс хамаарна)"
+          />
+        </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
           Вэбсайт
           <Input
@@ -280,25 +306,25 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
         </label>
       </div>
 
-      <div className="flex flex-wrap gap-5 text-sm text-ink/80">
-        <label className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={values.dormAvailable}
-            onChange={(event) => set("dormAvailable", event.target.checked)}
-            className="h-4 w-4 accent-accent"
-          />
-          Дотуур байртай
-        </label>
-        <label className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={values.scholarshipAvailable}
-            onChange={(event) => set("scholarshipAvailable", event.target.checked)}
-            className="h-4 w-4 accent-accent"
-          />
-          Тэтгэлэгтэй
-        </label>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {(
+          [
+            ["dormAvailable", "Дотуур байр"],
+            ["scholarshipAvailable", "Тэтгэлэг"],
+          ] as const
+        ).map(([key, label]) => (
+          <label key={key} className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
+            {label}
+            <Select
+              value={values[key]}
+              onChange={(event) => set(key, event.target.value as Availability)}
+            >
+              <option value="unknown">Тодорхойгүй (Мэдээлэл удахгүй нэмэгдэнэ)</option>
+              <option value="yes">Боломжтой</option>
+              <option value="no">Боломжгүй</option>
+            </Select>
+          </label>
+        ))}
       </div>
 
       {errorMessage && <p className="text-xs font-medium text-destructive">{errorMessage}</p>}

@@ -43,6 +43,13 @@
       "when": 1791503159894,
       "tag": "0005_add_faculty_location_and_exam_note",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1791507013106,
+      "tag": "0006_add_school_details_and_dorm_names",
+      "breakpoints": true
     }
   ]
 }

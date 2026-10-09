@@ -20,6 +20,7 @@ import { Footer } from "@/components/layout/Footer";
 import { MajorScoreCheck } from "@/components/schools/MajorScoreCheck";
 import { SchoolBookmarkButton } from "@/components/schools/SchoolBookmarkButton";
 import { UniversityPrograms } from "@/components/schools/UniversityPrograms";
+import { DormGuideDetails } from "@/components/schools/DormGuideDetails";
 import { ComingSoon } from "@/components/ui/ComingSoon";
 import { compareHref } from "@/lib/compare";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
@@ -33,10 +34,11 @@ import {
   type SchoolsQueryVariables,
 } from "@/lib/graphql/documents";
 import {
-  formatAmount,
+  formatAvailability,
   formatDate,
   formatDateRange,
-  formatTuition,
+  formatFee,
+  formatSchoolTuition,
 } from "@/lib/format";
 import { UNIVERSITIES, getUniversityByFullName } from "@/lib/university-logos";
 
@@ -220,7 +222,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                           </p>
                         )}
                         {scholarship.requirements && (
-                          <p className="mt-0.5 text-xs text-ink/60">
+                          <p className="mt-0.5 whitespace-pre-line text-xs text-ink/60">
                             Шаардлага: {scholarship.requirements}
                           </p>
                         )}
@@ -243,35 +245,48 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                   Оюутны байр
                 </h2>
               </div>
-              {school.dormitories.length === 0 ? (
+              {school.dormitories.length === 0 && !school.dormGuide ? (
                 <ComingSoon />
               ) : (
-                <ul className="mt-4 space-y-3 text-sm text-ink/80">
-                  {school.dormitories.map((dormitory) => (
-                    <li
-                      key={dormitory.id}
-                      className="rounded-xl border border-ink/10 bg-paper px-4 py-3"
-                    >
-                      <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
-                        {dormitory.capacity != null && (
-                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            {dormitory.capacity.toLocaleString("mn-MN")} ор
-                          </span>
-                        )}
-                        {dormitory.feePerMonth != null && (
-                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            Сарын төлбөр: {formatAmount(dormitory.feePerMonth)}
-                          </span>
-                        )}
-                      </div>
-                      {(dormitory.facilities ?? []).length > 0 && (
-                        <p className="mt-2 text-xs text-ink/60">
-                          {(dormitory.facilities ?? []).join(" · ")}
-                        </p>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                <>
+                  {school.dormitories.length > 0 && (
+                    <ul className="mt-4 space-y-3 text-sm text-ink/80">
+                      {school.dormitories.map((dormitory) => (
+                        <li
+                          key={dormitory.id}
+                          className="rounded-xl border border-ink/10 bg-paper px-4 py-3"
+                        >
+                          {dormitory.name && (
+                            <p className="mb-2 text-sm font-bold text-ink">{dormitory.name}</p>
+                          )}
+                          <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
+                            {dormitory.capacity != null && (
+                              <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                                {dormitory.capacity.toLocaleString("mn-MN")} ор
+                              </span>
+                            )}
+                            {dormitory.feePerYear != null && (
+                              <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                                Жилийн төлбөр: {formatFee(dormitory.feePerYear, dormitory.currency)}
+                              </span>
+                            )}
+                            {dormitory.feePerMonth != null && (
+                              <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                                Сарын төлбөр: {formatFee(dormitory.feePerMonth, dormitory.currency)}
+                              </span>
+                            )}
+                          </div>
+                          {(dormitory.facilities ?? []).length > 0 && (
+                            <p className="mt-2 text-xs text-ink/60">
+                              {(dormitory.facilities ?? []).join(" · ")}
+                            </p>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {school.dormGuide && <DormGuideDetails guide={school.dormGuide} />}
+                </>
               )}
             </section>
 
@@ -364,10 +379,8 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                 <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
                   <Banknote className="mt-0.5 h-4 w-4 text-ink/40" />
                   <div>
-                    <p className="font-semibold text-ink">
-                      Дундаж сургалтын төлбөр
-                    </p>
-                    <p className="mt-0.5">{formatTuition(school.tuitionFee)}</p>
+                    <p className="font-semibold text-ink">Сургалтын төлбөр</p>
+                    <p className="mt-0.5">{formatSchoolTuition(school)}</p>
                   </div>
                 </div>
 
@@ -375,9 +388,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                   <GraduationCap className="mt-0.5 h-4 w-4 text-ink/40" />
                   <div>
                     <p className="font-semibold text-ink">Дотуур байр</p>
-                    <p className="mt-0.5">
-                      {school.dormAvailable ? "Боломжтой" : "Боломжгүй"}
-                    </p>
+                    <p className="mt-0.5">{formatAvailability(school.dormAvailable)}</p>
                   </div>
                 </div>
 
@@ -386,7 +397,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                   <div>
                     <p className="font-semibold text-ink">Тэтгэлэг</p>
                     <p className="mt-0.5">
-                      {school.scholarshipAvailable ? "Боломжтой" : "Боломжгүй"}
+                      {formatAvailability(school.scholarshipAvailable)}
                     </p>
                   </div>
                 </div>

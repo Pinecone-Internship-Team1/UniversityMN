@@ -2,10 +2,30 @@ import type { ScoreMatchVerdict } from "@/lib/graphql/types";
 
 /** Formats a tuition fee (plain MNT amount) as e.g. "4.5 сая ₮". */
 export function formatTuition(fee: number | null | undefined): string {
-  if (fee == null) return "Мэдээлэл байхгүй";
+  if (fee == null) return "Мэдээлэл удахгүй нэмэгдэнэ";
   const millions = fee / 1_000_000;
   const rounded = Math.round(millions * 10) / 10;
   return `${rounded.toLocaleString("mn-MN")} сая ₮`;
+}
+
+/** A university's yearly tuition: its own text (e.g. a range) when set, else the formatted fee. */
+export function formatSchoolTuition(school: {
+  tuitionFee: number | null;
+  tuitionText: string | null;
+}): string {
+  return school.tuitionText ?? formatTuition(school.tuitionFee);
+}
+
+/** A university's yes/no fact, which is null until someone has checked it. */
+export function formatAvailability(available: boolean | null): string {
+  if (available == null) return "Мэдээлэл удахгүй нэмэгдэнэ";
+  return available ? "Боломжтой" : "Боломжгүй";
+}
+
+/** A fee in its own currency: "630,000 ₮", or "500 USD". Null currency means MNT. */
+export function formatFee(amount: number, currency: string | null): string {
+  if (!currency || currency === "MNT") return formatAmount(amount);
+  return `${Math.round(amount).toLocaleString("mn-MN")} ${currency}`;
 }
 
 /** A major's yearly tuition; an estimated upper bound reads "≈ 8.5 сая ₮ хүртэл". */

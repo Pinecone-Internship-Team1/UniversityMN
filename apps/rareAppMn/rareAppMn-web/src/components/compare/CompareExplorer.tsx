@@ -14,9 +14,10 @@ import { MAX_COMPARE_ITEMS, compareHref, type CompareMode } from "@/lib/compare"
 import {
   examSubjectLines,
   formatAmount,
+  formatAvailability,
   formatDegreeType,
   formatMajorTuition,
-  formatTuition,
+  formatSchoolTuition,
 } from "@/lib/format";
 import {
   COMPARE_ITEMS_QUERY,
@@ -67,18 +68,23 @@ function universityHref(school: { id: string; name: string }): string {
 
 const SCHOOL_ROWS: CompareRow<CompareSchool>[] = [
   { label: "Байршил", render: (school) => school.location ?? "—" },
-  { label: "Сургалтын төлбөр", render: (school) => formatTuition(school.tuitionFee) },
+  { label: "Сургалтын төлбөр", render: (school) => formatSchoolTuition(school) },
   { label: "Мэргэжлийн тоо", render: (school) => school.majors.length },
   {
     label: "Дотуур байр",
     render: (school) => {
-      if (!school.dormAvailable) return "Боломжгүй";
-      const fees = school.dormitories
-        .map((dormitory) => dormitory.feePerMonth)
-        .filter((fee): fee is number => fee != null);
-      return fees.length > 0
-        ? `Боломжтой · ${formatAmount(Math.min(...fees))}/сар`
-        : "Боломжтой";
+      if (!school.dormAvailable) return formatAvailability(school.dormAvailable);
+      const cheapest = (pick: (dormitory: CompareSchool["dormitories"][number]) => number | null) => {
+        const fees = school.dormitories
+          .filter((dormitory) => !dormitory.currency || dormitory.currency === "MNT")
+          .map(pick)
+          .filter((fee): fee is number => fee != null);
+        return fees.length > 0 ? Math.min(...fees) : null;
+      };
+      const monthly = cheapest((dormitory) => dormitory.feePerMonth);
+      if (monthly != null) return `Боломжтой · ${formatAmount(monthly)}/сар`;
+      const yearly = cheapest((dormitory) => dormitory.feePerYear);
+      return yearly != null ? `Боломжтой · ${formatAmount(yearly)}/жилээс` : "Боломжтой";
     },
   },
   {
@@ -86,7 +92,7 @@ const SCHOOL_ROWS: CompareRow<CompareSchool>[] = [
     render: (school) =>
       school.scholarshipAvailable
         ? `Боломжтой (${school.scholarships.length})`
-        : "Боломжгүй",
+        : formatAvailability(school.scholarshipAvailable),
   },
   {
     label: "Вэбсайт",

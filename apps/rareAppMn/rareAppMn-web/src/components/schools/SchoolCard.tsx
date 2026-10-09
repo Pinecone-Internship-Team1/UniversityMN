@@ -1,7 +1,7 @@
 import { ArrowRight, Banknote, Home, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { formatTuition } from "@/lib/format";
+import { formatSchoolTuition } from "@/lib/format";
 import type { School } from "@/lib/graphql/types";
 import {
   getUniversityByFullName,
@@ -81,7 +81,7 @@ export function SchoolCard({ school, className, onToggled }: SchoolCardProps) {
             <span>
               Төлбөр:{" "}
               <strong className="font-semibold text-ink">
-                {formatTuition(school.tuitionFee)}
+                {formatSchoolTuition(school)}
               </strong>
             </span>
           </div>
