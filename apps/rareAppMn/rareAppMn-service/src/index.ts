@@ -2,7 +2,7 @@ import { NoSchemaIntrospectionCustomRule, type ValidationRule } from 'graphql';
 import { createSchema, createYoga, type Plugin } from 'graphql-yoga';
 import { createContext, type ContextExtensions, type WorkerServerContext } from './context';
 import { createDb } from './db';
-import { seedDatabase } from './db/seed';
+import { SeedRefusedError, seedDatabase } from './db/seed';
 import { typeDefs } from './graphql/typeDefs';
 import { resolvers } from './graphql/resolvers';
 import { IMAGE_PATH_PATTERN, handleImageRequest, handleImageUpload } from './images';
@@ -123,8 +123,13 @@ async function route(request: Request, env: Env, ctx: ExecutionContext): Promise
     // Dev/demo convenience so pages never render empty locally. Never
     // reachable once ENVIRONMENT=production.
     if (!isLocalDevelopment(env, request)) return new Response('Not found', { status: 404 });
-    const summary = await seedDatabase(createDb(env.DB));
-    return Response.json({ status: 'seeded', ...summary });
+    try {
+      const summary = await seedDatabase(createDb(env.DB));
+      return Response.json({ status: 'seeded', ...summary });
+    } catch (error) {
+      if (!(error instanceof SeedRefusedError)) throw error;
+      return Response.json({ status: 'refused', message: error.message }, { status: 409 });
+    }
   }
 
   const limitedRequest = await withBodyLimit(request);

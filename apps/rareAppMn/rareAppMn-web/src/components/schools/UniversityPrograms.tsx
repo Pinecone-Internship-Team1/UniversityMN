@@ -4,6 +4,7 @@ import { BookOpen, ChevronRight, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { MajorBookmarkButton } from "@/components/schools/MajorBookmarkButton";
 import { MajorNotes } from "@/components/schools/MajorNotes";
+import { ComingSoon } from "@/components/ui/ComingSoon";
 import {
   DEGREE_TYPES,
   OTHER_DEGREE,
@@ -140,9 +141,7 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
       </div>
 
       {degrees.length === 0 ? (
-        <p className="mt-4 text-sm text-ink/60">
-          Хөтөлбөрийн мэдээлэл одоогоор бүртгэгдээгүй байна.
-        </p>
+        <ComingSoon />
       ) : (
         <>
           <p className="mt-4 text-sm text-ink/70">Ямар зэргийн хөтөлбөр сонирхож байна вэ?</p>

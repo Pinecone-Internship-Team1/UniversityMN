@@ -1,3 +1,4 @@
+import { notInArray } from 'drizzle-orm';
 import type { Database } from './index';
 import {
   admissionSchedules,
@@ -827,6 +828,43 @@ export interface SeedSummary {
   admissionSchedules: number;
 }
 
+/** Thrown instead of seeding a database that holds anything besides the demo data. */
+export class SeedRefusedError extends Error {}
+
+/**
+ * Seeding starts by deleting every school, so it must only ever touch a
+ * database that contains nothing but this demo data -- a fresh local D1, or
+ * one seeded before. Any real university, program, scholarship, dorm or date
+ * (as on main) makes it refuse, whichever route or binding reached it.
+ */
+async function assertOnlySeedData(db: Database): Promise<void> {
+  const seedIds = <T>(pick: (entry: SchoolSeed) => T[]) => SEED_SCHOOLS.flatMap(pick);
+  const ids = (rows: { id: string }[]) => rows.map((row) => row.id);
+  const [foreignSchools, foreignMajors, foreignScholarships, foreignDorms, foreignSchedules] =
+    await db.batch([
+      db.select({ id: schools.id }).from(schools)
+        .where(notInArray(schools.id, SEED_SCHOOLS.map((entry) => entry.id))).limit(1),
+      db.select({ id: majors.id }).from(majors)
+        .where(notInArray(majors.id, ids(seedIds((entry) => entry.majors)))).limit(1),
+      db.select({ id: scholarships.id }).from(scholarships)
+        .where(notInArray(scholarships.id, ids(seedIds((entry) => entry.scholarships)))).limit(1),
+      db.select({ id: dormitories.id }).from(dormitories)
+        .where(notInArray(dormitories.id, ids(seedIds((entry) => entry.dormitories)))).limit(1),
+      db.select({ id: admissionSchedules.id }).from(admissionSchedules)
+        .where(notInArray(admissionSchedules.id, ids(seedIds((entry) => entry.admissionSchedules))))
+        .limit(1),
+    ]);
+  if (
+    [foreignSchools, foreignMajors, foreignScholarships, foreignDorms, foreignSchedules].some(
+      (rows) => rows.length > 0
+    )
+  ) {
+    throw new SeedRefusedError(
+      'This database contains data that is not part of the demo seed; seeding would delete it.'
+    );
+  }
+}
+
 /**
  * Wipes and re-inserts the demo dataset above. Idempotent and safe to
  * re-run: fixed ids mean repeated runs produce identical data rather than
@@ -834,10 +872,13 @@ export interface SeedSummary {
  * 'cascade'` foreign key) through faculties, majors, scholarships, dormitories,
  * admission schedules, and any saved-school/saved-major bookmarks pointing
  * at them -- so this intentionally clears bookmarks on seeded schools too.
- * Dev/demo convenience only; never exposed in production (see the
- * `/dev/seed` route in src/index.ts, gated by `isDevelopment(env)`).
+ * Dev/demo convenience only: the `/dev/seed` route in src/index.ts only
+ * answers localhost outside production, and this refuses any database with
+ * non-demo data (see `assertOnlySeedData`), so it can never run against main.
  */
 export async function seedDatabase(db: Database): Promise<SeedSummary> {
+  await assertOnlySeedData(db);
+
   const inserts = SEED_SCHOOLS.flatMap((entry) => [
     db.insert(schools).values({
       id: entry.id,

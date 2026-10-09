@@ -20,6 +20,7 @@ import { Footer } from "@/components/layout/Footer";
 import { MajorScoreCheck } from "@/components/schools/MajorScoreCheck";
 import { SchoolBookmarkButton } from "@/components/schools/SchoolBookmarkButton";
 import { UniversityPrograms } from "@/components/schools/UniversityPrograms";
+import { ComingSoon } from "@/components/ui/ComingSoon";
 import { compareHref } from "@/lib/compare";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
 import {
@@ -180,10 +181,13 @@ export default async function UniversityDetailPage({ params }: PageProps) {
               <h2 className="text-xl font-bold tracking-tight text-ink">
                 Сургуулийн тухай
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-ink/80 sm:text-base">
-                {school.overview ??
-                  `${school.name} нь салбартаа манлайлагч, чанартай боловсрол олгодог тэргүүлэгч сургуулиудын нэг юм.`}
-              </p>
+              {school.overview ? (
+                <p className="mt-4 text-sm leading-relaxed text-ink/80 sm:text-base">
+                  {school.overview}
+                </p>
+              ) : (
+                <ComingSoon />
+              )}
             </section>
 
             <UniversityPrograms faculties={school.faculties} majors={school.majors} />
@@ -197,9 +201,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                 </h2>
               </div>
               {school.scholarships.length === 0 ? (
-                <p className="mt-4 text-sm text-ink/60">
-                  Тэтгэлгийн мэдээлэл одоогоор бүртгэгдээгүй байна.
-                </p>
+                <ComingSoon />
               ) : (
                 <ul className="mt-4 space-y-3 text-sm text-ink/80">
                   {school.scholarships.map((scholarship) => (
@@ -234,14 +236,16 @@ export default async function UniversityDetailPage({ params }: PageProps) {
               )}
             </section>
 
-            {school.dormitories.length > 0 && (
-              <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-                <div className="flex items-center gap-2 text-ink">
-                  <BedDouble className="h-5 w-5 text-accent" />
-                  <h2 className="text-xl font-bold tracking-tight">
-                    Оюутны байр
-                  </h2>
-                </div>
+            <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+              <div className="flex items-center gap-2 text-ink">
+                <BedDouble className="h-5 w-5 text-accent" />
+                <h2 className="text-xl font-bold tracking-tight">
+                  Оюутны байр
+                </h2>
+              </div>
+              {school.dormitories.length === 0 ? (
+                <ComingSoon />
+              ) : (
                 <ul className="mt-4 space-y-3 text-sm text-ink/80">
                   {school.dormitories.map((dormitory) => (
                     <li
@@ -268,22 +272,24 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                     </li>
                   ))}
                 </ul>
-              </section>
-            )}
+              )}
+            </section>
 
             {school.majors.length > 0 && (
               <MajorScoreCheck majors={school.majors} />
             )}
 
             {/* Admission schedule */}
-            {school.admissionSchedules.length > 0 && (
-              <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-                <div className="flex items-center gap-2 text-ink">
-                  <CalendarDays className="h-5 w-5 text-accent" />
-                  <h2 className="text-xl font-bold tracking-tight">
-                    Элсэлтийн хуанли
-                  </h2>
-                </div>
+            <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+              <div className="flex items-center gap-2 text-ink">
+                <CalendarDays className="h-5 w-5 text-accent" />
+                <h2 className="text-xl font-bold tracking-tight">
+                  Элсэлтийн хуанли
+                </h2>
+              </div>
+              {school.admissionSchedules.length === 0 ? (
+                <ComingSoon />
+              ) : (
                 <ul className="mt-4 space-y-3 text-sm text-ink/80">
                   {school.admissionSchedules.map((schedule) => (
                     <li
@@ -299,8 +305,8 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                     </li>
                   ))}
                 </ul>
-              </section>
-            )}
+              )}
+            </section>
           </div>
 
           {/* Sidebar Specs */}

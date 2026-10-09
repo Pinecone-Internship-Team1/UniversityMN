@@ -9,7 +9,10 @@ below runs fully offline: `wrangler dev` spins up a local D1 simulation, and
 behavior whenever they're left as their mock defaults (see `src/lib/env.ts`).
 These fallbacks, and `POST /dev/seed`, only apply to requests served from
 localhost, so a deployed Worker is never permissive even without
-`ENVIRONMENT=production`.
+`ENVIRONMENT=production`. The seed also deletes every school before inserting
+the demo data, so it refuses (409) any database that holds anything else,
+such as main or a local copy with real programs: it only fills a fresh local
+D1 or re-seeds one that has nothing but demo data.
 
 ## Local setup
 
