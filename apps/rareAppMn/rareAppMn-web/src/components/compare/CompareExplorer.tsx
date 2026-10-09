@@ -33,7 +33,7 @@ import {
   type SchoolsQueryVariables,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
-import { getUniversityByFullName, getUniversitySlug } from "@/lib/university-logos";
+import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
 
 export interface CompareExplorerProps {
@@ -58,12 +58,12 @@ const MODES: { id: CompareMode; label: string; icon: typeof School }[] = [
 
 const PICKER_LIMIT = 6;
 
-function schoolShortName(name: string): string {
-  return getUniversityByFullName(name)?.short ?? name;
+function schoolShortName(school: { id: string; name: string }): string {
+  return getUniversityBySchoolId(school.id)?.short ?? school.name;
 }
 
-function universityHref(school: { id: string; name: string }): string {
-  return `/university/${getUniversitySlug(school.name) ?? school.id}`;
+function universityHref(school: { id: string }): string {
+  return `/university/${getUniversitySlug(school.id) ?? school.id}`;
 }
 
 const SCHOOL_ROWS: CompareRow<CompareSchool>[] = [
@@ -117,7 +117,7 @@ const MAJOR_ROWS: CompareRow<CompareMajor>[] = [
     label: "Сургууль",
     render: (major) => (
       <Link href={universityHref(major.school)} className="font-semibold hover:text-accent">
-        {schoolShortName(major.school.name)}
+        {schoolShortName(major.school)}
       </Link>
     ),
   },
@@ -253,13 +253,13 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
     selection.mode === "schools"
       ? (schoolSearch.data?.schools.items ?? []).map((school) => ({
           id: school.id,
-          title: schoolShortName(school.name),
+          title: schoolShortName(school),
           subtitle: school.location ?? school.name,
         }))
       : (majorSearch.data?.majors.items ?? []).map((major) => ({
           id: major.id,
           title: major.name,
-          subtitle: [schoolShortName(major.school.name), major.category]
+          subtitle: [schoolShortName(major.school), major.category]
             .filter(Boolean)
             .join(" · "),
         }));
@@ -396,7 +396,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                 onRemove={remove}
                 title={(school) => (
                   <Link href={universityHref(school)} className="hover:text-accent">
-                    {schoolShortName(school.name)}
+                    {schoolShortName(school)}
                   </Link>
                 )}
               />

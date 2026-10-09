@@ -1,5 +1,8 @@
 export interface University {
+  /** Route slug, e.g. "muis" in /university/muis. */
   id: string;
+  /** The backend School id; logos and slugs are looked up by this, never by name. */
+  schoolId: string;
   short: string;
   full: string;
   founded: string;
@@ -9,6 +12,7 @@ export interface University {
 export const UNIVERSITIES: Record<string, University> = {
   muis: {
     id: "muis",
+    schoolId: "sch_muis",
     short: "МУИС",
     full: "Монгол Улсын Их Сургууль",
     founded: "1942",
@@ -16,6 +20,7 @@ export const UNIVERSITIES: Record<string, University> = {
   },
   shutis: {
     id: "shutis",
+    schoolId: "sch_shutis",
     short: "ШУТИС",
     full: "Шинжлэх Ухаан Технологийн Их Сургууль",
     founded: "1969",
@@ -23,6 +28,7 @@ export const UNIVERSITIES: Record<string, University> = {
   },
   sezis: {
     id: "sezis",
+    schoolId: "sch_sezis",
     short: "СЭЗИС",
     full: "Санхүү Эдийн Засгийн Их Сургууль",
     founded: "1963",
@@ -30,6 +36,7 @@ export const UNIVERSITIES: Record<string, University> = {
   },
   ashuuis: {
     id: "ashuuis",
+    schoolId: "sch_ashuuis",
     short: "АШУҮИС",
     full: "Анагаахын Шинжлэх Ухааны Үндэсний Их Сургууль",
     founded: "1942",
@@ -37,6 +44,7 @@ export const UNIVERSITIES: Record<string, University> = {
   },
   khaais: {
     id: "khaais",
+    schoolId: "sch_khaais",
     short: "ХААИС",
     full: "Хөдөө Аж Ахуйн Их Сургууль",
     founded: "1958",
@@ -44,6 +52,7 @@ export const UNIVERSITIES: Record<string, University> = {
   },
   mubis: {
     id: "mubis",
+    schoolId: "sch_mubis",
     short: "МУБИС",
     full: "Монгол Улсын Боловсролын Их Сургууль",
     founded: "1951",
@@ -51,6 +60,7 @@ export const UNIVERSITIES: Record<string, University> = {
   },
   otgontenger: {
     id: "otgontenger",
+    schoolId: "sch_otgontenger",
     short: "Отгонтэнгэр",
     full: "Отгонтэнгэр Их Сургууль",
     founded: "1994",
@@ -58,27 +68,31 @@ export const UNIVERSITIES: Record<string, University> = {
   },
   suis: {
     id: "suis",
+    schoolId: "sch_suis",
     short: "СУИС",
-    full: "Соёл Урлагийн Их Сургууль",
+    full: "Монгол Улсын Соёл Урлагийн Их Сургууль",
     founded: "1990",
     image: "/logos/suis.png",
   },
   huree: {
     id: "huree",
+    schoolId: "sch_huree",
     short: "Хүрээ",
-    full: "Хүрээ Их Сургууль",
+    full: "Хүрээ Мэдээлэл Холбоо Технологийн Дээд Сургууль",
     founded: "1993",
     image: "/logos/huree.png",
   },
   iuu: {
     id: "iuu",
+    schoolId: "sch_iuu",
     short: "УБОУИС",
-    full: "Улаанбаатарын Олон Улсын Их Сургууль",
+    full: "Олон Улсын Улаанбаатарын Их Сургууль",
     founded: "1995",
     image: "/logos/iuu.png",
   },
   etugen: {
     id: "etugen",
+    schoolId: "sch_etugen",
     short: "Этүгэн",
     full: "Этүгэн Их Сургууль",
     founded: "1994",
@@ -145,25 +159,20 @@ export function getCursorTrailUniversities(): University[] {
   return CURSOR_TRAIL_SEQUENCE.map((id) => UNIVERSITIES[id]);
 }
 
-const UNIVERSITIES_BY_FULL_NAME: Record<string, University> = Object.values(
-  UNIVERSITIES,
-).reduce<Record<string, University>>((acc, university) => {
-  acc[university.full] = university;
-  return acc;
-}, {});
+const UNIVERSITIES_BY_SCHOOL_ID: Record<string, University> = Object.fromEntries(
+  Object.values(UNIVERSITIES).map((university) => [university.schoolId, university]),
+);
 
 /**
- * Resolves a backend `School.name` (e.g. "Монгол Улсын Их Сургууль") to the
- * matching static asset entry, so GraphQL-sourced schools can still render
- * the logo images that only exist for these known universities. Backend
- * schools outside this static set simply get no match (falls back to an
- * initials avatar at the call site).
+ * The static entry (logo, short name, slug) for a backend school, by its id
+ * so renaming a university can't break the match. Schools outside this
+ * static set get no match (the call site falls back to an initials avatar).
  */
-export function getUniversityByFullName(name: string): University | undefined {
-  return UNIVERSITIES_BY_FULL_NAME[name];
+export function getUniversityBySchoolId(schoolId: string): University | undefined {
+  return UNIVERSITIES_BY_SCHOOL_ID[schoolId];
 }
 
-/** The route slug (e.g. `"muis"`) for a known university, used to build `/university/[slug]` links. */
-export function getUniversitySlug(name: string): string | undefined {
-  return UNIVERSITIES_BY_FULL_NAME[name]?.id;
+/** The route slug (e.g. `"muis"`) for a known school, used to build `/university/[slug]` links. */
+export function getUniversitySlug(schoolId: string): string | undefined {
+  return UNIVERSITIES_BY_SCHOOL_ID[schoolId]?.id;
 }

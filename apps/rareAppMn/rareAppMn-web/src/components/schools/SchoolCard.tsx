@@ -4,7 +4,7 @@ import Link from "next/link";
 import { formatSchoolTuition } from "@/lib/format";
 import type { School } from "@/lib/graphql/types";
 import {
-  getUniversityByFullName,
+  getUniversityBySchoolId,
   getUniversitySlug,
 } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
@@ -18,9 +18,9 @@ export interface SchoolCardProps {
 }
 
 export function SchoolCard({ school, className, onToggled }: SchoolCardProps) {
-  const university = getUniversityByFullName(school.name);
+  const university = getUniversityBySchoolId(school.id);
   const logoSrc = school.logoUrl ?? university?.image;
-  const slug = getUniversitySlug(school.name) ?? school.id;
+  const slug = getUniversitySlug(school.id) ?? school.id;
   const href = `/university/${slug}`;
 
   return (

@@ -26,12 +26,9 @@ import { compareHref } from "@/lib/compare";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
 import {
   SCHOOL_QUERY,
-  SCHOOLS_QUERY,
   type SchoolDetail,
   type SchoolQueryResult,
   type SchoolQueryVariables,
-  type SchoolsQueryResult,
-  type SchoolsQueryVariables,
 } from "@/lib/graphql/documents";
 import {
   formatAvailability,
@@ -40,45 +37,23 @@ import {
   formatFee,
   formatSchoolTuition,
 } from "@/lib/format";
-import { UNIVERSITIES, getUniversityByFullName } from "@/lib/university-logos";
+import { UNIVERSITIES, getUniversityBySchoolId } from "@/lib/university-logos";
 
 interface PageProps {
   params: Promise<{ id: string }>;
 }
 
 /**
- * The URL segment is either a known static slug (e.g. "muis", matched to
- * its logo/display name in university-logos.ts) or a raw backend School
- * id. Slugs are resolved to a backend id by exact name match first, since
- * the backend itself has no concept of slugs.
+ * The URL segment is either a known static slug (e.g. "muis", mapped to its
+ * backend id in university-logos.ts) or a raw backend School id.
  */
 async function resolveSchool(idOrSlug: string): Promise<SchoolDetail | null> {
   const client = createServerGraphqlClient();
-  const knownUniversity = UNIVERSITIES[idOrSlug];
-
-  if (knownUniversity) {
-    const listResult = await client
-      .query<SchoolsQueryResult, SchoolsQueryVariables>(SCHOOLS_QUERY, {
-        filter: { search: knownUniversity.full, limit: 100 },
-      })
-      .toPromise();
-
-    const match = listResult.data?.schools.items.find(
-      (item) => item.name === knownUniversity.full,
-    );
-    if (!match) return null;
-
-    const detailResult = await client
-      .query<SchoolQueryResult, SchoolQueryVariables>(SCHOOL_QUERY, {
-        id: match.id,
-      })
-      .toPromise();
-    return detailResult.data?.school ?? null;
-  }
+  const schoolId = UNIVERSITIES[idOrSlug]?.schoolId ?? idOrSlug;
 
   const detailResult = await client
     .query<SchoolQueryResult, SchoolQueryVariables>(SCHOOL_QUERY, {
-      id: idOrSlug,
+      id: schoolId,
     })
     .toPromise();
   return detailResult.data?.school ?? null;
@@ -92,7 +67,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const university = getUniversityByFullName(school.name);
+  const university = getUniversityBySchoolId(school.id);
   const shortName = university?.short ?? school.name;
   const imageSrc = school.logoUrl ?? university?.image;
 

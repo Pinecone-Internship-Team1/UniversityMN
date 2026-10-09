@@ -15,7 +15,7 @@ import {
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { fetchAllSchools } from "@/lib/graphql/fetch-all-schools";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
-import { getUniversityByFullName, getUniversitySlug } from "@/lib/university-logos";
+import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 
 export const metadata: Metadata = {
   title: "Тэтгэлэг — Oyutan MN",
@@ -82,7 +82,7 @@ export default async function ScholarshipsPage() {
               </p>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {entries.map(({ scholarship, school, expired }) => {
-                  const university = getUniversityByFullName(school.name);
+                  const university = getUniversityBySchoolId(school.id);
                   return (
                     <article
                       key={scholarship.id}
@@ -95,7 +95,7 @@ export default async function ScholarshipsPage() {
                         </Badge>
                       </div>
                       <Link
-                        href={`/university/${getUniversitySlug(school.name) ?? school.id}`}
+                        href={`/university/${getUniversitySlug(school.id) ?? school.id}`}
                         className="text-xs font-semibold text-ink/70 transition-colors hover:text-accent"
                       >
                         {university?.short ?? school.name}

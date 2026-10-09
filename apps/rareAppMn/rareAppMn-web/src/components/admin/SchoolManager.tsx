@@ -206,7 +206,7 @@ export function SchoolManager() {
               </div>
               <div className="flex shrink-0 items-center gap-1">
                 <Link
-                  href={`/university/${getUniversitySlug(selected.name) ?? selected.id}`}
+                  href={`/university/${getUniversitySlug(selected.id) ?? selected.id}`}
                   className="inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[11px] font-bold uppercase tracking-wider text-ink/60 transition-colors hover:bg-ink/[0.06] hover:text-ink"
                 >
                   <ExternalLink className="h-3.5 w-3.5" />

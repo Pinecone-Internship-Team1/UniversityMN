@@ -16,7 +16,7 @@ import {
   type MajorsQueryVariables,
 } from "@/lib/graphql/documents";
 import type { MajorFilterInput } from "@/lib/graphql/types";
-import { getUniversityByFullName, getUniversitySlug } from "@/lib/university-logos";
+import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
 import { MajorBookmarkButton } from "./MajorBookmarkButton";
 import { MajorNotes } from "./MajorNotes";
@@ -184,8 +184,8 @@ export function MajorsExplorer() {
               )}
             >
               {data.majors.items.map((major) => {
-                const university = getUniversityByFullName(major.school.name);
-                const slug = getUniversitySlug(major.school.name) ?? major.school.id;
+                const university = getUniversityBySchoolId(major.school.id);
+                const slug = getUniversitySlug(major.school.id) ?? major.school.id;
 
                 return (
                   <Link

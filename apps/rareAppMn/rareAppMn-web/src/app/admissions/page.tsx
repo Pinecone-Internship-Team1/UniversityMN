@@ -15,7 +15,7 @@ import {
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { fetchAllSchools } from "@/lib/graphql/fetch-all-schools";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
-import { getUniversityByFullName, getUniversitySlug } from "@/lib/university-logos";
+import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 
 export const metadata: Metadata = {
   title: "Элсэлтийн хуанли — Oyutan MN",
@@ -104,7 +104,7 @@ export default async function AdmissionsPage() {
           ) : (
             <ul className="space-y-3">
               {entries.map(({ schedule, school, status }) => {
-                const university = getUniversityByFullName(school.name);
+                const university = getUniversityBySchoolId(school.id);
                 const badge = STATUS_BADGES[status];
                 return (
                   <li
@@ -114,7 +114,7 @@ export default async function AdmissionsPage() {
                     <div className="min-w-0">
                       <p className="text-sm font-bold text-ink">{schedule.eventName}</p>
                       <Link
-                        href={`/university/${getUniversitySlug(school.name) ?? school.id}`}
+                        href={`/university/${getUniversitySlug(school.id) ?? school.id}`}
                         className="mt-1 inline-block text-xs font-semibold text-ink/60 transition-colors hover:text-accent"
                       >
                         {university?.short ?? school.name}

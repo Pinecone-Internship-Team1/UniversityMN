@@ -221,7 +221,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
     scholarshipAvailable: true,
     overview:
       'Санхүү Эдийн Засгийн Их Сургууль нь бизнес, санхүү, менежментийн сургалтаар тэргүүлэгч сургуулиудын нэг юм.',
-    website: 'https://www.ufe.edu.mn',
+    website: 'https://ufe.edu.mn',
     majors: [
       {
         id: 'maj_sezis_1',
@@ -550,14 +550,14 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
   },
   {
     id: 'sch_suis',
-    name: 'Соёл Урлагийн Их Сургууль',
+    name: 'Монгол Улсын Соёл Урлагийн Их Сургууль',
     location: 'Сүхбаатар дүүрэг, Улаанбаатар',
     tuitionFee: 4_400_000,
     dormAvailable: true,
     scholarshipAvailable: true,
     overview:
       'Соёл Урлагийн Их Сургууль нь жүжигчин, хөгжим, дизайн, радио телевизийн чиглэлээр мэргэжилтэн бэлтгэдэг.',
-    website: 'https://www.suis.edu.mn',
+    website: 'https://mnuac.edu.mn',
     majors: [
       {
         id: 'maj_suis_1',
@@ -618,14 +618,14 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
   },
   {
     id: 'sch_huree',
-    name: 'Хүрээ Их Сургууль',
+    name: 'Хүрээ Мэдээлэл Холбоо Технологийн Дээд Сургууль',
     location: 'Хан-Уул дүүрэг, Улаанбаатар',
     tuitionFee: 4_700_000,
     dormAvailable: false,
     scholarshipAvailable: true,
     overview:
       'Хүрээ Их Сургууль нь мэдээллийн технологи, сүлжээ, гадаад хэлний чиглэлээр сургалт явуулдаг хувийн дээд сургууль.',
-    website: 'https://www.huree.edu.mn',
+    website: 'https://huree.edu.mn',
     majors: [
       {
         id: 'maj_huree_1',
@@ -686,7 +686,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
   },
   {
     id: 'sch_iuu',
-    name: 'Улаанбаатарын Олон Улсын Их Сургууль',
+    name: 'Олон Улсын Улаанбаатарын Их Сургууль',
     location: 'Сонгинохайрхан дүүрэг, Улаанбаатар',
     tuitionFee: 5_500_000,
     dormAvailable: true,

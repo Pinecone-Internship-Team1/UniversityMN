@@ -38,7 +38,7 @@ import {
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
 import type { Region } from "@/lib/graphql/types";
-import { getUniversityByFullName, getUniversitySlug } from "@/lib/university-logos";
+import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 import {
   MAX_SHORT_TEXT_LENGTH,
   parseOptionalUrl,
@@ -95,7 +95,7 @@ function scoresToRows(scores: Record<string, number> | null): ScoreRow[] {
 }
 
 function universityHref(school: { id: string; name: string }): string {
-  return `/university/${getUniversitySlug(school.name) ?? school.id}`;
+  return `/university/${getUniversitySlug(school.id) ?? school.id}`;
 }
 
 // Branch schools have lower cut-offs (e.g. 430 vs 490), so ranking them together
@@ -210,7 +210,7 @@ function RecommendationList({ region }: { region: Region }) {
             </Badge>
           </div>
           <p className="text-xs text-ink/60">
-            {getUniversityByFullName(result.school.name)?.short ?? result.school.name}
+            {getUniversityBySchoolId(result.school.id)?.short ?? result.school.name}
           </p>
           <p className="text-[11px] leading-relaxed text-ink/50">
             {result.reason}
@@ -553,7 +553,7 @@ export function ProfileView() {
                   </p>
                   <p className="mt-0.5 text-xs text-ink/60">
                     {[
-                      getUniversityByFullName(major.school.name)?.short ?? major.school.name,
+                      getUniversityBySchoolId(major.school.id)?.short ?? major.school.name,
                       major.category,
                       formatTuition(major.tuitionFee),
                     ]
