@@ -94,6 +94,8 @@ export const typeDefs = /* GraphQL */ `
     "Shown with the exam subjects, e.g. when the суурь/дагалдах split is unknown. Never scored."
     examNote: String
     cutOffScore: Float
+    "The дагалдах exam's own minimum; when set, cutOffScore is the суурь exam's minimum and both must be met."
+    secondaryCutOffScore: Float
     degreeType: String
     tuitionFee: Float
     "True when tuitionFee is an estimated upper bound, not an official yearly fee."
@@ -223,6 +225,7 @@ export const typeDefs = /* GraphQL */ `
     secondarySubjects: [String!]
     examNote: String
     cutOffScore: Float
+    secondaryCutOffScore: Float
     degreeType: String
     tuitionFee: Float
     tuitionIsEstimate: Boolean

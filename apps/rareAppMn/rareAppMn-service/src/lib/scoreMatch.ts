@@ -12,8 +12,23 @@ export interface ScoreMatchOutcome {
 
 type MatchableMajor = Pick<
   Major,
-  'name' | 'requiredSubjects' | 'primarySubjects' | 'secondarySubjects' | 'examNote' | 'cutOffScore'
+  | 'name'
+  | 'requiredSubjects'
+  | 'primarySubjects'
+  | 'secondarySubjects'
+  | 'examNote'
+  | 'cutOffScore'
+  | 'secondaryCutOffScore'
 >;
+
+interface ExamPair {
+  primary: string;
+  primaryScore: number;
+  secondary: string;
+  secondaryScore: number;
+  /** 0.7 × суурь + 0.3 × дагалдах, rounded to one decimal. */
+  total: number;
+}
 
 const MAX_MATCH_SCORE = 1.5;
 const PRIMARY_WEIGHT = 0.7;
@@ -52,13 +67,13 @@ export function hasRelevantScores(
   return examSubjectsOf(major).some((subject) => scoreFor(scores, subject) !== undefined);
 }
 
-/** The best 0.7 × суурь + 0.3 × дагалдах total, where the two exams must differ. */
-function bestWeightedScore(
+/** Every суурь/дагалдах pair the student has both scores for, where the two exams differ. */
+function examPairs(
   scores: Record<string, number>,
   primarySubjects: string[],
   secondarySubjects: string[]
-): { primary: string; secondary: string; total: number } | null {
-  let best: { primary: string; secondary: string; total: number } | null = null;
+): ExamPair[] {
+  const pairs: ExamPair[] = [];
   for (const primary of primarySubjects) {
     const primaryScore = scoreFor(scores, primary);
     if (primaryScore === undefined) continue;
@@ -67,15 +82,27 @@ function bestWeightedScore(
       if (secondary === primary || secondaryScore === undefined) continue;
       const total =
         Math.round((PRIMARY_WEIGHT * primaryScore + SECONDARY_WEIGHT * secondaryScore) * 10) / 10;
-      if (!best || total > best.total) best = { primary, secondary, total };
+      pairs.push({ primary, primaryScore, secondary, secondaryScore, total });
     }
   }
-  return best;
+  return pairs;
+}
+
+/** The pair with the highest weighted total; `pairs` must not be empty. */
+function bestPair(pairs: ExamPair[]): ExamPair {
+  return pairs.reduce((best, pair) => (pair.total > best.total ? pair : best));
 }
 
 function capitalize(text: string): string {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
+
+function clampMatchScore(value: number): number {
+  return Math.min(Math.max(value, 0), MAX_MATCH_SCORE);
+}
+
+const PASSED_NOTE =
+  ' Босго давсан нь элсэх баталгаа биш, эрэлттэй хөтөлбөрт илүү өндөр оноо хэрэгтэй байж болно.';
 
 /**
  * `scoreText` names the score mid-sentence, e.g. "дундаж оноо 612.5";
@@ -89,8 +116,7 @@ function outcomeFor(
   passedNote = ''
 ): ScoreMatchOutcome {
   const cutOffScore = major.cutOffScore ?? 0;
-  const rawMatchScore = cutOffScore > 0 ? score / cutOffScore : score / 100;
-  const matchScore = Math.min(Math.max(rawMatchScore, 0), MAX_MATCH_SCORE);
+  const matchScore = clampMatchScore(cutOffScore > 0 ? score / cutOffScore : score / 100);
   const eligible = cutOffScore > 0 ? score >= cutOffScore : true;
 
   const reason =
@@ -103,6 +129,62 @@ function outcomeFor(
   return { matchScore, eligible, verdict: eligible ? 'ELIGIBLE' : 'BELOW_CUT_OFF', reason };
 }
 
+/**
+ * For a university that sets a minimum for each exam (e.g. ШУТИС: суурь 490,
+ * дагалдах 450): only pairs meeting both minimums count, ranked by their
+ * weighted total. A pair short on either exam is below the cut-off however
+ * high the other one is, so its match score always stays under 1.
+ */
+function perExamOutcome(
+  major: MatchableMajor,
+  pairs: ExamPair[],
+  primaryMinimum: number,
+  secondaryMinimum: number
+): ScoreMatchOutcome {
+  const weightedMinimum = PRIMARY_WEIGHT * primaryMinimum + SECONDARY_WEIGHT * secondaryMinimum;
+  const ratioTo = (score: number, minimum: number) => (minimum > 0 ? score / minimum : score / 100);
+  const minimums = `суурь ${primaryMinimum}, дагалдах ${secondaryMinimum}`;
+  const passing = pairs.filter(
+    (pair) => pair.primaryScore >= primaryMinimum && pair.secondaryScore >= secondaryMinimum
+  );
+
+  if (passing.length > 0) {
+    const best = bestPair(passing);
+    return {
+      matchScore: clampMatchScore(ratioTo(best.total, weightedMinimum)),
+      eligible: true,
+      verdict: 'ELIGIBLE',
+      reason:
+        `Суурь ${best.primary} ${best.primaryScore}, дагалдах ${best.secondary} ${best.secondaryScore} ` +
+        `оноо нь ${major.name} мэргэжлийн шалгалт тус бүрийн босгыг (${minimums}) хангаж байна. ` +
+        `Тооцоолсон оноо ${best.total.toFixed(1)} (0.7 × ${best.primary} + 0.3 × ${best.secondary}).${PASSED_NOTE}`,
+    };
+  }
+
+  const best = bestPair(pairs);
+  const shortfalls = [
+    best.primaryScore < primaryMinimum
+      ? `суурь ${best.primary} ${best.primaryScore} нь ${primaryMinimum} босго оноонаас доогуур`
+      : null,
+    best.secondaryScore < secondaryMinimum
+      ? `дагалдах ${best.secondary} ${best.secondaryScore} нь ${secondaryMinimum} босго оноонаас доогуур`
+      : null,
+  ].filter((text): text is string => text !== null);
+  const shortBy = (score: number, minimum: number) => (score < minimum ? score / minimum : 1);
+  return {
+    matchScore: clampMatchScore(
+      Math.min(
+        ratioTo(best.total, weightedMinimum),
+        shortBy(best.primaryScore, primaryMinimum),
+        shortBy(best.secondaryScore, secondaryMinimum)
+      )
+    ),
+    eligible: false,
+    verdict: 'BELOW_CUT_OFF',
+    reason: `${capitalize(shortfalls.join(', '))} тул ${major.name} мэргэжлийн шалгалт тус бүрийн босгыг (${minimums}) хангахгүй байна.`,
+  };
+}
+
 /** Scores a major admitted on one суурь (70%) and one different дагалдах (30%) exam. */
 function scoreWeightedMatch(
   major: MatchableMajor,
@@ -111,7 +193,7 @@ function scoreWeightedMatch(
 ): ScoreMatchOutcome {
   const secondarySubjects = subjectList(major.secondarySubjects);
   const scorableSecondary = secondarySubjects.filter((subject) => subject !== SKILL_EXAM);
-  const best = bestWeightedScore(scores, primarySubjects, scorableSecondary);
+  const pairs = examPairs(scores, primarySubjects, scorableSecondary);
 
   if (scorableSecondary.length === 0 && secondarySubjects.length > 0) {
     return {
@@ -121,7 +203,7 @@ function scoreWeightedMatch(
       reason: `${major.name} мэргэжлийн дагалдах шалгалт нь ${SKILL_EXAM} тул сургуулиас тодруулна уу.`,
     };
   }
-  if (!best) {
+  if (pairs.length === 0) {
     return {
       matchScore: 0,
       eligible: false,
@@ -129,13 +211,17 @@ function scoreWeightedMatch(
       reason: `${major.name} мэргэжилд суурь (${primarySubjects.join(', ')}) болон түүнээс өөр дагалдах (${scorableSecondary.join(', ')}) хичээлийн оноо хэрэгтэй.`,
     };
   }
+  if (major.secondaryCutOffScore != null) {
+    return perExamOutcome(major, pairs, major.cutOffScore ?? 0, major.secondaryCutOffScore);
+  }
 
+  const best = bestPair(pairs);
   return outcomeFor(
     major,
     best.total,
     `тооцоолсон оноо ${best.total.toFixed(1)} (0.7 × ${best.primary} + 0.3 × ${best.secondary})`,
     '',
-    ' Босго давсан нь элсэх баталгаа биш, эрэлттэй хөтөлбөрт илүү өндөр оноо хэрэгтэй байж болно.'
+    PASSED_NOTE
   );
 }
 

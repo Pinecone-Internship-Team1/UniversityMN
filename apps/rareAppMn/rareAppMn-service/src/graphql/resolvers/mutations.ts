@@ -69,6 +69,7 @@ export interface MajorInput {
   secondarySubjects?: string[] | null;
   examNote?: string | null;
   cutOffScore?: number | null;
+  secondaryCutOffScore?: number | null;
   degreeType?: string | null;
   tuitionFee?: number | null;
   tuitionIsEstimate?: boolean | null;
@@ -129,6 +130,10 @@ function majorValues(input: MajorInput) {
     secondarySubjects: parseSubjectList(input.secondarySubjects, 'secondarySubjects'),
     examNote: optionalText(input.examNote, 'examNote', MAX_LONG_TEXT_LENGTH),
     cutOffScore: optionalNonNegativeNumber(input.cutOffScore, 'cutOffScore'),
+    secondaryCutOffScore: optionalNonNegativeNumber(
+      input.secondaryCutOffScore,
+      'secondaryCutOffScore'
+    ),
     degreeType: optionalText(input.degreeType, 'degreeType'),
     tuitionFee: optionalNonNegativeNumber(input.tuitionFee, 'tuitionFee'),
     tuitionIsEstimate: input.tuitionIsEstimate ?? false,

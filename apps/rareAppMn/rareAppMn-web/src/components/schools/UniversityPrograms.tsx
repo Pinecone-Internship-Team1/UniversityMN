@@ -11,6 +11,7 @@ import {
   degreeKey,
   examSubjectLines,
   formatDegreeKey,
+  formatCutOff,
   formatMajorTuition,
 } from "@/lib/format";
 import type { Faculty, Major } from "@/lib/graphql/types";
@@ -78,7 +79,7 @@ function MajorCard({ major }: { major: Major }) {
         <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
           {major.cutOffScore != null && (
             <span className="rounded-full bg-ink/5 px-2.5 py-1">
-              Босго оноо: {major.cutOffScore}
+              Босго оноо: {formatCutOff(major)}
             </span>
           )}
           {major.tuitionFee != null && (

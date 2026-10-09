@@ -73,6 +73,8 @@ export interface Major {
   /** Shown with the exam subjects, e.g. when the суурь/дагалдах split is unknown. Never scored. */
   examNote: string | null;
   cutOffScore: number | null;
+  /** The дагалдах exam's own minimum; when set, `cutOffScore` is the суурь exam's and both must be met. */
+  secondaryCutOffScore: number | null;
   degreeType: string | null;
   tuitionFee: number | null;
   /** `tuitionFee` is an estimated upper bound, not an official yearly fee. */
@@ -198,6 +200,7 @@ export interface MajorInput {
   secondarySubjects?: string[] | null;
   examNote?: string | null;
   cutOffScore?: number | null;
+  secondaryCutOffScore?: number | null;
   degreeType?: string | null;
   tuitionFee?: number | null;
   tuitionIsEstimate?: boolean | null;

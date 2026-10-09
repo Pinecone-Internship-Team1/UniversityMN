@@ -619,7 +619,7 @@ export const SEED_SCHOOLS: SchoolSeed[] = [
   {
     id: 'sch_huree',
     name: 'Хүрээ Мэдээлэл Холбоо Технологийн Дээд Сургууль',
-    location: 'Хан-Уул дүүрэг, Улаанбаатар',
+    location: 'Улаанбаатар, Баянгол дүүрэг, 11-р хороо, Бичил хороолол, Хасбаатарын гудамж',
     tuitionFee: 4_700_000,
     dormAvailable: false,
     scholarshipAvailable: true,

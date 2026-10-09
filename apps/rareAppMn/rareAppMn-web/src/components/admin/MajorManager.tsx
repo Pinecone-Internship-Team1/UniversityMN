@@ -9,7 +9,13 @@ import { Button } from "@/components/ui/Button";
 import { DropdownMenu } from "@/components/ui/DropdownMenu";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
-import { DEGREE_TYPES, examSubjectLines, formatDegreeType, formatMajorTuition } from "@/lib/format";
+import {
+  DEGREE_TYPES,
+  examSubjectLines,
+  formatCutOff,
+  formatDegreeType,
+  formatMajorTuition,
+} from "@/lib/format";
 import {
   CATALOG_CACHE,
   CREATE_MAJOR_MUTATION,
@@ -44,6 +50,7 @@ interface MajorFormValues {
   secondarySubjects: string;
   examNote: string;
   cutOffScore: string;
+  secondaryCutOffScore: string;
   tuitionFee: string;
   tuitionIsEstimate: boolean;
 }
@@ -63,6 +70,8 @@ function toFormValues(
     secondarySubjects: (major?.secondarySubjects ?? []).join(", "),
     examNote: major?.examNote ?? "",
     cutOffScore: major?.cutOffScore != null ? String(major.cutOffScore) : "",
+    secondaryCutOffScore:
+      major?.secondaryCutOffScore != null ? String(major.secondaryCutOffScore) : "",
     tuitionFee: major?.tuitionFee != null ? String(major.tuitionFee) : "",
     tuitionIsEstimate: major?.tuitionIsEstimate ?? false,
   };
@@ -86,6 +95,12 @@ function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
   if (!examNote.ok) return examNote;
   const cutOffScore = parseOptionalNumber(values.cutOffScore, "Босго оноо", MAX_EXAM_SCORE);
   if (!cutOffScore.ok) return cutOffScore;
+  const secondaryCutOffScore = parseOptionalNumber(
+    values.secondaryCutOffScore,
+    "Дагалдах шалгалтын босго",
+    MAX_EXAM_SCORE,
+  );
+  if (!secondaryCutOffScore.ok) return secondaryCutOffScore;
   const tuitionFee = parseOptionalNumber(values.tuitionFee, "Сургалтын төлбөр");
   if (!tuitionFee.ok) return tuitionFee;
 
@@ -101,6 +116,7 @@ function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
       secondarySubjects: secondarySubjects.value.length > 0 ? secondarySubjects.value : null,
       examNote: examNote.value,
       cutOffScore: cutOffScore.value,
+      secondaryCutOffScore: secondaryCutOffScore.value,
       tuitionFee: tuitionFee.value,
       tuitionIsEstimate: tuitionFee.value != null && values.tuitionIsEstimate,
     },
@@ -260,6 +276,17 @@ function MajorForm({
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
+          Дагалдах шалгалтын босго (тусад нь тавьдаг бол)
+          <Input
+            type="number"
+            min={0}
+            max={MAX_EXAM_SCORE}
+            value={values.secondaryCutOffScore}
+            onChange={(event) => set("secondaryCutOffScore", event.target.value)}
+            placeholder="жишээ: 450"
+          />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
           Жилийн сургалтын төлбөр (₮)
           <Input
             type="number"
@@ -302,7 +329,7 @@ function majorSummary(major: AdminMajor): string {
   return [
     major.category,
     formatDegreeType(major.degreeType),
-    major.cutOffScore != null ? `Босго ${major.cutOffScore}` : null,
+    formatCutOff(major) != null ? `Босго ${formatCutOff(major)}` : null,
     major.tuitionFee != null ? formatMajorTuition(major) : null,
     ...examSubjectLines(major).map((exam) => `${exam.label}: ${exam.text}`),
   ]

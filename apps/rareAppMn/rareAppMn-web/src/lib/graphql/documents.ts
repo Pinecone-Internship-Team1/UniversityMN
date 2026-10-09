@@ -74,6 +74,7 @@ const MAJOR_FIELDS = /* GraphQL */ `
   secondarySubjects
   examNote
   cutOffScore
+  secondaryCutOffScore
   degreeType
   tuitionFee
   tuitionIsEstimate
@@ -579,6 +580,7 @@ const ADMIN_MAJOR_FIELDS = /* GraphQL */ `
   secondarySubjects
   examNote
   cutOffScore
+  secondaryCutOffScore
   degreeType
   tuitionFee
   tuitionIsEstimate

@@ -18,6 +18,7 @@ import {
   formatDegreeType,
   formatMajorTuition,
   formatSchoolTuition,
+  formatCutOff,
 } from "@/lib/format";
 import {
   COMPARE_ITEMS_QUERY,
@@ -123,7 +124,7 @@ const MAJOR_ROWS: CompareRow<CompareMajor>[] = [
   },
   { label: "Чиглэл", render: (major) => major.category ?? "—" },
   { label: "Зэрэг", render: (major) => formatDegreeType(major.degreeType) ?? "—" },
-  { label: "Босго оноо", render: (major) => major.cutOffScore ?? "—" },
+  { label: "Босго оноо", render: (major) => formatCutOff(major) ?? "—" },
   {
     label: "Шалгалтын хичээл",
     render: (major) => {

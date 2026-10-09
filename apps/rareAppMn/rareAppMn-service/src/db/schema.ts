@@ -123,6 +123,12 @@ export const majors = sqliteTable(
      */
     examNote: text('exam_note'),
     cutOffScore: real('cut_off_score'),
+    /**
+     * Set when the university also sets a minimum for the дагалдах exam (e.g.
+     * ШУТИС): `cutOffScore` is then the суурь exam's own minimum, and a
+     * student must meet both instead of a weighted total.
+     */
+    secondaryCutOffScore: real('secondary_cut_off_score'),
     degreeType: text('degree_type'),
     tuitionFee: real('tuition_fee'),
     /** True when `tuitionFee` is an estimated upper bound rather than an official yearly fee. */

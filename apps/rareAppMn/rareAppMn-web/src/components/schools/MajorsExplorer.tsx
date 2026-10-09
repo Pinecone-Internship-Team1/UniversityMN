@@ -9,7 +9,7 @@ import { ErrorState } from "@/components/ui/ErrorState";
 import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
-import { formatMajorTuition } from "@/lib/format";
+import { formatCutOff, formatMajorTuition } from "@/lib/format";
 import {
   MAJORS_QUERY,
   type MajorsQueryResult,
@@ -202,9 +202,9 @@ export function MajorsExplorer() {
                         {major.category ? ` · ${major.category}` : ""}
                       </p>
                       <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
-                        {major.cutOffScore != null && (
+                        {formatCutOff(major) != null && (
                           <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            Босго оноо: {major.cutOffScore}
+                            Босго оноо: {formatCutOff(major)}
                           </span>
                         )}
                         {major.tuitionFee != null && (

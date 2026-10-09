@@ -44,6 +44,17 @@ export function formatMajorTuition(major: {
   return major.tuitionFee != null && major.tuitionIsEstimate ? `≈ ${fee} хүртэл` : fee;
 }
 
+/** A major's cut-off: "490", or "суурь 490 · дагалдах 450" when each exam has its own minimum. */
+export function formatCutOff(major: {
+  cutOffScore: number | null;
+  secondaryCutOffScore: number | null;
+}): string | null {
+  if (major.secondaryCutOffScore != null) {
+    return `суурь ${major.cutOffScore ?? "—"} · дагалдах ${major.secondaryCutOffScore}`;
+  }
+  return major.cutOffScore != null ? String(major.cutOffScore) : null;
+}
+
 /** Shown next to cut-off scores: the threshold only lets a student compete for a place. */
 export const CUT_OFF_NOTE =
   "Босго оноо нь элсэлтэд өрсөлдөх хамгийн бага оноо. Эрэлттэй хөтөлбөрт элсэхэд үүнээс өндөр оноо хэрэгтэй байж болно.";

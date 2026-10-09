@@ -16,7 +16,7 @@ import {
   type AnalyzeScoreMatchVariables,
   type ViewerQueryResult,
 } from "@/lib/graphql/documents";
-import { VERDICT_LABELS, examSubjectLines, isScoredVerdict } from "@/lib/format";
+import { VERDICT_LABELS, examSubjectLines, formatCutOff, isScoredVerdict } from "@/lib/format";
 import { getErrorMessage } from "@/lib/graphql/errors";
 import type { Major } from "@/lib/graphql/types";
 import { MAX_EXAM_SCORE, parseScoreEntries } from "@/lib/validation";
@@ -30,6 +30,7 @@ type CheckableMajor = Pick<
   | "secondarySubjects"
   | "examNote"
   | "cutOffScore"
+  | "secondaryCutOffScore"
 >;
 
 /** Run by the school itself, so there is no ЭЕШ score to enter for it. */
@@ -147,7 +148,7 @@ export function MajorScoreCheck({ majors }: MajorScoreCheckProps) {
           {checkable.map((major) => (
             <option key={major.id} value={major.id}>
               {major.name}
-              {major.cutOffScore != null ? ` (босго ${major.cutOffScore})` : ""}
+              {major.cutOffScore != null ? ` (босго ${formatCutOff(major)})` : ""}
             </option>
           ))}
         </Select>
