@@ -1,0 +1,1614 @@
+{
+  "_meta": {
+    "description": "Maps each program and school in the ШУТИС dataset (shutis-oyutan-mn, data/programs.json and data/schools.json) to our majors / faculties rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-09",
+    "mapped_at": "2026-10-09",
+    "university_id": "sch_shutis",
+    "degree_type": "BACHELOR",
+    "how_to_use": "Look up the dataset record by dataset_id and update the row with db_id: exam split (only when split_confidence is confirmed or likely), threshold_score → cut_off_score, secondary_threshold_score → secondary_cut_off_score, tuition_2026_2027.estimated_per_year.max → tuition_fee, required_subjects_display_mn → exam_note.",
+    "score_check_values": {
+      "per_exam": "суурь/дагалдах split filled; both secondary_cut_off_score and cut_off_score set, so each exam must meet its own minimum",
+      "no_secondary_cut_off": "split known but the дагалдах minimum was unreadable, so the split is left empty (neutral \"Сургуулиас тодруулна уу\") and exam_note says so; fill primary/secondary once the minimum is known",
+      "none": "split_confidence unclear or unknown: subjects left empty, exam_note says what is known"
+    },
+    "ids_note": "Every row was inserted by this import with the same id on local and main.",
+    "skipped_units": [
+      "ШУТИС-ийн харьяа Политехник коллеж",
+      "ШУТИС-Коосэн технологийн коллеж",
+      "Ахисан түвшний сургууль",
+      "Нээлттэй боловсролын хүрээлэн",
+      "ШУТИС-ийн харьяа Ерөнхий боловсролын ахлах сургууль"
+    ],
+    "counts": {
+      "dataset_programs": 163,
+      "faculties": 13,
+      "by_split_confidence": {
+        "confirmed": 71,
+        "likely": 15,
+        "unclear": 18,
+        "unknown": 59
+      },
+      "by_score_check": {
+        "no_secondary_cut_off": 9,
+        "none": 77,
+        "per_exam": 77
+      },
+      "with_secondary_cut_off": 77
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "must-bas",
+      "abbr": "БАС",
+      "type": "constituent",
+      "name": "Барилга, архитектурын сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "ecc6412d-250c-458e-9e55-bb543a116dee"
+    },
+    {
+      "dataset_id": "must-gkhs",
+      "abbr": "ГХС",
+      "type": "constituent",
+      "name": "Гадаад хэлний сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "6d78d01b-8210-4e44-931e-4854dd78dd56"
+    },
+    {
+      "dataset_id": "must-guus",
+      "abbr": "ГУУС",
+      "type": "constituent",
+      "name": "Геологи, уул уурхайн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "64da9001-27e6-4d29-88d0-c8b5bda3a148"
+    },
+    {
+      "dataset_id": "must-ms",
+      "abbr": "МС",
+      "type": "constituent",
+      "name": "Менежментийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "aadf26ef-41fd-4c94-9e26-6895c53e5459"
+    },
+    {
+      "dataset_id": "must-mekhts",
+      "abbr": "МехТС",
+      "type": "constituent",
+      "name": "Механик инженер, тээврийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "d21f6523-286a-489d-b143-73df4f3e6b6d"
+    },
+    {
+      "dataset_id": "must-mkhts",
+      "abbr": "МХТС",
+      "type": "constituent",
+      "name": "Мэдээлэл, холбооны технологийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "49be9c38-fce0-4de5-9cbe-fbe99f3c2a2f"
+    },
+    {
+      "dataset_id": "must-nkhs",
+      "abbr": "НХС",
+      "type": "constituent",
+      "name": "Нийгэм, хүмүүнлэгийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "b0aacd10-82cd-421f-91bb-d41488044aba"
+    },
+    {
+      "dataset_id": "must-khkhuds",
+      "abbr": "ХХҮДС",
+      "type": "constituent",
+      "name": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "26f13a19-d189-4f2b-bf86-41016f205729"
+    },
+    {
+      "dataset_id": "must-khshus",
+      "abbr": "ХШУС",
+      "type": "constituent",
+      "name": "Хэрэглээний шинжлэх ухааны сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "430780ef-b927-4a95-98d9-74170f3ae64d"
+    },
+    {
+      "dataset_id": "must-ekhs",
+      "abbr": "ЭХИС",
+      "type": "constituent",
+      "name": "Эрчим хүчний инженерчлэлийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу (ШУТИС-ийн хотхон)",
+      "db_id": "b649158d-2e93-4db1-8546-0077bdffec96"
+    },
+    {
+      "dataset_id": "must-dats",
+      "abbr": "ДаТС",
+      "type": "branch",
+      "name": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "location": "Дархан-Уул аймаг",
+      "db_id": "06fb9743-eac8-4151-8903-87daa91df531"
+    },
+    {
+      "dataset_id": "must-etsds",
+      "abbr": "ЭЦДС",
+      "type": "branch",
+      "name": "Эрдэнэт цогцолбор дээд сургууль",
+      "location": "Орхон аймаг, Эрдэнэт",
+      "db_id": "42a73c2e-c8d2-4653-9d5d-c85645919df1"
+    },
+    {
+      "dataset_id": "must-omtds",
+      "abbr": "ӨмТДС",
+      "type": "branch",
+      "name": "Өмнөговь аймаг дахь Технологийн дээд сургууль",
+      "location": "Өмнөговь аймаг, Даланзадгад",
+      "db_id": "0dc463c6-a6e3-469f-8d74-62a56ad86f19"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "must-bas-arkhitektur",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Архитектур",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "69a476c2-24f3-441f-b692-3908ebba2c35"
+    },
+    {
+      "dataset_id": "must-bas-khot-ba-bus-nutgiin-tuluvlult",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Хот ба бүс нутгийн төлөвлөлт",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "ad2f80ed-5c80-4740-8045-8540b9ea10a3"
+    },
+    {
+      "dataset_id": "must-bas-barilgyn-injenerchlel",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Барилгын инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "60963703-f5ff-4aed-b250-51b92f17de61"
+    },
+    {
+      "dataset_id": "must-bas-barilgyn-materialyn-uildverleliin-tekhnologi",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Барилгын материалын үйлдвэрлэлийн технологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "8daee1ce-6562-40a2-a60c-5435c3de87b9"
+    },
+    {
+      "dataset_id": "must-bas-guuriin-injenerchlel",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Гүүрийн инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "cf9e9a2a-a78a-47be-8020-1bd6d62d65d7"
+    },
+    {
+      "dataset_id": "must-bas-usny-barilga-baiguulamj",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Усны барилга, байгууламж",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "afbdf5f0-7f49-4a4c-a8e8-eb9b0e3d686b"
+    },
+    {
+      "dataset_id": "must-bas-avto-zamyn-injenerchlel",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Авто замын инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "77f5efe9-bf73-4a40-bada-65cf0feb9f11"
+    },
+    {
+      "dataset_id": "must-bas-usan-khangamj-ariutgakh-tatuurgyn-injenerchlel",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Усан хангамж, ариутгах татуургын инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "60cc4b95-8ee4-4595-8705-c903d85a6401"
+    },
+    {
+      "dataset_id": "must-bas-santekhnikiin-injenerchlel",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Сантехникийн инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "b7ef3912-c9c7-44e6-96ad-c678d93cd5fc"
+    },
+    {
+      "dataset_id": "must-bas-khalaalt-agaar-selgelt-konditsioner",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Халаалт, агаар сэлгэлт, кондиционер",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "8c05c003-55f9-4ae4-87d5-e1964edec7ac"
+    },
+    {
+      "dataset_id": "must-bas-usny-nuuts-usjuulalt",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Усны нөөц, усжуулалт",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "56090bf3-947e-4f61-bb24-3384f94de61d"
+    },
+    {
+      "dataset_id": "must-bas-khayagdal-bolovsruulakh-tekhnologi",
+      "dataset_school": "must-bas",
+      "faculty": "Барилга, архитектурын сургууль",
+      "name": "Хаягдал боловсруулах технологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "7d552b1a-3d93-4007-aca2-926082f3bacb"
+    },
+    {
+      "dataset_id": "must-gkhs-gadaad-khelnii-orchuulga-angli-khel",
+      "dataset_school": "must-gkhs",
+      "faculty": "Гадаад хэлний сургууль",
+      "name": "Гадаад хэлний орчуулга (Англи хэл)",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "6d5d5c80-844a-475b-ba34-d5b8dd1c50a3"
+    },
+    {
+      "dataset_id": "must-guus-urumdlugiin-injenerchlel",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Өрөмдлөгийн инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "aafabea2-ae17-4992-a378-5b19ee8b46b0"
+    },
+    {
+      "dataset_id": "must-guus-gazryn-tosny-injenerchlel",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Газрын тосны инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "10963b43-4bfa-4cd8-975a-5d525792c174"
+    },
+    {
+      "dataset_id": "must-guus-gazryn-tos-bolovsruulakh-uildveriin-injenerchlel",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Газрын тос боловсруулах үйлдвэрийн инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "e4a91245-052c-49b9-b358-289ec3035132"
+    },
+    {
+      "dataset_id": "must-guus-khiin-injenerchlel",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Хийн инженерчлэл",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "efa0e9d3-997b-4891-82f7-7955b1bb9984"
+    },
+    {
+      "dataset_id": "must-guus-geodezi",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Геодези",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "a0ca83e0-c56a-46f0-bbba-acd211508f8d"
+    },
+    {
+      "dataset_id": "must-guus-gazar-zokhion-baiguulalt",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Газар зохион байгуулалт",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "477c928e-2988-4308-bf13-492dcf5b2a07"
+    },
+    {
+      "dataset_id": "must-guus-geologi",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Геологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "58442761-55ca-439c-840c-81caeb785c4b"
+    },
+    {
+      "dataset_id": "must-guus-gidrogeologi",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Гидрогеологи",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "c98243ee-4950-4998-a879-0ae3e6861082"
+    },
+    {
+      "dataset_id": "must-guus-geofizik",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Геофизик",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "22d76e74-b100-4f34-a631-34b893f6840d"
+    },
+    {
+      "dataset_id": "must-guus-ashigt-maltmalyn-erel-khaiguul",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Ашигт малтмалын эрэл, хайгуул",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "f89007cb-c22c-464f-a942-ddf34d6f6151"
+    },
+    {
+      "dataset_id": "must-guus-injener-geologi-geotekhnik",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Инженер геологи, геотехник",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "326a7a0b-b1a1-4050-91b1-79da010a69dd"
+    },
+    {
+      "dataset_id": "must-guus-uul-uurkhain-ashiglaltyn-tekhnologi",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Уул уурхайн ашиглалтын технологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "7ddb17bf-0ff2-44b9-a687-a089d431b416"
+    },
+    {
+      "dataset_id": "must-guus-uul-uurkhain-geotekhnik",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Уул уурхайн геотехник",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "195e642a-38d6-49a2-877a-d64969dafd03"
+    },
+    {
+      "dataset_id": "must-guus-uul-uurkhain-marksheider",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Уул уурхайн маркшейдер",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "ca420802-cd0d-4aa2-bc2f-5df3ec308082"
+    },
+    {
+      "dataset_id": "must-guus-ashigt-maltmalyn-bayajuulaltyn-tekhnologi",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Ашигт малтмалын баяжуулалтын технологи",
+      "split_confidence": "likely",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "81d2c5cb-e1b3-41e1-a73c-e13bfba4c5a0"
+    },
+    {
+      "dataset_id": "must-guus-uurkhain-mashin-tonog-tukhuurumj",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Уурхайн машин тоног төхөөрөмж",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "46c5affd-bfb8-48b9-a467-e414d075c6cb"
+    },
+    {
+      "dataset_id": "must-guus-uurkhain-tsakhilgaan-tonog-tukhuurumj",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Уурхайн цахилгаан тоног төхөөрөмж",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "bcdb7fa4-8f96-4f5c-928b-4c7eaa538459"
+    },
+    {
+      "dataset_id": "must-guus-khudulmuriin-ayuulgui-baidal-eruul-akhui",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Хөдөлмөрийн аюулгүй байдал, эрүүл ахуй",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "c5905ef9-6c7d-4a44-8de1-389d6460ad44"
+    },
+    {
+      "dataset_id": "must-guus-erdes-bayalag-injenerchleliin-ediin-zasag",
+      "dataset_school": "must-guus",
+      "faculty": "Геологи, уул уурхайн сургууль",
+      "name": "Эрдэс баялаг, инженерчлэлийн эдийн засаг",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "60833a3f-005d-402a-9689-f0500c0a60d7"
+    },
+    {
+      "dataset_id": "must-mekhts-niiluuleltiin-suljee-logistik",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Нийлүүлэлтийн сүлжээ, логистик",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "86c0728b-9ccb-4fe4-b300-5e078e88244b"
+    },
+    {
+      "dataset_id": "must-mekhts-uildverleliin-avtomatjuulalt",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Үйлдвэрлэлийн автоматжуулалт",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "a5d0b3a9-5345-4ad0-adb7-d9e4fee9cc8e"
+    },
+    {
+      "dataset_id": "must-mekhts-mekhanik-injenerchlel",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Механик инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "4e000f64-5a6d-4925-bdcc-13f4be207df4"
+    },
+    {
+      "dataset_id": "must-mekhts-metallurgi-metallyn-tekhnologi",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Металлурги, металлын технологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "ecaf322e-e60d-410b-b231-3e1cc314eced"
+    },
+    {
+      "dataset_id": "must-mekhts-mekhatronik",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Мехатроник",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "96c9ae0b-495a-4fd2-8167-c2c8302c1379"
+    },
+    {
+      "dataset_id": "must-mekhts-barilgyn-materialyn-uildverleliin-mekhanik-injenerchlel",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Барилгын материалын үйлдвэрлэлийн механик инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "45f46d8f-f8be-4ecc-848b-2723dd8332cb"
+    },
+    {
+      "dataset_id": "must-mekhts-mashin-uildverleliin-tekhnologi",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Машин үйлдвэрлэлийн технологи",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "953df29a-5d28-4d6b-a214-39c11f62a2ed"
+    },
+    {
+      "dataset_id": "must-mekhts-gagnuuryn-tekhnologi",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Гагнуурын технологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "e1162050-ca26-4434-bc54-3c9e68ca5bb7"
+    },
+    {
+      "dataset_id": "must-mekhts-avto-injenerchlel",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Авто инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "aff13f5f-0f8f-453d-8449-deeffb3f7017"
+    },
+    {
+      "dataset_id": "must-mekhts-mashiny-elektron-sistem",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Машины электрон систем",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "31113d5b-d704-4ec3-9f2a-83803f9074da"
+    },
+    {
+      "dataset_id": "must-mekhts-avto-khudulguuriin-mekhanik-injenerchlel",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Авто хөдөлгүүрийн механик инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "4d97ec14-e6b6-4d09-822a-e3b2d1cbe41f"
+    },
+    {
+      "dataset_id": "must-mekhts-nisekh-tekhnikiin-mekhanik",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Нисэх техникийн механик",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "58e2da0e-fd3a-4613-bcdc-7e23f80711b5"
+    },
+    {
+      "dataset_id": "must-mekhts-avionik",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Авионик",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "b6fd36d8-cce5-4a4b-96c7-6196bd96d005"
+    },
+    {
+      "dataset_id": "must-mekhts-zutguur-zutguuriin-aj-akhui",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Зүтгүүр, зүтгүүрийн аж ахуй",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "1fffd83b-7d15-4b19-a260-4bf67d903479"
+    },
+    {
+      "dataset_id": "must-mekhts-barilga-zamyn-mashin-mekhanik-injenerchlel",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Барилга замын машин механик инженерчлэл",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "f4fedfe0-485b-4bbf-aa66-97a8851bc4c7"
+    },
+    {
+      "dataset_id": "must-mekhts-soyolyn-biet-uviin-khadgalalt-khamgaalaltyn-tekhnologi",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Соёлын биет өвийн хадгалалт, хамгаалалтын технологи",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "46b3c72d-b5b5-45b6-bdc9-290a81b4bfb7"
+    },
+    {
+      "dataset_id": "must-mekhts-tumur-zamyn-teevriin-udirdlaga-zokhion-baiguulalt",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Төмөр замын тээврийн удирдлага, зохион байгуулалт",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "805d62a9-6f17-4a18-9fa3-63088cfb0182"
+    },
+    {
+      "dataset_id": "must-mekhts-teevriin-uilchilgee",
+      "dataset_school": "must-mekhts",
+      "faculty": "Механик инженер, тээврийн сургууль",
+      "name": "Тээврийн үйлчилгээ",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "58f2a03c-8a5d-4d66-81ee-d7212d193998"
+    },
+    {
+      "dataset_id": "must-ms-sankhuu-bank",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Санхүү, банк",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "404e723d-3018-49de-985f-ac7c4a08c148"
+    },
+    {
+      "dataset_id": "must-ms-biznesiin-udirdlaga",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Бизнесийн удирдлага",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "fa7eb4a1-bfca-4f23-9f97-f7c65ef60c63"
+    },
+    {
+      "dataset_id": "must-ms-khunii-nuutsiin-menejment",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Хүний нөөцийн менежмент",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "d80432f8-9ff9-4b0b-9436-34564dd1f846"
+    },
+    {
+      "dataset_id": "must-ms-marketing",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Маркетинг",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "ba091114-af81-4ca9-9e7c-3e273ab1c756"
+    },
+    {
+      "dataset_id": "must-ms-uildverleliin-menejment",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Үйлдвэрлэлийн менежмент",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "30ff621c-3fef-4ca9-888f-8caff51b8051"
+    },
+    {
+      "dataset_id": "must-ms-menejment",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Менежмент",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "4c900bf0-46ab-493e-bb20-6a29c8babc34"
+    },
+    {
+      "dataset_id": "must-ms-khudaldaa",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Худалдаа",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "6eb9471b-1192-4656-8bf7-234b71181630"
+    },
+    {
+      "dataset_id": "must-ms-biznes-shinjlel-zagvarchlal",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Бизнес шинжлэл, загварчлал",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "efaf4d2c-7801-44f3-b13c-f1ba460e0146"
+    },
+    {
+      "dataset_id": "must-ms-olon-ulsyn-biznes",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Олон улсын бизнес",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "44d72c64-a51c-4ce4-837d-7c848aeb76ac"
+    },
+    {
+      "dataset_id": "must-mkhts-kompiyuteryn-suljee",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Компьютерын сүлжээ",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "7b141eb2-e7c0-485b-9996-72b8b3cae25f"
+    },
+    {
+      "dataset_id": "must-mkhts-kiber-ayuulgui-baidal",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Кибер аюулгүй байдал",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "ff6eb0f6-81dc-4993-a307-55bfe607aee0"
+    },
+    {
+      "dataset_id": "must-mkhts-mulitimedia-tekhnologi",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Мультимедиа технологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "3e03abca-3488-4211-8bda-67179c614ca3"
+    },
+    {
+      "dataset_id": "must-mkhts-ugugdliin-ukhaan",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Өгөгдлийн ухаан",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "7719a2b7-47fd-4925-b7e8-5b09fba28b21"
+    },
+    {
+      "dataset_id": "must-mkhts-kompiyuteryn-ukhaan",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Компьютерын ухаан",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "529678a6-0286-4379-a1a7-89fe3b349ac0"
+    },
+    {
+      "dataset_id": "must-mkhts-medeelliin-sistem",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Мэдээллийн систем",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "2f8284ba-f39f-41c4-81fb-813290aeb42e"
+    },
+    {
+      "dataset_id": "must-mkhts-medeelliin-tekhnologi",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Мэдээллийн технологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "a67b67d8-1d12-4547-ba8a-941a4befbb7b"
+    },
+    {
+      "dataset_id": "must-mkhts-iot-yumsyn-internet-tekhnologi",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "IoT (Юмсын интернэт) технологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "c81955f4-8e7e-490f-b199-dabc9acfea0e"
+    },
+    {
+      "dataset_id": "must-mkhts-khiimel-oyuun-ukhaan",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Хиймэл оюун ухаан",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "72b6f8f6-daf1-403a-b4e4-be0cc29f970d"
+    },
+    {
+      "dataset_id": "must-mkhts-elektronikiin-injenerchlel",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Электроникийн инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "d2380ab2-4d52-4977-8aca-b8e438622066"
+    },
+    {
+      "dataset_id": "must-mkhts-programm-khangamjiin-injenerchlel",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Программ хангамжийн инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "0b559a43-9783-4984-9d14-a70ab2789791"
+    },
+    {
+      "dataset_id": "must-mkhts-medeelel-kholboony-suljeenii-injenerchlel",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Мэдээлэл холбооны сүлжээний инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "9c574eec-d4ef-4457-888a-459beb783a9e"
+    },
+    {
+      "dataset_id": "must-mkhts-utasgui-kholboony-injenerchlel",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Утасгүй холбооны инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "5115361c-528a-4e41-98e9-e168a3200caf"
+    },
+    {
+      "dataset_id": "must-mkhts-robot-ba-khiimel-oyuun-ukhaan",
+      "dataset_school": "must-mkhts",
+      "faculty": "Мэдээлэл, холбооны технологийн сургууль",
+      "name": "Робот ба хиймэл оюун ухаан",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "dd2886b0-41de-4f82-a8b2-ac1c8f8caf9d"
+    },
+    {
+      "dataset_id": "must-nkhs-setgel-sudlal",
+      "dataset_school": "must-nkhs",
+      "faculty": "Нийгэм, хүмүүнлэгийн сургууль",
+      "name": "Сэтгэл судлал",
+      "split_confidence": "likely",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "2c39809e-fdca-4406-b4ce-eb3d83bf1003"
+    },
+    {
+      "dataset_id": "must-nkhs-olon-niittei-khariltsakh-ajil",
+      "dataset_school": "must-nkhs",
+      "faculty": "Нийгэм, хүмүүнлэгийн сургууль",
+      "name": "Олон нийттэй харилцах ажил",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "c13a84f2-a290-447b-bf25-b1f0ab88dc42"
+    },
+    {
+      "dataset_id": "must-nkhs-niigmiin-ajil",
+      "dataset_school": "must-nkhs",
+      "faculty": "Нийгэм, хүмүүнлэгийн сургууль",
+      "name": "Нийгмийн ажил",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "adb2c7d2-4fda-4d84-86d8-391d0fd01d1d"
+    },
+    {
+      "dataset_id": "must-nkhs-ayalal-juulchlal",
+      "dataset_school": "must-nkhs",
+      "faculty": "Нийгэм, хүмүүнлэгийн сургууль",
+      "name": "Аялал жуулчлал",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "0eb4b1df-4a9a-41f5-b3f4-6b71b386eaa2"
+    },
+    {
+      "dataset_id": "must-nkhs-zochlokh-uilchilgee",
+      "dataset_school": "must-nkhs",
+      "faculty": "Нийгэм, хүмүүнлэгийн сургууль",
+      "name": "Зочлох үйлчилгээ",
+      "split_confidence": "likely",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "27d0924d-f910-4227-bacc-68b056f10643"
+    },
+    {
+      "dataset_id": "must-khkhuds-mikrobiologi",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Микробиологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "17b8eeb6-e0a5-4294-9d26-320038ee1589"
+    },
+    {
+      "dataset_id": "must-khkhuds-biotekhnologi",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Биотехнологи",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "55b797bd-5f7f-4201-8645-aa92724abafe"
+    },
+    {
+      "dataset_id": "must-khkhuds-khool-zui-shim-sudlal",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хоол зүй, шим судлал",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "ba5adf27-4a4d-4ff6-92db-bf073baf5ec7"
+    },
+    {
+      "dataset_id": "must-khkhuds-khunsnii-chanar-ayuulgui-baidal",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хүнсний чанар, аюулгүй байдал",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "bec92243-188a-4239-9101-4cc8cefe9bc4"
+    },
+    {
+      "dataset_id": "must-khkhuds-grafik-dizain",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "График дизайн",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "ab36d712-5dc8-460f-a97c-3fa5d80d1658"
+    },
+    {
+      "dataset_id": "must-khkhuds-animeishn-mulitimedia-dizain",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Анимейшн, мультимедиа дизайн",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "bb3d2d4a-e844-410f-ad23-7bff4de5646e"
+    },
+    {
+      "dataset_id": "must-khkhuds-khuvtsasny-dizain",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хувцасны дизайн",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "9b0eb334-aedd-4edd-a740-af3667b15f35"
+    },
+    {
+      "dataset_id": "must-khkhuds-uildverleliin-dizain",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Үйлдвэрлэлийн дизайн",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "6b35d680-00c3-496b-8a62-531c417af8f7"
+    },
+    {
+      "dataset_id": "must-khkhuds-interier-dizain",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Интерьер дизайн",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "38e13d15-78a3-42ca-975e-1b3093ead008"
+    },
+    {
+      "dataset_id": "must-khkhuds-khuvtsas-uildverleliin-tekhnologi-zagvar-zokhion-buteelt",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хувцас үйлдвэрлэлийн технологи, загвар зохион бүтээлт",
+      "split_confidence": "confirmed",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "2c526849-7d7f-4c34-ace7-3dc0e74c68f0"
+    },
+    {
+      "dataset_id": "must-khkhuds-aris-bolovsruulalt-uildverleliin-tekhnologi",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Арьс боловсруулалт, үйлдвэрлэлийн технологи",
+      "split_confidence": "confirmed",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "f685f64d-e94f-4fdd-9daf-f28ddc9702d8"
+    },
+    {
+      "dataset_id": "must-khkhuds-tekstiliin-injenerchlel",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Текстилийн инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "592241c9-9437-4133-b411-a7d2c83145dd"
+    },
+    {
+      "dataset_id": "must-khkhuds-oin-injenerchlel",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Ойн инженерчлэл",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "6c6e641b-b780-4631-bd08-6b1731acc61c"
+    },
+    {
+      "dataset_id": "must-khkhuds-khunsnii-uildverleliin-mashin-tonog-tukhuurumj",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хүнсний үйлдвэрлэлийн машин тоног төхөөрөмж",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "a38612ea-b601-4a47-93c7-7ce1f743243a"
+    },
+    {
+      "dataset_id": "must-khkhuds-khungun-uildverleliin-mashin-tonog-tukhuurumj",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хөнгөн үйлдвэрлэлийн машин тоног төхөөрөмж",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "d8251ec5-973b-4dcc-a4a0-b3b0676597b6"
+    },
+    {
+      "dataset_id": "must-khkhuds-khuns-uildverleliin-tekhnologi",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хүнс үйлдвэрлэлийн технологи",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "eb55aa98-1c87-4340-9996-b7797a2f53a8"
+    },
+    {
+      "dataset_id": "must-khkhuds-khool-uildverlel-uilchilgeenii-tekhnologi",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хоол үйлдвэрлэл, үйлчилгээний технологи",
+      "split_confidence": "confirmed",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "2338f670-7529-42e1-98aa-284ab060a338"
+    },
+    {
+      "dataset_id": "must-khkhuds-khevlel-media-uildverleliin-tekhnologi",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Хэвлэл, медиа үйлдвэрлэлийн технологи",
+      "split_confidence": "unclear",
+      "score_check": "none",
+      "db_id": "dbcbf783-0ca5-46df-9bb9-ad3bf1163cfa"
+    },
+    {
+      "dataset_id": "must-khkhuds-mod-bolovsruulakh-uildverleliin-tekhnologi",
+      "dataset_school": "must-khkhuds",
+      "faculty": "Хүнс, хөнгөн үйлдвэрлэл, дизайны сургууль",
+      "name": "Мод боловсруулах үйлдвэрлэлийн технологи",
+      "split_confidence": "confirmed",
+      "score_check": "no_secondary_cut_off",
+      "db_id": "3c5edb80-2f95-4cce-813d-ea25d4b829be"
+    },
+    {
+      "dataset_id": "must-khshus-statistik",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Статистик",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "40286618-16a3-49be-bbcc-010f1bfa8032"
+    },
+    {
+      "dataset_id": "must-khshus-statistik-german-kheleer",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Статистик (Герман хэлээр)",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "7e0e22c4-fb70-4a9a-a42a-31cac1875fd7"
+    },
+    {
+      "dataset_id": "must-khshus-kheregleenii-fizik",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Хэрэглээний физик",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "5b998b8d-621b-4f68-b865-b1ea918bf92b"
+    },
+    {
+      "dataset_id": "must-khshus-khureelen-bui-orchny-injenerchlel",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Хүрээлэн буй орчны инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "a71747f1-c2da-46ab-815e-3d81989c79be"
+    },
+    {
+      "dataset_id": "must-khshus-nano-shinjlekh-ukhaan-injenerchlel",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Нано шинжлэх ухаан, инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "1fdbecb6-7939-44b0-9309-9eb9881377fa"
+    },
+    {
+      "dataset_id": "must-khshus-khimiin-injenerchlel",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Химийн инженерчлэл",
+      "split_confidence": "confirmed",
+      "score_check": "per_exam",
+      "db_id": "f6eab64f-2e57-468d-85ce-521ec12e6784"
+    },
+    {
+      "dataset_id": "must-khshus-khimiin-bolovsruulaltyn-tekhnologi",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Химийн боловсруулалтын технологи",
+      "split_confidence": "likely",
+      "score_check": "per_exam",
+      "db_id": "3ffee12c-0067-49b7-bcbd-afa7bf60467d"
+    },
+    {
+      "dataset_id": "must-ekhs-sergeegdekh-erchim-khuch",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Сэргээгдэх эрчим хүч",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "0dce7829-0d9b-4bff-99fe-5c6f73f0d5c8"
+    },
+    {
+      "dataset_id": "must-ekhs-erchim-khuchnii-ukhaalag-suljee-ba-sistem",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Эрчим хүчний ухаалаг сүлжээ ба систем",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "b7fcd21a-6d3c-49f5-ac29-9b3b2a814019"
+    },
+    {
+      "dataset_id": "must-ekhs-dulaany-tsakhilgaan-stantsyn-injenerchlel",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Дулааны цахилгаан станцын инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "7d19c21f-4e32-4135-a91f-16f8a5f2f17d"
+    },
+    {
+      "dataset_id": "must-ekhs-tsakhilgaan-sistemiin-avtomatjuulalt",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Цахилгаан системийн автоматжуулалт",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "e30c1b34-bd40-4098-af36-748d1e344e0c"
+    },
+    {
+      "dataset_id": "must-ekhs-dulaany-protsessyn-avtomatjuulalt",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Дулааны процессын автоматжуулалт",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "676a9976-4ea0-4019-bc21-7fd7bed5ca72"
+    },
+    {
+      "dataset_id": "must-ekhs-dulaan-khangamjiin-injenerchlel",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Дулаан хангамжийн инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "128752e0-fbb6-46f2-94c6-604a4385b155"
+    },
+    {
+      "dataset_id": "must-ekhs-khurgultiin-tekhnologi-ba-konditsioneriin-sistem",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Хөргөлтийн технологи ба кондиционерийн систем",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "90c915b0-f865-44c9-87da-b9998a823407"
+    },
+    {
+      "dataset_id": "must-ekhs-tsakhilgaany-injenerchlel",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Цахилгааны инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "33bb7a63-0a0b-427e-993b-2c8d54d6f92e"
+    },
+    {
+      "dataset_id": "must-ekhs-tsakhilgaan-khangamj",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Цахилгаан хангамж",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "7093b93e-66c5-46ee-b789-562bac470d06"
+    },
+    {
+      "dataset_id": "must-ekhs-emnelgiin-tonog-tukhuurumjiin-ashiglalt",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Эмнэлгийн тоног төхөөрөмжийн ашиглалт",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "bd616db3-f8fa-42b1-ab36-a0ef29b40519"
+    },
+    {
+      "dataset_id": "must-ekhs-tsakhilgaan-elektronik",
+      "dataset_school": "must-ekhs",
+      "faculty": "Эрчим хүчний инженерчлэлийн сургууль",
+      "name": "Цахилгаан электроник",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "515fb5b5-0ac0-4085-9b55-eac58abe4c7e"
+    },
+    {
+      "dataset_id": "must-ms-niitiin-udirdlaga",
+      "dataset_school": "must-ms",
+      "faculty": "Менежментийн сургууль",
+      "name": "Нийтийн удирдлага",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "754b9e79-967c-4d98-8e92-66a7a607ebe4"
+    },
+    {
+      "dataset_id": "must-khshus-nuursnii-bolovsruulaltyn-tekhnologi",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Нүүрсний боловсруулалтын технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "00bf3317-0956-48d8-8041-b13999be24d8"
+    },
+    {
+      "dataset_id": "must-khshus-gazryn-tosny-bolovsruulaltyn-tekhnologi",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Газрын тосны боловсруулалтын технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "0bbd0fd8-0ce8-409f-93dd-d91dd838fd90"
+    },
+    {
+      "dataset_id": "must-khshus-material-sudlal-injenerchlel",
+      "dataset_school": "must-khshus",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Материал судлал, инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "95688965-1f67-44ba-8c39-6c6154fefbcd"
+    },
+    {
+      "dataset_id": "must-dats-biznesiin-udirdlaga",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Бизнесийн удирдлага",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "51f5f3c0-7488-4902-a034-2c036874e152"
+    },
+    {
+      "dataset_id": "must-dats-menejment",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Менежмент",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "76161694-0b76-4944-b196-8656f98a9d62"
+    },
+    {
+      "dataset_id": "must-dats-metallurgi-metallyn-tekhnologi",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Металлурги, металлын технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "f087e203-ac8a-4e66-99ac-37830cc1ac5d"
+    },
+    {
+      "dataset_id": "must-dats-mekhanik-injeneriin-tekhnologi",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Механик инженерийн технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "8b98d239-e62f-4a66-beb6-3270ed527a01"
+    },
+    {
+      "dataset_id": "must-dats-mekhanik-injenerchlel-mekhts-tei-2-2",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Механик инженерчлэл (МехТС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "38cade4b-84b3-41cb-89b8-d2c6b6e6fcd1"
+    },
+    {
+      "dataset_id": "must-dats-avto-injenerchlel-mekhts-tei-2-2",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Авто инженерчлэл (МехТС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "8aae36f6-5944-4d6e-9f63-a3896b01f865"
+    },
+    {
+      "dataset_id": "must-dats-khunsnii-chanar-ayuulgui-baidal",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Хүнсний чанар, аюулгүй байдал",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "7062f24b-def6-4e7d-bf02-209e6261333e"
+    },
+    {
+      "dataset_id": "must-dats-khuns-uildverleliin-tekhnologi",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Хүнс үйлдвэрлэлийн технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "f3096062-5a2b-4593-b208-fb86b6478a87"
+    },
+    {
+      "dataset_id": "must-dats-uul-uurkhain-ashiglaltyn-tekhnologi",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Уул уурхайн ашиглалтын технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "cd0501eb-2409-40a2-8ce3-349d7fcd6bee"
+    },
+    {
+      "dataset_id": "must-dats-barilgyn-injenerchlel",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Барилгын инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "c4269929-8d95-4deb-ba9d-940a75161164"
+    },
+    {
+      "dataset_id": "must-dats-usan-khangamj-ariutgakh-tatuurgyn-injenerchlel",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Усан хангамж, ариутгах татуургын инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "29caa0a7-02aa-4c73-868a-aad783985e97"
+    },
+    {
+      "dataset_id": "must-dats-barilgyn-materialyn-uildverleliin-tekhnologi",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Барилгын материалын үйлдвэрлэлийн технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "2347f928-1a0c-4d7a-8da8-aaee6e3caca7"
+    },
+    {
+      "dataset_id": "must-dats-avto-zamyn-injenerchlel-bas-tai-1-3",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Авто замын инженерчлэл (БАС-тай 1+3)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "50988569-88bf-43a3-87dd-0ef4e7f95521"
+    },
+    {
+      "dataset_id": "must-dats-dulaany-tsakhilgaan-stantsyn-injenerchlel",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Дулааны цахилгаан станцын инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "02c500a6-235f-4947-a54c-bc7c681f844b"
+    },
+    {
+      "dataset_id": "must-dats-tsakhilgaany-injenerchlel",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Цахилгааны инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "717a90b5-cdc0-44da-a290-00f5392b0e6b"
+    },
+    {
+      "dataset_id": "must-dats-programm-khangamjiin-injenerchlel",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Программ хангамжийн инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "92cbbe4e-7871-4ea1-a160-266a5afcb828"
+    },
+    {
+      "dataset_id": "must-dats-tsakhilgaan-sistemiin-avtomatjuulalt",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Цахилгаан системийн автоматжуулалт",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "1c24945e-2396-4146-9fb5-09b48f3862a9"
+    },
+    {
+      "dataset_id": "must-dats-uurkhain-tsakhilgaan-tonog-tukhuurumj",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Уурхайн цахилгаан тоног төхөөрөмж",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "5604f411-9eee-400c-9dd4-a860069bb504"
+    },
+    {
+      "dataset_id": "must-dats-kiber-ayuulgui-baidal-mkhts-tei-2-2",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Кибер аюулгүй байдал (МХТС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "b9fb0fd4-929f-4d85-8ea0-6fa3a881ace9"
+    },
+    {
+      "dataset_id": "must-dats-medeelliin-sistem-mkhts-tei-2-2",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Мэдээллийн систем (МХТС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "808476b3-dd49-4efc-a3ff-28d05c498f61"
+    },
+    {
+      "dataset_id": "must-dats-tsakhilgaan-khangamj-ekhis-tei-1-3",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Цахилгаан хангамж (ЭХИС-тэй 1+3)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "1903c4d1-f621-42c3-8aa8-cb603bb2593c"
+    },
+    {
+      "dataset_id": "must-dats-gadaad-khelnii-orchuulga-angli-khel-gkhs-tei-2-2",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Гадаад хэлний орчуулга (Англи хэл) (ГХС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "a9f2f106-63b4-4423-b502-3a9ecf35ae12"
+    },
+    {
+      "dataset_id": "must-dats-niigmiin-ajil-nkhs-tei-2-2",
+      "dataset_school": "must-dats",
+      "faculty": "Дархан-Уул аймаг дахь Технологийн сургууль",
+      "name": "Нийгмийн ажил (НХС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "23e032ee-a8d3-4269-8623-34134efe6b96"
+    },
+    {
+      "dataset_id": "must-etsds-gadaad-khelnii-orchuulga-angli-khel",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Гадаад хэлний орчуулга (Англи хэл)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "38cfa289-5af6-4685-a4b5-16abe055f0e4"
+    },
+    {
+      "dataset_id": "must-etsds-nyagtlan-bodokh-burtgel",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Нягтлан бодох бүртгэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "93849c70-281d-4b46-8a14-db44040a3deb"
+    },
+    {
+      "dataset_id": "must-etsds-sankhuu-bank-ms-tei-2-2",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Санхүү, банк (МС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "563574a7-cfed-4288-afb7-9d3f245d86c9"
+    },
+    {
+      "dataset_id": "must-etsds-uildverleliin-menejment-ms-tei-2-2",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Үйлдвэрлэлийн менежмент (МС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "35dfa04d-5461-488f-923e-4597a071830a"
+    },
+    {
+      "dataset_id": "must-etsds-medeelliin-tekhnologi",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Мэдээллийн технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "7b9e285c-7e18-4874-b9bf-6d4c79cd3dc3"
+    },
+    {
+      "dataset_id": "must-etsds-tsakhilgaan-sistemiin-avtomatjuulalt",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Цахилгаан системийн автоматжуулалт",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "dda52446-894f-4f32-be13-4aaa3e18b367"
+    },
+    {
+      "dataset_id": "must-etsds-uurkhain-tsakhilgaan-tonog-tukhuurumj",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Уурхайн цахилгаан тоног төхөөрөмж",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "ed254f4f-1882-4057-9c0e-3ee05bae9318"
+    },
+    {
+      "dataset_id": "must-etsds-tsakhilgaan-khangamj-ekhis-tei-1-3",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Цахилгаан хангамж (ЭХИС-тэй 1+3)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "05a82aa4-bad6-48cc-ad34-b0d82354b977"
+    },
+    {
+      "dataset_id": "must-etsds-metallurgi-metallyn-tekhnologi",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Металлурги, металлын технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "0727aa49-607b-432c-b987-00773afd6af2"
+    },
+    {
+      "dataset_id": "must-etsds-metallurgi-metallyn-tekhnologi-uralyn-kholboony-ikh-surguulitai-2-2",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Металлурги, металлын технологи (Уралын холбооны их сургуультай 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "7f6818ef-4d59-4bae-a92d-9052bc6ece01"
+    },
+    {
+      "dataset_id": "must-etsds-avto-injenerchlel",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Авто инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "4fb7e5ad-0076-4ddd-86b4-f555d671a914"
+    },
+    {
+      "dataset_id": "must-etsds-uurkhain-mashin-tonog-tukhuurumj",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Уурхайн машин тоног төхөөрөмж",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "4a0727a4-bf7f-443b-bb5c-5c03e585483f"
+    },
+    {
+      "dataset_id": "must-etsds-mekhanik-injenerchlel-mekhts-tei-2-2",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Механик инженерчлэл (МехТС-тэй 2+2)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "0dbb76a9-460d-4c73-99a8-6b7cc16e97eb"
+    },
+    {
+      "dataset_id": "must-etsds-uul-uurkhain-ashiglaltyn-tekhnologi",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Уул уурхайн ашиглалтын технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "5d31f338-4aaa-4a87-b545-5334f519c8eb"
+    },
+    {
+      "dataset_id": "must-etsds-ashigt-maltmalyn-bayajuulaltyn-tekhnologi",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Ашигт малтмалын баяжуулалтын технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "fd24c7ae-818b-4c3d-a567-1ab9211f4743"
+    },
+    {
+      "dataset_id": "must-etsds-khayagdal-bolovsruulakh-tekhnologi-bas-tai-1-3",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Хаягдал боловсруулах технологи (БАС-тай 1+3)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "a8d1e43b-daed-4f92-a560-198d71c1b42c"
+    },
+    {
+      "dataset_id": "must-etsds-barilgyn-injenerchlel-bas-tai-1-3",
+      "dataset_school": "must-etsds",
+      "faculty": "Эрдэнэт цогцолбор дээд сургууль",
+      "name": "Барилгын инженерчлэл (БАС-тай 1+3)",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "05e41716-7c33-4c5c-a185-6fe1fb11a6f0"
+    },
+    {
+      "dataset_id": "must-omtds-medeelliin-tekhnologi",
+      "dataset_school": "must-omtds",
+      "faculty": "Өмнөговь аймаг дахь Технологийн дээд сургууль",
+      "name": "Мэдээллийн технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "ac4ad41d-903f-4e6b-9bcb-8faf2f9b2c5d"
+    },
+    {
+      "dataset_id": "must-omtds-tsakhilgaany-injenerchlel",
+      "dataset_school": "must-omtds",
+      "faculty": "Өмнөговь аймаг дахь Технологийн дээд сургууль",
+      "name": "Цахилгааны инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "9b76f6e8-4e6c-400b-aa31-16c164d37d2c"
+    },
+    {
+      "dataset_id": "must-omtds-uul-uurkhain-ashiglaltyn-tekhnologi",
+      "dataset_school": "must-omtds",
+      "faculty": "Өмнөговь аймаг дахь Технологийн дээд сургууль",
+      "name": "Уул уурхайн ашиглалтын технологи",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "9f2c6bdd-cb35-4669-bfef-933f49445744"
+    },
+    {
+      "dataset_id": "must-omtds-gazryn-tosny-injenerchlel",
+      "dataset_school": "must-omtds",
+      "faculty": "Өмнөговь аймаг дахь Технологийн дээд сургууль",
+      "name": "Газрын тосны инженерчлэл",
+      "split_confidence": "unknown",
+      "score_check": "none",
+      "db_id": "6d7aa976-ac19-4b27-b731-58ddc2506664"
+    }
+  ]
+}
