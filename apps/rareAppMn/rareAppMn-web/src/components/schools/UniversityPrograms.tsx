@@ -3,12 +3,14 @@
 import { BookOpen, ChevronRight, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { MajorBookmarkButton } from "@/components/schools/MajorBookmarkButton";
+import { MajorNotes } from "@/components/schools/MajorNotes";
 import {
   DEGREE_TYPES,
   OTHER_DEGREE,
   degreeKey,
+  examSubjectLines,
   formatDegreeKey,
-  formatTuition,
+  formatMajorTuition,
 } from "@/lib/format";
 import type { Faculty, Major } from "@/lib/graphql/types";
 import { cn } from "@/lib/utils";
@@ -45,7 +47,7 @@ function facultiesOffering(degree: string, faculties: Faculty[], majors: Major[]
 }
 
 function MajorCard({ major }: { major: Major }) {
-  const subjects = major.requiredSubjects ?? [];
+  const exams = examSubjectLines(major);
   return (
     <div className="rounded-xl border border-ink/10 bg-card p-4">
       <div className="flex items-start justify-between gap-3">
@@ -60,18 +62,26 @@ function MajorCard({ major }: { major: Major }) {
           size="sm"
         />
       </div>
-      {subjects.length > 0 && (
-        <p className="mt-2 text-[11px] text-ink/60">Шалгалт: {subjects.join(", ")}</p>
+      {exams.length > 0 && (
+        <dl className="mt-2 space-y-0.5 text-[11px] text-ink/60">
+          {exams.map((exam) => (
+            <div key={exam.label}>
+              <dt className="inline font-semibold text-ink/70">{exam.label}: </dt>
+              <dd className="inline">{exam.text}</dd>
+            </div>
+          ))}
+        </dl>
       )}
+      {major.examNote && <p className="mt-2 text-[11px] text-ink/60">{major.examNote}</p>}
       {(major.cutOffScore != null || major.tuitionFee != null) && (
         <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
           {major.cutOffScore != null && (
-            <span className="rounded-full bg-ink/5 px-2.5 py-1">ЭЕШ: {major.cutOffScore}+</span>
+            <span className="rounded-full bg-ink/5 px-2.5 py-1">
+              Босго оноо: {major.cutOffScore}
+            </span>
           )}
           {major.tuitionFee != null && (
-            <span className="rounded-full bg-ink/5 px-2.5 py-1">
-              {formatTuition(major.tuitionFee)}
-            </span>
+            <span className="rounded-full bg-ink/5 px-2.5 py-1">{formatMajorTuition(major)}</span>
           )}
         </div>
       )}
@@ -218,6 +228,7 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
                   );
                 })}
               </ul>
+              <MajorNotes majors={groups.flatMap((group) => group.majors)} />
             </div>
           )}
         </>

@@ -56,6 +56,7 @@ export interface SchoolInput {
 export interface FacultyInput {
   schoolId: string;
   name: string;
+  location?: string | null;
 }
 
 export interface MajorInput {
@@ -63,9 +64,13 @@ export interface MajorInput {
   name: string;
   category?: string | null;
   requiredSubjects?: unknown;
+  primarySubjects?: string[] | null;
+  secondarySubjects?: string[] | null;
+  examNote?: string | null;
   cutOffScore?: number | null;
   degreeType?: string | null;
   tuitionFee?: number | null;
+  tuitionIsEstimate?: boolean | null;
 }
 
 async function requireInternalUser(context: GraphQLContext) {
@@ -108,6 +113,7 @@ function facultyValues(input: FacultyInput) {
   return {
     schoolId: input.schoolId,
     name: requiredText(input.name, 'Faculty name'),
+    location: optionalText(input.location, 'location'),
   };
 }
 
@@ -117,9 +123,13 @@ function majorValues(input: MajorInput) {
     name: requiredText(input.name, 'Major name'),
     category: optionalText(input.category, 'category'),
     requiredSubjects: parseSubjectList(input.requiredSubjects, 'requiredSubjects'),
+    primarySubjects: parseSubjectList(input.primarySubjects, 'primarySubjects'),
+    secondarySubjects: parseSubjectList(input.secondarySubjects, 'secondarySubjects'),
+    examNote: optionalText(input.examNote, 'examNote', MAX_LONG_TEXT_LENGTH),
     cutOffScore: optionalNonNegativeNumber(input.cutOffScore, 'cutOffScore'),
     degreeType: optionalText(input.degreeType, 'degreeType'),
     tuitionFee: optionalNonNegativeNumber(input.tuitionFee, 'tuitionFee'),
+    tuitionIsEstimate: input.tuitionIsEstimate ?? false,
   };
 }
 
@@ -331,7 +341,7 @@ export const mutations = {
     const [updated] = await translateConstraintErrors(
       context.db
         .update(faculties)
-        .set({ name: values.name })
+        .set({ name: values.name, location: values.location })
         .where(eq(faculties.id, args.id))
         .returning(),
       { unique: duplicateFaculty() }

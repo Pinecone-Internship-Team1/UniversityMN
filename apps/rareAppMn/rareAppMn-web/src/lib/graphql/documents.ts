@@ -11,6 +11,7 @@ import type {
   PageInfo,
   Faculty,
   FacultyInput,
+  Region,
   Scholarship,
   ScoreMatchResult,
   SchoolFilterInput,
@@ -68,9 +69,13 @@ const MAJOR_FIELDS = /* GraphQL */ `
   name
   category
   requiredSubjects
+  primarySubjects
+  secondarySubjects
+  examNote
   cutOffScore
   degreeType
   tuitionFee
+  tuitionIsEstimate
   isSaved
 `;
 
@@ -106,6 +111,7 @@ export const SCHOOL_QUERY = /* GraphQL */ `
         id
         schoolId
         name
+        location
         createdAt
       }
       majors {
@@ -334,10 +340,11 @@ export interface MajorsQueryResult {
 }
 
 export const PERSONALIZED_RECOMMENDATIONS_QUERY = /* GraphQL */ `
-  query PersonalizedRecommendations($limit: Int) {
-    personalizedRecommendations(limit: $limit) {
+  query PersonalizedRecommendations($limit: Int, $region: Region) {
+    personalizedRecommendations(limit: $limit, region: $region) {
       matchScore
       eligible
+      verdict
       reason
       school {
         ${SCHOOL_CARD_FIELDS}
@@ -351,6 +358,7 @@ export const PERSONALIZED_RECOMMENDATIONS_QUERY = /* GraphQL */ `
 
 export interface PersonalizedRecommendationsVariables {
   limit?: number;
+  region?: Region;
 }
 
 export interface PersonalizedRecommendationsResult {
@@ -362,11 +370,15 @@ export const ANALYZE_SCORE_MATCH_QUERY = /* GraphQL */ `
     analyzeScoreMatch(majorId: $majorId, scores: $scores) {
       matchScore
       eligible
+      verdict
       reason
       major {
         id
         name
         requiredSubjects
+        primarySubjects
+        secondarySubjects
+        examNote
         cutOffScore
       }
     }
@@ -379,8 +391,17 @@ export interface AnalyzeScoreMatchVariables {
 }
 
 export interface AnalyzeScoreMatchResult {
-  analyzeScoreMatch: Pick<ScoreMatchResult, "matchScore" | "eligible" | "reason"> & {
-    major: Pick<Major, "id" | "name" | "requiredSubjects" | "cutOffScore">;
+  analyzeScoreMatch: Pick<ScoreMatchResult, "matchScore" | "eligible" | "verdict" | "reason"> & {
+    major: Pick<
+      Major,
+      | "id"
+      | "name"
+      | "requiredSubjects"
+      | "primarySubjects"
+      | "secondarySubjects"
+      | "examNote"
+      | "cutOffScore"
+    >;
   };
 }
 
@@ -521,6 +542,7 @@ const ADMIN_FACULTY_FIELDS = /* GraphQL */ `
   id
   schoolId
   name
+  location
   createdAt
 `;
 
@@ -531,9 +553,13 @@ const ADMIN_MAJOR_FIELDS = /* GraphQL */ `
   name
   category
   requiredSubjects
+  primarySubjects
+  secondarySubjects
+  examNote
   cutOffScore
   degreeType
   tuitionFee
+  tuitionIsEstimate
 `;
 
 export type AdminSchool = Omit<School, "isSaved">;

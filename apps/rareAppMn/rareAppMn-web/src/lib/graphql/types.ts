@@ -38,6 +38,8 @@ export interface Faculty {
   id: string;
   schoolId: string;
   name: string;
+  /** Set only when it differs from the university's, e.g. a branch school in another aimag. */
+  location: string | null;
   createdAt: string;
 }
 
@@ -48,9 +50,17 @@ export interface Major {
   name: string;
   category: string | null;
   requiredSubjects: string[] | null;
+  /** Суурь (70%) exam options; the student takes one of them. */
+  primarySubjects: string[] | null;
+  /** Дагалдах (30%) exam options; one, different from the суурь exam. */
+  secondarySubjects: string[] | null;
+  /** Shown with the exam subjects, e.g. when the суурь/дагалдах split is unknown. Never scored. */
+  examNote: string | null;
   cutOffScore: number | null;
   degreeType: string | null;
   tuitionFee: number | null;
+  /** `tuitionFee` is an estimated upper bound, not an official yearly fee. */
+  tuitionIsEstimate: boolean;
   isSaved: boolean;
   school?: School;
 }
@@ -154,6 +164,7 @@ export interface SchoolInput {
 export interface FacultyInput {
   schoolId: string;
   name: string;
+  location?: string | null;
 }
 
 export interface MajorInput {
@@ -161,19 +172,29 @@ export interface MajorInput {
   name: string;
   category?: string | null;
   requiredSubjects?: string[] | null;
+  primarySubjects?: string[] | null;
+  secondarySubjects?: string[] | null;
+  examNote?: string | null;
   cutOffScore?: number | null;
   degreeType?: string | null;
   tuitionFee?: number | null;
+  tuitionIsEstimate?: boolean | null;
 }
 
 export type CompareItem =
   | (School & { __typename: "School" })
   | (Major & { __typename: "Major" });
 
+/** `CHECK_WITH_SCHOOL`: the scores can't decide it, e.g. the дагалдах exam is the school's own skill test. */
+export type ScoreMatchVerdict = "ELIGIBLE" | "BELOW_CUT_OFF" | "MISSING_SCORES" | "CHECK_WITH_SCHOOL";
+
+export type Region = "ULAANBAATAR" | "OUTSIDE_ULAANBAATAR";
+
 export interface ScoreMatchResult {
   school: School;
   major: Major;
   matchScore: number;
   eligible: boolean;
+  verdict: ScoreMatchVerdict;
   reason: string;
 }

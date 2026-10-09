@@ -11,7 +11,13 @@ import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { MAX_COMPARE_ITEMS, compareHref, type CompareMode } from "@/lib/compare";
-import { formatAmount, formatDegreeType, formatTuition } from "@/lib/format";
+import {
+  examSubjectLines,
+  formatAmount,
+  formatDegreeType,
+  formatMajorTuition,
+  formatTuition,
+} from "@/lib/format";
 import {
   COMPARE_ITEMS_QUERY,
   MAJORS_QUERY,
@@ -111,12 +117,25 @@ const MAJOR_ROWS: CompareRow<CompareMajor>[] = [
   },
   { label: "Чиглэл", render: (major) => major.category ?? "—" },
   { label: "Зэрэг", render: (major) => formatDegreeType(major.degreeType) ?? "—" },
-  { label: "ЭЕШ босго оноо", render: (major) => major.cutOffScore ?? "—" },
+  { label: "Босго оноо", render: (major) => major.cutOffScore ?? "—" },
   {
     label: "Шалгалтын хичээл",
-    render: (major) => (major.requiredSubjects ?? []).join(", ") || "—",
+    render: (major) => {
+      const exams = examSubjectLines(major);
+      if (exams.length === 0 && !major.examNote) return "—";
+      return (
+        <>
+          {exams.map((exam) => (
+            <span key={exam.label} className="block">
+              {exam.label}: {exam.text}
+            </span>
+          ))}
+          {major.examNote && <span className="block text-ink/60">{major.examNote}</span>}
+        </>
+      );
+    },
   },
-  { label: "Сургалтын төлбөр", render: (major) => formatTuition(major.tuitionFee) },
+  { label: "Сургалтын төлбөр", render: (major) => formatMajorTuition(major) },
 ];
 
 function CompareTable<T extends { id: string }>({

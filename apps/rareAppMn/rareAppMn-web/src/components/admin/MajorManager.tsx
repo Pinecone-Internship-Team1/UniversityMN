@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { DropdownMenu } from "@/components/ui/DropdownMenu";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
-import { DEGREE_TYPES, formatDegreeType, formatTuition } from "@/lib/format";
+import { DEGREE_TYPES, examSubjectLines, formatDegreeType, formatMajorTuition } from "@/lib/format";
 import {
   CATALOG_CACHE,
   CREATE_MAJOR_MUTATION,
@@ -26,6 +26,7 @@ import { getErrorMessage, getErrorMessageWithDetail } from "@/lib/graphql/errors
 import type { Faculty, MajorInput } from "@/lib/graphql/types";
 import {
   MAX_EXAM_SCORE,
+  MAX_LONG_TEXT_LENGTH,
   parseOptionalNumber,
   parseOptionalText,
   parseRequiredText,
@@ -39,8 +40,12 @@ interface MajorFormValues {
   category: string;
   degreeType: string;
   requiredSubjects: string;
+  primarySubjects: string;
+  secondarySubjects: string;
+  examNote: string;
   cutOffScore: string;
   tuitionFee: string;
+  tuitionIsEstimate: boolean;
 }
 
 function toFormValues(
@@ -54,8 +59,12 @@ function toFormValues(
     category: major?.category ?? "",
     degreeType: major ? (major.degreeType ?? "") : defaultDegreeType,
     requiredSubjects: (major?.requiredSubjects ?? []).join(", "),
+    primarySubjects: (major?.primarySubjects ?? []).join(", "),
+    secondarySubjects: (major?.secondarySubjects ?? []).join(", "),
+    examNote: major?.examNote ?? "",
     cutOffScore: major?.cutOffScore != null ? String(major.cutOffScore) : "",
     tuitionFee: major?.tuitionFee != null ? String(major.tuitionFee) : "",
+    tuitionIsEstimate: major?.tuitionIsEstimate ?? false,
   };
 }
 
@@ -69,7 +78,13 @@ function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
   if (!degreeType.ok) return degreeType;
   const requiredSubjects = parseSubjectList(values.requiredSubjects, "Шалгалтын хичээл");
   if (!requiredSubjects.ok) return requiredSubjects;
-  const cutOffScore = parseOptionalNumber(values.cutOffScore, "ЭЕШ босго оноо", MAX_EXAM_SCORE);
+  const primarySubjects = parseSubjectList(values.primarySubjects, "Суурь шалгалт");
+  if (!primarySubjects.ok) return primarySubjects;
+  const secondarySubjects = parseSubjectList(values.secondarySubjects, "Дагалдах шалгалт");
+  if (!secondarySubjects.ok) return secondarySubjects;
+  const examNote = parseOptionalText(values.examNote, "Шалгалтын тайлбар", MAX_LONG_TEXT_LENGTH);
+  if (!examNote.ok) return examNote;
+  const cutOffScore = parseOptionalNumber(values.cutOffScore, "Босго оноо", MAX_EXAM_SCORE);
   if (!cutOffScore.ok) return cutOffScore;
   const tuitionFee = parseOptionalNumber(values.tuitionFee, "Сургалтын төлбөр");
   if (!tuitionFee.ok) return tuitionFee;
@@ -82,8 +97,12 @@ function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
       category: category.value,
       degreeType: degreeType.value,
       requiredSubjects: requiredSubjects.value.length > 0 ? requiredSubjects.value : null,
+      primarySubjects: primarySubjects.value.length > 0 ? primarySubjects.value : null,
+      secondarySubjects: secondarySubjects.value.length > 0 ? secondarySubjects.value : null,
+      examNote: examNote.value,
       cutOffScore: cutOffScore.value,
       tuitionFee: tuitionFee.value,
+      tuitionIsEstimate: tuitionFee.value != null && values.tuitionIsEstimate,
     },
   };
 }
@@ -198,7 +217,7 @@ function MajorForm({
           </Select>
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Шалгалтын хичээлүүд (таслалаар тусгаарлана)
+          Шалгалтын хичээлүүд (суурь/дагалдахгүй бол, таслалаар)
           <Input
             value={values.requiredSubjects}
             onChange={(event) => set("requiredSubjects", event.target.value)}
@@ -206,7 +225,31 @@ function MajorForm({
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          ЭЕШ босго оноо
+          Суурь шалгалт (70%, аль нэгийг өгнө)
+          <Input
+            value={values.primarySubjects}
+            onChange={(event) => set("primarySubjects", event.target.value)}
+            placeholder="жишээ: Математик, Физик"
+          />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
+          Дагалдах шалгалт (30%, аль нэгийг өгнө)
+          <Input
+            value={values.secondarySubjects}
+            onChange={(event) => set("secondarySubjects", event.target.value)}
+            placeholder="жишээ: Англи хэл, Нийгэм судлал"
+          />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
+          Шалгалтын тайлбар (оноо тооцоход ашиглахгүй)
+          <Input
+            value={values.examNote}
+            onChange={(event) => set("examNote", event.target.value)}
+            placeholder="жишээ: Суурь/дагалдахыг сургуулиас тодруулна уу."
+          />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
+          Босго оноо
           <Input
             type="number"
             min={0}
@@ -225,6 +268,15 @@ function MajorForm({
             onChange={(event) => set("tuitionFee", event.target.value)}
             placeholder="жишээ: 4800000"
           />
+        </label>
+        <label className="flex items-center gap-2 text-xs font-semibold text-ink/70 sm:col-span-2">
+          <input
+            type="checkbox"
+            checked={values.tuitionIsEstimate}
+            onChange={(event) => set("tuitionIsEstimate", event.target.checked)}
+            className="h-4 w-4 accent-accent"
+          />
+          Төлбөр нь ойролцоо тооцоо (сайтад &quot;≈ … хүртэл&quot; гэж харагдана)
         </label>
       </div>
 
@@ -247,13 +299,12 @@ function MajorForm({
 
 /** One line of secondary details: category · degree · cut-off · tuition · exam subjects. */
 function majorSummary(major: AdminMajor): string {
-  const subjects = major.requiredSubjects ?? [];
   return [
     major.category,
     formatDegreeType(major.degreeType),
-    major.cutOffScore != null ? `ЭЕШ ${major.cutOffScore}+` : null,
-    major.tuitionFee != null ? formatTuition(major.tuitionFee) : null,
-    subjects.length > 0 ? `Шалгалт: ${subjects.join(", ")}` : null,
+    major.cutOffScore != null ? `Босго ${major.cutOffScore}` : null,
+    major.tuitionFee != null ? formatMajorTuition(major) : null,
+    ...examSubjectLines(major).map((exam) => `${exam.label}: ${exam.text}`),
   ]
     .filter(Boolean)
     .join(" · ");

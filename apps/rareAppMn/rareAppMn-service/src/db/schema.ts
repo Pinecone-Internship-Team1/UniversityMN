@@ -61,6 +61,8 @@ export const faculties = sqliteTable(
       .notNull()
       .references(() => schools.id, { onDelete: 'cascade' }),
     name: text('name').notNull(),
+    /** Set only when it differs from the university's, e.g. a branch school in another aimag. */
+    location: text('location'),
     createdAt: text('created_at').notNull().default(isoNow),
   },
   (table) => [uniqueIndex('faculties_school_name_idx').on(table.schoolId, table.name)]
@@ -84,9 +86,23 @@ export const majors = sqliteTable(
     category: text('category'),
     /** List of subject names required for admission, e.g. `["math", "physics"]`. */
     requiredSubjects: text('required_subjects', { mode: 'json' }).$type<string[]>(),
+    /**
+     * For admissions scored as 0.7 × суурь + 0.3 × дагалдах: the student takes
+     * ONE exam from `primarySubjects` (суурь, 70%) and ONE different exam from
+     * `secondarySubjects` (дагалдах, 30%), not every listed subject.
+     */
+    primarySubjects: text('primary_subjects', { mode: 'json' }).$type<string[]>(),
+    secondarySubjects: text('secondary_subjects', { mode: 'json' }).$type<string[]>(),
+    /**
+     * Shown with the exam subjects, e.g. when the суурь/дагалдах split is
+     * unknown. Never used for scoring.
+     */
+    examNote: text('exam_note'),
     cutOffScore: real('cut_off_score'),
     degreeType: text('degree_type'),
     tuitionFee: real('tuition_fee'),
+    /** True when `tuitionFee` is an estimated upper bound rather than an official yearly fee. */
+    tuitionIsEstimate: integer('tuition_is_estimate', { mode: 'boolean' }).notNull().default(false),
   },
   (table) => [
     index('majors_school_id_idx').on(table.schoolId),

@@ -6,6 +6,13 @@ import { majors, schools, type Major, type School } from '../../db/schema';
 import { MAX_SCORE_SUBJECTS, badInput, isPlainObject, notFound, parseScores } from '../../lib/validate';
 import { hasRelevantScores, scoreMajorMatch } from '../../lib/scoreMatch';
 
+type Region = 'ULAANBAATAR' | 'OUTSIDE_ULAANBAATAR';
+
+/** Most universities are in Ulaanbaatar, so a missing location counts as Ulaanbaatar. */
+function isInUlaanbaatar(location: string | null | undefined): boolean {
+  return !location || /улаанбаатар|ulaanbaatar/i.test(location);
+}
+
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 100;
 const DEFAULT_RECOMMENDATIONS_LIMIT = 10;
@@ -203,7 +210,7 @@ export const queries = {
 
   personalizedRecommendations: async (
     _parent: unknown,
-    args: { limit?: number | null },
+    args: { limit?: number | null; region?: Region | null },
     context: GraphQLContext
   ) => {
     const user = await resolveInternalUser(context);
@@ -226,25 +233,46 @@ export const queries = {
       .from(majors)
       .where(
         scoredSubjects.length <= MAX_SCORE_SUBJECTS
-          ? sql`exists (select 1 from json_each(${majors.requiredSubjects}) where ${inArray(sql`json_each.value`, scoredSubjects)})`
+          ? or(
+              ...[majors.requiredSubjects, majors.primarySubjects, majors.secondarySubjects].map(
+                (column) =>
+                  sql`exists (select 1 from json_each(${column}) where ${inArray(sql`json_each.value`, scoredSubjects)})`
+              )
+            )
           : undefined
       )
       .orderBy(sql`${majors}.rowid`);
 
-    const ranked = candidates
+    const scored = candidates
       .filter((major) => hasRelevantScores(major, scores))
-      .map((major) => ({ major, ...scoreMajorMatch(major, scores) }))
+      .map((major) => ({ major, ...scoreMajorMatch(major, scores) }));
+
+    // Loaders dedupe ids, so this is one lookup per university / faculty, not per major.
+    const [scoredSchools, scoredFaculties] = await Promise.all([
+      Promise.all(scored.map((entry) => context.loaders.schoolById.load(entry.major.schoolId))),
+      Promise.all(
+        scored.map((entry) =>
+          args.region && entry.major.facultyId
+            ? context.loaders.facultyById.load(entry.major.facultyId)
+            : null
+        )
+      ),
+    ]);
+
+    // Branch schools have lower cut-offs (e.g. 430 vs 490), so ranking them
+    // together with Ulaanbaatar would always put branches first.
+    return scored
+      .flatMap((entry, index) => {
+        const school = scoredSchools[index];
+        if (!school) return [];
+        if (args.region) {
+          const location = scoredFaculties[index]?.location ?? school.location;
+          if (isInUlaanbaatar(location) !== (args.region === 'ULAANBAATAR')) return [];
+        }
+        return [{ school, ...entry }];
+      })
       .sort((a, b) => b.matchScore - a.matchScore)
       .slice(0, limit);
-
-    const rankedSchools = await Promise.all(
-      ranked.map((entry) => context.loaders.schoolById.load(entry.major.schoolId))
-    );
-
-    return ranked.flatMap((entry, index) => {
-      const school = rankedSchools[index];
-      return school ? [{ school, ...entry }] : [];
-    });
   },
 
   analyzeScoreMatch: async (

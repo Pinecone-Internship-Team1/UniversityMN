@@ -24,7 +24,7 @@ import { MajorUnsaveButton } from "@/components/schools/MajorUnsaveButton";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { useClerkUserSync } from "@/components/providers/ClerkUserSync";
 import { buttonClassName } from "@/components/ui/Button";
-import { formatTuition } from "@/lib/format";
+import { VERDICT_LABELS, formatTuition, isScoredVerdict } from "@/lib/format";
 import {
   ME_QUERY,
   PERSONALIZED_RECOMMENDATIONS_QUERY,
@@ -37,6 +37,7 @@ import {
   type UpdateUserProfileVariables,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
+import type { Region } from "@/lib/graphql/types";
 import { getUniversityByFullName, getUniversitySlug } from "@/lib/university-logos";
 import {
   MAX_SHORT_TEXT_LENGTH,
@@ -97,16 +98,15 @@ function universityHref(school: { id: string; name: string }): string {
   return `/university/${getUniversitySlug(school.name) ?? school.id}`;
 }
 
+// Branch schools have lower cut-offs (e.g. 430 vs 490), so ranking them together
+// with Ulaanbaatar would always put branches first; each region is ranked on its own.
+const REGIONS: { value: Region; label: string }[] = [
+  { value: "ULAANBAATAR", label: "Улаанбаатар" },
+  { value: "OUTSIDE_ULAANBAATAR", label: "Орон нутаг" },
+];
+
 function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
-  const [{ data, fetching, error }, reexecute] = useQuery<
-    PersonalizedRecommendationsResult,
-    PersonalizedRecommendationsVariables
-  >({
-    query: PERSONALIZED_RECOMMENDATIONS_QUERY,
-    variables: { limit: 6 },
-    pause: !hasScores,
-    context: USER_PROFILE_CACHE,
-  });
+  const [region, setRegion] = useState<Region>("ULAANBAATAR");
 
   if (!hasScores) {
     return (
@@ -118,6 +118,40 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
       />
     );
   }
+
+  return (
+    <div className="mt-4">
+      <div role="group" aria-label="Байршил" className="inline-flex rounded-full bg-ink/5 p-1">
+        {REGIONS.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            aria-pressed={region === option.value}
+            onClick={() => setRegion(option.value)}
+            className={
+              region === option.value
+                ? "rounded-full bg-card px-3.5 py-1.5 text-xs font-semibold text-ink shadow-sm"
+                : "rounded-full px-3.5 py-1.5 text-xs font-semibold text-ink/60 hover:text-ink"
+            }
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
+      <RecommendationList region={region} />
+    </div>
+  );
+}
+
+function RecommendationList({ region }: { region: Region }) {
+  const [{ data, fetching, error }, reexecute] = useQuery<
+    PersonalizedRecommendationsResult,
+    PersonalizedRecommendationsVariables
+  >({
+    query: PERSONALIZED_RECOMMENDATIONS_QUERY,
+    variables: { limit: 6, region },
+    context: USER_PROFILE_CACHE,
+  });
 
   if (fetching) {
     return (
@@ -161,8 +195,18 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
         >
           <div className="flex items-start justify-between gap-2">
             <p className="text-sm font-bold text-ink">{result.major.name}</p>
-            <Badge variant={result.eligible ? "accent" : "outline"}>
-              {Math.round(result.matchScore * 100)}%
+            <Badge
+              variant={
+                result.verdict === "ELIGIBLE"
+                  ? "accent"
+                  : result.verdict === "CHECK_WITH_SCHOOL"
+                    ? "default"
+                    : "outline"
+              }
+            >
+              {isScoredVerdict(result.verdict)
+                ? `${Math.round(result.matchScore * 100)}%`
+                : VERDICT_LABELS[result.verdict]}
             </Badge>
           </div>
           <p className="text-xs text-ink/60">

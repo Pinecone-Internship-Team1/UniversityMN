@@ -29,6 +29,20 @@
       "when": 1791473756585,
       "tag": "0003_add_school_contacts",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1791502218034,
+      "tag": "0004_add_major_exam_split",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1791503159894,
+      "tag": "0005_add_faculty_location_and_exam_note",
+      "breakpoints": true
     }
   ]
 }

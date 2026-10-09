@@ -43,14 +43,14 @@ import {
 } from "@/lib/graphql/errors";
 import type { Faculty } from "@/lib/graphql/types";
 import { cn } from "@/lib/utils";
-import { parseRequiredText } from "@/lib/validation";
+import { parseOptionalText, parseRequiredText } from "@/lib/validation";
 
 const DUPLICATE_FACULTY_MESSAGE =
   "Энэ нэртэй сургууль энэ их сургуульд аль хэдийн бүртгэгдсэн байна.";
 const FACULTY_HAS_MAJORS_MESSAGE =
   "Энэ сургуульд мэргэжил байгаа тул устгах боломжгүй. Эхлээд мэргэжлүүдийг устгах эсвэл өөр сургууль руу шилжүүлнэ үү.";
 
-/** A one-line name editor for creating or renaming a faculty. */
+/** A compact editor for a faculty's name and, for branch schools, its location. */
 function FacultyForm({
   schoolId,
   faculty,
@@ -61,6 +61,7 @@ function FacultyForm({
   onDone: (saved?: Faculty) => void;
 }) {
   const [name, setName] = useState(faculty?.name ?? "");
+  const [location, setLocation] = useState(faculty?.location ?? "");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [{ fetching: creating }, createFaculty] = useMutation<
     CreateFacultyResult,
@@ -80,7 +81,13 @@ function FacultyForm({
       return;
     }
 
-    const input = { schoolId, name: parsedName.value };
+    const parsedLocation = parseOptionalText(location, "Байршил");
+    if (!parsedLocation.ok) {
+      setErrorMessage(parsedLocation.error);
+      return;
+    }
+
+    const input = { schoolId, name: parsedName.value, location: parsedLocation.value };
     const result = faculty
       ? await updateFaculty({ id: faculty.id, input }, CATALOG_CACHE)
       : await createFaculty({ input }, CATALOG_CACHE);
@@ -122,6 +129,13 @@ function FacultyForm({
           aria-label="Сургуулийн нэр"
           autoFocus
           className="sm:flex-1"
+        />
+        <Input
+          value={location}
+          onChange={(event) => setLocation(event.target.value)}
+          placeholder="Байршил (өөр аймагт бол), жишээ: Ховд аймаг"
+          aria-label="Байршил"
+          className="sm:w-64"
         />
         <div className="flex gap-1.5">
           <Button type="submit" variant="solid" size="sm" disabled={saving}>
@@ -408,6 +422,11 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                       <span className="truncate text-sm font-bold text-ink">
                         {faculty.name}
                       </span>
+                      {faculty.location && (
+                        <span className="hidden shrink-0 text-[11px] text-ink/50 sm:inline">
+                          {faculty.location}
+                        </span>
+                      )}
                       <span className="shrink-0 rounded-full bg-ink/[0.06] px-2 py-0.5 text-[11px] font-semibold text-ink/60">
                         {(query || filteringByDegree) && majors.length !== total
                           ? `${majors.length}/${total}`
@@ -418,7 +437,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                       label={`${faculty.name}: үйлдлүүд`}
                       items={[
                         {
-                          label: "Нэр засах",
+                          label: "Засах",
                           icon: Pencil,
                           onSelect: () => {
                             setConfirmingDeleteId(null);

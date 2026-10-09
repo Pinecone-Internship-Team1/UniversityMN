@@ -11,6 +11,19 @@ export const typeDefs = /* GraphQL */ `
     MAJOR
   }
 
+  "CHECK_WITH_SCHOOL: the scores can't decide it, e.g. the дагалдах exam is the school's own skill test."
+  enum ScoreMatchVerdict {
+    ELIGIBLE
+    BELOW_CUT_OFF
+    MISSING_SCORES
+    CHECK_WITH_SCHOOL
+  }
+
+  enum Region {
+    ULAANBAATAR
+    OUTSIDE_ULAANBAATAR
+  }
+
   type UserProfile {
     id: ID!
     clerkUserId: String!
@@ -55,6 +68,8 @@ export const typeDefs = /* GraphQL */ `
     id: ID!
     schoolId: ID!
     name: String!
+    "Set only when it differs from the university's, e.g. a branch school in another aimag."
+    location: String
     createdAt: String!
   }
 
@@ -66,9 +81,17 @@ export const typeDefs = /* GraphQL */ `
     name: String!
     category: String
     requiredSubjects: JSON
+    "Суурь (70%) exam options; the student takes one of them."
+    primarySubjects: [String!]
+    "Дагалдах (30%) exam options; the student takes one, different from the суурь exam."
+    secondarySubjects: [String!]
+    "Shown with the exam subjects, e.g. when the суурь/дагалдах split is unknown. Never scored."
+    examNote: String
     cutOffScore: Float
     degreeType: String
     tuitionFee: Float
+    "True when tuitionFee is an estimated upper bound, not an official yearly fee."
+    tuitionIsEstimate: Boolean!
     isSaved: Boolean!
   }
 
@@ -105,6 +128,7 @@ export const typeDefs = /* GraphQL */ `
     major: Major!
     matchScore: Float!
     eligible: Boolean!
+    verdict: ScoreMatchVerdict!
     reason: String!
   }
 
@@ -151,6 +175,7 @@ export const typeDefs = /* GraphQL */ `
   input FacultyInput {
     schoolId: ID!
     name: String!
+    location: String
   }
 
   "A major's university is always its faculty's university."
@@ -159,9 +184,13 @@ export const typeDefs = /* GraphQL */ `
     name: String!
     category: String
     requiredSubjects: JSON
+    primarySubjects: [String!]
+    secondarySubjects: [String!]
+    examNote: String
     cutOffScore: Float
     degreeType: String
     tuitionFee: Float
+    tuitionIsEstimate: Boolean
   }
 
   input ScholarshipInput {
@@ -200,7 +229,8 @@ export const typeDefs = /* GraphQL */ `
     schools(filter: SchoolFilterInput): SchoolPage!
     major(id: ID!): Major
     majors(filter: MajorFilterInput): MajorPage!
-    personalizedRecommendations(limit: Int): [ScoreMatchResult!]!
+    "Pass a region to rank Ulaanbaatar and branch schools separately; their cut-offs differ (e.g. 490 vs 430)."
+    personalizedRecommendations(limit: Int, region: Region): [ScoreMatchResult!]!
     analyzeScoreMatch(majorId: ID!, scores: JSON!): ScoreMatchResult!
     compareItems(ids: [ID!]!, type: CompareType!): [CompareItem!]!
   }
