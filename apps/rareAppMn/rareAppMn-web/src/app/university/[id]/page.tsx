@@ -36,6 +36,7 @@ import {
   formatDateRange,
   formatFee,
   formatSchoolTuition,
+  formatSchoolType,
 } from "@/lib/format";
 import { UNIVERSITIES, getUniversityBySchoolId } from "@/lib/university-logos";
 
@@ -70,6 +71,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
   const university = getUniversityBySchoolId(school.id);
   const shortName = university?.short ?? school.name;
   const imageSrc = school.logoUrl ?? university?.image;
+  const schoolType = formatSchoolType(school.name);
 
   return (
     <div className="min-h-screen bg-paper text-ink">
@@ -112,9 +114,18 @@ export default async function UniversityDetailPage({ params }: PageProps) {
               </div>
             )}
             <div>
-              <span className="rounded-full bg-ink/5 px-3 py-1 text-xs font-semibold text-ink/70">
-                {school.location ?? "Их сургууль"}
-              </span>
+              <div className="flex flex-wrap gap-2">
+                {schoolType && (
+                  <span className="rounded-full bg-ink/5 px-3 py-1 text-xs font-semibold text-ink/70">
+                    {schoolType}
+                  </span>
+                )}
+                {school.location && (
+                  <span className="rounded-full bg-ink/5 px-3 py-1 text-xs font-semibold text-ink/70">
+                    {school.location}
+                  </span>
+                )}
+              </div>
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
                 {shortName}
               </h1>

@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 type AdminTab = "catalog" | "users";
 
 const TABS: { id: AdminTab; label: string; icon: typeof School }[] = [
-  { id: "catalog", label: "Их сургууль, мэргэжил", icon: School },
+  { id: "catalog", label: "Их, дээд сургууль, мэргэжил", icon: School },
   { id: "users", label: "Хэрэглэгч", icon: Users },
 ];
 

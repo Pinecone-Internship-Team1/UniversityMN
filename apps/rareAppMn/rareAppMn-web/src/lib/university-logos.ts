@@ -85,7 +85,7 @@ export const UNIVERSITIES: Record<string, University> = {
   iuu: {
     id: "iuu",
     schoolId: "sch_iuu",
-    short: "УБОУИС",
+    short: "ОУУБИС",
     full: "Олон Улсын Улаанбаатарын Их Сургууль",
     founded: "1995",
     image: "/logos/iuu.png",

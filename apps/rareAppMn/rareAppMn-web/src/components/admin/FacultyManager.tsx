@@ -46,7 +46,7 @@ import { cn } from "@/lib/utils";
 import { parseOptionalText, parseRequiredText } from "@/lib/validation";
 
 const DUPLICATE_FACULTY_MESSAGE =
-  "Энэ нэртэй сургууль энэ их сургуульд аль хэдийн бүртгэгдсэн байна.";
+  "Энэ нэртэй сургууль энэ их, дээд сургуульд аль хэдийн бүртгэгдсэн байна.";
 const FACULTY_HAS_MAJORS_MESSAGE =
   "Энэ сургуульд мэргэжил байгаа тул устгах боломжгүй. Эхлээд мэргэжлүүдийг устгах эсвэл өөр сургууль руу шилжүүлнэ үү.";
 
@@ -378,7 +378,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
         <EmptyState
           icon={Building2}
           title="Сургууль бүртгэгдээгүй байна"
-          description="Мэргэжил нэмэхийн өмнө “Сургууль нэмэх” товчоор энэ их сургуулийн сургуулийг үүсгэнэ үү."
+          description="Мэргэжил нэмэхийн өмнө “Сургууль нэмэх” товчоор энэ их, дээд сургуулийн сургуулийг үүсгэнэ үү."
           className="py-10"
         />
       ) : rows.length === 0 ? (

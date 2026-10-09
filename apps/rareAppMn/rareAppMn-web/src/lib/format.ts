@@ -16,6 +16,13 @@ export function formatSchoolTuition(school: {
   return school.tuitionText ?? formatTuition(school.tuitionFee);
 }
 
+/** "Их сургууль" or "Дээд сургууль" (college), read from the official name's ending. */
+export function formatSchoolType(name: string): string | null {
+  if (/дээд сургууль$/i.test(name.trim())) return "Дээд сургууль";
+  if (/их сургууль$/i.test(name.trim())) return "Их сургууль";
+  return null;
+}
+
 /** A university's yes/no fact, which is null until someone has checked it. */
 export function formatAvailability(available: boolean | null): string {
   if (available == null) return "Мэдээлэл удахгүй нэмэгдэнэ";

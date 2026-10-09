@@ -72,7 +72,7 @@ export function SchoolManager() {
   async function handleDelete(school: AdminSchool) {
     const result = await deleteSchool({ id: school.id }, CATALOG_CACHE);
     if (result.error) {
-      toast.error("Их сургуулийг устгаж чадсангүй", { description: getErrorMessage(result.error) });
+      toast.error("Их, дээд сургуулийг устгаж чадсангүй", { description: getErrorMessage(result.error) });
       return;
     }
     setSelected(null);
@@ -97,9 +97,9 @@ export function SchoolManager() {
                 setSearch(event.target.value);
                 setPage(1);
               }}
-              placeholder="Их сургууль хайх..."
+              placeholder="Их, дээд сургууль хайх..."
               className="pl-11"
-              aria-label="Их сургууль хайх"
+              aria-label="Их, дээд сургууль хайх"
             />
           </div>
           <Button variant="outline" size="md" onClick={() => select("new")}>
@@ -120,7 +120,7 @@ export function SchoolManager() {
             ))}
           </div>
         ) : schools.length === 0 ? (
-          <EmptyState title="Их сургууль олдсонгүй" />
+          <EmptyState title="Их, дээд сургууль олдсонгүй" />
         ) : (
           <>
             <ul className="divide-y divide-ink/[0.07] overflow-hidden rounded-xl border border-ink/10 bg-card">
@@ -180,12 +180,12 @@ export function SchoolManager() {
       <section className="lg:col-span-8">
         {selected === null ? (
           <EmptyState
-            title="Их сургууль сонгоно уу"
-            description="Зүүн талын жагсаалтаас их сургууль сонгож засах, эсвэл шинээр нэмнэ үү."
+            title="Их, дээд сургууль сонгоно уу"
+            description="Зүүн талын жагсаалтаас их, дээд сургууль сонгож засах, эсвэл шинээр нэмнэ үү."
           />
         ) : selected === "new" ? (
           <div className="rounded-2xl border border-ink/10 bg-card p-5 sm:p-6">
-            <h2 className="mb-5 text-lg font-bold text-ink">Шинэ их сургууль</h2>
+            <h2 className="mb-5 text-lg font-bold text-ink">Шинэ их, дээд сургууль</h2>
             <SchoolForm
               key="new"
               school={null}
@@ -216,7 +216,7 @@ export function SchoolManager() {
                   label={`${selected.name}: үйлдлүүд`}
                   items={[
                     {
-                      label: "Их сургуулийг устгах",
+                      label: "Их, дээд сургуулийг устгах",
                       icon: Trash2,
                       destructive: true,
                       onSelect: () => setConfirmingDelete(true),

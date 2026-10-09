@@ -78,7 +78,7 @@ function toFormValues(school: AdminSchool | null): SchoolFormValues {
 }
 
 function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput> {
-  const name = parseRequiredText(values.name, "Их сургуулийн нэр");
+  const name = parseRequiredText(values.name, "Их, дээд сургуулийн нэр");
   if (!name.ok) return name;
   const location = parseOptionalText(values.location, "Байршил");
   if (!location.ok) return location;
@@ -157,7 +157,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
     if (result.error) {
       const message = getErrorMessageWithDetail(result.error);
       setErrorMessage(message);
-      toast.error("Их сургуулийг хадгалж чадсангүй", { description: message });
+      toast.error("Их, дээд сургуулийг хадгалж чадсангүй", { description: message });
       return;
     }
 
@@ -169,7 +169,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
           : null;
     if (!saved) return;
     setValues(toFormValues(saved));
-    toast.success(school ? "Их сургуулийн мэдээлэл шинэчлэгдлээ" : "Шинэ их сургууль нэмэгдлээ");
+    toast.success(school ? "Их, дээд сургуулийн мэдээлэл шинэчлэгдлээ" : "Шинэ их, дээд сургууль нэмэгдлээ");
     onSaved(saved);
   }
 
@@ -183,7 +183,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Их сургуулийн нэр *
+          Их, дээд сургуулийн нэр *
           <Input
             value={values.name}
             onChange={(event) => set("name", event.target.value)}
@@ -301,7 +301,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
           <Textarea
             value={values.overview}
             onChange={(event) => set("overview", event.target.value)}
-            placeholder="Их сургуулийн товч танилцуулга"
+            placeholder="Их, дээд сургуулийн товч танилцуулга"
           />
         </label>
       </div>
@@ -337,7 +337,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
             ? "Зураг оруулж байна..."
             : school
               ? "Өөрчлөлтийг хадгалах"
-              : "Их сургууль нэмэх"}
+              : "Их, дээд сургууль нэмэх"}
       </Button>
     </form>
   );
