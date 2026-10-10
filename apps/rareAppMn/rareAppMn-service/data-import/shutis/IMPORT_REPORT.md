@@ -1,10 +1,10 @@
 # ШУТИС v2 import — report (2026-10-10)
 
-**Status: ready, but not live yet.** Everything is done and checked on the local copy and committed (`50f2298`). The production deploy was blocked by Claude Code's permission check, so the live site still shows yesterday's v1 data. Per the runbook, data goes to production only after the new code is live, so main has **not** been changed (only backed up).
+**Status: live.** Deployed and imported to main on 2026-10-10. Main now matches the checked local copy, and other universities are untouched.
 
-## Counts (local, ready for main)
+## Counts (main = local)
 
-| | Before (v1, live now) | After (v2) |
+| | Before (v1) | After (v2, live) |
 |---|---|---|
 | Faculties | 13 | 13 |
 | Bachelor programs | 163 | **189** |
@@ -37,7 +37,7 @@ Other universities: unchanged. Every non-ШУТИС row has the same checksum be
   - all 2027 dates.
 - The full list of filled rows is in `IMPORT_LOG.md`.
 
-## Code (commit `50f2298`, not deployed)
+## Code (commit `50f2298`, live)
 
 - **Score check** (`scoreMatch.ts`), following the dataset's reference rules:
   - "Босго давсан — өрсөлдөх эрхтэй" / "Босго хүрэхгүй: …", naming the short exam and suggesting subjects left empty;
@@ -53,27 +53,27 @@ Other universities: unchanged. Every non-ШУТИС row has the same checksum be
 
 Already fixed on both databases yesterday. Re-checked huree.edu.mn today: same address, phone 7701-2002, huree@huree.edu.mn. No change needed.
 
+## Production
+
+- Deployed by you (Claude Code's permission check blocked my deploy): API version `36b75cb4-7f49-494d-9b76-e4317c3321e5`, web version `4c054587-11f7-479b-b2e4-8dda5d56c211`.
+- Backup before any write: `~/Documents/oyutan-backups/2026-10-10-main-before-shutis-v2.sql` (main was still identical to it right before deploying).
+- Time Travel bookmark before the import: `0000003e-00000000-00005100-810fb675cfaff0dc9f30d75779485648`.
+- Import: 143 statements (26 new and 97 updated programs). A second run makes 0. Every other university's rows are identical before and after.
+- Smoke test passed: the МУИС score check gives exactly the old answer; the ШУТИС check and page show v2.
+- To undo:
+  - code: `npx wrangler rollback faeb1659-5446-47a1-963c-4e50772fd183 --env production` (service) and `npx wrangler rollback 8d6da31e-f293-4fc7-b526-c989175cfb10` (web);
+  - data: `npx wrangler d1 time-travel restore rareapp-db --env production --bookmark=0000003e-00000000-00005100-810fb675cfaff0dc9f30d75779485648` (this also undoes anything written after it).
+- Branch `zetsu` pushed.
+
 ## Skipped and why
 
-- **Production (Step 6c–d):** the deploy command was denied by Claude Code's permission check, so nothing was deployed or imported to main.
-  - Backup taken: `~/Documents/oyutan-backups/2026-10-10-main-before-shutis-v2.sql`.
-  - Rollback targets: API `faeb1659-5446-47a1-963c-4e50772fd183`, web `8d6da31e-f293-4fc7-b526-c989175cfb10`.
 - **Step 8 (other universities' addresses):** optional; not done.
-- **Push:** not done; waiting until production is decided.
 - Not added: two programs of "Инженерийн олон улсын сургууль" (no faculty for it), and ЭЦДС "Санхүү, банк" (it is the existing МС 2+2 row).
 - Ideas for later: an FAQ section and a "Хамтарсан хөтөлбөр" section (the dataset has 40 joint programs and 15 Q&As, but there are no tables for them).
 
-## To finish (from `apps/rareAppMn/rareAppMn-service`)
+## Worth checking by eye
 
-```bash
-npx wrangler deploy --env production
-(cd ../rareAppMn-web && npx opennextjs-cloudflare deploy)   # already built from 50f2298
-node data-import/import-must.mjs --remote             # dry run: expect 26 insert / 97 update majors
-node data-import/import-must.mjs --remote --apply
-node data-import/import-must.mjs --remote             # must report 0 statements
-```
-
-## Worth checking by eye (after it's live)
+I checked all five with curl and the live API and they look right; a look in the browser is still worthwhile.
 
 1. /university/shutis: the Метро programs and "Суурь ≥ 490, дагалдах ≥ 450" on program cards.
 2. Score check on Компьютерын ухаан with Математик 600, Физик 440: should say "Босго хүрэхгүй: дагалдах Физик 440 (босго 450)".
