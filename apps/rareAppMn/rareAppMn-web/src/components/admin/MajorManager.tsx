@@ -329,7 +329,7 @@ function majorSummary(major: AdminMajor): string {
   return [
     major.category,
     formatDegreeType(major.degreeType),
-    formatCutOff(major) != null ? `Босго ${formatCutOff(major)}` : null,
+    formatCutOff(major) != null ? `Босго: ${formatCutOff(major)}` : null,
     major.tuitionFee != null ? formatMajorTuition(major) : null,
     ...examSubjectLines(major).map((exam) => `${exam.label}: ${exam.text}`),
   ]

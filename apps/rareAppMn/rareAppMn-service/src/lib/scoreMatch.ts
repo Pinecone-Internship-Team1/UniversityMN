@@ -129,21 +129,34 @@ function outcomeFor(
   return { matchScore, eligible, verdict: eligible ? 'ELIGIBLE' : 'BELOW_CUT_OFF', reason };
 }
 
+const UNKNOWN_SECONDARY_CUT_OFF = 'Дагалдах хичээлийн босго тодорхойгүй — сургуулиас тодруулна уу.';
+
 /**
  * For a university that sets a minimum for each exam (e.g. ШУТИС: суурь 490,
  * дагалдах 450): only pairs meeting both minimums count, ranked by their
  * weighted total. A pair short on either exam is below the cut-off however
- * high the other one is, so its match score always stays under 1.
+ * high the other one is, so its match score always stays under 1. A дагалдах
+ * minimum of 0 means it is unknown: only the суурь minimum is checked.
+ * Mirrors `checkProgram` in the dataset's `seed/eligibility.mjs`.
  */
 function perExamOutcome(
   major: MatchableMajor,
   pairs: ExamPair[],
-  primaryMinimum: number,
-  secondaryMinimum: number
+  primarySubjects: string[],
+  secondarySubjects: string[],
+  scores: Record<string, number>
 ): ScoreMatchOutcome {
-  const weightedMinimum = PRIMARY_WEIGHT * primaryMinimum + SECONDARY_WEIGHT * secondaryMinimum;
+  const primaryMinimum = major.cutOffScore ?? 0;
+  const secondaryMinimum = major.secondaryCutOffScore ?? 0;
+  const secondaryKnown = secondaryMinimum > 0;
+  // An unknown дагалдах minimum is ranked as if it equalled the суурь one, so it isn't favoured.
+  const weightedMinimum =
+    PRIMARY_WEIGHT * primaryMinimum +
+    SECONDARY_WEIGHT * (secondaryKnown ? secondaryMinimum : primaryMinimum);
   const ratioTo = (score: number, minimum: number) => (minimum > 0 ? score / minimum : score / 100);
-  const minimums = `суурь ${primaryMinimum}, дагалдах ${secondaryMinimum}`;
+  const minimums = secondaryKnown
+    ? `суурь ${primaryMinimum}, дагалдах ${secondaryMinimum}`
+    : `суурь ${primaryMinimum}`;
   const passing = pairs.filter(
     (pair) => pair.primaryScore >= primaryMinimum && pair.secondaryScore >= secondaryMinimum
   );
@@ -155,21 +168,37 @@ function perExamOutcome(
       eligible: true,
       verdict: 'ELIGIBLE',
       reason:
-        `Суурь ${best.primary} ${best.primaryScore}, дагалдах ${best.secondary} ${best.secondaryScore} ` +
-        `оноо нь ${major.name} мэргэжлийн шалгалт тус бүрийн босгыг (${minimums}) хангаж байна. ` +
-        `Тооцоолсон оноо ${best.total.toFixed(1)} (0.7 × ${best.primary} + 0.3 × ${best.secondary}).${PASSED_NOTE}`,
+        `Босго давсан — өрсөлдөх эрхтэй. Суурь ${best.primary} ${best.primaryScore}, ` +
+        `дагалдах ${best.secondary} ${best.secondaryScore} оноо нь ${major.name} мэргэжлийн ` +
+        `${secondaryKnown ? 'шалгалт тус бүрийн босгыг' : 'суурь шалгалтын босгыг'} (${minimums}) хангаж байна. ` +
+        `Тооцоолсон оноо ${best.total.toFixed(1)} (0.7 × ${best.primary} + 0.3 × ${best.secondary}).${PASSED_NOTE}` +
+        (secondaryKnown ? '' : ` ${UNKNOWN_SECONDARY_CUT_OFF}`),
     };
   }
 
   const best = bestPair(pairs);
   const shortfalls = [
     best.primaryScore < primaryMinimum
-      ? `суурь ${best.primary} ${best.primaryScore} нь ${primaryMinimum} босго оноонаас доогуур`
+      ? `суурь ${best.primary} ${best.primaryScore} (босго ${primaryMinimum})`
       : null,
     best.secondaryScore < secondaryMinimum
-      ? `дагалдах ${best.secondary} ${best.secondaryScore} нь ${secondaryMinimum} босго оноонаас доогуур`
+      ? `дагалдах ${best.secondary} ${best.secondaryScore} (босго ${secondaryMinimum})`
       : null,
   ].filter((text): text is string => text !== null);
+  // A subject the student left empty could still make a passing pair, so name it instead of a flat no.
+  const passingPrimary = primarySubjects.filter(
+    (subject) => (scoreFor(scores, subject) ?? -Infinity) >= primaryMinimum
+  );
+  const untried = [
+    ...new Set([
+      ...secondarySubjects.filter(
+        (subject) =>
+          scoreFor(scores, subject) === undefined &&
+          passingPrimary.some((primary) => primary !== subject)
+      ),
+      ...primarySubjects.filter((subject) => scoreFor(scores, subject) === undefined),
+    ]),
+  ];
   const shortBy = (score: number, minimum: number) => (score < minimum ? score / minimum : 1);
   return {
     matchScore: clampMatchScore(
@@ -181,7 +210,13 @@ function perExamOutcome(
     ),
     eligible: false,
     verdict: 'BELOW_CUT_OFF',
-    reason: `${capitalize(shortfalls.join(', '))} тул ${major.name} мэргэжлийн шалгалт тус бүрийн босгыг (${minimums}) хангахгүй байна.`,
+    reason:
+      `Босго хүрэхгүй: ${shortfalls.join(', ')}. ${major.name} мэргэжилд шалгалт тус бүр өөрийн босгыг ` +
+      `хангах ёстой (${minimums}).` +
+      (untried.length
+        ? ` Оноо оруулаагүй ${untried.join(', ')} хичээлээр босго хангах боломжтой эсэхийг шалгана уу.`
+        : '') +
+      (secondaryKnown ? '' : ` ${UNKNOWN_SECONDARY_CUT_OFF}`),
   };
 }
 
@@ -196,6 +231,24 @@ function scoreWeightedMatch(
   const pairs = examPairs(scores, primarySubjects, scorableSecondary);
 
   if (scorableSecondary.length === 0 && secondarySubjects.length > 0) {
+    // With a per-exam minimum, a суурь score below it already decides the verdict.
+    const primaryMinimum = major.cutOffScore ?? 0;
+    const enteredPrimary = primarySubjects
+      .map((subject) => scoreFor(scores, subject))
+      .filter((value): value is number => value !== undefined);
+    if (
+      major.secondaryCutOffScore != null &&
+      enteredPrimary.length > 0 &&
+      Math.max(...enteredPrimary) < primaryMinimum
+    ) {
+      const bestPrimary = Math.max(...enteredPrimary);
+      return {
+        matchScore: clampMatchScore(bestPrimary / primaryMinimum),
+        eligible: false,
+        verdict: 'BELOW_CUT_OFF',
+        reason: `Босго хүрэхгүй: суурь хичээлийн оноо ${bestPrimary} нь ${major.name} мэргэжлийн ${primaryMinimum} босгоос доогуур байна.`,
+      };
+    }
     return {
       matchScore: 0,
       eligible: false,
@@ -212,7 +265,7 @@ function scoreWeightedMatch(
     };
   }
   if (major.secondaryCutOffScore != null) {
-    return perExamOutcome(major, pairs, major.cutOffScore ?? 0, major.secondaryCutOffScore);
+    return perExamOutcome(major, pairs, primarySubjects, scorableSecondary, scores);
   }
 
   const best = bestPair(pairs);

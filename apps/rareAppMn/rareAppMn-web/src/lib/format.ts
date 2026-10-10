@@ -44,13 +44,19 @@ export function formatMajorTuition(major: {
   return major.tuitionFee != null && major.tuitionIsEstimate ? `≈ ${fee} хүртэл` : fee;
 }
 
-/** A major's cut-off: "490", or "суурь 490 · дагалдах 450" when each exam has its own minimum. */
+/**
+ * A major's cut-off: "490", or "Суурь ≥ 490, дагалдах ≥ 450" when each exam has
+ * its own minimum. A дагалдах minimum of 0 means it isn't known yet.
+ */
 export function formatCutOff(major: {
   cutOffScore: number | null;
   secondaryCutOffScore: number | null;
 }): string | null {
   if (major.secondaryCutOffScore != null) {
-    return `суурь ${major.cutOffScore ?? "—"} · дагалдах ${major.secondaryCutOffScore}`;
+    const primary = `Суурь ≥ ${major.cutOffScore ?? "—"}`;
+    return major.secondaryCutOffScore > 0
+      ? `${primary}, дагалдах ≥ ${major.secondaryCutOffScore}`
+      : `${primary} (дагалдах: тодорхойгүй)`;
   }
   return major.cutOffScore != null ? String(major.cutOffScore) : null;
 }

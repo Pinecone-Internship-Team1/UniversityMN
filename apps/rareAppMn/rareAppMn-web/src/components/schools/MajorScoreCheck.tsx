@@ -148,7 +148,7 @@ export function MajorScoreCheck({ majors }: MajorScoreCheckProps) {
           {checkable.map((major) => (
             <option key={major.id} value={major.id}>
               {major.name}
-              {major.cutOffScore != null ? ` (босго ${formatCutOff(major)})` : ""}
+              {major.cutOffScore != null ? ` (босго: ${formatCutOff(major)})` : ""}
             </option>
           ))}
         </Select>
