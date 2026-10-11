@@ -6,7 +6,7 @@ import { useClient } from "urql";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { formatDate } from "@/lib/format";
+import { formatDateMn } from "@/lib/format";
 import {
   USER_BY_CLERK_ID_QUERY,
   type UserByClerkIdResult,
@@ -89,8 +89,8 @@ export function UserLookup() {
             </div>
             <p className="text-xs text-ink/70">{state.user.email}</p>
             <p className="text-xs text-ink/60">
-              Бүртгүүлсэн: {formatDate(state.user.createdAt)} · Шинэчилсэн:{" "}
-              {formatDate(state.user.updatedAt)}
+              Бүртгүүлсэн: {formatDateMn(state.user.createdAt)} · Шинэчилсэн:{" "}
+              {formatDateMn(state.user.updatedAt)}
             </p>
             <p className="text-xs text-ink/70">
               <span className="font-semibold text-ink">Оноо: </span>

@@ -171,7 +171,7 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
                     <GraduationCap className="h-5 w-5" />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-base font-bold text-ink">{degree.label}</span>
+                    <span className="block text-base font-bold text-ink">{degree.label}</span>{" "}
                     <span className="block text-xs text-ink/60">
                       {degree.programCount} хөтөлбөр · {degree.schoolCount} сургууль
                     </span>

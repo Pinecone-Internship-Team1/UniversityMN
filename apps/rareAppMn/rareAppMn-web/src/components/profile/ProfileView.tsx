@@ -24,7 +24,7 @@ import { MajorUnsaveButton } from "@/components/schools/MajorUnsaveButton";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { useClerkUserSync } from "@/components/providers/ClerkUserSync";
 import { buttonClassName } from "@/components/ui/Button";
-import { VERDICT_LABELS, formatTuition, isScoredVerdict } from "@/lib/format";
+import { VERDICT_LABELS, formatMajorPlace, formatTuition, isScoredVerdict } from "@/lib/format";
 import {
   ME_QUERY,
   PERSONALIZED_RECOMMENDATIONS_QUERY,
@@ -210,7 +210,10 @@ function RecommendationList({ region }: { region: Region }) {
             </Badge>
           </div>
           <p className="text-xs text-ink/60">
-            {getUniversityBySchoolId(result.school.id)?.short ?? result.school.name}
+            {formatMajorPlace(
+              result.major.faculty,
+              getUniversityBySchoolId(result.school.id)?.short ?? result.school.name,
+            )}
           </p>
           <p className="text-[11px] leading-relaxed text-ink/50">
             {result.reason}
@@ -553,7 +556,10 @@ export function ProfileView() {
                   </p>
                   <p className="mt-0.5 text-xs text-ink/60">
                     {[
-                      getUniversityBySchoolId(major.school.id)?.short ?? major.school.name,
+                      formatMajorPlace(
+                        major.faculty,
+                        getUniversityBySchoolId(major.school.id)?.short ?? major.school.name,
+                      ),
                       major.category,
                       formatTuition(major.tuitionFee),
                     ]

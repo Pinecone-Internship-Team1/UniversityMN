@@ -16,14 +16,21 @@ import {
   type AnalyzeScoreMatchVariables,
   type ViewerQueryResult,
 } from "@/lib/graphql/documents";
-import { VERDICT_LABELS, examSubjectLines, formatCutOff, isScoredVerdict } from "@/lib/format";
+import {
+  VERDICT_LABELS,
+  examSubjectLines,
+  formatCutOff,
+  formatMajorPlace,
+  isScoredVerdict,
+} from "@/lib/format";
 import { getErrorMessage } from "@/lib/graphql/errors";
-import type { Major } from "@/lib/graphql/types";
+import type { Faculty, Major } from "@/lib/graphql/types";
 import { MAX_EXAM_SCORE, parseScoreEntries } from "@/lib/validation";
 
 type CheckableMajor = Pick<
   Major,
   | "id"
+  | "facultyId"
   | "name"
   | "requiredSubjects"
   | "primarySubjects"
@@ -47,11 +54,13 @@ function scorableSubjects(major: CheckableMajor): string[] {
 
 export interface MajorScoreCheckProps {
   majors: CheckableMajor[];
+  /** The university's schools, to tell same-named programs apart (e.g. at МС and ДаТС). */
+  faculties: Pick<Faculty, "id" | "name" | "location">[];
 }
 
 type Outcome = AnalyzeScoreMatchResult["analyzeScoreMatch"];
 
-export function MajorScoreCheck({ majors }: MajorScoreCheckProps) {
+export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
   // A program with only an exam note (e.g. unknown суурь/дагалдах split) is listed so the
   // student sees why it can't be checked, instead of it silently missing.
   const checkable = majors.filter(
@@ -89,6 +98,24 @@ export function MajorScoreCheck({ majors }: MajorScoreCheckProps) {
   if (!selected) return null;
   const subjects = scorableSubjects(selected);
   const exams = examSubjectLines(selected);
+  const facultyOf = (major: CheckableMajor) =>
+    faculties.find((faculty) => faculty.id === major.facultyId);
+  const selectedPlace = formatMajorPlace(facultyOf(selected));
+  // One option group per school, in the university's order; programs without one come first.
+  const optionGroups = [
+    { id: "", label: null as string | null, majors: checkable.filter((major) => !facultyOf(major)) },
+    ...faculties.map((faculty) => ({
+      id: faculty.id,
+      label: formatMajorPlace(faculty),
+      majors: checkable.filter((major) => major.facultyId === faculty.id),
+    })),
+  ].filter((group) => group.majors.length > 0);
+  const majorOption = (major: CheckableMajor) => (
+    <option key={major.id} value={major.id}>
+      {major.name}
+      {major.cutOffScore != null ? ` (босго: ${formatCutOff(major)})` : ""}
+    </option>
+  );
 
   async function handleCheck() {
     if (!selected) return;
@@ -145,13 +172,17 @@ export function MajorScoreCheck({ majors }: MajorScoreCheckProps) {
             setErrorMessage(null);
           }}
         >
-          {checkable.map((major) => (
-            <option key={major.id} value={major.id}>
-              {major.name}
-              {major.cutOffScore != null ? ` (босго: ${formatCutOff(major)})` : ""}
-            </option>
-          ))}
+          {optionGroups.map((group) =>
+            group.label ? (
+              <optgroup key={group.id} label={group.label}>
+                {group.majors.map(majorOption)}
+              </optgroup>
+            ) : (
+              group.majors.map(majorOption)
+            ),
+          )}
         </Select>
+        {selectedPlace && <span className="font-normal text-ink/50">{selectedPlace}</span>}
       </label>
 
       {((selected.primarySubjects ?? []).length > 0 || selected.examNote) && (
@@ -212,7 +243,10 @@ export function MajorScoreCheck({ majors }: MajorScoreCheckProps) {
           {outcome && (
             <div className="mt-5 rounded-xl border border-ink/10 bg-paper p-4" aria-live="polite">
               <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-bold text-ink">{outcome.major.name}</p>
+                <div className="min-w-0">
+                  <p className="text-sm font-bold text-ink">{outcome.major.name}</p>
+                  {selectedPlace && <p className="mt-0.5 text-xs text-ink/50">{selectedPlace}</p>}
+                </div>
                 <Badge
                   variant={
                     outcome.verdict === "ELIGIBLE"

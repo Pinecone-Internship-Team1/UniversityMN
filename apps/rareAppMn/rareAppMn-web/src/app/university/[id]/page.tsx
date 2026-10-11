@@ -32,7 +32,7 @@ import {
 } from "@/lib/graphql/documents";
 import {
   formatAvailability,
-  formatDate,
+  formatDateMn,
   formatDateRange,
   formatFee,
   formatSchoolTuition,
@@ -214,7 +214,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                         )}
                         {scholarship.deadline && (
                           <p className="mt-0.5 text-xs font-semibold text-ink/70">
-                            Эцсийн хугацаа: {formatDate(scholarship.deadline)}
+                            Эцсийн хугацаа: {formatDateMn(scholarship.deadline)}
                           </p>
                         )}
                       </div>
@@ -277,7 +277,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
             </section>
 
             {school.majors.length > 0 && (
-              <MajorScoreCheck majors={school.majors} />
+              <MajorScoreCheck majors={school.majors} faculties={school.faculties} />
             )}
 
             {/* Admission schedule */}

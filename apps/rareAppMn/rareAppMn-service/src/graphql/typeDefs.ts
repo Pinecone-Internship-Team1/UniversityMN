@@ -84,6 +84,8 @@ export const typeDefs = /* GraphQL */ `
     schoolId: ID!
     school: School!
     facultyId: ID
+    "The school (faculty) that teaches it; null when none is set."
+    faculty: Faculty
     name: String!
     category: String
     requiredSubjects: JSON

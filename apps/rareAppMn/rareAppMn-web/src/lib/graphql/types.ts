@@ -81,6 +81,8 @@ export interface Major {
   tuitionIsEstimate: boolean;
   isSaved: boolean;
   school?: School;
+  /** Fetched only by lists that mix schools, to tell same-named programs apart. */
+  faculty?: Pick<Faculty, "id" | "name" | "location"> | null;
 }
 
 export interface School {

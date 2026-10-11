@@ -7,7 +7,7 @@ import { SectionLabel } from "@/components/home/SectionLabel";
 import { Badge } from "@/components/ui/Badge";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
-import { formatDate, todayInMongolia } from "@/lib/format";
+import { formatDateMn, todayInMongolia } from "@/lib/format";
 import {
   SCHOLARSHIP_DIRECTORY_QUERY,
   type ScholarshipDirectoryResult,
@@ -114,7 +114,7 @@ export default async function ScholarshipsPage() {
                       )}
                       <p className="mt-auto border-t border-ink/10 pt-3 text-xs font-semibold text-ink/70">
                         Эцсийн хугацаа:{" "}
-                        {formatDate(scholarship.deadline) ?? "Тодорхойгүй"}
+                        {formatDateMn(scholarship.deadline) ?? "Тодорхойгүй"}
                       </p>
                     </article>
                   );

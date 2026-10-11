@@ -81,6 +81,15 @@ const MAJOR_FIELDS = /* GraphQL */ `
   isSaved
 `;
 
+/** For lists that mix schools: same-named programs (e.g. at МС and ДаТС) differ by school. */
+const MAJOR_FACULTY_FIELDS = /* GraphQL */ `
+  faculty {
+    id
+    name
+    location
+  }
+`;
+
 export const SCHOOLS_QUERY = /* GraphQL */ `
   query Schools($filter: SchoolFilterInput) {
     schools(filter: $filter) {
@@ -197,6 +206,7 @@ export const ME_QUERY = /* GraphQL */ `
       }
       savedMajors {
         ${MAJOR_FIELDS}
+        ${MAJOR_FACULTY_FIELDS}
         school {
           id
           name
@@ -333,6 +343,7 @@ export const MAJORS_QUERY = /* GraphQL */ `
     majors(filter: $filter) {
       items {
         ${MAJOR_FIELDS}
+        ${MAJOR_FACULTY_FIELDS}
         school {
           ${SCHOOL_CARD_FIELDS}
         }
@@ -371,6 +382,7 @@ export const PERSONALIZED_RECOMMENDATIONS_QUERY = /* GraphQL */ `
       }
       major {
         ${MAJOR_FIELDS}
+        ${MAJOR_FACULTY_FIELDS}
       }
     }
   }
@@ -447,6 +459,7 @@ export const COMPARE_ITEMS_QUERY = /* GraphQL */ `
       }
       ... on Major {
         ${MAJOR_FIELDS}
+        ${MAJOR_FACULTY_FIELDS}
         school {
           id
           name

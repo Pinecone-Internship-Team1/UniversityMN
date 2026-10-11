@@ -16,6 +16,7 @@ import {
   formatAmount,
   formatAvailability,
   formatDegreeType,
+  formatMajorPlace,
   formatMajorTuition,
   formatSchoolTuition,
   formatCutOff,
@@ -260,7 +261,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
       : (majorSearch.data?.majors.items ?? []).map((major) => ({
           id: major.id,
           title: major.name,
-          subtitle: [schoolShortName(major.school), major.category]
+          subtitle: [formatMajorPlace(major.faculty, schoolShortName(major.school)), major.category]
             .filter(Boolean)
             .join(" · "),
         }));
@@ -406,7 +407,14 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                 items={majors}
                 rows={MAJOR_ROWS}
                 onRemove={remove}
-                title={(major) => major.name}
+                title={(major) => (
+                  <>
+                    {major.name}
+                    <span className="mt-0.5 block text-[11px] font-normal text-ink/50">
+                      {formatMajorPlace(major.faculty, schoolShortName(major.school))}
+                    </span>
+                  </>
+                )}
               />
             )}
           </>

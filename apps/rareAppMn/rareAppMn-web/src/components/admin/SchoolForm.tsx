@@ -181,6 +181,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
         void handleSubmit();
       }}
     >
+      <p className="text-[11px] text-ink/50">* — заавал бөглөх талбар</p>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
           Их, дээд сургуулийн нэр *

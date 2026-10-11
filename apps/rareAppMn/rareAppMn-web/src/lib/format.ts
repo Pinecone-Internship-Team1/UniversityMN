@@ -112,27 +112,57 @@ export function isScoredVerdict(verdict: ScoreMatchVerdict): boolean {
   return verdict === "ELIGIBLE" || verdict === "BELOW_CUT_OFF";
 }
 
-/** Formats an ISO date string (e.g. admission schedule dates) as "2026.07.15". */
-export function formatDate(value: string | null | undefined): string | null {
+/**
+ * A stored date in Mongolian order: "2026-11-23" → "2026.11.23", month-day "08-20" → "08.20".
+ * Read straight from the string, because Cloudflare's runtime has no Mongolian locale
+ * and `new Date("2026-11-23")` is UTC midnight, the day before in American time zones.
+ * A timestamp shows its day in Ulaanbaatar; any other text (e.g. "2025 оны жишиг: …") shows as is.
+ */
+export function formatDateMn(value: string | null | undefined): string | null {
   if (!value) return null;
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString("mn-MN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
+  const trimmed = value.trim();
+  const date = /^(\d{4})-(\d{2})-(\d{2})$/.exec(trimmed);
+  if (date) return `${date[1]}.${date[2]}.${date[3]}`;
+  const monthDay = /^(\d{2})-(\d{2})$/.exec(trimmed);
+  if (monthDay) return `${monthDay[1]}.${monthDay[2]}`;
+  if (/^\d{4}-\d{2}-\d{2}T/.test(trimmed)) {
+    const instant = new Date(trimmed);
+    if (!Number.isNaN(instant.getTime())) return formatDateMn(dayInMongolia(instant));
+  }
+  return trimmed;
 }
 
-/** Formats a date range for an admission schedule entry. */
+/** "2026.10.01 – 2026.11.23"; only an end → "2026.11.27 хүртэл"; only a start → that date. */
 export function formatDateRange(
   startDate: string | null | undefined,
   endDate: string | null | undefined,
 ): string {
-  const start = formatDate(startDate);
-  const end = formatDate(endDate);
-  if (start && end) return `${start} — ${end}`;
-  return start ?? end ?? "Хугацаа тодорхойгүй";
+  const start = formatDateMn(startDate);
+  const end = formatDateMn(endDate);
+  if (start && end) return start === end ? start : `${start} – ${end}`;
+  if (end) return `${end} хүртэл`;
+  return start ?? "Хугацаа тодорхойгүй";
+}
+
+/** The aimag of a branch school's location ("Орхон аймаг, Баян-Өндөр сум" → "Орхон аймаг"); null in Ulaanbaatar. */
+export function formatAimag(location: string | null | undefined): string | null {
+  // Matches the API's region rule: no location, or one naming Улаанбаатар, is Ulaanbaatar.
+  if (!location || /улаанбаатар|ulaanbaatar/i.test(location)) return null;
+  const parts = location.split(",").map((part) => part.trim());
+  return parts.find((part) => /аймаг/i.test(part)) ?? parts[0] ?? null;
+}
+
+/**
+ * Where a program is taught, for lists that mix schools: "Менежментийн сургууль", or for a
+ * branch "Дархан-Уул аймаг дахь Технологийн сургууль · Дархан-Уул аймаг". Pass the university's
+ * short name when the list mixes universities: "ШУТИС · Менежментийн сургууль".
+ */
+export function formatMajorPlace(
+  faculty: { name: string; location: string | null } | null | undefined,
+  universityShortName?: string | null,
+): string | null {
+  const parts = [universityShortName, faculty?.name, formatAimag(faculty?.location)];
+  return parts.filter(Boolean).join(" · ") || null;
 }
 
 /** Degree types an admin can pick for a program; anything else is a custom program. */
@@ -171,6 +201,23 @@ export function formatAmount(amount: number | null | undefined): string {
   return `${Math.round(amount).toLocaleString("mn-MN")} ₮`;
 }
 
+/** Today in Ulaanbaatar as "YYYY-MM-DD", comparable with stored dates. */
 export function todayInMongolia(): string {
-  return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Ulaanbaatar" });
+  return dayInMongolia(new Date());
+}
+
+/**
+ * An instant's calendar day in Ulaanbaatar as "YYYY-MM-DD". Built from the formatter's parts,
+ * not its output string, so a runtime without the requested locale can't change the order.
+ */
+function dayInMongolia(instant: Date): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Ulaanbaatar",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(instant);
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((entry) => entry.type === type)?.value;
+  return `${part("year")}-${part("month")}-${part("day")}`;
 }

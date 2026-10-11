@@ -9,7 +9,7 @@ import { ErrorState } from "@/components/ui/ErrorState";
 import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
-import { formatCutOff, formatMajorTuition } from "@/lib/format";
+import { formatCutOff, formatMajorPlace, formatMajorTuition } from "@/lib/format";
 import {
   MAJORS_QUERY,
   type MajorsQueryResult,
@@ -197,9 +197,13 @@ export function MajorsExplorer() {
                       <p className="truncate text-sm font-bold text-ink transition-colors group-hover:text-accent">
                         {major.name}
                       </p>
-                      <p className="mt-0.5 truncate text-xs text-ink/60">
-                        {university?.short ?? major.school.name}
-                        {major.category ? ` · ${major.category}` : ""}
+                      <p className="mt-0.5 text-xs text-ink/60">
+                        {[
+                          formatMajorPlace(major.faculty, university?.short ?? major.school.name),
+                          major.category,
+                        ]
+                          .filter(Boolean)
+                          .join(" · ")}
                       </p>
                       <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
                         {formatCutOff(major) != null && (

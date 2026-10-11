@@ -117,6 +117,8 @@ export const resolvers = {
   Major: {
     school: (parent: Major, _args: unknown, context: GraphQLContext) =>
       resolveSchoolOrThrow(parent.schoolId, context),
+    faculty: (parent: Major, _args: unknown, context: GraphQLContext) =>
+      parent.facultyId ? context.loaders.facultyById.load(parent.facultyId) : null,
     isSaved: (parent: Major, _args: unknown, context: GraphQLContext) =>
       isMajorSavedByCurrentUser(parent.id, context),
   },
