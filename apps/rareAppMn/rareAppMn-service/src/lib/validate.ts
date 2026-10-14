@@ -122,6 +122,16 @@ export function parsePhoneList(value: string[] | null | undefined, field: string
   return phones.length > 0 ? phones : null;
 }
 
+const SELECTION_TYPES = new Set(['list', 'direct']);
+
+/** A major's selection type: "list", "direct", or null when the university doesn't say. */
+export function parseSelectionType(value: string | null | undefined): string | null {
+  const text = optionalText(value, 'selectionType');
+  if (text === null) return null;
+  if (!SELECTION_TYPES.has(text)) throw badInput('selectionType must be "list" or "direct".');
+  return text;
+}
+
 export function optionalNonNegativeNumber(
   value: number | null | undefined,
   field: string

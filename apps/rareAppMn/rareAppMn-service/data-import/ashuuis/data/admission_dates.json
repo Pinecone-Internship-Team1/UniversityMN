@@ -1,0 +1,59 @@
+{
+ "_meta": {
+  "dataset": "admission_dates",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн хуудсанд харуулах огноонууд. 'жишиг' = 2026 оны огноо (2027 оных зарлагдаагүй).",
+  "language": "mn",
+  "verified_at": "2026-10-11",
+  "sources": [
+   "https://mnums.edu.mn/faq",
+   "https://mnums.edu.mn/admission",
+   "https://ikon.mn/n/3oh0",
+   "https://ikon.mn/n/3lvf"
+  ]
+ },
+ "records": [
+  {
+   "id": "mnums-date-esh-2026",
+   "event_mn": "2026 оны жишиг: ЭЕШ (бүх элсэгч)",
+   "start": "2026-06-25",
+   "end": "2026-06-28",
+   "status": "reference"
+  },
+  {
+   "id": "mnums-date-reg-2026",
+   "event_mn": "2026 оны жишиг: АШУҮИС-ийн бакалавр, дэд бакалаврын цахим бүртгэл (admission.mnums.edu.mn)",
+   "start": "2026-05-28",
+   "end": "2026-06-28",
+   "status": "reference"
+  },
+  {
+   "id": "mnums-date-direct-2026",
+   "event_mn": "2026 оны жишиг: Шууд сонгох хөтөлбөрөө сонгож, төлбөрөө төлөх өдөр",
+   "start": "2026-07-01",
+   "end": "2026-07-01",
+   "status": "reference"
+  },
+  {
+   "id": "mnums-date-darkhan-2026",
+   "event_mn": "2026 оны жишиг: Дархан-Уул салбарын нэмэлт элсэлт (ЭЕШ-гүй бүлэг)",
+   "start": "2026-06-09",
+   "end": "2026-06-28",
+   "status": "reference"
+  },
+  {
+   "id": "mnums-date-code-2026",
+   "event_mn": "2026 оны жишиг: Оюутны код, цахим шуудан, цахим үнэмлэх олгох (8-р сарын 3 дахь долоо хоног) — ойролцоо огноо",
+   "start": "2026-08-17",
+   "end": "2026-08-21",
+   "status": "approximate"
+  },
+  {
+   "id": "mnums-date-orientation-2026",
+   "event_mn": "2026 оны жишиг: 'Удирдлага' хичээл, эрүүл мэндийн үзлэг (8-р сарын сүүлийн долоо хоног) — ойролцоо огноо",
+   "start": "2026-08-24",
+   "end": "2026-08-31",
+   "status": "approximate"
+  }
+ ]
+}

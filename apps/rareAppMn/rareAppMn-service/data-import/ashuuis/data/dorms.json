@@ -1,0 +1,116 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн оюутны байр.",
+  "language": "mn",
+  "verified_at": "2026-10-11"
+ },
+ "records": [
+  {
+   "id": "mnums-dorm-facts",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны ерөнхий мэдээлэл",
+   "facts_mn": [
+    "Улаанбаатарт 3 байр, нийт 1,584 ор (бүгд Баянзүрх дүүрэгт).",
+    "Үнэ сайтад нийтлэгдээгүй — 7775-7575 (1018), student@mnums.edu.mn-ээс тодруулна.",
+    "Дархан-Уул салбар: 300 ортой 4 давхар байр, өрөөнд 4 хүн (2020 оны мэдээлэл)."
+   ],
+   "source_urls": [
+    "https://mnums.edu.mn/student-life",
+    "https://mnums.edu.mn/faq",
+    "https://mnums-da.edu.mn/mn/post/43"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dorm-1",
+   "record_type": "building",
+   "name_mn": "I байр",
+   "location_mn": "Баянзүрх дүүрэг, 6-р хороо",
+   "capacity": 360,
+   "rooms": 102,
+   "rooms_female_male": "85 / 17",
+   "price_per_year": null,
+   "currency": "MNT",
+   "source_urls": [
+    "https://mnums.edu.mn/student-life"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dorm-2",
+   "record_type": "building",
+   "name_mn": "II байр",
+   "location_mn": "Баянзүрх дүүрэг, 6-р хороо",
+   "capacity": 360,
+   "rooms": 95,
+   "rooms_female_male": "78 / 17",
+   "price_per_year": null,
+   "currency": "MNT",
+   "source_urls": [
+    "https://mnums.edu.mn/student-life"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dorm-3",
+   "record_type": "building",
+   "name_mn": "III байр",
+   "location_mn": "Баянзүрх дүүрэг, 12-р хороо",
+   "capacity": 864,
+   "rooms": 108,
+   "rooms_female_male": "88 / 22",
+   "price_per_year": null,
+   "currency": "MNT",
+   "note_mn": "Тоог сайтын дагуу оруулав (88 + 22 = 110 нь 108 өрөөтэй зөрүүтэй).",
+   "source_urls": [
+    "https://mnums.edu.mn/student-life"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dorm-darkhan",
+   "record_type": "building",
+   "name_mn": "Дархан-Уул салбарын дотуур байр",
+   "location_mn": "Дархан-Уул аймаг, Дархан сум",
+   "capacity": 300,
+   "rooms": null,
+   "room_size_mn": "4 хүний өрөө",
+   "price_per_year": null,
+   "currency": "MNT",
+   "note_mn": "1983 онд ашиглалтад орсон, 4 давхар; давхар бүрт гал тогоо, 24 цагийн хамгаалалт (2020 оны мэдээлэл).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/43"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "stale"
+  },
+  {
+   "id": "mnums-dorm-how-to-apply",
+   "record_type": "process",
+   "name_mn": "Оюутны байранд хэрхэн орох вэ",
+   "steps_mn": [
+    "Элсэлтээ баталгаажуулж оюутны кодоо авна (8-р сарын 3 дахь долоо хоног).",
+    "student.mnums.edu.mn-ээр байранд бүртгүүлнэ.",
+    "Өрөө хуваарилагдсаны дараа 24 цагийн дотор байрны төлбөрөө бүтэн төлж баталгаажуулна.",
+    "Эрүүл мэндийн шинжилгээний хариу, байрны гэрээ (оюутны вэбээс), байрны үнэмлэхээ хэвлүүлж бүрдүүлээд нүүнэ."
+   ],
+   "health_check_mn": [
+    "18 нас хүрээгүй: сум/дүүргийн эмнэлгээс эрт илрүүлгийн шинжилгээ хийлгэж хариугаа авчирна.",
+    "18+ ба сүүлийн 1 жилд эрт илрүүлэгт хамрагдсан: дахин шаардахгүй.",
+    "Хамрагдаагүй: АШУҮИС-ийн Төв эмнэлэгт шинжилгээ өгч, хариугаа хэвлүүлж авна."
+   ],
+   "source_urls": [
+    "https://mnums.edu.mn/student-life",
+    "https://mnums.edu.mn/faq"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  }
+ ]
+}

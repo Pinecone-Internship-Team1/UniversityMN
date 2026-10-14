@@ -20,6 +20,7 @@ import {
   VERDICT_LABELS,
   examSubjectLines,
   formatCutOff,
+  formatExamFormula,
   formatMajorPlace,
   isScoredVerdict,
 } from "@/lib/format";
@@ -38,6 +39,8 @@ type CheckableMajor = Pick<
   | "examNote"
   | "cutOffScore"
   | "secondaryCutOffScore"
+  | "primaryWeight"
+  | "secondaryWeight"
 >;
 
 /** Run by the school itself, so there is no ЭЕШ score to enter for it. */
@@ -193,10 +196,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
             </p>
           ))}
           {(selected.primarySubjects ?? []).length > 0 && (
-            <p className="mt-1">
-              Суурь жагсаалтаас нэг, дагалдахаас нэг шалгалт өгнө. Оноо = 0.7 × суурь + 0.3 ×
-              дагалдах.
-            </p>
+            <p className="mt-1">{formatExamFormula(selected)}</p>
           )}
           {selected.examNote && <p className="mt-1">{selected.examNote}</p>}
         </div>

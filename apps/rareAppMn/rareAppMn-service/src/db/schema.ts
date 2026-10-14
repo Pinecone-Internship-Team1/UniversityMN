@@ -129,6 +129,17 @@ export const majors = sqliteTable(
      * student must meet both instead of a weighted total.
      */
     secondaryCutOffScore: real('secondary_cut_off_score'),
+    /**
+     * Weights of the суурь and дагалдах exams in the admission score. Null means
+     * 0.7 / 0.3 (МУИС, ШУТИС); АШУҮИС adds the two exams, so both are 1.
+     */
+    primaryWeight: real('primary_weight'),
+    secondaryWeight: real('secondary_weight'),
+    /**
+     * `list`: ranked by score among up to 8 choices; `direct`: anyone meeting the
+     * minimums can enrol (one choice). Null when the university doesn't say.
+     */
+    selectionType: text('selection_type'),
     degreeType: text('degree_type'),
     tuitionFee: real('tuition_fee'),
     /** True when `tuitionFee` is an estimated upper bound rather than an official yearly fee. */

@@ -1,0 +1,137 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн албан ёсны холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-11"
+ },
+ "records": [
+  {
+   "id": "mnums-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлтийн мэдээлэл",
+   "url": "https://mnums.edu.mn/admission"
+  },
+  {
+   "id": "mnums-l-02",
+   "category": "admission",
+   "title_mn": "Тавигдах шаардлага, босго оноо",
+   "url": "https://mnums.edu.mn/admission/requirements"
+  },
+  {
+   "id": "mnums-l-03",
+   "category": "admission",
+   "title_mn": "Цахим бүртгэл (элсэлтийн систем)",
+   "url": "https://admission.mnums.edu.mn"
+  },
+  {
+   "id": "mnums-l-04",
+   "category": "admission",
+   "title_mn": "Бакалаврын элсэлтийн систем",
+   "url": "https://elselt.mnums.edu.mn"
+  },
+  {
+   "id": "mnums-l-05",
+   "category": "admission",
+   "title_mn": "Элсэлтийн журам (А/136, PDF)",
+   "url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+  },
+  {
+   "id": "mnums-l-06",
+   "category": "admission",
+   "title_mn": "Хөтөлбөрийн танилцуулга",
+   "url": "https://mnums.edu.mn/admission/programs"
+  },
+  {
+   "id": "mnums-l-07",
+   "category": "info",
+   "title_mn": "Түгээмэл асуулт",
+   "url": "https://mnums.edu.mn/faq"
+  },
+  {
+   "id": "mnums-l-08",
+   "category": "student",
+   "title_mn": "Оюутны амьдрал (байр, тэтгэлэг, клуб)",
+   "url": "https://mnums.edu.mn/student-life"
+  },
+  {
+   "id": "mnums-l-09",
+   "category": "student",
+   "title_mn": "Оюутны портал (байрны бүртгэл)",
+   "url": "https://student.mnums.edu.mn/login"
+  },
+  {
+   "id": "mnums-l-10",
+   "category": "student",
+   "title_mn": "Тэтгэлэг шалгах (grant.elf.gov.mn)",
+   "url": "https://grant.elf.gov.mn"
+  },
+  {
+   "id": "mnums-l-11",
+   "category": "school",
+   "title_mn": "Анагаах ухааны сургууль",
+   "url": "https://medical.mnums.edu.mn"
+  },
+  {
+   "id": "mnums-l-12",
+   "category": "school",
+   "title_mn": "Сувилахуйн сургууль",
+   "url": "https://nursing.mnums.edu.mn"
+  },
+  {
+   "id": "mnums-l-13",
+   "category": "school",
+   "title_mn": "Нийгмийн эрүүл мэндийн сургууль",
+   "url": "https://publichealth.mnums.edu.mn"
+  },
+  {
+   "id": "mnums-l-14",
+   "category": "school",
+   "title_mn": "Нүүр ам судлалын сургууль",
+   "url": "https://dentistry.mnums.edu.mn"
+  },
+  {
+   "id": "mnums-l-15",
+   "category": "school",
+   "title_mn": "Био-анагаахын сургууль",
+   "url": "https://biomedicine.mnums.edu.mn/mn/"
+  },
+  {
+   "id": "mnums-l-16",
+   "category": "school",
+   "title_mn": "Эм зүйн сургууль",
+   "url": "https://www.pharmasciences.mn"
+  },
+  {
+   "id": "mnums-l-17",
+   "category": "branch",
+   "title_mn": "Дархан-Уул салбар",
+   "url": "https://mnums-da.edu.mn"
+  },
+  {
+   "id": "mnums-l-18",
+   "category": "branch",
+   "title_mn": "Говь-Алтай салбар",
+   "url": "https://ga.mnums.edu.mn"
+  },
+  {
+   "id": "mnums-l-19",
+   "category": "branch",
+   "title_mn": "Дорноговь салбар",
+   "url": "https://dornogobi-anagaakh.mn"
+  },
+  {
+   "id": "mnums-l-20",
+   "category": "exam",
+   "title_mn": "ЭЕШ — Боловсролын үнэлгээний төв",
+   "url": "https://eec.mn"
+  },
+  {
+   "id": "mnums-l-21",
+   "category": "contact",
+   "title_mn": "Холбоо барих",
+   "url": "https://mnums.edu.mn/contact"
+  }
+ ]
+}
