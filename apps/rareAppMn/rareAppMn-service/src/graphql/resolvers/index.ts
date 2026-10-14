@@ -5,25 +5,30 @@ import { notFound } from '../../lib/validate';
 import { mutations } from './mutations';
 import { queries } from './queries';
 
-function parseJsonLiteral(ast: ValueNode): unknown {
+function parseJsonLiteral(
+  ast: ValueNode,
+  variables?: Readonly<Record<string, unknown>> | null
+): unknown {
   switch (ast.kind) {
     case Kind.STRING:
     case Kind.BOOLEAN:
+    case Kind.ENUM:
       return ast.value;
     case Kind.INT:
     case Kind.FLOAT:
       return Number(ast.value);
     case Kind.NULL:
       return null;
+    case Kind.VARIABLE:
+      return variables?.[ast.name.value];
     case Kind.LIST:
-      return ast.values.map(parseJsonLiteral);
+      return ast.values.map((value) => parseJsonLiteral(value, variables));
     case Kind.OBJECT:
-      return ast.fields.reduce<Record<string, unknown>>((acc, field) => {
-        acc[field.name.value] = parseJsonLiteral(field.value);
-        return acc;
-      }, {});
+      return Object.fromEntries(
+        ast.fields.map((field) => [field.name.value, parseJsonLiteral(field.value, variables)])
+      );
     default:
-      throw new GraphQLError(`JSON cannot represent value of kind: ${ast.kind}`);
+      throw new GraphQLError('JSON cannot represent this value.');
   }
 }
 
@@ -81,6 +86,22 @@ export const resolvers = {
   },
 
   School: {
+    phones: (parent: School) => parent.phones ?? [],
+    dormGuide: (parent: School) => {
+      const guide = parent.dormGuide;
+      if (!guide) return null;
+      return {
+        note: guide.note ?? null,
+        steps: guide.steps ?? [],
+        priorityOrder: guide.priorityOrder ?? [],
+        specialRooms: guide.specialRooms ?? null,
+        documents: guide.documents ?? [],
+        rules: guide.rules ?? [],
+        links: guide.links ?? [],
+      };
+    },
+    faculties: (parent: School, _args: unknown, context: GraphQLContext) =>
+      context.loaders.facultiesBySchoolId.load(parent.id),
     majors: (parent: School, _args: unknown, context: GraphQLContext) =>
       context.loaders.majorsBySchoolId.load(parent.id),
     scholarships: (parent: School, _args: unknown, context: GraphQLContext) =>
@@ -96,6 +117,8 @@ export const resolvers = {
   Major: {
     school: (parent: Major, _args: unknown, context: GraphQLContext) =>
       resolveSchoolOrThrow(parent.schoolId, context),
+    faculty: (parent: Major, _args: unknown, context: GraphQLContext) =>
+      parent.facultyId ? context.loaders.facultyById.load(parent.facultyId) : null,
     isSaved: (parent: Major, _args: unknown, context: GraphQLContext) =>
       isMajorSavedByCurrentUser(parent.id, context),
   },

@@ -1,9 +1,10 @@
 import DataLoader from 'dataloader';
-import { inArray } from 'drizzle-orm';
+import { asc, inArray } from 'drizzle-orm';
 import type { Database } from '../db';
 import {
   admissionSchedules,
   dormitories,
+  faculties,
   majors,
   savedMajors,
   savedSchools,
@@ -12,11 +13,18 @@ import {
   users,
   type AdmissionSchedule,
   type Dormitory,
+  type Faculty,
   type Major,
   type Scholarship,
   type School,
   type User,
 } from '../db/schema';
+
+const D1_MAX_BOUND_PARAMETERS = 100;
+
+function batchLoader<V>(load: (keys: readonly string[]) => Promise<V[]>) {
+  return new DataLoader<string, V>(load, { maxBatchSize: D1_MAX_BOUND_PARAMETERS });
+}
 
 function groupBy<T, K extends string>(rows: T[], keyOf: (row: T) => K): Map<K, T[]> {
   const grouped = new Map<K, T[]>();
@@ -34,19 +42,35 @@ function groupBy<T, K extends string>(rows: T[], keyOf: (row: T) => K): Map<K, T
  * every GraphQL request (see `context.ts`) so caches never leak across users.
  */
 export function createLoaders(db: Database) {
-  const schoolById = new DataLoader<string, School | null>(async (ids) => {
+  const schoolById = batchLoader<School | null>(async (ids) => {
     const rows = await db.select().from(schools).where(inArray(schools.id, ids as string[]));
     const byId = new Map(rows.map((row) => [row.id, row]));
     return ids.map((id) => byId.get(id) ?? null);
   });
 
-  const majorById = new DataLoader<string, Major | null>(async (ids) => {
+  const facultyById = batchLoader<Faculty | null>(async (ids) => {
+    const rows = await db.select().from(faculties).where(inArray(faculties.id, ids as string[]));
+    const byId = new Map(rows.map((row) => [row.id, row]));
+    return ids.map((id) => byId.get(id) ?? null);
+  });
+
+  const facultiesBySchoolId = batchLoader<Faculty[]>(async (schoolIds) => {
+    const rows = await db
+      .select()
+      .from(faculties)
+      .where(inArray(faculties.schoolId, schoolIds as string[]))
+      .orderBy(asc(faculties.createdAt), asc(faculties.name));
+    const bySchool = groupBy(rows, (row) => row.schoolId);
+    return schoolIds.map((id) => bySchool.get(id) ?? []);
+  });
+
+  const majorById = batchLoader<Major | null>(async (ids) => {
     const rows = await db.select().from(majors).where(inArray(majors.id, ids as string[]));
     const byId = new Map(rows.map((row) => [row.id, row]));
     return ids.map((id) => byId.get(id) ?? null);
   });
 
-  const majorsBySchoolId = new DataLoader<string, Major[]>(async (schoolIds) => {
+  const majorsBySchoolId = batchLoader<Major[]>(async (schoolIds) => {
     const rows = await db
       .select()
       .from(majors)
@@ -55,7 +79,7 @@ export function createLoaders(db: Database) {
     return schoolIds.map((id) => bySchool.get(id) ?? []);
   });
 
-  const scholarshipsBySchoolId = new DataLoader<string, Scholarship[]>(async (schoolIds) => {
+  const scholarshipsBySchoolId = batchLoader<Scholarship[]>(async (schoolIds) => {
     const rows = await db
       .select()
       .from(scholarships)
@@ -64,7 +88,7 @@ export function createLoaders(db: Database) {
     return schoolIds.map((id) => bySchool.get(id) ?? []);
   });
 
-  const dormitoriesBySchoolId = new DataLoader<string, Dormitory[]>(async (schoolIds) => {
+  const dormitoriesBySchoolId = batchLoader<Dormitory[]>(async (schoolIds) => {
     const rows = await db
       .select()
       .from(dormitories)
@@ -73,7 +97,7 @@ export function createLoaders(db: Database) {
     return schoolIds.map((id) => bySchool.get(id) ?? []);
   });
 
-  const admissionSchedulesBySchoolId = new DataLoader<string, AdmissionSchedule[]>(
+  const admissionSchedulesBySchoolId = batchLoader<AdmissionSchedule[]>(
     async (schoolIds) => {
       const rows = await db
         .select()
@@ -84,25 +108,25 @@ export function createLoaders(db: Database) {
     }
   );
 
-  const savedSchoolIdsByUserId = new DataLoader<string, Set<string>>(async (userIds) => {
+  const savedSchoolIdsByUserId = batchLoader<Set<string>>(async (userIds) => {
     const rows = await db
-      .select()
+      .select({ userId: savedSchools.userId, schoolId: savedSchools.schoolId })
       .from(savedSchools)
       .where(inArray(savedSchools.userId, userIds as string[]));
     const byUser = groupBy(rows, (row) => row.userId);
     return userIds.map((id) => new Set((byUser.get(id) ?? []).map((row) => row.schoolId)));
   });
 
-  const savedMajorIdsByUserId = new DataLoader<string, Set<string>>(async (userIds) => {
+  const savedMajorIdsByUserId = batchLoader<Set<string>>(async (userIds) => {
     const rows = await db
-      .select()
+      .select({ userId: savedMajors.userId, majorId: savedMajors.majorId })
       .from(savedMajors)
       .where(inArray(savedMajors.userId, userIds as string[]));
     const byUser = groupBy(rows, (row) => row.userId);
     return userIds.map((id) => new Set((byUser.get(id) ?? []).map((row) => row.majorId)));
   });
 
-  const userByClerkUserId = new DataLoader<string, User | null>(async (clerkUserIds) => {
+  const userByClerkUserId = batchLoader<User | null>(async (clerkUserIds) => {
     const rows = await db
       .select()
       .from(users)
@@ -113,6 +137,8 @@ export function createLoaders(db: Database) {
 
   return {
     schoolById,
+    facultyById,
+    facultiesBySchoolId,
     majorById,
     majorsBySchoolId,
     scholarshipsBySchoolId,

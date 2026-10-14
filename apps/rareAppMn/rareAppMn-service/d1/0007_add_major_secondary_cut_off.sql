@@ -1,0 +1,1 @@
+ALTER TABLE `majors` ADD `secondary_cut_off_score` real;

@@ -4,10 +4,12 @@ import { X } from "lucide-react";
 import { toast } from "sonner";
 import { useMutation } from "urql";
 import {
+  MAJOR_BOOKMARK_CACHE,
   TOGGLE_SAVE_MAJOR_MUTATION,
   type ToggleSaveMajorResult,
   type ToggleSaveMajorVariables,
 } from "@/lib/graphql/documents";
+import { getErrorMessage } from "@/lib/graphql/errors";
 
 export interface MajorUnsaveButtonProps {
   majorId: string;
@@ -31,10 +33,10 @@ export function MajorUnsaveButton({
       type="button"
       disabled={fetching}
       onClick={async () => {
-        const result = await toggleSaveMajor({ majorId });
+        const result = await toggleSaveMajor({ majorId }, MAJOR_BOOKMARK_CACHE);
         if (result.error) {
           toast.error("Хасахад алдаа гарлаа", {
-            description: result.error.message,
+            description: getErrorMessage(result.error),
           });
           return;
         }

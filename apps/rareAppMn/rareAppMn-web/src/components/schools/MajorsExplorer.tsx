@@ -9,16 +9,17 @@ import { ErrorState } from "@/components/ui/ErrorState";
 import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
-import { formatTuition } from "@/lib/format";
+import { formatCutOff, formatMajorPlace, formatMajorTuition } from "@/lib/format";
 import {
   MAJORS_QUERY,
   type MajorsQueryResult,
   type MajorsQueryVariables,
 } from "@/lib/graphql/documents";
 import type { MajorFilterInput } from "@/lib/graphql/types";
-import { getUniversityByFullName, getUniversitySlug } from "@/lib/university-logos";
+import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
 import { MajorBookmarkButton } from "./MajorBookmarkButton";
+import { MajorNotes } from "./MajorNotes";
 
 const PAGE_SIZE = 10;
 
@@ -183,8 +184,8 @@ export function MajorsExplorer() {
               )}
             >
               {data.majors.items.map((major) => {
-                const university = getUniversityByFullName(major.school.name);
-                const slug = getUniversitySlug(major.school.name) ?? major.school.id;
+                const university = getUniversityBySchoolId(major.school.id);
+                const slug = getUniversitySlug(major.school.id) ?? major.school.id;
 
                 return (
                   <Link
@@ -196,19 +197,23 @@ export function MajorsExplorer() {
                       <p className="truncate text-sm font-bold text-ink transition-colors group-hover:text-accent">
                         {major.name}
                       </p>
-                      <p className="mt-0.5 truncate text-xs text-ink/60">
-                        {university?.short ?? major.school.name}
-                        {major.category ? ` · ${major.category}` : ""}
+                      <p className="mt-0.5 text-xs text-ink/60">
+                        {[
+                          formatMajorPlace(major.faculty, university?.short ?? major.school.name),
+                          major.category,
+                        ]
+                          .filter(Boolean)
+                          .join(" · ")}
                       </p>
                       <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
-                        {major.cutOffScore != null && (
+                        {formatCutOff(major) != null && (
                           <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            ЭЕШ: {major.cutOffScore}+
+                            Босго оноо: {formatCutOff(major)}
                           </span>
                         )}
                         {major.tuitionFee != null && (
                           <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            {formatTuition(major.tuitionFee)}
+                            {formatMajorTuition(major)}
                           </span>
                         )}
                       </div>
@@ -223,6 +228,8 @@ export function MajorsExplorer() {
                 );
               })}
             </div>
+
+            <MajorNotes majors={data.majors.items} />
 
             {totalPages > 1 && (
               <div className="mt-10 flex items-center justify-center gap-3">

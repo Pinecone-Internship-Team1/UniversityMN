@@ -8,7 +8,7 @@
     {
       "binding": "DB",
       "database_name": "rareapp-db",
-      "database_id": "da4e3379-82ad-4cc3-b6d1-7c3917c6227f",
+      "database_id": "b8ddba5d-3e33-4c08-842d-8f9540820b19",
       "migrations_dir": "d1",
     },
   ],
@@ -23,14 +23,14 @@
         {
           "binding": "DB",
           "database_name": "rareapp-db",
-          "database_id": "da4e3379-82ad-4cc3-b6d1-7c3917c6227f",
+          "database_id": "b8ddba5d-3e33-4c08-842d-8f9540820b19",
           "migrations_dir": "d1",
         },
       ],
       "vars": {
         "ENVIRONMENT": "production",
-        "ADMIN_CLERK_USER_IDS": "",
-        "ALLOWED_ORIGINS": "",
+        "ADMIN_CLERK_USER_IDS": "user_3KMxwrKqxumO7HT3txgvb1pasH2,user_3KP6V70BlxpJIqp1zUJIzf5wbu2",
+        "ALLOWED_ORIGINS": "https://oyutan-mn-web.zelmeganbayr0408.workers.dev",
       },
     },
   },

@@ -1,10 +1,10 @@
 import { ArrowRight, Banknote, Home, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { formatTuition } from "@/lib/format";
+import { formatSchoolTuition } from "@/lib/format";
 import type { School } from "@/lib/graphql/types";
 import {
-  getUniversityByFullName,
+  getUniversityBySchoolId,
   getUniversitySlug,
 } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
@@ -18,8 +18,9 @@ export interface SchoolCardProps {
 }
 
 export function SchoolCard({ school, className, onToggled }: SchoolCardProps) {
-  const university = getUniversityByFullName(school.name);
-  const slug = getUniversitySlug(school.name) ?? school.id;
+  const university = getUniversityBySchoolId(school.id);
+  const logoSrc = school.logoUrl ?? university?.image;
+  const slug = getUniversitySlug(school.id) ?? school.id;
   const href = `/university/${slug}`;
 
   return (
@@ -47,13 +48,14 @@ export function SchoolCard({ school, className, onToggled }: SchoolCardProps) {
         </div>
 
         <div className="mt-5 flex items-center gap-3">
-          {university ? (
+          {logoSrc ? (
             <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-ink/10 bg-paper p-1.5 shadow-2xs">
               <Image
-                src={university.image}
+                src={logoSrc}
                 alt={`${school.name} лого`}
                 fill
                 sizes="44px"
+                unoptimized={Boolean(school.logoUrl)}
                 className="object-contain p-0.5"
               />
             </div>
@@ -79,7 +81,7 @@ export function SchoolCard({ school, className, onToggled }: SchoolCardProps) {
             <span>
               Төлбөр:{" "}
               <strong className="font-semibold text-ink">
-                {formatTuition(school.tuitionFee)}
+                {formatSchoolTuition(school)}
               </strong>
             </span>
           </div>

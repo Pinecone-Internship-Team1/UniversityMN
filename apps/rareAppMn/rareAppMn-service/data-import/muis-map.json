@@ -1,0 +1,2342 @@
+{
+  "_meta": {
+    "description": "Maps each program in the МУИС dataset (muis-oyutan-mn v2, data/programs.json) to our majors rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-09",
+    "mapped_at": "2026-10-09",
+    "university_id": "sch_muis",
+    "degree_type": "BACHELOR",
+    "how_to_use": "Look up the dataset record by dataset_id and update the rows in main_ids (local_ids when present, otherwise the same ids) with its exam split, threshold_score and tuition. db_name is informational: joint programs carry a \"(… 1+3)\" / \"(… 2+2)\" suffix and two names were near matches.",
+    "match_values": {
+      "exact": "same school and same name",
+      "near": "same school, our name differs slightly (see dataset_name vs db_name)",
+      "added": "row was missing and was inserted from the dataset",
+      "joint": "joint program filled into the branch school's existing row and renamed with the suffix",
+      "joint_added": "joint version inserted as a new row next to the branch school's own program"
+    },
+    "ids_note": "Ids are the same on local and main except where local_ids / local_id is given (Баруун бүс rows were added to each database separately).",
+    "repeats_note": "Rows listed twice in main_ids are intentional repeats in our program lists.",
+    "counts": {
+      "dataset_programs": 178,
+      "main_rows_mapped": 198,
+      "main_rows_without_dataset_record": 9
+    }
+  },
+  "programs": [
+    {
+      "dataset_id": "sas-bagsh-matematikiin-bolovsrol",
+      "row_in_2025_table": 1,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, математикийн боловсрол",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, математикийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "32cd8958-2e3b-4e1c-8332-5995eb278a7c"
+      ]
+    },
+    {
+      "dataset_id": "sas-bagsh-khimiin-bolovsrol",
+      "row_in_2025_table": 2,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, химийн боловсрол",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, химийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "98bdda5b-51d8-4b01-b6b6-003bff7cb876"
+      ]
+    },
+    {
+      "dataset_id": "sas-bagsh-biologiin-bolovsrol",
+      "row_in_2025_table": 3,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, биологийн боловсрол",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, биологийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "e8b8b61d-41a8-49cc-b5ab-629679190ade"
+      ]
+    },
+    {
+      "dataset_id": "sas-bagsh-fizikiin-bolovsrol",
+      "row_in_2025_table": 4,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, физикийн боловсрол",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, физикийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "87f68ea1-1d19-47fa-9d50-9564ebcbb7d4"
+      ]
+    },
+    {
+      "dataset_id": "sas-bagsh-gazarzuin-bolovsrol",
+      "row_in_2025_table": 5,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, газарзүйн боловсрол",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, газарзүйн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "aab38d7b-0618-4885-9d3b-ad75b5ee745b"
+      ]
+    },
+    {
+      "dataset_id": "sas-biologi",
+      "row_in_2025_table": 6,
+      "dataset_school": "sas",
+      "dataset_name": "Биологи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Биологи",
+      "match": "exact",
+      "main_ids": [
+        "e5d55a9b-08e2-4b60-8f14-1983a49e873c"
+      ]
+    },
+    {
+      "dataset_id": "sas-biokhimi",
+      "row_in_2025_table": 7,
+      "dataset_school": "sas",
+      "dataset_name": "Биохими",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Биохими",
+      "match": "exact",
+      "main_ids": [
+        "b4b1f486-f0c1-4dd5-a853-404c1eb03352"
+      ]
+    },
+    {
+      "dataset_id": "sas-biotekhnologi",
+      "row_in_2025_table": 8,
+      "dataset_school": "sas",
+      "dataset_name": "Биотехнологи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Биотехнологи",
+      "match": "exact",
+      "main_ids": [
+        "97e321e1-f8e4-41eb-802e-db18c1074213"
+      ]
+    },
+    {
+      "dataset_id": "sas-ekologi",
+      "row_in_2025_table": 9,
+      "dataset_school": "sas",
+      "dataset_name": "Экологи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Экологи",
+      "match": "exact",
+      "main_ids": [
+        "0e52a0d6-329b-4ce2-be63-6712911f8643"
+      ]
+    },
+    {
+      "dataset_id": "sas-khimi",
+      "row_in_2025_table": 10,
+      "dataset_school": "sas",
+      "dataset_name": "Хими",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хими",
+      "match": "exact",
+      "main_ids": [
+        "0f8a9243-8928-42e4-85ad-7dfb6ad1de14"
+      ]
+    },
+    {
+      "dataset_id": "sas-kheregleenii-khimi",
+      "row_in_2025_table": 11,
+      "dataset_school": "sas",
+      "dataset_name": "Хэрэглээний хими",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хэрэглээний хими",
+      "match": "exact",
+      "main_ids": [
+        "946d0b17-82da-4b9a-afeb-1803450dfbac"
+      ]
+    },
+    {
+      "dataset_id": "sas-gazarzui",
+      "row_in_2025_table": 12,
+      "dataset_school": "sas",
+      "dataset_name": "Газарзүй",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Газарзүй",
+      "match": "exact",
+      "main_ids": [
+        "f04bfdf3-5f3f-46c8-83a7-90b0e49f5e71"
+      ]
+    },
+    {
+      "dataset_id": "sas-geologi",
+      "row_in_2025_table": 13,
+      "dataset_school": "sas",
+      "dataset_name": "Геологи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Геологи",
+      "match": "exact",
+      "main_ids": [
+        "4f2d4f05-27fa-4c57-9348-a4302e4c76fe"
+      ]
+    },
+    {
+      "dataset_id": "sas-geofizik",
+      "row_in_2025_table": 14,
+      "dataset_school": "sas",
+      "dataset_name": "Геофизик",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Геофизик",
+      "match": "exact",
+      "main_ids": [
+        "bb8cc107-6707-495b-bf5a-bcc0e9710b5c"
+      ]
+    },
+    {
+      "dataset_id": "sas-baigali-orchny-zainaas-tandan-sudlal",
+      "row_in_2025_table": 15,
+      "dataset_school": "sas",
+      "dataset_name": "Байгаль орчны зайнаас тандан судлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Байгаль орчны зайнаас тандан судлал",
+      "match": "exact",
+      "main_ids": [
+        "5a3935cc-d382-4882-bc5e-9c076598eb95"
+      ]
+    },
+    {
+      "dataset_id": "sas-tsag-uur-sudlal",
+      "row_in_2025_table": 16,
+      "dataset_school": "sas",
+      "dataset_name": "Цаг уур судлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Цаг уур судлал",
+      "match": "exact",
+      "main_ids": [
+        "baaecf25-a138-44fc-903e-1ddf1a5d55c6"
+      ]
+    },
+    {
+      "dataset_id": "sas-us-sudlal",
+      "row_in_2025_table": 17,
+      "dataset_school": "sas",
+      "dataset_name": "Ус судлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Ус судлал",
+      "match": "exact",
+      "main_ids": [
+        "66528847-c79a-40af-939d-f32e0006c2fd"
+      ]
+    },
+    {
+      "dataset_id": "sas-fizik",
+      "row_in_2025_table": 18,
+      "dataset_school": "sas",
+      "dataset_name": "Физик",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Физик",
+      "match": "exact",
+      "main_ids": [
+        "c68e198a-e64d-4096-9970-918a4263cfda"
+      ]
+    },
+    {
+      "dataset_id": "sas-matematik",
+      "row_in_2025_table": 19,
+      "dataset_school": "sas",
+      "dataset_name": "Математик",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Математик",
+      "match": "exact",
+      "main_ids": [
+        "7bfe900e-f22e-4d9c-a490-dd38f6de2805"
+      ]
+    },
+    {
+      "dataset_id": "sas-fizik-elektronik",
+      "row_in_2025_table": 20,
+      "dataset_school": "sas",
+      "dataset_name": "Физик электроник",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Физик электроник",
+      "match": "exact",
+      "main_ids": [
+        "74269930-467b-4ddb-8cb0-8036e0c7774a"
+      ]
+    },
+    {
+      "dataset_id": "sas-gazar-zokhion-baiguulalt",
+      "row_in_2025_table": 21,
+      "dataset_school": "sas",
+      "dataset_name": "Газар зохион байгуулалт",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Газар зохион байгуулалт",
+      "match": "exact",
+      "main_ids": [
+        "6204e9cf-e575-46e0-a582-fb813c33dd8c"
+      ]
+    },
+    {
+      "dataset_id": "sas-khot-ba-bus-nutgiin-tuluvlult",
+      "row_in_2025_table": 22,
+      "dataset_school": "sas",
+      "dataset_name": "Хот ба бүс нутгийн төлөвлөлт",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хот ба бүс нутгийн төлөвлөлт",
+      "match": "exact",
+      "main_ids": [
+        "1511395f-acc6-4e37-8fd1-1c7f46940365"
+      ]
+    },
+    {
+      "dataset_id": "sas-ayalal-juulchlal",
+      "row_in_2025_table": 23,
+      "dataset_school": "sas",
+      "dataset_name": "Аялал жуулчлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Аялал жуулчлал",
+      "match": "exact",
+      "main_ids": [
+        "dbd71255-95f1-4e71-b7db-4bcc4ef67eec",
+        "51cf662e-64b8-4ca5-96dd-5ed12e633605"
+      ]
+    },
+    {
+      "dataset_id": "sas-mikrobiologi",
+      "row_in_2025_table": 24,
+      "dataset_school": "sas",
+      "dataset_name": "Микробиологи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Микробиологи",
+      "match": "exact",
+      "main_ids": [
+        "6b1ba04d-5827-4cfc-8bd7-1ef1dfc0ea89"
+      ]
+    },
+    {
+      "dataset_id": "sas-antropologi",
+      "row_in_2025_table": 25,
+      "dataset_school": "sas",
+      "dataset_name": "Антропологи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Антропологи",
+      "match": "exact",
+      "main_ids": [
+        "cabaf019-2492-429a-abba-5f8512496ab3"
+      ]
+    },
+    {
+      "dataset_id": "sas-arkheologi",
+      "row_in_2025_table": 26,
+      "dataset_school": "sas",
+      "dataset_name": "Археологи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Археологи",
+      "match": "exact",
+      "main_ids": [
+        "044ea0cf-e4b1-4296-95f6-067badfc6544"
+      ]
+    },
+    {
+      "dataset_id": "sas-khun-am-zui",
+      "row_in_2025_table": 27,
+      "dataset_school": "sas",
+      "dataset_name": "Хүн ам зүй",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хүн ам зүй",
+      "match": "exact",
+      "main_ids": [
+        "12245470-ea49-4079-a4ff-424c7a693a82"
+      ]
+    },
+    {
+      "dataset_id": "sas-niigmiin-ajil",
+      "row_in_2025_table": 28,
+      "dataset_school": "sas",
+      "dataset_name": "Нийгмийн ажил",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Нийгмийн ажил",
+      "match": "exact",
+      "main_ids": [
+        "6883a84c-11c9-4f22-9b53-a0d92ca13da9"
+      ]
+    },
+    {
+      "dataset_id": "sas-sotsiologi",
+      "row_in_2025_table": 29,
+      "dataset_school": "sas",
+      "dataset_name": "Социологи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Социологи",
+      "match": "exact",
+      "main_ids": [
+        "6845dadf-6c16-43bc-b0e4-bd00696460d0"
+      ]
+    },
+    {
+      "dataset_id": "sas-setguul-zui",
+      "row_in_2025_table": 30,
+      "dataset_school": "sas",
+      "dataset_name": "Сэтгүүл зүй",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Сэтгүүл зүй",
+      "match": "exact",
+      "main_ids": [
+        "65e09319-8f5d-4a7b-8ce2-aafdb99ac304"
+      ]
+    },
+    {
+      "dataset_id": "sas-setgel-sudlal",
+      "row_in_2025_table": 31,
+      "dataset_school": "sas",
+      "dataset_name": "Сэтгэл судлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Сэтгэл судлал",
+      "match": "exact",
+      "main_ids": [
+        "f617272b-e5f0-4605-82f1-7392196d46d9"
+      ]
+    },
+    {
+      "dataset_id": "sas-ediin-zasag",
+      "row_in_2025_table": 32,
+      "dataset_school": "sas",
+      "dataset_name": "Эдийн засаг",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Эдийн засаг",
+      "match": "exact",
+      "main_ids": [
+        "578771ae-8b38-4d29-9aa7-bcb608362a9b"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-niitiin-khariltsaa-medeelel",
+      "row_in_2025_table": 33,
+      "dataset_school": "sas",
+      "dataset_name": "Олон нийтийн харилцаа, мэдээлэл",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон нийтийн харилцаа, мэдээлэл",
+      "match": "exact",
+      "main_ids": [
+        "d496398b-1ecc-41b7-bd7f-0b7b326c3b7b"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-angli",
+      "row_in_2025_table": 34,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Англи)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Англи)",
+      "match": "exact",
+      "main_ids": [
+        "7714063b-efbd-4e60-abc6-b829d9b95e56"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-german",
+      "row_in_2025_table": 35,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Герман)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Герман)",
+      "match": "exact",
+      "main_ids": [
+        "2393aecf-1a25-4eef-8534-4962ec1697d3"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-oros",
+      "row_in_2025_table": 36,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Орос)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Орос)",
+      "match": "exact",
+      "main_ids": [
+        "503c2a20-711e-4ba5-af0d-59da83161ccf"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-solongos",
+      "row_in_2025_table": 37,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Солонгос)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Солонгос)",
+      "match": "exact",
+      "main_ids": [
+        "45529416-dc0a-4607-8d2f-71a39c725877"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-turk",
+      "row_in_2025_table": 38,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Турк)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Турк)",
+      "match": "exact",
+      "main_ids": [
+        "7ad1852e-7ff1-4a7b-a14d-d0d5581245a4"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-frants",
+      "row_in_2025_table": 39,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Франц)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Франц)",
+      "match": "exact",
+      "main_ids": [
+        "dd5396bc-e422-4afd-987f-c0e7a4c95681"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-khyatad",
+      "row_in_2025_table": 40,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Хятад)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Хятад)",
+      "match": "exact",
+      "main_ids": [
+        "bacf9964-19df-4a34-a148-de376738fbba"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-yapon",
+      "row_in_2025_table": 41,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Япон)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Япон)",
+      "match": "exact",
+      "main_ids": [
+        "9caa1b24-ed78-45ea-8ac0-3700a3ac4678"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-amerik",
+      "row_in_2025_table": 42,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Америк)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Америк)",
+      "match": "exact",
+      "main_ids": [
+        "b4206768-a68b-4c65-9246-fa3fca0a17de"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-ispani",
+      "row_in_2025_table": 43,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Испани)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Испани)",
+      "match": "exact",
+      "main_ids": [
+        "970da49c-d95b-4358-973a-6026987cd503"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-itali",
+      "row_in_2025_table": 44,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Итали)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Итали)",
+      "match": "exact",
+      "main_ids": [
+        "ccf5729a-a695-49be-bb62-09b3029edbf1"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-ikh-britani",
+      "row_in_2025_table": 45,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Их Британи)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Их Британи)",
+      "match": "exact",
+      "main_ids": [
+        "fb27304d-681f-41ba-a9af-59901c387636"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-solongos",
+      "row_in_2025_table": 46,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Солонгос)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Солонгос)",
+      "match": "exact",
+      "main_ids": [
+        "e443b396-6e2c-4473-8e9c-01b58d69937a"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-turk",
+      "row_in_2025_table": 47,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Турк)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Турк)",
+      "match": "exact",
+      "main_ids": [
+        "18bbc4d6-767e-4fa5-8997-f2bc19fad288"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-frants",
+      "row_in_2025_table": 48,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Франц)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Франц)",
+      "match": "exact",
+      "main_ids": [
+        "6a1a0b11-06c2-4d0c-a242-5f87524efef0"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-khyatad",
+      "row_in_2025_table": 49,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Хятад)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Хятад)",
+      "match": "exact",
+      "main_ids": [
+        "60df17f8-3c0e-4dfc-bba1-f960697e6c54"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-chekh",
+      "row_in_2025_table": 50,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Чех)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Чех)",
+      "match": "exact",
+      "main_ids": [
+        "a137b151-21a2-4c04-8ba1-41f82de43aa5"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-yapon",
+      "row_in_2025_table": 51,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Япон)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Япон)",
+      "match": "exact",
+      "main_ids": [
+        "6418efa0-70dc-4d3a-bbb1-171dbdf0d60f"
+      ]
+    },
+    {
+      "dataset_id": "sas-utga-zokhiol-sudlal",
+      "row_in_2025_table": 52,
+      "dataset_school": "sas",
+      "dataset_name": "Утга зохиол судлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Утга зохиол судлал",
+      "match": "exact",
+      "main_ids": [
+        "b112bbef-3b27-4cb7-8f47-cf3dd1de2f91"
+      ]
+    },
+    {
+      "dataset_id": "sas-urlag-sudlal",
+      "row_in_2025_table": 53,
+      "dataset_school": "sas",
+      "dataset_name": "Урлаг судлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Урлаг судлал",
+      "match": "exact",
+      "main_ids": [
+        "b082b15b-9ea0-42bd-be31-129d393588fd"
+      ]
+    },
+    {
+      "dataset_id": "sas-khel-uran-zokhiol-mongol",
+      "row_in_2025_table": 54,
+      "dataset_school": "sas",
+      "dataset_name": "Хэл, уран зохиол (Монгол)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хэл, уран зохиол (Монгол)",
+      "match": "exact",
+      "main_ids": [
+        "e08cc127-d8f8-4883-a414-04906982f4d5"
+      ]
+    },
+    {
+      "dataset_id": "sas-khel-shinjlel-mongol",
+      "row_in_2025_table": 55,
+      "dataset_school": "sas",
+      "dataset_name": "Хэл шинжлэл (Монгол)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хэл шинжлэл (Монгол)",
+      "match": "exact",
+      "main_ids": [
+        "edf6bd35-654b-4f16-bb58-0a499d69cce7"
+      ]
+    },
+    {
+      "dataset_id": "sas-khel-shinjlel-oros",
+      "row_in_2025_table": 56,
+      "dataset_school": "sas",
+      "dataset_name": "Хэл шинжлэл (Орос)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хэл шинжлэл (Орос)",
+      "match": "exact",
+      "main_ids": [
+        "ff9b08fe-e8d8-4fab-837e-ef6978ef5501"
+      ]
+    },
+    {
+      "dataset_id": "sas-khel-shinjlel-khyatad",
+      "row_in_2025_table": 57,
+      "dataset_school": "sas",
+      "dataset_name": "Хэл шинжлэл (Хятад)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хэл шинжлэл (Хятад)",
+      "match": "exact",
+      "main_ids": [
+        "c3e0f3b0-9ceb-4885-9a49-a9ed5db888a6"
+      ]
+    },
+    {
+      "dataset_id": "sas-bagsh-gadaad-khelnii-bolovsrol-angli",
+      "row_in_2025_table": 58,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, гадаад хэлний боловсрол (Англи)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, гадаад хэлний боловсрол (Англи)",
+      "match": "exact",
+      "main_ids": [
+        "456e695d-109b-472f-8343-514f34374ea1"
+      ]
+    },
+    {
+      "dataset_id": "sas-bagsh-gadaad-khelnii-bolovsrol-oros",
+      "row_in_2025_table": 59,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, гадаад хэлний боловсрол (Орос)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, гадаад хэлний боловсрол (Орос)",
+      "match": "exact",
+      "main_ids": [
+        "9167567d-539a-46d3-8a91-efdae094b88d"
+      ]
+    },
+    {
+      "dataset_id": "sas-tuukh",
+      "row_in_2025_table": 60,
+      "dataset_school": "sas",
+      "dataset_name": "Түүх",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Түүх",
+      "match": "exact",
+      "main_ids": [
+        "d34e1b79-4d05-4ebd-8017-def157903445"
+      ]
+    },
+    {
+      "dataset_id": "sas-filosofi",
+      "row_in_2025_table": 61,
+      "dataset_school": "sas",
+      "dataset_name": "Философи",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Философи",
+      "match": "exact",
+      "main_ids": [
+        "b5f136a7-efe5-48e4-8d6a-b73b506a7f2d"
+      ]
+    },
+    {
+      "dataset_id": "sas-shashin-sudlal",
+      "row_in_2025_table": 62,
+      "dataset_school": "sas",
+      "dataset_name": "Шашин судлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Шашин судлал",
+      "match": "exact",
+      "main_ids": [
+        "c379c981-6280-46de-a061-945f20ba1e0c"
+      ]
+    },
+    {
+      "dataset_id": "sas-bagsh-mongol-khel-uran-zokhiolyn-bolovsrol",
+      "row_in_2025_table": 63,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, монгол хэл, уран зохиолын боловсрол",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, монгол хэл, уран зохиолын боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "3475b969-0d47-418f-a891-1e391a0dc49a"
+      ]
+    },
+    {
+      "dataset_id": "sas-bagsh-niigmiin-ukhaany-bolovsrol-tuukh",
+      "row_in_2025_table": 64,
+      "dataset_school": "sas",
+      "dataset_name": "Багш, нийгмийн ухааны боловсрол (Түүх)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Багш, нийгмийн ухааны боловсрол (Түүх)",
+      "match": "exact",
+      "main_ids": [
+        "7ecfe81e-e782-4de4-8a10-2ebe38e9b218"
+      ]
+    },
+    {
+      "dataset_id": "site-kompiyuteryn-ukhaan",
+      "row_in_2025_table": 65,
+      "dataset_school": "site",
+      "dataset_name": "Компьютерын ухаан",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Компьютерын ухаан",
+      "match": "exact",
+      "main_ids": [
+        "a7c57609-6612-45fc-95a2-22e918207a6d"
+      ]
+    },
+    {
+      "dataset_id": "site-medeelliin-tekhnologi",
+      "row_in_2025_table": 66,
+      "dataset_school": "site",
+      "dataset_name": "Мэдээллийн технологи",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Мэдээллийн технологи",
+      "match": "exact",
+      "main_ids": [
+        "0e8e0490-60f7-4af7-b0ff-616c8c49deec"
+      ]
+    },
+    {
+      "dataset_id": "site-programm-khangamj",
+      "row_in_2025_table": 67,
+      "dataset_school": "site",
+      "dataset_name": "Программ хангамж",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Программ хангамж",
+      "match": "exact",
+      "main_ids": [
+        "1a82f85c-4799-47bc-992f-45cc4ca38ef8"
+      ]
+    },
+    {
+      "dataset_id": "site-mulitimedia-tekhnologi-kompiyuter-grafik",
+      "row_in_2025_table": 68,
+      "dataset_school": "site",
+      "dataset_name": "Мультимедиа технологи (Компьютер график)",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Мультимедиа технологи",
+      "match": "near",
+      "main_ids": [
+        "145b7302-8f16-4498-856f-df26ade222b8"
+      ]
+    },
+    {
+      "dataset_id": "site-medeelliin-sistem",
+      "row_in_2025_table": 69,
+      "dataset_school": "site",
+      "dataset_name": "Мэдээллийн систем",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Мэдээллийн систем",
+      "match": "exact",
+      "main_ids": [
+        "d3d3bd46-f494-4362-a523-42527674b2b8"
+      ]
+    },
+    {
+      "dataset_id": "site-statistik",
+      "row_in_2025_table": 70,
+      "dataset_school": "site",
+      "dataset_name": "Статистик",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Статистик",
+      "match": "exact",
+      "main_ids": [
+        "dd3756e3-48d6-4901-9d6b-8e948cc5ba6a"
+      ]
+    },
+    {
+      "dataset_id": "site-kheregleenii-matematik",
+      "row_in_2025_table": 71,
+      "dataset_school": "site",
+      "dataset_name": "Хэрэглээний математик",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Хэрэглээний математик",
+      "match": "exact",
+      "main_ids": [
+        "17b493ea-a456-4074-8c17-d87c0064d09c"
+      ]
+    },
+    {
+      "dataset_id": "site-elektronikiin-injenerchlel",
+      "row_in_2025_table": 72,
+      "dataset_school": "site",
+      "dataset_name": "Электроникийн инженерчлэл",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Электроникийн инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "dd379dbc-a6eb-4b8d-92a2-016585505116"
+      ]
+    },
+    {
+      "dataset_id": "site-kompiyuteryn-suljee",
+      "row_in_2025_table": 73,
+      "dataset_school": "site",
+      "dataset_name": "Компьютерын сүлжээ",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Компьютерын сүлжээ",
+      "match": "exact",
+      "main_ids": [
+        "ffcdffce-3a6d-4dfe-85f0-d76dda6f33cd"
+      ]
+    },
+    {
+      "dataset_id": "site-kholboony-tekhnologi",
+      "row_in_2025_table": 74,
+      "dataset_school": "site",
+      "dataset_name": "Холбооны технологи",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Холбооны технологи",
+      "match": "exact",
+      "main_ids": [
+        "59db5fe4-c00f-42d9-a9c4-e0e373074553"
+      ]
+    },
+    {
+      "dataset_id": "site-kompiyuteryn-injenerchlel",
+      "row_in_2025_table": 75,
+      "dataset_school": "site",
+      "dataset_name": "Компьютерын инженерчлэл",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Компьютерын инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "0210856c-60c2-446f-a493-afb78782b247"
+      ]
+    },
+    {
+      "dataset_id": "site-khiimel-oyuun",
+      "row_in_2025_table": 76,
+      "dataset_school": "site",
+      "dataset_name": "Хиймэл оюун",
+      "faculty": "Мэдээллийн Технологи, Электроникийн Сургууль",
+      "db_name": "Хиймэл оюун",
+      "match": "exact",
+      "main_ids": [
+        "6935e6ee-d528-410b-b0c9-3e755feb82df"
+      ]
+    },
+    {
+      "dataset_id": "set-sergeegdekh-erchim-khuch",
+      "row_in_2025_table": 77,
+      "dataset_school": "set",
+      "dataset_name": "Сэргээгдэх эрчим хүч",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Сэргээгдэх эрчим хүч",
+      "match": "exact",
+      "main_ids": [
+        "f9d6c4b6-8bf2-47c1-940b-cdfb9431bc38"
+      ]
+    },
+    {
+      "dataset_id": "set-tsumiin-injenerchlel",
+      "row_in_2025_table": 78,
+      "dataset_school": "set",
+      "dataset_name": "Цөмийн инженерчлэл",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Цөмийн инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "bb3f8538-253f-43b2-9f21-b741b338fa13"
+      ]
+    },
+    {
+      "dataset_id": "set-bio-injenerchlel",
+      "row_in_2025_table": 79,
+      "dataset_school": "set",
+      "dataset_name": "Био-инженерчлэл",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Био-инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "a3e6da91-361b-4df2-9bac-28082dbd4e16"
+      ]
+    },
+    {
+      "dataset_id": "set-material-sudlal-injenerchlel",
+      "row_in_2025_table": 80,
+      "dataset_school": "set",
+      "dataset_name": "Материал судлал, инженерчлэл",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Материал судлал, инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "20cc1fb0-ed3a-46ad-988b-e07359e9c7a4"
+      ]
+    },
+    {
+      "dataset_id": "set-nano-shinjlekh-ukhaan-injenerchlel",
+      "row_in_2025_table": 81,
+      "dataset_school": "set",
+      "dataset_name": "Нано шинжлэх ухаан, инженерчлэл",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Нано шинжлэх ухаан, инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "dbf41942-139c-422f-b652-76bcbcb7577f"
+      ]
+    },
+    {
+      "dataset_id": "set-khimiin-injenerchlel",
+      "row_in_2025_table": 82,
+      "dataset_school": "set",
+      "dataset_name": "Химийн инженерчлэл",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Химийн инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "240a2946-b739-4af5-8080-1a963a73af3c"
+      ]
+    },
+    {
+      "dataset_id": "set-khureelen-bui-orchny-injenerchlel",
+      "row_in_2025_table": 83,
+      "dataset_school": "set",
+      "dataset_name": "Хүрээлэн буй орчны инженерчлэл",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Хүрээлэн буй орчны инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "e448dedc-d061-4649-a939-642c5908c079"
+      ]
+    },
+    {
+      "dataset_id": "set-khimiin-bolovsruulaltyn-tekhnologi",
+      "row_in_2025_table": 84,
+      "dataset_school": "set",
+      "dataset_name": "Химийн боловсруулалтын технологи",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Химийн боловсруулалтын технологи",
+      "match": "exact",
+      "main_ids": [
+        "9c93d922-855d-4294-9d73-5864916829cd"
+      ]
+    },
+    {
+      "dataset_id": "set-khureelen-bui-orchin-sudlal",
+      "row_in_2025_table": 85,
+      "dataset_school": "set",
+      "dataset_name": "Хүрээлэн буй орчин судлал",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Хүрээлэн буй орчин судлал",
+      "match": "exact",
+      "main_ids": [
+        "a50b3b28-fa05-493f-9020-4b0a582e6094"
+      ]
+    },
+    {
+      "dataset_id": "set-oin-aj-akhui",
+      "row_in_2025_table": 86,
+      "dataset_school": "set",
+      "dataset_name": "Ойн аж ахуй",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Ойн аж ахуй",
+      "match": "exact",
+      "main_ids": [
+        "8661025b-e72f-46bb-9a02-0280967e2dc4"
+      ]
+    },
+    {
+      "dataset_id": "set-ashigt-maltmalyn-bayajuulaltyn-tekhnologi",
+      "row_in_2025_table": 87,
+      "dataset_school": "set",
+      "dataset_name": "Ашигт малтмалын баяжуулалтын технологи",
+      "faculty": "Инженер Технологийн Сургууль",
+      "db_name": "Ашигт малтмалын баяжуулалтын технологи",
+      "match": "exact",
+      "main_ids": [
+        "577a61eb-fa47-4fb6-b11a-3591754c0285"
+      ]
+    },
+    {
+      "dataset_id": "bs-nyagtlan-bodokh-burtgel",
+      "row_in_2025_table": 88,
+      "dataset_school": "bs",
+      "dataset_name": "Нягтлан бодох бүртгэл",
+      "faculty": "Бизнесийн Сургууль",
+      "db_name": "Нягтлан бодох бүртгэл",
+      "match": "exact",
+      "main_ids": [
+        "a33c7b40-8f79-4cc9-88dc-a7a6c0ba65cb"
+      ]
+    },
+    {
+      "dataset_id": "bs-sankhuu-bank",
+      "row_in_2025_table": 89,
+      "dataset_school": "bs",
+      "dataset_name": "Санхүү, банк",
+      "faculty": "Бизнесийн Сургууль",
+      "db_name": "Санхүү, банк",
+      "match": "exact",
+      "main_ids": [
+        "a3211f5b-7a3c-446e-809d-857c67ca3987"
+      ]
+    },
+    {
+      "dataset_id": "bs-daatgal",
+      "row_in_2025_table": 90,
+      "dataset_school": "bs",
+      "dataset_name": "Даатгал",
+      "faculty": "Бизнесийн Сургууль",
+      "db_name": "Даатгал",
+      "match": "exact",
+      "main_ids": [
+        "b4e45262-2489-4607-8e1c-76d5e1faf9e1"
+      ]
+    },
+    {
+      "dataset_id": "bs-marketing",
+      "row_in_2025_table": 91,
+      "dataset_school": "bs",
+      "dataset_name": "Маркетинг",
+      "faculty": "Бизнесийн Сургууль",
+      "db_name": "Маркетинг",
+      "match": "exact",
+      "main_ids": [
+        "9bbcfb3b-a141-4dda-b5be-0423eeb1d3f3"
+      ]
+    },
+    {
+      "dataset_id": "bs-menejment",
+      "row_in_2025_table": 92,
+      "dataset_school": "bs",
+      "dataset_name": "Менежмент",
+      "faculty": "Бизнесийн Сургууль",
+      "db_name": "Менежмент",
+      "match": "exact",
+      "main_ids": [
+        "08cab6b1-b626-4fcb-9d9d-564635907a1f"
+      ]
+    },
+    {
+      "dataset_id": "bs-khudaldaa",
+      "row_in_2025_table": 93,
+      "dataset_school": "bs",
+      "dataset_name": "Худалдаа",
+      "faculty": "Бизнесийн Сургууль",
+      "db_name": "Худалдаа",
+      "match": "exact",
+      "main_ids": [
+        "7deb71d1-23cf-4d76-a6f5-b18a53183507"
+      ]
+    },
+    {
+      "dataset_id": "bs-zochlokh-uilchilgee",
+      "row_in_2025_table": 94,
+      "dataset_school": "bs",
+      "dataset_name": "Зочлох үйлчилгээ",
+      "faculty": "Бизнесийн Сургууль",
+      "db_name": "Зочлох үйлчилгээ",
+      "match": "exact",
+      "main_ids": [
+        "f26b83c6-5905-42b3-8cbc-1999d52f9d5f"
+      ]
+    },
+    {
+      "dataset_id": "law-erkh-zui",
+      "row_in_2025_table": 95,
+      "dataset_school": "law",
+      "dataset_name": "Эрх зүй",
+      "faculty": "Хууль Зүйн Сургууль",
+      "db_name": "Эрх зүй",
+      "match": "exact",
+      "main_ids": [
+        "3fb08ba2-61ab-44b5-a0b8-7d2f6f715c03",
+        "509b3b89-2434-47e3-a2b2-d59ec8cf1ee6"
+      ]
+    },
+    {
+      "dataset_id": "spsirpa-olon-ulsyn-khariltsaa",
+      "row_in_2025_table": 96,
+      "dataset_school": "spsirpa",
+      "dataset_name": "Олон улсын харилцаа",
+      "faculty": "Улс Төр Судлал, Олон Улсын Харилцаа, Нийтийн Удирдлагын Сургууль",
+      "db_name": "Олон улсын харилцаа",
+      "match": "exact",
+      "main_ids": [
+        "e61205b4-cf8c-4e1a-9cc3-639d8c1466d3",
+        "3ee59428-a6cf-49f8-afb3-7afbea335159"
+      ]
+    },
+    {
+      "dataset_id": "spsirpa-niitiin-udirdlaga",
+      "row_in_2025_table": 97,
+      "dataset_school": "spsirpa",
+      "dataset_name": "Нийтийн удирдлага",
+      "faculty": "Улс Төр Судлал, Олон Улсын Харилцаа, Нийтийн Удирдлагын Сургууль",
+      "db_name": "Нийтийн удирдлага",
+      "match": "exact",
+      "main_ids": [
+        "07c3f577-c74b-4c47-9b3a-4eba59cf9a0b",
+        "c0fd5af5-8d41-40df-9b38-7326aa125ea9"
+      ]
+    },
+    {
+      "dataset_id": "spsirpa-uls-tur-sudlal",
+      "row_in_2025_table": 98,
+      "dataset_school": "spsirpa",
+      "dataset_name": "Улс төр судлал",
+      "faculty": "Улс Төр Судлал, Олон Улсын Харилцаа, Нийтийн Удирдлагын Сургууль",
+      "db_name": "Улс төр судлал",
+      "match": "exact",
+      "main_ids": [
+        "d5b3eb61-6948-41b0-be30-c1dbbe572baa",
+        "715a393c-f4c7-45d9-8dec-395bddd92829"
+      ]
+    },
+    {
+      "dataset_id": "zavkhan-nyagtlan-bodokh-burtgel",
+      "row_in_2025_table": 99,
+      "dataset_school": "zavkhan",
+      "dataset_name": "Нягтлан бодох бүртгэл",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Нягтлан бодох бүртгэл",
+      "match": "exact",
+      "main_ids": [
+        "ac8b31e1-c867-4d08-8406-0d0ab7493d3b"
+      ]
+    },
+    {
+      "dataset_id": "zavkhan-sankhuu-bank",
+      "row_in_2025_table": 100,
+      "dataset_school": "zavkhan",
+      "dataset_name": "Санхүү, банк",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Санхүү, банк",
+      "match": "exact",
+      "main_ids": [
+        "b82758e9-8a79-4dff-958b-15541c222268"
+      ]
+    },
+    {
+      "dataset_id": "zavkhan-marketing",
+      "row_in_2025_table": 101,
+      "dataset_school": "zavkhan",
+      "dataset_name": "Маркетинг",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Маркетинг",
+      "match": "exact",
+      "main_ids": [
+        "736c8d48-8c8b-4905-b8e8-864c3fd6e1b0"
+      ]
+    },
+    {
+      "dataset_id": "zavkhan-menejment",
+      "row_in_2025_table": 102,
+      "dataset_school": "zavkhan",
+      "dataset_name": "Менежмент",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Менежмент",
+      "match": "exact",
+      "main_ids": [
+        "7c1258d5-5c1b-4c9b-8ec6-63aaba49b04e"
+      ]
+    },
+    {
+      "dataset_id": "east-gadaad-khelnii-orchuulga-khyatad",
+      "row_in_2025_table": 103,
+      "dataset_school": "east",
+      "dataset_name": "Гадаад хэлний орчуулга (Хятад)",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Хятад)",
+      "match": "exact",
+      "main_ids": [
+        "a08297e3-5511-43c2-a001-c4fa70614b41"
+      ]
+    },
+    {
+      "dataset_id": "east-tuukh",
+      "row_in_2025_table": 104,
+      "dataset_school": "east",
+      "dataset_name": "Түүх",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Түүх",
+      "match": "exact",
+      "main_ids": [
+        "59d408d1-b2ae-44ac-a68d-8c75033dbb69"
+      ]
+    },
+    {
+      "dataset_id": "east-nyagtlan-bodokh-burtgel",
+      "row_in_2025_table": 105,
+      "dataset_school": "east",
+      "dataset_name": "Нягтлан бодох бүртгэл",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Нягтлан бодох бүртгэл",
+      "match": "exact",
+      "main_ids": [
+        "10f8669c-2040-41cd-9d30-2da4dd12a3d3"
+      ]
+    },
+    {
+      "dataset_id": "east-biznesiin-udirdlaga",
+      "row_in_2025_table": 106,
+      "dataset_school": "east",
+      "dataset_name": "Бизнесийн удирдлага",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Бизнесийн удирдлага",
+      "match": "added",
+      "main_ids": [
+        "caabc1bb-1983-4cf2-810b-ae2f87d9e8a7"
+      ]
+    },
+    {
+      "dataset_id": "east-gazryn-tosny-injenerchlel",
+      "row_in_2025_table": 107,
+      "dataset_school": "east",
+      "dataset_name": "Газрын тосны инженерчлэл",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Газрын тосны инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "f086bad2-531d-49b2-98cb-8eb3b9d39be2"
+      ]
+    },
+    {
+      "dataset_id": "east-tsag-uur-sudlal",
+      "row_in_2025_table": 108,
+      "dataset_school": "east",
+      "dataset_name": "Цаг уур судлал",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Цаг уур судлал",
+      "match": "exact",
+      "main_ids": [
+        "b4d7330b-e854-407b-98a8-abb2358c0403"
+      ]
+    },
+    {
+      "dataset_id": "east-niigmiin-ajil",
+      "row_in_2025_table": 109,
+      "dataset_school": "east",
+      "dataset_name": "Нийгмийн ажил",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Нийгмийн ажил",
+      "match": "exact",
+      "main_ids": [
+        "8c2dd860-1992-4abf-ae10-337151ce4c94"
+      ]
+    },
+    {
+      "dataset_id": "east-ayalal-juulchlal",
+      "row_in_2025_table": 110,
+      "dataset_school": "east",
+      "dataset_name": "Аялал жуулчлал",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Аялал жуулчлал",
+      "match": "exact",
+      "main_ids": [
+        "8cd0b712-193e-4339-92d5-671165486ced",
+        "4bf7f8f0-30c9-45a7-90a3-d07c29df146f"
+      ]
+    },
+    {
+      "dataset_id": "east-setgel-sudlal",
+      "row_in_2025_table": 111,
+      "dataset_school": "east",
+      "dataset_name": "Сэтгэл судлал",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Сэтгэл судлал",
+      "match": "exact",
+      "main_ids": [
+        "827bbdaf-3ec4-47e8-b2f0-a51364c567d9"
+      ]
+    },
+    {
+      "dataset_id": "east-medeelliin-tekhnologi",
+      "row_in_2025_table": 112,
+      "dataset_school": "east",
+      "dataset_name": "Мэдээллийн технологи",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Мэдээллийн технологи",
+      "match": "exact",
+      "main_ids": [
+        "5b328552-8f1f-432a-b301-c0af282ed436"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-dizain-zurag-zuin-bolovsrol",
+      "row_in_2025_table": 113,
+      "dataset_school": "east",
+      "dataset_name": "Багш, дизайн зураг зүйн боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, дизайн зураг зүйн боловсрол",
+      "match": "added",
+      "main_ids": [
+        "c5bc5abd-ace6-4979-a286-d8f3719cdb24"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-bieiin-tamiryn-bolovsrol",
+      "row_in_2025_table": 114,
+      "dataset_school": "east",
+      "dataset_name": "Багш, биеийн тамирын боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, биеийн тамирын боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "bc401715-0e2d-4013-99cf-e5fbe7409e14",
+        "ead316cd-b833-4a19-9ad2-036ed08ac2db"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-surguuliin-umnukh-bolovsrol",
+      "row_in_2025_table": 115,
+      "dataset_school": "east",
+      "dataset_name": "Багш, сургуулийн өмнөх боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, сургуулийн өмнөх боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "bc9e29b4-e59c-4a05-a1aa-14e811683ba9",
+        "2437afc7-48bb-47ba-92e7-4d7ae0c7c954"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-khugjmiin-bolovsrol",
+      "row_in_2025_table": 116,
+      "dataset_school": "east",
+      "dataset_name": "Багш, хөгжмийн боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, хөгжмийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "58ec02b5-10dc-428f-ab3d-154a97d22677"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-medeelel-zuin-bolovsrol",
+      "row_in_2025_table": 117,
+      "dataset_school": "east",
+      "dataset_name": "Багш, мэдээлэл зүйн боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, мэдээлэл зүйн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "9b0b657f-cd40-4dfd-8e63-bfd4e66b3258",
+        "218ad6be-685b-457c-be44-07ee7ebc0d65"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-matematikiin-bolovsrol",
+      "row_in_2025_table": 118,
+      "dataset_school": "east",
+      "dataset_name": "Багш, математикийн боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, математикийн боловсрол",
+      "match": "added",
+      "main_ids": [
+        "21138209-bf51-44cd-8651-dca0be991684"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-fizikiin-bolovsrol",
+      "row_in_2025_table": 119,
+      "dataset_school": "east",
+      "dataset_name": "Багш, физикийн боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, физикийн боловсрол",
+      "match": "added",
+      "main_ids": [
+        "bd952cde-c476-44e4-b66d-9e0ece6bdb25"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-mongol-khel-uran-zokhiolyn-bolovsrol",
+      "row_in_2025_table": 120,
+      "dataset_school": "east",
+      "dataset_name": "Багш, монгол хэл, уран зохиолын боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, монгол хэл, уран зохиолын боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "9026b75f-22c8-439b-a8c2-4d0411470495"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-gadaad-khelnii-bolovsrol-angli",
+      "row_in_2025_table": 121,
+      "dataset_school": "east",
+      "dataset_name": "Багш, гадаад хэлний боловсрол (Англи)",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, гадаад хэлний боловсрол (Англи)",
+      "match": "exact",
+      "main_ids": [
+        "2a3b606f-4e80-44d8-8b34-11e2404fc739"
+      ]
+    },
+    {
+      "dataset_id": "east-bagsh-baga-bolovsrol",
+      "row_in_2025_table": 122,
+      "dataset_school": "east",
+      "dataset_name": "Багш, бага боловсрол",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, бага боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "ed24aad0-08b1-4e38-842a-98afff2847b6",
+        "6849d5c6-739b-49c0-995a-335db4635db6"
+      ]
+    },
+    {
+      "dataset_id": "west-nyagtlan-bodokh-burtgel",
+      "row_in_2025_table": 123,
+      "dataset_school": "west",
+      "dataset_name": "Нягтлан бодох бүртгэл",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Нягтлан бодох бүртгэл",
+      "match": "exact",
+      "main_ids": [
+        "d3cdf0b4-924c-44bc-9f26-f849082a2aea"
+      ],
+      "local_ids": [
+        "1cb629d3-bfaf-4ca9-8548-3c2674c76a10"
+      ]
+    },
+    {
+      "dataset_id": "west-sankhuu-bank",
+      "row_in_2025_table": 124,
+      "dataset_school": "west",
+      "dataset_name": "Санхүү, банк",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Санхүү, банк",
+      "match": "exact",
+      "main_ids": [
+        "5a7c4f07-8fb2-46f8-a6ab-8200f8176e7f"
+      ],
+      "local_ids": [
+        "1dba0614-8700-4768-a508-d9f143004a3c"
+      ]
+    },
+    {
+      "dataset_id": "west-erkh-zui",
+      "row_in_2025_table": 125,
+      "dataset_school": "west",
+      "dataset_name": "Эрх зүй",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Эрх зүй",
+      "match": "exact",
+      "main_ids": [
+        "81692f51-5d14-433b-9436-6981471d311d",
+        "8d046d99-71f5-451a-a7ae-83c855fd1f9b"
+      ],
+      "local_ids": [
+        "03aa058d-82c4-48c2-aae9-c676b7cde79e",
+        "5fa09893-85a7-4708-a0e1-2ac72723cdf2"
+      ]
+    },
+    {
+      "dataset_id": "west-programm-khangamj",
+      "row_in_2025_table": 126,
+      "dataset_school": "west",
+      "dataset_name": "Программ хангамж",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Программ хангамж",
+      "match": "exact",
+      "main_ids": [
+        "2e1c79cb-b1d6-42c6-bc8a-0df5839a9e87"
+      ],
+      "local_ids": [
+        "b01f758c-8bf8-411c-bb84-99d1bdd85ea7"
+      ]
+    },
+    {
+      "dataset_id": "west-barilgyn-injenerchlel",
+      "row_in_2025_table": 127,
+      "dataset_school": "west",
+      "dataset_name": "Барилгын инженерчлэл",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Барилгын инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "dacbb993-24fe-4d5c-bfb5-ed7fefd0a590",
+        "b1e3ebb8-5135-421e-a0b6-9e72fbea01e5"
+      ],
+      "local_ids": [
+        "c6fb59fb-1fb1-4d35-aac8-9eb4205a75b7",
+        "3cb6e7bc-79f8-42ea-833a-1925d50ddc0b"
+      ]
+    },
+    {
+      "dataset_id": "west-tsakhilgaany-injenerchlel",
+      "row_in_2025_table": 128,
+      "dataset_school": "west",
+      "dataset_name": "Цахилгааны инженерчлэл",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Цахилгааны инженерчлэл",
+      "match": "exact",
+      "main_ids": [
+        "01c6d7cb-b477-40f3-9163-ca7d587f8026",
+        "08bc1f7f-5e8d-4783-a8cd-8146ead3521d"
+      ],
+      "local_ids": [
+        "bdc50265-9b5b-4da3-af8d-00b5e3fac862",
+        "9ecaaeb4-4d01-4661-86c3-f18828404e34"
+      ]
+    },
+    {
+      "dataset_id": "west-uul-uurkhain-ashiglaltyn-tekhnologi",
+      "row_in_2025_table": 129,
+      "dataset_school": "west",
+      "dataset_name": "Уул уурхайн ашиглалтын технологи",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Уул уурхайн ашиглалтын технологи",
+      "match": "exact",
+      "main_ids": [
+        "bcb30336-131b-408c-b667-3f77fad388e1",
+        "42325f1a-b08f-4843-9f28-a47ea1507c78"
+      ],
+      "local_ids": [
+        "f3eaf831-0497-4cd4-853a-d2b04a24bc07",
+        "b60d9881-c99d-4632-ab8d-76d0b6201aec"
+      ]
+    },
+    {
+      "dataset_id": "west-geologi",
+      "row_in_2025_table": 130,
+      "dataset_school": "west",
+      "dataset_name": "Геологи",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Геологи",
+      "match": "exact",
+      "main_ids": [
+        "f67e0729-0fca-499e-826e-095682ae243b"
+      ],
+      "local_ids": [
+        "04835ab1-0052-4587-985f-66aa273577a9"
+      ]
+    },
+    {
+      "dataset_id": "west-gazar-zokhion-baiguulalt",
+      "row_in_2025_table": 131,
+      "dataset_school": "west",
+      "dataset_name": "Газар зохион байгуулалт",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Газар зохион байгуулалт",
+      "match": "exact",
+      "main_ids": [
+        "43f6d623-4519-4878-92c2-08799be9dccd"
+      ],
+      "local_ids": [
+        "fe241637-dc00-4d10-9329-c4cb3b3c2f04"
+      ]
+    },
+    {
+      "dataset_id": "west-khimiin-bolovsruulaltyn-tekhnologi",
+      "row_in_2025_table": 132,
+      "dataset_school": "west",
+      "dataset_name": "Химийн боловсруулалтын технологи",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Химийн боловсруулалтын технологи",
+      "match": "exact",
+      "main_ids": [
+        "97b73ef9-f494-401d-8ea1-f208f441d644"
+      ],
+      "local_ids": [
+        "5cc2868e-5462-479c-b91d-99c2682d2ea7"
+      ]
+    },
+    {
+      "dataset_id": "west-ayalal-juulchlal",
+      "row_in_2025_table": 133,
+      "dataset_school": "west",
+      "dataset_name": "Аялал жуулчлал",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Аялал жуулчлал",
+      "match": "exact",
+      "main_ids": [
+        "062e5905-6101-4743-895e-9673a706902e",
+        "568b71b6-0b41-421e-a6db-2664bbf2cabf"
+      ],
+      "local_ids": [
+        "7728d0ce-c1be-4e44-bd17-45dbc8e09c8e",
+        "f8c7033a-ef2f-4a81-8b7e-431bbb6a5080"
+      ]
+    },
+    {
+      "dataset_id": "west-gadaad-khelnii-orchuulga-khyatad",
+      "row_in_2025_table": 134,
+      "dataset_school": "west",
+      "dataset_name": "Гадаад хэлний орчуулга (Хятад)",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Хятад)",
+      "match": "exact",
+      "main_ids": [
+        "4e8792c1-fa27-4cbe-808f-e44c55014d4b"
+      ],
+      "local_ids": [
+        "b9b4e162-70aa-41b6-a851-2e2d45169a3c"
+      ]
+    },
+    {
+      "dataset_id": "west-niigmiin-ajil",
+      "row_in_2025_table": 135,
+      "dataset_school": "west",
+      "dataset_name": "Нийгмийн ажил",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Нийгмийн ажил",
+      "match": "exact",
+      "main_ids": [
+        "8a952a92-57f6-481d-a601-0e779d4411ec"
+      ],
+      "local_ids": [
+        "ff5bad17-08d3-41a6-93a8-aff98df73c7d"
+      ]
+    },
+    {
+      "dataset_id": "west-niigmiin-eruul-mend",
+      "row_in_2025_table": 136,
+      "dataset_school": "west",
+      "dataset_name": "Нийгмийн эрүүл мэнд",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Нийгмийн эрүүл мэнд",
+      "match": "exact",
+      "main_ids": [
+        "fcc33283-cadb-4f99-98ea-9177a63bea7f"
+      ],
+      "local_ids": [
+        "b73f173f-fe36-4401-a0c9-d9517beeda63"
+      ]
+    },
+    {
+      "dataset_id": "west-setgel-sudlal",
+      "row_in_2025_table": 137,
+      "dataset_school": "west",
+      "dataset_name": "Сэтгэл судлал",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Сэтгэл судлал",
+      "match": "exact",
+      "main_ids": [
+        "764b4042-43be-4ee4-a1b0-31fccd4a2512"
+      ],
+      "local_ids": [
+        "23691a38-0520-4d4b-8bee-64b9d0fae8aa"
+      ]
+    },
+    {
+      "dataset_id": "west-ekologi",
+      "row_in_2025_table": 138,
+      "dataset_school": "west",
+      "dataset_name": "Экологи",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Экологи",
+      "match": "exact",
+      "main_ids": [
+        "156a13ae-8632-4d90-9b92-18b3700d70c2"
+      ],
+      "local_ids": [
+        "e152a288-8641-471d-99d5-fb48fc83dd2c"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-dizain-tekhnologiin-bolovsrol",
+      "row_in_2025_table": 139,
+      "dataset_school": "west",
+      "dataset_name": "Багш, дизайн технологийн боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, дизайн технологийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "a16c0d51-733d-44be-96a6-5226325098c5",
+        "f158ed18-e704-4983-9ed0-8f64b7f7854b"
+      ],
+      "local_ids": [
+        "4b846268-1124-4bfb-a218-24b0bd52f7c0",
+        "8415ea58-a4e1-4c6d-882f-ba3fccab0c56"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-bieiin-tamiryn-bolovsrol",
+      "row_in_2025_table": 140,
+      "dataset_school": "west",
+      "dataset_name": "Багш, биеийн тамирын боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, биеийн тамирын боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "8dfec466-5819-4ad6-8560-d60a7d3adb6d",
+        "fc8aafa4-2da8-474a-b8a6-630a88347f73"
+      ],
+      "local_ids": [
+        "23e095e0-e0fd-444d-a5d3-94fbb8690ca0",
+        "e3130b7e-15df-495e-be3a-798d4d591ba8"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-surguuliin-umnukh-bolovsrol",
+      "row_in_2025_table": 141,
+      "dataset_school": "west",
+      "dataset_name": "Багш, сургуулийн өмнөх боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, сургуулийн өмнөх боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "90874fc2-0f19-445d-b935-572804c13add",
+        "e231dc67-ff2a-42dc-8d5f-fea6142801aa"
+      ],
+      "local_ids": [
+        "857ddd76-1ddd-40d9-b72b-88a260660b70",
+        "2e83170c-a28d-4e44-9c7d-37b582b03ea0"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-khugjmiin-bolovsrol",
+      "row_in_2025_table": 142,
+      "dataset_school": "west",
+      "dataset_name": "Багш, хөгжмийн боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, хөгжмийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "2042a183-1d72-4718-bfc2-dd8f7f5b45b9"
+      ],
+      "local_ids": [
+        "2a6dd713-5bb5-4743-90f5-b68bafc7d057"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-baga-bolovsrol",
+      "row_in_2025_table": 143,
+      "dataset_school": "west",
+      "dataset_name": "Багш, бага боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, бага боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "24e800c4-7412-4c59-8ecf-9e7995e74cca",
+        "13f6f651-d9ad-4e03-97e1-f9f813551a46"
+      ],
+      "local_ids": [
+        "12a9d28d-210f-47b1-9090-cd32df306e51",
+        "a74f18ef-6171-4166-adcb-224f75027c8e"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-medeelel-zuin-bolovsrol",
+      "row_in_2025_table": 144,
+      "dataset_school": "west",
+      "dataset_name": "Багш, мэдээлэл зүйн боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, мэдээлэл зүйн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "0a19966d-b0b2-4887-97aa-e4ea9c7abd2b",
+        "78213ac1-d1f2-47a6-8b98-20189d1b5a14"
+      ],
+      "local_ids": [
+        "5c33ed35-a0a5-4fbc-bb25-eb18c6e7b270",
+        "2edf4ced-80e5-4213-bca7-0dc7e919968f"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-matematikiin-bolovsrol",
+      "row_in_2025_table": 145,
+      "dataset_school": "west",
+      "dataset_name": "Багш, математикийн боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, математикийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "6323b8b4-a680-4266-9738-9ff86d24ac4f"
+      ],
+      "local_ids": [
+        "c43505d0-36c7-47ec-b6c8-1f4b3acc2cc4"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-fizikiin-bolovsrol",
+      "row_in_2025_table": 146,
+      "dataset_school": "west",
+      "dataset_name": "Багш, физикийн боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, физикийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "f5b34442-ebd9-498f-93c1-51dff206a999"
+      ],
+      "local_ids": [
+        "a08253b5-192b-4771-a2f6-efd0e2fd50aa"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-biologiin-bolovsrol",
+      "row_in_2025_table": 147,
+      "dataset_school": "west",
+      "dataset_name": "Багш, биологийн боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, биологийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "6b63888b-2146-4a3d-b1db-5d611147a69c"
+      ],
+      "local_ids": [
+        "a87b62da-ce87-4563-8010-4a9eea5d18dc"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-gadaad-khelnii-bolovsrol-angli",
+      "row_in_2025_table": 148,
+      "dataset_school": "west",
+      "dataset_name": "Багш, гадаад хэлний боловсрол (Англи)",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, гадаад хэлний боловсрол (Англи)",
+      "match": "exact",
+      "main_ids": [
+        "82bb16a9-dc71-4948-b494-ec5086ec8b30"
+      ],
+      "local_ids": [
+        "803eb535-7e15-4858-9456-d0ef9781267a"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-gadaad-khelnii-bolovsrol-oros",
+      "row_in_2025_table": 149,
+      "dataset_school": "west",
+      "dataset_name": "Багш, гадаад хэлний боловсрол (Орос)",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, гадаад хэлний боловсрол (Орос)",
+      "match": "exact",
+      "main_ids": [
+        "4a0a5adc-ac82-482e-9910-7db17f53c4cc"
+      ],
+      "local_ids": [
+        "17bb03e1-6fa9-45a5-9bfb-a177575b6120"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-mongol-khel-uran-zokhiolyn-bolovsrol",
+      "row_in_2025_table": 150,
+      "dataset_school": "west",
+      "dataset_name": "Багш, монгол хэл, уран зохиолын боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, монгол хэл, уран зохиолын боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "c3393bbb-cf6d-4440-acc6-3f092a88e16d"
+      ],
+      "local_ids": [
+        "8c519896-b405-48b0-8b36-46e5af0c0aa6"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-niigmiin-ukhaany-bolovsrol",
+      "row_in_2025_table": 151,
+      "dataset_school": "west",
+      "dataset_name": "Багш, нийгмийн ухааны боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, нийгмийн ухааны боловсрол (Түүх)",
+      "match": "near",
+      "main_ids": [
+        "ba9a6b14-20f5-428d-8951-907feae64d6b"
+      ],
+      "local_ids": [
+        "1e08b774-1627-4611-a43f-9d7e134e37e2"
+      ]
+    },
+    {
+      "dataset_id": "west-bagsh-khimiin-bolovsrol",
+      "row_in_2025_table": 152,
+      "dataset_school": "west",
+      "dataset_name": "Багш, химийн боловсрол",
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, химийн боловсрол",
+      "match": "exact",
+      "main_ids": [
+        "6335436c-7d5a-48ea-9b88-b360454a6381"
+      ],
+      "local_ids": [
+        "bb56195b-c9d6-4b73-a167-3fb5c025d881"
+      ]
+    },
+    {
+      "dataset_id": "joint-nyagtlan-bodokh-burtgel-153",
+      "row_in_2025_table": 153,
+      "dataset_school": "joint",
+      "dataset_name": "Нягтлан бодох бүртгэл",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Нягтлан бодох бүртгэл (БС-тэй 1+3)",
+      "match": "joint_added",
+      "main_ids": [
+        "fb39d2dd-a239-4206-9471-48a61063a8b2"
+      ]
+    },
+    {
+      "dataset_id": "joint-sankhuu-bank-154",
+      "row_in_2025_table": 154,
+      "dataset_school": "joint",
+      "dataset_name": "Санхүү, банк",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Санхүү, банк (БС-тэй 1+3)",
+      "match": "joint_added",
+      "main_ids": [
+        "3e19cd31-92e7-4a44-b464-6fe0f0662296"
+      ]
+    },
+    {
+      "dataset_id": "joint-daatgal-155",
+      "row_in_2025_table": 155,
+      "dataset_school": "joint",
+      "dataset_name": "Даатгал",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Даатгал (БС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "cdadc767-e32d-4534-a596-cddf12912725"
+      ]
+    },
+    {
+      "dataset_id": "joint-marketing-156",
+      "row_in_2025_table": 156,
+      "dataset_school": "joint",
+      "dataset_name": "Маркетинг",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Маркетинг (БС-тэй 1+3)",
+      "match": "joint_added",
+      "main_ids": [
+        "949528fd-c6d9-4a12-bbdc-773d2341c294"
+      ]
+    },
+    {
+      "dataset_id": "joint-menejment-157",
+      "row_in_2025_table": 157,
+      "dataset_school": "joint",
+      "dataset_name": "Менежмент",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Менежмент (БС-тэй 1+3)",
+      "match": "joint_added",
+      "main_ids": [
+        "1f6212df-cf32-48d9-b7f5-41ce5fbb0b0d"
+      ]
+    },
+    {
+      "dataset_id": "joint-khudaldaa-158",
+      "row_in_2025_table": 158,
+      "dataset_school": "joint",
+      "dataset_name": "Худалдаа",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Худалдаа (БС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "4bb73022-8838-4c82-9b06-89927c46590f"
+      ]
+    },
+    {
+      "dataset_id": "joint-zochlokh-uilchilgee-159",
+      "row_in_2025_table": 159,
+      "dataset_school": "joint",
+      "dataset_name": "Зочлох үйлчилгээ",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Зочлох үйлчилгээ (БС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "bbc16065-1314-4140-88fb-302064f290ba"
+      ]
+    },
+    {
+      "dataset_id": "joint-niitiin-udirdlaga-160",
+      "row_in_2025_table": 160,
+      "dataset_school": "joint",
+      "dataset_name": "Нийтийн удирдлага",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Нийтийн удирдлага (УТСОУХНУС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "741f6011-d3f4-4cea-987b-543cba2bdd40"
+      ]
+    },
+    {
+      "dataset_id": "joint-programm-khangamj-161",
+      "row_in_2025_table": 161,
+      "dataset_school": "joint",
+      "dataset_name": "Программ хангамж",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Программ хангамж (МТЭС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "83c0aa5a-90ee-4b35-9c92-3367e4ff7699"
+      ]
+    },
+    {
+      "dataset_id": "joint-medeelliin-tekhnologi-162",
+      "row_in_2025_table": 162,
+      "dataset_school": "joint",
+      "dataset_name": "Мэдээллийн технологи",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Мэдээллийн технологи (МТЭС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "ad3aa237-d54c-4cb7-aa19-564144ddef03"
+      ]
+    },
+    {
+      "dataset_id": "joint-kompiyuteryn-ukhaan-163",
+      "row_in_2025_table": 163,
+      "dataset_school": "joint",
+      "dataset_name": "Компьютерын ухаан",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Компьютерын ухаан (МТЭС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "8131f3df-cae4-4336-9779-b96ee35ee4b3"
+      ]
+    },
+    {
+      "dataset_id": "joint-medeelliin-sistem-164",
+      "row_in_2025_table": 164,
+      "dataset_school": "joint",
+      "dataset_name": "Мэдээллийн систем",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Мэдээллийн систем (МТЭС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "08c7a19d-31f7-458a-b1bf-c181c32eadff"
+      ]
+    },
+    {
+      "dataset_id": "joint-statistik-165",
+      "row_in_2025_table": 165,
+      "dataset_school": "joint",
+      "dataset_name": "Статистик",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Статистик (МТЭС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "8ccfa55b-5ef4-4295-bc3b-579891dfe342"
+      ]
+    },
+    {
+      "dataset_id": "joint-elektronikiin-injenerchlel-166",
+      "row_in_2025_table": 166,
+      "dataset_school": "joint",
+      "dataset_name": "Электроникийн инженерчлэл",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Электроникийн инженерчлэл (МТЭС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "021ca69f-0576-4e55-b5da-89bfdcd9d0c9"
+      ]
+    },
+    {
+      "dataset_id": "joint-kompiyuteryn-suljee-167",
+      "row_in_2025_table": 167,
+      "dataset_school": "joint",
+      "dataset_name": "Компьютерын сүлжээ",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Компьютерын сүлжээ (МТЭС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "562dca29-e8ce-4f57-b751-2f77205f22d4"
+      ]
+    },
+    {
+      "dataset_id": "joint-kholboony-tekhnologi-168",
+      "row_in_2025_table": 168,
+      "dataset_school": "joint",
+      "dataset_name": "Холбооны технологи",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Холбооны технологи (МТЭС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "ea2b270e-fdfc-4b47-8f8c-fba22b47f99a"
+      ]
+    },
+    {
+      "dataset_id": "joint-khureelen-bui-orchin-sudlal-169",
+      "row_in_2025_table": 169,
+      "dataset_school": "joint",
+      "dataset_name": "Хүрээлэн буй орчин судлал",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Хүрээлэн буй орчин судлал (ИТС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "68ee1933-2aa2-4ae0-9920-9c7206a21c1b"
+      ]
+    },
+    {
+      "dataset_id": "joint-oin-aj-akhui-170",
+      "row_in_2025_table": 170,
+      "dataset_school": "joint",
+      "dataset_name": "Ойн аж ахуй",
+      "faculty": "Завхан Аймаг Дахь Бизнес, Мэдээллийн Технологийн Сургууль",
+      "db_name": "Ойн аж ахуй (ИТС-тэй 1+3)",
+      "match": "joint",
+      "main_ids": [
+        "e6d1a860-a507-48cb-a84a-6df4af703b43"
+      ]
+    },
+    {
+      "dataset_id": "joint-ashigt-maltmalyn-bayajuulaltyn-tekhnologi-171",
+      "row_in_2025_table": 171,
+      "dataset_school": "joint",
+      "dataset_name": "Ашигт малтмалын баяжуулалтын технологи",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Ашигт малтмалын баяжуулалтын технологи (ИТС-тэй хамтарсан)",
+      "match": "joint",
+      "main_ids": [
+        "b4ba63e6-ac8f-439a-99cc-efc590ada225"
+      ]
+    },
+    {
+      "dataset_id": "joint-setgel-sudlal-172",
+      "row_in_2025_table": 172,
+      "dataset_school": "joint",
+      "dataset_name": "Сэтгэл судлал",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Сэтгэл судлал (ШУС-тэй 2+2)",
+      "match": "joint_added",
+      "main_ids": [
+        "d7e3a267-79d5-4d36-9d6a-be7e4c6944f0"
+      ]
+    },
+    {
+      "dataset_id": "joint-dulaany-tsakhilgaan-stantsyn-injenerchlel-173",
+      "row_in_2025_table": 173,
+      "dataset_school": "joint",
+      "dataset_name": "Дулааны цахилгаан станцын инженерчлэл",
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Дулааны цахилгаан станцын инженерчлэл (ШУТИС-тэй 2+2)",
+      "match": "joint",
+      "main_ids": [
+        "60e96bb6-e78a-4e4f-8939-3bb9552d43a3"
+      ]
+    },
+    {
+      "dataset_id": "sas-biologiin-nuuts-sudlal",
+      "row_in_2025_table": null,
+      "dataset_school": "sas",
+      "dataset_name": "Биологийн нөөц судлал",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Биологийн нөөц судлал",
+      "match": "exact",
+      "main_ids": [
+        "435b6a91-6fe0-4aa7-b2d9-d07385262daf"
+      ]
+    },
+    {
+      "dataset_id": "sas-gadaad-khelnii-orchuulga-arab",
+      "row_in_2025_table": null,
+      "dataset_school": "sas",
+      "dataset_name": "Гадаад хэлний орчуулга (Араб)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Араб)",
+      "match": "exact",
+      "main_ids": [
+        "9b0c322a-e849-4b29-8e81-a0a284dae8e7"
+      ]
+    },
+    {
+      "dataset_id": "sas-khel-shinjlel-german",
+      "row_in_2025_table": null,
+      "dataset_school": "sas",
+      "dataset_name": "Хэл шинжлэл (Герман)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Хэл шинжлэл (Герман)",
+      "match": "exact",
+      "main_ids": [
+        "6c4fad1d-299f-4e06-a932-c3746916b36a"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-arab",
+      "row_in_2025_table": null,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Араб)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Араб)",
+      "match": "exact",
+      "main_ids": [
+        "04a97dff-0f1a-4f4c-b488-a1d23d092c38"
+      ]
+    },
+    {
+      "dataset_id": "sas-olon-uls-oron-sudlal-polish",
+      "row_in_2025_table": null,
+      "dataset_school": "sas",
+      "dataset_name": "Олон улс, орон судлал (Польш)",
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Олон улс, орон судлал (Польш)",
+      "match": "exact",
+      "main_ids": [
+        "10ce9a46-79d4-4c2b-bea0-98ca1479a637"
+      ]
+    }
+  ],
+  "db_rows_without_dataset_record": [
+    {
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Багш, газарзүйн боловсрол",
+      "main_id": "9860cbe0-c620-41e3-88fe-2f593514e38d",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй.",
+      "local_id": "629df3c5-59fe-4c25-a9d2-eb85426fddc8"
+    },
+    {
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Англи)",
+      "main_id": "497743e6-f815-48f4-b9e7-725418bb8bbb",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй.",
+      "local_id": "35609a5d-4ae5-4a98-8428-4a430c11189e"
+    },
+    {
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Нийтийн удирдлага",
+      "main_id": "1d0fd56e-f107-4334-8377-3ceeb36b92a1",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй.",
+      "local_id": "31348fe6-c3b6-4d21-978b-0757e8535e30"
+    },
+    {
+      "faculty": "Баруун Бүсийн Сургууль",
+      "db_name": "Ойн аж ахуй",
+      "main_id": "b8e12577-65e9-490c-aa93-060f7db658f4",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй.",
+      "local_id": "494c11ce-af91-49fa-a127-a5798f269c3c"
+    },
+    {
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Архив судлал",
+      "main_id": "991f29a4-0836-4e2b-974e-209c6e007837",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй."
+    },
+    {
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Гадаад хэлний орчуулга (Гадаадын бэлтгэл)",
+      "main_id": "3178fd97-227f-47fb-9de3-f84b9d57433a",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй."
+    },
+    {
+      "faculty": "Шинжлэх Ухааны Сургууль",
+      "db_name": "Газрын кадастр",
+      "main_id": "186c9135-3c7f-41f8-9afc-733fb67a9693",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй."
+    },
+    {
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Багш, дизайн технологийн боловсрол",
+      "main_id": "b30ac5e0-942e-4c99-b4de-0baacaa69783",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй."
+    },
+    {
+      "faculty": "Зүүн Бүсийн Сургууль",
+      "db_name": "Хүрээлэн буй орчны хяналт үнэлгээ",
+      "main_id": "cc52bd78-6155-45eb-b882-db3b5a886aff",
+      "exam_note": "2025-2026 оны элсэлтийн жагсаалтад байгаагүй."
+    }
+  ]
+}

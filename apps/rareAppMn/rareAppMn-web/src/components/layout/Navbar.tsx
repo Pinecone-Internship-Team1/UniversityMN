@@ -8,11 +8,11 @@ import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "Сургууль", href: "#discovery" },
-  { label: "Мэргэжил", href: "#major" },
-  { label: "Тэтгэлэг", href: "#scholarships" },
-  { label: "Элсэлт", href: "#deadlines" },
-  { label: "Харьцуулах", href: "#compare" },
+  { label: "Сургууль", href: "/schools" },
+  { label: "Мэргэжил", href: "/schools?tab=majors" },
+  { label: "Тэтгэлэг", href: "/scholarships" },
+  { label: "Элсэлт", href: "/admissions" },
+  { label: "Харьцуулах", href: "/compare" },
 ];
 
 export function Navbar() {
@@ -23,7 +23,7 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 sm:px-8">
         {/* Logo */}
         <Link
-          href="#top"
+          href="/#top"
           className="flex items-baseline gap-1 text-xl font-bold tracking-tight text-ink transition-opacity hover:opacity-90"
         >
           Oyutan

@@ -19,9 +19,25 @@ export interface AdmissionSchedule {
 export interface Dormitory {
   id: string;
   schoolId: string;
+  /** e.g. "I байр" */
+  name: string | null;
   capacity: number | null;
   feePerMonth: number | null;
+  feePerYear: number | null;
+  /** ISO currency of the fees; null means MNT. */
+  currency: string | null;
   facilities: string[] | null;
+}
+
+export interface DormGuide {
+  /** Caveat shown with the dorm list, e.g. that prices come from an undated page. */
+  note: string | null;
+  steps: { title: string; text: string }[];
+  priorityOrder: string[];
+  specialRooms: string | null;
+  documents: string[];
+  rules: string[];
+  links: { title: string; url: string }[];
 }
 
 export interface Scholarship {
@@ -33,17 +49,40 @@ export interface Scholarship {
   deadline: string | null;
 }
 
-export interface Major {
+/** A school within a university (e.g. "Хууль зүйн сургууль"); `School` is the university. */
+export interface Faculty {
   id: string;
   schoolId: string;
   name: string;
+  /** Set only when it differs from the university's, e.g. a branch school in another aimag. */
+  location: string | null;
+  createdAt: string;
+}
+
+export interface Major {
+  id: string;
+  schoolId: string;
+  facultyId: string | null;
+  name: string;
   category: string | null;
   requiredSubjects: string[] | null;
+  /** Суурь (70%) exam options; the student takes one of them. */
+  primarySubjects: string[] | null;
+  /** Дагалдах (30%) exam options; one, different from the суурь exam. */
+  secondarySubjects: string[] | null;
+  /** Shown with the exam subjects, e.g. when the суурь/дагалдах split is unknown. Never scored. */
+  examNote: string | null;
   cutOffScore: number | null;
+  /** The дагалдах exam's own minimum; when set, `cutOffScore` is the суурь exam's and both must be met. */
+  secondaryCutOffScore: number | null;
   degreeType: string | null;
   tuitionFee: number | null;
+  /** `tuitionFee` is an estimated upper bound, not an official yearly fee. */
+  tuitionIsEstimate: boolean;
   isSaved: boolean;
   school?: School;
+  /** Fetched only by lists that mix schools, to tell same-named programs apart. */
+  faculty?: Pick<Faculty, "id" | "name" | "location"> | null;
 }
 
 export interface School {
@@ -53,12 +92,20 @@ export interface School {
   coverUrl: string | null;
   location: string | null;
   tuitionFee: number | null;
-  dormAvailable: boolean;
-  scholarshipAvailable: boolean;
+  /** Shown instead of the formatted `tuitionFee` when set, e.g. a range. */
+  tuitionText: string | null;
+  /** Null when unknown. */
+  dormAvailable: boolean | null;
+  /** Null when unknown. */
+  scholarshipAvailable: boolean | null;
   overview: string | null;
   website: string | null;
+  phones: string[];
+  email: string | null;
+  dormGuide?: DormGuide | null;
   isSaved: boolean;
   createdAt: string;
+  faculties?: Faculty[];
   majors?: Major[];
   scholarships?: Scholarship[];
   dormitories?: Dormitory[];
@@ -119,16 +166,62 @@ export interface MajorFilterInput {
 }
 
 export interface UserProfileInput {
-  name?: string;
-  avatarUrl?: string;
-  scores?: Record<string, number>;
-  preferences?: Record<string, unknown>;
+  name?: string | null;
+  avatarUrl?: string | null;
+  scores?: Record<string, number> | null;
+  preferences?: Record<string, unknown> | null;
 }
+
+export interface SchoolInput {
+  name: string;
+  logoUrl?: string | null;
+  coverUrl?: string | null;
+  location?: string | null;
+  tuitionFee?: number | null;
+  tuitionText?: string | null;
+  dormAvailable?: boolean | null;
+  scholarshipAvailable?: boolean | null;
+  overview?: string | null;
+  website?: string | null;
+  phones?: string[] | null;
+  email?: string | null;
+}
+
+export interface FacultyInput {
+  schoolId: string;
+  name: string;
+  location?: string | null;
+}
+
+export interface MajorInput {
+  facultyId: string;
+  name: string;
+  category?: string | null;
+  requiredSubjects?: string[] | null;
+  primarySubjects?: string[] | null;
+  secondarySubjects?: string[] | null;
+  examNote?: string | null;
+  cutOffScore?: number | null;
+  secondaryCutOffScore?: number | null;
+  degreeType?: string | null;
+  tuitionFee?: number | null;
+  tuitionIsEstimate?: boolean | null;
+}
+
+export type CompareItem =
+  | (School & { __typename: "School" })
+  | (Major & { __typename: "Major" });
+
+/** `CHECK_WITH_SCHOOL`: the scores can't decide it, e.g. the дагалдах exam is the school's own skill test. */
+export type ScoreMatchVerdict = "ELIGIBLE" | "BELOW_CUT_OFF" | "MISSING_SCORES" | "CHECK_WITH_SCHOOL";
+
+export type Region = "ULAANBAATAR" | "OUTSIDE_ULAANBAATAR";
 
 export interface ScoreMatchResult {
   school: School;
   major: Major;
   matchScore: number;
   eligible: boolean;
+  verdict: ScoreMatchVerdict;
   reason: string;
 }

@@ -11,6 +11,19 @@ export const typeDefs = /* GraphQL */ `
     MAJOR
   }
 
+  "CHECK_WITH_SCHOOL: the scores can't decide it, e.g. the дагалдах exam is the school's own skill test."
+  enum ScoreMatchVerdict {
+    ELIGIBLE
+    BELOW_CUT_OFF
+    MISSING_SCORES
+    CHECK_WITH_SCHOOL
+  }
+
+  enum Region {
+    ULAANBAATAR
+    OUTSIDE_ULAANBAATAR
+  }
+
   type UserProfile {
     id: ID!
     clerkUserId: String!
@@ -33,10 +46,21 @@ export const typeDefs = /* GraphQL */ `
     coverUrl: String
     location: String
     tuitionFee: Float
-    dormAvailable: Boolean!
-    scholarshipAvailable: Boolean!
+    "Shown instead of the formatted tuitionFee when set, e.g. a range."
+    tuitionText: String
+    "Null when unknown."
+    dormAvailable: Boolean
+    "Null when unknown."
+    scholarshipAvailable: Boolean
     overview: String
     website: String
+    "Contact phone numbers, in display order; empty when none are known."
+    phones: [String!]!
+    email: String
+    "How to apply for the university's dorms; null when not known."
+    dormGuide: DormGuide
+    "The university's schools (faculties), each holding its majors."
+    faculties: [Faculty!]!
     majors: [Major!]!
     scholarships: [Scholarship!]!
     dormitories: [Dormitory!]!
@@ -45,16 +69,39 @@ export const typeDefs = /* GraphQL */ `
     createdAt: String!
   }
 
+  "A school within a university, e.g. Хууль зүйн сургууль."
+  type Faculty {
+    id: ID!
+    schoolId: ID!
+    name: String!
+    "Set only when it differs from the university's, e.g. a branch school in another aimag."
+    location: String
+    createdAt: String!
+  }
+
   type Major {
     id: ID!
     schoolId: ID!
     school: School!
+    facultyId: ID
+    "The school (faculty) that teaches it; null when none is set."
+    faculty: Faculty
     name: String!
     category: String
     requiredSubjects: JSON
+    "Суурь (70%) exam options; the student takes one of them."
+    primarySubjects: [String!]
+    "Дагалдах (30%) exam options; the student takes one, different from the суурь exam."
+    secondarySubjects: [String!]
+    "Shown with the exam subjects, e.g. when the суурь/дагалдах split is unknown. Never scored."
+    examNote: String
     cutOffScore: Float
+    "The дагалдах exam's own minimum; when set, cutOffScore is the суурь exam's minimum and both must be met."
+    secondaryCutOffScore: Float
     degreeType: String
     tuitionFee: Float
+    "True when tuitionFee is an estimated upper bound, not an official yearly fee."
+    tuitionIsEstimate: Boolean!
     isSaved: Boolean!
   }
 
@@ -72,9 +119,35 @@ export const typeDefs = /* GraphQL */ `
     id: ID!
     schoolId: ID!
     school: School!
+    "e.g. I байр"
+    name: String
     capacity: Int
     feePerMonth: Float
+    feePerYear: Float
+    "ISO currency of the fees; null means MNT."
+    currency: String
     facilities: JSON
+  }
+
+  type DormGuideStep {
+    title: String!
+    text: String!
+  }
+
+  type DormGuideLink {
+    title: String!
+    url: String!
+  }
+
+  type DormGuide {
+    "Caveat shown with the dorm list, e.g. that prices come from an undated page."
+    note: String
+    steps: [DormGuideStep!]!
+    priorityOrder: [String!]!
+    specialRooms: String
+    documents: [String!]!
+    rules: [String!]!
+    links: [DormGuideLink!]!
   }
 
   type AdmissionSchedule {
@@ -91,6 +164,7 @@ export const typeDefs = /* GraphQL */ `
     major: Major!
     matchScore: Float!
     eligible: Boolean!
+    verdict: ScoreMatchVerdict!
     reason: String!
   }
 
@@ -126,20 +200,37 @@ export const typeDefs = /* GraphQL */ `
     coverUrl: String
     location: String
     tuitionFee: Float
+    tuitionText: String
+    "Null or omitted means unknown."
     dormAvailable: Boolean
+    "Null or omitted means unknown."
     scholarshipAvailable: Boolean
     overview: String
     website: String
+    phones: [String!]
+    email: String
   }
 
-  input MajorInput {
+  input FacultyInput {
     schoolId: ID!
+    name: String!
+    location: String
+  }
+
+  "A major's university is always its faculty's university."
+  input MajorInput {
+    facultyId: ID!
     name: String!
     category: String
     requiredSubjects: JSON
+    primarySubjects: [String!]
+    secondarySubjects: [String!]
+    examNote: String
     cutOffScore: Float
+    secondaryCutOffScore: Float
     degreeType: String
     tuitionFee: Float
+    tuitionIsEstimate: Boolean
   }
 
   input ScholarshipInput {
@@ -178,7 +269,8 @@ export const typeDefs = /* GraphQL */ `
     schools(filter: SchoolFilterInput): SchoolPage!
     major(id: ID!): Major
     majors(filter: MajorFilterInput): MajorPage!
-    personalizedRecommendations(limit: Int): [ScoreMatchResult!]!
+    "Pass a region to rank Ulaanbaatar and branch schools separately; their cut-offs differ (e.g. 490 vs 430)."
+    personalizedRecommendations(limit: Int, region: Region): [ScoreMatchResult!]!
     analyzeScoreMatch(majorId: ID!, scores: JSON!): ScoreMatchResult!
     compareItems(ids: [ID!]!, type: CompareType!): [CompareItem!]!
   }
@@ -191,6 +283,9 @@ export const typeDefs = /* GraphQL */ `
     createSchool(input: SchoolInput!): School!
     updateSchool(id: ID!, input: SchoolInput!): School!
     deleteSchool(id: ID!): Boolean!
+    createFaculty(input: FacultyInput!): Faculty!
+    updateFaculty(id: ID!, input: FacultyInput!): Faculty!
+    deleteFaculty(id: ID!): Boolean!
     createMajor(input: MajorInput!): Major!
     updateMajor(id: ID!, input: MajorInput!): Major!
     deleteMajor(id: ID!): Boolean!

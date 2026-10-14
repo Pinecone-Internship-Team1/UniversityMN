@@ -10,7 +10,14 @@ export const metadata: Metadata = {
     "Байршил, сургалтын төлбөр, дотуур байр, тэтгэлэг, ЭЕШ босго оноогоор Монголын их, дээд сургууль, мэргэжлийг шүүж хайгаарай.",
 };
 
-export default function SchoolsPage() {
+interface PageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function SchoolsPage({ searchParams }: PageProps) {
+  const { tab } = await searchParams;
+  const mode = tab === "majors" ? "majors" : "schools";
+
   return (
     <div className="min-h-screen bg-paper text-ink">
       <Navbar />
@@ -26,7 +33,7 @@ export default function SchoolsPage() {
         </p>
 
         <div className="mt-10">
-          <SearchExplorer />
+          <SearchExplorer mode={mode} />
         </div>
       </main>
 

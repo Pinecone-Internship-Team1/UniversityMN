@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Unbounded, PT_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { GraphqlProvider } from "@/components/providers/GraphqlProvider";
-import { ClerkUserSync } from "@/components/providers/ClerkUserSync";
+import { ClerkUserSyncProvider } from "@/components/providers/ClerkUserSync";
 import { AppToaster } from "@/components/providers/AppToaster";
 import "./global.css";
 
@@ -63,8 +63,7 @@ export default function RootLayout({
         </head>
         <body>
           <GraphqlProvider>
-            <ClerkUserSync />
-            {children}
+            <ClerkUserSyncProvider>{children}</ClerkUserSyncProvider>
             <AppToaster />
           </GraphqlProvider>
         </body>
