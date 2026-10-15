@@ -2,7 +2,7 @@
   "_meta": {
     "description": "Maps each program, school, scholarship, dorm and date in the АШУҮИС dataset (ashuuis-oyutan-mn, data/*.json, after the 2026-10-14 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
     "dataset_verified_at": "2026-10-14",
-    "mapped_at": "2026-10-14",
+    "mapped_at": "2026-10-15",
     "university_id": "sch_ashuuis",
     "how_to_use": "Run data-import/import-mnums.mjs (--local / --remote, then --apply): it reads data-import/ashuuis/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
     "score_check_values": {
