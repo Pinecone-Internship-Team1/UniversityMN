@@ -98,6 +98,12 @@ export const typeDefs = /* GraphQL */ `
     cutOffScore: Float
     "The дагалдах exam's own minimum; when set, cutOffScore is the суурь exam's minimum and both must be met."
     secondaryCutOffScore: Float
+    "Weight of the суурь exam in the admission score; null means 0.7 (АШУҮИС adds the exams: 1)."
+    primaryWeight: Float
+    "Weight of the дагалдах exam; null means 0.3."
+    secondaryWeight: Float
+    "list: ranked by score among up to 8 choices; direct: anyone meeting the minimums can enrol. Null when unknown."
+    selectionType: String
     degreeType: String
     tuitionFee: Float
     "True when tuitionFee is an estimated upper bound, not an official yearly fee."
@@ -228,6 +234,10 @@ export const typeDefs = /* GraphQL */ `
     examNote: String
     cutOffScore: Float
     secondaryCutOffScore: Float
+    primaryWeight: Float
+    secondaryWeight: Float
+    "list or direct"
+    selectionType: String
     degreeType: String
     tuitionFee: Float
     tuitionIsEstimate: Boolean

@@ -1,0 +1,113 @@
+{
+ "_meta": {
+  "dataset": "scholarships",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн тэтгэлэг, зээл, хөнгөлөлт.",
+  "language": "mn",
+  "verified_at": "2026-10-11",
+  "note_mn": "type: tuition_discount | grant | loan | sponsor_scholarship."
+ },
+ "records": [
+  {
+   "id": "mnums-dev-loan",
+   "type": "loan",
+   "name_mn": "Оюутны хөгжлийн зээл (хүүгүй, барьцаагүй)",
+   "coverage_mn": "Тухайн улирлын хичээлийн кредитийн төлбөр; улиралд дунджаар 250 оюутан. Төгсөөд 1–6 жилд сар бүр төлнө, диплом барьцаалахгүй.",
+   "requirements_mn": "ЭЕШ-ын дундаж 600+, өдрийн бакалаврын голч 2.8+, улиралд 15+ кредит; ЗГ-ын 2023 оны 115-р тогтоолын тэргүүлэх, эрэлттэй 10 хөтөлбөрт (жагсаалтыг оюутны албанаас лавлана). Хоёр дахь мэргэжил, БЗС-ийн санхүүжилттэй гадаадад суралцагчид хамрахгүй. Шинээр: иргэний үнэмлэхний хуулбар, өргөдөл, ЭЕШ-ын батламж (эх хувь), ирээдүйн зорилгын эссэ.",
+   "deadline_mn": "Улирал бүр",
+   "source_urls": [
+    "https://mnums.edu.mn/student-life",
+    "https://mnums.edu.mn/faq"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-11"
+  },
+  {
+   "id": "mnums-gov-professional",
+   "type": "grant",
+   "name_mn": "Төрөөс зарим мэргэжлийн сургалтын төлбөрийн тэтгэлэг (сувилагч, хөдөлгөөн засалч, хөдөлмөр засалч г.м.)",
+   "coverage_mn": "Сувилагч: өмнөх улирлын голч 2.8–2.99 → 70% (21 кредит), 3.0+ → 100% (30 кредит). Хөдөлгөөн засалч, хөдөлмөр засалч: голч 2.0+ → 100% (30 кредит). Шинэ элсэгч: ЭЕШ 501+ бол 100% (салбарын мэдээгээр хэл засал, хоол зүй, нийгмийн ажил зэрэг бусад эрэлттэй чиглэлд мөн хамаарна).",
+   "requirements_mn": "ЗГ-ын 2022 оны 346-р тогтоол; ЭЕШ 501+; хоёр дахь бакалавр хамрахгүй. Төгсөөд орон нутагт 3, нийслэлд 5 жил мэргэжлээрээ ажиллах гэрээ. grant.elf.gov.mn-ээс шалгана.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/student-life",
+    "https://mnums-da.edu.mn/mn/post/433"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-11"
+  },
+  {
+   "id": "mnums-rector",
+   "type": "tuition_discount",
+   "name_mn": "Ректорын сургалтын төлбөрийн тэтгэлэг",
+   "coverage_mn": "Сургалтын төлбөр (бусад тэтгэлэгтэй давхцахгүй)",
+   "requirements_mn": "Сурлагаар: голч 3.5+. Нийгмийн идэвх, урлаг, спорт, судалгаа: голч 3.0+. Нийгмийн халамж: голч 3.0+ ба 500 үгийн эссэ. Элсэлтийн шалгалтаар элссэн, 2+ улирал дараалан суралцсан, сахилгын шийтгэлгүй. Хөгжлийн бэрхшээлтэй оюутныг тусгай нөхцөлөөр үнэлнэ.",
+   "deadline_mn": "Жил бүр 9-р сарын 15–30, 3-р сарын 15–30 (цахимаар)",
+   "source_urls": [
+    "https://mnums.edu.mn/student-life",
+    "https://mnums.edu.mn/faq"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-11"
+  },
+  {
+   "id": "mnums-mitsubishi",
+   "type": "sponsor_scholarship",
+   "name_mn": "Мицубиши корпорацийн тэтгэлэг",
+   "coverage_mn": "2023 онд 4 оюутан тус бүр 2.2 сая ₮",
+   "requirements_mn": "Бакалавр, 2+ улирал суралцсан, голч 3.0+, санхүүгийн хэрэгцээтэй.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/student-life"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-11"
+  },
+  {
+   "id": "mnums-na-chan-hyun",
+   "type": "sponsor_scholarship",
+   "name_mn": "На Чан Хён тэтгэлэг",
+   "coverage_mn": "6 жил төгсөх хүртэл",
+   "requirements_mn": "Хүний их эмчийн 1-р курсын 1 оюутанд жил бүр (2022 оноос).",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/student-life"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-11"
+  },
+  {
+   "id": "mnums-named",
+   "type": "sponsor_scholarship",
+   "name_mn": "Дотоод, гадаадын нэрэмжит тэтгэлгүүд",
+   "coverage_mn": "Төрөл бүр",
+   "requirements_mn": "Их сургууль хоорондын гэрээ, солилцооны хөтөлбөрөөр; нэр дэвшүүлэлтийг Суралцагчийн бүртгэл, мэдээллийн алба зохион байгуулна.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/student-life"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-11"
+  },
+  {
+   "id": "mnums-bzs-aid",
+   "type": "grant",
+   "name_mn": "Буцалтгүй тусламж (Боловсролын зээлийн сан)",
+   "coverage_mn": "Төрөл бүр",
+   "requirements_mn": "Хөгжлийн бэрхшээлтэй; бүтэн өнчин (голч 2.0+); хагас өнчин ба амьд эцэг/эх нь хөгжлийн бэрхшээлтэй; хөдөлмөрийн чадвараа алдсан гишүүнтэй өрх; цаатан, урианхай, тува өрх; бакалаварт зэрэг суралцаж буй 3+ хүүхэдтэй өрх.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/433"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-11"
+  }
+ ]
+}

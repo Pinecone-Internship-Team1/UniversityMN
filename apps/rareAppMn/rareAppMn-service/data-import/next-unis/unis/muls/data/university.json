@@ -1,0 +1,165 @@
+{
+  "_meta": {
+    "dataset": "university",
+    "university": "ХААИС",
+    "description": "ХААИС-ийн ерөнхий мэдээлэл: танилцуулга, түүх, тоо, холбоо барих, оюутны үйлчилгээ, sidebar-ийн утгууд.",
+    "language": "mn",
+    "verified_at": "2026-10-15"
+  },
+  "records": [
+    {
+      "id": "muls",
+      "name_mn": "Хөдөө аж ахуйн их сургууль",
+      "short_name_mn": "ХААИС",
+      "name_en": "Mongolian University of Life Sciences",
+      "short_name_en": "MULS",
+      "website": "https://muls.edu.mn",
+      "admission_website": "https://elselt.muls.edu.mn",
+      "admission_system_url": "http://admission.muls.edu.mn",
+      "admission_system_note_mn": "admission.muls.edu.mn ('Цахим бүртгэлийн систем', /Home/Profession) болон elselt.muls.edu.mn (нэвтрэх, эчнээ ангийн бүртгэл) хоёул бий; 2026 онд аль нь өдрийн бакалаврын бүртгэлд ашиглагдсаныг тодруулна уу.",
+      "overview_mn": "Хөдөө аж ахуйн их сургууль (ХААИС) нь хөдөө аж ахуй, мал эмнэлэг, мал аж ахуй, хүнс, байгаль орчин, инженерчлэл, эдийн засгийн чиглэлээр мэргэжилтэн бэлтгэдэг их сургууль бөгөөд 1958 онд байгуулагдсан. Улаанбаатарт Агроэкологи, Мал эмнэлэг, Мал аж ахуй-биотехнологи, Инженер-технологи, Эдийн засаг-бизнес, Хэрэглээний шинжлэх ухааны сургуулиудтай, Дархан-Уул аймагт Агроэкологи, бизнесийн салбар сургуультай. Улаанбаатарт 50 орчим бакалаврын хөтөлбөртэй: малын их эмч, агроном, хөрс судлал, ойн аж ахуй, мах сүүний технологи, хүнсний чанар, барилга, механик, цахилгаан, программ хангамж, нягтлан бодох бүртгэл гэх мэт. Хөтөлбөр бүр элсэлтийн 2 шалгалт (бүлэг бүрээс 1 хичээл) шаарддаг. Мэдээгээр 2026-2027 онд 1 кредит 156–169 мянга ₮ (жилд дунджаар 4.7–5.2 сая ₮), сургууль 3 оюутны байртай.",
+      "history": [
+        {
+          "year": 1958,
+          "event_mn": "Их сургууль байгуулагдсан (Википедиа, FAO AGRIS, EduRank).",
+          "status": "current"
+        },
+        {
+          "year": 1958,
+          "event_mn": "Улсын их сургуулийн мал эмнэлгийн факультет, Хөдөө аж ахуйн дээд сургуулиас үүсэлтэй (Англи Википедиа).",
+          "status": "unverified"
+        },
+        {
+          "year": "1990, 1993",
+          "event_mn": "Бүтцийн өөрчлөлт хийсэн (Англи Википедиа).",
+          "status": "unverified"
+        },
+        {
+          "year": 1997,
+          "event_mn": "Газар зохион байгуулагч мэргэжлээр сургалт нээсэн, 2001 онд анхны төгсөлт (элсэлтийн сайтын хуудас).",
+          "status": "current"
+        },
+        {
+          "year": 1998,
+          "event_mn": "Биотехнологийн бакалаврын сургалт эхэлсэн (2019 оны магадлан итгэмжлэлийн тайлан).",
+          "status": "current"
+        },
+        {
+          "year": 2001,
+          "event_mn": "7 сургууль, 4 хүрээлэн, 3 салбартай болсон (Англи Википедиа; одоогийн бүтэцтэй зөрүүтэй байж болно).",
+          "status": "stale"
+        }
+      ],
+      "history_source_urls": [
+        "https://en.wikipedia.org/wiki/Mongolian_University_of_Life_Sciences",
+        "https://www.fao.org/agris/data-provider/mongolian-university-life-sciences",
+        "https://edurank.org/uni/mongolian-university-of-life-sciences/",
+        "https://elselt.muls.edu.mn/majorview/66",
+        "https://daqar.org/storage/folder/12222/10102/MTmSCY7v4cNRH0KAa1ggNF6hZbJhK9WJjk1tF1c6.pdf"
+      ],
+      "motto_mn": null,
+      "stats": [
+        {
+          "label_mn": "Суралцагч (EduRank, 2026-03-15)",
+          "value": "11,716",
+          "source_url": "https://edurank.org/uni/mongolian-university-of-life-sciences/",
+          "status": "reference"
+        },
+        {
+          "label_mn": "Бүтэн цагийн ажилтан (EduRank)",
+          "value": "411",
+          "source_url": "https://edurank.org/uni/mongolian-university-of-life-sciences/",
+          "status": "reference"
+        },
+        {
+          "label_mn": "Бакалаврын оюутан (Англи Википедиа, он тодорхойгүй)",
+          "value": "4,838",
+          "source_url": "https://en.wikipedia.org/wiki/Mongolian_University_of_Life_Sciences",
+          "status": "unverified"
+        },
+        {
+          "label_mn": "Бакалаврын хөтөлбөр / мэргэжил (2020)",
+          "value": "31 / 56",
+          "source_url": "https://todnews.mn/p/19/show/30692",
+          "status": "stale"
+        },
+        {
+          "label_mn": "Элсэлтийн сайтаас уншигдсан бакалаврын хөтөлбөр (2026-10-15)",
+          "value": "50 (52 хуудас)",
+          "source_url": "https://elselt.muls.edu.mn",
+          "status": "partial"
+        },
+        {
+          "label_mn": "Оюутны байр",
+          "value": "3 байр, жилд ~1,300 оюутан",
+          "source_url": "https://news.mn/r/2809162/",
+          "status": "reference"
+        }
+      ],
+      "accreditation_memberships": [],
+      "accreditation_note_mn": "ХААИС-ийн нүүр хуудсанд Биологи, Хими боловсруулалтын технологийн хөтөлбөрүүд 5 жилийн магадлан итгэмжлэл авсан тухай мэдээ байна.",
+      "rankings": null,
+      "rankings_note_mn": "Албан ёсны (THE, QS) чансаа олдсонгүй. EduRank (нийтлэл, ишлэлд суурилсан гуравдагч үнэлгээ): Монголд 65-аас 4-т (2026-03-15).",
+      "contacts": {
+        "address_mn": null,
+        "address_note_mn": "Төв утас 7510-7777 (сургууль бүрийн дотуур дугаар: МЭС 211, МААБС 221, ИТС 231, ЭЗБС 251, ХШУС 271 — elselt.muls.edu.mn/location). Ерөнхий имэйл олдсонгүй (элсэлтийн комиссын хуудсанд зөвхөн ажилтны хувийн имэйл). Төв кампус Улаанбаатарын 11-р хороо, Зайсан орчим.",
+        "phones": [
+          "7510-7777"
+        ],
+        "emails": {},
+        "darkhan_branch_mn": "Дархан-Уул салбар: Их сургуулийн гудамж, Ш/Х 904, Дархан 45047; 7037-3539, 7037-4132; admissions@sab.edu.mn, info@sab.edu.mn"
+      },
+      "location_short_mn": "Улаанбаатар, Зайсан орчим (11-р хороо)",
+      "social": {
+        "facebook": "https://www.facebook.com/muls.mn/",
+        "facebook_admission": "https://www.facebook.com/people/%D0%A5%D0%90%D0%90%D0%98%D0%A1-%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2025/61557059079498/",
+        "facebook_engineering_school": "https://www.facebook.com/HaaisEngineeringTechnologyMULS/"
+      },
+      "student_services": [
+        {
+          "name_mn": "Элсэлтийн вэб (хөтөлбөрийн хуудсууд)",
+          "url": "https://elselt.muls.edu.mn"
+        },
+        {
+          "name_mn": "Номын сан",
+          "url": "https://library.muls.edu.mn/"
+        },
+        {
+          "name_mn": "Оюутны вэб, Оюутны төлбөрийн мэдээлэл, Сургалтын албаны вэб, Оюутны холбоо (нүүр хуудасны цэс; холбоос уншигдаагүй)",
+          "url": null
+        }
+      ],
+      "campus_life_mn": "Нүүр хуудасны мэдээгээр: оюутны эрдэм шинжилгээний хурал, Job Fair-2025 (төгсөгчдийн 70+% нь мэргэжлээрээ ажлын санал авсан), элсэлтийн шалгалтын сорилго (2025 онд 4-р сарын 26–27, танхим ба онлайн).",
+      "international_mn": "Зүүн Сараевогийн их сургууль, БНСУ-ын Чоннам үндэсний их сургуулийн мал эмнэлгийн сургуультай санамж бичиг; Солонгос, Японы их сургуулиудын тэтгэлэг, солилцооны урилга; БНСУ-ын Жонбук үндэсний их сургуультай 2+2 хамтарсан хөтөлбөр (зөвхөн мэдээний гарчиг). Дархан-Уул салбар: Малага, Кадисын их сургуультай солилцоо, Катаниагийн их сургуулийн DOMANI зуны сургууль.",
+      "sidebar_suggestion": {
+        "tuition_text_mn": "≈ 4.7–5.2 сая ₮/жил (2026-2027, мэдээгээр; 1 кредит 156–169 мянга ₮)",
+        "tuition_number": 4950000,
+        "tuition_number_note_mn": "zindaa.mn (2026-08-13)-д дурдсан 4.7–5.2 сая ₮-ийн дунд цэг. Албан ёсны биш; 2025-2026 оны кредитийн үнэтэй давхцаж байгаа тул тодруулна уу.",
+        "dorm_flag": "Боломжтой",
+        "scholarship_flag": "Боломжтой",
+        "dorm_howto_mn": "ХААИС Улаанбаатарт I, II, III гэсэн 3 оюутны байртай, жилд 1,300 орчим оюутан байрлуулдаг (дотоод, гадаадын оюутан, зочин багш). 2025-2026 онд байрны төлбөр жилд 1.0–1.3 сая ₮, 100 мянган ₮-ийн барьцаатай байсан (өмнөх жил 700–800 мянга); 2026-2027 оны үнэ олдсонгүй. Байрны дотоод журмаар байрны зөвлөлийн гишүүнд 25–50%, бүтэн өнчин оюутанд 50% хөнгөлөлт үзүүлж, өрөөгөө тохижуулж журам сахисан оюутанд дараа жил тэргүүн ээлжинд байр олгодог. Бүртгүүлэх журам, хугацааг сургуулиас (muls.edu.mn) тодруулна уу.",
+        "phones": [
+          "7510-7777"
+        ],
+        "email": null,
+        "location_mn": "Улаанбаатар, Зайсан орчим (11-р хороо)",
+        "website": "https://muls.edu.mn"
+      },
+      "source_urls": [
+        "https://muls.edu.mn/",
+        "https://elselt.muls.edu.mn",
+        "https://en.wikipedia.org/wiki/Mongolian_University_of_Life_Sciences",
+        "https://www.fao.org/agris/data-provider/mongolian-university-life-sciences",
+        "https://edurank.org/uni/mongolian-university-of-life-sciences/",
+        "https://news.zindaa.mn/5ca0",
+        "https://news.mn/r/2809162/",
+        "https://zogii.mn/newsm/8/2/201576",
+        "https://ikon.mn/n/37yy",
+        "https://www.sab.edu.mn/",
+        "https://elselt.muls.edu.mn/location"
+      ],
+      "verified_at": "2026-10-15",
+      "status": "partial"
+    }
+  ]
+}

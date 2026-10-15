@@ -1,0 +1,299 @@
+{
+ "_meta": {
+  "dataset": "schools",
+  "university": "МУБИС",
+  "description": "МУБИС-ийн бүрэлдэхүүн сургууль, салбар сургууль, харьяа нэгж.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "msue-smns",
+   "type": "constituent",
+   "name_mn": "Математик, байгалийн ухааны сургууль",
+   "abbr_mn": null,
+   "website": "https://smns.msue.edu.mn",
+   "page": "https://smns.msue.edu.mn/p/r/5648",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу-14 (МУБИС)",
+   "stats": {
+    "bachelor_students": 995,
+    "master_students": 111,
+    "doctoral_students": 22,
+    "teaching_staff": 68
+   },
+   "notes_mn": "7 тэнхим: Математик, Дидактик, Мэдээлэл зүй, Физик, Хими, Биологи, Газарзүй.",
+   "contacts": null,
+   "source_urls": [
+    "https://smns.msue.edu.mn/p/r/5648",
+    "https://smns.msue.edu.mn",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-shss",
+   "type": "constituent",
+   "name_mn": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+   "abbr_mn": null,
+   "website": "https://shss.msue.edu.mn/",
+   "page": "https://shss.msue.edu.mn/p/r/6647",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу-14 (МУБИС)",
+   "contacts": {
+    "phones": [
+     "7777 3443",
+     "11-328450"
+    ],
+    "email": "shss@msue.edu.mn"
+   },
+   "stats": {
+    "bachelor_students": 3042,
+    "master_students": 395,
+    "doctoral_students": 215,
+    "departments": 9
+   },
+   "notes_mn": "Тэнхимүүд: Монгол хэл, Уран зохиол, Сэтгүүл зүй, Түүх, Нийгмийн ухаан, Орос хэл, Англи-Герман хэл, Дорно дахины хэл, Англи хэл; Монгол судлалын хүрээлэн. Бакалаврын хөтөлбөрийн жагсаалт сайтад зөвхөн зураг хэлбэрээр; энд МУБИС-ийн магадлагдсан хөтөлбөрийн жагсаалтаас авав. Дотоодод 13, ACQUIN-аар 2 бакалаврын хөтөлбөр магадлан итгэмжлэгдсэн.",
+   "source_urls": [
+    "https://shss.msue.edu.mn/p/r/6647",
+    "https://shss.msue.edu.mn/",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-sfat",
+   "type": "constituent",
+   "name_mn": "Дүрслэх урлаг, технологийн сургууль",
+   "abbr_mn": null,
+   "website": "https://sfat.msue.edu.mn/",
+   "page": "https://sfat.msue.edu.mn/p/r/5626",
+   "location_mn": "Улаанбаатар, Бага тойруу-14, МУБИС-ийн төв байрны ард 7-р байр",
+   "contacts": {
+    "phones": [
+     "+976-7777 6226"
+    ],
+    "email": "art.dt@msue.edu.mn"
+   },
+   "stats": {
+    "specializations": 6,
+    "departments": 3,
+    "full_time_teachers": 28
+   },
+   "notes_mn": "3 тэнхим: Дүрслэх урлаг, Технологи, Дизайн-зураг зүй. Сургуулийн танилцуулгад 'Багш, урлагийн боловсрол', 'График дизайн', 'Хувцас дизайн' хөтөлбөр; дүрслэх урлагийн, дизайн технологийн, дизайн зураг зүйн багш, компьютер график, мультмедиа дизайн, хувцасны дизайнер бэлтгэдэг.",
+   "source_urls": [
+    "https://sfat.msue.edu.mn/p/r/5626",
+    "https://sfat.msue.edu.mn/",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-ses",
+   "type": "constituent",
+   "name_mn": "Боловсрол судлалын сургууль",
+   "abbr_mn": null,
+   "website": "https://ses.msue.edu.mn/",
+   "page": "https://ses.msue.edu.mn/p/r/5634",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Энхтайваны өргөн чөлөө, МУБИС Ё байр",
+   "contacts": {
+    "phones": [
+     "+976-7777 6116 (1610)",
+     "7012 0013"
+    ],
+    "email": "ses@msue.edu.mn"
+   },
+   "stats": {
+    "bachelor_students": 1551,
+    "master_students": 494,
+    "doctoral_students": 248,
+    "teaching_staff": 49
+   },
+   "notes_mn": "Тэнхимүүд: Боловсрол судлал, Сэтгэл судлал, Нийгмийн ажил арга зүй, Боловсролын удирдлага, Насан туршийн боловсрол-зайн сургалт, Судалгаа арга зүй, Тусгай хэрэгцээт боловсрол.",
+   "source_urls": [
+    "https://ses.msue.edu.mn/p/r/5634",
+    "https://ses.msue.edu.mn/",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-ts",
+   "type": "constituent",
+   "name_mn": "Багшийн сургууль",
+   "abbr_mn": null,
+   "website": "https://ts.msue.edu.mn/",
+   "page": "https://ts.msue.edu.mn/p/r/5636",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу",
+   "contacts": {
+    "phones": [
+     "7777 6446",
+     "7011 2229"
+    ],
+    "email": "info@msue.edu.mn"
+   },
+   "stats": {
+    "bachelor_students": 1400,
+    "master_students": 320,
+    "departments": 4,
+    "teaching_staff": 39
+   },
+   "notes_mn": "Тэнхимүүд: Монгол хэл нийгмийн ухаан, Математик байгалийн ухаан, Бага боловсрол арга зүй, Хөгжмийн боловсрол.",
+   "source_urls": [
+    "https://ts.msue.edu.mn/p/r/5636",
+    "https://ts.msue.edu.mn/",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-spe",
+   "type": "constituent",
+   "name_mn": "Биеийн тамирын сургууль",
+   "abbr_mn": null,
+   "website": "https://spe.msue.edu.mn/",
+   "page": "https://spe.msue.edu.mn/p/r/5626",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу-14, МУБИС-ийн X байр",
+   "contacts": {
+    "phones": [
+     "+976-7777 5445"
+    ],
+    "email": "spe@msue.edu.mn"
+   },
+   "stats": {
+    "bachelor_students": 840,
+    "master_students": 40,
+    "departments": 4,
+    "teaching_staff": 26
+   },
+   "notes_mn": "4 тэнхим: Спортын мэргэжлийн онол-арга зүй, Спорт тоглоом, Спортын ганцаарчилсан төрөл, Бие бялдрын боловсрол-хөдөлгөөн засал.",
+   "source_urls": [
+    "https://spe.msue.edu.mn/p/r/5626",
+    "https://spe.msue.edu.mn/",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-spse",
+   "type": "constituent",
+   "name_mn": "Сургуулийн өмнөх боловсролын сургууль",
+   "abbr_mn": null,
+   "website": "https://spse.msue.edu.mn/",
+   "page": "https://spse.msue.edu.mn/n/l/5622",
+   "location_mn": "Улаанбаатар, Баянгол дүүрэг, Дилав хутагт Жамсранжавын гудамж-18",
+   "contacts": {
+    "phones": [
+     "7777 4664 (2401 захиргаа)",
+     "7777 4664 (2406 хөтөлбөрийн алба)"
+    ],
+    "email": "spse@msue.edu.mn"
+   },
+   "stats": {
+    "bachelor_students": 1100,
+    "master_students": 155,
+    "departments": 3,
+    "teaching_staff": 24
+   },
+   "notes_mn": "Төв байраас тусдаа, Баянгол дүүрэгт байрладаг.",
+   "source_urls": [
+    "https://spse.msue.edu.mn/n/l/5622",
+    "https://spse.msue.edu.mn/",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-arkhangai",
+   "type": "branch",
+   "name_mn": "Архангай аймаг дахь салбар сургууль",
+   "abbr_mn": null,
+   "website": "https://ast.msue.edu.mn/",
+   "page": "https://ast.msue.edu.mn/",
+   "location_mn": "Архангай аймаг, Цэцэрлэг хот",
+   "contacts": {
+    "phones": [
+     "9934 4448"
+    ],
+    "email": "ar-bs@msue.edu.mn"
+   },
+   "stats": {
+    "bachelor_students": 340,
+    "master_students": 132,
+    "departments": 3,
+    "teaching_staff": 20
+   },
+   "notes_mn": "Сайтын нэр: МУБИС-ийн Архангай аймаг дахь Багшийн сургууль. Тэнхим: Бага боловсрол арга зүй, Хүмүүнлэгийн ухаан, Боловсрол судлал. Хөтөлбөрийн жагсаалт зөвхөн зураг хэлбэрээр тул programs.json-д мөр нэмээгүй. МУБИС-ийн магадлагдсан хөтөлбөрийн жагсаалтад салбарын мөрөнд 'Багш, Сургуулийн өмнөх насны боловсрол', 'Багш, Бага ангийн боловсрол' гарсан ч аль салбарынх болох нь тодорхойгүй.",
+   "source_urls": [
+    "https://ast.msue.edu.mn/",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf",
+    "https://ast.msue.edu.mn/p/r/5625"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-bayan-ulgii",
+   "type": "branch",
+   "name_mn": "Баян-Өлгий аймаг дахь салбар сургууль",
+   "abbr_mn": null,
+   "website": "https://bost.msue.edu.mn",
+   "page": "https://bost.msue.edu.mn",
+   "location_mn": "Баян-Өлгий аймаг, Өлгий сум, 11-р баг, А.Жамила-1 гудамж, 123 тоот",
+   "contacts": {
+    "phones": [
+     "+976-9918 3724",
+     "9595 6620"
+    ],
+    "admission_phones": [
+     "9918 3724",
+     "9918 4109",
+     "9941 9597",
+     "9595 6620"
+    ],
+    "email": "bayan-ulgii@msue.edu.mn"
+   },
+   "notes_mn": "Сайтын гарчиг: Баян-Өлгийн Багшийн сургууль. 2022-08-03-нд Засгийн газрын 293-р тогтоолоор МУБИС-ийн салбар болсон. Нүүр хуудсанд 'Боловсролын сэтгэл зүйч' бэлтгэдэг бакалаврын хөтөлбөр дурдсан; түүхийн хуудсанд 'Багш, бага боловсрол' 2020 онд 5 жилээр магадлан итгэмжлэгдсэн гэжээ. 2026 оны элсэлтийн хөтөлбөр, хичээл зөвхөн зураг хэлбэрээр тул programs.json-д мөр нэмээгүй.",
+   "stats": null,
+   "source_urls": [
+    "https://bost.msue.edu.mn",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf",
+    "https://bost.msue.edu.mn/p/r/5605"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-ebs",
+   "type": "unit",
+   "name_mn": "МУБИС-ийн харьяа Ерөнхий боловсролын сургууль",
+   "abbr_mn": null,
+   "website": "https://ebs.msue.edu.mn/",
+   "page": "https://ebs.msue.edu.mn/",
+   "location_mn": "Улаанбаатар",
+   "notes_mn": "Ерөнхий боловсролын сургууль — бакалаврын элсэлт авахгүй.",
+   "contacts": null,
+   "stats": null,
+   "source_urls": [
+    "https://ebs.msue.edu.mn/",
+    "https://www.msue.edu.mn/p/r/6691"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  }
+ ]
+}

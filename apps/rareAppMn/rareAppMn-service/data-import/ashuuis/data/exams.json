@@ -1,0 +1,348 @@
+{
+ "_meta": {
+  "dataset": "exams",
+  "description": "Элсэлтийн шалгалт (ЭШ/ЭЕШ)-ын мэдээлэл: хичээлүүд, хуваарь, оноо, Монгол хэл бичгийн шалгалт, өвлийн шалгалт, олон улсын шалгалтаар дүйцүүлэх, бэлтгэлийн материал. Зохион байгуулагч: Боловсролын үнэлгээний төв (БҮТ), eec.mn.",
+  "language": "mn",
+  "verified_at": "2026-10-09",
+  "note_mn": "Үндэсний элсэлтийн шалгалт (ЭШ/ЭЕШ)-ын мэдээлэл бүх их сургуульд адил (МУИС, ШУТИС-ийн датасеттэй ижил). Бэлтгэлийн видео нь МУИС, БҮТ-ийнх боловч бүх элсэгчид үнэгүй.",
+  "university": "Бүх их сургууль (үндэсний ЭШ)"
+ },
+ "records": [
+  {
+   "id": "esh-overview",
+   "title_mn": "Элсэлтийн шалгалт (ЭШ) — ерөнхий",
+   "organizer_mn": "Боловсролын үнэлгээний төв (БҮТ)",
+   "website": "https://eec.mn",
+   "registration_portal": "https://eyesh.eec.mn",
+   "subjects_mn": [
+    "Монгол хэл",
+    "Математик",
+    "Англи хэл",
+    "Орос хэл",
+    "Физик",
+    "Хими",
+    "Биологи",
+    "Газарзүй",
+    "Түүх",
+    "Нийгэм судлал"
+   ],
+   "score_types": {
+    "raw_mn": "Анхны оноо: 0–100, шалгалтын дараа шууд харагдана.",
+    "scaled_mn": "Хэмжээст оноо: 800 хүртэл. Их сургуулийн элсэлтэд ЗӨВХӨН хэмжээст оноог ашиглана.",
+    "source_url": "https://ikon.mn/n/3oin"
+   },
+   "format_change": {
+    "note_mn": "Одоогийн (хуучин) загвар 2028 оны 7-р сар хүртэл үргэлжилнэ (А/69 тушаал). Шинэ загвар (суралцах чадвар, 2 түвшний хичээлийн шалгалт, ур чадварын шалгалт, PEIC англи хэл) 2028 оны 12-р сар руу хойшилсон.",
+    "impact_mn": "2027 онд элсэх сурагчид хуучин загвараар шалгалт өгнө.",
+    "source_url": "https://ikon.mn/n/3crq",
+    "status": "current"
+   },
+   "certificate_mn": "Батламжийг БҮТ-ийн сайт эсвэл E-Mongolia-аас авна. Оноонд гомдол гаргах хугацаа 5 хоног.",
+   "verified_at": "2026-10-09",
+   "status": "current"
+  },
+  {
+   "id": "esh-2026",
+   "title_mn": "ЭШ 2026 (жишиг жил)",
+   "academic_year": "2026-2027",
+   "timeline": [
+    {
+     "title_mn": "Бүртгэл (энэ жил төгсөгчид — сургуулиараа)",
+     "start": "2026-03-04T09:00:00+08:00",
+     "end": "2026-05-15T18:00:00+08:00"
+    },
+    {
+     "title_mn": "Бүртгэл (өмнөх жилүүдийн төгсөгчид — eyesh.eec.mn)",
+     "start": "2026-03-06",
+     "end": "2026-05-15T18:00:00+08:00"
+    },
+    {
+     "title_mn": "Олон улсын шалгалтаар дүйцүүлэх хүсэлт",
+     "start": "2026-03-09",
+     "end": "2026-06-03"
+    },
+    {
+     "title_mn": "Шалгалт",
+     "start": "2026-06-25",
+     "end": "2026-06-28"
+    }
+   ],
+   "stats": {
+    "registered": 49014,
+    "share_current_graduates": "87%",
+    "share_female": "55%",
+    "share_capital": "53.2%",
+    "exam_centers": 55,
+    "perfect_800_scores": {
+     "total": 194,
+     "Математик": 43,
+     "Нийгэм судлал": 47,
+     "Англи хэл": 36
+    },
+    "equivalency_requests": 6032,
+    "registrations_by_subject": {
+     "Математик": 35271,
+     "Англи хэл": 33177,
+     "Нийгэм судлал": 31431,
+     "Монгол хэл": 17517,
+     "Физик": 12524,
+     "Хими": 7297,
+     "Биологи": 7230,
+     "Түүх": 1511,
+     "Газарзүй": 1392,
+     "Орос хэл": 571
+    }
+   },
+   "what_to_bring_mn": [
+    "Бүртгэлийн хуудас",
+    "Суудлын хуваарь (eyesh.eec.mn/profile/login → 'Шалгуулагчийн булан'-аас хэвлэнэ)",
+    "Иргэний үнэмлэх (эсвэл E-Mongolia лавлагаа, жолооны үнэмлэх, гадаад паспорт)",
+    "Бүрэн дунд боловсролын гэрчилгээ"
+   ],
+   "reference_2025_mn": "2025 онд математикт 20% гүйцэтгэл ≈ 500 хэмжээст оноо; математик өгсөн хүмүүсийн 52% нь 490+ авсан.",
+   "source_urls": [
+    "https://ikon.mn/n/3of7",
+    "https://ikon.mn/n/3olc",
+    "https://ikon.mn/n/3o1s",
+    "https://ikon.mn/n/3obf",
+    "https://ikon.mn/n/3lsg"
+   ],
+   "verified_at": "2026-10-09",
+   "status": "current"
+  },
+  {
+   "id": "mongolian-writing-exam",
+   "title_mn": "Монгол хэл бичгийн шалгалт",
+   "rule_mn": "Их, дээд сургуульд элсэхэд 400+ оноо ЗААВАЛ шаардлагатай. Нэг удаа тэнцвэл насан туршдаа хүчинтэй.",
+   "when_mn": "10, 11-р ангидаа өгч болно (10,000₮), 12-р ангид үнэгүй.",
+   "content_mn": [
+    "Унших чадвар",
+    "Зөв бичих дүрэм",
+    "Монгол бичиг (уйгаржин)",
+    "Эсээ бичих"
+   ],
+   "source_urls": [
+    "https://ikon.mn/n/3cjk"
+   ],
+   "verified_at": "2026-10-09",
+   "status": "current"
+  },
+  {
+   "id": "esh-winter-2026",
+   "title_mn": "Өвлийн ЭШ 2026",
+   "who_mn": "Зөвхөн өмнөх жилүүдэд ЭШ өгч байсан шалгуулагчид.",
+   "registration": {
+    "start": "2026-10-01T09:00:00+08:00",
+    "end": "2026-11-23T18:00:00+08:00",
+    "url": "https://eyesh.eec.mn/"
+   },
+   "rules_mn": [
+    "2 ба түүнээс дээш хичээл сонгоно",
+    "Хичээл бүр 20,000₮",
+    "3×4 зураг оруулна",
+    "Хөгжлийн бэрхшээлтэй шалгуулагч өргөдөл, эмчийн тодорхойлолт өгнө"
+   ],
+   "equivalency_deadline": "2026-11-27T18:00:00+08:00",
+   "source_urls": [
+    "https://ikon.mn/n/3qqx",
+    "https://ikon.mn/n/3qpi",
+    "https://ikon.mn/n/3qs1"
+   ],
+   "verified_at": "2026-10-09",
+   "status": "current"
+  },
+  {
+   "id": "equivalency",
+   "title_mn": "Олон улсын шалгалтаар ЭШ-ыг дүйцүүлэх",
+   "accepted_tests": [
+    "Cambridge AS/A Level",
+    "IB",
+    "TOEFL iBT",
+    "PTE",
+    "IELTS",
+    "SAT",
+    "IGCSE (2022 оны журмаар)",
+    "AP (2022 оны журмаар)"
+   ],
+   "how_mn": "Шалгалтаас дор хаяж 15 ажлын өдрийн өмнө www.eec.mn-ээр хүсэлт гаргана.",
+   "source_urls": [
+    "https://ikon.mn/n/3oft",
+    "https://eec.mn"
+   ],
+   "verified_at": "2026-10-09",
+   "status": "current"
+  },
+  {
+   "id": "prep-materials",
+   "title_mn": "Бэлтгэлийн материал (МУИС + БҮТ)",
+   "videos_2024": [
+    {
+     "subject_mn": "Биологи",
+     "youtube_id": "s1a8JfXCqcc"
+    },
+    {
+     "subject_mn": "Газарзүй",
+     "youtube_id": "8MPxACFrMOU"
+    },
+    {
+     "subject_mn": "Орос хэл",
+     "youtube_id": "Vm7GuaI-B5c"
+    },
+    {
+     "subject_mn": "Нийгэм судлал",
+     "youtube_id": "BjPdPBOjPXY"
+    },
+    {
+     "subject_mn": "Физик",
+     "youtube_id": "2w9MrxVkxt8"
+    },
+    {
+     "subject_mn": "Англи хэл",
+     "youtube_id": "WJhJIgP5LZs"
+    },
+    {
+     "subject_mn": "Математик",
+     "youtube_id": "GRZSzhly2bI"
+    },
+    {
+     "subject_mn": "Монгол хэл",
+     "youtube_id": "GSGqyCtoalo"
+    },
+    {
+     "subject_mn": "Түүх",
+     "youtube_id": "mKRFX44HPjM"
+    },
+    {
+     "subject_mn": "Хими",
+     "youtube_id": "N9flNlWWa7M"
+    }
+   ],
+   "videos_2026": {
+    "note_mn": "2025 оны ЭШ-ын хамгийн бага гүйцэтгэлтэй даалгавар, сэдвүүд дээр суурилсан (news.num.edu.mn, 2026-06-04).",
+    "items": [
+     {
+      "subject_mn": "Монгол хэл",
+      "youtube_ids": [
+       "vF5f-LEQiwc",
+       "NLKY8Oidd50",
+       "GYMmC-DjhWo"
+      ]
+     },
+     {
+      "subject_mn": "Биологи",
+      "youtube_ids": [
+       "MeeU4_sMvY0",
+       "SkqshSNfILM"
+      ]
+     },
+     {
+      "subject_mn": "Англи хэл",
+      "youtube_ids": [
+       "3WMdFVsVBS4",
+       "J0GwhkrIHNw"
+      ]
+     },
+     {
+      "subject_mn": "Орос хэл",
+      "youtube_ids": [
+       "apgKcoPp8CY",
+       "aLz6JZ-8udw",
+       "9o9M0cDufHU"
+      ]
+     },
+     {
+      "subject_mn": "Газарзүй",
+      "youtube_ids": [
+       "njbZg7FpyLA"
+      ]
+     },
+     {
+      "subject_mn": "Хими",
+      "youtube_ids": [
+       "vDkoLn2ymFg",
+       "cRkiTrypL1k",
+       "jU8l_TDGX18"
+      ]
+     },
+     {
+      "subject_mn": "Математик",
+      "youtube_ids": [
+       "nbG8m2HGZeQ",
+       "1NdrJ_-Qx_8",
+       "ZmbnVxkCyV4"
+      ]
+     },
+     {
+      "subject_mn": "Түүх",
+      "youtube_ids": [
+       "trJzcKYnkG4",
+       "FdzWKd3YUpw"
+      ]
+     },
+     {
+      "subject_mn": "Нийгэм судлал",
+      "youtube_ids": [
+       "n113lbo6Jsk",
+       "Y_JcqMIsJjs"
+      ]
+     },
+     {
+      "subject_mn": "Физик",
+      "youtube_ids": [
+       "U4SScI16tOc",
+       "ZjqIcKMGHKo",
+       "EJb0-hJsNfg"
+      ]
+     }
+    ],
+    "source_url": "https://news.num.edu.mn/?p=115429"
+   },
+   "youtube_url_pattern": "https://www.youtube.com/watch?v={youtube_id}",
+   "advice_pages": [
+    {
+     "subject_mn": "Англи хэл",
+     "url": "https://elselt.num.edu.mn/?page_id=405"
+    },
+    {
+     "subject_mn": "Биологи",
+     "url": "https://elselt.num.edu.mn/?page_id=409"
+    },
+    {
+     "subject_mn": "Газарзүй",
+     "url": "https://elselt.num.edu.mn/?page_id=410"
+    },
+    {
+     "subject_mn": "Математик",
+     "url": "https://elselt.num.edu.mn/?page_id=411"
+    },
+    {
+     "subject_mn": "Монгол хэл",
+     "url": "https://elselt.num.edu.mn/?page_id=415"
+    },
+    {
+     "subject_mn": "Түүх",
+     "url": "https://elselt.num.edu.mn/?page_id=416"
+    },
+    {
+     "subject_mn": "Нийгэм судлал",
+     "url": "https://elselt.num.edu.mn/?page_id=417"
+    },
+    {
+     "subject_mn": "Физик",
+     "url": "https://elselt.num.edu.mn/?page_id=418"
+    },
+    {
+     "subject_mn": "Хими",
+     "url": "https://elselt.num.edu.mn/?page_id=419"
+    },
+    {
+     "subject_mn": "Орос хэл",
+     "url": "https://elselt.num.edu.mn/?page_id=420"
+    }
+   ],
+   "career_choice_page": "https://elselt.num.edu.mn/?page_id=40",
+   "verified_at": "2026-10-09",
+   "status": "current"
+  }
+ ]
+}

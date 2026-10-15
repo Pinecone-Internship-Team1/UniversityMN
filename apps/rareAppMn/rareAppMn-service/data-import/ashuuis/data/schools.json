@@ -1,0 +1,233 @@
+{
+ "_meta": {
+  "dataset": "schools",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн бүрэлдэхүүн болон салбар сургуулиуд.",
+  "language": "mn",
+  "verified_at": "2026-10-11"
+ },
+ "records": [
+  {
+   "id": "mnums-med",
+   "type": "constituent",
+   "name_mn": "Анагаах ухааны сургууль",
+   "abbr_mn": null,
+   "website": "https://medical.mnums.edu.mn",
+   "page": "https://mnums.edu.mn/schools/med",
+   "location_mn": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+   "contacts": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/schools/med",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-bio",
+   "type": "constituent",
+   "name_mn": "Био-анагаахын сургууль",
+   "abbr_mn": null,
+   "website": "https://biomedicine.mnums.edu.mn/mn/",
+   "page": "https://mnums.edu.mn/schools/bio",
+   "location_mn": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+   "contacts": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/schools/bio",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-public-health",
+   "type": "constituent",
+   "name_mn": "Нийгмийн эрүүл мэндийн сургууль",
+   "abbr_mn": null,
+   "website": "https://publichealth.mnums.edu.mn",
+   "page": "https://mnums.edu.mn/schools/public-health",
+   "location_mn": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+   "contacts": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/schools/public-health",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dental",
+   "type": "constituent",
+   "name_mn": "Нүүр ам судлалын сургууль",
+   "abbr_mn": null,
+   "website": "https://dentistry.mnums.edu.mn",
+   "page": "https://mnums.edu.mn/schools/dental",
+   "location_mn": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+   "contacts": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/schools/dental",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-pharmacy",
+   "type": "constituent",
+   "name_mn": "Эм зүйн сургууль",
+   "abbr_mn": null,
+   "website": "https://www.pharmasciences.mn",
+   "page": "https://mnums.edu.mn/schools/pharmacy",
+   "location_mn": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+   "contacts": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/schools/pharmacy",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-nursing",
+   "type": "constituent",
+   "name_mn": "Сувилахуйн сургууль",
+   "abbr_mn": null,
+   "website": "https://nursing.mnums.edu.mn",
+   "page": "https://mnums.edu.mn/schools/nursing",
+   "location_mn": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+   "contacts": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/schools/nursing",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-traditional",
+   "type": "constituent",
+   "name_mn": "Монгол анагаах ухааны олон улсын сургууль",
+   "abbr_mn": "МАУОУС",
+   "website": null,
+   "page": "https://mnums.edu.mn/schools/traditional",
+   "location_mn": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+   "contacts": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/schools/traditional",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan",
+   "type": "branch",
+   "name_mn": "Дархан-Уул аймаг дахь салбар сургууль",
+   "abbr_mn": null,
+   "website": "https://mnums-da.edu.mn",
+   "page": "https://mnums.edu.mn/branches/darkhan",
+   "location_mn": "Дархан-Уул аймаг, Дархан сум",
+   "contacts": {
+    "address_mn": "Дархан-Уул аймаг, Дархан сум, 13-р баг, 30-р хороолол, Жаргалантын 1-р гудамж 130, Ш/х 903",
+    "phone": "7037 7734",
+    "email": "darkhanuul@mnums.edu.mn",
+    "admission_phones": [
+     "9511-2551",
+     "9929-3779",
+     "7037-3505",
+     "7037-8305"
+    ]
+   },
+   "notes_mn": "Анагаах ухааны суурь боловсрол (2+4: Хүний, Шүдний, Уламжлалт анагаахын их эмч) ба эрүүл мэндийн боловсрол (2+3: Эм зүйч, Био-анагаах) хөтөлбөртэй — эхний 2 жилийг салбарт суралцдаг гэж ойлгогдоно (сургуулиас тодруулна уу).",
+   "source_urls": [
+    "https://mnums.edu.mn/branches/darkhan",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai",
+   "type": "branch",
+   "name_mn": "Говь-Алтай аймаг дахь салбар сургууль",
+   "abbr_mn": null,
+   "website": "https://ga.mnums.edu.mn",
+   "page": "https://mnums.edu.mn/branches/govi-altai",
+   "location_mn": "Говь-Алтай аймаг, Есөнбулаг сум",
+   "contacts": {
+    "address_mn": "Говь-Алтай аймаг, Есөнбулаг сум, Оргил баг, Эрх чөлөөний гудамж",
+    "phone": "7048 3491",
+    "email": "websitegamnums@gmail.com"
+   },
+   "notes_mn": "Хөтөлбөрийн жагсаалт зөвхөн зураг хэлбэрээр (sources.json → gap-govi-altai).",
+   "source_urls": [
+    "https://mnums.edu.mn/branches/govi-altai",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi",
+   "type": "branch",
+   "name_mn": "Дорноговь аймаг дахь салбар сургууль",
+   "abbr_mn": null,
+   "website": "https://dornogobi-anagaakh.mn",
+   "page": "https://mnums.edu.mn/branches/dornogovi",
+   "location_mn": "Дорноговь аймаг, Сайншанд сум",
+   "contacts": {
+    "address_mn": "Дорноговь аймаг, Сайншанд сум, 2-р баг",
+    "phone": "7052 2101",
+    "email": "sodg@mnums.edu.mn"
+   },
+   "notes_mn": "Хөтөлбөрийн жагсаалт зөвхөн зураг хэлбэрээр (sources.json → gap-dornogovi).",
+   "source_urls": [
+    "https://mnums.edu.mn/branches/dornogovi",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai",
+   "type": "branch",
+   "name_mn": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://mnums.edu.mn/branches/arkhangai",
+   "location_mn": "Архангай аймаг",
+   "contacts": null,
+   "notes_mn": "Хөтөлбөр, холбоо барих мэдээлэл олдсонгүй (sources.json → gap-arkhangai).",
+   "source_urls": [
+    "https://mnums.edu.mn/branches/arkhangai",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-advanced",
+   "type": "unit",
+   "name_mn": "Ахисан түвшний сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://mnums.edu.mn/schools/advanced",
+   "location_mn": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+   "notes_mn": "Магистр, доктор, төгсөлтийн дараах сургалт — бакалаврын элсэлт авахгүй.",
+   "contacts": null,
+   "source_urls": [
+    "https://mnums.edu.mn/schools/advanced",
+    "https://mnums.edu.mn/"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  }
+ ]
+}

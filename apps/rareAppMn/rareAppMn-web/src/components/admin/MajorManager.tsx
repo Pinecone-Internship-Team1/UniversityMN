@@ -15,6 +15,7 @@ import {
   formatCutOff,
   formatDegreeType,
   formatMajorTuition,
+  formatSelectionType,
 } from "@/lib/format";
 import {
   CATALOG_CACHE,
@@ -51,6 +52,9 @@ interface MajorFormValues {
   examNote: string;
   cutOffScore: string;
   secondaryCutOffScore: string;
+  primaryWeight: string;
+  secondaryWeight: string;
+  selectionType: string;
   tuitionFee: string;
   tuitionIsEstimate: boolean;
 }
@@ -72,10 +76,16 @@ function toFormValues(
     cutOffScore: major?.cutOffScore != null ? String(major.cutOffScore) : "",
     secondaryCutOffScore:
       major?.secondaryCutOffScore != null ? String(major.secondaryCutOffScore) : "",
+    primaryWeight: major?.primaryWeight != null ? String(major.primaryWeight) : "",
+    secondaryWeight: major?.secondaryWeight != null ? String(major.secondaryWeight) : "",
+    selectionType: major?.selectionType ?? "",
     tuitionFee: major?.tuitionFee != null ? String(major.tuitionFee) : "",
     tuitionIsEstimate: major?.tuitionIsEstimate ?? false,
   };
 }
+
+/** АШУҮИС adds its two exams (1 + 1); МУИС, ШУТИС use 0.7 + 0.3. */
+const MAX_EXAM_WEIGHT = 1;
 
 function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
   if (!values.facultyId) return { ok: false, error: "Сургууль сонгоно уу." };
@@ -101,6 +111,14 @@ function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
     MAX_EXAM_SCORE,
   );
   if (!secondaryCutOffScore.ok) return secondaryCutOffScore;
+  const primaryWeight = parseOptionalNumber(values.primaryWeight, "Суурь шалгалтын жин", MAX_EXAM_WEIGHT);
+  if (!primaryWeight.ok) return primaryWeight;
+  const secondaryWeight = parseOptionalNumber(
+    values.secondaryWeight,
+    "Дагалдах шалгалтын жин",
+    MAX_EXAM_WEIGHT,
+  );
+  if (!secondaryWeight.ok) return secondaryWeight;
   const tuitionFee = parseOptionalNumber(values.tuitionFee, "Сургалтын төлбөр");
   if (!tuitionFee.ok) return tuitionFee;
 
@@ -117,6 +135,9 @@ function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
       examNote: examNote.value,
       cutOffScore: cutOffScore.value,
       secondaryCutOffScore: secondaryCutOffScore.value,
+      primaryWeight: primaryWeight.value,
+      secondaryWeight: secondaryWeight.value,
+      selectionType: values.selectionType || null,
       tuitionFee: tuitionFee.value,
       tuitionIsEstimate: tuitionFee.value != null && values.tuitionIsEstimate,
     },
@@ -286,6 +307,41 @@ function MajorForm({
             onChange={(event) => set("secondaryCutOffScore", event.target.value)}
             placeholder="жишээ: 450"
           />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
+          Суурь шалгалтын жин (хоосон бол 0.7)
+          <Input
+            type="number"
+            min={0}
+            max={MAX_EXAM_WEIGHT}
+            step="0.1"
+            value={values.primaryWeight}
+            onChange={(event) => set("primaryWeight", event.target.value)}
+            placeholder="жишээ: 1 (нийлбэр оноо)"
+          />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
+          Дагалдах шалгалтын жин (хоосон бол 0.3)
+          <Input
+            type="number"
+            min={0}
+            max={MAX_EXAM_WEIGHT}
+            step="0.1"
+            value={values.secondaryWeight}
+            onChange={(event) => set("secondaryWeight", event.target.value)}
+            placeholder="жишээ: 1 (нийлбэр оноо)"
+          />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
+          Сонголтын төрөл
+          <Select
+            value={values.selectionType}
+            onChange={(event) => set("selectionType", event.target.value)}
+          >
+            <option value="">Тодорхойгүй</option>
+            <option value="list">{formatSelectionType("list")}</option>
+            <option value="direct">{formatSelectionType("direct")}</option>
+          </Select>
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
           Жилийн сургалтын төлбөр (₮)

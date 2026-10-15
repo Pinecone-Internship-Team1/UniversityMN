@@ -1,0 +1,188 @@
+{
+ "_meta": {
+  "dataset": "university",
+  "university": "МУБИС",
+  "description": "МУБИС-ийн ерөнхий мэдээлэл: танилцуулга, түүх, тоо, холбоо барих, оюутны үйлчилгээ, sidebar-ийн утгууд.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "msue",
+   "name_mn": "Монгол Улсын Боловсролын Их Сургууль",
+   "short_name_mn": "МУБИС",
+   "name_en": "Mongolian National University of Education",
+   "short_name_en": "MNUE",
+   "name_en_note": "Англи хувилбарын гарчиг 'MONGOLIAN NATIONAL UNIVERSITY OF EDUCATION', лого 'MNUE'; домэйн msue.edu.mn.",
+   "website": "https://www.msue.edu.mn",
+   "admission_website": "https://www.msue.edu.mn/p/r/5644",
+   "admission_system_url": "https://burtgel.msue.edu.mn/",
+   "overview_mn": "Монгол Улсын Боловсролын Их Сургууль (МУБИС) нь 1951 оноос багш бэлтгэж ирсэн, Монголын багшийн боловсролын тэргүүлэх их сургууль юм. Улаанбаатарт 7 бүрэлдэхүүн сургууль, Архангай, Баян-Өлгий аймагт салбар сургууль, нийт 42 тэнхимтэй; 11,259 суралцагчтай (үүнээс ахисан түвшинд 3,224). Математик, байгалийн ухаан, хэл, нийгмийн ухаан, урлаг, биеийн тамир, бага болон сургуулийн өмнөх боловсролын багш бэлтгэхээс гадна программ хангамж, сэтгүүл зүй, дизайн, сэтгэл судлал, нийгмийн ажил зэрэг багш бус хөтөлбөртэй. Багш мэргэжлээр суралцагчид төрөөс (БЗС) сургалтын төлбөрийн тэтгэлэг авах боломжтой. 2026-2027 оны элсэлтийн хичээл, босгыг сургууль PDF-ээр нийтэлсэн тул burtgel.msue.edu.mn болон msue.edu.mn-ээс шалгана уу.",
+   "history": [
+    {
+     "year": 1951,
+     "event_mn": "МУБИС үүсгэн байгуулагдсан (Википедиа; албан ёсны Facebook хаяг 'MSUE1951').",
+     "status": "current"
+    },
+    {
+     "year": 2010,
+     "event_mn": "Архангайн Багшийн коллеж (1951 оноос багш бэлтгэх сургууль, 1991 оноос коллеж) МУБИС-ийн Архангай аймаг дахь Багшийн сургууль болсон.",
+     "status": "current"
+    },
+    {
+     "year": 2022,
+     "event_mn": "Баян-Өлгийн Багшийн сургууль (1990 онд байгуулагдсан) 2022-08-03-нд Засгийн газрын 293-р тогтоолоор МУБИС-ийн салбар болсон.",
+     "status": "current"
+    },
+    {
+     "year": 2026,
+     "event_mn": "БНХАУ-ын Зүүн Хойд Багшийн Их Сургуультай Хятад хэлний багшийн 2+2 хөтөлбөрийн гэрээг 10 жилээр сунгасан (2026-09-11).",
+     "status": "current"
+    }
+   ],
+   "history_note_mn": "Их сургуулийн нэр өөрчлөгдсөн түүх албан ёсны уншигдсан хуудсанд олдсонгүй.",
+   "history_source_urls": [
+    "https://en.wikipedia.org/wiki/Mongolian_National_University_of_Education",
+    "https://ast.msue.edu.mn/p/r/5625",
+    "https://bost.msue.edu.mn/p/r/5605",
+    "https://www.msue.edu.mn/n/r/3212"
+   ],
+   "rector_mn": "Профессор Ж.Батбаатар",
+   "stats": [
+    {
+     "label_mn": "Бүрэлдэхүүн сургууль (салбартай)",
+     "value": "9",
+     "source_url": "https://www.msue.edu.mn",
+     "status": "current"
+    },
+    {
+     "label_mn": "Тэнхим",
+     "value": "42",
+     "source_url": "https://www.msue.edu.mn",
+     "status": "current"
+    },
+    {
+     "label_mn": "Нийт суралцагч",
+     "value": "11,259",
+     "source_url": "https://www.msue.edu.mn",
+     "status": "current"
+    },
+    {
+     "label_mn": "Ахисан түвшний суралцагч",
+     "value": "3,224",
+     "source_url": "https://www.msue.edu.mn",
+     "status": "current"
+    },
+    {
+     "label_mn": "Бакалаврын хөтөлбөр / мэргэшил / бакалаврын оюутан",
+     "value": "36 / 41 / 8,035",
+     "source_url": "https://ts.msue.edu.mn/uploads/files/ХӨТӨЛБӨРИЙНТАНИЛЦУУЛГА20250930133854.pdf",
+     "status": "current"
+    },
+    {
+     "label_mn": "Багш / багш бус мэргэжил (2025 оны мэдээ)",
+     "value": "21 / 15",
+     "source_url": "https://news.mn/r/2813526/",
+     "status": "reference"
+    },
+    {
+     "label_mn": "Дотоодод магадлан итгэмжлэгдсэн хөтөлбөр",
+     "value": "31",
+     "source_url": "https://www.msue.edu.mn",
+     "status": "current"
+    },
+    {
+     "label_mn": "Ерөнхий / хамтарсан хөтөлбөрийн / солилцооны гэрээ",
+     "value": "90 / 16 / 12",
+     "source_url": "https://www.msue.edu.mn",
+     "status": "current"
+    },
+    {
+     "label_mn": "БНХАУ-ын их сургуультай хамтарсан хөтөлбөр (2+2, 3+2, 3+2+1)",
+     "value": "9 их сургууль, 14 чиглэл, 33 мэргэжил",
+     "source_url": "https://www.msue.edu.mn",
+     "status": "current"
+    }
+   ],
+   "accreditation_memberships": [
+    "БМИҮЗ (дотоод)",
+    "ASIIN",
+    "ACQUIN"
+   ],
+   "accreditation_note_mn": "ASIIN: Математик, байгалийн ухааны сургуулийн 6 багшийн хөтөлбөр (2018–2024). ACQUIN: Нийгэм, хүмүүнлэгийн ухааны сургуулийн 2 хөтөлбөр; Википедиад 2021, 2024 он.",
+   "rankings": null,
+   "rankings_note_mn": "Олон улсын чансааг албан ёсны эх сурвалжаас баталгаажуулаагүй (uniRank-ийн тоо найдвартай бус тул оруулаагүй).",
+   "contacts": {
+    "address_mn": "Улаанбаатар хот, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу-14, Улаанбаатар-48, 14191",
+    "phones": [
+     "11-326010"
+    ],
+    "emails": {
+     "general": "info@msue.edu.mn"
+    },
+    "hours_mn": "08:30–17:30",
+    "admission_office_mn": "Сургалт, хамтын ажиллагааны газар — Бакалаврын сургалт, цахим шилжилтийн хэлтэс бакалаврын элсэлт, төгсөлт, сургалтын төлбөрийн тэтгэлэг, зээлийг хариуцдаг; утас, и-мэйл нь сайтад нийтлэгдээгүй."
+   },
+   "location_short_mn": "Улаанбаатар, Сүхбаатар дүүрэг, Бага тойруу-14",
+   "social": {
+    "facebook": "https://www.facebook.com/MSUE1951/",
+    "twitter": "https://twitter.com/msue1951",
+    "youtube": "https://www.youtube.com/@user-qd3rb2ic2u/videos"
+   },
+   "student_services": [
+    {
+     "name_mn": "Оюутны хөгжил, үйлчилгээний төв: клуб, сайн дурын ажил, 'Орлоготой оюутан' (цагийн ажил, дадлага), ажлын байрны үзэсгэлэн, сэтгэл зүй, эрүүл мэнд, нийгмийн дэмжлэг",
+     "url": "https://www.msue.edu.mn/p/r/6655"
+    },
+    {
+     "name_mn": "Клубүүдийн нэгдсэн зөвлөл",
+     "url": "https://www.msue.edu.mn/p/r/5638"
+    },
+    {
+     "name_mn": "МУБИС-ийн оюутны холбоо",
+     "url": "https://www.msue.edu.mn/p/r/6652"
+    },
+    {
+     "name_mn": "Номын сан",
+     "url": "https://www.msue.edu.mn/p/r/5636"
+    },
+    {
+     "name_mn": "Гадаад оюутанд зориулсан гарын авлага",
+     "url": "https://www.msue.edu.mn/p/r/6686"
+    },
+    {
+     "name_mn": "Виртуал танилцуулга (360°)",
+     "url": "https://de-center.msue.edu.mn/file_upload/files/output/index.html"
+    }
+   ],
+   "international_mn": "БНХАУ-ын 9 их сургуультай 14 чиглэлийн 33 мэргэжлээр 2+2, 3+2, 3+2+1 хөтөлбөр; Хятад хэлний багшийн 2+2 хөтөлбөр (Зүүн Хойд Багшийн Их Сургууль, 1993 оноос). Erasmus+ RETEACH төсөл.",
+   "sidebar_suggestion": {
+    "tuition_text_mn": "2026-2027: албан ёсны үнэ олдсонгүй (мэдээгээр ≈9% нэмэгдсэн). 2025 оны мэдээгээр 1 кредит 87,300–135,400₮. Багш мэргэжлийн оюутанд БЗС-ийн тэтгэлэг (квот) бий.",
+    "tuition_number": null,
+    "tuition_number_note_mn": "Албан ёсны 2026-2027 оны дүн олдоогүй тул тоо оруулаагүй.",
+    "dorm_flag": "Боломжтой",
+    "scholarship_flag": "Боломжтой",
+    "dorm_howto_mn": "МУБИС Улаанбаатарт Сүхбаатар дүүргийн VIII хороо, Бага тойруунд 'Оюутны өргөө' 1, 2-р байртай; 2024-2025 онд 1,200 гаруй оюутан амьдарсан (72% нь орон нутгийнх). Өрөө 2, 4, 6 хүний. Оюутны 1-р байр (1962 онд ашиглалтад орсон, 4 давхар) 386 оюутантай, 2025 оны 5-р сард нийтэлсэн мэдээллээр жилийн төлбөр нэг оюутанд 655,000₮. Байранд бүртгүүлэх журам, 2026-2027 оны үнэ сайтад нийтлэгдээгүй — 11-326010 эсвэл Багшийн сургууль (7777 6446)-иас лавлана уу. Баян-Өлгий салбарт 45 ортой дотуур байр бий.",
+    "phones": [
+     "11-326010"
+    ],
+    "email": "info@msue.edu.mn",
+    "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, Бага тойруу-14",
+    "website": "https://www.msue.edu.mn"
+   },
+   "source_urls": [
+    "https://www.msue.edu.mn",
+    "https://www.msue.edu.mn/Home/Lang/en?link=https%3A%2F%2Fwww.msue.edu.mn%2F",
+    "https://www.msue.edu.mn/Home/Contact",
+    "https://www.msue.edu.mn/p/r/6691",
+    "https://www.msue.edu.mn/p/r/6644",
+    "https://www.msue.edu.mn/p/r/6637",
+    "https://www.msue.edu.mn/p/r/6655",
+    "https://ts.msue.edu.mn/uploads/files/ХӨТӨЛБӨРИЙНТАНИЛЦУУЛГА20250930133854.pdf",
+    "https://en.wikipedia.org/wiki/Mongolian_National_University_of_Education"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  }
+ ]
+}

@@ -1,0 +1,513 @@
+{
+  "_meta": {
+    "dataset": "sources",
+    "university": "МУБИС",
+    "description": "Энэ датасетэд ашигласан эх сурвалжууд ба уншиж чадаагүй (цоорхой) эх сурвалжууд.",
+    "language": "mn",
+    "verified_at": "2026-10-15",
+    "note_mn": "gap = true бол уншиж чадаагүй; gap_fill_hint_mn-д тэндээс юу авахыг бичсэн."
+  },
+  "records": [
+    {
+      "id": "src-home",
+      "url": "https://www.msue.edu.mn",
+      "used_for": "Цэс, сургууль/салбарын холбоос, тоон үзүүлэлт",
+      "gap": false
+    },
+    {
+      "id": "src-home-en",
+      "url": "https://www.msue.edu.mn/Home/Lang/en?link=https%3A%2F%2Fwww.msue.edu.mn%2F",
+      "used_for": "Англи нэр (Mongolian National University of Education), MNUE",
+      "gap": false
+    },
+    {
+      "id": "src-adm-bach",
+      "url": "https://www.msue.edu.mn/p/r/5644",
+      "used_for": "Элсэлт → Бакалавр: Drive PDF-үүд, burtgel холбоос",
+      "gap": false
+    },
+    {
+      "id": "src-prog-bach",
+      "url": "https://www.msue.edu.mn/p/r/5650",
+      "used_for": "Сургалт → Бакалавр: 'Босго оноо 2026-2027.pdf' байршуулсан хуудас",
+      "gap": false
+    },
+    {
+      "id": "src-quota",
+      "url": "https://www.msue.edu.mn/p/r/6700",
+      "used_for": "Хяналтын тоо 2025-2026 хуудас (Drive PDF)",
+      "gap": false
+    },
+    {
+      "id": "src-sch",
+      "url": "https://www.msue.edu.mn/p/r/6651",
+      "used_for": "Тэтгэлэг: эрэлттэй мэргэжлийн тэтгэлэг, зээл, буцалтгүй тусламж",
+      "gap": false
+    },
+    {
+      "id": "src-accr-page",
+      "url": "https://www.msue.edu.mn/p/r/5651",
+      "used_for": "Хөтөлбөрийн магадлан итгэмжлэл",
+      "gap": false
+    },
+    {
+      "id": "src-accr-pdf",
+      "url": "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf",
+      "used_for": "Бакалаврын хөтөлбөрийн нэр, индекс (2025-10-24; текст нь холилдсон)",
+      "gap": false
+    },
+    {
+      "id": "src-contact",
+      "url": "https://www.msue.edu.mn/Home/Contact",
+      "used_for": "Хаяг, утас, и-мэйл, ажлын цаг",
+      "gap": false
+    },
+    {
+      "id": "src-struct",
+      "url": "https://www.msue.edu.mn/p/r/6691",
+      "used_for": "Бүтэц: 7 сургууль, 2 салбар, ЕБС",
+      "gap": false
+    },
+    {
+      "id": "src-rector",
+      "url": "https://www.msue.edu.mn/p/r/6644",
+      "used_for": "Ректор Ж.Батбаатар",
+      "gap": false
+    },
+    {
+      "id": "src-sdsc",
+      "url": "https://www.msue.edu.mn/p/r/6655",
+      "used_for": "Оюутны хөгжил, үйлчилгээний төв",
+      "gap": false
+    },
+    {
+      "id": "src-training",
+      "url": "https://www.msue.edu.mn/p/r/6637",
+      "used_for": "Элсэлт хариуцсан нэгж",
+      "gap": false
+    },
+    {
+      "id": "src-fin",
+      "url": "https://www.msue.edu.mn/p/r/6636",
+      "used_for": "Санхүүгийн алба (төлбөрийн мэдээлэл олдоогүй)",
+      "gap": false
+    },
+    {
+      "id": "src-intl",
+      "url": "https://www.msue.edu.mn/p/r/6686",
+      "used_for": "Гадаад оюутны гарын авлагын хуудас",
+      "gap": false
+    },
+    {
+      "id": "src-news-list",
+      "url": "https://www.msue.edu.mn/n/l/5604",
+      "used_for": "Мэдээний жагсаалт (элсэлтийн мэдээ олдоогүй)",
+      "gap": false
+    },
+    {
+      "id": "src-news-3223",
+      "url": "https://www.msue.edu.mn/n/r/3223",
+      "used_for": "Багш мэргэжлийн тэтгэлгийн асуудал, төлбөрийн хугацаа сунгасан (2026-10-01)",
+      "gap": false
+    },
+    {
+      "id": "src-news-3212",
+      "url": "https://www.msue.edu.mn/n/r/3212",
+      "used_for": "Хятад хэлний багшийн 2+2 хөтөлбөр (2026-09-11)",
+      "gap": false
+    },
+    {
+      "id": "src-smns",
+      "url": "https://smns.msue.edu.mn/p/r/5648",
+      "used_for": "МБУС-ийн 8 хөтөлбөр, индекс, кредит, магадлан итгэмжлэл",
+      "gap": false
+    },
+    {
+      "id": "src-smns-home",
+      "url": "https://smns.msue.edu.mn",
+      "used_for": "МБУС: тэнхим, оюутны тоо",
+      "gap": false
+    },
+    {
+      "id": "src-shss-home",
+      "url": "https://shss.msue.edu.mn/",
+      "used_for": "НХУС: тэнхим, холбоо барих, оюутны тоо",
+      "gap": false
+    },
+    {
+      "id": "src-shss-accr",
+      "url": "https://shss.msue.edu.mn/p/r/6630",
+      "used_for": "НХУС: 13 дотоод, 2 ACQUIN магадлан итгэмжлэл",
+      "gap": false
+    },
+    {
+      "id": "src-sfat-home",
+      "url": "https://sfat.msue.edu.mn/",
+      "used_for": "ДУТС: холбоо барих, 6 мэргэжил, 3 тэнхим",
+      "gap": false
+    },
+    {
+      "id": "src-sfat-struct",
+      "url": "https://sfat.msue.edu.mn/p/r/5626",
+      "used_for": "ДУТС: хөтөлбөр, бэлтгэх мэргэжилтэн",
+      "gap": false
+    },
+    {
+      "id": "src-sfat-intro",
+      "url": "https://sfat.msue.edu.mn/p/r/6629",
+      "used_for": "ДУТС: танилцуулга, хаяг",
+      "gap": false
+    },
+    {
+      "id": "src-sfat-news",
+      "url": "https://sfat.msue.edu.mn/n/l/5631",
+      "used_for": "График дизайн 5 жилийн магадлан итгэмжлэл (2026-04-22)",
+      "gap": false
+    },
+    {
+      "id": "src-ses-home",
+      "url": "https://ses.msue.edu.mn/",
+      "used_for": "БСС: тэнхим, холбоо барих, оюутны тоо",
+      "gap": false
+    },
+    {
+      "id": "src-ses-bach",
+      "url": "https://ses.msue.edu.mn/p/r/5634",
+      "used_for": "БСС: 7 хөтөлбөр, кредит, хугацаа",
+      "gap": false
+    },
+    {
+      "id": "src-ts-home",
+      "url": "https://ts.msue.edu.mn/",
+      "used_for": "Багшийн сургууль: хөтөлбөр, холбоо барих, тоо",
+      "gap": false
+    },
+    {
+      "id": "src-ts-baga",
+      "url": "https://ts.msue.edu.mn/p/r/5636",
+      "used_for": "Багш, бага боловсрол хөтөлбөр",
+      "gap": false
+    },
+    {
+      "id": "src-ts-art",
+      "url": "https://ts.msue.edu.mn/p/r/5661",
+      "used_for": "Багш, хөгжмийн боловсрол хөтөлбөр",
+      "gap": false
+    },
+    {
+      "id": "src-ts-art-pdf",
+      "url": "https://ts.msue.edu.mn/uploads/files/ХӨТӨЛБӨРИЙНТАНИЛЦУУЛГА20250525115453.pdf",
+      "used_for": "Хөгжмийн багшийн хөтөлбөр: индекс, оюутны тоо",
+      "gap": false
+    },
+    {
+      "id": "src-ts-intro-pdf",
+      "url": "https://ts.msue.edu.mn/uploads/files/ХӨТӨЛБӨРИЙНТАНИЛЦУУЛГА20250930133854.pdf",
+      "used_for": "МУБИС: 36 бакалаврын хөтөлбөр, 41 мэргэшил, 8,035 оюутан",
+      "gap": false
+    },
+    {
+      "id": "src-ts-news",
+      "url": "https://ts.msue.edu.mn/n/l/5640",
+      "used_for": "Багш, хөгжмийн боловсрол 5 жилийн магадлан итгэмжлэл (2025-09-30)",
+      "gap": false
+    },
+    {
+      "id": "src-ts-dorm",
+      "url": "https://ts.msue.edu.mn/p/r/5659",
+      "used_for": "Оюутны өргөө 1, 2-р байр, оршин суугчдын тоо",
+      "gap": false
+    },
+    {
+      "id": "src-ts-dorm-pdf",
+      "url": "https://ts.msue.edu.mn/uploads/files/Дотуурбайрнымэдээлэл20250525112956.pdf",
+      "used_for": "1-р байр: 386 ор, 655,000₮/жил (2024-2025)",
+      "gap": false
+    },
+    {
+      "id": "src-spe-home",
+      "url": "https://spe.msue.edu.mn/",
+      "used_for": "БТС: холбоо барих, тоо",
+      "gap": false
+    },
+    {
+      "id": "src-spe-struct",
+      "url": "https://spe.msue.edu.mn/p/r/5626",
+      "used_for": "БТС: 4 тэнхим, 5 бакалаврын хөтөлбөр",
+      "gap": false
+    },
+    {
+      "id": "src-spse-home",
+      "url": "https://spse.msue.edu.mn/",
+      "used_for": "СӨБС: хаяг, утас, тоо",
+      "gap": false
+    },
+    {
+      "id": "src-spse-bach",
+      "url": "https://spse.msue.edu.mn/n/l/5622",
+      "used_for": "СӨБС: бакалаврын хөтөлбөрийн хэсэг",
+      "gap": false
+    },
+    {
+      "id": "src-ast-home",
+      "url": "https://ast.msue.edu.mn/",
+      "used_for": "Архангай салбар: холбоо барих, тоо",
+      "gap": false
+    },
+    {
+      "id": "src-ast-hist",
+      "url": "https://ast.msue.edu.mn/p/r/5625",
+      "used_for": "Архангай салбарын түүх",
+      "gap": false
+    },
+    {
+      "id": "src-bost-home",
+      "url": "https://bost.msue.edu.mn",
+      "used_for": "Баян-Өлгий салбар: холбоо барих, хөтөлбөр дурдсан",
+      "gap": false
+    },
+    {
+      "id": "src-bost-hist",
+      "url": "https://bost.msue.edu.mn/p/r/5605",
+      "used_for": "Баян-Өлгий салбарын түүх, 45 ортой байр",
+      "gap": false
+    },
+    {
+      "id": "src-bost-2026",
+      "url": "https://bost.msue.edu.mn/n/r/12573",
+      "used_for": "Баян-Өлгий салбарын 'Элсэлт-2026' (2026-06-03), Google Form, утас",
+      "gap": false
+    },
+    {
+      "id": "src-elf-teacher",
+      "url": "https://elf.gov.mn/babbmst/",
+      "used_for": "Багш мэргэжлийн тэтгэлгийн нөхцөл, 3/5 жил ажиллах үүрэг",
+      "gap": false
+    },
+    {
+      "id": "src-elf-sztbt",
+      "url": "https://elf.gov.mn/sztbt/",
+      "used_for": "БЗС-ийн тэтгэлэг, зээлийн нөхцөл",
+      "gap": false
+    },
+    {
+      "id": "src-reg-a143",
+      "url": "https://legalinfo.mn/mn/detail?lawId=17140134934351",
+      "used_for": "Улсын 'Оюутан элсүүлэх журам' (А/143): босго, ур чадварын шалгалтын хөрвүүлэлт, ЭШ-гүй элсэх",
+      "gap": false
+    },
+    {
+      "id": "src-moe-2024",
+      "url": "https://moe.gov.mn/post/152895",
+      "used_for": "Монгол хэл бичгийн 400 босго; ЭЕШ → ЭШ",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-3px9",
+      "url": "https://ikon.mn/n/3px9",
+      "used_for": "Багшийн тэтгэлэг 2026-2027: голч 3.0–3.3 → 70%, 3.3+ → 100%, хомсдолтой чиглэл",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-37oq",
+      "url": "https://ikon.mn/n/37oq",
+      "used_for": "Багшийн тэтгэлэг 2024: шинэ элсэгч 480+ → 100%, 3–5 жил ажиллах",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-37oh",
+      "url": "https://ikon.mn/n/37oh",
+      "used_for": "2024-2025 оны төлбөр (МУБИС-ийн дүн зураг хэлбэрээр)",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-3pru",
+      "url": "https://ikon.mn/n/3pru",
+      "used_for": "БЗС-ийн 2026 оны санхүүжилт, багш ажилтны хүүхэд",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-3okx",
+      "url": "https://ikon.mn/n/3okx",
+      "used_for": "2026 оны босго өөрчлөгдөөгүй; 2027–2029 босгын төлөвлөгөө; ур чадварын шалгалт 6/29–30",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-3olc",
+      "url": "https://ikon.mn/n/3olc",
+      "used_for": "ЭШ 2026 (6/25–28), дүн 6/29",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-3p7h",
+      "url": "https://ikon.mn/n/3p7h",
+      "used_for": "Цахим элсэлт 8/17, хичээл сонголт 8/24, хичээл 9/14",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-3pjj",
+      "url": "https://ikon.mn/n/3pjj",
+      "used_for": "Хичээл 9/15 (COP17)",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-3cjk",
+      "url": "https://ikon.mn/n/3cjk",
+      "used_for": "ЭШ-ийн шинэ хэлбэр 2028 он хүртэл хойшилсон",
+      "gap": false
+    },
+    {
+      "id": "src-newsmn-2024",
+      "url": "https://news.mn/r/2728083/",
+      "used_for": "МУБИС-ийн босго 420–480 (2024-2025)",
+      "gap": false
+    },
+    {
+      "id": "src-newsmn-2025",
+      "url": "https://news.mn/r/2800532/",
+      "used_for": "МУБИС-ийн босго 420–480 (2025)",
+      "gap": false
+    },
+    {
+      "id": "src-newsmn-fee25",
+      "url": "https://news.mn/r/2813526/",
+      "used_for": "1 кредитийн үнэ 87,300–135,400₮, 21 багш + 15 багш бус мэргэжил (2025)",
+      "gap": false
+    },
+    {
+      "id": "src-eguur-2024",
+      "url": "https://eguur.mn/521002/",
+      "used_for": "2024-2025 оны суурь төлбөр 3,561,000–3,717,000₮",
+      "gap": false
+    },
+    {
+      "id": "src-zindaa-2026",
+      "url": "https://news.zindaa.mn/5ca0",
+      "used_for": "2026-2027 ойролцоо төлбөр 3.7–4.2 сая ₮ (баталгаажаагүй)",
+      "gap": false
+    },
+    {
+      "id": "src-zaluu-2026",
+      "url": "https://www.zaluu.com/view/c7c11c8c",
+      "used_for": "2026-2027 төлбөр 9%-иар нэмэгдсэн (Зууны мэдээ)",
+      "gap": false
+    },
+    {
+      "id": "src-wiki",
+      "url": "https://en.wikipedia.org/wiki/Mongolian_National_University_of_Education",
+      "used_for": "1951 он, ректор, магадлан итгэмжлэл",
+      "gap": false
+    },
+    {
+      "id": "gap-threshold-pdf",
+      "url": "https://drive.google.com/file/d/1TUTXE0ZBCT_NvMuULmIYjkxcd0i243pi/preview",
+      "used_for": "ЦООРХОЙ: 'Босго оноо 2026-2027.pdf' — хөтөлбөр бүрийн шалгалтын хичээл, босго (Google Drive, уншигдаагүй)",
+      "gap": false,
+      "gap_fill_hint_mn": "https://www.msue.edu.mn/p/r/5650 хуудсанд байршуулсан. Хүснэгтийн мөр бүрээс уншина: хөтөлбөрийн нэр ба индекс, сургууль/салбар, 1-р (суурь) шалгалтын хичээл(үүд) ба босго, 2-р (дагалдах) шалгалтын хичээл(үүд) ба босго, онооны томьёо/жин (70/30, нийлбэр г.м.), босго шалгалт тус бүрт эсвэл нийт оноонд тавигдсан эсэх, ур чадварын шалгалт (дүрслэх урлаг, дизайн, хөгжим, биеийн тамир, спорт) ба түүний босго, жагсаалт/шууд сонголт, тэргүүлэх/эрэлттэй тэмдэглэгээ. seed/exam-tools.mjs-ээр (buildExam + applyExam) programs.json-д бөглөнө; PDF-д байгаа ч programs.json-д байхгүй хөтөлбөрийг (салбар г.м.) зөв school_id-тай шинэ мөр болгон нэмнэ.",
+      "filled_at": "2026-10-15",
+      "filled_note": "Боловсролын сайдын 2026-02-06-ны А/34 тушаал: Улаанбаатарын их сургуулиудын 2026-2027 оны хөтөлбөр тус бүрийн үндэсний босго (индексээр). МУБИС-ийн журмын хавсралттай тулгаж шалгав."
+    },
+    {
+      "id": "gap-elselt-2026",
+      "url": "https://drive.google.com/file/d/15FJPrGsC_JqNKULMaBF0EDVyjJ0DvvkK/preview",
+      "used_for": "ЦООРХОЙ: 'МУБИС-Элсэлт 2026.pdf' (Google Drive, уншигдаагүй)",
+      "gap": false,
+      "gap_fill_hint_mn": "https://www.msue.edu.mn/p/r/5644, /p/r/5650-д байршуулсан. Уншина: 2026 оны бүртгэлийн эхлэх/дуусах огноо, бүртгэлийн хураамж, алхам, сонгох хөтөлбөрийн тоо, жагсаалт/шууд сонгох дүрэм, ур чадварын шалгалтын огноо/агуулга, тэнцсэн үед харгалзах шалгуур, тэтгэлэг, утас.",
+      "filled_at": "2026-10-15",
+      "filled_note": "МУБИС-Элсэлт 2026 танилцуулга: мэргэжлийн жагсаалт, элсэлтийн алхам, ур чадварын шалгалт 490–800 оноо. Томьёо, огноо байхгүй."
+    },
+    {
+      "id": "gap-elselt-pdf",
+      "url": "https://drive.google.com/file/d/1j6dN_guZMlqq_IbONhA77Uc6Ff0DGuQI/preview",
+      "used_for": "ЦООРХОЙ: 'elselt.pdf' (Google Drive, уншигдаагүй)",
+      "gap": false,
+      "gap_fill_hint_mn": "https://www.msue.edu.mn/p/r/5644-д байршуулсан. Баримтын төрлийг тодорхойлж (элсэлтийн журам байж магадгүй), онооны томьёо, сонголтын дүрэм, тусгай нөхцөлийг уншина.",
+      "filled_at": "2026-10-15",
+      "filled_note": "МУБИС-ийн 2026-2027 оны элсэлтийн журам (Ректорын 2026-03-25-ны А/103): 2-р хавсралтын 63 хөтөлбөрийн 1-р, 2-р шалгалтын хичээл, босго, кредит, хугацаа; хураамж, хөнгөлөлт, ур чадварын шалгалтын хөрвүүлэлт."
+    },
+    {
+      "id": "gap-quota-pdf",
+      "url": "https://drive.google.com/file/d/1ZpUSJLOv3e-W2vNW_sEK8tQLt8aUeeoU/preview",
+      "used_for": "ЦООРХОЙ: 'Хяналтын тоо 2025-2026.pdf' (Google Drive, уншигдаагүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "https://www.msue.edu.mn/p/r/6700-д байршуулсан. Хөтөлбөр бүрийн нэр, индекс, сургууль/салбар, суудлын тоог уншиж programs.json-ийн жагсаалтыг баталгаажуулна (Спортын сэтгүүл зүй, Спортын аялал жуулчлал, Биеийн тамирын арга зүй элсэлт авдаг эсэх), салбарын хөтөлбөрийг нэмнэ. 2026-2027 оных гарсан эсэхийг шалгана."
+    },
+    {
+      "id": "gap-burtgel",
+      "url": "https://burtgel.msue.edu.mn/",
+      "used_for": "ЦООРХОЙ: МУБИС-ийн элсэлтийн систем (JavaScript апп, текст уншигдаагүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "Браузераар нээж уншина: 2026 оны бүртгэлийн огноо, хураамж, хөтөлбөрийн жагсаалт, хичээл/босго. Мөн https://burtgel.msue.edu.mn/bak/details, https://burtgel.msue.edu.mn/news."
+    },
+    {
+      "id": "gap-tuition-2026",
+      "url": "https://www.facebook.com/MSUE1951/",
+      "used_for": "ЦООРХОЙ: 2026-2027 оны албан ёсны 1 кредитийн үнэ",
+      "gap": true,
+      "gap_fill_hint_mn": "МУБИС-ийн Facebook (2026 оны 7–9-р сарын пост), burtgel.msue.edu.mn, 'МУБИС-Элсэлт 2026.pdf'-ээс шинэ элсэгчийн 1 кредитийн үнийг (эрэлттэй/тэргүүлэх ба бусад, сургууль/салбараар) уншиж programs.json → tuition_2026_2027.per_credit, estimated_per_year (кредит ÷ жил × үнэ) бөглөнө."
+    },
+    {
+      "id": "gap-ppt",
+      "url": "https://www.msue.edu.mn/uploads/images/ppt-1.JPG",
+      "used_for": "ЦООРХОЙ: Англи 'Undergraduate Students' хуудасны 16 слайд (зураг)",
+      "gap": true,
+      "gap_fill_hint_mn": "https://www.msue.edu.mn/uploads/images/ppt-1.JPG … ppt-16.JPG (https://www.msue.edu.mn/Home/Lang/en?link=https%3A%2F%2Fwww.msue.edu.mn%2Fp%2Fr%2F5644). Элсэлт, хөтөлбөр, хичээл, босгын мэдээлэл байвал оруулна."
+    },
+    {
+      "id": "gap-scholarship-images",
+      "url": "https://msue.edu.mn/uploads/images/elselt-620260324143726.jpg",
+      "used_for": "ЦООРХОЙ: Тэтгэлгийн хуудасны зургууд",
+      "gap": true,
+      "gap_fill_hint_mn": "https://www.msue.edu.mn/p/r/6651 дээрх зураг: https://msue.edu.mn/uploads/images/elselt-620260324143726.jpg, .../120251128110927.png, .../220251128111058.png, .../320251128111300.png, .../420251128111424.png. Блок бүрийн гарчиг, багш мэргэжлийн тэтгэлэг, хамрах хөтөлбөр, хувь, хугацааг уншина."
+    },
+    {
+      "id": "gap-scan-2024",
+      "url": "https://msue.edu.mn/uploads/files/EJ020240528150952.pdf",
+      "used_for": "ЦООРХОЙ: Скан PDF (2024-05-28, текстгүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "https://www.msue.edu.mn/p/r/5650-д байршуулсан. Юу болохыг тодорхойлж (2024 оны журам/босго байж магадгүй), жишиг болгон хэрэгтэй бол оруулна."
+    },
+    {
+      "id": "gap-bost-2026",
+      "url": "https://bost.msue.edu.mn/uploads/images/Untitled-120260603123553.jpg",
+      "used_for": "ЦООРХОЙ: Баян-Өлгий салбарын 'Элсэлт-2026' зураг",
+      "gap": true,
+      "gap_fill_hint_mn": "https://bost.msue.edu.mn/n/r/12573 дээрх зураг (мөн /images/news/ доторх 8 зураг). Хөтөлбөр, шалгалтын хичээл, босго, төлбөр, огноо → programs.json-д campus_mn 'Баян-Өлгий', school_id 'msue-bayan-ulgii' мөр нэмнэ."
+    },
+    {
+      "id": "gap-ast-programs",
+      "url": "https://ast.msue.edu.mn/uploads/images/hutulbur20240416005733.jpg",
+      "used_for": "ЦООРХОЙ: Архангай салбарын хөтөлбөрийн зураг",
+      "gap": true,
+      "gap_fill_hint_mn": "https://ast.msue.edu.mn/p/r/5628 дээрх зураг. Бакалаврын хөтөлбөрийн жагсаалт → school_id 'msue-arkhangai' мөр нэмнэ (хичээл, босгыг gap-threshold-pdf-ээс)."
+    },
+    {
+      "id": "gap-shss-programs",
+      "url": "https://shss.msue.edu.mn/uploads/images/Picture11120240404162543.png",
+      "used_for": "ЦООРХОЙ: НХУС-ийн бакалаврын хөтөлбөрийн зураг",
+      "gap": true,
+      "gap_fill_hint_mn": "https://shss.msue.edu.mn/p/r/6647 дээрх зураг ба хамтарсан хөтөлбөрийн зураг https://shss.msue.edu.mn/uploads/images/ХАМТАРСАН20240408100703.png. Хөтөлбөрийн яг нэр, индекс (гадаад хэл, нийгмийн ухаан), хамтарсан хөтөлбөрийг шалгана."
+    },
+    {
+      "id": "gap-accr-pdf",
+      "url": "https://msue.edu.mn/uploads/files/Магадлагдсанхөтөлбөрүүд20251024164728.pdf",
+      "used_for": "ЦООРХОЙ (хэсэгчлэн): Магадлагдсан хөтөлбөрийн PDF-ийн текст холилдсон",
+      "gap": true,
+      "gap_fill_hint_mn": "Мөр бүрийн сургууль, индексийг шалгана; гадаад хэл, нийгмийн ухааны хөтөлбөрийн индекс; 'Багш, Сургуулийн өмнөх насны боловсрол', 'Багш, Бага ангийн боловсрол' аль салбарынх болох."
+    },
+    {
+      "id": "gap-studentbook",
+      "url": "https://msue.edu.mn/uploads/files/Studentbook2024mon05-2420240906171743.pdf",
+      "used_for": "ЦООРХОЙ: Оюутны гарын авлага 2024 (PDF, татах үед хугацаа хэтэрсэн)",
+      "gap": true,
+      "gap_fill_hint_mn": "Их сургуулийн нэр өөрчлөгдсөн түүх (оноор), оюутны үйлчилгээ, дотуур байрны журам, холбоо барих утсыг уншиж university.json, dorms.json-д нэмнэ."
+    },
+    {
+      "id": "gap-transfer",
+      "url": "https://www.msue.edu.mn/p/r/5645",
+      "used_for": "ЦООРХОЙ: 'Хөрвөх' элсэлтийн хуудас (уншаагүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "Дээд боловсролтой хүмүүсийн бакалаврын (хөрвөх) элсэлтийн нөхцөл, огноо → admission_2026.json → msue-special-routes."
+    }
+  ]
+}

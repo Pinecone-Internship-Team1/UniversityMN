@@ -1,0 +1,172 @@
+{
+ "_meta": {
+  "dataset": "sources",
+  "university": "АШУҮИС",
+  "description": "Энэ датасетэд ашигласан эх сурвалжууд ба уншиж чадаагүй (цоорхой) эх сурвалжууд.",
+  "language": "mn",
+  "verified_at": "2026-10-11",
+  "note_mn": "gap = true бол уншиж чадаагүй; gap_fill_hint_mn-д тэндээс юу авахыг бичсэн. Claude Code CLAUDE_CODE_INSTRUCTIONS.md-ийн Step 2-т уншина."
+ },
+ "records": [
+  {
+   "id": "src-req",
+   "url": "https://mnums.edu.mn/admission/requirements",
+   "used_for": "Хөтөлбөр, шалгалтын 2 бүлэг, босго (2026-2027)",
+   "gap": false
+  },
+  {
+   "id": "src-req-en",
+   "url": "https://mnums.edu.mn/en/admission/requirements",
+   "used_for": "Босгын хүснэгтийг англи хувилбараар шалгасан",
+   "gap": false
+  },
+  {
+   "id": "src-adm",
+   "url": "https://mnums.edu.mn/admission",
+   "used_for": "Элсэлтийн алхам, сонголтын дүрэм, онооны томьёо",
+   "gap": false
+  },
+  {
+   "id": "src-faq",
+   "url": "https://mnums.edu.mn/faq",
+   "used_for": "Бүртгэлийн огноо (2026-05-28 – 06-28), байр, тэтгэлэг",
+   "gap": false
+  },
+  {
+   "id": "src-life",
+   "url": "https://mnums.edu.mn/student-life",
+   "used_for": "Байр (3 байр, 1,584 ор), тэтгэлэг, зээл, клуб",
+   "gap": false
+  },
+  {
+   "id": "src-home",
+   "url": "https://mnums.edu.mn/",
+   "used_for": "Тоон үзүүлэлт",
+   "gap": false
+  },
+  {
+   "id": "src-intro",
+   "url": "https://mnums.edu.mn/about/intro",
+   "used_for": "Танилцуулга, уриа, магадлан итгэмжлэл",
+   "gap": false
+  },
+  {
+   "id": "src-schools",
+   "url": "https://mnums.edu.mn/schools/",
+   "used_for": "Сургууль тус бүрийн хөтөлбөр, хугацаа, 1 жилийн төлбөр (med, bio, public-health, dental, pharmacy, nursing, traditional)",
+   "gap": false
+  },
+  {
+   "id": "src-ikon-fee",
+   "url": "https://ikon.mn/n/3pjj",
+   "used_for": "2026-2027 оны төлбөрийн хүрээ, өмнөх жил",
+   "gap": false
+  },
+  {
+   "id": "src-wiki",
+   "url": "https://mn.wikipedia.org/wiki/Анагаахын_Шинжлэх_Ухааны_Үндэсний_Их_Сургууль",
+   "used_for": "Түүх",
+   "gap": false
+  },
+  {
+   "id": "src-da-prog",
+   "url": "https://mnums-da.edu.mn/mn/post/276",
+   "used_for": "Дархан-Уул салбарын хөтөлбөрийн жагсаалт (гарчиг, зургийн нэр)",
+   "gap": false
+  },
+  {
+   "id": "src-da-sch",
+   "url": "https://mnums-da.edu.mn/mn/post/433",
+   "used_for": "Тэтгэлэг, буцалтгүй тусламж (үндэсний хөтөлбөрүүд)",
+   "gap": false
+  },
+  {
+   "id": "src-da-dorm",
+   "url": "https://mnums-da.edu.mn/mn/post/43",
+   "used_for": "Дархан-Уул салбарын байр",
+   "gap": false
+  },
+  {
+   "id": "src-da-ikon",
+   "url": "https://ikon.mn/n/3oh0",
+   "used_for": "Дархан-Уул салбарын нэмэлт элсэлт 2026",
+   "gap": false
+  },
+  {
+   "id": "src-esh-dates",
+   "url": "https://ikon.mn/n/3lvf",
+   "used_for": "ЭЕШ 2026 (6-р сарын 25–28)",
+   "gap": false
+  },
+  {
+   "id": "gap-reg-pdf",
+   "url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "used_for": "ЦООРХОЙ: 2026-2027 элсэлтийн журам А/136 (скан PDF, текстгүй)",
+   "gap": false,
+   "gap_fill_hint_mn": "Бүртгэлийн хураамжийн дүн; салбар сургууль тус бүрийн хөтөлбөр, хичээл, босго; ур чадварын шалгалтын огноо; хяналтын тоо (суудал); бусад дүрэм.",
+   "filled_note": "Скан PDF-ийн 14 хуудсыг уншив: салбар бүрийн 2026-2027 оны хичээл, босгын хүснэгт (х.10–13), сонголтын төрлийн жагсаалт (2-р хавсралт), ур чадварын шалгалтын хөрвүүлэх хүснэгт. Бүртгэлийн хураамжийн дүн, ур чадварын шалгалтын огноо, хяналтын тоо журамд заагаагүй.",
+   "filled_at": "2026-10-14"
+  },
+  {
+   "id": "gap-darkhan",
+   "url": "https://mnums-da.edu.mn/mn/post/276",
+   "used_for": "ЦООРХОЙ: Дархан-Уул салбарын хөтөлбөр бүрийн хичээл, босго, төлбөр — зөвхөн зураг",
+   "gap": false,
+   "gap_fill_hint_mn": "Хуудсан дээрх 14 хөтөлбөрийн зураг (programs.json → mnums-darkhan-* мөр бүрийн exam_2026_2027.note_mn-д зургийн холбоос) болон https://mnums-da.edu.mn/public/assets/front/images/news/images/ доторх 'а5(2).jpg', 'а52(1).jpg' (элсэлтийн заавар).",
+   "filled_note": "14 хөтөлбөрийн зураг + 2 заавар зургийг уншив: хичээл, босго журамтай таарч байна (430+); он, төлбөрийн дүн заагаагүй (орон нутгийн оюутанд 50% хөнгөлөлт). Нийгмийн эрүүл мэнд судлалчийн зураг огноогүй бөгөөд журамд байхгүй тул баталгаажаагүй хэвээр.",
+   "filled_at": "2026-10-14"
+  },
+  {
+   "id": "gap-govi-altai",
+   "url": "https://ga.mnums.edu.mn/mn/news/post/152",
+   "used_for": "ЦООРХОЙ: Говь-Алтай салбарын элсэлтийн журам, хөтөлбөр — зөвхөн дэлгэцийн зураг",
+   "gap": true,
+   "gap_fill_hint_mn": "7 зураг: https://ga.mnums.edu.mn/uploads/editor/Screenshot 2025-06-05 152707.png, ...153045.png, ...153218.png, ...153319.png, ...153424.png, ...154252.png, ...154057.png (2025 оных байж магадгүй — оныг шалгана). Мөн https://ga.mnums.edu.mn/mn/news/postCategory/1.",
+   "checked_at": "2026-10-14",
+   "checked_note": "Шалгав: 7 дэлгэцийн зураг нь 2025-2026 оны журам (А/58) — хуучин. Хөтөлбөр, босгыг 2026-2027 оны журам (А/136, х.10)-аас авав. Төлбөр олдсонгүй."
+  },
+  {
+   "id": "gap-dornogovi",
+   "url": "https://dornogobi-anagaakh.mn/оюутан-элсүүлэх-хөтөлбөр/",
+   "used_for": "ЦООРХОЙ: Дорноговь салбарын хөтөлбөр — зөвхөн 12 зураг",
+   "gap": false,
+   "gap_fill_hint_mn": "https://i0.wp.com/dornogobi-anagaakh.mn/wp-content/uploads/2023/05/1-1.jpg … 12-1.jpg (2023 онд байршуулсан тул оныг шалгана) болон 'Элсэлт-2026' баннер.",
+   "filled_note": "'Элсэлт 2026' зураг (2026-2027 он) журмын хүснэгттэй таарч байна; хөтөлбөр бүрийн хугацааг (6, 2+4, 2+3, 4, 3 жил) эндээс авав. Төлбөр заагаагүй.",
+   "filled_at": "2026-10-14"
+  },
+  {
+   "id": "gap-arkhangai",
+   "url": "https://mnums.edu.mn/branches/arkhangai",
+   "used_for": "ЦООРХОЙ: Архангай Сувилахуйн салбарын хөтөлбөр, холбоо барих",
+   "gap": true,
+   "gap_fill_hint_mn": "Хөтөлбөр, хаяг, утас. Албан ёсны сайт олдоогүй.",
+   "checked_at": "2026-10-14",
+   "checked_note": "Шалгав: хуудсанд хөтөлбөрийн мэдээлэл оруулаагүй. Хөтөлбөр, босгыг 2026-2027 оны журам (А/136, х.13)-аас авав. Хаяг, утас олдсонгүй."
+  },
+  {
+   "id": "gap-dorm-price",
+   "url": "https://mnums.edu.mn/student-life",
+   "used_for": "ЦООРХОЙ: Оюутны байрны үнэ",
+   "gap": true,
+   "gap_fill_hint_mn": "I, II, III байрны 2026-2027 оны төлбөр (сар/жил).",
+   "checked_at": "2026-10-14",
+   "checked_note": "Шалгав (2026-10-14): Оюутны амьдрал хуудсанд байрны багтаамж, дараалал байгаа ч үнэ заагаагүй."
+  },
+  {
+   "id": "gap-programs-page",
+   "url": "https://mnums.edu.mn/admission/programs",
+   "used_for": "ЦООРХОЙ: Хөтөлбөрийн танилцуулга (JavaScript)",
+   "gap": true,
+   "gap_fill_hint_mn": "Хөтөлбөр бүрийн кредит, индекс, ажлын байрны мэдээлэл (браузераар рендэрлэж уншина).",
+   "checked_at": "2026-10-14",
+   "checked_note": "Алгасав: JavaScript хуудас (runbook-ийн дагуу)."
+  },
+  {
+   "id": "dornogovi-elselt-2026",
+   "url": "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg",
+   "used_for": "Дорноговь салбарын 2026-2027 оны элсэлтийн хөтөлбөр, хугацаа ('Элсэлт 2026' зураг)",
+   "gap": false,
+   "filled_at": "2026-10-14"
+  }
+ ]
+}
