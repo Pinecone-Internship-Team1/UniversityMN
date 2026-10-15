@@ -1,0 +1,420 @@
+{
+  "_meta": {
+    "dataset": "sources",
+    "university": "СЭЗИС",
+    "description": "Энэ датасетэд ашигласан эх сурвалжууд ба уншиж чадаагүй (цоорхой) эх сурвалжууд.",
+    "language": "mn",
+    "verified_at": "2026-10-15",
+    "note_mn": "gap = true бол уншиж чадаагүй; gap_fill_hint_mn-д тэндээс юу авахыг бичсэн."
+  },
+  "records": [
+    {
+      "id": "src-crit",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/199",
+      "used_for": "2026-2027 'Элсэлтийн шалгуур': 16 мэргэжил, бүлэг (хичээл), босго, зэрэг, кредит — гол эх сурвалж",
+      "gap": false
+    },
+    {
+      "id": "src-dual",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/197",
+      "used_for": "Хос хөтөлбөр: 6 хослол, кредит, хугацаа, 'дундаж 580-аас дээш' (босго = дундаж оноо гэдгийн баталгаа)",
+      "gap": false
+    },
+    {
+      "id": "src-sel2024",
+      "url": "https://ufe.edu.mn/widgetDetail/1383",
+      "used_for": "2024 оны шалгаруулалт: 'ЭЕШ-ын хоёр хичээлийн шалгалтын дундаж оноо'-гоор эрэмбэлэх, тэнцвэл гэрчилгээний дундаж; урьдчилгаа 2,500,000₮",
+      "gap": false
+    },
+    {
+      "id": "src-newsmn2025",
+      "url": "https://news.mn/r/2800532/",
+      "used_for": "2025: 'элсэлтийн шалгалтын дундаж оноо 510-650' (news.mn)",
+      "gap": false
+    },
+    {
+      "id": "src-mainprog",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/193",
+      "used_for": "Үндсэн хөтөлбөр: 310,000₮/кредит, 3–4.5 жил, 120–135 кредит, 15 мэргэжил",
+      "gap": false
+    },
+    {
+      "id": "src-joint",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/194",
+      "used_for": "Хамтарсан 2+2: түнш их сургуулиуд, 376,000₮/кредит",
+      "gap": false
+    },
+    {
+      "id": "src-rot",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/195",
+      "used_for": "Rotation: 28,000,000₮/жил, 3 жил 4 улс",
+      "gap": false
+    },
+    {
+      "id": "src-btec",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/196",
+      "used_for": "BTEC: 447,000₮/кредит, 2 мэргэжил",
+      "gap": false
+    },
+    {
+      "id": "src-mba",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/198",
+      "used_for": "+MBA 3+1: 6 мэргэжил, 310,000₮/кредит",
+      "gap": false
+    },
+    {
+      "id": "src-prof",
+      "url": "https://admission.ufe.edu.mn/mn/professions/1",
+      "used_for": "Элсэлтийн системийн 16 мэргэжил, суралцах хэлбэрүүд",
+      "gap": false
+    },
+    {
+      "id": "src-prof-joint",
+      "url": "https://admission.ufe.edu.mn/mn/professions/1?type=%D0%A5%D0%B0%D0%BC%D1%82%D0%B0%D1%80%D1%81%D0%B0%D0%BD",
+      "used_for": "'Хамтарсан' шүүлтүүр — 11 мэргэжил",
+      "gap": false
+    },
+    {
+      "id": "src-prof-spec",
+      "url": "https://admission.ufe.edu.mn/mn/professions/1?type=%D0%9C%D1%8D%D1%80%D0%B3%D1%8D%D1%88%D1%81%D1%8D%D0%BD",
+      "used_for": "'Мэргэшсэн' шүүлтүүр — ACCA, CGMA",
+      "gap": false
+    },
+    {
+      "id": "src-prof-tech",
+      "url": "https://admission.ufe.edu.mn/mn/professions/18",
+      "used_for": "UFE Tech-ийн 8 мэргэжил (10 хувилбар)",
+      "gap": false
+    },
+    {
+      "id": "src-prof-edu",
+      "url": "https://admission.ufe.edu.mn/mn/professions/17",
+      "used_for": "Боловсролын сургуулийн 4 хөтөлбөр (сургуулийн нэр хуудсанд байхгүй)",
+      "gap": false
+    },
+    {
+      "id": "src-prof-soc",
+      "url": "https://admission.ufe.edu.mn/mn/professions/19",
+      "used_for": "Дижитал архив, өгөгдлийн сангийн мэргэжилтэн (сургуулийн нэр хуудсанд байхгүй)",
+      "gap": false
+    },
+    {
+      "id": "src-adm-home",
+      "url": "https://admission.ufe.edu.mn/mn",
+      "used_for": "Элсэлтийн нүүр: 4 сургууль, элсэлтийн төрлүүд",
+      "gap": false
+    },
+    {
+      "id": "src-start",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/171",
+      "used_for": "2026-2027 элсэлт эхэлсэн: бүртгэл 04-22 – 06-28, зөвлөгөө 05-01 – 07-03",
+      "gap": false
+    },
+    {
+      "id": "src-widget-start",
+      "url": "https://www.ufe.edu.mn/widgetDetail/1866",
+      "used_for": "Ижил мэдээ ufe.edu.mn-д; flipbook холбоос",
+      "gap": false
+    },
+    {
+      "id": "src-210",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/210",
+      "used_for": "Элсэлтийн үйл ажиллагаа 06-29 – 07-07, хөтөлбөр тус бүрийн утас",
+      "gap": false
+    },
+    {
+      "id": "src-211",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/211",
+      "used_for": "Баталгаажуулалт хойшилсон (БҮТ-ийн дүн хойшилсон)",
+      "gap": false
+    },
+    {
+      "id": "src-212",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/212",
+      "used_for": "06-30: эрэмбийн жагсаалт 09:00, баталгаажуулалт 10:00",
+      "gap": false
+    },
+    {
+      "id": "src-214",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/214",
+      "used_for": "E-Geree 07-03 13:00, англи хэлний шалгалт, мэргэжил солих",
+      "gap": false
+    },
+    {
+      "id": "src-215",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/215",
+      "used_for": "Нэмэлт элсэлт 07-03 – 08-17",
+      "gap": false
+    },
+    {
+      "id": "src-218",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/218",
+      "used_for": "Шинэ элсэгч: төлбөр 08-20, чиглүүлэх 08-24–28, байр 08-27–29, хичээл 09-01/09-14 (COP17)",
+      "gap": false
+    },
+    {
+      "id": "src-207",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/207",
+      "used_for": "Элсэлтийн комиссын ажлын хуваарь, утаснууд",
+      "gap": false
+    },
+    {
+      "id": "src-tour",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/206",
+      "used_for": "Аялал жуулчлалын ур чадварын шалгалт (видео)",
+      "gap": false
+    },
+    {
+      "id": "src-tour2",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/205",
+      "used_for": "Ижил мэдээ (давхардал)",
+      "gap": false
+    },
+    {
+      "id": "src-sch",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/177",
+      "used_for": "Шинэ элсэгчийн тэтгэлэг 2026: 3 төрөл, дүн, шалгуур",
+      "gap": false
+    },
+    {
+      "id": "src-invite",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/189",
+      "used_for": "Урилгаар элсэх",
+      "gap": false
+    },
+    {
+      "id": "src-ceremony",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/204",
+      "used_for": "2026-06-18 урилга, тэтгэлэг: 499-өөс 62",
+      "gap": false
+    },
+    {
+      "id": "src-transfer",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/182",
+      "used_for": "Шилжин суралцах 2026-2027",
+      "gap": false
+    },
+    {
+      "id": "src-add2025",
+      "url": "https://ufe.edu.mn/widgetDetail/1718",
+      "used_for": "2025 нэмэлт элсэлт; цуцлахад 500,000₮ суутгал",
+      "gap": false
+    },
+    {
+      "id": "src-adm2025",
+      "url": "https://ufe.edu.mn/widgetDetail/1700",
+      "used_for": "2025-2026: 17 мэргэжил, 6 төрөл, BBA/BA 3 жилд 120 кредит",
+      "gap": false
+    },
+    {
+      "id": "src-153",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/153",
+      "used_for": "2025: суудал баталгаажуулалтын төлбөр буцаагдахгүй",
+      "gap": false
+    },
+    {
+      "id": "src-intro",
+      "url": "https://ufe.edu.mn/c/28",
+      "used_for": "Танилцуулга, түүх, тоо, уриа, алсын хараа",
+      "gap": false
+    },
+    {
+      "id": "src-intro-en",
+      "url": "https://www.ufe.edu.mn/en/c/28",
+      "used_for": "Танилцуулга (англи)",
+      "gap": false
+    },
+    {
+      "id": "src-acbsp",
+      "url": "https://www.ufe.edu.mn/en/widgetDetail/535",
+      "used_for": "ACBSP: 2008 гишүүн, 2012 магадлан итгэмжлэл, 2022-2032 сунгалт",
+      "gap": false
+    },
+    {
+      "id": "src-schools2023",
+      "url": "https://ufe.edu.mn/widgetDetail/828",
+      "used_for": "2023: Боловсролын, Нийгмийн шинжлэх ухааны, Инженерчлэлийн сургууль, 11 мэргэжил",
+      "gap": false
+    },
+    {
+      "id": "src-contact",
+      "url": "https://ufe.edu.mn/contact",
+      "used_for": "Хаяг, утас, имэйл",
+      "gap": false
+    },
+    {
+      "id": "src-the",
+      "url": "https://www.timeshighereducation.com/world-university-rankings/university-finance-and-economics-mongolia",
+      "used_for": "THE Impact Rankings 2026: 1001–1500",
+      "gap": false
+    },
+    {
+      "id": "src-tech",
+      "url": "https://ufetech.mn",
+      "used_for": "UFE Tech: хөтөлбөр, холбоо барих, эцсийн хугацаа",
+      "gap": false
+    },
+    {
+      "id": "src-tech-about",
+      "url": "https://ufetech.mn/mn/about",
+      "used_for": "UFE Tech: СЭЗИС-ийн бүрэлдэхүүн сургууль, хаяг, захирал",
+      "gap": false
+    },
+    {
+      "id": "src-tech-progs",
+      "url": "https://ufetech.mn/mn/programs/software-engineering",
+      "used_for": "UFE Tech хөтөлбөрийн хуудсууд (software-engineering, software-engineering22, cyber-security, e-commerce, ai, ui-ux-graphic-design, psychology, visual-art, interior-design22): босго, кредит",
+      "gap": false
+    },
+    {
+      "id": "src-tech-start",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/170",
+      "used_for": "UFE Tech элсэлт 2026.04.10 – 07.01",
+      "gap": false
+    },
+    {
+      "id": "src-tech-collab",
+      "url": "https://ufetech.mn/mn/collaboration",
+      "used_for": "UFE Tech хамтрагчид (Nanhua, Woosong, Mokwon …)",
+      "gap": false
+    },
+    {
+      "id": "src-edu-site",
+      "url": "https://sites.google.com/a/3erdene.edu.mn/3-erdene",
+      "used_for": "'СЭЗИС БОЛОВСРОЛЫН СУРГУУЛЬ' Google Site (3erdene.edu.mn, 'Элсэлт 2023')",
+      "gap": false
+    },
+    {
+      "id": "src-dorm",
+      "url": "https://dormitory.ufe.edu.mn/",
+      "used_for": "Байр: хаяг, өрөөний төрөл, үнэ, II байр, холбоо барих",
+      "gap": false
+    },
+    {
+      "id": "src-orient",
+      "url": "https://sites.google.com/ufe.edu.mn/orientation/",
+      "used_for": "Шинэ элсэгчийн сайт: E-Geree, утаснууд",
+      "gap": false
+    },
+    {
+      "id": "src-orient-dorm",
+      "url": "https://sites.google.com/ufe.edu.mn/orientation/%D0%B4%D0%BE%D1%82%D1%83%D1%83%D1%80-%D0%B1%D0%B0%D0%B9%D1%80",
+      "used_for": "Байрны бүртгэл 08-27–29, орон нутгийн оюутан",
+      "gap": false
+    },
+    {
+      "id": "src-orient-sch",
+      "url": "https://sites.google.com/ufe.edu.mn/orientation/%D1%82%D1%8D%D1%82%D0%B3%D1%8D%D0%BB%D1%8D%D0%B3",
+      "used_for": "Элсэгчийг дэмжих тэтгэлэг 3.0 сая ₮ × 10",
+      "gap": false
+    },
+    {
+      "id": "src-orient-prog",
+      "url": "https://sites.google.com/ufe.edu.mn/orientation/%D1%85%D3%A9%D1%82%D3%A9%D0%BB%D0%B1%D3%A9%D1%80%D0%B8%D0%B9%D0%BD-%D1%82%D0%B0%D0%BD%D0%B8%D0%BB%D1%86%D1%83%D1%83%D0%BB%D0%B3%D0%B0",
+      "used_for": "Бакалавр 2.0 (2022 оноос), хөтөлбөрийн төрлүүд",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-esh",
+      "url": "https://ikon.mn/n/3okx",
+      "used_for": "Элсэлтийн шалгалт 2026 оны 6-р сарын 25–28",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-winter",
+      "url": "https://ikon.mn/n/3qqx",
+      "used_for": "Өвлийн ЭШ бүртгэл 2026-10-01 – 11-23, 20,000₮/хичээл",
+      "gap": false
+    },
+    {
+      "id": "gap-regulation",
+      "url": "https://admission.ufe.edu.mn/mn/admission-procedure",
+      "used_for": "ЦООРХОЙ: 'Бакалаврын хөтөлбөрт оюутан элсүүлэх журам' — PDF-ийг JavaScript-ээр ачаалдаг",
+      "gap": true,
+      "gap_fill_hint_mn": "Браузераар нээж PDF-ийн URL-ыг олоод: онооны томьёо (дундаж эсэх, тэнцвэл), бүртгэлийн хураамжийн дүн, баталгаажуулалтын төлбөр, буцаалт, ур чадварын шалгалтын дүгнэлт (200–800 рүү хөрвүүлэх эсэх), хяналтын тоо, урилгын нөхцөл (5, 6-р бүлэг)-ийг авна."
+    },
+    {
+      "id": "gap-faq",
+      "url": "https://admission.ufe.edu.mn/mn/degree/1/faq",
+      "used_for": "ЦООРХОЙ: Элсэлтийн FAQ-ийн 23 асуултын хариулт (accordion, JavaScript)",
+      "gap": false,
+      "gap_fill_hint_mn": "Хариултуудаас: 'ЭЕШ-ийн хэдэн оноо шаардлагатай', 'Бүртгэлийн хураамж буцаан олгогдох уу', 'Баталгаажуулалтын төлбөр хэд вэ / буцаах уу', 'Сургалтын төлбөрөө 100% хүртэл хөнгөлүүлэх', 'Олон улсын шалгалтын оноог тооцох уу', 'Сургалтын төлбөрийг хуваан төлөх', 'Дотуур байр' — дүн, огноог авна.",
+      "filled_at": "2026-10-15",
+      "filled_note": "FAQ (degree/1/faq): бүртгэлийн хураамж буцаагдахгүй; суудал баталгаажуулалт 500,000₮, цуцалбал 40% суутгана."
+    },
+    {
+      "id": "gap-threshold-img",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/178",
+      "used_for": "ЦООРХОЙ: 2026-2027 босго онооны мэдээ — зөвхөн зураг",
+      "gap": true,
+      "gap_fill_hint_mn": "Зураг: https://backadmission.ufe.edu.mn/content/post/image/202605/ac6044a820e0b66c488aa878832ca7ca.png болон https://backadmission.ufe.edu.mn/content/post_mode/image/202605/0484ce6278f6c1ca44ff491ed5821cf0.jpg. newsDetail/199-ийн текст хүснэгттэй тулгаж, UFE Tech / Боловсролын / Нийгмийн шинжлэх ухааны сургуулийн босго орсон эсэхийг шалгана. Мөн 199-ийн зураг: https://backadmission.ufe.edu.mn/content/post/image/202606/4a20ac2b07b7d293a848efa8a71134c1.png."
+    },
+    {
+      "id": "gap-brochure",
+      "url": "https://cdnm.heyzine.com/files/uploaded/v3/243b02785b7bec1829f253ead920304324088e50.pdf",
+      "used_for": "ЦООРХОЙ: 2026 элсэлтийн танилцуулга (flipbook PDF, текстгүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "Flipbook: https://heyzine.com/flip-book/243b02785b.html. Хөтөлбөрийн төрөл бүрийн төлбөр (ялангуяа ACCA/CGMA, Интерактив), хугацаа, кредит, хамтарсан хувилбарууд, тэтгэлгийг уншина."
+    },
+    {
+      "id": "gap-scholarship-pdf",
+      "url": "https://backadmission.ufe.edu.mn/content/post/image/202604/180067846491c672de3775ac9b7d8103.pdf",
+      "used_for": "ЦООРХОЙ: Шинэ элсэгчийн тэтгэлгийн журам (скан PDF)",
+      "gap": true,
+      "gap_fill_hint_mn": "Тэтгэлгийн төрөл, дүн/хувь, тоо, материал, хугацаа, шалгаруулалтыг авч scholarships.json-д нөхнө."
+    },
+    {
+      "id": "gap-joint-variants",
+      "url": "https://admission.ufe.edu.mn/mn/professions/1?type=%D0%A5%D0%B0%D0%BC%D1%82%D0%B0%D1%80%D1%81%D0%B0%D0%BD",
+      "used_for": "ЦООРХОЙ: Хамтарсан хувилбаруудын карт (2 'Хамтарсан' аль түнштэй вэ)",
+      "gap": true,
+      "gap_fill_hint_mn": "Браузераар мэргэжлийн картыг дарж, хувилбар бүрийн түнш, хэл, төлбөр, босгыг авна (Бизнесийн удирдлага, Санхүү, банк, Нягтлан бодох бүртгэл, Мэдээллийн систем, Аялал жуулчлал тус бүр 2 хувилбартай). Мөн 'Үндсэн' давхар харагдах (Аялал жуулчлал, Санхүү, банк) ялгаа."
+    },
+    {
+      "id": "gap-edu-soc",
+      "url": "https://admission.ufe.edu.mn/mn/professions/17",
+      "used_for": "ЦООРХОЙ: Боловсролын сургууль (professions/17), Нийгмийн шинжлэх ухааны сургууль (professions/19)-ийн хичээл, босго, төлбөр, байршил",
+      "gap": false,
+      "gap_fill_hint_mn": "Картуудыг браузераар нээж шалгалтын хичээл, босго, төлбөр, хугацааг авна; https://admission.ufe.edu.mn/mn/professions/19; элсэлтийн 'Холбоо барих' хуудсын 'UFE-Education School', 'UFE-Social Sciences School' хэсэг (https://admission.ufe.edu.mn/mn/contact); сургуулийн байршил.",
+      "filled_at": "2026-10-15",
+      "filled_note": "Элсэлтийн системийн карт (professions/17, 19; хуудасны RSC өгөгдөл): 5 хөтөлбөрийн хичээл, босго, кредит, 1 кредитийн үнэ, хугацаа. А/34-тэй тулгав."
+    },
+    {
+      "id": "gap-tech-tuition",
+      "url": "https://ufetech.mn",
+      "used_for": "ЦООРХОЙ: UFE Tech-ийн сургалтын төлбөр, Хиймэл оюун ухааны 2+2 хувилбар",
+      "gap": false,
+      "gap_fill_hint_mn": "ufetech.mn, https://admission.ufe.edu.mn/mn/professions/18-ийн картууд, элсэлтийн мэдээний зургууд: https://backadmission.ufe.edu.mn/content/post/image/202604/d4bdbbd101e66717ea3ad325ef2f06ab.jpg, https://backadmission.ufe.edu.mn/content/post_mode/image/202604/f21653555f7e879a5d02f778dd1287f4.jpg, https://backadmission.ufe.edu.mn/content/post_mode/image/202604/d5afcb890ca9e8aedcca2f66cc905ecf.jpg, https://backadmission.ufe.edu.mn/content/post_mode/image/202604/0875f9623f02806c52efa1eb2340af8d.jpg. Ур чадварын шалгалтын агуулга, огноо.",
+      "filled_at": "2026-10-15",
+      "filled_note": "Элсэлтийн системийн карт (professions/18): UFE Tech 1 кредит 310,000₮, 124–128 кредит; Хиймэл оюун ухаан 2+2 (Woosong University) карт 187."
+    },
+    {
+      "id": "gap-contact-accordion",
+      "url": "https://admission.ufe.edu.mn/mn/contact",
+      "used_for": "ЦООРХОЙ: Элсэлтийн холбоо барих хуудас (сургууль, хөтөлбөр тус бүрийн хэсэг нээгддэггүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "Доктор, магистр, бакалавр, эчнээ, IO Institute, Education, Engineering & Technology, Social Sciences хэсгийн утас, имэйл, өрөө."
+    },
+    {
+      "id": "gap-dorm-rooms",
+      "url": "https://dormitory.ufe.edu.mn/rooms",
+      "used_for": "ЦООРХОЙ: Байрны өрөөний жагсаалт, FAQ хариулт ('Уншиж байна…')",
+      "gap": true,
+      "gap_fill_hint_mn": "Нийт ор/өрөөний тоо, 1-р курсийн эрх, бичиг баримт, дүрэм (https://dormitory.ufe.edu.mn/faqs)."
+    },
+    {
+      "id": "gap-control-numbers",
+      "url": "https://admission.ufe.edu.mn/mn/information/score",
+      "used_for": "ЦООРХОЙ: 2026 оны хяналтын тоо (суудал) — 'Сонголтын явц' хуудас одоо 0",
+      "gap": true,
+      "gap_fill_hint_mn": "2025 оны хяналтын тооны зураг (жишиг): https://backadmission.ufe.edu.mn/content/post/image/202506/d7b185221ecd3265cea08e475a63c009.PNG. 2026 оных олдвол хөтөлбөр тус бүрийн суудлыг нэмнэ."
+    },
+    {
+      "id": "gap-n210-images",
+      "url": "https://admission.ufe.edu.mn/mn/newsDetail/210",
+      "used_for": "ЦООРХОЙ: 2026 элсэлтийн мэдээний зургууд",
+      "gap": true,
+      "gap_fill_hint_mn": "Зургууд: https://backadmission.ufe.edu.mn/content/post/image/202606/c75feb31ba6022e1a8a6b90fc3d2325f.png, https://backadmission.ufe.edu.mn/content/post_mode/image/202606/ff84c145761687957e94283d800d5871.png, https://backadmission.ufe.edu.mn/content/post_mode/image/202606/492d56e8d9bc40dd8d0d565270c1a6af.jpg, https://backadmission.ufe.edu.mn/content/post_mode/image/202606/06fa485d25fb0338aabfc30998f00773.jfif — хөтөлбөрийн төрлүүд, хугацаа, төлбөр байж магадгүй. Мөн үндсэн хөтөлбөрийн зураг https://backadmission.ufe.edu.mn/content/post/image/202605/09d297c58ef4e79b4363b5080c68ff60.png, Rotation https://backadmission.ufe.edu.mn/content/post/image/202605/f4d1c4e6a6cd751011f9595650655fe5.png, хамтарсан https://backadmission.ufe.edu.mn/content/post/image/202605/9a308f2bc98368f90904d2eca2f432a2.png, тэтгэлэг https://backadmission.ufe.edu.mn/content/post/image/202605/8b1c984d9d4f4e802d207d260a39e8ca.png, ур чадвар https://backadmission.ufe.edu.mn/content/post/image/202606/437f9246be8e7fdd0db186ecbaf8dc2b.jpg."
+    }
+  ]
+}

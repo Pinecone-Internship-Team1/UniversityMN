@@ -1,0 +1,121 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "СЭЗИС",
+  "description": "СЭЗИС-ийн оюутны байр.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "ufe-dorm-facts",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны ерөнхий мэдээлэл",
+   "facts_mn": [
+    "СЭЗИС-ийн оюутны байр: Баянзүрх дүүрэг, 6-р хороо, Оюутны хотхон.",
+    "2026-2027 онд нэмэлтээр 2-р курсээс дээш оюутанд Баянгол дүүргийн 11-р хорооны 'МҮДС-ийн Оюутны дотуур II байр'.",
+    "Шинэ элсэгчийн бүртгэлд зөвхөн орон нутгийн харьяалалтай оюутан хамрагдсан (2026).",
+    "Өрөө бүрт 24/7 Wi-Fi, харуул, камер, өдөр бүрийн цэвэрлэгээ.",
+    "Нийт ор, өрөөний тоо нийтлэгдээгүй."
+   ],
+   "source_urls": [
+    "https://dormitory.ufe.edu.mn/",
+    "https://sites.google.com/ufe.edu.mn/orientation/%D0%B4%D0%BE%D1%82%D1%83%D1%83%D1%80-%D0%B1%D0%B0%D0%B9%D1%80",
+    "https://admission.ufe.edu.mn/mn/newsDetail/218"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "ufe-dorm-main",
+   "record_type": "building",
+   "name_mn": "СЭЗИС-ийн оюутны байр",
+   "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, 6-р хороо, Оюутны хотхон",
+   "capacity": null,
+   "rooms": null,
+   "room_types": [
+    {
+     "type_mn": "2 ортой өрөө",
+     "price_per_month": 250000,
+     "water_fee_10_months": 50000,
+     "total_10_months": 2550000,
+     "deposit": 100000
+    },
+    {
+     "type_mn": "3 ортой өрөө",
+     "price_per_month": 170000,
+     "water_fee_10_months": 50000,
+     "total_10_months": 1750000,
+     "deposit": 100000
+    },
+    {
+     "type_mn": "4 ортой өрөө",
+     "price_per_month": 140000,
+     "water_fee_10_months": 50000,
+     "total_10_months": 1450000,
+     "deposit": 100000
+    },
+    {
+     "type_mn": "5 ортой өрөө",
+     "price_per_month": 120000,
+     "water_fee_10_months": 50000,
+     "total_10_months": 1250000,
+     "deposit": 100000
+    },
+    {
+     "type_mn": "2 ортой жижиг өрөө",
+     "price_per_month": 150000,
+     "water_fee_10_months": 50000,
+     "total_10_months": 1550000,
+     "deposit": 100000
+    }
+   ],
+   "price_per_year": null,
+   "price_per_year_note_mn": "10 сарын нийт төлбөр (усны 50,000₮ орсон) 1,250,000₮ (5 ортой) – 2,550,000₮ (2 ортой); барьцаа 100,000₮.",
+   "currency": "MNT",
+   "source_urls": [
+    "https://dormitory.ufe.edu.mn/"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "ufe-dorm-2",
+   "record_type": "building",
+   "name_mn": "МҮДС-ийн Оюутны дотуур II байр (нэмэлт)",
+   "location_mn": "Улаанбаатар, Баянгол дүүрэг, 11-р хороо",
+   "capacity": null,
+   "rooms": null,
+   "price_per_month": 260000,
+   "price_per_year": 2600000,
+   "currency": "MNT",
+   "note_mn": "2-р курсээс дээш оюутанд. Бүртгэл 2026.09.10–09.11 18:00; лавлах 8092-1851. 'МҮДС'-ийн бүтэн нэрийг сайтад бичээгүй.",
+   "source_urls": [
+    "https://dormitory.ufe.edu.mn/"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current",
+   "price_year": "2026-2027"
+  },
+  {
+   "id": "ufe-dorm-how-to-apply",
+   "record_type": "process",
+   "name_mn": "Оюутны байранд хэрхэн орох вэ",
+   "steps_mn": [
+    "Элсэлтээ баталгаажуулж, суралцах гэрээ байгуулна.",
+    "Шинэ элсэгчийн бүртгэлийн өдрүүдэд (2026 онд 8-р сарын 27–29, 12:00-аас) dormitory.ufe.edu.mn-ээр 'Оюутны байранд байрлах хүсэлт' гаргана.",
+    "Өрөөгөө сонгож, захиалгаа илгээгээд урьдчилгаа төлбөрөө төлнө.",
+    "Захиалгаа баталгаажуулж, байртай танилцаад гэрээ байгуулна.",
+    "Тогтсон өдөр нүүнэ (2026 онд 9-р сарын 14-өөс)."
+   ],
+   "contacts_mn": "7777-4400, ezsahelp@ufe.edu.mn (Даваа–Баасан 09:00–18:00).",
+   "source_urls": [
+    "https://dormitory.ufe.edu.mn/",
+    "https://sites.google.com/ufe.edu.mn/orientation/%D0%B4%D0%BE%D1%82%D1%83%D1%83%D1%80-%D0%B1%D0%B0%D0%B9%D1%80",
+    "https://admission.ufe.edu.mn/mn/newsDetail/218"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  }
+ ]
+}

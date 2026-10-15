@@ -1,0 +1,176 @@
+{
+ "_meta": {
+  "dataset": "schools",
+  "university": "ХААИС",
+  "description": "ХААИС-ийн бүрэлдэхүүн болон салбар сургуулиуд (muls-ub = харьяалал тодорхойгүй хөтөлбөрийн түр бүлэг).",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "muls-ae",
+   "type": "constituent",
+   "name_mn": "Агроэкологийн сургууль",
+   "abbr_mn": null,
+   "name_en": "School of Agroecology",
+   "website": "https://agroecology.muls.edu.mn/",
+   "page": "https://agroecology.muls.edu.mn/",
+   "location_mn": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+   "notes_mn": "Сургуулийн сайтын нүүрэнд (2020 оны) мэргэжлийн танилцуулга: Усны экологи чанарын үнэлгээ; Экологи байгаль хамгаалал; Байгалийн аялал жуулчлал; Агроном; Газар тариалангаар мэргэшсэн фермерийн аж ахуй; Газар зохион байгуулалт; Хөрс судлал агрохимич; Ландшафтын архитектур; Ойн аж ахуйн инженер; Ургамал хамгаалал, хорио цээрийн үнэлгээ. 'Таримал судлал, ой, ландшафт архитектурын тэнхим' (хайлтын үр дүн).",
+   "source_urls": [
+    "https://agroecology.muls.edu.mn/",
+    "https://agroecology.muls.edu.mn/page.php?id=140",
+    "https://www.fao.org/agris/data-provider/mongolian-university-life-sciences"
+   ],
+   "contacts": null,
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "muls-vet",
+   "type": "constituent",
+   "name_mn": "Мал эмнэлгийн сургууль",
+   "abbr_mn": null,
+   "name_en": "School of Veterinary Medicine",
+   "website": "https://veterinary.muls.edu.mn/",
+   "page": "https://veterinary.muls.edu.mn/page.php?id=19",
+   "location_mn": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+   "notes_mn": "Сайтад 'Бакалаврын сургалт', 'Мал эмнэлэг, нийтийн эрүүл мэндийн тэнхим' хуудсууд байгаа ч уншиж чадсангүй.",
+   "source_urls": [
+    "https://veterinary.muls.edu.mn/",
+    "https://veterinary.muls.edu.mn/page.php?id=19",
+    "https://www.fao.org/agris/data-provider/mongolian-university-life-sciences",
+    "https://todnews.mn/p/19/show/30692"
+   ],
+   "contacts": null,
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "muls-asb",
+   "type": "constituent",
+   "name_mn": "Мал аж ахуй, биотехнологийн сургууль",
+   "abbr_mn": null,
+   "name_en": "School of Animal Science and Biotechnology",
+   "website": "https://asbt.muls.edu.mn/",
+   "page": "https://asbt.muls.edu.mn/",
+   "location_mn": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+   "notes_mn": "Нэрийг магадлан итгэмжлэлийн шинжээчийн тайлангаас (2019) авав.",
+   "source_urls": [
+    "https://asbt.muls.edu.mn/",
+    "https://daqar.org/storage/folder/12222/10102/MTmSCY7v4cNRH0KAa1ggNF6hZbJhK9WJjk1tF1c6.pdf",
+    "https://www.fao.org/agris/data-provider/mongolian-university-life-sciences"
+   ],
+   "contacts": null,
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "muls-set",
+   "type": "constituent",
+   "name_mn": "Инженер, технологийн сургууль",
+   "abbr_mn": null,
+   "name_en": "School of Engineering and Technology",
+   "website": "https://engineer.muls.edu.mn/",
+   "page": "https://engineer.muls.edu.mn/page.php?id=114",
+   "location_mn": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+   "notes_mn": "Сайтад 'Сургалтын хөтөлбөр', 'Цахилгаан хангамжийн иженер бэлтгэх хөтөлбөр' хуудсууд бий (хайлтын үр дүн); агуулгыг уншиж чадсангүй.",
+   "source_urls": [
+    "https://engineer.muls.edu.mn/",
+    "https://engineer.muls.edu.mn/page.php?id=44",
+    "https://engineer.muls.edu.mn/page.php?id=114",
+    "https://www.fao.org/agris/data-provider/mongolian-university-life-sciences",
+    "https://www.facebook.com/HaaisEngineeringTechnologyMULS/"
+   ],
+   "contacts": null,
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "muls-seb",
+   "type": "constituent",
+   "name_mn": "Эдийн засаг, бизнесийн сургууль",
+   "abbr_mn": "ЭЗБС",
+   "name_en": "School of Economics and Business",
+   "website": "https://seb.muls.edu.mn/",
+   "page": "https://seb.muls.edu.mn/",
+   "location_mn": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+   "notes_mn": "Хөтөлбөрийн хуудсуудад 'Менежментийн тэнхим', 'Санхүүгийн тэнхим' дурдагдсан.",
+   "source_urls": [
+    "https://seb.muls.edu.mn/",
+    "https://elselt.muls.edu.mn/majorview/70",
+    "https://elselt.muls.edu.mn/majorview/56",
+    "https://www.fao.org/agris/data-provider/mongolian-university-life-sciences"
+   ],
+   "contacts": null,
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "muls-sas",
+   "type": "constituent",
+   "name_mn": "Хэрэглээний шинжлэх ухааны сургууль",
+   "abbr_mn": "ХШУС",
+   "name_en": null,
+   "website": "https://sas.muls.edu.mn/",
+   "page": "https://sas.muls.edu.mn/page.php?id=16",
+   "location_mn": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+   "notes_mn": "Сургууль байгааг сайтын гарчгаас (sas.muls.edu.mn) мэдэв; ямар бакалаврын хөтөлбөр хариуцдагийг уншиж чадсангүй — 'Хэрэглээний физик', 'Хэрэглээний математик'-ийг нэрээр нь энд хамааруулав (таамаг).",
+   "source_urls": [
+    "https://sas.muls.edu.mn/",
+    "https://sas.muls.edu.mn/page.php?id=16"
+   ],
+   "contacts": null,
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "muls-ub",
+   "type": "constituent",
+   "name_mn": "ХААИС — бусад хөтөлбөрүүд",
+   "abbr_mn": null,
+   "name_en": null,
+   "website": "https://elselt.muls.edu.mn",
+   "page": "https://muls.edu.mn/program_sum.php?page_value=ZW5jb2RldXNlcmlkMQ%3D%3D",
+   "location_mn": "Улаанбаатар (ХААИС)",
+   "notes_mn": "Жинхэнэ сургууль биш: элсэлтийн сайтад хуудастай боловч аль бүрэлдэхүүн сургуульд харьяалагдахыг эх сурвалжаас тогтоож чадаагүй хөтөлбөрүүдийг түр энд бүлэглэв. muls.edu.mn/program_sum.php-аас шалгаж зөв сургуульд шилжүүлнэ. Эдгээр хөтөлбөр аль бүрэлдэхүүн сургуульд харьяалагдахыг тогтоож чадаагүй тул түр нэг бүлэгт оруулав.",
+   "source_urls": [
+    "https://elselt.muls.edu.mn",
+    "https://muls.edu.mn/program_sum.php?page_value=ZW5jb2RldXNlcmlkMQ%3D%3D"
+   ],
+   "contacts": null,
+   "verified_at": "2026-10-15",
+   "status": "partial"
+  },
+  {
+   "id": "muls-darkhan",
+   "type": "branch",
+   "name_mn": "Дархан-Уул аймаг дахь Агроэкологи, бизнесийн сургууль",
+   "abbr_mn": "Дархан-ХААИС",
+   "name_en": null,
+   "website": "https://sab.edu.mn/",
+   "page": "https://www.sab.edu.mn/",
+   "location_mn": "Дархан-Уул аймаг, Дархан",
+   "contacts": {
+    "address_mn": "Их сургуулийн гудамж, Ш/Х 904, Дархан 45047, Дархан-Уул",
+    "phones": [
+     "7037-3539",
+     "7037-4132"
+    ],
+    "emails": [
+     "admissions@sab.edu.mn",
+     "info@sab.edu.mn"
+    ],
+    "admission_site": "https://elselt.sab.edu.mn/"
+   },
+   "notes_mn": "Сайтад: бакалаврын 'байгаль, орчны чиглэлийн мэргэжлүүд, бизнес удирдлага, нягтлан бодох', дэд бакалаврын (KOSEN) мэдээллийн технологи, механик, цахилгааны инженерийн элсэлт, 'ДАРХАН-ХААИС · ЭЛСЭЛТ 2026' баннер, '2026-2027 оны шинээр элсэгчдэд зориулсан мэдээлэл' зар (агуулга нь зураг).",
+   "source_urls": [
+    "https://sab.edu.mn/",
+    "https://www.sab.edu.mn/",
+    "https://elselt.sab.edu.mn/view.php?value_id=ZW5jb2RldXNlcmlkNA%3D%3D"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  }
+ ]
+}

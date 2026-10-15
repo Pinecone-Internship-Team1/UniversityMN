@@ -1,0 +1,86 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "ХААИС",
+  "description": "ХААИС-ийн оюутны байр.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "muls-dorm-facts",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны ерөнхий мэдээлэл",
+   "facts_mn": [
+    "Улаанбаатарт I, II, III гэсэн 3 байр, жилд 1,300 орчим оюутан хүлээн авах хүчин чадалтай (2025).",
+    "Дотоодын оюутнаас гадна гадаадын оюутан, багш эрдэмтэн байрлуулдаг.",
+    "2025-2026 онд байрны төлбөр жилд 1.0–1.3 сая ₮, 100 мянган ₮-ийн барьцаатай (өмнөх жил 700–800 мянга ₮).",
+    "2026-2027 оны үнэ, бүртгэлийн журам олдсонгүй."
+   ],
+   "source_urls": [
+    "https://news.mn/r/2809162/",
+    "https://zogii.mn/newsm/8/2/201576"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "reference"
+  },
+  {
+   "id": "muls-dorm-ub",
+   "record_type": "building",
+   "name_mn": "I, II, III байр (Улаанбаатар)",
+   "location_mn": "Улаанбаатар",
+   "capacity": null,
+   "capacity_note_mn": "Нийт ~1,300 оюутан/жил",
+   "rooms": null,
+   "price_per_year": null,
+   "currency": "MNT",
+   "price_reference": {
+    "min": 1000000,
+    "max": 1300000,
+    "currency": "MNT",
+    "academic_year": "2025-2026",
+    "deposit": 100000,
+    "status": "reference"
+   },
+   "source_urls": [
+    "https://news.mn/r/2809162/",
+    "https://zogii.mn/newsm/8/2/201576",
+    "https://ikon.mn/n/37yy"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "reference"
+  },
+  {
+   "id": "muls-dorm-rules",
+   "record_type": "process",
+   "name_mn": "Байрны хөнгөлөлт, тэргүүн ээлж (дотоод журам)",
+   "steps_mn": [
+    "Байрны зөвлөлийн гишүүнд байрны төлбөрийн 25–50% хөнгөлөлт.",
+    "Бүтэн өнчин оюутанд 50% хөнгөлөлт.",
+    "Өрөөндөө засвар, тохижилт хийж, гэрээ, дотоод журмаа сахисан оюутанд дараа жил тэргүүн ээлжинд байр олгоно."
+   ],
+   "note_mn": "2024 оны мэдээнд иш татсан дотоод журам; одоо хүчинтэй эсэхийг тодруулна уу.",
+   "source_urls": [
+    "https://ikon.mn/n/37yy"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "reference"
+  },
+  {
+   "id": "muls-dorm-darkhan",
+   "record_type": "building",
+   "name_mn": "Дархан-Уул салбарын дотуур байр",
+   "location_mn": "Дархан-Уул аймаг, Дархан",
+   "capacity": null,
+   "rooms": null,
+   "price_per_year": null,
+   "currency": "MNT",
+   "note_mn": "Салбарын сайтын цэсэнд 'Дотуур байр' хуудас байгаа ч агуулгыг уншиж чадсангүй.",
+   "source_urls": [
+    "https://www.sab.edu.mn/"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "unknown"
+  }
+ ]
+}

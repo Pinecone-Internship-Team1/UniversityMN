@@ -1,0 +1,753 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the ХААИС part of the next-universities dataset (oyutan-next-unis, unis/muls/data/*.json, after the 2026-10-15 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-15",
+    "mapped_at": "2026-10-15",
+    "university_id": "sch_khaais",
+    "how_to_use": "Run data-import/import-next-unis.mjs muls (--local / --remote, then --apply): it reads data-import/next-unis/unis/muls/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "one_minimum": "one minimum on the combined score (secondary_cut_off_score null): w1·exam1 + w2·exam2 ≥ cut_off_score; СЭЗИС weights 0.5/0.5 = the average of the two exams",
+      "per_exam": "each exam has its own minimum (cut_off_score, secondary_cut_off_score; 0 = unknown); weights 1/1 when the formula is not published, so the page shows a plain sum",
+      "skills_test": "group 2 is the university's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\"",
+      "neutral": "no exam subjects or cut-offs (unclear / unknown split, or an extra subject minimum such as Математик ≥ 600): \"Сургуулиас тодруулна уу\", rule in exam_note"
+    },
+    "skipped_programs": [
+      "muls-darkhan-biznes-udirdlaga-darkhan",
+      "muls-darkhan-nyagtlan-bodokh-burtgel-darkhan"
+    ],
+    "counts": {
+      "dataset_programs": 64,
+      "imported_programs": 62,
+      "by_degree": {
+        "BACHELOR": 62,
+        "ASSOCIATE": 0
+      },
+      "by_score_check": {
+        "skills_test": 13,
+        "per_exam": 41,
+        "neutral": 8
+      },
+      "faculties": 6,
+      "scholarships": 3,
+      "dorms": 2,
+      "admission_dates": 4
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "muls-ae",
+      "type": "constituent",
+      "name": "Агроэкологийн сургууль",
+      "location": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+      "db_id": "f6b97a59-e45d-5f39-b1c6-ade3ef9c0ac8"
+    },
+    {
+      "dataset_id": "muls-vet",
+      "type": "constituent",
+      "name": "Мал эмнэлгийн сургууль",
+      "location": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+      "db_id": "dd481855-4a4d-54be-8149-bb0e6f0e583b"
+    },
+    {
+      "dataset_id": "muls-asb",
+      "type": "constituent",
+      "name": "Мал аж ахуй, биотехнологийн сургууль",
+      "location": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+      "db_id": "d1802f0f-775a-5716-aba0-5fb3f5fc2b1e"
+    },
+    {
+      "dataset_id": "muls-set",
+      "type": "constituent",
+      "name": "Инженер, технологийн сургууль",
+      "location": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+      "db_id": "10a2cb46-2183-5943-b8dd-60b573d3eada"
+    },
+    {
+      "dataset_id": "muls-seb",
+      "type": "constituent",
+      "name": "Эдийн засаг, бизнесийн сургууль",
+      "location": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+      "db_id": "2ce3c419-2aa3-5154-b624-dc71f4537bb2"
+    },
+    {
+      "dataset_id": "muls-sas",
+      "type": "constituent",
+      "name": "Хэрэглээний шинжлэх ухааны сургууль",
+      "location": "Улаанбаатар (ХААИС-ийн төв кампус, 11-р хороо, Зайсан орчим)",
+      "db_id": "e3750bbe-1c03-5b2d-9dba-e2141564fe82"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "muls-ub-zagasny-aj-akhui",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Загас үржүүлэг, аж ахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "f8d570d0-d9bb-5246-8478-b81e8d3ed7ea"
+    },
+    {
+      "dataset_id": "muls-ub-biologi-agnuur-zuich",
+      "dataset_school": "muls-sas",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Биологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "7ce26dec-a9ef-59d5-92ce-4f21bd1fb36c"
+    },
+    {
+      "dataset_id": "muls-asb-biotekhnologi",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Биотехнологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "871ed634-6fb6-5265-bc03-4fc54b68df3b"
+    },
+    {
+      "dataset_id": "muls-ub-khimiin-bolovsruulaltyn-tekhnologi",
+      "dataset_school": "muls-sas",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Химийн боловсруулалтын технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "d95afc79-de5b-5ec9-b346-990ede4f6f81"
+    },
+    {
+      "dataset_id": "muls-ub-medeelliin-sistem",
+      "dataset_school": "muls-sas",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Мэдээллийн систем",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "3be0a938-b232-5eaa-9dbf-6c8f0cbfa1c5"
+    },
+    {
+      "dataset_id": "muls-ub-programm-khangamj",
+      "dataset_school": "muls-sas",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Программ хангамж",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "259af34e-e926-537d-85ab-e9ca23621212"
+    },
+    {
+      "dataset_id": "muls-sas-kheregleenii-fizikch",
+      "dataset_school": "muls-sas",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Хэрэглээний физик",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "176f7c91-46ec-58b4-9c40-748cadae9f8f"
+    },
+    {
+      "dataset_id": "muls-sas-kheregleenii-matematik",
+      "dataset_school": "muls-sas",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Хэрэглээний математик",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "effa5ff4-46df-5f7c-8540-196cd61ca9b1"
+    },
+    {
+      "dataset_id": "muls-set-metall-sudlal-tekhnologich-injener",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Металлурги, металлын технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "7ab4ebaf-8ca8-56b5-a4aa-ede6eb724692"
+    },
+    {
+      "dataset_id": "muls-set-barilgyn-injener",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Барилгын инженерчлэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "171a252e-3677-5e75-96ab-e74ec2c05213"
+    },
+    {
+      "dataset_id": "muls-set-gidromekhanik-injener",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Гидромеханик инженерчлэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "cf89d003-502e-538f-9018-c1e41c13377d"
+    },
+    {
+      "dataset_id": "muls-set-khuduu-aj-akhuin-injener",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Хөдөө аж ахуйн үйлдвэрлэлийн инженер",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "76aecfc8-b335-567e-90ad-a4607f09ef1e"
+    },
+    {
+      "dataset_id": "muls-ae-ekologich",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Экологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "846ee410-3108-55d6-afc8-d6dac4f70dcb"
+    },
+    {
+      "dataset_id": "muls-ae-khurs-sudlal-agrokhimich",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Хөрс судлал, агрохими",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "5292602d-eb66-5200-a128-eae1d796f527"
+    },
+    {
+      "dataset_id": "muls-ae-landshaftyn-arkhitekturch",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Ландшафтын архитектур",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "2c3973b3-5cf4-51c7-87a5-7ce0fe8ba535"
+    },
+    {
+      "dataset_id": "muls-seb-biznesiin-ediin-zasagch",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Эдийн засаг (Бизнесийн эдийн засаг)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "1cc65818-bdbf-590b-981b-a696adb3073d"
+    },
+    {
+      "dataset_id": "muls-seb-ediin-zasgiin-matematik-zagvarchlal",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Эдийн засаг (Эдийн засгийн математик загварчлал)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "e7f87e04-c90e-5040-93e9-72fb0c8f06c2"
+    },
+    {
+      "dataset_id": "muls-ae-jims-nogoony-agronomch",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Жимс ногооны аж ахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "ccbaf676-702c-5d28-87b5-26e4f2a0fa03"
+    },
+    {
+      "dataset_id": "muls-ub-belcheer-khamgaalal-nukhun-sergeelt",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Бэлчээр, хамгаалал нөхөн сэргээлт",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "cd0e17bb-be0e-514d-953c-084d715db659"
+    },
+    {
+      "dataset_id": "muls-vet-malyn-ikh-emch",
+      "dataset_school": "muls-vet",
+      "faculty": "Мал эмнэлгийн сургууль",
+      "name": "Мал эмнэлэг",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "4c291193-72b0-59c9-917c-7e9b925306ae"
+    },
+    {
+      "dataset_id": "muls-ub-mal-amitny-garaltai-tuukhii-ed-sudlal",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Мал амьтны гаралтай түүхий эд судлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "661715a6-f36f-599f-ada6-e154b0cc833e"
+    },
+    {
+      "dataset_id": "muls-ub-aris-bolovsruulaltyn-tekhnologich",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Арьс боловсруулалтын технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "32a02daf-9dae-5b1c-af87-3c43578d52f7"
+    },
+    {
+      "dataset_id": "muls-ub-makh-suu-uildverleliin-tekhnologich",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Мах, сүү үйлдвэрлэлийн технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "da58d534-f134-5258-a9e0-5e9150618ff5"
+    },
+    {
+      "dataset_id": "muls-ub-khunsnii-chanar-ayuulgui-baidal",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Хүнсний чанар, аюулгүй байдал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "d0610667-9551-5831-8388-e32cfc10ef4a"
+    },
+    {
+      "dataset_id": "muls-seb-marketing",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Маркетинг",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "00df79e6-88a9-5b56-8756-8bb285087a4b"
+    },
+    {
+      "dataset_id": "muls-ae-oin-aj-akhuin-injener",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Ойн аж ахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "c47e51db-1dfe-5b0a-8ae1-b29e32ea9e7b"
+    },
+    {
+      "dataset_id": "muls-seb-ediin-zasagch-statistikch",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Эдийн засаг (Эдийн засгийн статистик)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "79608753-c29a-55f1-bd92-8370009e45bf"
+    },
+    {
+      "dataset_id": "muls-ae-gazar-tarialangiin-uildverleliin-menejment",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Газар тариалангийн аж ахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "1ea5c97c-e0cb-538c-9bcb-e1a84d6ef33d"
+    },
+    {
+      "dataset_id": "muls-asb-tejeel-belcheer-sudlal",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Тэжээл, бэлчээр судлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "6f441fbd-22b3-5419-a9cd-117b436aae9c"
+    },
+    {
+      "dataset_id": "muls-asb-mal-aj-akhuin-uildverleliin-menejer",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Мал аж ахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "10f4256d-1041-507a-ab00-262c8afb3166"
+    },
+    {
+      "dataset_id": "muls-ub-baigali-orchny-nukhun-sergeeltiin-mergejilten",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Экологийн технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "e4c91c2b-23ff-5d9d-b15a-9cbe298d5e31"
+    },
+    {
+      "dataset_id": "muls-seb-sankhuu-bank",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Санхүү, банк",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "76e18e7f-6f09-53dc-a2e4-fac288188188"
+    },
+    {
+      "dataset_id": "muls-set-tsakhilgaan-khangamjiin-injener",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Цахилгаан хангамж",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "36706f3f-8e54-5324-9ed6-20ee317cd7e7"
+    },
+    {
+      "dataset_id": "muls-set-mekhanik-injenerchlel",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Механик инженерчлэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "25d727d8-a0c6-56f1-88a2-8d8ad983deec"
+    },
+    {
+      "dataset_id": "muls-ae-baigaliin-ayalal-juulchlalyn-menejer",
+      "dataset_school": "muls-sas",
+      "faculty": "Хэрэглээний шинжлэх ухааны сургууль",
+      "name": "Аялал жуулчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "e922def1-8188-5d3f-9d75-59be70d090c7"
+    },
+    {
+      "dataset_id": "muls-ub-khureelen-bui-orchny-khyanalt-unelgeenii-mergejilten",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Хүрээлэн буй орчны хяналт үнэлгээ",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "99c3d8f8-92dc-5d9e-bf49-9657c2eca937"
+    },
+    {
+      "dataset_id": "muls-ae-gazar-zokhion-baiguulagch-injener",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Газар зохион байгуулалт",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "4647a727-1428-5619-955a-5e82fab8443d"
+    },
+    {
+      "dataset_id": "muls-ae-agronom",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Агрономи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "9c1834ba-1f6a-562a-9fbf-06b3fc35f5aa"
+    },
+    {
+      "dataset_id": "muls-ae-urgamal-khamgaalal",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Ургамал хамгаалал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "be190341-77bf-5c81-a977-a982a1e63540"
+    },
+    {
+      "dataset_id": "muls-seb-nyagtlan-bodokh-burtgel",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Нягтлан бодох бүртгэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "9b33473f-bad9-5440-bcce-2ba4f069bd0e"
+    },
+    {
+      "dataset_id": "muls-seb-biznesiin-udirdlaga",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Бизнесийн удирдлага",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "d032a272-2e3e-5a94-a4e9-06ea9dd11e94"
+    },
+    {
+      "dataset_id": "muls-set-ukhaalag-tekhnologiin-injener-khaa",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Ухаалаг технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "347d54dc-43dd-5a4b-bf56-6fe7bd9cb083"
+    },
+    {
+      "dataset_id": "muls-seb-uildverleliin-menejment",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Үйлдвэрлэлийн менежмент",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "051bf440-1731-58a1-9ea7-7231dc9faf4f"
+    },
+    {
+      "dataset_id": "muls-seb-khunii-nuutsiin-menejer",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Хүний нөөцийн менежмент",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "3b931e43-ea38-5962-a022-d9ef63fa3669"
+    },
+    {
+      "dataset_id": "muls-ub-bio-injenerchlel",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Био-инженерчлэл",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "606ccffd-2f43-5ae4-b1e2-2cdaf6bd1528"
+    },
+    {
+      "dataset_id": "muls-ub-khureelen-bui-orchny-injenerchlel",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Хүрээлэн буй орчны инженерчлэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "bf2d7dfc-8239-5e87-8267-e4e087db7447"
+    },
+    {
+      "dataset_id": "muls-ub-geodeziin-injener",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Геодези",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "a8e3179a-b3ad-543a-a0c2-4f5e118a798c"
+    },
+    {
+      "dataset_id": "muls-ub-ulamjlalt-anagaakh-ukhaany-emiin-urgamal-zuich",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Уламжлалт анагаах ухааны эмийн ургамал судлал (АШУҮИС-тай хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "824d246f-7f8b-57f5-916e-e35260f64a89"
+    },
+    {
+      "dataset_id": "muls-ae-baigali-khamgaalal",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Байгаль хамгаалал",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "7efc5fcc-b4cd-5adf-87f3-f8a25d862513"
+    },
+    {
+      "dataset_id": "muls-ub-khuduu-aj-akhuin-kibernetik",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Хөдөө аж ахуйн кибернетик",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "d89f8ab3-38bf-589f-a73c-ec9d72181232"
+    },
+    {
+      "dataset_id": "muls-asb-mal-zui",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Мал зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "4f2a8c03-3d83-5e4a-8884-b2f437dd6b63"
+    },
+    {
+      "dataset_id": "muls-asb-biotekhnologi-khyatadtai-khamtarsan-3-1",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Биотехнологи (Хятадтай хамтарсан 3+1)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "f57bf23e-a14d-5e87-ace2-ae09a7a135b8"
+    },
+    {
+      "dataset_id": "muls-asb-morin-sport",
+      "dataset_school": "muls-asb",
+      "faculty": "Мал аж ахуй, биотехнологийн сургууль",
+      "name": "Морин спорт",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "cc6c42a2-425b-5786-a0e6-a7ee389ddbc6"
+    },
+    {
+      "dataset_id": "muls-set-khuns-uildverleliin-tekhnologi",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Хүнс үйлдвэрлэлийн технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "ca1b5f99-0de0-53d3-bdd7-c607fa0c4957"
+    },
+    {
+      "dataset_id": "muls-set-khuns-uildverleliin-tekhnologi-khyatadtai-khamtarsan-3-1",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Хүнс үйлдвэрлэлийн технологи (Хятадтай хамтарсан 3+1)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "b942b2d5-1572-5c5c-aae5-0347af683b92"
+    },
+    {
+      "dataset_id": "muls-set-usny-nuuts-usjuulalt",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Усны нөөц, усжуулалт",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "1c1528e4-d56f-5472-8c86-f022109f0a17"
+    },
+    {
+      "dataset_id": "muls-set-ukhaalag-tekhnologi-bnsu-tai-khamtarsan-2-2",
+      "dataset_school": "muls-set",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Ухаалаг технологи (БНСУ-тай хамтарсан 2+2)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "a2d2b77d-fb12-5fab-8f19-6d746810c41c"
+    },
+    {
+      "dataset_id": "muls-ae-gazryn-kadastr",
+      "dataset_school": "muls-ae",
+      "faculty": "Агроэкологийн сургууль",
+      "name": "Газрын кадастр",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "8e686d45-ab98-56bc-8cfe-d393caddf7ec"
+    },
+    {
+      "dataset_id": "muls-seb-marketing-ayalal-juulchlalyn-marketing",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Маркетинг (Аялал жуулчлалын маркетинг)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "623dbb62-0d60-5c74-8e5f-6a98584cb506"
+    },
+    {
+      "dataset_id": "muls-seb-marketing-tsakhim-khudaldaany-marketing",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Маркетинг (Цахим худалдааны маркетинг)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "fba45633-0870-5c77-88e4-a911e775bb97"
+    },
+    {
+      "dataset_id": "muls-seb-biznes-shinjlel-zagvarchlal",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Бизнес шинжлэл, загварчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "99f09723-f0e1-5964-9a82-66f8431ee046"
+    },
+    {
+      "dataset_id": "muls-seb-marketing-ayalal-juulchlalyn-marketing-bnsu-tai-khamtarsan-2-2",
+      "dataset_school": "muls-seb",
+      "faculty": "Эдийн засаг, бизнесийн сургууль",
+      "name": "Маркетинг (Аялал жуулчлалын маркетинг, БНСУ-тай хамтарсан 2+2)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "cba550a7-4fb2-526e-aa6c-5a6e27ca306b"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "muls-gov-scholarship",
+      "name": "Монгол Улсын Засгийн газрын тэтгэлэг (тэргүүлэх, эрэлттэй хөтөлбөр)",
+      "db_id": "f904383c-91f8-5d1a-ba6c-0db3ef0a9840"
+    },
+    {
+      "dataset_id": "muls-herder-child",
+      "name": "Зарим эрэлттэй мэргэжлийн тэтгэлэг — малчны хүүхэд (мал аж ахуй, тэжээл, бэлчээр судлал)",
+      "db_id": "47df56e4-cb64-5e35-85a6-79596b3f1330"
+    },
+    {
+      "dataset_id": "muls-regional-discount",
+      "name": "Сургалтын төлбөрийн хөнгөлөлт — орон нутаг дахь төрийн өмчит сургууль",
+      "db_id": "46e5eac5-a14c-5499-a294-cc66d439582a"
+    }
+  ],
+  "dorms": [
+    {
+      "dataset_id": "muls-dorm-ub",
+      "name": "I, II, III байр (Улаанбаатар)",
+      "db_id": "7653b8e5-dbff-5d05-8666-6311e97a3533"
+    },
+    {
+      "dataset_id": "muls-dorm-darkhan",
+      "name": "Дархан-Уул салбарын дотуур байр",
+      "db_id": "8d0bba53-fcdc-5e7e-925a-0724330124b8"
+    }
+  ],
+  "admission_dates": [
+    {
+      "dataset_id": "muls-date-esh-reg-2026",
+      "event": "2026 оны жишиг: ЭШ-д бүртгүүлэх (БҮТ, сургуулийн цахим системээр)",
+      "db_id": "337e55b5-d6bb-5ca9-a1d8-148eee128e81"
+    },
+    {
+      "dataset_id": "muls-date-bachelor-reg-2026",
+      "event": "2026 оны жишиг: ХААИС-ийн бакалаврын элсэлтийн цахим бүртгэл (elselt.muls.edu.mn)",
+      "db_id": "8bf2b13c-f3ee-5d41-910a-d74ecc25c044"
+    },
+    {
+      "dataset_id": "muls-date-esh-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалт (ЭШ)",
+      "db_id": "b99d3d24-5faf-5997-b8bc-0f3731e087c7"
+    },
+    {
+      "dataset_id": "muls-date-winter-reg-2026",
+      "event": "2026 оны өвлийн ЭШ-ийн бүртгэл (зөвхөн өмнөх оны шалгуулагчид; хичээл бүр 20,000₮)",
+      "db_id": "d2481274-fa34-5bf0-ae31-8bfb3e21ec6e"
+    }
+  ]
+}

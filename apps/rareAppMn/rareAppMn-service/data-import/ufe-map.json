@@ -1,0 +1,782 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the СЭЗИС part of the next-universities dataset (oyutan-next-unis, unis/ufe/data/*.json, after the 2026-10-15 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-15",
+    "mapped_at": "2026-10-15",
+    "university_id": "sch_sezis",
+    "how_to_use": "Run data-import/import-next-unis.mjs ufe (--local / --remote, then --apply): it reads data-import/next-unis/unis/ufe/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "one_minimum": "one minimum on the combined score (secondary_cut_off_score null): w1·exam1 + w2·exam2 ≥ cut_off_score; СЭЗИС weights 0.5/0.5 = the average of the two exams",
+      "per_exam": "each exam has its own minimum (cut_off_score, secondary_cut_off_score; 0 = unknown); weights 1/1 when the formula is not published, so the page shows a plain sum",
+      "skills_test": "group 2 is the university's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\"",
+      "neutral": "no exam subjects or cut-offs (unclear / unknown split, or an extra subject minimum such as Математик ≥ 600): \"Сургуулиас тодруулна уу\", rule in exam_note"
+    },
+    "skipped_programs": [],
+    "counts": {
+      "dataset_programs": 58,
+      "imported_programs": 58,
+      "by_degree": {
+        "BACHELOR": 58,
+        "ASSOCIATE": 0
+      },
+      "by_score_check": {
+        "one_minimum": 37,
+        "neutral": 2,
+        "skills_test": 11,
+        "per_exam": 8
+      },
+      "faculties": 4,
+      "scholarships": 6,
+      "dorms": 2,
+      "admission_dates": 18
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "ufe-main",
+      "type": "constituent",
+      "name": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 3-р хороо, Энхтайваны өргөн чөлөө-5 (СЭЗИС-ийн төв хотхон)",
+      "db_id": "e0e8c229-3fd9-589b-9150-8f24246da8fa"
+    },
+    {
+      "dataset_id": "ufe-tech",
+      "type": "constituent",
+      "name": "Инженер, технологийн сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 3-р хороо, Энхтайваны өргөн чөлөө-5, СЭЗИС-ийн B байр, 402 тоот",
+      "db_id": "a60758e4-309d-52aa-8221-ca0d2425b973"
+    },
+    {
+      "dataset_id": "ufe-edu",
+      "type": "constituent",
+      "name": "Боловсролын сургууль",
+      "location": "Улаанбаатар (тодорхой хаяг олдсонгүй — сургуулиас тодруулна уу)",
+      "db_id": "f1858290-2e2b-55cf-b865-196606b224ad"
+    },
+    {
+      "dataset_id": "ufe-soc",
+      "type": "constituent",
+      "name": "Нийгмийн шинжлэх ухааны сургууль",
+      "location": "Улаанбаатар (тодорхой хаяг олдсонгүй — сургуулиас тодруулна уу)",
+      "db_id": "208c0380-1512-5564-88eb-4365435cc318"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "ufe-main-biznesiin-udirdlaga",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Бизнесийн удирдлага",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "3cde4c98-6ff5-5fa8-b81b-95f3f23f5f05"
+    },
+    {
+      "dataset_id": "ufe-main-daatgal",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Даатгал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "8301b1d2-6a98-56b3-96c3-086b879c153d"
+    },
+    {
+      "dataset_id": "ufe-main-marketing-ai",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Маркетинг + AI",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "b32b41cd-5947-568f-b872-fed0662ba306"
+    },
+    {
+      "dataset_id": "ufe-main-nyagtlan-bodokh-burtgel",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Нягтлан бодох бүртгэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "75408451-1caf-5ddc-999a-bf3427331ce6"
+    },
+    {
+      "dataset_id": "ufe-main-olon-ulsyn-mergeshsen-nyagtlan-bodokh-burtgel-acca",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Олон улсын мэргэшсэн нягтлан бодох бүртгэл (ACCA)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "5ec9ebb8-abd5-5d18-812d-59c8c8ba875d"
+    },
+    {
+      "dataset_id": "ufe-main-olon-ulsyn-udirdlagyn-nyagtlan-bodokh-burtgel-cgma",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Олон улсын удирдлагын нягтлан бодох бүртгэл (CGMA)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "9b254667-bffe-525f-b319-3f4018f39ef2"
+    },
+    {
+      "dataset_id": "ufe-main-entreprenership-ai",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Энтрепренершип + AI",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "0c9e0d37-f2b9-5c5a-94bc-64cdf00b24e0"
+    },
+    {
+      "dataset_id": "ufe-main-sankhuugiin-manlailal-ai",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Санхүүгийн манлайлал + AI",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "9d13e844-a074-5c8a-818f-d8a0025cfd9e"
+    },
+    {
+      "dataset_id": "ufe-main-sankhuu-bank",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Санхүү, банк",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "68b0204b-a753-582e-a5fd-f5f627734b2f"
+    },
+    {
+      "dataset_id": "ufe-main-olon-ulsyn-khudaldaa-ai",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Олон улсын худалдаа + AI",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "cf9df255-1cf4-553e-ab32-d96937e99891"
+    },
+    {
+      "dataset_id": "ufe-main-ediin-zasag",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Эдийн засаг",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "c248046a-1359-5917-86d2-a22feab308af"
+    },
+    {
+      "dataset_id": "ufe-main-medeelliin-sistem-ai",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Мэдээллийн систем + AI",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "7dcd97b7-719a-5433-b44a-132d08086845"
+    },
+    {
+      "dataset_id": "ufe-main-niigmiin-innovats",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Нийгмийн инновац",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "e3bcfd12-2b0c-50f1-b236-a0b2396c23ec"
+    },
+    {
+      "dataset_id": "ufe-main-ayalal-juulchlal",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Аялал жуулчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "1813f7ba-a755-5eee-b0a5-dbca51cda619"
+    },
+    {
+      "dataset_id": "ufe-main-zochlokh-uilchilgeenii-menejment",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Зочлох үйлчилгээний менежмент",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "5249592e-0d60-5e4a-851e-51d86669e856"
+    },
+    {
+      "dataset_id": "ufe-main-erkh-zui",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Эрх зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "d3ac865a-903d-5be7-be16-852cf5819b19"
+    },
+    {
+      "dataset_id": "ufe-main-biznesiin-udirdlaga-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Бизнесийн удирдлага (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "f824da03-12d7-57ad-acd1-3c78bec7bfca"
+    },
+    {
+      "dataset_id": "ufe-main-sankhuu-bank-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Санхүү, банк (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "25efb4b6-c3e6-58ff-93ac-b82251a0fcf9"
+    },
+    {
+      "dataset_id": "ufe-main-marketing-ai-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Маркетинг + AI (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "2394a76e-ce5b-5d74-9c94-7404c889c59d"
+    },
+    {
+      "dataset_id": "ufe-main-medeelliin-sistem-ai-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Мэдээллийн систем + AI (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "21cee5d1-a24e-55fc-84af-256fe58a17dd"
+    },
+    {
+      "dataset_id": "ufe-main-ayalal-juulchlal-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Аялал жуулчлал (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "5f787b3f-01a2-5a1b-a583-78f2ef0b242b"
+    },
+    {
+      "dataset_id": "ufe-main-erkh-zui-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Эрх зүй (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "40861e46-2921-5085-ad47-c12a2488a5cd"
+    },
+    {
+      "dataset_id": "ufe-main-nyagtlan-bodokh-burtgel-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Нягтлан бодох бүртгэл (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "12c5df4c-2dfb-5f53-b418-131dd1ac1c7b"
+    },
+    {
+      "dataset_id": "ufe-main-olon-ulsyn-khudaldaa-ai-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Олон улсын худалдаа + AI (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "a2eedb36-042e-5ccc-ab9f-72546a756e56"
+    },
+    {
+      "dataset_id": "ufe-main-zochlokh-uilchilgeenii-menejment-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Зочлох үйлчилгээний менежмент (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "3a363914-4c4d-5c81-9374-48f4b3b31b7f"
+    },
+    {
+      "dataset_id": "ufe-main-ediin-zasag-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Эдийн засаг (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "7dfba37b-9041-511f-8378-048335ff957d"
+    },
+    {
+      "dataset_id": "ufe-main-entreprenership-ai-2-2-khamtarsan",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Энтрепренершип + AI (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "6548532a-587e-5fae-9a8b-2818ae798ecd"
+    },
+    {
+      "dataset_id": "ufe-main-biznesiin-udirdlaga-btec",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Бизнесийн удирдлага (BTEC)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "54c978be-71c2-5a70-8cb8-712ace1ffc60"
+    },
+    {
+      "dataset_id": "ufe-main-medeelliin-sistem-ai-btec",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Мэдээллийн систем + AI (BTEC)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "0360a774-a524-5474-ab81-26f84fe91710"
+    },
+    {
+      "dataset_id": "ufe-main-olon-ulsyn-khudaldaa-ai-rotation",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Олон улсын худалдаа + AI (Rotation)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "8a557f85-1d41-5d52-8b9d-7881caafe10a"
+    },
+    {
+      "dataset_id": "ufe-main-niigmiin-innovats-rotation",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Нийгмийн инновац (Rotation)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "52d43b2d-e4ed-50a7-8ae4-c8b61cdaf706"
+    },
+    {
+      "dataset_id": "ufe-main-niigmiin-innovats-mba-3-1",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Нийгмийн инновац (+MBA, 3+1)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "a3620b4d-a7bf-5767-9455-57a71a960a7f"
+    },
+    {
+      "dataset_id": "ufe-main-olon-ulsyn-khudaldaa-ai-mba-3-1",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Олон улсын худалдаа + AI (+MBA, 3+1)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "6499430b-7f53-5df4-ba1f-30e7c49cd692"
+    },
+    {
+      "dataset_id": "ufe-main-sankhuu-bank-mba-3-1",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Санхүү, банк (+MBA, 3+1)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "da4b8c5f-fc7c-5869-8cb0-26e07cd574ff"
+    },
+    {
+      "dataset_id": "ufe-main-daatgal-mba-3-1",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Даатгал (+MBA, 3+1)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "a6668a34-155a-5228-91e8-c97a86aab362"
+    },
+    {
+      "dataset_id": "ufe-main-medeelliin-sistem-ai-mba-3-1",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Мэдээллийн систем + AI (+MBA, 3+1)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "a87b8979-b3e3-525f-abc3-848e708457ea"
+    },
+    {
+      "dataset_id": "ufe-main-nyagtlan-bodokh-burtgel-mba-3-1",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Нягтлан бодох бүртгэл (+MBA, 3+1)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "6640e94a-42a9-57b8-8b1a-dd41b67777c5"
+    },
+    {
+      "dataset_id": "ufe-main-erkh-zui-sankhuugiin-udirdlaga-khos-khutulbur",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Эрх зүй + Санхүүгийн удирдлага (Хос хөтөлбөр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "63d1715f-ad53-57c7-80b7-0e42164bfb91"
+    },
+    {
+      "dataset_id": "ufe-main-erkh-zui-nyagtlan-bodokh-burtgel-khos-khutulbur",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Эрх зүй + Нягтлан бодох бүртгэл (Хос хөтөлбөр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "c7ef8408-6cd8-5f23-b3b3-20ff5c1e1df9"
+    },
+    {
+      "dataset_id": "ufe-main-ayalal-juulchlal-nyagtlan-bodokh-burtgel-khos-khutulbur",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Аялал жуулчлал + Нягтлан бодох бүртгэл (Хос хөтөлбөр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "ecbfa5b0-448c-56a8-997b-b58c5c411e9f"
+    },
+    {
+      "dataset_id": "ufe-main-ayalal-juulchlal-zochlokh-uilchilgeenii-menejment-khos-khutulbur",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Аялал жуулчлал + Зочлох үйлчилгээний менежмент (Хос хөтөлбөр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "963428d7-85f8-5ba9-a86a-cae84494738b"
+    },
+    {
+      "dataset_id": "ufe-main-marketing-sankhuu-bank-khos-4-5-5-jil",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Маркетинг + Санхүү, банк (Хос, 4.5–5 жил)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "41206cc6-1bdd-504b-97b5-163fcb47c44b"
+    },
+    {
+      "dataset_id": "ufe-main-marketing-sankhuu-bank-khos-4-4-5-jil",
+      "dataset_school": "ufe-main",
+      "faculty": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+      "name": "Маркетинг + Санхүү, банк (Хос, 4–4.5 жил)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "one_minimum",
+      "db_id": "d63c55c1-118d-5ed5-8c58-aaea287a118a"
+    },
+    {
+      "dataset_id": "ufe-tech-program-khangamj",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Програм хангамж",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "e9ad9361-97b3-5688-8a99-66ff248775c9"
+    },
+    {
+      "dataset_id": "ufe-tech-program-khangamj-2-2",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Програм хангамж 2+2",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "aaf7678a-3ac8-5f85-845f-87a432891add"
+    },
+    {
+      "dataset_id": "ufe-tech-medeelliin-ayuulgui-baidal",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Мэдээллийн аюулгүй байдал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "22a1d612-5464-5492-9745-b98475fa3ed8"
+    },
+    {
+      "dataset_id": "ufe-tech-onlain-khudaldaa",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Онлайн худалдаа",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "b69fad28-f8d8-56ae-81d5-24c78aa160e9"
+    },
+    {
+      "dataset_id": "ufe-tech-khiimel-oyuun-ukhaan",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Хиймэл оюун ухаан",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "5f1ec18a-25dd-559a-ac9f-c3692405494e"
+    },
+    {
+      "dataset_id": "ufe-tech-ui-ux-injener",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "UI/UX инженер",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "f93d9332-7706-5055-b8c2-91b9d9e6f2ed"
+    },
+    {
+      "dataset_id": "ufe-tech-setgel-sudlal",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Сэтгэл судлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "3c9c29e4-e185-5020-a69e-0253f7e81138"
+    },
+    {
+      "dataset_id": "ufe-tech-visual-art-2-2",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Visual art 2+2",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "b126475e-bb69-51b5-9292-debbee8ac879"
+    },
+    {
+      "dataset_id": "ufe-tech-interier-dizain-2-2",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Интерьер дизайн 2+2",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "9b2c52c1-0843-55be-a5e4-86c0c785efec"
+    },
+    {
+      "dataset_id": "ufe-tech-khiimel-oyuun-ukhaan-2-2-khamtarsan",
+      "dataset_school": "ufe-tech",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Хиймэл оюун ухаан (2+2 хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "b44b4aad-e3ed-588d-8e88-6a8783987225"
+    },
+    {
+      "dataset_id": "ufe-edu-bagsh-surguuliin-umnukh-bolovsrol",
+      "dataset_school": "ufe-edu",
+      "faculty": "Боловсролын сургууль",
+      "name": "Багш, сургуулийн өмнөх боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "d34dbbdf-9c38-593f-bad9-7320e7551d44"
+    },
+    {
+      "dataset_id": "ufe-edu-bagsh-surguuliin-umnukh-bolovsrol-khamtarsan",
+      "dataset_school": "ufe-edu",
+      "faculty": "Боловсролын сургууль",
+      "name": "Багш, сургуулийн өмнөх боловсрол (хамтарсан)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "d988f3ce-3a97-5ef1-baa6-10ec90a704cc"
+    },
+    {
+      "dataset_id": "ufe-edu-bagsh-baga-bolovsrol",
+      "dataset_school": "ufe-edu",
+      "faculty": "Боловсролын сургууль",
+      "name": "Багш, бага боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "0b95b6d3-ab87-5925-b6bf-35e7b04b1417"
+    },
+    {
+      "dataset_id": "ufe-edu-bagsh-gadaad-khelnii-bolovsrol",
+      "dataset_school": "ufe-edu",
+      "faculty": "Боловсролын сургууль",
+      "name": "Багш, гадаад хэлний боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "7192572e-dbdb-599e-8d58-ae25765fba43"
+    },
+    {
+      "dataset_id": "ufe-soc-dijital-arkhiv-ugugdliin-sangiin-mergejilten",
+      "dataset_school": "ufe-soc",
+      "faculty": "Нийгмийн шинжлэх ухааны сургууль",
+      "name": "Дижитал архив, өгөгдлийн сангийн мэргэжилтэн",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "3e6f6f6c-279c-5272-a158-ef2c5b2915e9"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "ufe-leader",
+      "name": "Манлайлагч элсэгчийн тэтгэлэг (шинэ элсэгч)",
+      "db_id": "1846fc36-a370-5c32-8f49-2e4d78b92899"
+    },
+    {
+      "dataset_id": "ufe-target-group",
+      "name": "Зорилтот бүлгийн элсэгчийн тэтгэлэг",
+      "db_id": "bbc14958-7138-5c58-8369-b2d207b83cb1"
+    },
+    {
+      "dataset_id": "ufe-btec-talent",
+      "name": "BTEC Talent тэтгэлэг",
+      "db_id": "e6efb28a-b92c-59c8-a081-af66781984af"
+    },
+    {
+      "dataset_id": "ufe-entrant-support",
+      "name": "Элсэгчийг дэмжих тэтгэлэг",
+      "db_id": "ee674d4b-bcba-5b88-8565-56ecda7ba2ce"
+    },
+    {
+      "dataset_id": "ufe-invitation",
+      "name": "Урилга (олимпиад, урлаг, спортын амжилт) — элсэх эрх",
+      "db_id": "34ccaf3c-0d45-55af-88f7-79bab3a1ad6a"
+    },
+    {
+      "dataset_id": "ufe-current-students",
+      "name": "Амжилттай суралцагчдын тэтгэлэг (оюутан)",
+      "db_id": "26c730a9-003d-5741-9bdd-cc3403ba142a"
+    }
+  ],
+  "dorms": [
+    {
+      "dataset_id": "ufe-dorm-main",
+      "name": "СЭЗИС-ийн оюутны байр",
+      "db_id": "16314251-4133-53b6-94ae-232cbe5b57ac"
+    },
+    {
+      "dataset_id": "ufe-dorm-2",
+      "name": "МҮДС-ийн Оюутны дотуур II байр (нэмэлт)",
+      "db_id": "62da9266-6136-530c-bf00-f855d2d2d81e"
+    }
+  ],
+  "admission_dates": [
+    {
+      "dataset_id": "ufe-date-winter-esh-reg",
+      "event": "Өвлийн Элсэлтийн шалгалтын бүртгэл (БҮТ, eyesh.eec.mn; зөвхөн өмнөх онд шалгалт өгсөн шалгуулагч; хичээл бүр 20,000₮)",
+      "db_id": "215cc5a4-35c1-542f-8e25-c2e9dac370e9"
+    },
+    {
+      "dataset_id": "ufe-date-reg-2026",
+      "event": "2026 оны жишиг: СЭЗИС-ийн бакалаврын элсэлтийн бүртгэл (admission.ufe.edu.mn)",
+      "db_id": "a272337f-19b4-50e8-aaa0-38a28eff3c93"
+    },
+    {
+      "dataset_id": "ufe-date-tech-reg-2026",
+      "event": "2026 оны жишиг: Инженер, технологийн сургуулийн (UFE Tech) элсэлт",
+      "db_id": "c682698a-4285-5302-b467-a8eb9acc83e5"
+    },
+    {
+      "dataset_id": "ufe-date-advice-2026",
+      "event": "2026 оны жишиг: Үнэгүй зөвлөгөө (Пүрэв, Баасан 14:00–17:30, C байр 103 тоот)",
+      "db_id": "163e8f4b-abc1-50e0-a252-5c1403e12315"
+    },
+    {
+      "dataset_id": "ufe-date-openday-2026",
+      "event": "2026 оны жишиг: Нээлттэй хаалганы өдөрлөг",
+      "db_id": "f24ed1fb-57d4-5814-a893-1a4318a3c1e5"
+    },
+    {
+      "dataset_id": "ufe-date-invite-2026",
+      "event": "2026 оны жишиг: Урилгаар элсэх (олимпиад, урлаг, спорт) бүртгэл хаагдсан",
+      "db_id": "0f79d27b-72b1-59f6-9f01-eb7f20b6eac1"
+    },
+    {
+      "dataset_id": "ufe-date-esh-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалт (ЭЕШ/ЭШ)",
+      "db_id": "ba5623ad-69b2-5e60-be17-2e6e68f7e06c"
+    },
+    {
+      "dataset_id": "ufe-date-skill-2026",
+      "event": "2026 оны жишиг: Аялал жуулчлалын ур чадварын шалгалтын видео илгээх эцсийн өдөр",
+      "db_id": "1dea6207-8b60-5185-9353-9667de8c1a8d"
+    },
+    {
+      "dataset_id": "ufe-date-ranking-2026",
+      "event": "2026 оны жишиг: Эрэмбийн жагсаалт (09:00), мэргэжил баталгаажуулалт эхэлсэн (10:00) — анх 6-р сарын 29-нд товлосныг БҮТ-ийн дүн хойшилсноор хойшлуулсан",
+      "db_id": "6302dda6-0886-56a9-a5fe-564e21c9a0f0"
+    },
+    {
+      "dataset_id": "ufe-date-selection-2026",
+      "event": "2026 оны жишиг: Бакалаврын элсэлтийн (шалгаруулалт, баталгаажуулалт) үйл ажиллагаа онлайнаар",
+      "db_id": "ee620734-7b8c-56b5-81c1-1a68566fd9dd"
+    },
+    {
+      "dataset_id": "ufe-date-egeree-2026",
+      "event": "2026 оны жишиг: E-Geree суралцах гэрээ, англи хэлний түвшин тогтоох шалгалт, мэргэжил солих хүсэлтийн эцсийн хугацаа (гэрээ 13:00-аас өмнө)",
+      "db_id": "343214b1-031d-5906-a1f6-9bfb35a0b2f1"
+    },
+    {
+      "dataset_id": "ufe-date-additional-2026",
+      "event": "2026 оны жишиг: Нэмэлт элсэлтийн бүртгэл (8-р сарын 17-ны 09:00 хүртэл)",
+      "db_id": "405a13ae-4562-54bb-9e10-d9c2f68d9ec6"
+    },
+    {
+      "dataset_id": "ufe-date-tuition-2026",
+      "event": "2026 оны жишиг: Гэрээ байгуулсан элсэгч сургалтын төлбөрөө төлж баталгаажуулах эцсийн өдөр",
+      "db_id": "81e521a6-a3c5-5de2-9b12-c17f9e0177eb"
+    },
+    {
+      "dataset_id": "ufe-date-orientation-2026",
+      "event": "2026 оны жишиг: Шинэ элсэгчийн чиглүүлэх сургалт (цахимаар; 8-р сарын 26 хичээл сонголт)",
+      "db_id": "2f065ed7-5113-5204-a630-776ec69c3e5d"
+    },
+    {
+      "dataset_id": "ufe-date-dorm-2026",
+      "event": "2026 оны жишиг: Шинэ элсэгчийн дотуур байрны цахим бүртгэл (dormitory.ufe.edu.mn, орон нутгийн харьяалалтай)",
+      "db_id": "56f6c1f7-0279-51a8-b136-21117d9de590"
+    },
+    {
+      "dataset_id": "ufe-date-classes-2026",
+      "event": "2026 оны жишиг: Хичээлийн жил эхэлсэн (9-р сарын 1–11 цахимаар, 9-р сарын 14-өөс танхимаар — COP17)",
+      "db_id": "a0fbd1b2-b31a-51be-8a1f-4e4f1bf656ba"
+    },
+    {
+      "dataset_id": "ufe-date-dorm-movein-2026",
+      "event": "2026 оны жишиг: Дотуур байранд хүлээн авч эхэлсэн (шинэ элсэгчийн сайтад 8-р сарын 30–31 гэж бичсэн нь 8-р сарын 11-ний мэдэгдлээр өөрчлөгдсөн)",
+      "db_id": "75d0b247-d11c-5378-a760-5bf58eb6efdd"
+    },
+    {
+      "dataset_id": "ufe-date-transfer-2027",
+      "event": "Шилжин суралцах өргөдөл (бусад их сургуулийн оюутан; сайтад 'Намрын улирал' гэж бичсэн)",
+      "db_id": "c9a2bb88-b4a4-5ef8-a794-d965cd2cc332"
+    }
+  ]
+}

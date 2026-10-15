@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "dataset": "admission_dates",
+    "university": "ХААИС",
+    "description": "ХААИС-ийн хуудсанд харуулах огноонууд. 'жишиг' = өмнөх оны огноо (2027 оных зарлагдаагүй). ХААИС-ийн 2026 оны өөрийн бүртгэлийн огноо олдсонгүй.",
+    "language": "mn",
+    "verified_at": "2026-10-15",
+    "sources": [
+      "https://ikon.mn/n/3lsg",
+      "https://ikon.mn/n/3lvf",
+      "https://muls.edu.mn/",
+      "https://elselt.sab.edu.mn/view.php?value_id=ZW5jb2RldXNlcmlkNA%3D%3D",
+      "https://ikon.mn/n/3qpi"
+    ]
+  },
+  "records": [
+    {
+      "id": "muls-date-esh-reg-2026",
+      "event_mn": "2026 оны жишиг: ЭШ-д бүртгүүлэх (БҮТ, сургуулийн цахим системээр)",
+      "start": "2026-03-04",
+      "end": "2026-05-15",
+      "status": "reference",
+      "source_urls": [
+        "https://ikon.mn/n/3lsg"
+      ]
+    },
+    {
+      "id": "muls-date-bachelor-reg-2026",
+      "event_mn": "2026 оны жишиг: ХААИС-ийн бакалаврын элсэлтийн цахим бүртгэл (elselt.muls.edu.mn)",
+      "start": "2026-05-01",
+      "end": "2026-07-09",
+      "source_urls": [
+        "https://elselt.muls.edu.mn/"
+      ],
+      "verified_at": "2026-10-15",
+      "status": "reference"
+    },
+    {
+      "id": "muls-date-esh-2026",
+      "event_mn": "2026 оны жишиг: Элсэлтийн шалгалт (ЭШ)",
+      "start": "2026-06-25",
+      "end": "2026-06-28",
+      "status": "reference",
+      "source_urls": [
+        "https://ikon.mn/n/3lvf"
+      ]
+    },
+    {
+      "id": "muls-date-mock-2025",
+      "event_mn": "2025 оны жишиг: ХААИС-ийн элсэлтийн шалгалтын сорилго (танхим, онлайн)",
+      "start": "2025-04-26",
+      "end": "2025-04-27",
+      "status": "stale",
+      "source_urls": [
+        "https://muls.edu.mn/",
+        "https://muls.edu.mn/view_news.php?value_id=ZW5jb2RldXNlcmlkNDQwMA%3D%3D"
+      ]
+    },
+    {
+      "id": "muls-date-darkhan-reg-2023",
+      "event_mn": "2023 оны жишиг: Дархан-Уул салбарын бакалаврын өдрийн хөтөлбөрийн бүртгэл",
+      "start": "2023-06-15",
+      "end": "2023-09-15",
+      "status": "stale",
+      "source_urls": [
+        "https://elselt.sab.edu.mn/view.php?value_id=ZW5jb2RldXNlcmlkNA%3D%3D"
+      ]
+    },
+    {
+      "id": "muls-date-winter-reg-2026",
+      "event_mn": "2026 оны өвлийн ЭШ-ийн бүртгэл (зөвхөн өмнөх оны шалгуулагчид; хичээл бүр 20,000₮)",
+      "start": "2026-10-01",
+      "end": "2026-11-23",
+      "status": "current",
+      "source_urls": [
+        "https://ikon.mn/n/3qpi",
+        "https://ikon.mn/n/3qqx"
+      ]
+    }
+  ]
+}

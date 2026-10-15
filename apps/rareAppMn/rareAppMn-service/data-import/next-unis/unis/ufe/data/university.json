@@ -1,0 +1,227 @@
+{
+ "_meta": {
+  "dataset": "university",
+  "university": "СЭЗИС",
+  "description": "СЭЗИС-ийн ерөнхий мэдээлэл: танилцуулга, түүх, тоо, холбоо барих, оюутны үйлчилгээ, sidebar-ийн утгууд.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "ufe",
+   "name_mn": "Санхүү эдийн засгийн их сургууль",
+   "short_name_mn": "СЭЗИС",
+   "name_en": "University of Finance and Economics",
+   "short_name_en": "UFE",
+   "website": "https://www.ufe.edu.mn",
+   "admission_website": "https://admission.ufe.edu.mn",
+   "admission_system_url": "https://admission.ufe.edu.mn",
+   "admission_login_url": "https://admission.ufe.edu.mn/mn/auth/eec",
+   "overview_mn": "Санхүү эдийн засгийн их сургууль (СЭЗИС, UFE) нь 1924 оны 6-р сард Сангийн яамны дэргэд 'Гаалийн түр сургууль' нэрээр байгуулагдсан, санхүү, эдийн засаг, бизнесийн чиглэлийн их сургууль юм. Улаанбаатарын Баянзүрх дүүрэгт (Энхтайваны өргөн чөлөө-5) байрладаг; 300 гаруй багш, ажилтан, 6,000 орчим оюутан, 40,000 гаруй төгсөгчтэй. 2026-2027 онд бакалаврын 16 мэргэжлээр (BBA, BS, BA, LLB) 8 төрлийн хөтөлбөрт — үндсэн, олон улсын хамтарсан 2+2, ACCA/CGMA, BTEC, Rotation, Хос, +MBA, Интерактив — элсүүлсэн бөгөөд Инженер, технологийн сургууль (UFE Tech), Боловсролын, Нийгмийн шинжлэх ухааны сургуулиар нэмэлт мэргэжил санал болгодог. Элсэлтэд ЭЕШ-ын 2 хичээлийн дундаж оноог ашигладаг, босго нь 510–620. ACBSP-ийн магадлан итгэмжлэлтэй (2012 оноос, 2032 он хүртэл) бөгөөд 10 гаруй орны 20-иод их сургуультай хамтарсан хөтөлбөртэй.",
+   "history": [
+    {
+     "year": 1924,
+     "event_mn": "6-р сард Монгол Улсын Сангийн яамны дэргэд 'Гаалийн түр сургууль' нэрээр 6 багш, 1 хичээлийн байртай байгуулагдсан; бүртгэл, гаалийн мэргэжилтэн бэлтгэж эхэлсэн.",
+     "status": "current"
+    },
+    {
+     "year": 2006,
+     "event_mn": "Олон улсын 2+2 хамтарсан хөтөлбөр эхэлсэн.",
+     "status": "current"
+    },
+    {
+     "year": 2008,
+     "event_mn": "ACBSP-ийн анхны монгол гишүүн болсон.",
+     "status": "current"
+    },
+    {
+     "year": 2012,
+     "event_mn": "ACBSP-ийн олон улсын магадлан итгэмжлэл авсан анхны монгол их сургууль болсон.",
+     "status": "current"
+    },
+    {
+     "year": 2021,
+     "event_mn": "2031 он хүртэлх урт хугацааны хөгжлийн бодлогоо баталсан.",
+     "status": "current"
+    },
+    {
+     "year": 2022,
+     "event_mn": "ACBSP магадлан итгэмжлэлийг 2032 он хүртэл сунгасан; 'Бакалавр 2.0' хөтөлбөр хэрэгжүүлж эхэлсэн.",
+     "status": "current"
+    },
+    {
+     "year": 2023,
+     "event_mn": "Боловсролын, Нийгмийн шинжлэх ухааны, Инженерчлэлийн сургуулиар 11 мэргэжлээр үйл ажиллагаагаа өргөжүүлсэн.",
+     "status": "current"
+    }
+   ],
+   "history_source_urls": [
+    "https://ufe.edu.mn/c/28",
+    "https://www.ufe.edu.mn/en/c/28",
+    "https://www.ufe.edu.mn/en/widgetDetail/535",
+    "https://admission.ufe.edu.mn/mn/newsDetail/194",
+    "https://ufe.edu.mn/widgetDetail/828",
+    "https://sites.google.com/ufe.edu.mn/orientation/%D1%85%D3%A9%D1%82%D3%A9%D0%BB%D0%B1%D3%A9%D1%80%D0%B8%D0%B9%D0%BD-%D1%82%D0%B0%D0%BD%D0%B8%D0%BB%D1%86%D1%83%D1%83%D0%BB%D0%B3%D0%B0"
+   ],
+   "honors_mn": "С.Довчингийн нэрэмжит; Хөдөлмөрийн гавьяаны улаан тугийн одонтой.",
+   "motto_mn": "Эрхэм баян эрдэм",
+   "vision_mn": "Даян дэлхийн тогтвортой хөгжил, эх орныхоо өрсөлдөх чадварт үнэ цэнэтэй хувь нэмэр оруулах манлайлагчдыг бэлтгэнэ.",
+   "mission_mn": "Олон улсын жишигт нийцсэн, дижитал, энтрепренер их сургууль болсон байна.",
+   "stats": [
+    {
+     "label_mn": "Багш, ажилтан",
+     "value": "300 гаруй",
+     "source_url": "https://ufe.edu.mn/c/28",
+     "status": "current"
+    },
+    {
+     "label_mn": "Оюутан",
+     "value": "6,000 орчим",
+     "source_url": "https://ufe.edu.mn/c/28",
+     "status": "current"
+    },
+    {
+     "label_mn": "Төгсөгч",
+     "value": "40,000 гаруй",
+     "source_url": "https://ufe.edu.mn/c/28",
+     "status": "current"
+    },
+    {
+     "label_mn": "Бакалаврын мэргэжил (2026-2027, СЭЗИС үндсэн)",
+     "value": "16 мэргэжил, 8 төрлийн хөтөлбөр",
+     "source_url": "https://admission.ufe.edu.mn/mn/newsDetail/210",
+     "status": "current"
+    },
+    {
+     "label_mn": "Хамтарсан хөтөлбөрийн түнш",
+     "value": "10 гаруй орны 20-иод их сургууль; жил бүр 120–130 оюутан шилжиж суралцдаг",
+     "source_url": "https://admission.ufe.edu.mn/mn/newsDetail/194",
+     "status": "current"
+    },
+    {
+     "label_mn": "Урилга, тэтгэлгийн шалгаруулалт 2026",
+     "value": "499 оролцогчоос 62 нь эрх авсан",
+     "source_url": "https://admission.ufe.edu.mn/mn/newsDetail/204",
+     "status": "current"
+    }
+   ],
+   "accreditation_memberships": [
+    "ACBSP"
+   ],
+   "rankings": [
+    {
+     "name": "THE Impact Rankings 2026 (Sustainability Impact Ratings, нийт)",
+     "value": "1001–1500",
+     "source_url": "https://www.timeshighereducation.com/world-university-rankings/university-finance-and-economics-mongolia",
+     "status": "current"
+    }
+   ],
+   "rankings_note_mn": "THE-ийн хуудсанд World University Rankings, Asia rankings-д эрэмбэ байхгүй; зөвхөн Impact (тогтвортой хөгжил) ангилал.",
+   "contacts": {
+    "address_mn": "Улаанбаатар, Баянзүрх дүүрэг, 3-р хороо, Энхтайваны өргөн чөлөө-5, 13381, Ш/Х Улаанбаатар-49",
+    "phones": [
+     "7777-1100",
+     "7773-7777",
+     "7777-4400",
+     "7724-8888",
+     "7735-0000"
+    ],
+    "admission_office_mn": "Элсэлтийн комисс / UFE Connect zone — C байр, 1 давхар, 103 тоот; үндсэн хөтөлбөр 8505-8035, хамтарсан 8505-8037; admission_bachelor@ufe.edu.mn",
+    "program_phones_mn": {
+     "Үндсэн хөтөлбөр": "8505-8035",
+     "Хамтарсан хөтөлбөр": "8505-8037",
+     "Мэргэшсэн хөтөлбөр (ACCA, CGMA)": "9199-9111, 9915-8505",
+     "Интерактив хөтөлбөр": "9907-8464",
+     "BTEC хөтөлбөр": "9990-2286, 9918-9137",
+     "Rotation хөтөлбөр": "9980-4389, 9650-9889, 9911-6287",
+     "Бүртгэлийн систем (МТ алба)": "8505-8052",
+     "Төлбөр (Санхүүгийн алба)": "7777-4400 (дотуур 2-1)"
+    },
+    "student_office_mn": "Оюутны хөгжлийн төв — C байр, 3 давхар, 303а; Санхүүгийн алба — C байр, 301; Сургалтын алба — C байр, 303а/303в.",
+    "emails": {
+     "general": "info@ufe.edu.mn",
+     "admission": "admission_bachelor@ufe.edu.mn",
+     "dormitory": "ezsahelp@ufe.edu.mn",
+     "ufe_tech": "technology@ufe.edu.mn"
+    }
+   },
+   "location_short_mn": "Улаанбаатар, Баянзүрх дүүрэг, Энхтайваны өргөн чөлөө-5",
+   "social": {
+    "facebook": "https://www.facebook.com/ufe.edu.mn",
+    "facebook_admissions": "https://www.facebook.com/UfeAdmissions",
+    "instagram": "https://www.instagram.com/ufe.edu.mn/",
+    "instagram_admissions": "https://www.instagram.com/ufe_admissions",
+    "x": "https://x.com/ufe_edu_mn",
+    "youtube": "https://www.youtube.com/@ufemedia",
+    "linkedin": "https://www.linkedin.com/school/ufemongolia/"
+   },
+   "student_services": [
+    {
+     "name_mn": "Элсэлтийн систем (бүртгэл, мэргэжил баталгаажуулалт)",
+     "url": "https://admission.ufe.edu.mn"
+    },
+    {
+     "name_mn": "Шинэ элсэгчийн сайт (чиглүүлэх сургалт, гэрээ, тэтгэлэг, байр)",
+     "url": "https://sites.google.com/ufe.edu.mn/orientation/"
+    },
+    {
+     "name_mn": "Оюутны дотуур байрны бүртгэл",
+     "url": "https://dormitory.ufe.edu.mn/"
+    },
+    {
+     "name_mn": "Оюутны портал",
+     "url": "https://student.ufe.edu.mn/"
+    },
+    {
+     "name_mn": "Infosys (хичээл сонголт, дүн)",
+     "url": "https://infosys.ufe.edu.mn/"
+    },
+    {
+     "name_mn": "Цахим сургалт (online.ufe.edu.mn)",
+     "url": "https://online.ufe.edu.mn/"
+    },
+    {
+     "name_mn": "Номын сан",
+     "url": "https://ufe.edu.mn/library"
+    },
+    {
+     "name_mn": "Бүтээлийн сан (repository)",
+     "url": "http://repository.ufe.edu.mn/xmlui/"
+    },
+    {
+     "name_mn": "Суралцах гэрээ (E-Geree)",
+     "url": "https://egeree.mn"
+    }
+   ],
+   "campus_life_mn": "СЭЗИС-ийн нэрэмжит олимпиад (Математик, Англи хэл, Нийгмийн тухай мэдлэг), маркетингийн контент уралдаан, 'UFE OPEN 3x3 CUP' сагсан бөмбөг, нээлттэй хаалганы өдөрлөг, IO Career workshop зэрэг арга хэмжээ зохиодог.",
+   "international_mn": "2006 оноос 2+2 хамтарсан хөтөлбөр: БНСУ (SolBridge, Handong, Woosong, Daegu, Kyonggi, Jeonbuk), БНХАУ (Dalian, Dongbei, Dalian Polytechnic, Shandong Tourism), Тайвань (Asia Univ.), Канад (Dalhousie), Финлянд (Seinäjoki), Швейцар (B.H.M.S), Австрали (Texila, Ozford), АНУ (Bay Atlantic), Япон (ажлын байрны дадлага). Rotation: 3 жилд 4 улсын 4 их сургууль. ACCA, CGMA, Pearson BTEC олон улсын мэргэжлийн хөтөлбөр.",
+   "sidebar_suggestion": {
+    "tuition_text_mn": "1 кредит 310,000₮ (үндсэн, Хос, +MBA); 2+2 хамтарсан 376,000₮; BTEC 447,000₮; Rotation 28 сая ₮/жил. Жилд ≈9.3 сая ₮ (30 кредит).",
+    "tuition_number": 9300000,
+    "tuition_number_note_mn": "Үндсэн хөтөлбөр: жилд 30 кредит × 310,000₮ гэж тооцсон (албан ёсны жилийн дүн биш; 3 жилд төгсвөл ≈12.4 сая ₮).",
+    "dorm_flag": "Боломжтой",
+    "scholarship_flag": "Боломжтой",
+    "dorm_howto_mn": "СЭЗИС-ийн оюутны байр Баянзүрх дүүргийн 6-р хороо, Оюутны хотхонд байрладаг. Шинэ элсэгчид 2026 онд 8-р сарын 27–29-нд dormitory.ufe.edu.mn-ээр цахимаар бүртгүүлсэн (зөвхөн орон нутгийн харьяалалтай оюутан). Өрөөгөө сонгож, захиалгаа илгээн урьдчилгаа төлбөр (барьцаа 100,000₮) төлж баталгаажуулаад тогтсон өдөр нүүнэ — 2026 онд COP17-ийн улмаас 9-р сарын 14-өөс хүлээн авсан. Сарын төлбөр 5 ортой өрөөнд 120,000₮-өөс 2 ортой өрөөнд 250,000₮ хүртэл (10 сард нийт 1.25–2.55 сая ₮, усны 50,000₮ орно). 2-р курсээс дээш оюутанд Баянгол дүүргийн 11-р хорооны 'МҮДС-ийн Оюутны дотуур II байр' (сард 260,000₮). Лавлах: 7777-4400, ezsahelp@ufe.edu.mn.",
+    "phones": [
+     "8505-8035",
+     "7777-1100"
+    ],
+    "email": "admission_bachelor@ufe.edu.mn",
+    "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, Энхтайваны өргөн чөлөө-5",
+    "website": "https://www.ufe.edu.mn"
+   },
+   "source_urls": [
+    "https://www.ufe.edu.mn",
+    "https://ufe.edu.mn/c/28",
+    "https://ufe.edu.mn/contact",
+    "https://admission.ufe.edu.mn",
+    "https://admission.ufe.edu.mn/mn/newsDetail/210",
+    "https://www.timeshighereducation.com/world-university-rankings/university-finance-and-economics-mongolia",
+    "https://dormitory.ufe.edu.mn/",
+    "https://sites.google.com/ufe.edu.mn/orientation/"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  }
+ ]
+}

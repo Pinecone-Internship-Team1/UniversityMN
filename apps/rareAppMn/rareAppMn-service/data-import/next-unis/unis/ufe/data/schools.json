@@ -1,0 +1,124 @@
+{
+ "_meta": {
+  "dataset": "schools",
+  "university": "СЭЗИС",
+  "description": "СЭЗИС-ийн бакалаврын элсэлт авдаг бүрэлдэхүүн сургуулиуд ба нэгж.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "ufe-main",
+   "type": "constituent",
+   "name_mn": "СЭЗИС — бакалаврын үндсэн хөтөлбөрүүд",
+   "abbr_mn": "СЭЗИС",
+   "website": "https://www.ufe.edu.mn",
+   "page": "https://admission.ufe.edu.mn/mn/degree/1",
+   "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, 3-р хороо, Энхтайваны өргөн чөлөө-5 (СЭЗИС-ийн төв хотхон)",
+   "contacts": {
+    "office_mn": "Бакалаврын сургалт, судалгааны алба; UFE Connect zone — C байр, 1 давхар, 103 тоот",
+    "phones_mn": {
+     "Үндсэн хөтөлбөр": "8505-8035",
+     "Хамтарсан хөтөлбөр": "8505-8037",
+     "Мэргэшсэн хөтөлбөр (ACCA, CGMA)": "9199-9111, 9915-8505",
+     "Интерактив хөтөлбөр": "9907-8464",
+     "BTEC хөтөлбөр": "9990-2286, 9918-9137",
+     "Rotation хөтөлбөр": "9980-4389, 9650-9889, 9911-6287",
+     "Бүртгэлийн систем (МТ алба)": "8505-8052",
+     "Төлбөр (Санхүүгийн алба)": "7777-4400 (дотуур 2-1)"
+    },
+    "email": "admission_bachelor@ufe.edu.mn"
+   },
+   "notes_mn": "Элсэлтийн системд 'Санхүү эдийн засгийн их сургууль → Бакалаврын өдрийн хөтөлбөр' нэрээр гардаг; факультетэд хуваагдаагүй, зэргээр (BBA, BS, BA, LLB) бүлэглэдэг. Мэргэжил бүр 8 төрлийн хөтөлбөрийн хэлбэртэй (Үндсэн, Хамтарсан 2+2, Мэргэшсэн, Интерактив, BTEC, Rotation, Хос, +MBA) — хэлбэр бүрийг programs.json-д тусад нь оруулав.",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/degree/1",
+    "https://admission.ufe.edu.mn/mn/professions/1",
+    "https://admission.ufe.edu.mn/mn/newsDetail/199",
+    "https://admission.ufe.edu.mn/mn/newsDetail/210",
+    "https://ufe.edu.mn/contact"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "ufe-tech",
+   "type": "constituent",
+   "name_mn": "Инженер, технологийн сургууль",
+   "abbr_mn": "UFE Tech",
+   "website": "https://ufetech.mn",
+   "page": "https://ufetech.mn/mn/about",
+   "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, 3-р хороо, Энхтайваны өргөн чөлөө-5, СЭЗИС-ийн B байр, 402 тоот",
+   "contacts": {
+    "phone": "7714-3232",
+    "phone_note_mn": "ufetech.mn-д 7714-3232 (холбоос нь 7010-5010); элсэлтийн мэдээнд 7732-1010 гэж бичсэн — зөрүүтэй.",
+    "emails": [
+     "contact@ufetech.mn",
+     "technology@ufe.edu.mn"
+    ]
+   },
+   "notes_mn": "СЭЗИС-ийн бүрэлдэхүүн сургууль (ufetech.mn). 2026 онд элсэлтийн системд 8 мэргэжил (10 хувилбар). 2023 онд СЭЗИС 'Инженерчлэлийн сургууль' (цахилгаан, механик, уул уурхай, нэхмэл) нээж байсан — одоогийн UFE Tech-тэй холбоог нийтлээгүй. Захирал: Тулга (IO Institute-ийн ТУЗ-ийн дарга).",
+   "source_urls": [
+    "https://ufetech.mn",
+    "https://ufetech.mn/mn/about",
+    "https://admission.ufe.edu.mn/mn/professions/18",
+    "https://admission.ufe.edu.mn/mn/newsDetail/170"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "ufe-edu",
+   "type": "constituent",
+   "name_mn": "Боловсролын сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://admission.ufe.edu.mn/mn/professions/17",
+   "location_mn": "Улаанбаатар (тодорхой хаяг олдсонгүй — сургуулиас тодруулна уу)",
+   "contacts": null,
+   "notes_mn": "СЭЗИС 2023 онд Боловсролын сургуулиар үйл ажиллагаагаа өргөжүүлсэн (багш бэлтгэх хөтөлбөрүүд). Сургуулийн Google Site 'СЭЗИС БОЛОВСРОЛЫН СУРГУУЛЬ' нь 3erdene.edu.mn (Гурван-Эрдэнэ) домэйн дээр байгаа. Элсэлтийн системийн admission.ufe.edu.mn/mn/professions/17 хуудсанд 4 багшийн хөтөлбөр гардаг тул энэ сургуульд хамааруулав (хуудсан дээр сургуулийн нэр бичээгүй — таамаг). Байршил, холбоо барих мэдээлэл олдсонгүй.",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/professions/17",
+    "https://ufe.edu.mn/widgetDetail/828",
+    "https://sites.google.com/a/3erdene.edu.mn/3-erdene",
+    "https://admission.ufe.edu.mn/mn/newsDetail/204"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "partial"
+  },
+  {
+   "id": "ufe-soc",
+   "type": "constituent",
+   "name_mn": "Нийгмийн шинжлэх ухааны сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://admission.ufe.edu.mn/mn/professions/19",
+   "location_mn": "Улаанбаатар (тодорхой хаяг олдсонгүй — сургуулиас тодруулна уу)",
+   "contacts": null,
+   "notes_mn": "Элсэлтийн нүүр хуудсанд 'Нийгмийн шинжлэх ухааны сургууль → Бакалаврын өдрийн хөтөлбөр' гэж бий. 2023 онд энэ сургууль 'цахим архив, албан хэрэг хөтлөлт' болон 'нийгмийн харилцаа' мэргэжилтэй байсан. admission.ufe.edu.mn/mn/professions/19-д 'Дижитал архив, өгөгдлийн сангийн мэргэжилтэн' ганц хөтөлбөр гардаг тул энэ сургуульд хамааруулав (таамаг).",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn",
+    "https://admission.ufe.edu.mn/mn/professions/19",
+    "https://ufe.edu.mn/widgetDetail/828"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "partial"
+  },
+  {
+   "id": "ufe-graduate",
+   "type": "unit",
+   "name_mn": "Ахисан түвшний сургууль (магистр, доктор)",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://admission.ufe.edu.mn/mn/degree/2",
+   "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, 3-р хороо, Энхтайваны өргөн чөлөө-5 (СЭЗИС-ийн төв хотхон)",
+   "contacts": null,
+   "notes_mn": "Магистр (10 хөтөлбөр), доктор (Бизнесийн удирдлага, Менежмент) — бакалаврын элсэлт авахгүй.",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/degree/2",
+    "https://admission.ufe.edu.mn/mn/degree/7"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "_meta": {
+  "dataset": "scholarships",
+  "university": "СЭЗИС",
+  "description": "СЭЗИС-ийн тэтгэлэг, хөнгөлөлт, урилга.",
+  "language": "mn",
+  "verified_at": "2026-10-15",
+  "note_mn": "type: tuition_discount | grant | loan | sponsor_scholarship. Шинэ элсэгчийн тэтгэлгийн журам (PDF) скан тул уншигдаагүй — sources.json → gap-scholarship-pdf. Элсэлтийн FAQ-д 'Сургалтын төлбөрөө 100% хүртэл хөнгөлүүлэх боломжтой юу?' гэсэн асуулт бий."
+ },
+ "records": [
+  {
+   "id": "ufe-leader",
+   "type": "tuition_discount",
+   "name_mn": "Манлайлагч элсэгчийн тэтгэлэг (шинэ элсэгч)",
+   "coverage_mn": "Сургалтын төлбөрт 3,000,000₮ хүртэл, нэг удаа.",
+   "requirements_mn": "СЭЗИС-ийн босгыг бүрэн хангасан; бүрэн дунд боловсролын гэрчилгээний дундаж 90+; сурагчдын зөвлөл, клуб, олон нийтийн ажилд удирдах үүрэг гүйцэтгэсэн; олон улсын хүүхдийн уралдаанд шагнал авсан.",
+   "deadline_mn": "2026 онд 'Цахим зөвлөх үйлчилгээ'-гээр материал хүлээн авсан (хугацаа нийтлээгүй)",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/177",
+    "https://backadmission.ufe.edu.mn/content/post/image/202604/180067846491c672de3775ac9b7d8103.pdf"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "ufe-target-group",
+   "type": "grant",
+   "name_mn": "Зорилтот бүлгийн элсэгчийн тэтгэлэг",
+   "coverage_mn": "Сургалтын төлбөрт 3,000,000₮ хүртэл.",
+   "requirements_mn": "Босго хангасан ба аль нэг нь: өрх толгойлсон эцэг/эхтэй, асран хамгаалагчаа алдсан, 4+ хүүхэдтэй өрх; тусгай хэрэгцээт боловсролын (хөгжлийн бэрхшээлтэй) сурагч; эцэг/эх нь хөдөлмөрийн чадвараа 50% хүртэл алдсан; асрамжийн газрын хүүхэд.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/177",
+    "https://backadmission.ufe.edu.mn/content/post/image/202604/180067846491c672de3775ac9b7d8103.pdf"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "ufe-btec-talent",
+   "type": "tuition_discount",
+   "name_mn": "BTEC Talent тэтгэлэг",
+   "coverage_mn": "BTEC Higher Nationals хөтөлбөрийн сургалтын төлбөрт 5,000,000₮ хүртэл.",
+   "requirements_mn": "Бүрэн дунд боловсрол эсвэл BTEC Level 3; IELTS 6.0 (унших, бичих 5.5+); Бизнес эсвэл Дижитал технологи (дата аналитик) чиглэл сонирхсон; бие даан суралцах чадвартай.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/177",
+    "https://admission.ufe.edu.mn/mn/newsDetail/196"
+   ],
+   "school_id": "ufe-main",
+   "status": "current",
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "ufe-entrant-support",
+   "type": "grant",
+   "name_mn": "Элсэгчийг дэмжих тэтгэлэг",
+   "coverage_mn": "10 хүртэлх элсэгчид тус бүр 3.0 сая ₮ (сургалтын төлбөрт).",
+   "requirements_mn": "СЭЗИС-ийн босгыг хангасан, суралцах хүсэл өндөр, Боловсролын зээлийн сангийн буцалтгүй тусламжийн нөхцөлөөс гадуур санхүүгийн шалтгаанаар суралцах боломжгүй. (Шинэ элсэгчийн сайтын мэдээлэл — 'Зорилтот бүлгийн' тэтгэлэгтэй ижил эсэхийг тодруулна уу.)",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://sites.google.com/ufe.edu.mn/orientation/%D1%82%D1%8D%D1%82%D0%B3%D1%8D%D0%BB%D1%8D%D0%B3"
+   ],
+   "school_id": null,
+   "status": "verify",
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "ufe-invitation",
+   "type": "tuition_discount",
+   "name_mn": "Урилга (олимпиад, урлаг, спортын амжилт) — элсэх эрх",
+   "coverage_mn": "Онооны жагсаалтад орохгүйгээр хүссэн мэргэжлээ сонгох эрх; 2026 онд урилгатай хамт тэтгэлэг гардуулсан (дүн нийтлээгүй).",
+   "requirements_mn": "Улсын олимпиадад байр эзэлсэн; СЭЗИС-ийн нэрэмжит олимпиад, уралдаанд эрхийн бичиг авсан; урлаг, спортын өндөр амжилттай.",
+   "deadline_mn": "2026 онд 6-р сарын 13-нд бүртгэл хаагдсан",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/189",
+    "https://admission.ufe.edu.mn/mn/newsDetail/204"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "ufe-current-students",
+   "type": "sponsor_scholarship",
+   "name_mn": "Амжилттай суралцагчдын тэтгэлэг (оюутан)",
+   "coverage_mn": "Ректорын нэрэмжит тэтгэлэг; оюутан солилцоо; Засгийн газар, Боловсролын зээлийн сан, гадаадад суралцах тэтгэлэг; компани, сангийн тэтгэлэг (жишээ нь 2025 онд Голомт банкны тэтгэлгийг 18 оюутан авсан).",
+   "requirements_mn": "Голч дүн гол шалгуур; тэтгэлэг бүр өөрийн шаардлагатай. Дүн, хувь нийтлээгүй.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://sites.google.com/ufe.edu.mn/orientation/%D1%82%D1%8D%D1%82%D0%B3%D1%8D%D0%BB%D1%8D%D0%B3",
+    "https://ufe.edu.mn/widgetDetail/1700"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-15"
+  }
+ ]
+}

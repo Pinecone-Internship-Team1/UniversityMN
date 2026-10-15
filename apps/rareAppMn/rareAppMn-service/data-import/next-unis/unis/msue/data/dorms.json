@@ -1,0 +1,96 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "МУБИС",
+  "description": "МУБИС-ийн оюутны байр.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "msue-dorm-facts",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны ерөнхий мэдээлэл",
+   "facts_mn": [
+    "'Оюутны өргөө' 1, 2-р байр — Улаанбаатар, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу; 2024-2025 онд 1,200 гаруй оюутан амьдарсан.",
+    "Оршин суугчид: 72% орон нутгийн, 28% Улаанбаатарын; 65% эмэгтэй; 87% бакалавр, 10% магистр, 3% доктор; 7% гадаад.",
+    "Өрөө 2, 4, 6 хүний (давхар ор, хувцасны шүүгээ, ширээ, шүршүүртэй).",
+    "Сүүлийн засвар: 6 давхарт 50+ өрөө, угаалгын өрөө, 200+ гудас, үндсэн тавилгын ~70% шинэчлэгдсэн; номын сан (40 суудал), амралтын өрөө, автомат угаалгын машин.",
+    "Төлөвлөгөө: RFID хандалт, CCTV, өрөө захиалга, гомдол, төлбөрийн цахим систем.",
+    "2026-2027 оны үнэ, бүртгүүлэх журам сайтад нийтлэгдээгүй — 11-326010, Багшийн сургууль 7777 6446-аас лавлана."
+   ],
+   "source_urls": [
+    "https://ts.msue.edu.mn/p/r/5659",
+    "https://ts.msue.edu.mn/uploads/files/Дотуурбайрнымэдээлэл20250525112956.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-dorm-1",
+   "record_type": "building",
+   "name_mn": "МУБИС-ийн оюутны 1-р байр",
+   "location_mn": "Улаанбаатар (хаяг заагаагүй)",
+   "built_year": 1962,
+   "floors": 4,
+   "capacity": 386,
+   "rooms": null,
+   "price_per_year": 655000,
+   "currency": "MNT",
+   "note_mn": "2025-05-25-нд байршуулсан 'Дотуур байрны мэдээлэл' PDF-ийн тоо (хичээлийн жилийг заагаагүй). 2026-2027 оны үнэ тодорхойгүй.",
+   "source_urls": [
+    "https://ts.msue.edu.mn/uploads/files/Дотуурбайрнымэдээлэл20250525112956.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "stale",
+   "price_year": "2025 оны мэдээ"
+  },
+  {
+   "id": "msue-dorm-orgoo",
+   "record_type": "building",
+   "name_mn": "Оюутны өргөө 1, 2-р байр",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу, 14191",
+   "capacity": null,
+   "residents_2024_2025": "1,200+",
+   "room_sizes_mn": "2, 4, 6 хүний өрөө",
+   "price_per_year": null,
+   "currency": "MNT",
+   "note_mn": "'1-р байр' (386 ор) энэ барилгын нэг мөн эсэх тодорхойгүй.",
+   "source_urls": [
+    "https://ts.msue.edu.mn/p/r/5659",
+    "https://ts.msue.edu.mn/uploads/files/Дотуурбайрнымэдээлэл20250525112956.pdf"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-dorm-bayan-ulgii",
+   "record_type": "building",
+   "name_mn": "Баян-Өлгий салбарын дотуур байр",
+   "location_mn": "Баян-Өлгий аймаг, Өлгий сум",
+   "capacity": 45,
+   "built_year": 2022,
+   "price_per_year": null,
+   "currency": "MNT",
+   "note_mn": "Give2Asia төслийн санхүүжилтээр 2022 онд ашиглалтад орсон (салбарын түүхийн хуудас).",
+   "source_urls": [
+    "https://bost.msue.edu.mn/p/r/5605"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "current"
+  },
+  {
+   "id": "msue-dorm-how-to-apply",
+   "record_type": "process",
+   "name_mn": "Оюутны байранд хэрхэн орох вэ",
+   "steps_mn": [],
+   "note_mn": "Бүртгүүлэх журам, хугацаа, систем олдсонгүй — МУБИС (11-326010) эсвэл Оюутны хөгжил, үйлчилгээний төвөөс тодруулна.",
+   "source_urls": [
+    "https://www.msue.edu.mn/p/r/6655",
+    "https://ts.msue.edu.mn/p/r/5659"
+   ],
+   "verified_at": "2026-10-15",
+   "status": "unknown"
+  }
+ ]
+}

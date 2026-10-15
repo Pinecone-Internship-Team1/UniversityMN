@@ -1,0 +1,152 @@
+{
+ "_meta": {
+  "dataset": "admission_dates",
+  "university": "СЭЗИС",
+  "description": "СЭЗИС-ийн хуудсанд харуулах огноонууд. 'жишиг' = 2026 оны огноо (2027 оных зарлагдаагүй).",
+  "language": "mn",
+  "verified_at": "2026-10-15",
+  "sources": [
+   "https://admission.ufe.edu.mn/mn/newsDetail/171",
+   "https://admission.ufe.edu.mn/mn/newsDetail/210",
+   "https://admission.ufe.edu.mn/mn/newsDetail/212",
+   "https://admission.ufe.edu.mn/mn/newsDetail/214",
+   "https://admission.ufe.edu.mn/mn/newsDetail/215",
+   "https://admission.ufe.edu.mn/mn/newsDetail/218",
+   "https://admission.ufe.edu.mn/mn/newsDetail/206",
+   "https://admission.ufe.edu.mn/mn/newsDetail/189",
+   "https://admission.ufe.edu.mn/mn/newsDetail/170",
+   "https://ikon.mn/n/3okx",
+   "https://ikon.mn/n/3qqx",
+   "https://admission.ufe.edu.mn/mn/newsDetail/182",
+   "https://sites.google.com/ufe.edu.mn/orientation/%D0%B4%D0%BE%D1%82%D1%83%D1%83%D1%80-%D0%B1%D0%B0%D0%B9%D1%80"
+  ]
+ },
+ "records": [
+  {
+   "id": "ufe-date-winter-esh-reg",
+   "event_mn": "Өвлийн Элсэлтийн шалгалтын бүртгэл (БҮТ, eyesh.eec.mn; зөвхөн өмнөх онд шалгалт өгсөн шалгуулагч; хичээл бүр 20,000₮)",
+   "start": "2026-10-01",
+   "end": "2026-11-23",
+   "status": "current"
+  },
+  {
+   "id": "ufe-date-reg-2026",
+   "event_mn": "2026 оны жишиг: СЭЗИС-ийн бакалаврын элсэлтийн бүртгэл (admission.ufe.edu.mn)",
+   "start": "2026-04-22",
+   "end": "2026-06-28",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-tech-reg-2026",
+   "event_mn": "2026 оны жишиг: Инженер, технологийн сургуулийн (UFE Tech) элсэлт",
+   "start": "2026-04-10",
+   "end": "2026-07-01",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-advice-2026",
+   "event_mn": "2026 оны жишиг: Үнэгүй зөвлөгөө (Пүрэв, Баасан 14:00–17:30, C байр 103 тоот)",
+   "start": "2026-05-01",
+   "end": "2026-07-03",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-openday-2026",
+   "event_mn": "2026 оны жишиг: Нээлттэй хаалганы өдөрлөг",
+   "start": "2026-05-16",
+   "end": "2026-05-16",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-invite-2026",
+   "event_mn": "2026 оны жишиг: Урилгаар элсэх (олимпиад, урлаг, спорт) бүртгэл хаагдсан",
+   "start": null,
+   "end": "2026-06-13",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-esh-2026",
+   "event_mn": "2026 оны жишиг: Элсэлтийн шалгалт (ЭЕШ/ЭШ)",
+   "start": "2026-06-25",
+   "end": "2026-06-28",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-skill-2026",
+   "event_mn": "2026 оны жишиг: Аялал жуулчлалын ур чадварын шалгалтын видео илгээх эцсийн өдөр",
+   "start": null,
+   "end": "2026-06-30",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-ranking-2026",
+   "event_mn": "2026 оны жишиг: Эрэмбийн жагсаалт (09:00), мэргэжил баталгаажуулалт эхэлсэн (10:00) — анх 6-р сарын 29-нд товлосныг БҮТ-ийн дүн хойшилсноор хойшлуулсан",
+   "start": "2026-06-30",
+   "end": "2026-06-30",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-selection-2026",
+   "event_mn": "2026 оны жишиг: Бакалаврын элсэлтийн (шалгаруулалт, баталгаажуулалт) үйл ажиллагаа онлайнаар",
+   "start": "2026-06-29",
+   "end": "2026-07-07",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-egeree-2026",
+   "event_mn": "2026 оны жишиг: E-Geree суралцах гэрээ, англи хэлний түвшин тогтоох шалгалт, мэргэжил солих хүсэлтийн эцсийн хугацаа (гэрээ 13:00-аас өмнө)",
+   "start": null,
+   "end": "2026-07-03",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-additional-2026",
+   "event_mn": "2026 оны жишиг: Нэмэлт элсэлтийн бүртгэл (8-р сарын 17-ны 09:00 хүртэл)",
+   "start": "2026-07-03",
+   "end": "2026-08-17",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-tuition-2026",
+   "event_mn": "2026 оны жишиг: Гэрээ байгуулсан элсэгч сургалтын төлбөрөө төлж баталгаажуулах эцсийн өдөр",
+   "start": null,
+   "end": "2026-08-20",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-orientation-2026",
+   "event_mn": "2026 оны жишиг: Шинэ элсэгчийн чиглүүлэх сургалт (цахимаар; 8-р сарын 26 хичээл сонголт)",
+   "start": "2026-08-24",
+   "end": "2026-08-28",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-dorm-2026",
+   "event_mn": "2026 оны жишиг: Шинэ элсэгчийн дотуур байрны цахим бүртгэл (dormitory.ufe.edu.mn, орон нутгийн харьяалалтай)",
+   "start": "2026-08-27",
+   "end": "2026-08-29",
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-classes-2026",
+   "event_mn": "2026 оны жишиг: Хичээлийн жил эхэлсэн (9-р сарын 1–11 цахимаар, 9-р сарын 14-өөс танхимаар — COP17)",
+   "start": "2026-09-01",
+   "end": null,
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-dorm-movein-2026",
+   "event_mn": "2026 оны жишиг: Дотуур байранд хүлээн авч эхэлсэн (шинэ элсэгчийн сайтад 8-р сарын 30–31 гэж бичсэн нь 8-р сарын 11-ний мэдэгдлээр өөрчлөгдсөн)",
+   "start": "2026-09-14",
+   "end": null,
+   "status": "reference"
+  },
+  {
+   "id": "ufe-date-transfer-2027",
+   "event_mn": "Шилжин суралцах өргөдөл (бусад их сургуулийн оюутан; сайтад 'Намрын улирал' гэж бичсэн)",
+   "start": "2026-12-14",
+   "end": "2027-01-15",
+   "status": "current"
+  }
+ ]
+}
