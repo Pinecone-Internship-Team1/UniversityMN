@@ -1,0 +1,229 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the Хүрээ МХТДС part of the batch-3 dataset (oyutan-batch3, unis/huree/data/*.json, after the 2026-10-18 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-18",
+    "mapped_at": "2026-10-18",
+    "university_id": "sch_huree",
+    "how_to_use": "Run data-import/import-batch3.mjs huree (--local / --remote, then --apply): it reads data-import/batch3/unis/huree/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "one_minimum": "one minimum on the combined score (secondary_cut_off_score null): w1·exam1 + w2·exam2 ≥ cut_off_score",
+      "per_exam": "each exam has its own minimum (cut_off_score, secondary_cut_off_score; 0 = unknown); weights 1/1 when the formula is not published (a plain sum), 0.5/0.5 for an average (ОТИС, СУИС ЭШ-only majors)",
+      "skills_test": "group 2 is the university's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\" (СУИС: weights 0.5/1 = ЭШ ÷ 2 + skills test)",
+      "neutral": "no exam subjects or cut-offs (unclear / unknown split, three exams, or not in the 2026-27 table): \"Сургуулиас тодруулна уу\", rule in exam_note"
+    },
+    "skipped_programs": [
+      "huree-main-sergeegdekh-erchim-khuch",
+      "huree-main-barilgyn-injenerchlel",
+      "huree-main-avto-zamyn-injenerchlel",
+      "huree-main-khunsnii-injenerchlel"
+    ],
+    "counts": {
+      "dataset_programs": 14,
+      "imported_programs": 10,
+      "by_degree": {
+        "BACHELOR": 10,
+        "ASSOCIATE": 0
+      },
+      "by_score_check": {
+        "per_exam": 8,
+        "skills_test": 2
+      },
+      "faculties": 1,
+      "scholarships": 12,
+      "dorms": 1,
+      "admission_dates": 2
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "huree-main",
+      "type": "constituent",
+      "name": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "location": "Улаанбаатар, Баянгол дүүрэг, 11-р хороо, Бичил хороолол, Хасбаатарын гудамж",
+      "db_id": "5e4bc125-741f-5f0d-b3c4-578f650e700a"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "huree-main-kompiyuteryn-ukhaan",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Компьютерын ухаан",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "17299ba8-fba6-5751-b34a-ed3d04e029bb"
+    },
+    {
+      "dataset_id": "huree-main-medeelliin-tekhnologi",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Мэдээллийн технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "182387fd-5f07-5f62-8b25-052e19747052"
+    },
+    {
+      "dataset_id": "huree-main-grafik-dizain",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "График дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "e999d3cb-f514-5b82-8949-72c478cfc93a"
+    },
+    {
+      "dataset_id": "huree-main-emnelgiin-tonog-tukhuurumj-ashiglalt",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Эмнэлгийн тоног төхөөрөмж ашиглалт",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "5f6ca090-47e2-5a20-8233-47e85f87512a"
+    },
+    {
+      "dataset_id": "huree-main-elektronikiin-injenerchlel",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Электроникийн инженерчлэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "00c0e4bc-adad-5dd7-9412-204d5e0bca33"
+    },
+    {
+      "dataset_id": "huree-main-arkhitektur",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Архитектур",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "cb48f0d7-bed5-5955-a40a-0655a0e91072"
+    },
+    {
+      "dataset_id": "huree-main-biznesiin-udirdlaga",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Бизнесийн удирдлага",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "18b048a7-2708-565c-9a1a-e94fb5d02fc7"
+    },
+    {
+      "dataset_id": "huree-main-khool-zui-shim-sudlal",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Хоол зүй, шим судлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "3286b608-240f-50f9-b93f-9a1e548d8761"
+    },
+    {
+      "dataset_id": "huree-main-gadaad-khelnii-orchuulga-angli-khel",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Гадаад хэлний орчуулга /Англи хэл/",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "50d1fbcb-8e0e-5eba-9199-a9f3f2e1a79d"
+    },
+    {
+      "dataset_id": "huree-main-gadaad-khelnii-orchuulga-solongos-khel",
+      "dataset_school": "huree-main",
+      "faculty": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+      "name": "Гадаад хэлний орчуулга /Солонгос хэл/",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "24f89035-987a-5031-9c3b-7ee277fdbe03"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "huree-entry-750",
+      "name": "Элсэлтийн тэтгэлэг — ЭШ 750–800 оноо",
+      "db_id": "b96837a8-42cb-5293-b153-66fe0a4a867a"
+    },
+    {
+      "dataset_id": "huree-entry-700",
+      "name": "Элсэлтийн тэтгэлэг — ЭШ 700–749 оноо",
+      "db_id": "e2df8584-fae0-5a6e-8a53-80c4629b4448"
+    },
+    {
+      "dataset_id": "huree-entry-650",
+      "name": "Элсэлтийн тэтгэлэг — ЭШ 650–699 оноо",
+      "db_id": "119f3421-b057-5d22-a4ba-324772d01ca3"
+    },
+    {
+      "dataset_id": "huree-entry-600",
+      "name": "Элсэлтийн тэтгэлэг — ЭШ 600–649 оноо",
+      "db_id": "19044537-9272-5d42-888c-bc6c8cc0f509"
+    },
+    {
+      "dataset_id": "huree-entry-550",
+      "name": "Элсэлтийн тэтгэлэг — ЭШ 550–599 оноо",
+      "db_id": "90d4c51a-ac77-583a-9c69-417e1f4dda6f"
+    },
+    {
+      "dataset_id": "huree-staff-family",
+      "name": "Сургуулийн багш, ажилтны хүүхэд, ах дүүгийн тэтгэлэг",
+      "db_id": "15a33f4f-03ab-5bce-8658-fdb33bb7b923"
+    },
+    {
+      "dataset_id": "huree-two-siblings",
+      "name": "Нэг гэр бүлийн 2 оюутны хөнгөлөлт",
+      "db_id": "32a0cb2e-9c7a-5c97-8297-f49741eb76bf"
+    },
+    {
+      "dataset_id": "huree-olympiad",
+      "name": "Олимпиадын тэтгэлэг",
+      "db_id": "50274d12-705b-5ec8-a540-4f254aa8e451"
+    },
+    {
+      "dataset_id": "huree-sejong-summer",
+      "name": "Онлайн хүсэлтийн хөнгөлөлт ('Сэжун хагдан' зуны сургалт)",
+      "db_id": "7cbfd265-8f7b-5e7e-99e0-60c28ddd7eda"
+    },
+    {
+      "dataset_id": "huree-rural-2021",
+      "name": "Орон нутгийн оюутны хөнгөлөлт (2021 оны хүснэгт)",
+      "db_id": "c4bea3ee-d530-5e6f-841b-b60aa3c7f2f7"
+    },
+    {
+      "dataset_id": "huree-dev-loan",
+      "name": "Оюутны хөгжлийн зээл (Боловсролын зээлийн сан)",
+      "db_id": "08700faa-9dc8-5102-9750-0264e2e9f7c4"
+    },
+    {
+      "dataset_id": "huree-state-grant",
+      "name": "Сургалтын төрийн сангийн буцалтгүй тусламж",
+      "db_id": "cead9cac-7a3e-539c-b3cc-ca4bb9f28f03"
+    }
+  ],
+  "dorms": [
+    {
+      "dataset_id": "huree-dorm-2004",
+      "name": "Хүрээ МХТДС-ийн оюутны байр",
+      "db_id": "5037e865-d404-58e3-bbf7-ddc92c3cf4b2"
+    }
+  ],
+  "admission_dates": [
+    {
+      "dataset_id": "huree-date-esh-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалт (ЭШ, бүх элсэгч)",
+      "db_id": "e906fbab-a103-54a8-863c-c46096599fbc"
+    },
+    {
+      "dataset_id": "huree-date-reg-2026",
+      "event": "2026 оны жишиг: Хүрээ МХТДС-ийн элсэгчдийн бүртгэл (сургуулийн байранд)",
+      "db_id": "46006877-afdf-5d63-94d2-cf4cafccae8a"
+    }
+  ]
+}

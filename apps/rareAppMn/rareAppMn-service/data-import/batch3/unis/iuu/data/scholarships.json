@@ -1,0 +1,245 @@
+{
+  "_meta": {
+    "dataset": "scholarships",
+    "university": "ОУУБИС",
+    "description": "ОУУБИС-ийн тэтгэлэг, хөнгөлөлт.",
+    "language": "mn",
+    "verified_at": "2026-10-16",
+    "note_mn": "type: tuition_discount | grant | loan | sponsor_scholarship. 2026-2027 оны I улиралд 527 оюутанд нийт 559,714,650₮ (480 оюутанд сургуулийн 429,789,900₮, 47 оюутанд байгууллага, хувь хүний 129,924,750₮). Тэтгэлэг тус бүрийн дүн, шаардлага тэтгэлгийн журамд (скан PDF) — sources.json → gap-scholarship-regulation."
+  },
+  "records": [
+    {
+      "id": "iuu-sch-new",
+      "type": "grant",
+      "name_mn": "Шинэ элсэгчийн тэтгэлэг",
+      "coverage_mn": "Эхний жилийн сургалтын төлбөрийн хөнгөлөлт: ЭШ-ийн 2 хичээлийн дундаж оноо 510–599 бол 30%, 600–649 бол 50%, 650–699 бол 70%, 700-аас дээш бол 100%.",
+      "requirements_mn": "1-р улирлын голч дүн 3.3 бол дараагийн улиралд үргэлжилнэ; тэтгэлгийг давхардуулж олгохгүй (журмын 2.22).",
+      "deadline_mn": "Элсэх үед",
+      "source_urls": [
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://www.iuu.edu.mn/p/26",
+        "https://www.iuu.edu.mn/a/72",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/03/04/tagprl9rl55svpne/%D0%A2%D1%8D%D1%82%D0%B3%D1%8D%D0%BB%D0%B3%D0%B8%D0%B9%D0%BD%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-alumni-child",
+      "type": "grant",
+      "name_mn": "ОУУБИС-ийн төгсөгчийн хүүхдийн хөнгөлөлт",
+      "coverage_mn": "Эхний жилийн сургалтын төлбөрийн 30%.",
+      "requirements_mn": "Эцэг эх нь ОУУБИС төгссөн; 1-р улирлын голч 3.3 бол үргэлжилнэ (журмын 2.22).",
+      "deadline_mn": "Элсэх үед",
+      "source_urls": [
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-siblings",
+      "type": "grant",
+      "name_mn": "Ах эгч дүүгийн хөнгөлөлт",
+      "coverage_mn": "Эхний жилийн сургалтын төлбөрийн 30%.",
+      "requirements_mn": "Төрсөн ах, эгч, дүү нь ОУУБИС-д суралцдаг; 1-р улирлын голч 3.3 бол үргэлжилнэ (журмын 2.22).",
+      "deadline_mn": "Элсэх үед",
+      "source_urls": [
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-affiliated-school",
+      "type": "grant",
+      "name_mn": "Харьяа бүрэн дунд сургуулийн төгсөгчийн хөнгөлөлт",
+      "coverage_mn": "Эхний жилийн сургалтын төлбөрийн 50%.",
+      "requirements_mn": "ОУУБИС-ийн харьяа бүрэн дунд сургууль төгссөн, ЭШ 500-аас дээш; 1-р улирлын голч 3.3 бол үргэлжилнэ (журмын 2.22).",
+      "deadline_mn": "Элсэх үед",
+      "source_urls": [
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-board",
+      "type": "grant",
+      "name_mn": "Удирдах зөвлөлийн даргын нэрэмжит тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Сургалтын голч дүнгээр олгоно; голч дүнгийн доод хэмжээг нийтлээгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-rector",
+      "type": "grant",
+      "name_mn": "Ректорын нэрэмжит тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Сургалтын голч дүнгээр олгоно; голч дүнгийн доод хэмжээг нийтлээгүй. Тэтгэлгийн хуудсанд бичсэн 'Ерөнхий захирлын нэрэмжит' тэтгэлэг үүнтэй ижил байж магадгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72",
+        "https://www.iuu.edu.mn/p/26"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-council",
+      "type": "grant",
+      "name_mn": "Оюутны зөвлөлийн тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Оюутны зөвлөлийн үйл ажиллагаатай холбоотой; шаардлагыг нийтлээгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72",
+        "https://www.iuu.edu.mn/p/26"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-research",
+      "type": "grant",
+      "name_mn": "Судалгааны тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Судалгааны ажилтай холбоотой; шаардлагыг нийтлээгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-sport-art",
+      "type": "grant",
+      "name_mn": "Спорт, урлагийн тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Спорт, урлагийн чиглэлээр; шаардлагыг нийтлээгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72",
+        "https://www.iuu.edu.mn/p/26"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-staff-child",
+      "type": "grant",
+      "name_mn": "Багш, ажилтны хүүхдийн тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "ОУУБИС-ийн багш, ажилтны хүүхдэд.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72",
+        "https://www.iuu.edu.mn/p/26"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-welfare",
+      "type": "grant",
+      "name_mn": "Халамжийн тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Шаардлагыг нийтлээгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-dorm",
+      "type": "grant",
+      "name_mn": "Оюутны байрны төлбөрийн тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Оюутны байрны төлбөрт; шаардлагыг нийтлээгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-social",
+      "type": "grant",
+      "name_mn": "Нийгмийн үйлчилгээний тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Шаардлагыг нийтлээгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72",
+        "https://www.iuu.edu.mn/p/26"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-sponsor",
+      "type": "sponsor_scholarship",
+      "name_mn": "Байгууллага, хувь хүний нэрэмжит тэтгэлэг",
+      "coverage_mn": "2026-2027 оны I улиралд 47 оюутанд нийт 129,924,750₮.",
+      "requirements_mn": "Тэтгэлэг олгогч байгууллага, хувь хүний шаардлагаар.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72",
+        "https://www.iuu.edu.mn/p/26"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-korean",
+      "type": "sponsor_scholarship",
+      "name_mn": "Солонгос судлалын нэрэмжит тэтгэлэг",
+      "coverage_mn": "Дүн, хувийг нийтлээгүй.",
+      "requirements_mn": "Шаардлагыг нийтлээгүй.",
+      "deadline_mn": "Нийтлээгүй (2026-2027 оны I улирлын тэтгэлгийг 9-р сарын 24-нд гардуулсан).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/a/72"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "iuu-sch-2plus2",
+      "type": "tuition_discount",
+      "name_mn": "2+2 хөтөлбөрийн түнш их сургуулийн тэтгэлэг (БНСУ)",
+      "coverage_mn": "Хүлээн авагч их сургуулийн сургалтын төлбөрийн 50–100 хувь.",
+      "requirements_mn": "2+2 хөтөлбөрт шалгарч, хүлээн авагч сургуулийн шаардлага (TOPIK оноо, сурлага) хангасан оюутан.",
+      "deadline_mn": "Түнш сургуулийн шалгаруулалтаар (намар, хавар).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/p/7"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    }
+  ]
+}

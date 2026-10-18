@@ -1,0 +1,236 @@
+{
+  "_meta": {
+    "dataset": "scholarships",
+    "university": "ОТИС",
+    "description": "ОТИС-ийн тэтгэлэг, хөнгөлөлт ба их сургуулиар дамжин олгодог гадны тэтгэлэг.",
+    "language": "mn",
+    "verified_at": "2026-10-16",
+    "note_mn": "type: tuition_discount | grant | loan | sponsor_scholarship. Тэтгэлгийн журам ('ОТГОНТЭНГЭР ИХ СУРГУУЛИЙН ОЮУТАНД ТЭТГЭЛЭГ ОЛГОХ, ХӨНГӨЛӨЛТ, УРАМШУУЛАЛ ҮЗҮҮЛЭХ ЖУРАМ') холбоосгүй; тэтгэлгийн 8 зураг уншаагүй — цоорхойнуудыг эх сурвалжийн жагсаалтаас харна уу."
+  },
+  "records": [
+    {
+      "id": "otg-esh-discount",
+      "type": "tuition_discount",
+      "name_mn": "Элсэлтийн ерөнхий шалгалтын оноонд үзүүлэх хөнгөлөлт",
+      "coverage_mn": "Эхний хичээлийн жилийн сургалтын төлбөрөөс: суурь шалгалт 751–800 оноо — 100%, 701–750 — 75%, 650–700 — 50%. 'АТҮ'-ний хөтөлбөрт (Агаарын тээврийн үйлчилгээ гэж ойлгов) 40%, 35%, 30%.",
+      "requirements_mn": "ОТИС-д шинээр элсэгч; ЭЕШ-ын суурь (1-р) шалгалтын оноо 650 ба түүнээс дээш.",
+      "deadline_mn": "Элсэх үед (хугацаа нийтлээгүй)",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-early-payment",
+      "type": "tuition_discount",
+      "name_mn": "Сургалтын төлбөрөө эрт бүрэн төлөх хөнгөлөлт",
+      "coverage_mn": "2026-2027 оны хичээлийн жилийн төлбөрийн 10%.",
+      "requirements_mn": "Намрын элсэлтээр бакалаврын үндсэн хөтөлбөрт элсэж, жилийн төлбөрөө 2026-07-24-ний дотор бүрэн төлсөн бол (журмын 7.1).",
+      "deadline_mn": "2026-07-24",
+      "source_urls": [
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-olympiad",
+      "type": "tuition_discount",
+      "name_mn": "БСШУЯ-ны тэтгэлэг (олимпиадын шагналт элсэгч)",
+      "coverage_mn": "Тэргүүн байр — сургалтын төлбөрийн 50%, дэд байр — 25%-ийг чөлөөлнө.",
+      "requirements_mn": "Яамны тушаалд нэр заасан улсын болон олон улсын мэргэжлийн олимпиадад байр эзэлсэн элсэгч.",
+      "deadline_mn": "Элсэх үед (хугацаа нийтлээгүй)",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-achievement",
+      "type": "tuition_discount",
+      "name_mn": "Амжилтийн эзэн тэтгэлэг",
+      "coverage_mn": "Олон улсын шалгаруулалтад I, II, III байр — төлбөрийн 100% хүртэл; улсын шалгаруулалтад I байр — 100%, II — 75%, III — 50% хүртэл.",
+      "requirements_mn": "Олон улсын болон улсын шалгаруулалтад байр эзэлсэн оюутан.",
+      "deadline_mn": "Нийтлээгүй",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-a-grade",
+      "type": "tuition_discount",
+      "name_mn": "Дараалан А үнэлгээтэй суралцсан оюутны хөнгөлөлт",
+      "coverage_mn": "Эхний 2 улирал дараалан А үнэлгээтэй бол дараагийн улирлын төлбөрөөс 200,000₮; 4 ба түүнээс дээш улирал бол 400,000₮.",
+      "requirements_mn": "Дараалсан улиралд А үнэлгээтэй суралцсан оюутан.",
+      "deadline_mn": "Улирал бүрийн дүнгээр",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-student-council",
+      "type": "tuition_discount",
+      "name_mn": "Оюутны холбоо, оюутны зөвлөлийн идэвхтний хөнгөлөлт",
+      "coverage_mn": "Дараагийн улирлын төлбөрөөс 300,000₮.",
+      "requirements_mn": "Оюутны холбоо, оюутны зөвлөлийн идэвхтэн сонгуультан (жилийн ажлаар нь).",
+      "deadline_mn": "Нийтлээгүй",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-sports",
+      "type": "tuition_discount",
+      "name_mn": "Спортын амжилттай оюутны хөнгөлөлт",
+      "coverage_mn": "Сургалтын төлбөрийн 100% хүртэл.",
+      "requirements_mn": "Спортын онцгой ур чадвартай, амжилт гаргасан оюутан.",
+      "deadline_mn": "Нийтлээгүй",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-alumni",
+      "type": "grant",
+      "name_mn": "ОТИС-ийн төгсөгчийн нэрэмжит тэтгэлэг",
+      "coverage_mn": "Нэг хичээлийн жилд 20 оюутанд тус бүр 1 сая ₮; өөр хэсэгт '10 сарын турш 100,000 төгрөг' гэж бичсэн. Хуудсанд 'Төгсөгчдийн нэрэмжит тэтгэлэг' нэрээр бас гардаг — нэг тэтгэлэг гэж ойлгов.",
+      "requirements_mn": "2–4-р курсийн оюутан; сурлагын амжилт, олон нийтийн ажилд оролцоо, манлайллаар шалгаруулна.",
+      "deadline_mn": "Жил бүр (огноо нийтлээгүй)",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-founder",
+      "type": "grant",
+      "name_mn": "Үүсгэн байгуулагчийн нэрэмжит тэтгэлэг",
+      "coverage_mn": "Хэмжээг нийтлээгүй (оюутны сэтгэгдэлд 'жил ахих тусам сургалтын төлбөрөөс илүү өндөр хувиар хөнгөлдөг' гэсэн).",
+      "requirements_mn": "Нийтлээгүй (журам нь 'Журам' хуудсанд холбоосгүй).",
+      "deadline_mn": "Нийтлээгүй",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "partial",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-president",
+      "type": "sponsor_scholarship",
+      "name_mn": "Ерөнхийлөгчийн нэрэмжит тэтгэлэг",
+      "coverage_mn": "Сар бүр 100,000₮; жил бүр 30 хүртэл суралцагчид.",
+      "requirements_mn": "Шалгуурыг их сургуулийн хуудсанд нийтлээгүй.",
+      "deadline_mn": "Жил бүрийн 6-р сарын 15-ны дотор бүртгүүлнэ",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-prime-minister",
+      "type": "sponsor_scholarship",
+      "name_mn": "Ерөнхий сайдын нэрэмжит тэтгэлэг",
+      "coverage_mn": "Сар бүр 80,000₮; жил бүр 50 хүртэл суралцагчид.",
+      "requirements_mn": "Шалгуурыг их сургуулийн хуудсанд нийтлээгүй.",
+      "deadline_mn": "Жил бүрийн 6-р сарын 15-ны дотор бүртгүүлнэ",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-zorig",
+      "type": "sponsor_scholarship",
+      "name_mn": "Зориг сангийн тэтгэлэг",
+      "coverage_mn": "Олон улсын байгууллага, гадны томоохон компанитай хамтран жил бүр тэтгэлэгт хөтөлбөр зарладаг.",
+      "requirements_mn": "zorigfoundation.org-оос харна уу.",
+      "deadline_mn": "Жил бүр (Зориг сангийн зарлалаар)",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-golomt",
+      "type": "sponsor_scholarship",
+      "name_mn": "Голомт банкны тэтгэлэг",
+      "coverage_mn": "Жил бүр 100 оюутанд.",
+      "requirements_mn": "Голомт банкны зарласан шалгуураар.",
+      "deadline_mn": "9-р сард зарлаж, 11-р сард дүнгээ гаргана",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-khan",
+      "type": "sponsor_scholarship",
+      "name_mn": "ХААН банкны тэтгэлэг",
+      "coverage_mn": "Хэмжээг нийтлээгүй.",
+      "requirements_mn": "Ерөнхий боловсролын сургуулийн төгсөх ангийн сурагч; материалаа ХААН банкны салбарт өгнө.",
+      "deadline_mn": "Жил бүрийн 3-р сарын дундуур улсын хэмжээнд зарлагдана",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-oyu-tolgoi",
+      "type": "sponsor_scholarship",
+      "name_mn": "Оюу Толгой тэтгэлэг",
+      "coverage_mn": "Хэмжээг нийтлээгүй.",
+      "requirements_mn": "Уул уурхай, барилга, инженер, геологи, хөдөлмөрийн эрүүл ахуй, байгаль орчны чиглэлийн 2, 3, 4-р курсийн оюутан.",
+      "deadline_mn": "Жил бүрийн 9-р сард зарлагдана",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    },
+    {
+      "id": "otg-state-grant",
+      "type": "grant",
+      "name_mn": "Сургалтын төрийн сангийн буцалтгүй тусламж",
+      "coverage_mn": "Сургалтын төлбөрийн буцалтгүй тусламж (хэмжээг энд нийтлээгүй).",
+      "requirements_mn": "Бакалаврын өдрийн оюутан: бүтэн өнчин; өрхөөс 3 бакалаврын өдрийн оюутантай бол нэг нь; хөгжлийн бэрхшээлтэй; өрхийн гишүүн 70%-иас дээш хөдөлмөрийн чадвараа алдсан бол нэг оюутан; эцэг эх нь хөгжлийн бэрхшээлтэй. Өргөдөл, дүнгийн хуудас, гэрчилгээний хуулбар, төрсний гэрчилгээ, иргэний үнэмлэхийн хуулбар, дүүрэг/сумын боловсролын хэлтсийн тодорхойлолт.",
+      "deadline_mn": "Нийтлээгүй",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "school_id": null,
+      "status": "current",
+      "verified_at": "2026-10-16"
+    }
+  ]
+}

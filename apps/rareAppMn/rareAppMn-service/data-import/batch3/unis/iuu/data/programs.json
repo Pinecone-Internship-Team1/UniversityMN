@@ -1,0 +1,2440 @@
+{
+  "_meta": {
+    "dataset": "programs",
+    "university": "ОУУБИС",
+    "description": "ОУУБИС-ийн бакалаврын өдрийн 29 хөтөлбөр (5 сургууль): элсэлтийн 2 шалгалтын хичээл (сайтын хүснэгт), индекс, ур чадварын шалгалт. 2026-2027 оны босго, томьёо, төлбөрийг баталгаажуулаагүй.",
+    "language": "mn",
+    "verified_at": "2026-10-18",
+    "sources": [
+      "https://www.iuu.edu.mn/bachelor/program",
+      "https://www.iuu.edu.mn/bachelor/admission/create",
+      "https://www.iuu.edu.mn/training/department",
+      "https://www.iuu.edu.mn/university",
+      "https://www.iuu.edu.mn/university/1",
+      "https://www.iuu.edu.mn/university/3",
+      "https://www.iuu.edu.mn/university/4",
+      "https://www.iuu.edu.mn/training/department/1",
+      "https://www.iuu.edu.mn/training/department/8",
+      "https://www.iuu.edu.mn/timeline?size=100",
+      "https://www.iuu.edu.mn/p/10"
+    ],
+    "scoring_mn": "Сайтын 'Бакалаврын хөтөлбөрүүд' хүснэгтэд хөтөлбөр бүрт 'Элсэлтийн шалгалт-1', 'Элсэлтийн шалгалт-2' гэсэн 2 баганатай, хичээлийн жагсаалтын ард тоо (430–490) бичсэн. Хүснэгтэд он, 'босго' гэдэг үг, онооны томьёо байхгүй тул бүх мөрийг split_confidence = unclear, босгыг null болгож, тоог exam_2026_2027.page_thresholds-д хадгалав. Цахим бүртгэлд 2 шалгалтыг 'Суурь шалгалт', 'Дагалдах шалгалт' гэж нэрлэж, тус бүрт нэг хичээл, оноо, хавсралт авдаг. 2026-2027 оны элсэлтийн журам (PDF, 2026-05-19) текстгүй скан — sources.json → gap-regulation-2026.",
+    "fields_mn": {
+      "suuri_options/dagaldah_options": "Хүснэгтийн 'Элсэлтийн шалгалт-1' / '-2' баганын хичээлүүд (таслал = эсвэл гэж ойлгов). 'Ур чадвар' → 'Ур чадварын шалгалт'.",
+      "page_thresholds": "Хүснэгтэд хичээлийн ард бичсэн тоо, он заагаагүй — 2026-2027 оны албан ёсны эх сурвалжаар баталгаажтал ашиглахгүй.",
+      "threshold_type": "per_exam — хүснэгт шалгалт бүрт тусдаа тоо өгсөн тул; журмаар баталгаажуулна.",
+      "weights": "{suuri: 1, dagaldah: 1}, formula_known = false — томьёо нийтлэгдээгүй.",
+      "code": "Хүснэгтийн 'Индекс' багана.",
+      "official_url": "Хүснэгтэд хөтөлбөр бүрийн холбоос болгон өгсөн тэнхимийн хуудас."
+    },
+    "counts": {
+      "total": 29,
+      "by_school": {
+        "iuu-nurs": 1,
+        "iuu-law": 1,
+        "iuu-hum": 10,
+        "iuu-eng": 9,
+        "iuu-econ": 8
+      },
+      "by_split_confidence": {
+        "confirmed": 28,
+        "unclear": 1
+      }
+    },
+    "skill_test_programs_mn": [
+      "Сувилахуй",
+      "Багш, гадаад хэлний боловсрол (Англи хэл)",
+      "Багш, гадаад хэлний боловсрол (Солонгос хэл)",
+      "График дизайн",
+      "Үйлдвэрлэлийн дизайн",
+      "Интерьер дизайн",
+      "Хувцасны дизайн",
+      "Мал зүй",
+      "Аялал жуулчлал"
+    ],
+    "not_included_mn": "Сургуулийн хуудсанд байгаа ч элсэлтийн хүснэгт, цахим бүртгэлд байхгүй: 'Мэдээллийн технологи' (061304), 'Хотын ногоон байгууламжийн дизайн' (082102). Оройн анги, магистр, докторыг оруулаагүй.",
+    "subject_names_mn": "Хичээлийн нэрийг oyutan.mn-ийн нэрээр нэгтгэв ('нийгэм судлал' → 'Нийгэм судлал', 'Ур чадвар' → 'Ур чадварын шалгалт'); сургуулийн бичсэнээр page_thresholds.page_wording_mn-д хадгалав.",
+    "gap_fill_mn": "2026-10-18: Claude Code-ийн Step 2 нөхөлт — IMPORT_LOG.md-г үз."
+  },
+  "records": [
+    {
+      "id": "iuu-nurs-suvilakhui",
+      "name_mn": "Сувилахуй",
+      "name_en": null,
+      "school_id": "iuu-nurs",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "091301",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/5",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 430,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Биологи",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Биологи"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 430,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17).",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сувилахуйн тэнхим, лаборатори ОУУБИС-ийн II байранд.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/5",
+        "https://www.iuu.edu.mn/university/6",
+        "https://www.iuu.edu.mn/p/10",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-law-erkh-zui",
+      "name_mn": "Эрх зүй",
+      "name_en": null,
+      "school_id": "iuu-law",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "042101",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/6",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал — босго 490. 2-р шалгалт: Математик эсвэл Англи хэл — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Математик",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/6",
+        "https://www.iuu.edu.mn/university/5",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-gadaad-khelnii-orchuulga-angli-khel",
+      "name_mn": "Гадаад хэлний орчуулга (Англи хэл)",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "023101",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/7",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл, Орос хэл эсвэл Математик — босго 490. 2-р шалгалт: Нийгэм судлал, Монгол хэл эсвэл Түүх — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Математик",
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Түүх"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Түүх"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Солонгос хэлний орчуулгын хөтөлбөртэй ижил индекстэй (023101).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/7",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-gadaad-khelnii-orchuulga-solongos-khel",
+      "name_mn": "Гадаад хэлний орчуулга (Солонгос хэл)",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "023101",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/3",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл, Орос хэл эсвэл Математик — босго 490. 2-р шалгалт: Нийгэм судлал, Монгол хэл эсвэл Түүх — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Математик",
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Түүх"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Түүх"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Англи хэлний орчуулгын хөтөлбөртэй ижил индекстэй (023101). 'Солонгос хэлний орчуулга' хөтөлбөр 2019 онд 5 жилээр магадлан итгэмжлэгдсэн.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/3",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-olon-uls-oron-sudlal",
+      "name_mn": "Олон улс, орон судлал",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "022203",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/3",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл эсвэл Орос хэл — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Түүх — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Нийгэм судлал",
+          "Түүх"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Түүх"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/3",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-bagsh-gadaad-khelnii-bolovsrol-angli-khel",
+      "name_mn": "Багш, гадаад хэлний боловсрол (Англи хэл)",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "011435",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/7",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл, Орос хэл эсвэл Монгол хэл — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Монгол хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл",
+          "Монгол хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17).",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Солонгос хэлний багшийн хөтөлбөртэй ижил индекстэй (011435).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/7",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-bagsh-gadaad-khelnii-bolovsrol-solongos-khel",
+      "name_mn": "Багш, гадаад хэлний боловсрол (Солонгос хэл)",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "011435",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/2",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл, Орос хэл эсвэл Монгол хэл — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Монгол хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл",
+          "Монгол хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17).",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Англи хэлний багшийн хөтөлбөртэй ижил индекстэй (011435).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/2",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-khel-shinjlel",
+      "name_mn": "Хэл шинжлэл",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "023202",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/14",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Монгол хэл эсвэл Нийгэм судлал — босго 490. 2-р шалгалт: Түүх эсвэл Англи хэл — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Түүх",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Монгол хэл",
+          "Нийгэм судлал"
+        ],
+        "dagaldah_options": [
+          "Түүх",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/14",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-sotsiologi",
+      "name_mn": "Социологи",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "031402",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/4",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал эсвэл Түүх — босго 490. 2-р шалгалт: Математик эсвэл Англи хэл — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Түүх",
+          "Математик",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал",
+          "Түүх"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/4",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-setgel-sudlal",
+      "name_mn": "Сэтгэл судлал",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "031301",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/4",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал эсвэл Математик — босго 490. 2-р шалгалт: Монгол хэл эсвэл Англи хэл — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Математик",
+          "Монгол хэл",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Монгол хэл",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "2020 онд урьдчилсан магадлан итгэмжлэл хийлгэсэн.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/4",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-niigmiin-ajil",
+      "name_mn": "Нийгмийн ажил",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "092301",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/13",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490. 2-р шалгалт: Монгол хэл эсвэл Математик — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Англи хэл",
+          "Монгол хэл",
+          "Математик"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Монгол хэл",
+          "Математик"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "'Нийгмийн ажилтан' хөтөлбөр 2020 онд 5 жилээр магадлан итгэмжлэгдсэн.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/13",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-grafik-dizain",
+      "name_mn": "График дизайн",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "021105",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/8",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Англи хэл — босго 450. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 450,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 450,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17). Сайтын хүснэгтэд 021106 индекстэй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Элсэлтийн хүснэгтэд индекс 021106, сургуулийн хуудсанд 'D 021105 - График дизайн' гэж өөр индекстэй бичсэн. Магадлан итгэмжлэгдсэн хөтөлбөр. Дизайны тэнхим 2003 онд байгуулагдсан, 440 гаруй төгсөгчтэй; 2008 оноос 60 гаруй оюутан БНСУ-ын их сургуулиудад (Кэмён, Санмён, Халлим, Кёнги, Чонбүг, Жонжү, Ханнам г.м.) солилцоо, 2+2 хос дипломын хөтөлбөрөөр суралцсан.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/8",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-uildverleliin-dizain",
+      "name_mn": "Үйлдвэрлэлийн дизайн",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "021203",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/8",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Англи хэл — босго 450. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 450,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 450,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17).",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Дизайны тэнхим 2003 онд байгуулагдсан, 440 гаруй төгсөгчтэй; 2008 оноос 60 гаруй оюутан БНСУ-ын их сургуулиудад (Кэмён, Санмён, Халлим, Кёнги, Чонбүг, Жонжү, Ханнам г.м.) солилцоо, 2+2 хос дипломын хөтөлбөрөөр суралцсан.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/8",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-interier-dizain",
+      "name_mn": "Интерьер дизайн",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "021204",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/8",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Англи хэл — босго 450. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 450,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 450,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17).",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Магадлан итгэмжлэгдсэн хөтөлбөр. Дизайны тэнхим 2003 онд байгуулагдсан, 440 гаруй төгсөгчтэй; 2008 оноос 60 гаруй оюутан БНСУ-ын их сургуулиудад (Кэмён, Санмён, Халлим, Кёнги, Чонбүг, Жонжү, Ханнам г.м.) солилцоо, 2+2 хос дипломын хөтөлбөрөөр суралцсан.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/8",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-khuvtsasny-dizain",
+      "name_mn": "Хувцасны дизайн",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "021202",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/8",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Англи хэл — босго 450. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 450,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 450,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17).",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сургуулийн хуудсанд 'Хувцас дизайн' гэж бичсэн; эсгий урлалын төвтэй. Дизайны тэнхим 2003 онд байгуулагдсан, 440 гаруй төгсөгчтэй; 2008 оноос 60 гаруй оюутан БНСУ-ын их сургуулиудад (Кэмён, Санмён, Халлим, Кёнги, Чонбүг, Жонжү, Ханнам г.м.) солилцоо, 2+2 хос дипломын хөтөлбөрөөр суралцсан.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/8",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-program-khangamj",
+      "name_mn": "Програм хангамж",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "061302",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/1",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сургуулийн хуудсанд 'Программ хангамж' гэж бичсэн. Тэнхим 1997 оноос энэ хөтөлбөрөөр бакалавр бэлтгэж эхэлсэн; 2020 онд 5 жилээр магадлан итгэмжлэгдсэн (тэнхимийн хуудасны нэг хэсэгт 2021 гэжээ), 2026 онд дахин магадлан итгэмжлүүлэх хүсэлт гаргасан. Тэнхимийн хуудсанд: солонгос хэлний TOPIK 4-өөс дээш түвшин, 4 улирлын голч 3.0-оос дээш бол 1, 2-р курсээс БНСУ-ын их сургуульд солилцоо, 2+2 хөтөлбөрөөр суралцах боломжтой (намар, хавар сонгоно).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/1",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-medeelliin-sistem",
+      "name_mn": "Мэдээллийн систем",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "061303",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/1",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Тэнхим 2007 оноос энэ хөтөлбөрөөр сургалт явуулж эхэлсэн. Тэнхимийн хуудсанд: солонгос хэлний TOPIK 4-өөс дээш түвшин, 4 улирлын голч 3.0-оос дээш бол 1, 2-р курсээс БНСУ-ын их сургуульд солилцоо, 2+2 хөтөлбөрөөр суралцах боломжтой (намар, хавар сонгоно).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/1",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-elektronikiin-injenerchlel",
+      "name_mn": "Электроникийн инженерчлэл",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "071401",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/1",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Инженер, дизайн, технологийн сургуулийн хөтөлбөрийн жагсаалтад энэ нэр байхгүй; тэнхим 2009 оноос 'Техник хангамж' бакалаврын хөтөлбөртэй гэж бичсэн — ижил хөтөлбөр эсэхийг сургуулиас тодруулна уу. Тэнхимийн хуудсанд: солонгос хэлний TOPIK 4-өөс дээш түвшин, 4 улирлын голч 3.0-оос дээш бол 1, 2-р курсээс БНСУ-ын их сургуульд солилцоо, 2+2 хөтөлбөрөөр суралцах боломжтой (намар, хавар сонгоно).",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/1",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-mal-zui",
+      "name_mn": "Мал зүй",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "081102",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/12",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Хими, Биологи эсвэл Математик — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Биологи",
+          "Математик",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Биологи",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17).",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сургуулийн хуудсанд магистрын 'Мал зүй' хөтөлбөр бас бий.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/12",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-eng-oin-aj-akhui",
+      "name_mn": "Ойн аж ахуй",
+      "name_en": null,
+      "school_id": "iuu-eng",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "082101",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/12",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Хими, Биологи эсвэл Физик — босго 440. 2-р шалгалт: Математик эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 440,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Биологи",
+          "Физик",
+          "Математик",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Биологи",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 440,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сургуулийн хуудсанд магадлан итгэмжлэгдсэн хөтөлбөр гэж бичсэн.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/12",
+        "https://www.iuu.edu.mn/university/3",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-econ-biznesiin-udirdlaga",
+      "name_mn": "Бизнесийн удирдлага",
+      "name_en": null,
+      "school_id": "iuu-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "041301",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/10",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "ОУУБИС 1996 онд анх энэ мэргэжлээр сургалт эрхлэх зөвшөөрөл авсан.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/10",
+        "https://www.iuu.edu.mn/university/4",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-econ-bank",
+      "name_mn": "Банк",
+      "name_en": null,
+      "school_id": "iuu-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "041203",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/10",
+      "selection_type": "list",
+      "selection_type_mn": "Оноогоор жагсааж сонгоно гэж үзэв (ердийн журам; сургуулийн журмаас шалгаагүй)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал. 2026-2027 оны элсэлтийн журмын хүснэгтэд энэ хөтөлбөр тусдаа ороогүй — сургуулиас тодруулна уу.",
+      "threshold_score": null,
+      "secondary_threshold_score": null,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": null,
+        "dagaldah_threshold": null,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "score_formula_mn": "Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) ОУУБИС сайтдаа нийтлээгүй.",
+        "selection_type": "list",
+        "split_confidence": "unclear",
+        "page_thresholds": {
+          "suuri": 490,
+          "dagaldah": 490,
+          "page_wording_mn": "Элсэлтийн шалгалт-1: Математик-490; Элсэлтийн шалгалт-2: Англи хэл, Нийгэм судлал-490",
+          "year_mn": "он заагаагүй (2026-10-16-нд сайтад байсан хүснэгт)",
+          "status": "verify",
+          "source_url": "https://www.iuu.edu.mn/bachelor/program"
+        },
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны элсэлтийн журмын хөтөлбөрийн хүснэгтэд \"Банк\" (041203) тусдаа мөр байхгүй — \"Санхүү, банк\" (041201) хөтөлбөр бий; БШУ-ны сайдын А/34 тушаалд ч 041203 индекс алга. Сайтын огноогүй хүснэгтэд 1-р шалгалт Математик 490, 2-р шалгалт Англи хэл / Нийгэм судлал 490. Энэ хөтөлбөрөөр 2026-2027 онд элсүүлэх эсэхийг сургуулиас тодруулна уу.",
+        "source_url": "https://www.iuu.edu.mn/bachelor/program",
+        "status": "verify"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/10",
+        "https://www.iuu.edu.mn/university/4"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "verify"
+    },
+    {
+      "id": "iuu-econ-sankhuu",
+      "name_mn": "Санхүү, банк",
+      "name_en": null,
+      "school_id": "iuu-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "041201",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/10",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. Сайтад \"Санхүү\" нэрээр бичсэн.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "2019 онд 5 жилээр магадлан итгэмжлэгдсэн анхны гурван хөтөлбөрийн нэг.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/10",
+        "https://www.iuu.edu.mn/university/4",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-econ-menejment",
+      "name_mn": "Менежмент",
+      "name_en": null,
+      "school_id": "iuu-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "041303",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/10",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/10",
+        "https://www.iuu.edu.mn/university/4",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-econ-marketing",
+      "name_mn": "Маркетинг",
+      "name_en": null,
+      "school_id": "iuu-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "041401",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/10",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "2019 онд 5 жилээр магадлан итгэмжлэгдсэн анхны гурван хөтөлбөрийн нэг.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/10",
+        "https://www.iuu.edu.mn/university/4",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-econ-nyagtlan-bodokh-burtgel",
+      "name_mn": "Нягтлан бодох бүртгэл",
+      "name_en": null,
+      "school_id": "iuu-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "041101",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/10",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/10",
+        "https://www.iuu.edu.mn/university/4",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-econ-ayalal-juulchlal",
+      "name_mn": "Аялал жуулчлал",
+      "name_en": null,
+      "school_id": "iuu-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "101501",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/11",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Газарзүй, Математик эсвэл Англи хэл — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Газарзүй",
+          "Математик",
+          "Англи хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Газарзүй",
+          "Математик",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй. 2-р шалгалт нь ОУУБИС-ийн авдаг ур чадварын шалгалт (асуумж, эссэ, ярилцлага, зураг зурах г.м.); анхны оноог 200–800 хэмжээст оноонд хөрвүүлнэ, оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17).",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/11",
+        "https://www.iuu.edu.mn/university/4",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-econ-ediin-zasag",
+      "name_mn": "Эдийн засаг",
+      "name_en": null,
+      "school_id": "iuu-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "031101",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/9",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Эдийн засаг бакалаврын хөтөлбөр 2023 оны 6-р сард 5 жилээр магадлан итгэмжлэгдсэн.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/9",
+        "https://www.iuu.edu.mn/university/4",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "iuu-hum-olon-ulsyn-khariltsaa",
+      "name_mn": "Олон улсын харилцаа",
+      "name_en": null,
+      "school_id": "iuu-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "031202",
+      "code_note_mn": "Хөтөлбөрийн индекс (сайтын элсэлтийн хүснэгт).",
+      "official_url": "https://www.iuu.edu.mn/training/department/7",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд олгоно: шалгалт тус бүрийн босгыг хангаж, хяналтын тоонд багтвал суралцах эрхийн бичиг авна (журмын 3.3).",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл эсвэл Орос хэл — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Түүх — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Нийгэм судлал",
+          "Түүх"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Түүх"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "ОУУБИС-ийн 2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журмын хөтөлбөрийн хүснэгтээс авав; сайтын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалтай ижил. Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3); онооны томьёо зарлаагүй.",
+        "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёо зарлаагүй; шалгалт тус бүрийн босгоор шалгана."
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "ОУУБИС 2026-2027 оны сургалтын төлбөрөө сайтдаа нийтлээгүй. Төлбөрийг ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+        "source_url": null
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "2021 оны 12-р сард урьдчилсан магадлан итгэмжлэл хийлгэсэн; Хүмүүнлэгийн сургуулийн хуудсанд 'Шинэ хөтөлбөр' гэжээ.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/training/department/7",
+        "https://www.iuu.edu.mn/university/1",
+        "https://www.iuu.edu.mn/timeline?size=100",
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    }
+  ]
+}

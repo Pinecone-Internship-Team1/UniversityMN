@@ -1,0 +1,498 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the ОУУБИС part of the batch-3 dataset (oyutan-batch3, unis/iuu/data/*.json, after the 2026-10-18 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-18",
+    "mapped_at": "2026-10-18",
+    "university_id": "sch_iuu",
+    "how_to_use": "Run data-import/import-batch3.mjs iuu (--local / --remote, then --apply): it reads data-import/batch3/unis/iuu/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "one_minimum": "one minimum on the combined score (secondary_cut_off_score null): w1·exam1 + w2·exam2 ≥ cut_off_score",
+      "per_exam": "each exam has its own minimum (cut_off_score, secondary_cut_off_score; 0 = unknown); weights 1/1 when the formula is not published (a plain sum), 0.5/0.5 for an average (ОТИС, СУИС ЭШ-only majors)",
+      "skills_test": "group 2 is the university's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\" (СУИС: weights 0.5/1 = ЭШ ÷ 2 + skills test)",
+      "neutral": "no exam subjects or cut-offs (unclear / unknown split, three exams, or not in the 2026-27 table): \"Сургуулиас тодруулна уу\", rule in exam_note"
+    },
+    "skipped_programs": [],
+    "counts": {
+      "dataset_programs": 29,
+      "imported_programs": 29,
+      "by_degree": {
+        "BACHELOR": 29,
+        "ASSOCIATE": 0
+      },
+      "by_score_check": {
+        "skills_test": 9,
+        "per_exam": 19,
+        "neutral": 1
+      },
+      "faculties": 5,
+      "scholarships": 16,
+      "dorms": 1,
+      "admission_dates": 9
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "iuu-hum",
+      "type": "constituent",
+      "name": "Хүмүүнлэгийн сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 25-р хороо, Намянжугийн гудамж (ОУУБИС-ийн кампус)",
+      "db_id": "718b5751-2483-5625-ac14-c1523c3ce0bf"
+    },
+    {
+      "dataset_id": "iuu-eng",
+      "type": "constituent",
+      "name": "Инженер, дизайн, технологийн сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 25-р хороо, Намянжугийн гудамж (ОУУБИС-ийн кампус)",
+      "db_id": "1a4e2ed1-9cf5-5b28-a1dc-b8c0ab055ee1"
+    },
+    {
+      "dataset_id": "iuu-econ",
+      "type": "constituent",
+      "name": "Эдийн засаг бизнесийн сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 25-р хороо, Намянжугийн гудамж (ОУУБИС-ийн кампус)",
+      "db_id": "66b2c48b-51f8-593c-96a6-55dde0d38e94"
+    },
+    {
+      "dataset_id": "iuu-law",
+      "type": "constituent",
+      "name": "Хууль зүйн сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 25-р хороо, Намянжугийн гудамж (ОУУБИС-ийн кампус)",
+      "db_id": "d2de2391-64f9-5b4d-912f-6c3f615ee9ab"
+    },
+    {
+      "dataset_id": "iuu-nurs",
+      "type": "constituent",
+      "name": "Сувилахуйн сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 25-р хороо, Намянжугийн гудамж (ОУУБИС-ийн кампус)",
+      "db_id": "acf6002b-b1d2-53ec-9b01-5b1af7c7af2a"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "iuu-nurs-suvilakhui",
+      "dataset_school": "iuu-nurs",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Сувилахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "160f673b-1c01-53c3-9fae-83360e4193f1"
+    },
+    {
+      "dataset_id": "iuu-law-erkh-zui",
+      "dataset_school": "iuu-law",
+      "faculty": "Хууль зүйн сургууль",
+      "name": "Эрх зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "f8071d84-b66e-5c2e-94b8-adff13a4af4f"
+    },
+    {
+      "dataset_id": "iuu-hum-gadaad-khelnii-orchuulga-angli-khel",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Гадаад хэлний орчуулга (Англи хэл)",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "c8052d8a-f54f-5c77-87a3-8e11aa6ef013"
+    },
+    {
+      "dataset_id": "iuu-hum-gadaad-khelnii-orchuulga-solongos-khel",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Гадаад хэлний орчуулга (Солонгос хэл)",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "b3bb1720-7972-5a1e-bc3b-21a25674f67f"
+    },
+    {
+      "dataset_id": "iuu-hum-olon-uls-oron-sudlal",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Олон улс, орон судлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "240d1ceb-b46b-5bf7-a385-94bfdc106fc5"
+    },
+    {
+      "dataset_id": "iuu-hum-bagsh-gadaad-khelnii-bolovsrol-angli-khel",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Багш, гадаад хэлний боловсрол (Англи хэл)",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "187c608e-63f2-51e2-b297-94ac9462d826"
+    },
+    {
+      "dataset_id": "iuu-hum-bagsh-gadaad-khelnii-bolovsrol-solongos-khel",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Багш, гадаад хэлний боловсрол (Солонгос хэл)",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "df4c3b5b-62ba-5703-b919-dc9aa0170725"
+    },
+    {
+      "dataset_id": "iuu-hum-khel-shinjlel",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Хэл шинжлэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "1635fedf-ee1a-550e-9386-6cdb4f33f900"
+    },
+    {
+      "dataset_id": "iuu-hum-sotsiologi",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Социологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "d1a708af-17a8-5bd1-b08d-6e6334256b06"
+    },
+    {
+      "dataset_id": "iuu-hum-setgel-sudlal",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Сэтгэл судлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "f881bf18-4ddd-5a02-b16e-ab1b34fa2a24"
+    },
+    {
+      "dataset_id": "iuu-hum-niigmiin-ajil",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Нийгмийн ажил",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "83b1a200-2a13-55dd-be79-3b9a80f03c33"
+    },
+    {
+      "dataset_id": "iuu-eng-grafik-dizain",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "График дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "f4ba9cf1-00af-5777-a915-956a83c3c9a8"
+    },
+    {
+      "dataset_id": "iuu-eng-uildverleliin-dizain",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "Үйлдвэрлэлийн дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "c0bfed50-badf-5825-bbc0-2c658b132431"
+    },
+    {
+      "dataset_id": "iuu-eng-interier-dizain",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "Интерьер дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "f23f0ccc-37e3-5da4-9eda-541e1ae6b9fe"
+    },
+    {
+      "dataset_id": "iuu-eng-khuvtsasny-dizain",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "Хувцасны дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "90bfc7c6-57ee-5f5c-9c3d-92894a172710"
+    },
+    {
+      "dataset_id": "iuu-eng-program-khangamj",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "Програм хангамж",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "d295e9ab-c132-5116-9874-d5527fe5d272"
+    },
+    {
+      "dataset_id": "iuu-eng-medeelliin-sistem",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "Мэдээллийн систем",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "1ddc98a8-69e4-59e4-b74c-92e0a5190b7c"
+    },
+    {
+      "dataset_id": "iuu-eng-elektronikiin-injenerchlel",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "Электроникийн инженерчлэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "b01a1e83-b4af-5fde-983f-616cc960afea"
+    },
+    {
+      "dataset_id": "iuu-eng-mal-zui",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "Мал зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "06a91dda-4692-5764-94ad-7e611ae74242"
+    },
+    {
+      "dataset_id": "iuu-eng-oin-aj-akhui",
+      "dataset_school": "iuu-eng",
+      "faculty": "Инженер, дизайн, технологийн сургууль",
+      "name": "Ойн аж ахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "407e14e0-ab36-5254-9818-1d86e8fc7deb"
+    },
+    {
+      "dataset_id": "iuu-econ-biznesiin-udirdlaga",
+      "dataset_school": "iuu-econ",
+      "faculty": "Эдийн засаг бизнесийн сургууль",
+      "name": "Бизнесийн удирдлага",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "f2223366-a0d5-5f11-a593-fbcfbbe4d0f8"
+    },
+    {
+      "dataset_id": "iuu-econ-bank",
+      "dataset_school": "iuu-econ",
+      "faculty": "Эдийн засаг бизнесийн сургууль",
+      "name": "Банк",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "45c6d056-f375-5b6d-a70c-e0d033ba8f0f"
+    },
+    {
+      "dataset_id": "iuu-econ-sankhuu",
+      "dataset_school": "iuu-econ",
+      "faculty": "Эдийн засаг бизнесийн сургууль",
+      "name": "Санхүү, банк",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "13462ab2-b2be-55c6-a452-f343457a44bf"
+    },
+    {
+      "dataset_id": "iuu-econ-menejment",
+      "dataset_school": "iuu-econ",
+      "faculty": "Эдийн засаг бизнесийн сургууль",
+      "name": "Менежмент",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "c680c369-fa61-58dd-9cbe-fc4859104264"
+    },
+    {
+      "dataset_id": "iuu-econ-marketing",
+      "dataset_school": "iuu-econ",
+      "faculty": "Эдийн засаг бизнесийн сургууль",
+      "name": "Маркетинг",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "06219d25-7b7d-55c4-938f-65047671d6db"
+    },
+    {
+      "dataset_id": "iuu-econ-nyagtlan-bodokh-burtgel",
+      "dataset_school": "iuu-econ",
+      "faculty": "Эдийн засаг бизнесийн сургууль",
+      "name": "Нягтлан бодох бүртгэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "1ad2e6ef-4ac6-5367-932d-a67ece7b6ad1"
+    },
+    {
+      "dataset_id": "iuu-econ-ayalal-juulchlal",
+      "dataset_school": "iuu-econ",
+      "faculty": "Эдийн засаг бизнесийн сургууль",
+      "name": "Аялал жуулчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "bb0eb05b-d8b5-5a98-a22b-4a3348019846"
+    },
+    {
+      "dataset_id": "iuu-econ-ediin-zasag",
+      "dataset_school": "iuu-econ",
+      "faculty": "Эдийн засаг бизнесийн сургууль",
+      "name": "Эдийн засаг",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "ed430e00-a080-56dc-9719-9a103f0d314f"
+    },
+    {
+      "dataset_id": "iuu-hum-olon-ulsyn-khariltsaa",
+      "dataset_school": "iuu-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Олон улсын харилцаа",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "9a52132c-dd16-5867-b795-48d9be5703c6"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "iuu-sch-new",
+      "name": "Шинэ элсэгчийн тэтгэлэг",
+      "db_id": "c62f2b90-a775-5de1-ad0c-9dca1972dd5c"
+    },
+    {
+      "dataset_id": "iuu-sch-alumni-child",
+      "name": "ОУУБИС-ийн төгсөгчийн хүүхдийн хөнгөлөлт",
+      "db_id": "e41ab9fb-d118-58d3-add3-61eb76e91070"
+    },
+    {
+      "dataset_id": "iuu-sch-siblings",
+      "name": "Ах эгч дүүгийн хөнгөлөлт",
+      "db_id": "a6a86962-a508-5fc2-87d4-7a2fae2cfd23"
+    },
+    {
+      "dataset_id": "iuu-sch-affiliated-school",
+      "name": "Харьяа бүрэн дунд сургуулийн төгсөгчийн хөнгөлөлт",
+      "db_id": "b474fc5e-5bb2-5edd-baca-3600fb37d448"
+    },
+    {
+      "dataset_id": "iuu-sch-board",
+      "name": "Удирдах зөвлөлийн даргын нэрэмжит тэтгэлэг",
+      "db_id": "538f452e-01c2-5a5f-b41f-4d6b843fe3e5"
+    },
+    {
+      "dataset_id": "iuu-sch-rector",
+      "name": "Ректорын нэрэмжит тэтгэлэг",
+      "db_id": "4e62dccf-6f89-5fdf-8cd1-73423a056a53"
+    },
+    {
+      "dataset_id": "iuu-sch-council",
+      "name": "Оюутны зөвлөлийн тэтгэлэг",
+      "db_id": "34946b28-0d19-5757-b7d4-74a56e5717b2"
+    },
+    {
+      "dataset_id": "iuu-sch-research",
+      "name": "Судалгааны тэтгэлэг",
+      "db_id": "89b549e4-b02b-5cbb-8001-8eacc5da75e2"
+    },
+    {
+      "dataset_id": "iuu-sch-sport-art",
+      "name": "Спорт, урлагийн тэтгэлэг",
+      "db_id": "ae2089f0-1c24-5134-9591-702f6c714020"
+    },
+    {
+      "dataset_id": "iuu-sch-staff-child",
+      "name": "Багш, ажилтны хүүхдийн тэтгэлэг",
+      "db_id": "d8630e44-8448-5418-b65c-31925cbdb066"
+    },
+    {
+      "dataset_id": "iuu-sch-welfare",
+      "name": "Халамжийн тэтгэлэг",
+      "db_id": "0b170898-5d2b-5426-963e-9ba7ce6aad69"
+    },
+    {
+      "dataset_id": "iuu-sch-dorm",
+      "name": "Оюутны байрны төлбөрийн тэтгэлэг",
+      "db_id": "0e1df27c-06b7-5a1c-8d0a-672f19d56294"
+    },
+    {
+      "dataset_id": "iuu-sch-social",
+      "name": "Нийгмийн үйлчилгээний тэтгэлэг",
+      "db_id": "78e8df01-1029-5dc3-8378-17d41230172c"
+    },
+    {
+      "dataset_id": "iuu-sch-sponsor",
+      "name": "Байгууллага, хувь хүний нэрэмжит тэтгэлэг",
+      "db_id": "369a95d9-527e-57c4-97bd-3643712252a9"
+    },
+    {
+      "dataset_id": "iuu-sch-korean",
+      "name": "Солонгос судлалын нэрэмжит тэтгэлэг",
+      "db_id": "e3580971-0ee8-5450-bd36-8bbe008e6c8d"
+    },
+    {
+      "dataset_id": "iuu-sch-2plus2",
+      "name": "2+2 хөтөлбөрийн түнш их сургуулийн тэтгэлэг (БНСУ)",
+      "db_id": "b019aa4d-d758-5c89-8b04-10964e026dec"
+    }
+  ],
+  "dorms": [
+    {
+      "dataset_id": "iuu-dorm-main",
+      "name": "ОУУБИС-ийн оюутны байр",
+      "db_id": "eba569ac-bc96-5138-a3b5-0bb0ec0ae50f"
+    }
+  ],
+  "admission_dates": [
+    {
+      "dataset_id": "iuu-date-2026-registration",
+      "event": "ОУУБИС-ийн хаврын элсэлтийн бүртгэл (2026)",
+      "db_id": "788d3011-23ae-5391-9f4c-f08e8d48d856"
+    },
+    {
+      "dataset_id": "iuu-date-2026-contract",
+      "event": "Хаврын элсэлт: суралцах гэрээ байгуулах эцсийн өдөр (2026)",
+      "db_id": "aea57a43-12f9-57e2-9669-974274143a7f"
+    },
+    {
+      "dataset_id": "iuu-date-2027-winter-registration",
+      "event": "ОУУБИС-ийн өвлийн элсэлтийн бүртгэл (2027)",
+      "db_id": "d1abcb69-bb09-5cfc-a9d3-5cf484eada4a"
+    },
+    {
+      "dataset_id": "iuu-date-2027-winter-contract",
+      "event": "Өвлийн элсэлт: суралцах гэрээ байгуулах эцсийн өдөр (2027)",
+      "db_id": "0163fdb7-7282-5d89-93ca-fad183a8494b"
+    },
+    {
+      "dataset_id": "iuu-date-winter-esh-reg-2026",
+      "event": "Өвлийн Элсэлтийн шалгалт, Монгол хэл бичгийн шалгалтын бүртгэл (eyesh.eec.mn; зөвхөн өмнөх оны шалгуулагч; хичээл бүр 20,000₮)",
+      "db_id": "9cf30119-73b4-55b1-ac08-0f62bfe74930"
+    },
+    {
+      "dataset_id": "iuu-date-esh-reg-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалтын бүртгэл хаагдсан (5-р сарын 15-ны 18:00, eyesh.eec.mn)",
+      "db_id": "d70f6ef8-f1be-5980-9a9a-9a29d8a98d05"
+    },
+    {
+      "dataset_id": "iuu-date-esh-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалт эхэлсэн",
+      "db_id": "e63ccece-28d1-5cae-8023-aa710802df3c"
+    },
+    {
+      "dataset_id": "iuu-date-classes-2026",
+      "event": "2026 оны жишиг: Хичээлийн жил эхэлсэн (ОУУБИС-д хичээлийн жил 9-р сарын 1-нд нээгддэг)",
+      "db_id": "22f77a7a-8985-5fc2-b9d4-f6954777b2c9"
+    },
+    {
+      "dataset_id": "iuu-date-scholarship-2026",
+      "event": "2026 оны жишиг: 2026-2027 оны I улирлын тэтгэлгийг 527 оюутанд гардуулсан",
+      "db_id": "e3f5b722-e388-50de-b8cc-7f4344150681"
+    }
+  ]
+}

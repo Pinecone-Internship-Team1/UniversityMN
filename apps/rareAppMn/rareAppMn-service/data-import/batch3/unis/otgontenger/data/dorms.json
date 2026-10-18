@@ -1,0 +1,28 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "ОТИС",
+  "description": "ОТИС-ийн оюутны байр (мэдээлэл олдсонгүй).",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "otg-dorm-facts",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны ерөнхий мэдээлэл",
+   "facts_mn": [
+    "Их сургуулийн холбоо барих, элсэлт, тэтгэлэг, сургуулиудын хуудсанд оюутны байрны мэдээлэл олдсонгүй.",
+    "Холбоо барих хуудсанд А, Б, В, 4-р байрны өрөөнүүдийг жагсаасан ч дотуур байр дурдаагүй.",
+    "Байртай эсэх, үнийг 7010-1991 утас эсвэл Facebook хуудсаар тодруулна уу."
+   ],
+   "source_urls": [
+    "https://www.otgontenger.edu.mn/mn/contact",
+    "https://otgontenger.edu.mn/mn/enrollment",
+    "http://otgontenger.edu.mn/mn/student/scholarship"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "unknown"
+  }
+ ]
+}

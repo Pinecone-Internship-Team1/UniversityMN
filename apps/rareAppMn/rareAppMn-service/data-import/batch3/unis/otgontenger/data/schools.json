@@ -1,0 +1,79 @@
+{
+ "_meta": {
+  "dataset": "schools",
+  "university": "ОТИС",
+  "description": "ОТИС-ийн бакалаврын элсэлт авдаг 3 бүрэлдэхүүн сургууль (бүгд Улаанбаатарт, нэг хотхонд).",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "otg-hum",
+   "type": "constituent",
+   "name_mn": "Хүмүүнлэгийн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://www.otgontenger.edu.mn/branch/humanities",
+   "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, 41-р хороо, Энхтайваны өргөн чөлөө, Жуковын гудамж (ОТИС-ийн хотхон), В байр",
+   "contacts": {
+    "director_mn": "Батсайхан Энхбаяр (захирал)",
+    "office_mn": "Захирлын өрөө — В байр, 203 тоот",
+    "phone": "7010-1991",
+    "email": "info@otgontenger.edu.mn"
+   },
+   "notes_mn": "Багш, гадаад хэлний орчуулга, сэтгүүл зүй, сэтгэл судлал, олон улсын харилцаа, нийгмийн ажил, агаарын тээврийн үйлчилгээний бакалаврын хөтөлбөртэй. Сургуулийн хуудсанд 33 үндсэн багштай, оюутнуудын 80% нь өдрийн, 20% нь орой, зайн хэлбэрээр суралцдаг гэж бичсэн; багшийн бакалаврын хөтөлбөрийг 2011 онд эхлүүлсэн. Сайтын цэсэнд 'Салбар сургууль' гэж гардаг ч хаяг нь Улаанбаатарт, их сургуулийн хотхонд байна.",
+   "source_urls": [
+    "https://www.otgontenger.edu.mn/branch/humanities",
+    "https://www.otgontenger.edu.mn/mn/programs",
+    "https://www.otgontenger.edu.mn/mn/contact"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "otg-econ",
+   "type": "constituent",
+   "name_mn": "Эдийн засаг бизнесийн удирдлагын сургууль",
+   "abbr_mn": "ЭЗБУС",
+   "website": null,
+   "page": "https://www.otgontenger.edu.mn/branch/economic-and-business",
+   "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, 41-р хороо, Энхтайваны өргөн чөлөө, Жуковын гудамж (ОТИС-ийн хотхон), Б байр",
+   "contacts": {
+    "director_mn": "Д.Дорлигсүрэн (захирал)",
+    "office_mn": "Захирлын өрөө — Б байр, 206 тоот",
+    "phone": "7010-1991",
+    "email": "info@otgontenger.edu.mn"
+   },
+   "notes_mn": "Нягтлан бодох бүртгэл, санхүү, банк, бизнесийн удирдлага, аялал жуулчлал, программ хангамжийн бакалаврын хөтөлбөртэй. Сургуулийн хуудсанд ACBSP-ийн гишүүн гэж бичсэн. Тэр хуудсанд дурдсан мэргэжлийн нэрс (Санхүүгийн удирдлага, Олон улсын худалдааны удирдлага, Санхүү банк удирдлага) одоогийн хөтөлбөрийн жагсаалттай таарахгүй — хөтөлбөрийн жагсаалт, элсэлтийн журмын нэрийг ашиглав.",
+   "source_urls": [
+    "https://www.otgontenger.edu.mn/branch/economic-and-business",
+    "https://www.otgontenger.edu.mn/mn/programs",
+    "https://www.otgontenger.edu.mn/mn/contact"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "otg-law",
+   "type": "constituent",
+   "name_mn": "Хууль зүйн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://www.otgontenger.edu.mn/branch/huul-zuin-surguul",
+   "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, 41-р хороо, Энхтайваны өргөн чөлөө, Жуковын гудамж (ОТИС-ийн хотхон), А байр",
+   "contacts": {
+    "director_mn": null,
+    "office_mn": "Захирлын өрөө — А байр, 102 тоот; Хууль зүйн клиник — А байр, 111 тоот",
+    "phone": "7010-1991",
+    "email": "info@otgontenger.edu.mn"
+   },
+   "notes_mn": "Эрх зүйн бакалаврын хөтөлбөртэй. Сургуулийн хуудсыг уншаагүй (захирал, танилцуулга тодорхойгүй).",
+   "source_urls": [
+    "https://www.otgontenger.edu.mn/mn/programs",
+    "https://www.otgontenger.edu.mn/mn/contact"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  }
+ ]
+}

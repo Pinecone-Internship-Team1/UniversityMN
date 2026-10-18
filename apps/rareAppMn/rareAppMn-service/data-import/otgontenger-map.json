@@ -1,0 +1,367 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the ОТИС part of the batch-3 dataset (oyutan-batch3, unis/otgontenger/data/*.json, after the 2026-10-18 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-18",
+    "mapped_at": "2026-10-18",
+    "university_id": "sch_otgontenger",
+    "how_to_use": "Run data-import/import-batch3.mjs otgontenger (--local / --remote, then --apply): it reads data-import/batch3/unis/otgontenger/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "one_minimum": "one minimum on the combined score (secondary_cut_off_score null): w1·exam1 + w2·exam2 ≥ cut_off_score",
+      "per_exam": "each exam has its own minimum (cut_off_score, secondary_cut_off_score; 0 = unknown); weights 1/1 when the formula is not published (a plain sum), 0.5/0.5 for an average (ОТИС, СУИС ЭШ-only majors)",
+      "skills_test": "group 2 is the university's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\" (СУИС: weights 0.5/1 = ЭШ ÷ 2 + skills test)",
+      "neutral": "no exam subjects or cut-offs (unclear / unknown split, three exams, or not in the 2026-27 table): \"Сургуулиас тодруулна уу\", rule in exam_note"
+    },
+    "skipped_programs": [],
+    "counts": {
+      "dataset_programs": 19,
+      "imported_programs": 19,
+      "by_degree": {
+        "BACHELOR": 19,
+        "ASSOCIATE": 0
+      },
+      "by_score_check": {
+        "per_exam": 13,
+        "skills_test": 6
+      },
+      "faculties": 3,
+      "scholarships": 16,
+      "dorms": 0,
+      "admission_dates": 7
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "otg-hum",
+      "type": "constituent",
+      "name": "Хүмүүнлэгийн сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 41-р хороо, Энхтайваны өргөн чөлөө, Жуковын гудамж (ОТИС-ийн хотхон), В байр",
+      "db_id": "3f3f83e9-26d1-5d34-9ee8-ce6e40be4c92"
+    },
+    {
+      "dataset_id": "otg-econ",
+      "type": "constituent",
+      "name": "Эдийн засаг бизнесийн удирдлагын сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 41-р хороо, Энхтайваны өргөн чөлөө, Жуковын гудамж (ОТИС-ийн хотхон), Б байр",
+      "db_id": "1c4006ca-15f0-595b-8209-28e7c65711a8"
+    },
+    {
+      "dataset_id": "otg-law",
+      "type": "constituent",
+      "name": "Хууль зүйн сургууль",
+      "location": "Улаанбаатар, Баянзүрх дүүрэг, 41-р хороо, Энхтайваны өргөн чөлөө, Жуковын гудамж (ОТИС-ийн хотхон), А байр",
+      "db_id": "fe8ac65d-0ae1-538c-978b-0afaede0768d"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "otg-hum-gadaad-khelnii-orchuulga-solongos",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Гадаад хэлний орчуулга /Солонгос/",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "106c1b61-4c18-5e15-bef8-72e7b6202de7"
+    },
+    {
+      "dataset_id": "otg-hum-bagsh-mongol-khel-uran-zokhiolyn-bolovsrol",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Багш, монгол хэл уран зохиолын боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "7ad51264-dee2-5967-9c88-d6dc271bc038"
+    },
+    {
+      "dataset_id": "otg-hum-niigmiin-ajil",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Нийгмийн ажил",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "02119424-c84a-516f-995c-2450dcdaf4a3"
+    },
+    {
+      "dataset_id": "otg-hum-bagsh-surguuliin-umnukh-nasny-bolovsrol",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Багш, сургуулийн өмнөх насны боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "2d589820-5507-5c0a-a70d-7b6827a66617"
+    },
+    {
+      "dataset_id": "otg-hum-gadaad-khelnii-orchuulga-khyatad-khel",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Гадаад хэлний орчуулга /Хятад хэл/",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "21ec753e-2737-5f60-bb24-c4460045e72a"
+    },
+    {
+      "dataset_id": "otg-hum-setguul-zui",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Сэтгүүл зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "d1da74d7-06bd-5ea5-9336-dfa85f8152fc"
+    },
+    {
+      "dataset_id": "otg-hum-bagsh-gadaad-khelnii-bolovsrol-angli-khel",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Багш, гадаад хэлний боловсрол /англи хэл/",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "53c49fac-55ab-503e-aa01-89b13dfc8ebc"
+    },
+    {
+      "dataset_id": "otg-hum-olon-ulsyn-khariltsaa",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Олон улсын харилцаа",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "e496f80f-a27e-58e6-bec4-c15d13b65d4f"
+    },
+    {
+      "dataset_id": "otg-hum-agaaryn-teevriin-uilchilgee-agaaryn-bukheegiin-ajiltan",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Агаарын тээврийн үйлчилгээ /агаарын бүхээгийн ажилтан/",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "6e7dba5b-9e10-5b85-843e-e568939f5f67"
+    },
+    {
+      "dataset_id": "otg-hum-setgel-sudlal",
+      "dataset_school": "otg-hum",
+      "faculty": "Хүмүүнлэгийн сургууль",
+      "name": "Сэтгэл судлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "8e660ff8-9dbd-5bcb-9206-4538c5c7ed3a"
+    },
+    {
+      "dataset_id": "otg-econ-programm-khangamj",
+      "dataset_school": "otg-econ",
+      "faculty": "Эдийн засаг бизнесийн удирдлагын сургууль",
+      "name": "Программ хангамж",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "a1393057-5f02-52f8-a366-6cb3e7e20852"
+    },
+    {
+      "dataset_id": "otg-econ-ayalal-juulchlal",
+      "dataset_school": "otg-econ",
+      "faculty": "Эдийн засаг бизнесийн удирдлагын сургууль",
+      "name": "Аялал жуулчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "59cdc9ee-f25e-505c-83e7-b3f2b99c71ea"
+    },
+    {
+      "dataset_id": "otg-econ-sankhuu-bank",
+      "dataset_school": "otg-econ",
+      "faculty": "Эдийн засаг бизнесийн удирдлагын сургууль",
+      "name": "Санхүү, Банк",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "8d80330a-727e-5b81-afd9-abd87e08aee1"
+    },
+    {
+      "dataset_id": "otg-econ-biznesiin-udirdlaga",
+      "dataset_school": "otg-econ",
+      "faculty": "Эдийн засаг бизнесийн удирдлагын сургууль",
+      "name": "Бизнесийн удирдлага",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "46e42da4-04e8-5080-839b-0e1457ae0543"
+    },
+    {
+      "dataset_id": "otg-econ-nyagtlan-bodokh-burtgel",
+      "dataset_school": "otg-econ",
+      "faculty": "Эдийн засаг бизнесийн удирдлагын сургууль",
+      "name": "Нягтлан бодох бүртгэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "30c8b204-8cc0-5407-a009-316a44ac4413"
+    },
+    {
+      "dataset_id": "otg-econ-khunii-nuutsiin-menedjment",
+      "dataset_school": "otg-econ",
+      "faculty": "Эдийн засаг бизнесийн удирдлагын сургууль",
+      "name": "Хүний нөөцийн менеджмент",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "ff4b9798-5e42-53e6-a783-bfbefcb4fe03"
+    },
+    {
+      "dataset_id": "otg-econ-marketing",
+      "dataset_school": "otg-econ",
+      "faculty": "Эдийн засаг бизнесийн удирдлагын сургууль",
+      "name": "Маркетинг",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "3227f852-7058-57d3-843e-eab03448179c"
+    },
+    {
+      "dataset_id": "otg-law-erkh-zui",
+      "dataset_school": "otg-law",
+      "faculty": "Хууль зүйн сургууль",
+      "name": "Эрх зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "0c352d30-c7ce-54fe-9ccd-5b9deb57b104"
+    },
+    {
+      "dataset_id": "otg-law-biznesiin-erkh-zui",
+      "dataset_school": "otg-law",
+      "faculty": "Хууль зүйн сургууль",
+      "name": "Бизнесийн эрх зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "a753b362-520b-5465-bb5e-bce9bea3ef45"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "otg-esh-discount",
+      "name": "Элсэлтийн ерөнхий шалгалтын оноонд үзүүлэх хөнгөлөлт",
+      "db_id": "75ff4190-bf63-5d42-ac78-a4f5a9c8d77a"
+    },
+    {
+      "dataset_id": "otg-early-payment",
+      "name": "Сургалтын төлбөрөө эрт бүрэн төлөх хөнгөлөлт",
+      "db_id": "0da82fe7-c3b2-58d8-b764-bfc57a2a97ef"
+    },
+    {
+      "dataset_id": "otg-olympiad",
+      "name": "БСШУЯ-ны тэтгэлэг (олимпиадын шагналт элсэгч)",
+      "db_id": "eebfabf6-1e5e-5f2b-b5b1-68e2d8058ac2"
+    },
+    {
+      "dataset_id": "otg-achievement",
+      "name": "Амжилтийн эзэн тэтгэлэг",
+      "db_id": "f5cf71c2-3c53-5f48-a685-493cf12f7a0d"
+    },
+    {
+      "dataset_id": "otg-a-grade",
+      "name": "Дараалан А үнэлгээтэй суралцсан оюутны хөнгөлөлт",
+      "db_id": "3373ca08-5e2c-5aec-90b9-a9350deebaa8"
+    },
+    {
+      "dataset_id": "otg-student-council",
+      "name": "Оюутны холбоо, оюутны зөвлөлийн идэвхтний хөнгөлөлт",
+      "db_id": "e3b81908-79b8-5fbc-96b9-7d2a723e1fbd"
+    },
+    {
+      "dataset_id": "otg-sports",
+      "name": "Спортын амжилттай оюутны хөнгөлөлт",
+      "db_id": "de5feb05-886d-5a89-8163-f4224a57e831"
+    },
+    {
+      "dataset_id": "otg-alumni",
+      "name": "ОТИС-ийн төгсөгчийн нэрэмжит тэтгэлэг",
+      "db_id": "765e1052-bcbb-56d3-9088-70430dd50bb7"
+    },
+    {
+      "dataset_id": "otg-founder",
+      "name": "Үүсгэн байгуулагчийн нэрэмжит тэтгэлэг",
+      "db_id": "53bd6ca0-1936-5768-ac28-277cd2402432"
+    },
+    {
+      "dataset_id": "otg-president",
+      "name": "Ерөнхийлөгчийн нэрэмжит тэтгэлэг",
+      "db_id": "eb8fa886-36f7-5ffe-a0cf-26fb41302c2d"
+    },
+    {
+      "dataset_id": "otg-prime-minister",
+      "name": "Ерөнхий сайдын нэрэмжит тэтгэлэг",
+      "db_id": "62e3012f-5002-557b-88b6-68341afd215e"
+    },
+    {
+      "dataset_id": "otg-zorig",
+      "name": "Зориг сангийн тэтгэлэг",
+      "db_id": "dc425ec4-2100-5b5b-a4d5-c65f858cfbbf"
+    },
+    {
+      "dataset_id": "otg-golomt",
+      "name": "Голомт банкны тэтгэлэг",
+      "db_id": "e4423ec9-c8ef-5b75-8b51-9a2229bf1cbe"
+    },
+    {
+      "dataset_id": "otg-khan",
+      "name": "ХААН банкны тэтгэлэг",
+      "db_id": "4cdbcc0c-b542-5cde-8606-fba91440eeeb"
+    },
+    {
+      "dataset_id": "otg-oyu-tolgoi",
+      "name": "Оюу Толгой тэтгэлэг",
+      "db_id": "a8f1a711-3395-55d8-91dc-d77c9fd12316"
+    },
+    {
+      "dataset_id": "otg-state-grant",
+      "name": "Сургалтын төрийн сангийн буцалтгүй тусламж",
+      "db_id": "ce15ba46-6bcc-5ecf-8e53-6286e8d64f63"
+    }
+  ],
+  "dorms": [],
+  "admission_dates": [
+    {
+      "dataset_id": "otg-date-2026-registration",
+      "event": "ОТИС-ийн бакалаврын элсэлтийн цахим бүртгэл (2026)",
+      "db_id": "fc3ce79d-dbfd-54da-9bb9-eea58626536e"
+    },
+    {
+      "dataset_id": "otg-date-2026-program-choice",
+      "event": "Хөтөлбөр сонгох, 1,000,000₮ төлж баталгаажуулах (2026)",
+      "db_id": "c1af70f4-93a9-516e-beb3-10cd5d510ed5"
+    },
+    {
+      "dataset_id": "otg-date-2026-documents",
+      "event": "Элсэгчийн бичиг баримт бүрдүүлэх, суралцах эрх баталгаажуулах (2026)",
+      "db_id": "d1ecb4ad-29bf-57f8-b14f-3c39732ddfbe"
+    },
+    {
+      "dataset_id": "otg-date-2026-early-payment",
+      "event": "Жилийн төлбөрөө бүрэн төлж 10% хөнгөлөлт авах эцсийн хугацаа (2026)",
+      "db_id": "5f09e801-0782-5394-8222-fc0cda29e08a"
+    },
+    {
+      "dataset_id": "otg-date-2026-exam",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалт (улсын хэмжээнд)",
+      "db_id": "b810a3e6-01ae-5484-aacb-9ce2f432ae98"
+    },
+    {
+      "dataset_id": "otg-date-2026-skills",
+      "event": "2026 оны жишиг: Их сургуулиудын ур чадварын шалгалт (улсын хэмжээнд; ОТИС-ийн өөрийн огноо нийтлэгдээгүй)",
+      "db_id": "4c9572d1-0c1b-5904-bff7-6e77d9d8973d"
+    },
+    {
+      "dataset_id": "otg-date-2026-state-scholarship",
+      "event": "2026 оны жишиг: Ерөнхийлөгчийн болон Ерөнхий сайдын нэрэмжит тэтгэлгийн бүртгэл (жил бүрийн 6-р сарын 15-ны дотор)",
+      "db_id": "b5a22b78-9967-516b-9184-8a6455a1663e"
+    }
+  ]
+}

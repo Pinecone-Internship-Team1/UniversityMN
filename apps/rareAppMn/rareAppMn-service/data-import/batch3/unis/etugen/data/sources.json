@@ -1,0 +1,232 @@
+{
+  "_meta": {
+    "dataset": "sources",
+    "university": "Этүгэн",
+    "description": "Энэ датасетэд ашигласан эх сурвалжууд ба уншиж чадаагүй (цоорхой) эх сурвалжууд.",
+    "language": "mn",
+    "verified_at": "2026-10-16",
+    "note_mn": "gap = true бол уншиж чадаагүй; gap_fill_hint_mn-д тэндээс юу авахыг бичсэн."
+  },
+  "records": [
+    {
+      "id": "src-juram",
+      "url": "https://etugen.edu.mn/public/juram2627.pdf",
+      "used_for": "2026-2027 оны элсэлтийн журам (Ректорын 2026-03-11-ний 44-р тушаал): хөтөлбөрийн хүснэгт, онооны дүрэм, тэтгэлэг, хамтарсан хөтөлбөр, огноо — гол эх сурвалж",
+      "gap": false
+    },
+    {
+      "id": "src-adm-list",
+      "url": "https://etugen.edu.mn/Home/admission/17",
+      "used_for": "Элсэлт авах мэргэжил: бакалавр, дэд бакалаврын 27 хөтөлбөрийн шалгалтын хичээл, босго (огноогүй хүснэгт)",
+      "gap": false
+    },
+    {
+      "id": "src-b-reg",
+      "url": "https://burtgel.etugen.edu.mn/account/bachelorregister",
+      "used_for": "2026 оны бүртгэлийн дүрэм: огноо, хураамж 2,000₮, 4 хүртэл мэргэжил, 250,000₮, Эрдэнэт 430, бичиг баримт",
+      "gap": false
+    },
+    {
+      "id": "src-burtgel",
+      "url": "https://burtgel.etugen.edu.mn/",
+      "used_for": "2026 оны бүртгэлийн хугацаа, хамтарсан хөтөлбөр, солилцоо, тэтгэлэг, холбоо барих",
+      "gap": false
+    },
+    {
+      "id": "src-b-about",
+      "url": "https://burtgel.etugen.edu.mn/Home/About",
+      "used_for": "Бүртгэлийн системийн мэргэжлийн жагсаалт (бакалаврынх зөвхөн зураг)",
+      "gap": false
+    },
+    {
+      "id": "src-b-juram",
+      "url": "https://burtgel.etugen.edu.mn/Home/Juram",
+      "used_for": "2026-2027 оны журмын PDF-ийн холбоос, элсэлтийн хаяг, утас",
+      "gap": false
+    },
+    {
+      "id": "src-faq",
+      "url": "https://etugen.edu.mn/Home/About",
+      "used_for": "Түгээмэл асуулт: бичиг баримт, байр, тэтгэлэг, ЭЕШ-гүй элсэх (2025 оны огноотой)",
+      "gap": false
+    },
+    {
+      "id": "src-adm-reg",
+      "url": "https://etugen.edu.mn/Home/admission/1",
+      "used_for": "Элсэлтийн бүртгэлийн хуудас (2025 оны огноотой)",
+      "gap": false
+    },
+    {
+      "id": "src-adm-juram-page",
+      "url": "https://etugen.edu.mn/Home/admission/21",
+      "used_for": "Элсэлтийн журмын хуудас — хуучин PDF-ийн холбоос",
+      "gap": false
+    },
+    {
+      "id": "src-acad",
+      "url": "https://etugen.edu.mn/Home/academic/27",
+      "used_for": "Сургууль, хөтөлбөрийн хуучин жагсаалт ба хөтөлбөрийн хуудасны холбоос",
+      "gap": false
+    },
+    {
+      "id": "src-bach-12",
+      "url": "https://etugen.edu.mn/Home/Bachlist?id=12",
+      "used_for": "Хөтөлбөрийн хуудасны загвар — танилцуулгын файл, магадлан итгэмжлэлийн хэсэг",
+      "gap": false
+    },
+    {
+      "id": "src-orkhon",
+      "url": "https://etugen.edu.mn/Home/academic/31",
+      "used_for": "Орхон аймаг дахь салбарын хөтөлбөр",
+      "gap": false
+    },
+    {
+      "id": "src-struct",
+      "url": "https://etugen.edu.mn/Home/University/38",
+      "used_for": "5 хичээлийн байрны хаяг (Сүхбаатар дүүрэг)",
+      "gap": false
+    },
+    {
+      "id": "src-sch",
+      "url": "https://etugen.edu.mn/Home/student/32",
+      "used_for": "Этүгэний тэтгэлэг, хөнгөлөлт",
+      "gap": false
+    },
+    {
+      "id": "src-dorm",
+      "url": "https://etugen.edu.mn/Home/campus/3",
+      "used_for": "Оюутны байр: 372 ор, өрөөний төрөл, тохижилт",
+      "gap": false
+    },
+    {
+      "id": "src-hist",
+      "url": "https://etugen.edu.mn/Home/Timeline/12",
+      "used_for": "Түүх (2001–2022)",
+      "gap": false
+    },
+    {
+      "id": "src-rules",
+      "url": "https://etugen.edu.mn/Home/academic/39",
+      "used_for": "Дүрэм, журмын жагсаалт (Сургалтын нэгдсэн журам)",
+      "gap": false
+    },
+    {
+      "id": "src-coop",
+      "url": "https://etugen.edu.mn/Home/Cooperation/3",
+      "used_for": "Гадаадын түнш их сургуулиуд",
+      "gap": false
+    },
+    {
+      "id": "src-news-2024",
+      "url": "https://etugen.edu.mn/Home/NewsContent/1097",
+      "used_for": "2024 оны мэдээ: магадлан итгэмжлэл (14 хөтөлбөр, ACBSP, ASIIN), хамтын ажиллагаа",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-esh",
+      "url": "https://ikon.mn/n/3lvf",
+      "used_for": "2026 оны Элсэлтийн шалгалтын хуваарь (6-р сарын 25–28) — мэдээний гарчиг",
+      "gap": false
+    },
+    {
+      "id": "gap-program-image-2026",
+      "url": "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png",
+      "used_for": "ЦООРХОЙ: 2026 оны бүртгэлийн системийн бакалавр, дэд бакалаврын хөтөлбөрийн хүснэгт — зөвхөн зураг",
+      "gap": false,
+      "gap_fill_hint_mn": "Зургийн эх нэр: 'Burtgel WEB-d 26.png'. Мөр бүрээс: сургууль, хөтөлбөрийн нэр, зэрэг, хугацаа, Элсэлтийн шалгалт 1-ийн хичээл + босго, Элсэлтийн шалгалт 2-ын хичээл + босго, тэмдэглэгээ (*, **), төлбөр байвал. Ялангуяа шалгах: Био-Анагаах ухаан 1-р шалгалт 480 үү 490 үү; Олон улсын сувилахуйн зэрэг, хугацаа, 1-р шалгалтын босго (430 эсвэл 410); Санхүү банк, Бизнесийн удирдлага, Татвар, Хүний нөөц, Маркетингийн 1-р шалгалт зөвхөн Математик уу, 'Нийгэм судлал, Математик' уу; Big Data, VR, Цахилгаан хангамж, Эмнэлгийн тоног төхөөрөмжийн хичээл, босго; Багшийн 3 хөтөлбөрийн 2-р шалгалт. Тохирвол тухайн мөрийг confirmed болгоно.",
+      "filled_at": "2026-10-18",
+      "filled_note": "Хүснэгтийг зургаар уншив: бүх 27 УБ хөтөлбөрийн хичээл, босго журмын хүснэгттэй тулгав (Хоол үйлдвэрлэлийн 1-р шалгалтад Физик байхгүй)."
+    },
+    {
+      "id": "gap-juram-table",
+      "url": "https://etugen.edu.mn/public/juram2627.pdf",
+      "used_for": "ЦООРХОЙ: 2026-2027 оны журмын хөтөлбөрийн хүснэгт — текстээр уншихад мөр, багана эвдэрхий",
+      "gap": false,
+      "gap_fill_hint_mn": "PDF-ийг нүдээр (зураг болгон) уншиж хөтөлбөрийн хүснэгтийн мөр бүрийн 1, 2-р шалгалтын хичээл, босго, хугацааг баталгаажуулна. Ялангуяа: Био-Анагаах ухаан (480/490), Нүүр ам судлал-Шүдний их эмчийн мөрөнд уншигдсан 'Хими, Биологи (430)' аль мөрийнх вэ, Олон улсын сувилахуй ба Сувилахуй (дэд бакалавр) нэг мөрөнд үү, бизнесийн 6 хөтөлбөрийн нэгтгэсэн нүд, инженерийн блок, Аялал жуулчлалын 1-р шалгалт, Багш сургуулийн өмнөх ба математикийн 2-р шалгалт. Мөн бакалаврын бүртгэлийн хураамжийн дүн (5.4), ур чадварын шалгалтын огноо, Эрдэнэт салбарын хөтөлбөр, хичээл байгаа эсэх.",
+      "filled_at": "2026-10-18",
+      "filled_note": "PDF-ийн 2–3-р хуудсыг зураг болгон уншив: Био-Анагаах 480/490, Олон улсын сувилахуй бакалавр 4 жил 430/450, бизнесийн 6 хөтөлбөр Математик (490), инженерийн 5 хөтөлбөр 490/450."
+    },
+    {
+      "id": "gap-poster-2026",
+      "url": "https://burtgel.etugen.edu.mn/images/ElseltPoster26.png",
+      "used_for": "ЦООРХОЙ: 2026 оны элсэлтийн зурагт хуудас — зөвхөн зураг",
+      "gap": true,
+      "gap_fill_hint_mn": "Элсэлтийн огноо, хөтөлбөрийн жагсаалт, сургалтын төлбөр (жилийн/кредитийн), тэтгэлэг, утасны дугаар байвал авна.",
+      "checked_at": "2026-10-18",
+      "checked_note": "Постерт зөвхөн магадлан итгэмжлэлийн лого — төлбөр, огноо байхгүй."
+    },
+    {
+      "id": "gap-tuition-facebook",
+      "url": "https://www.facebook.com/etugen.university",
+      "used_for": "ЦООРХОЙ: Facebook хуудас — сургалтын төлбөр, байрны үнэ, ур чадварын шалгалтын огноо (браузергүйгээр уншигдахгүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "2026 оны 4–9-р сарын нийтлэлээс: 2026-2027 оны хөтөлбөр тус бүрийн жилийн сургалтын төлбөр эсвэл 1 кредитийн үнэ, оюутны байрны сар/жилийн үнэ, ур чадварын шалгалтын огноо, Олон улсын сувилахуйн зэрэг, хугацаа, Эрдэнэт салбарын шалгалтын хичээл."
+    },
+    {
+      "id": "gap-home",
+      "url": "https://www.etugen.edu.mn",
+      "used_for": "ЦООРХОЙ: Нүүр хуудас — татахад зөвшөөрлийн хүсэлт хугацаа хэтэрсэн",
+      "gap": true,
+      "gap_fill_hint_mn": "Нүүр хуудасны 2026-2027 оны элсэлтийн зар, мэдээ, сургалтын төлбөрийн мэдээлэл байвал авна.",
+      "checked_at": "2026-10-18",
+      "checked_note": "Нүүр хуудсанд 2026-2027 оны сургалтын төлбөр олдсонгүй."
+    },
+    {
+      "id": "gap-brochure-12",
+      "url": "https://drive.google.com/file/d/1T9nFvI3S09zLR7BqKu2CKa6CoISYb64H/view?usp=sharing",
+      "used_for": "ЦООРХОЙ: Программ хангамжийн инженерийн танилцуулга (Google Drive; онлайн хувилбар https://online.fliphtml5.com/trvbk/ydic/)",
+      "gap": true,
+      "gap_fill_hint_mn": "Кредитийн тоо, суралцах хугацаа, зэрэг, сургалтын төлбөр/кредитийн үнэ, хамтарсан хөтөлбөрийн нөхцөл.",
+      "checked_at": "2026-10-18",
+      "checked_note": "Программ хангамжийн хөтөлбөрийн баримт бичиг (2024): төлбөр байхгүй."
+    },
+    {
+      "id": "gap-brochures-all",
+      "url": "https://etugen.edu.mn/Home/academic/27",
+      "used_for": "ЦООРХОЙ: Бусад хөтөлбөрийн танилцуулга — хөтөлбөрийн хуудас бүрийн 'Татах' (Google Drive) ба онлайн ном",
+      "gap": true,
+      "gap_fill_hint_mn": "Дараах хуудас бүрээс 'Татах' холбоосыг нээж кредит, хугацаа, зэрэг, төлбөр, магадлан итгэмжлэлийг авна: https://etugen.edu.mn/Home/Bachlist?id=1, https://etugen.edu.mn/Home/Bachlist?id=2, https://etugen.edu.mn/Home/Bachlist?id=3, https://etugen.edu.mn/Home/Bachlist?id=4, https://etugen.edu.mn/Home/Bachlist?id=6, https://etugen.edu.mn/Home/Bachlist?id=7, https://etugen.edu.mn/Home/Bachlist?id=9, https://etugen.edu.mn/Home/Bachlist?id=10, https://etugen.edu.mn/Home/Bachlist?id=11, https://etugen.edu.mn/Home/Bachlist?id=13, https://etugen.edu.mn/Home/Bachlist?id=14, https://etugen.edu.mn/Home/Bachlist?id=15, https://etugen.edu.mn/Home/Bachlist?id=16, https://etugen.edu.mn/Home/Bachlist?id=17, https://etugen.edu.mn/Home/Bachlist?id=18, https://etugen.edu.mn/Home/Bachlist?id=19, https://etugen.edu.mn/Home/Bachlist?id=22, https://etugen.edu.mn/Home/Bachlist?id=23, https://etugen.edu.mn/Home/Bachlist?id=24, https://etugen.edu.mn/Home/Bachlist?id=27, https://etugen.edu.mn/Home/Bachlist?id=29, https://etugen.edu.mn/Home/Bachlist?id=30. Бизнесийн удирдлага, Олон улсын сувилахуй, Big Data, VR Technology-д хөтөлбөрийн хуудас олдоогүй."
+    },
+    {
+      "id": "gap-training-rules",
+      "url": "https://drive.google.com/file/d/1BmtlPkPwYeOdMlA9myka7JNswJIi8Vt9/view?usp=sharing",
+      "used_for": "ЦООРХОЙ: Сургалтын нэгдсэн журам (Google Drive; онлайн хувилбар https://online.fliphtml5.com/trvbk/ngnv/)",
+      "gap": true,
+      "gap_fill_hint_mn": "Бакалаврын төгсөх кредит, кредитийн үнэ эсвэл сургалтын төлбөр тооцох дүрэм, төлбөрийн хуваарь, буцаалт.",
+      "checked_at": "2026-10-18",
+      "checked_note": "Сургалтын нэгдсэн журам (139 х.): төлбөрийн хэмжээг удирдах зөвлөл жил бүр тогтооно гэж бичсэн, дүн байхгүй."
+    },
+    {
+      "id": "gap-juram-old",
+      "url": "https://etugen.edu.mn/public/juram.pdf",
+      "used_for": "ЦООРХОЙ: Өмнөх элсэлтийн журам (PDF) — татахад прокси 504 алдаа өгсөн",
+      "gap": true,
+      "gap_fill_hint_mn": "Аль хичээлийн жилийнх вэ; хөтөлбөрийн хүснэгтийн босгыг сайтын 'Элсэлт авах мэргэжил' хүснэгттэй харьцуулж тэр хүснэгт 2025 эсвэл 2026 оных эсэхийг тогтооно."
+    },
+    {
+      "id": "gap-structure",
+      "url": "https://www.etugen.edu.mn/userfiles/images/Flow%20chart%20(Community)%20(Community)%20(1).png",
+      "used_for": "ЦООРХОЙ: Сургуулийн бүтцийн схем — зөвхөн зураг",
+      "gap": true,
+      "gap_fill_hint_mn": "Одоогийн бүрэлдэхүүн сургуулиудын албан ёсны нэр (Эрүүл мэндийн, Нүүр ам судлалын, Сувилахуйн, Төрийн захиргаа, эдийн засаг, менежментийн, Инженер, технологийн, Багшийн сургууль г.м.), Эм зүйн сургууль байгаа эсэх, салбарууд."
+    },
+    {
+      "id": "gap-orkhon",
+      "url": "https://etugen.edu.mn/Home/academic/31",
+      "used_for": "ЦООРХОЙ: Орхон аймаг (Эрдэнэт) дахь салбарын шалгалтын хичээл, хаяг, утас, төлбөр нийтлэгдээгүй",
+      "gap": true,
+      "gap_fill_hint_mn": "Нягтлан бодох бүртгэл, Төрийн захиргааны удирдлагын 1, 2-р шалгалтын хичээл; 430 босго аль шалгалтад хамаарах; салбарын хаяг, утас, төлбөр, байр. Facebook эсвэл элсэлтийн албанаас.",
+      "checked_at": "2026-10-18",
+      "checked_note": "Салбарын хуудсанд зөвхөн хөтөлбөрийн нэр (өдөр, бакалавр) — шалгалтын хичээл байхгүй; журамд зөвхөн 430 босго."
+    },
+    {
+      "id": "gap-dorm-price",
+      "url": "https://etugen.edu.mn/Home/campus/3",
+      "used_for": "ЦООРХОЙ: Оюутны байрны үнэ нийтлэгдээгүй",
+      "gap": true,
+      "gap_fill_hint_mn": "2026-2027 оны байрны сар/жилийн төлбөр өрөөний төрлөөр (2, 4, 6, 8 хүний), барьцаа; II байр ба V байрны ор тус бүр. Зураг: http://www.etugen.edu.mn/userfiles/images/dotuur1.jpg, dotuur2.jpg.",
+      "checked_at": "2026-10-18",
+      "checked_note": "Байрны хуудсанд үнэ байхгүй."
+    }
+  ]
+}

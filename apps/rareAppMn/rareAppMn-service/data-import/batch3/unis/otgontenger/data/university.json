@@ -1,0 +1,200 @@
+{
+ "_meta": {
+  "dataset": "university",
+  "university": "ОТИС",
+  "description": "ОТИС-ийн ерөнхий мэдээлэл: танилцуулга, түүх, тоо, холбоо барих, оюутны үйлчилгээ, sidebar-ийн утгууд.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "otg",
+   "db_slug": "otgontenger",
+   "name_mn": "Отгонтэнгэр их сургууль",
+   "short_name_mn": "ОТИС",
+   "name_en": "Otgontenger University",
+   "short_name_en": "OTU",
+   "website": "https://www.otgontenger.edu.mn",
+   "admission_website": "https://otgontenger.edu.mn/mn/enrollment",
+   "admission_system_url": "https://elselt.otgontenger.edu.mn/home",
+   "admission_system_note_mn": "Сайтын зарим хэсэгт элсэлтийн системийг elselt.otu.edu.mn гэж холбосон.",
+   "overview_mn": "Отгонтэнгэр их сургууль (ОТИС) нь 1991 онд байгуулагдаж, 1999 онд их сургууль болсон хувийн их сургууль юм. Улаанбаатар хотын Баянзүрх дүүрэгт, Энхтайваны өргөн чөлөө, Жуковын гудамжинд байрладаг. Хүмүүнлэгийн, Эдийн засаг бизнесийн удирдлагын, Хууль зүйн гэсэн 3 сургуультай бөгөөд багш, гадаад хэлний орчуулга, сэтгүүл зүй, сэтгэл судлал, олон улсын харилцаа, агаарын тээврийн үйлчилгээ, бизнес, санхүү, нягтлан бодох бүртгэл, программ хангамж, эрх зүйн чиглэлээр бакалавр бэлтгэдэг. 2026-2027 оны элсэлтийн журмын хүснэгтэд ихэнх хөтөлбөрийн ЭЕШ-ын хоёр шалгалт тус бүрийн босго 490 байна. ЭЕШ-ын суурь шалгалтад 650-аас дээш оноо авсан элсэгчид эхний жилийн төлбөрөөс 50–100% хөнгөлөлт үзүүлдэг.",
+   "history": [
+    {
+     "year": 1991,
+     "event_mn": "Байгуулагдсан.",
+     "status": "current"
+    },
+    {
+     "year": 1999,
+     "event_mn": "Их сургууль болж өргөжсөн.",
+     "status": "current"
+    },
+    {
+     "year": "1999–2013",
+     "event_mn": "Байгууллагын магадлан итгэмжлэл: 1999 онд анх, 2004 онд ахисан түвшинд, 2013 онд дахин (нүүр хуудасны товч мэдээллээр).",
+     "status": "approximate"
+    },
+    {
+     "year": 2011,
+     "event_mn": "Багшийн бакалаврын хөтөлбөр эхэлсэн (Хүмүүнлэгийн сургуулийн хуудас).",
+     "status": "current"
+    },
+    {
+     "year": 2014,
+     "event_mn": "4 хөтөлбөр Боловсролын магадлан итгэмжлэлийн үндэсний зөвлөлөөс 'A' үнэлгээ авсан.",
+     "status": "current"
+    },
+    {
+     "year": 2015,
+     "event_mn": "Дахин 3 хөтөлбөр 'A' үнэлгээ авсан.",
+     "status": "current"
+    }
+   ],
+   "history_source_urls": [
+    "https://www.otgontenger.edu.mn/mn",
+    "https://www.otgontenger.edu.mn/branch/humanities"
+   ],
+   "stats": [
+    {
+     "label_mn": "Бакалаврын мэргэжлийн хөтөлбөр",
+     "value": "18",
+     "source_url": "https://www.otgontenger.edu.mn/mn",
+     "status": "current"
+    },
+    {
+     "label_mn": "Бүрэлдэхүүн сургууль",
+     "value": "3",
+     "source_url": "https://www.otgontenger.edu.mn/mn/programs",
+     "status": "current"
+    },
+    {
+     "label_mn": "Магистр / докторын хөтөлбөр",
+     "value": "10 / 2",
+     "source_url": "https://www.otgontenger.edu.mn/mn/programs",
+     "status": "current"
+    },
+    {
+     "label_mn": "Хүмүүнлэгийн сургуулийн үндсэн багш",
+     "value": "33",
+     "source_url": "https://www.otgontenger.edu.mn/branch/humanities",
+     "status": "current"
+    },
+    {
+     "label_mn": "Хүмүүнлэгийн сургуулийн оюутнууд",
+     "value": "80% өдрийн, 20% орой, зайн хэлбэрээр",
+     "source_url": "https://www.otgontenger.edu.mn/branch/humanities",
+     "status": "approximate"
+    }
+   ],
+   "accreditation_memberships": [
+    "ACBSP"
+   ],
+   "accreditation_note_mn": "Эдийн засаг бизнесийн удирдлагын сургуулийн хуудсанд ACBSP-ийн гишүүн гэж бичсэн. 2014–2015 онд 7 хөтөлбөр үндэсний магадлан итгэмжлэлээр 'A' үнэлгээ авсан.",
+   "rankings": null,
+   "rankings_note_mn": "Их сургуулийн 2026-06-24-ний мэдээнд Times Higher Education (THE)-ийн тогтвортой хөгжлийн үнэлгээ 2026-ийн 'Чанартай боловсрол' ангилалд дэлхийн 201–300-д эрэмбэлэгдэж, оролцсон монгол их сургуулиудаас хамгийн өндөр үнэлгээ авсан гэжээ. THE-ийн сайтаас баталгаажуулаагүй тул эрэмбэд оруулаагүй.",
+   "rankings_source_urls": [
+    "https://www.otgontenger.edu.mn/news/times-higher-education-sustainability-impact-ratings-2026-unelgeenii-sdg-4-quality-education-canartai-bolovsrol-angilald-delxiin-201-300-dugaar-bairt-erembelegdlee"
+   ],
+   "contacts": {
+    "address_mn": "Улаанбаатар хот, Баянзүрх дүүрэг, 41-р хороо, Энхтайваны өргөн чөлөө, Жуковын гудамж, 13343",
+    "map_coordinates": {
+     "lat": 47.917789,
+     "lng": 106.955833
+    },
+    "phones": [
+     "7010-1991",
+     "9510-1991"
+    ],
+    "phones_note_mn": "7010-1991 — их сургуулийн ерөнхий утас (+976-7010-1991); 9510-1991 — элсэлтийн зөвлөгөө (элсэлтийн хуудсанд).",
+    "internal_phones_mn": {
+     "Жижүүр — А байр": "454560",
+     "Жижүүр — Б байр": "451614",
+     "Жижүүр — В байр": "463547",
+     "Проректорын алба (Б-308)": "458635",
+     "Сургалтын алба (А-103)": "453944",
+     "Аж ахуй (В-203)": "463843",
+     "ОТИС-ийн ерөнхий менежер (В-04)": "451614"
+    },
+    "admission_office_mn": "Элсэлтийн бүртгэл ажлын өдрүүдэд ОТИС-ийн Б байранд явагдана; зөвлөгөө 9510-1991.",
+    "offices_mn": "А байр: Сургалтын алба (А-103), Хууль зүйн сургуулийн захирал (А-102), Хууль зүйн клиник (А-111), бие даан суралцах өрөө (А-107). Б байр: Проректорын алба (Б-308), Эдийн засгийн сургуулийн захирал (Б-206), номын сан (Б-201), интерактив сургалтын төв (Б-101), фитнесс, спорт заал. В байр: Хүмүүнлэгийн сургуулийн захирал (В-203), оюутны холбоо (В-201), номын сан. 4-р байр: Судалгааны төв.",
+    "emails": {
+     "general": "info@otgontenger.edu.mn"
+    }
+   },
+   "location_short_mn": "Улаанбаатар, Баянзүрх дүүрэг, Энхтайваны өргөн чөлөө, Жуковын гудамж",
+   "location_note_mn": "Албан ёсны сайтын холбоо барих болон сургуулиудын хуудсанд хаягийг Баянзүрх дүүрэг, 41-р хороо гэж бичсэн.",
+   "social": {
+    "facebook": "https://www.facebook.com/OtgonTengerUni",
+    "x": "https://twitter.com/OtgonTengerUni"
+   },
+   "student_services": [
+    {
+     "name_mn": "Элсэлтийн систем (цахим бүртгэл)",
+     "url": "https://elselt.otgontenger.edu.mn/home"
+    },
+    {
+     "name_mn": "Оюутны портал",
+     "url": "https://student.otgontenger.edu.mn/login/"
+    },
+    {
+     "name_mn": "Цахим номын сан",
+     "url": "http://library.otu.edu.mn"
+    },
+    {
+     "name_mn": "Оюутны хөдөлмөр эрхлэлтийг дэмжих төв",
+     "url": "https://www.otgontenger.edu.mn/mn/studentemployment"
+    },
+    {
+     "name_mn": "Диплом шалгах",
+     "url": "http://checkdiploma.otgontenger.edu.mn"
+    },
+    {
+     "name_mn": "Фитнесс төв, спорт заал (Б байр)",
+     "url": null
+    },
+    {
+     "name_mn": "Хууль зүйн клиник (А байр, 111)",
+     "url": null
+    },
+    {
+     "name_mn": "Интерактив сургалтын төв (Б байр, 101)",
+     "url": null
+    }
+   ],
+   "international_mn": "Тэтгэлгийн хуудсанд бакалаврын оюутанд: Тайваний Minchuan их сургуульд 1 улирал болон 2+2 хамтарсан хөтөлбөр, БНХАУ-ын SIAS олон улсын их сургуульд 1 улирал, АНУ-ын Colorado Christian University-тэй 4+1 хөтөлбөр гэж бичсэн. 2026 онд Erasmus+ хөтөлбөрөөр Испанийн Малагын их сургуульд оюутны солилцоо явуулсан.",
+   "international_source_urls": [
+    "http://otgontenger.edu.mn/mn/student/scholarship",
+    "https://www.otgontenger.edu.mn/mn/news/show/635"
+   ],
+   "sidebar_suggestion": {
+    "tuition_text_mn": "2026-2027 оны сургалтын төлбөрийг нийтлээгүй — 7010-1991-ээс тодруулна уу. ЭЕШ-ын суурь шалгалт 650+ бол эхний жилийн төлбөрөөс 50–100% хөнгөлөлттэй.",
+    "tuition_number": null,
+    "tuition_number_note_mn": "Төлбөрийн дүн их сургуулийн сайтад байхгүй.",
+    "dorm_flag": "Тодорхойгүй",
+    "scholarship_flag": "Боломжтой",
+    "dorm_howto_mn": "Отгонтэнгэр их сургуулийн сайтад оюутны байрны мэдээлэл (байр, үнэ, бүртгэл) нийтлэгдээгүй байна. Их сургууль өөрийн байртай эсэх, хэрхэн бүртгүүлэхийг 7010-1991, 9510-1991 утас, info@otgontenger.edu.mn хаяг эсвэл их сургуулийн Facebook хуудсаар (facebook.com/OtgonTengerUni) тодруулна уу.",
+    "phones": [
+     "7010-1991",
+     "9510-1991"
+    ],
+    "email": "info@otgontenger.edu.mn",
+    "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, Энхтайваны өргөн чөлөө, Жуковын гудамж",
+    "website": "https://www.otgontenger.edu.mn"
+   },
+   "source_urls": [
+    "https://www.otgontenger.edu.mn/mn",
+    "https://www.otgontenger.edu.mn/mn/contact",
+    "https://otgontenger.edu.mn/mn/enrollment",
+    "https://api.otgontenger.edu.mn/enrollment",
+    "https://www.otgontenger.edu.mn/mn/programs",
+    "https://www.otgontenger.edu.mn/branch/humanities",
+    "https://www.otgontenger.edu.mn/branch/economic-and-business",
+    "http://otgontenger.edu.mn/mn/student/scholarship",
+    "https://www.otgontenger.edu.mn/news/times-higher-education-sustainability-impact-ratings-2026-unelgeenii-sdg-4-quality-education-canartai-bolovsrol-angilald-delxiin-201-300-dugaar-bairt-erembelegdlee"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  }
+ ]
+}

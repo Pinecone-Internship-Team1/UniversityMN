@@ -1,0 +1,389 @@
+{
+  "_meta": {
+    "dataset": "admission_2026",
+    "university": "ОУУБИС",
+    "description": "ОУУБИС-ийн элсэлтийн үйл явц: бүртгэлийн маягт, алхам, сайтын хөтөлбөрийн хүснэгт, ур чадварын шалгалт, журам, 2+2.",
+    "language": "mn",
+    "verified_at": "2026-10-16"
+  },
+  "records": [
+    {
+      "id": "iuu-bachelor-2026",
+      "title_mn": "ОУУБИС-ийн бакалаврын элсэлт (2026-2027)",
+      "academic_year": "2026-2027",
+      "system_url": "https://www.iuu.edu.mn/i/elselt",
+      "registration_url": "https://www.iuu.edu.mn/bachelor/admission/create",
+      "registration": {
+        "start": "2026-06-29",
+        "end": "2026-08-29",
+        "where_mn": "Онлайнаар http://elselt.iuu.edu.mn/ эсвэл биечлэн ОУУБИС-ийн хичээлийн 1-р байранд (SUNDAY PLAZA-гийн эсрэг талд) (журмын 1.2, 3.1, 4.1).",
+        "note_mn": "Хаврын элсэлт 2026-06-29 – 08-29; суралцах гэрээг 2026-08-30-ны дотор байгуулна. Өвлийн элсэлт 2027-01-04 – 01-23, гэрээ 2027-01-25-ны дотор (журмын 3.4, 4.1)."
+      },
+      "registration_fee": null,
+      "registration_fee_note_mn": "Бүртгэлийн хураамжийн дүнг сайтад нийтлээгүй.",
+      "applicant_form_fields_mn": [
+        "Сонгосон мэргэжил",
+        "Овог, нэр, регистрийн дугаар",
+        "Сурагчийн хувийн хэргийн дугаар",
+        "Бүрэн дунд боловсролын гэрчилгээний дугаар (зөвхөн арын тоо)",
+        "Суурь шалгалт: хичээл, оноо, хавсралт",
+        "Дагалдах шалгалт: хичээл, оноо, хавсралт",
+        "Ахлах сургуулийн дундаж дүн (гэрчилгээн дээрх үндсэн хичээлүүдийн арифметик дундаж)",
+        "Хаяг, имэйл, утас, яаралтай үед холбогдох хүн",
+        "Боловсролын түүх (ерөнхий боловсролын сургуулиа заавал эхэлж оруулна)",
+        "Гэр бүлийн мэдээлэл"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "title_mn": "Элсэлтийн шалгалт өгөх",
+          "detail_mn": "eyesh.eec.mn-ээр Элсэлтийн шалгалтад бүртгүүлж, сонгох мэргэжлийнхээ 2 шалгалтын хичээлээр шалгалт өгнө (2026 онд бүртгэл 5-р сарын 15-ны 18:00-д хаагдаж, шалгалт 6-р сарын 25-нд эхэлсэн)."
+        },
+        {
+          "step": 2,
+          "title_mn": "ОУУБИС-д цахимаар бүртгүүлэх",
+          "detail_mn": "Сайтын цахим маягтад мэргэжлээ сонгож, суурь ба дагалдах шалгалтын хичээл, оноо, хавсралт, ахлах сургуулийн дундаж дүн, гэрчилгээний дугаар, боловсрол, гэр бүлийн мэдээллээ оруулна."
+        },
+        {
+          "step": 3,
+          "title_mn": "Ур чадварын шалгалт (9 хөтөлбөрт)",
+          "detail_mn": "Сувилахуй, 2 багшийн, 4 дизайны хөтөлбөр, Мал зүй, Аялал жуулчлалд 2-р шалгалт нь сургуулийн ур чадварын шалгалт. Хугацаа, агуулгыг сургуулиас тодруулна."
+        },
+        {
+          "step": 4,
+          "title_mn": "Шалгаруулалт",
+          "detail_mn": "Шалгаруулах дараалал, онооны томьёог сайтад нийтлээгүй — 2026-2027 оны элсэлтийн журамд байгаа."
+        },
+        {
+          "step": 5,
+          "title_mn": "Суралцах гэрээ, чиглүүлэх",
+          "detail_mn": "Шаардлага хангасан элсэгч суралцах гэрээ байгуулж, их сургуультай танилцан зөвлөх багштай болно. Хичээлийн жил 9-р сарын 1-нд нээгдэж, шинэ оюутнууд хувь хүний хөгжлийн сургалтад хамрагдана."
+        }
+      ],
+      "selection_rules": {
+        "ranking_mn": "Шалгалт бүрийн босгыг хангасан бүртгүүлэгчид хяналтын тоонд багтаан \"ОУУБИС-д суралцах эрхийн бичиг\" олгоно (журмын 2.3, 2.21, 3.3). Онооны томьёо, жагсаах дүрэм заагаагүй.",
+        "threshold_mn": "Шалгалт тус бүрийн босго 2026-2027 оны журмын хүснэгтэд: ихэнх хөтөлбөрт 490 / 490; дизайны 4 хөтөлбөр 450 / ур чадвар 490; Програм хангамж, Мэдээллийн систем, Электроник 490 / 450; Ойн аж ахуй 440 / 490; Сувилахуй 430 / ур чадвар 450."
+      },
+      "page_table": [
+        {
+          "program_mn": "Сувилахуй",
+          "index": "091301",
+          "school_id": "iuu-nurs",
+          "exam1_as_written_mn": "Хими эсвэл Биологи - 430",
+          "exam2_as_written_mn": "Ур чадвар - 450",
+          "page_value_exam1": 430,
+          "page_value_exam2": 450
+        },
+        {
+          "program_mn": "Эрх зүй",
+          "index": "042101",
+          "school_id": "iuu-law",
+          "exam1_as_written_mn": "Нийгэм судлал - 490",
+          "exam2_as_written_mn": "Математик, Англи хэл - 490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Гадаад хэлний орчуулга (Англи хэл)",
+          "index": "023101",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Англи хэл, Орос хэл, Математик-490",
+          "exam2_as_written_mn": "Нийгэм судлал, Монгол хэл, Түүх-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Гадаад хэлний орчуулга (Солонгос хэл)",
+          "index": "023101",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Англи хэл, Орос хэл, Математик-490",
+          "exam2_as_written_mn": "Нийгэм судлал, Монгол хэл, Түүх-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Олон улс, орон судлал",
+          "index": "022203",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Англи хэл, Орос хэл-490",
+          "exam2_as_written_mn": "Нийгэм судлал, Түүх-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Багш, гадаад хэлний боловсрол (Англи хэл)",
+          "index": "011435",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Англи хэл, Орос хэл, Монгол хэл-490",
+          "exam2_as_written_mn": "Ур чадвар-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Багш, гадаад хэлний боловсрол (Солонгос хэл)",
+          "index": "011435",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Англи хэл, Орос хэл-490",
+          "exam2_as_written_mn": "Ур чадвар-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Хэл шинжлэл",
+          "index": "023202",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Монгол хэл, нийгэм судлал-490",
+          "exam2_as_written_mn": "Англи хэл, Түүх-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Социологи",
+          "index": "031402",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Нийгэм судлал, Түүх-490",
+          "exam2_as_written_mn": "Математик, Англи хэл-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Сэтгэл судлал",
+          "index": "031301",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Нийгэм судлал, Математик-490",
+          "exam2_as_written_mn": "Монгол хэл, Англи хэл-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Нийгмийн ажил",
+          "index": "092301",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Нийгэм судлал, Англи хэл-490",
+          "exam2_as_written_mn": "Монгол хэл, Математик-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "График дизайн",
+          "index": "021106",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Математик, Англи хэл-450",
+          "exam2_as_written_mn": "Ур чадвар-490",
+          "page_value_exam1": 450,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Үйлдвэрлэлийн дизайн",
+          "index": "021203",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Математик, Англи хэл-450",
+          "exam2_as_written_mn": "Ур чадвар-490",
+          "page_value_exam1": 450,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Интерьер дизайн",
+          "index": "021204",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Математик, Англи хэл-450",
+          "exam2_as_written_mn": "Ур чадвар-490",
+          "page_value_exam1": 450,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Хувцасны дизайн",
+          "index": "021202",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Математик, Англи хэл-450",
+          "exam2_as_written_mn": "Ур чадвар-490",
+          "page_value_exam1": 450,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Програм хангамж",
+          "index": "061302",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Математик, Физик-490",
+          "exam2_as_written_mn": "Нийгэм судлал, Англи хэл-450",
+          "page_value_exam1": 490,
+          "page_value_exam2": 450
+        },
+        {
+          "program_mn": "Мэдээллийн систем",
+          "index": "061303",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Математик, Физик-490",
+          "exam2_as_written_mn": "Нийгэм судлал, Англи хэл-450",
+          "page_value_exam1": 490,
+          "page_value_exam2": 450
+        },
+        {
+          "program_mn": "Электроникийн инженерчлэл",
+          "index": "071401",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Математик, Физик-490",
+          "exam2_as_written_mn": "Нийгэм судлал, Англи хэл-450",
+          "page_value_exam1": 490,
+          "page_value_exam2": 450
+        },
+        {
+          "program_mn": "Мал зүй",
+          "index": "081102",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Хими, Биологи, Математик-490",
+          "exam2_as_written_mn": "Ур чадвар-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Ойн аж ахуй",
+          "index": "082101",
+          "school_id": "iuu-eng",
+          "exam1_as_written_mn": "Хими, Биологи, Физик-440",
+          "exam2_as_written_mn": "Математик, Нийгэм судлал-490",
+          "page_value_exam1": 440,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Бизнесийн удирдлага",
+          "index": "041301",
+          "school_id": "iuu-econ",
+          "exam1_as_written_mn": "Математик-490",
+          "exam2_as_written_mn": "Англи хэл, нийгэм судлал-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Банк",
+          "index": "041203",
+          "school_id": "iuu-econ",
+          "exam1_as_written_mn": "Математик-490",
+          "exam2_as_written_mn": "Англи хэл, Нийгэм судлал-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Санхүү",
+          "index": "041201",
+          "school_id": "iuu-econ",
+          "exam1_as_written_mn": "Математик-490",
+          "exam2_as_written_mn": "Англи хэл, Нийгэм судлал-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Менежмент",
+          "index": "041303",
+          "school_id": "iuu-econ",
+          "exam1_as_written_mn": "Математик-490",
+          "exam2_as_written_mn": "Англи хэл, Нийгэм судлал-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Маркетинг",
+          "index": "041401",
+          "school_id": "iuu-econ",
+          "exam1_as_written_mn": "Математик-490",
+          "exam2_as_written_mn": "Англи хэл, Нийгэм судлал-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Нягтлан бодох бүртгэл",
+          "index": "041101",
+          "school_id": "iuu-econ",
+          "exam1_as_written_mn": "Математик-490",
+          "exam2_as_written_mn": "Англи хэл, Нийгэм судлал-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Аялал жуулчлал",
+          "index": "101501",
+          "school_id": "iuu-econ",
+          "exam1_as_written_mn": "Англи хэл, Математик, Газарзүй-490",
+          "exam2_as_written_mn": "Ур чадвар-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Эдийн засаг",
+          "index": "031101",
+          "school_id": "iuu-econ",
+          "exam1_as_written_mn": "Математик-490",
+          "exam2_as_written_mn": "Англи хэл, Нийгэм судлал-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        },
+        {
+          "program_mn": "Олон улсын харилцаа",
+          "index": "031202",
+          "school_id": "iuu-hum",
+          "exam1_as_written_mn": "Англи хэл, Орос хэл-490",
+          "exam2_as_written_mn": "Нийгэм судлал, Түүх-490",
+          "page_value_exam1": 490,
+          "page_value_exam2": 490
+        }
+      ],
+      "page_table_note_mn": "Сайтын 'Бакалаврын хөтөлбөрүүд' хүснэгт, он заагаагүй (2026-10-16-нд харсан).",
+      "score_formula_mn": "Онооны томьёог нийтлээгүй.",
+      "skills_test": {
+        "name_mn": "Ур чадварын шалгалт",
+        "programs_mn": [
+          "Сувилахуй",
+          "Багш, гадаад хэлний боловсрол (Англи хэл)",
+          "Багш, гадаад хэлний боловсрол (Солонгос хэл)",
+          "График дизайн",
+          "Үйлдвэрлэлийн дизайн",
+          "Интерьер дизайн",
+          "Хувцасны дизайн",
+          "Мал зүй",
+          "Аялал жуулчлал"
+        ],
+        "detail_mn": null,
+        "scoring_mn": null,
+        "note_mn": "Хүснэгтэд 2-р шалгалтыг 'Ур чадвар' гэж бичсэн; юу шалгах, хэзээ, хэрхэн дүгнэхийг нийтлээгүй.",
+        "source_urls": [
+          "https://www.iuu.edu.mn/bachelor/program"
+        ]
+      },
+      "regulation": {
+        "title_mn": "2026-2027 оны хичээлийн жилд бакалаврын хөтөлбөрт оюутан элсүүлэх журам (ОУУБИС)",
+        "url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "readable": "yes (scan, read by eye)"
+      },
+      "contacts_mn": "ОУУБИС: 11-462026, 8947-2026; iuu@ulaanbaatar.edu.mn. Тусдаа элсэлтийн комиссын утас нийтлээгүй.",
+      "source_urls": [
+        "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://www.iuu.edu.mn/i/elselt",
+        "http://elselt.iuu.edu.mn/",
+        "https://www.iuu.edu.mn/bachelor/admission/create",
+        "https://www.iuu.edu.mn/bachelor/program",
+        "https://www.iuu.edu.mn/p/15",
+        "https://www.iuu.edu.mn/p/11",
+        "https://ikon.mn/n/3ni1",
+        "https://ikon.mn/n/3o5r"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "partial",
+      "skills_test_mn": "Дизайн, Сувилахуй, Багш гадаад хэлний боловсрол (англи, солонгос), Аялал жуулчлал, Мал зүйд 2-р шалгалт нь ОУУБИС-ийн ур чадварын шалгалт: анхны оноо 0–59 → X = 200 + A × 4.66, 60–100 → X = 480 + (A − 60) × 8; оноо нь зөвхөн ОУУБИС-д хүчинтэй (журмын 2.13–2.17)."
+    },
+    {
+      "id": "iuu-2plus2",
+      "title_mn": "БНСУ-ын их сургуульд үргэлжлүүлэн суралцах 2+2 хөтөлбөр (элсэлтийн дараах сонголт)",
+      "academic_year": "2026-2027",
+      "detail_mn": "2 жил ОУУБИС-д, 2 жил БНСУ-ын хамтарсан хөтөлбөртэй түнш их сургуульд суралцана. Гол шаардлага нь TOPIK шалгалтын оноо, сайн сурлага; хүлээн авагч сургуулийн шаардлагыг хангавал 50–100 хувийн тэтгэлэг авч болно. Компьютер, мэдээллийн технологийн тэнхимийн хуудсанд TOPIK 4-өөс дээш түвшин, 4 улирлын голч 3.0-оос дээш гэж бичсэн. Дизайны 4 хөтөлбөрт 2+2 хос дипломын боломжтой.",
+      "regulation_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/03/04/90la6iafx4ixapbg/22%20%D1%85%D3%A9%D1%82%D3%A9%D0%BB%D0%B1%D3%A9%D1%80%D0%B8%D0%B9%D0%BD%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+      "source_urls": [
+        "https://www.iuu.edu.mn/p/7",
+        "https://www.iuu.edu.mn/training/department/1",
+        "https://www.iuu.edu.mn/training/department/8",
+        "https://www.iuu.edu.mn/p/15"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "partial"
+    }
+  ]
+}

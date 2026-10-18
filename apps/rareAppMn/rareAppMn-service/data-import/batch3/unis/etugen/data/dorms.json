@@ -1,0 +1,92 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "Этүгэн",
+  "description": "Этүгэн их сургуулийн оюутны байр.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "etu-dorm-facts",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны ерөнхий мэдээлэл",
+   "facts_mn": [
+    "Хичээлийн II байрны 5–11 давхар, V байрны 8 давхарт; нийт 372 ор.",
+    "Өрөө 2, 4, 6, 8 хүний, 18 м² (нэг оюутанд 4 м²); давхар ор, ширээ, сандал; өрөө бүр шүршүүртэй ариун цэврийн өрөөтэй.",
+    "Давхар бүрт хөргөгч, цахилгаан зуухтай гал тогоо, хоолны өрөө; 1 давхарт хүнсний дэлгүүр, хоолны газар, фитнесс; 2 давхарт номын сан; 3 давхарт спорт заал; 9 давхарт уншлагын танхим.",
+    "Үнэ сайтад нийтлэгдээгүй — 7700-3344 (2)-оос лавлана."
+   ],
+   "source_urls": [
+    "https://etugen.edu.mn/Home/campus/3",
+    "https://etugen.edu.mn/Home/About"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-dorm-building-2",
+   "record_type": "building",
+   "name_mn": "Хичээлийн II байр дахь оюутны байр (5–11 давхар)",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, 6-р хороо, Бага тойруу-44",
+   "capacity": null,
+   "rooms": null,
+   "room_types_mn": [
+    "2 хүний",
+    "4 хүний",
+    "6 хүний",
+    "8 хүний"
+   ],
+   "price_per_year": null,
+   "price_year": null,
+   "currency": "MNT",
+   "note_mn": "Хоёр байрны нийт багтаамж 372 ор; байр тус бүрийн ор, үнийг нийтлээгүй.",
+   "source_urls": [
+    "https://etugen.edu.mn/Home/campus/3",
+    "https://etugen.edu.mn/Home/University/38"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-dorm-building-5",
+   "record_type": "building",
+   "name_mn": "V байр дахь оюутны байр (8 давхар)",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бээжингийн гудамж-19",
+   "capacity": null,
+   "rooms": null,
+   "room_types_mn": [
+    "2 хүний",
+    "4 хүний",
+    "6 хүний",
+    "8 хүний"
+   ],
+   "price_per_year": null,
+   "price_year": null,
+   "currency": "MNT",
+   "note_mn": "Хаягийг сайтын '5-р байр'-ны хаягаар оруулав (V байр гэж ойлгов).",
+   "source_urls": [
+    "https://etugen.edu.mn/Home/campus/3",
+    "https://etugen.edu.mn/Home/University/38"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-dorm-how-to-apply",
+   "record_type": "process",
+   "name_mn": "Оюутны байранд хэрхэн орох вэ",
+   "steps_mn": [
+    "7700-3344 (2)-т хандах эсвэл оюутны вебээр хүсэлт гаргана.",
+    "Суралцах эрхийн бичиг эсвэл сургуулийн тодорхойлолт, цээж зураг, төлбөр төлсөн баримт, цээжний гэрлийн зураг (флюрографи) бүрдүүлнэ."
+   ],
+   "source_urls": [
+    "https://etugen.edu.mn/Home/About",
+    "https://etugen.edu.mn/Home/campus/3",
+    "https://etugen.edu.mn/Home/student/36"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  }
+ ]
+}

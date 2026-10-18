@@ -1,0 +1,446 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the Этүгэн part of the batch-3 dataset (oyutan-batch3, unis/etugen/data/*.json, after the 2026-10-18 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-18",
+    "mapped_at": "2026-10-18",
+    "university_id": "sch_etugen",
+    "how_to_use": "Run data-import/import-batch3.mjs etugen (--local / --remote, then --apply): it reads data-import/batch3/unis/etugen/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "one_minimum": "one minimum on the combined score (secondary_cut_off_score null): w1·exam1 + w2·exam2 ≥ cut_off_score",
+      "per_exam": "each exam has its own minimum (cut_off_score, secondary_cut_off_score; 0 = unknown); weights 1/1 when the formula is not published (a plain sum), 0.5/0.5 for an average (ОТИС, СУИС ЭШ-only majors)",
+      "skills_test": "group 2 is the university's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\" (СУИС: weights 0.5/1 = ЭШ ÷ 2 + skills test)",
+      "neutral": "no exam subjects or cut-offs (unclear / unknown split, three exams, or not in the 2026-27 table): \"Сургуулиас тодруулна уу\", rule in exam_note"
+    },
+    "skipped_programs": [],
+    "counts": {
+      "dataset_programs": 29,
+      "imported_programs": 29,
+      "by_degree": {
+        "BACHELOR": 27,
+        "ASSOCIATE": 2
+      },
+      "by_score_check": {
+        "per_exam": 27,
+        "neutral": 2
+      },
+      "faculties": 7,
+      "scholarships": 6,
+      "dorms": 2,
+      "admission_dates": 5
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "etu-health",
+      "type": "constituent",
+      "name": "Эрүүл мэндийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+      "db_id": "13901c2b-1c89-5b84-a2f2-1d1802a47bab"
+    },
+    {
+      "dataset_id": "etu-dental",
+      "type": "constituent",
+      "name": "Нүүр ам судлалын сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+      "db_id": "10065b9c-cd42-5c9a-9a0a-baf902dff17f"
+    },
+    {
+      "dataset_id": "etu-nursing",
+      "type": "constituent",
+      "name": "Сувилахуйн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+      "db_id": "b3b62ff2-d11b-5c93-a9d5-54bb09c8d4df"
+    },
+    {
+      "dataset_id": "etu-mgmt",
+      "type": "constituent",
+      "name": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+      "db_id": "7e34a8bb-682f-515d-92e7-29223360733d"
+    },
+    {
+      "dataset_id": "etu-eng",
+      "type": "constituent",
+      "name": "Инженер, технологийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+      "db_id": "49499ddf-7dd9-506e-9fe7-cc3f71a9f91d"
+    },
+    {
+      "dataset_id": "etu-teacher",
+      "type": "constituent",
+      "name": "Багшийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+      "db_id": "f4b3efd6-6a7b-55c8-aae4-babbda1a7862"
+    },
+    {
+      "dataset_id": "etu-orkhon",
+      "type": "branch",
+      "name": "Орхон аймаг дахь салбар сургууль",
+      "location": "Орхон аймаг, Эрдэнэт",
+      "db_id": "fc5f3a26-403d-5be4-84c5-90b5f7b893e3"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "etu-health-ulamjlalt-anagaakh-ukhaany-ikh-emch",
+      "dataset_school": "etu-health",
+      "faculty": "Эрүүл мэндийн сургууль",
+      "name": "Уламжлалт анагаах ухааны их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "001fdb7a-5e68-5627-b7e9-0ed01e9c4200"
+    },
+    {
+      "dataset_id": "etu-health-anagaakh-ukhaan-khunii-ikh-emch",
+      "dataset_school": "etu-health",
+      "faculty": "Эрүүл мэндийн сургууль",
+      "name": "Анагаах ухаан-Хүний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "bc20fcdc-82f6-570d-949f-2811ab79afa6"
+    },
+    {
+      "dataset_id": "etu-health-em-zuich",
+      "dataset_school": "etu-health",
+      "faculty": "Эрүүл мэндийн сургууль",
+      "name": "Эм зүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "f122cac7-bfab-512b-88e0-d798d473207f"
+    },
+    {
+      "dataset_id": "etu-health-bio-anagaakh-ukhaan",
+      "dataset_school": "etu-health",
+      "faculty": "Эрүүл мэндийн сургууль",
+      "name": "Био-Анагаах ухаан",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "45cb6405-3521-5f59-b95c-dc7c13228c9a"
+    },
+    {
+      "dataset_id": "etu-health-em-nairuulagch-ded-bakalavr",
+      "dataset_school": "etu-health",
+      "faculty": "Эрүүл мэндийн сургууль",
+      "name": "Эм найруулагч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "97897329-2ea6-519d-b1a0-1f8d2bb6783b"
+    },
+    {
+      "dataset_id": "etu-dental-nuur-am-sudlal-shudnii-ikh-emch",
+      "dataset_school": "etu-dental",
+      "faculty": "Нүүр ам судлалын сургууль",
+      "name": "Нүүр ам судлал-Шүдний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "cedadf08-bb06-5ea6-97f3-fa07bca33709"
+    },
+    {
+      "dataset_id": "etu-nursing-suvilakhui",
+      "dataset_school": "etu-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Сувилахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "e065826b-b99c-5ce3-ae7c-fa43ebef7227"
+    },
+    {
+      "dataset_id": "etu-nursing-olon-ulsyn-suvilakhui",
+      "dataset_school": "etu-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Олон улсын сувилахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "c4f9e9d8-f22d-5e76-9bd3-afb77b72e805"
+    },
+    {
+      "dataset_id": "etu-nursing-suvilakhui-ded-bakalavr",
+      "dataset_school": "etu-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Сувилахуй (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "76b80b19-2a68-5d80-a39c-e2762fe012c9"
+    },
+    {
+      "dataset_id": "etu-nursing-khudulguun-zasal",
+      "dataset_school": "etu-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Хөдөлгөөн засал",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "a2feef3f-9059-5e1e-8421-3ecea4274c9e"
+    },
+    {
+      "dataset_id": "etu-mgmt-sankhuu-bank",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Санхүү, банк",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "5bfb6eb3-6daf-541d-8866-c93c80023cb7"
+    },
+    {
+      "dataset_id": "etu-mgmt-biznesiin-udirdlaga",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Бизнесийн удирдлага",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "04c28872-dce3-50c2-9aa7-13592e3219f9"
+    },
+    {
+      "dataset_id": "etu-mgmt-nyagtlan-bodokh-burtgel",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Нягтлан бодох бүртгэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "9596212f-7d9d-5558-a807-b59da98adf21"
+    },
+    {
+      "dataset_id": "etu-mgmt-tatvaryn-ediin-zasag-nyagtlan-bodokh-burtgel",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Татварын эдийн засаг, нягтлан бодох бүртгэл",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "3b6adacf-b8c7-524a-a5d9-c18b9c2b413e"
+    },
+    {
+      "dataset_id": "etu-mgmt-khunii-nuutsiin-menejment",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Хүний нөөцийн менежмент",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "9a4fb9e1-38f7-5d04-819d-1e1e8aa16a24"
+    },
+    {
+      "dataset_id": "etu-mgmt-marketing",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Маркетинг",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "422648dd-33e6-5877-91f7-677383179559"
+    },
+    {
+      "dataset_id": "etu-mgmt-niitiin-udirdlaga-turiin-zakhirgaany-udirdlaga",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Нийтийн удирдлага (Төрийн захиргааны удирдлага)",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "256f7dcf-48e7-58ba-a81a-7adf3a110033"
+    },
+    {
+      "dataset_id": "etu-mgmt-ayalal-juulchlal",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Аялал жуулчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "487a2f3f-e538-5be6-a5a9-226a7ba5a93b"
+    },
+    {
+      "dataset_id": "etu-mgmt-khool-uildverlel-uilchilgeenii-tekhnologi",
+      "dataset_school": "etu-mgmt",
+      "faculty": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+      "name": "Хоол үйлдвэрлэл, үйлчилгээний технологи",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "5f1ab98e-2d53-5b43-a963-adfd8987826b"
+    },
+    {
+      "dataset_id": "etu-eng-programm-khangamjiin-injener",
+      "dataset_school": "etu-eng",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Программ хангамжийн инженер",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "a0463ce8-58d0-5014-bc43-ab9e31d0a2c9"
+    },
+    {
+      "dataset_id": "etu-eng-big-data-khamtarsan-khutulbur",
+      "dataset_school": "etu-eng",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Big Data (Хамтарсан хөтөлбөр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "3be6c026-e6fa-5290-a367-454311497979"
+    },
+    {
+      "dataset_id": "etu-eng-vr-technology-khamtarsan-khutulbur",
+      "dataset_school": "etu-eng",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "VR Technology (Хамтарсан хөтөлбөр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "12c4a745-4063-5d12-a05c-c36a9784e2a9"
+    },
+    {
+      "dataset_id": "etu-eng-tsakhilgaan-khangamjiin-injener",
+      "dataset_school": "etu-eng",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Цахилгаан хангамжийн инженер",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "11b2a3bd-5974-5ee0-9a4d-08084e666ce5"
+    },
+    {
+      "dataset_id": "etu-eng-emnelgiin-tonog-tukhuurumjiin-ashiglaltyn-injener",
+      "dataset_school": "etu-eng",
+      "faculty": "Инженер, технологийн сургууль",
+      "name": "Эмнэлгийн тоног төхөөрөмжийн ашиглалтын инженер",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "89c23ac3-c371-5e6d-adf9-c8b4410b9b41"
+    },
+    {
+      "dataset_id": "etu-teacher-bagsh-baga-bolovsrol",
+      "dataset_school": "etu-teacher",
+      "faculty": "Багшийн сургууль",
+      "name": "Багш, бага боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "6b521699-249c-5789-a44b-44f2e8078991"
+    },
+    {
+      "dataset_id": "etu-teacher-bagsh-surguuliin-umnukh-bolovsrol",
+      "dataset_school": "etu-teacher",
+      "faculty": "Багшийн сургууль",
+      "name": "Багш, сургуулийн өмнөх боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "90dc0932-c9c7-5cfb-8ac4-9bd91085b31f"
+    },
+    {
+      "dataset_id": "etu-teacher-bagsh-matematikiin-bolovsrol",
+      "dataset_school": "etu-teacher",
+      "faculty": "Багшийн сургууль",
+      "name": "Багш, математикийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "per_exam",
+      "db_id": "05592174-c7e9-514b-b7e7-cc7095e637c4"
+    },
+    {
+      "dataset_id": "etu-orkhon-nyagtlan-bodokh-burtgel",
+      "dataset_school": "etu-orkhon",
+      "faculty": "Орхон аймаг дахь салбар сургууль",
+      "name": "Нягтлан бодох бүртгэл",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "1f087729-20c6-5329-8df6-6dd33e9062c4"
+    },
+    {
+      "dataset_id": "etu-orkhon-turiin-zakhirgaany-udirdlaga",
+      "dataset_school": "etu-orkhon",
+      "faculty": "Орхон аймаг дахь салбар сургууль",
+      "name": "Төрийн захиргааны удирдлага",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "f1148c65-1cdd-568d-81bf-fea233b63129"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "etu-talent",
+      "name": "Авьяасыг тэтгэнэ (Элсэлтийн шалгалтын оноо, байраар)",
+      "db_id": "4ff7bf18-0506-5c6f-9152-33177997f597"
+    },
+    {
+      "dataset_id": "etu-olympiad-national",
+      "name": "Олимпиадын амжилт (олон улсын, улсын)",
+      "db_id": "002603df-9a06-5fd0-81b3-af937a15bb66"
+    },
+    {
+      "dataset_id": "etu-olympiad-local",
+      "name": "Олимпиадын амжилт (аймаг, нийслэл, Этүгэний уламжлалт олимпиад)",
+      "db_id": "56903c6c-bafb-571a-b694-1b134e5e180c"
+    },
+    {
+      "dataset_id": "etu-gifted",
+      "name": "Гоц авьяастай элсэгчийн хөнгөлөлт",
+      "db_id": "047736cd-3502-5636-8d6d-2e6bbb784b88"
+    },
+    {
+      "dataset_id": "etu-gov-priority",
+      "name": "Засгийн газрын сургалтын төлбөрийн тэтгэлэг (тэргүүлэх, эрэлттэй мэргэжил)",
+      "db_id": "765a18b9-5f7b-51d3-a5a4-0febcffa56a9"
+    },
+    {
+      "dataset_id": "etu-namseoul",
+      "name": "Хамтарсан хөтөлбөрийн тэтгэлэг (БНСУ-ын Намсөүл их сургууль)",
+      "db_id": "386a2965-23ff-58f6-9141-4564856caac8"
+    }
+  ],
+  "dorms": [
+    {
+      "dataset_id": "etu-dorm-building-2",
+      "name": "Хичээлийн II байр дахь оюутны байр (5–11 давхар)",
+      "db_id": "4fb0b1fb-8acb-5d92-9d99-3213b88f491a"
+    },
+    {
+      "dataset_id": "etu-dorm-building-5",
+      "name": "V байр дахь оюутны байр (8 давхар)",
+      "db_id": "faa13b5c-dc4f-5b65-a5e4-0036e3849fcd"
+    }
+  ],
+  "admission_dates": [
+    {
+      "dataset_id": "etu-date-reg-2026",
+      "event": "2026 оны жишиг: Бакалавр, дэд бакалаврын цахим бүртгэл (burtgel.etugen.edu.mn) — журмаар 6-р сарын 30-ны 18:00 хүртэл",
+      "db_id": "dd385b4c-0b2b-5462-a899-1e26cfc964a9"
+    },
+    {
+      "dataset_id": "etu-date-reg-system-2026",
+      "event": "2026 оны жишиг: Бүртгэлийн системд ЕБС төгсөгчдийн бүртгэлийг 9-р сарын 20 хүртэл гэж харуулсан",
+      "db_id": "289c303d-2124-564c-be7e-7d54b1805ab3"
+    },
+    {
+      "dataset_id": "etu-date-esh-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалт (Боловсролын үнэлгээний төв)",
+      "db_id": "6676a161-17d1-5d8b-96b1-83b40b84b616"
+    },
+    {
+      "dataset_id": "etu-date-special-2026",
+      "event": "2026 оны жишиг: Шилдэг элсэгч, Хүлэг бүрэн дунд сургуулийн төгсөгчдийн бичиг баримт хүлээн авах (хичээлийн I байр)",
+      "db_id": "b129265f-af3b-5fa5-8be4-7632783c8cfe"
+    },
+    {
+      "dataset_id": "etu-date-enroll-2026",
+      "event": "2026 оны жишиг: Суралцах эрхийн бичигтэй элсэгчдийн биечлэн бүртгэл (хичээлийн II байр)",
+      "db_id": "768bff13-3334-52c1-90f7-08829691d6e7"
+    }
+  ]
+}

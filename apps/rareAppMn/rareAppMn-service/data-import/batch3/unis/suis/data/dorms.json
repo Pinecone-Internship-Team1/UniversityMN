@@ -1,0 +1,25 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "СУИС",
+  "description": "СУИС-ийн оюутны байр (мэдээлэл олдоогүй).",
+  "language": "mn",
+  "verified_at": "2026-10-18"
+ },
+ "records": [
+  {
+   "id": "suis-dorm-info",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны мэдээлэл",
+   "facts_mn": [
+    "СУИС-ийн оюутны байрны мэдээлэл (байр, үнэ, бүртгэл) олдсонгүй — их сургуулиас тодруулна уу."
+   ],
+   "source_urls": [
+    "https://www.mnuac.edu.mn",
+    "http://student.mnuac.edu.mn"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "unknown"
+  }
+ ]
+}

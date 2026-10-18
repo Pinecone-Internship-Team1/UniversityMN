@@ -1,0 +1,80 @@
+{
+ "_meta": {
+  "dataset": "admission_dates",
+  "university": "Этүгэн",
+  "description": "Этүгэн их сургуулийн хуудсанд харуулах огноонууд. 'жишиг' = 2026 оны огноо (2027 оных зарлагдаагүй).",
+  "language": "mn",
+  "verified_at": "2026-10-16",
+  "sources": [
+   "https://etugen.edu.mn/public/juram2627.pdf",
+   "https://burtgel.etugen.edu.mn/account/bachelorregister",
+   "https://burtgel.etugen.edu.mn/",
+   "https://ikon.mn/n/3lvf"
+  ],
+  "note_mn": "Сайтын түгээмэл асуулт болон 'Элсэлтийн бүртгэл' хуудсанд 2025 оны огноо (5-р сарын 9) хэвээр байгаа тул оруулаагүй."
+ },
+ "records": [
+  {
+   "id": "etu-date-reg-2026",
+   "event_mn": "2026 оны жишиг: Бакалавр, дэд бакалаврын цахим бүртгэл (burtgel.etugen.edu.mn) — журмаар 6-р сарын 30-ны 18:00 хүртэл",
+   "start": "2026-04-23",
+   "end": "2026-06-30",
+   "status": "reference",
+   "source_urls": [
+    "https://etugen.edu.mn/public/juram2627.pdf",
+    "https://burtgel.etugen.edu.mn/account/bachelorregister"
+   ]
+  },
+  {
+   "id": "etu-date-reg-system-2026",
+   "event_mn": "2026 оны жишиг: Бүртгэлийн системд ЕБС төгсөгчдийн бүртгэлийг 9-р сарын 20 хүртэл гэж харуулсан",
+   "start": "2026-04-23",
+   "end": "2026-09-20",
+   "status": "reference",
+   "source_urls": [
+    "https://burtgel.etugen.edu.mn/"
+   ]
+  },
+  {
+   "id": "etu-date-esh-2026",
+   "event_mn": "2026 оны жишиг: Элсэлтийн шалгалт (Боловсролын үнэлгээний төв)",
+   "start": "2026-06-25",
+   "end": "2026-06-28",
+   "status": "reference",
+   "source_urls": [
+    "https://ikon.mn/n/3lvf"
+   ]
+  },
+  {
+   "id": "etu-date-special-2026",
+   "event_mn": "2026 оны жишиг: Шилдэг элсэгч, Хүлэг бүрэн дунд сургуулийн төгсөгчдийн бичиг баримт хүлээн авах (хичээлийн I байр)",
+   "start": "2026-06-25",
+   "end": "2026-08-01",
+   "status": "reference",
+   "source_urls": [
+    "https://burtgel.etugen.edu.mn/account/bachelorregister"
+   ]
+  },
+  {
+   "id": "etu-date-enroll-2026",
+   "event_mn": "2026 оны жишиг: Суралцах эрхийн бичигтэй элсэгчдийн биечлэн бүртгэл (хичээлийн II байр)",
+   "start": "2026-08-20",
+   "end": "2026-08-31",
+   "status": "reference",
+   "source_urls": [
+    "https://etugen.edu.mn/public/juram2627.pdf",
+    "https://burtgel.etugen.edu.mn/account/bachelorregister"
+   ]
+  },
+  {
+   "id": "etu-date-2027",
+   "event_mn": "2027-2028 оны элсэлтийн бүртгэлийн огноо хараахан зарлагдаагүй (2026 онд 4-р сарын 23-нд нээгдсэн)",
+   "start": null,
+   "end": null,
+   "status": "unknown",
+   "source_urls": [
+    "https://burtgel.etugen.edu.mn/"
+   ]
+  }
+ ]
+}

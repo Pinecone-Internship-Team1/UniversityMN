@@ -1,0 +1,469 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the СУИС part of the batch-3 dataset (oyutan-batch3, unis/suis/data/*.json, after the 2026-10-18 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-18",
+    "mapped_at": "2026-10-18",
+    "university_id": "sch_suis",
+    "how_to_use": "Run data-import/import-batch3.mjs suis (--local / --remote, then --apply): it reads data-import/batch3/unis/suis/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "one_minimum": "one minimum on the combined score (secondary_cut_off_score null): w1·exam1 + w2·exam2 ≥ cut_off_score",
+      "per_exam": "each exam has its own minimum (cut_off_score, secondary_cut_off_score; 0 = unknown); weights 1/1 when the formula is not published (a plain sum), 0.5/0.5 for an average (ОТИС, СУИС ЭШ-only majors)",
+      "skills_test": "group 2 is the university's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\" (СУИС: weights 0.5/1 = ЭШ ÷ 2 + skills test)",
+      "neutral": "no exam subjects or cut-offs (unclear / unknown split, three exams, or not in the 2026-27 table): \"Сургуулиас тодруулна уу\", rule in exam_note"
+    },
+    "skipped_programs": [],
+    "counts": {
+      "dataset_programs": 35,
+      "imported_programs": 35,
+      "by_degree": {
+        "BACHELOR": 35,
+        "ASSOCIATE": 0
+      },
+      "by_score_check": {
+        "skills_test": 17,
+        "neutral": 11,
+        "per_exam": 7
+      },
+      "faculties": 6,
+      "scholarships": 3,
+      "dorms": 0,
+      "admission_dates": 4
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "suis-teatr",
+      "type": "constituent",
+      "name": "Театрын урлагийн сургууль",
+      "location": "Улаанбаатар",
+      "db_id": "5925837b-daa4-5d2a-b247-3cc9bee4130b"
+    },
+    {
+      "dataset_id": "suis-dursleh",
+      "type": "constituent",
+      "name": "Дүрслэх урлагийн академи",
+      "location": "Улаанбаатар",
+      "db_id": "eabe64f3-aac7-5d6f-85b1-59803f45d738"
+    },
+    {
+      "dataset_id": "suis-buzhig",
+      "type": "constituent",
+      "name": "Бүжгийн урлагийн сургууль",
+      "location": "Улаанбаатар",
+      "db_id": "b0bfc401-6e56-5fb2-824b-f47a5c589aaa"
+    },
+    {
+      "dataset_id": "suis-soyol",
+      "type": "constituent",
+      "name": "Соёлын сургууль",
+      "location": "Улаанбаатар",
+      "db_id": "5c415664-3d8c-5f3e-ab1d-799343ae8883"
+    },
+    {
+      "dataset_id": "suis-kino",
+      "type": "constituent",
+      "name": "Кино, телевиз медиа урлагийн сургууль",
+      "location": "Улаанбаатар",
+      "db_id": "4c285806-1654-57ed-9e89-cbd4890dc402"
+    },
+    {
+      "dataset_id": "suis-khugjim",
+      "type": "constituent",
+      "name": "Хөгжмийн урлагийн сургууль",
+      "location": "Улаанбаатар",
+      "db_id": "842eacd6-ce8e-5d6b-bd1a-2c5de5d8f4ec"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "suis-dursleh-bagsh-durslekh-urlagiin-bolovsrol",
+      "dataset_school": "suis-dursleh",
+      "faculty": "Дүрслэх урлагийн академи",
+      "name": "Багш, дүрслэх урлагийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "f7599950-8c76-5ab0-b69d-2b9053d3bb9c"
+    },
+    {
+      "dataset_id": "suis-khugjim-bagsh-khugjmiin-bolovsrol-khugjmiin-bagsh",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Багш, хөгжмийн боловсрол (Хөгжмийн багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "0cd7b256-23a5-5abf-b4bc-c91011d96daf"
+    },
+    {
+      "dataset_id": "suis-buzhig-bagsh-bujgiin-bolovsrol-bujgiin-bagsh",
+      "dataset_school": "suis-buzhig",
+      "faculty": "Бүжгийн урлагийн сургууль",
+      "name": "Багш, бүжгийн боловсрол (Бүжгийн багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "180ee15c-7cfe-595a-a1a6-d71982eb3c01"
+    },
+    {
+      "dataset_id": "suis-kino-zurag-avalt-kino-televiziin-zuraglaach",
+      "dataset_school": "suis-kino",
+      "faculty": "Кино, телевиз медиа урлагийн сургууль",
+      "name": "Зураг авалт (Кино, телевизийн зураглаач)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "bf0b3cd0-62fd-5d5f-9045-48da40e27dcd"
+    },
+    {
+      "dataset_id": "suis-kino-duu-chimeenii-tekhnologi-duuny-injener-duuny-nairuulagch",
+      "dataset_school": "suis-kino",
+      "faculty": "Кино, телевиз медиа урлагийн сургууль",
+      "name": "Дуу чимээний технологи (Дууны инженер, дууны найруулагч)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "1e811fe3-2ec6-5b60-8476-82e31d6dea22"
+    },
+    {
+      "dataset_id": "suis-dursleh-grafik-dizain-konsept-artist-kompiyuteriin-grafik-dizain-foto-media-artist",
+      "dataset_school": "suis-dursleh",
+      "faculty": "Дүрслэх урлагийн академи",
+      "name": "График дизайн (Консепт Артист, Компьютерийн график дизайн, Фото медиа Артист)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "3894661e-9ec4-511a-a5ee-a06ea4f17b1e"
+    },
+    {
+      "dataset_id": "suis-kino-animeishn-mulitimedia-dizain",
+      "dataset_school": "suis-kino",
+      "faculty": "Кино, телевиз медиа урлагийн сургууль",
+      "name": "Анимейшн, мультимедиа дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "38454302-b6a2-524e-b534-80cf479a15ed"
+    },
+    {
+      "dataset_id": "suis-dursleh-khuvtsasny-dizain",
+      "dataset_school": "suis-dursleh",
+      "faculty": "Дүрслэх урлагийн академи",
+      "name": "Хувцасны дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "fb2eb9ac-027d-515c-bb56-35eb9faaf6f1"
+    },
+    {
+      "dataset_id": "suis-dursleh-uran-zurag-uran-zurag-mongol-zurag-monumentali-uran-zurag",
+      "dataset_school": "suis-dursleh",
+      "faculty": "Дүрслэх урлагийн академи",
+      "name": "Уран зураг (Уран зураг; Монгол зураг; Монументаль уран зураг)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "6a4224c4-a00e-5ead-a8e2-65db30713bd1"
+    },
+    {
+      "dataset_id": "suis-teatr-taiz-delgetsiin-zurag-taiz-delgets-kinony-zuraach",
+      "dataset_school": "suis-teatr",
+      "faculty": "Театрын урлагийн сургууль",
+      "name": "Тайз, дэлгэцийн зураг (Тайз, дэлгэц, киноны зураач)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "204d36f1-b140-52a3-8e00-ecec03c7034f"
+    },
+    {
+      "dataset_id": "suis-dursleh-uran-barimal-uran-barimal-keramik-urlag-arisan-urlag-chimeglekh-urlag-uran-darkhan-uran-siilber",
+      "dataset_school": "suis-dursleh",
+      "faculty": "Дүрслэх урлагийн академи",
+      "name": "Уран баримал (Уран баримал; керамик урлаг; арьсан урлаг; чимэглэх урлаг; уран дархан; уран сийлбэр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "eb05a8bc-a4f6-55af-ae8f-bf48fa93b173"
+    },
+    {
+      "dataset_id": "suis-dursleh-zuraasan-zurag-zuraasan-zurag-nomyn-zurag",
+      "dataset_school": "suis-dursleh",
+      "faculty": "Дүрслэх урлагийн академи",
+      "name": "Зураасан зураг (Зураасан зураг, Номын зураг)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "c601cf62-0488-598f-8173-3b7bd5ae089e"
+    },
+    {
+      "dataset_id": "suis-khugjim-khugjmiin-urlag-zokhiomj-midi-zokhiomj-khugjim-sudlal-udirdakh-nairal-duu-nairal-khugjim",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Хөгжмийн урлаг (Зохиомж; MIDI зохиомж хөгжим судлал; удирдах-найрал дуу; найрал хөгжим)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "3dfa5746-fcc4-5b85-a719-ad34b6c674e1"
+    },
+    {
+      "dataset_id": "suis-khugjim-khugjimdukh-urlag-undesnii",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Хөгжимдөх урлаг (Үндэсний)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "a96b574d-fa9b-507d-835b-94f56aa478e7"
+    },
+    {
+      "dataset_id": "suis-khugjim-khugjimdukh-urlag-songodog",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Хөгжимдөх урлаг (Сонгодог)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "276e5045-377d-5714-b1c9-b82c46783e6c"
+    },
+    {
+      "dataset_id": "suis-khugjim-khugjimdukh-urlag-orchin-tsag",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Хөгжимдөх урлаг (Орчин цаг)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "8aa81f36-a66d-5d49-b122-a8bf868862a5"
+    },
+    {
+      "dataset_id": "suis-khugjim-duulakh-urlag-orchin-tsagiin",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Дуулах урлаг (Орчин цагийн)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "34f8550b-d8f9-58a0-a088-7145da40c769"
+    },
+    {
+      "dataset_id": "suis-khugjim-duulakh-urlag-duuriin",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Дуулах урлаг (Дуурийн)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "a8d75ebd-d1f2-5a08-ab1b-3fedbec5f8a3"
+    },
+    {
+      "dataset_id": "suis-khugjim-duulakh-urlag-urtyn-ardyn",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Дуулах урлаг (Уртын, ардын)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "1ed24ea4-a6d0-5db5-9a3b-a1e243e84721"
+    },
+    {
+      "dataset_id": "suis-khugjim-undesnii-yazguur-urlag-khuumei-tuuli",
+      "dataset_school": "suis-khugjim",
+      "faculty": "Хөгжмийн урлагийн сургууль",
+      "name": "Үндэсний язгуур урлаг (Хөөмэй, тууль)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "e41f3c71-b171-5afd-8a7f-c570a550ce5f"
+    },
+    {
+      "dataset_id": "suis-teatr-jujiglekh-urlag-kino-dramyn",
+      "dataset_school": "suis-teatr",
+      "faculty": "Театрын урлагийн сургууль",
+      "name": "Жүжиглэх урлаг (Кино; драмын)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "ecb2a6da-051d-56c6-97b7-859d82e4c481"
+    },
+    {
+      "dataset_id": "suis-teatr-nairuulakh-urlag-jujgiin",
+      "dataset_school": "suis-teatr",
+      "faculty": "Театрын урлагийн сургууль",
+      "name": "Найруулах урлаг (Жүжгийн)",
+      "degree_type": "BACHELOR",
+      "selection_type": null,
+      "score_check": "neutral",
+      "db_id": "3a0681b7-1a36-54c3-b948-6e51bb6c99c6"
+    },
+    {
+      "dataset_id": "suis-kino-nairuulakh-urlag-televiziin-kinony",
+      "dataset_school": "suis-kino",
+      "faculty": "Кино, телевиз медиа урлагийн сургууль",
+      "name": "Найруулах урлаг (Телевизийн; киноны)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "a553544b-dd9a-552c-9380-2e6878d10482"
+    },
+    {
+      "dataset_id": "suis-buzhig-bujgiin-urlag-bujiglekh-urlag-bujgiin-nairuulga",
+      "dataset_school": "suis-buzhig",
+      "faculty": "Бүжгийн урлагийн сургууль",
+      "name": "Бүжгийн урлаг (Бүжиглэх урлаг; бүжгийн найруулга)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "a98f60c2-f856-5f19-a266-f4326097b333"
+    },
+    {
+      "dataset_id": "suis-teatr-jujig-kinony-zokhiol",
+      "dataset_school": "suis-teatr",
+      "faculty": "Театрын урлагийн сургууль",
+      "name": "Жүжиг, киноны зохиол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "372227a8-431a-5c50-8373-2c92db8e3f63"
+    },
+    {
+      "dataset_id": "suis-teatr-urlag-sudlal-urlag-sudlaach-teatr-kino",
+      "dataset_school": "suis-teatr",
+      "faculty": "Театрын урлагийн сургууль",
+      "name": "Урлаг судлал (Урлаг судлаач, Театр, кино)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "61ecdeb1-fff2-56ff-b56c-f75c8a5483eb"
+    },
+    {
+      "dataset_id": "suis-soyol-soyol-sudlal-soyolyn-uv-muzei",
+      "dataset_school": "suis-soyol",
+      "faculty": "Соёлын сургууль",
+      "name": "Соёл судлал (Соёлын өв, музей)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "99eb89f1-ebaa-5f64-9287-c9cca7a1a0d0"
+    },
+    {
+      "dataset_id": "suis-kino-setguul-zui-radio-televiziin",
+      "dataset_school": "suis-kino",
+      "faculty": "Кино, телевиз медиа урлагийн сургууль",
+      "name": "Сэтгүүл зүй (Радио, телевизийн)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "3bf250b5-8ef4-5f4e-ae42-81a3e2434427"
+    },
+    {
+      "dataset_id": "suis-soyol-nomyn-san-sudlal",
+      "dataset_school": "suis-soyol",
+      "faculty": "Соёлын сургууль",
+      "name": "Номын сан судлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "3018cef0-b6d9-5191-96f6-b0069143e3af"
+    },
+    {
+      "dataset_id": "suis-soyol-menejment-soyol-urlagiin",
+      "dataset_school": "suis-soyol",
+      "faculty": "Соёлын сургууль",
+      "name": "Менежмент (Соёл урлагийн)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "35ff690b-2353-509b-a490-81b39aa1f0a2"
+    },
+    {
+      "dataset_id": "suis-soyol-menejment-shou-biznesiin",
+      "dataset_school": "suis-soyol",
+      "faculty": "Соёлын сургууль",
+      "name": "Менежмент (Шоу, бизнесийн)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "464266dc-a55e-5694-9407-03a45ebd16fb"
+    },
+    {
+      "dataset_id": "suis-soyol-marketing-dijital-marketing",
+      "dataset_school": "suis-soyol",
+      "faculty": "Соёлын сургууль",
+      "name": "Маркетинг (Дижитал маркетинг)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "cf85ccaa-e426-533b-873c-407c30c980de"
+    },
+    {
+      "dataset_id": "suis-soyol-marketing-zar-surtachlagaany",
+      "dataset_school": "suis-soyol",
+      "faculty": "Соёлын сургууль",
+      "name": "Маркетинг (Зар суртачлагааны)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "a386cf56-ec68-5c0f-8cce-a8ee66f6f482"
+    },
+    {
+      "dataset_id": "suis-dursleh-tuukh-soyolyn-dursgalt-zuiliin-sergeen-zasvarlalt",
+      "dataset_school": "suis-dursleh",
+      "faculty": "Дүрслэх урлагийн академи",
+      "name": "Түүх соёлын дурсгалт зүйлийн сэргээн засварлалт",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "3ddc693b-b6f1-5189-8d84-2cfdd37b5667"
+    },
+    {
+      "dataset_id": "suis-soyol-tuukh-soyolyn-ayalal-juulchlal",
+      "dataset_school": "suis-soyol",
+      "faculty": "Соёлын сургууль",
+      "name": "Түүх, соёлын аялал жуулчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "ce9064c7-7cbd-5cd9-b590-d14c7a041dd2"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "suis-sch-new",
+      "name": "Шинэ элсэгчдэд олгох тэтгэлэг",
+      "db_id": "2bc52b34-a914-521e-9123-b4bf09a295d5"
+    },
+    {
+      "dataset_id": "suis-sch-state",
+      "name": "Төрийн сангийн зээл, тэтгэлэг",
+      "db_id": "fe5018f9-3695-5596-aaf3-a44758a08106"
+    },
+    {
+      "dataset_id": "suis-sch-director",
+      "name": "Захирлын нэрэмжит тэтгэлэг",
+      "db_id": "a796fb38-9434-5e05-8fa7-34abd7853cd4"
+    }
+  ],
+  "dorms": [],
+  "admission_dates": [
+    {
+      "dataset_id": "suis-date-esh-reg-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалтын (ЭШ) бүртгэл (Боловсролын үнэлгээний төв; 12-р анги — сургуулийн цахим системээр, өмнөх онуудын төгсөгчид 3-р сарын 6-наас)",
+      "db_id": "4aac7615-dd2b-553f-bb50-8b8fc7a6ab8d"
+    },
+    {
+      "dataset_id": "suis-date-esh-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалт (ЭШ)",
+      "db_id": "7bc40c25-f299-569a-9111-f9708447d366"
+    },
+    {
+      "dataset_id": "suis-date-suis-reg-2026",
+      "event": "СУИС-ийн бакалаврын элсэлтийн бүртгэл эхэлсэн (2026)",
+      "db_id": "406ab0ab-f692-5c02-953a-20a0611ca718"
+    },
+    {
+      "dataset_id": "suis-date-scholarship-2026",
+      "event": "Шинэ элсэгчийн тэтгэлгийн хүсэлт гаргах (2026)",
+      "db_id": "6b599b29-5ec8-5ce4-aab7-ee8c6027c896"
+    }
+  ]
+}

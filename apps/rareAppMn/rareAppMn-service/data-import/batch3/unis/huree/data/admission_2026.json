@@ -1,0 +1,261 @@
+{
+ "_meta": {
+  "dataset": "admission_2026",
+  "university": "Хүрээ МХТДС",
+  "description": "Хүрээ МХТДС-ийн элсэлтийн үйл явц: алхам, бичиг баримт, хураамж, босгын хүснэгт, ур чадварын шалгалт.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "huree-bachelor-2026",
+   "title_mn": "Хүрээ МХТДС-ийн бакалаврын элсэлт (2026-2027 оны жишиг)",
+   "academic_year": "2026-2027",
+   "system_url": "https://elselt.huree.edu.mn",
+   "login_url": null,
+   "registration": {
+    "start": "2026-06-20",
+    "end": "2026-08-30",
+    "where_mn": "Хүрээ МХТДС-ийн байранд; онлайн хүсэлтийг elselt.huree.edu.mn → 'Бүртгүүлэх' маягтаар өгнө."
+   },
+   "registration_fee": 10000,
+   "registration_fee_note_mn": "Бүртгэлийн хураамж 10,000₮ — бэлнээр.",
+   "admission_fee": 100000,
+   "admission_fee_note_mn": "Элсэлтийн хураамж 100,000₮ — дансаар: Хаан банк 5023322903 эсвэл Төрийн банк 104100363825, данс эзэмшигч 'Хүрээ МХТДС'; гүйлгээний утгад нэр, регистрийн дугаар, утасны дугаараа бичнэ.",
+   "seat_confirmation_fee": null,
+   "documents_mn": [
+    "Анкет",
+    "Ерөнхий боловсролын гэрчилгээ (эх хувь)",
+    "Хувийн хэрэг (эх хувь)",
+    "Элсэлтийн шалгалтын онооны хуудас (эх хувь)",
+    "Иргэний үнэмлэхний хуулбар",
+    "3×4 хэмжээтэй зураг (2 хувь)"
+   ],
+   "steps": [
+    {
+     "step": 1,
+     "title_mn": "Элсэлтийн шалгалт өгөх",
+     "detail_mn": "Хөтөлбөрийнхөө 1, 2-р шалгалтын хичээлээр Элсэлтийн шалгалт (ЭШ) өгнө (2026 онд 6-р сарын 25–28). Архитектур, График дизайнд 2-р шалгалт нь сургуулийн ур чадварын шалгалт."
+    },
+    {
+     "step": 2,
+     "title_mn": "Онлайнаар хүсэлт гаргах",
+     "detail_mn": "elselt.huree.edu.mn-ийн 'Бүртгүүлэх' маягтад мэдээллээ оруулж, 2 хүртэл тэнхим (Тэнхим сонгох 1, 2) сонгоно. Илгээсэн хүсэлтээ сайтаас засаж болно."
+    },
+    {
+     "step": 3,
+     "title_mn": "Бичиг баримтаа бүрдүүлэх",
+     "detail_mn": "2026 онд 6-р сарын 20-ноос 8-р сарын 30 хүртэл сургуулийн байранд анкет, гэрчилгээ, хувийн хэрэг, ЭШ-ын онооны хуудас (эх хувиар), иргэний үнэмлэхний хуулбар, 3×4 зураг 2 хувь өгсөн."
+    },
+    {
+     "step": 4,
+     "title_mn": "Хураамж төлөх",
+     "detail_mn": "Бүртгэлийн хураамж 10,000₮-ийг бэлнээр, элсэлтийн хураамж 100,000₮-ийг Хаан банк 5023322903 эсвэл Төрийн банк 104100363825 дансаар төлнө."
+    },
+    {
+     "step": 5,
+     "title_mn": "Тэтгэлэг",
+     "detail_mn": "ЭШ-ын оноо 550-аас дээш бол элсэлтийн тэтгэлэгт хамрагдана: оноогоор 1–4 жил, сургалтын төлбөрийн 50–100%."
+    }
+   ],
+   "selection_rules": {
+    "ranking_mn": "Элсэгчдийг хэрхэн эрэмбэлж сонгохыг (эрэмбээр эсвэл босго хангасан бүрийг) сургууль нийтлээгүй. Онлайн маягтад 2 тэнхим сонгох боломжтой.",
+    "threshold_mn": "Шалгалт тус бүрийн босго 450 эсвэл 490 (хөтөлбөрөөс хамаарна); бүлэг доторх хичээлээс аль нэгийг өгнө.",
+    "formula_mn": "Элсэлтийн онооны томьёо зарлаагүй. Тэтгэлгийг 1, 2-р шалгалтын онооны дунджаар тогтооно (750–800 бол 2 хичээл тус бүр шаардлага хангах ёстой)."
+   },
+   "thresholds_table": [
+    {
+     "program_mn": "Компьютерын ухаан",
+     "code": "D061301",
+     "suuri_mn": "Математик, физик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал Англи хэл",
+     "dagaldah_threshold": 450,
+     "duration_years": 4,
+     "credits": 125,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "Мэдээллийн технологи",
+     "code": "D061304",
+     "suuri_mn": "Математик, физик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал, англи хэл",
+     "dagaldah_threshold": 450,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "График дизайн",
+     "code": "D021106",
+     "suuri_mn": "Математик, англи хэл",
+     "suuri_threshold": 450,
+     "dagaldah_mn": "Ур чадварын шалгалт",
+     "dagaldah_threshold": 490,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "Сэргээгдэх эрчим хүч",
+     "code": "D071301",
+     "suuri_mn": "Математик, физик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал Англи хэл",
+     "dagaldah_threshold": 450,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": false
+    },
+    {
+     "program_mn": "Эмнэлгийн тоног төхөөрөмж ашиглалт",
+     "code": "D078810",
+     "suuri_mn": "Математик, физик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал Англи хэл",
+     "dagaldah_threshold": 450,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "Электроникийн инженерчлэл",
+     "code": "D071401",
+     "suuri_mn": "Математик, физик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал Англи хэл",
+     "dagaldah_threshold": 450,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "Архитектур",
+     "code": "D073104",
+     "suuri_mn": "Математик, физик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Ур чадварын шалгалт",
+     "dagaldah_threshold": 490,
+     "duration_years": 5,
+     "credits": 160,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "Барилгын инженерчлэл",
+     "code": "D073204",
+     "suuri_mn": "Математик, физик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал Англи хэл",
+     "dagaldah_threshold": 490,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": false
+    },
+    {
+     "program_mn": "Авто замын инженерчлэл",
+     "code": "D073210",
+     "suuri_mn": "Математик, физик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал Англи хэл",
+     "dagaldah_threshold": 450,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": false
+    },
+    {
+     "program_mn": "Бизнесийн удирдлага",
+     "code": "D041301",
+     "suuri_mn": "Математик",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал Англи хэл",
+     "dagaldah_threshold": 490,
+     "duration_years": 4,
+     "credits": 122,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "Хүнсний инженерчлэл",
+     "code": "D072104",
+     "suuri_mn": "Математик, хими",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал Англи хэл",
+     "dagaldah_threshold": 450,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": false
+    },
+    {
+     "program_mn": "Хоол зүй, шим судлал",
+     "code": "D072012",
+     "suuri_mn": "Математик, хими",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Нийгэм судлал, англи хэл",
+     "dagaldah_threshold": 450,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "Гадаад хэлний орчуулга /Англи хэл/",
+     "code": "D023101",
+     "suuri_mn": "Англи хэл, Орос хэл",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Монгол хэл Нийгэм судлал",
+     "dagaldah_threshold": 490,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": true
+    },
+    {
+     "program_mn": "Гадаад хэлний орчуулга /Солонгос хэл/",
+     "code": "D023101",
+     "suuri_mn": "Англи хэл, Орос хэл",
+     "suuri_threshold": 490,
+     "dagaldah_mn": "Монгол хэл Нийгэм судлал",
+     "dagaldah_threshold": 490,
+     "duration_years": 4,
+     "credits": 120,
+     "in_2026_online_form": true
+    }
+   ],
+   "thresholds_table_note_mn": "Сургуулийн 'Бакалаврын мэргэжлүүд' хүснэгтийн мөрүүд (он заагаагүй); хичээлийн нэрийг сургуулийн бичсэнээр үлдээв.",
+   "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+   "skills_test": {
+    "name_mn": "Ур чадварын шалгалт",
+    "programs_mn": [
+     "График дизайн",
+     "Архитектур"
+    ],
+    "detail_mn": "Сургууль өөрөө авдаг 2-р шалгалт; тэнхимийн хуудсанд 'ЭШ 2: 490 оноо Ур чадвар' гэж бичсэн.",
+    "date_mn": null,
+    "scoring_mn": null,
+    "scoring_note_mn": "Агуулга, огноо, байршил, дүгнэх арга (200–800 хуваарьт шилжүүлэх эсэх)-ыг сайтад нийтлээгүй.",
+    "source_urls": [
+     "https://huree.edu.mn/department/ar.php",
+     "https://huree.edu.mn/department/mm.php",
+     "https://huree.edu.mn/enter/enter.php"
+    ]
+   },
+   "regulation": {
+    "title_mn": "Элсэлтийн журам",
+    "url": null,
+    "readable": false,
+    "note_mn": "Сургуулийн элсэлтийн журам сайтад олдсонгүй."
+   },
+   "associate_programs_mn": "2026 оны элсэлтийн хуудас, онлайн маягтад дэд бакалаврын хөтөлбөр байхгүй — зөвхөн бакалавр.",
+   "applicant_info_url": "https://huree.edu.mn/enter/enter.php#under-graudate",
+   "contacts_mn": "7701-2002, huree@huree.edu.mn; Улаанбаатар, Баянгол дүүрэг, 11-р хороо, Бичил хороолол, Хасбаатарын гудамж (Хүрээ МХТДС-ийн байр).",
+   "source_urls": [
+    "https://huree.edu.mn/enter/enter.php",
+    "https://elselt.huree.edu.mn/",
+    "https://elselt.huree.edu.mn/register.php",
+    "https://ikon.mn/n/3of7",
+    "https://huree.edu.mn/department/ar.php",
+    "https://huree.edu.mn/department/mm.php"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  }
+ ]
+}

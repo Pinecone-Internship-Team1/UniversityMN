@@ -1,0 +1,45 @@
+{
+ "_meta": {
+  "dataset": "tuition_2026_2027",
+  "university": "ОУУБИС",
+  "description": "ОУУБИС-ийн 2026-2027 оны сургалтын төлбөр — албан ёсны дүн олдсонгүй.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "iuu-tuition-bachelor",
+   "label_mn": "Бакалаврын сургалтын төлбөр (2026-2027)",
+   "price_per_credit": null,
+   "price_per_year": null,
+   "currency": "MNT",
+   "note_mn": "ОУУБИС сайтдаа нийтлээгүй. ОУУБИС-аас (11-462026, 8947-2026) тодруулна уу.",
+   "source_urls": [
+    "https://www.iuu.edu.mn/",
+    "https://www.iuu.edu.mn/i/elselt",
+    "https://www.iuu.edu.mn/bachelor/program",
+    "https://www.iuu.edu.mn/p/26"
+   ],
+   "status": "unknown"
+  },
+  {
+   "id": "iuu-tuition-discount",
+   "label_mn": "Сургалтын төлбөрийн хөнгөлөлт",
+   "quote_mn": "Олон улсын Улаанбаатарын их сургуулийн нэг давуу тал бол сургалтын төлбөрийн хөнгөлөлтийг үзүүлдэг.",
+   "note_mn": "Хөнгөлөлтийн хувь, нөхцөлийг нийтлээгүй.",
+   "source_urls": [
+    "https://www.iuu.edu.mn/p/26"
+   ],
+   "status": "partial"
+  },
+  {
+   "id": "iuu-tuition-2plus2",
+   "label_mn": "2+2 хөтөлбөр — БНСУ-д суралцах 2 жил",
+   "note_mn": "Хүлээн авагч их сургууль 50–100 хувийн тэтгэлэг олгож болно; төлбөрийн дүнг нийтлээгүй.",
+   "source_urls": [
+    "https://www.iuu.edu.mn/p/7"
+   ],
+   "status": "partial"
+  }
+ ]
+}
