@@ -7,7 +7,7 @@
 // <slug> is etugen, otgontenger, huree, iuu or suis. Run from apps/rareAppMn/rareAppMn-service. A copy of
 // import-next-unis.mjs: these universities already exist as placeholder rows, found by the site's id (sch_<slug>) and
 // confirmed by name on each database; the website is never overwritten, and the location changes only where the
-// placeholder names the wrong district (Этүгэн, Отгонтэнгэр, ОУУБИС). Faculties, majors, scholarships,
+// placeholder names the wrong district (Этүгэн, Отгонтэнгэр, ОУУБИС, СУИС). Faculties, majors, scholarships,
 // dorms and dates are matched by natural key there (name within the university or faculty, event name for dates),
 // then by data-import/<slug>-map.json; new rows get a UUID derived from the dataset id, so every database gets the
 // same id. Every write is an upsert on id in one SQL file run by one `wrangler d1 execute`; nothing is deleted, and
@@ -37,7 +37,8 @@ const UNIVERSITIES = {
     names: ['олон улсын улаанбаатарын их сургууль', 'оуубис', 'international university of ulaanbaatar'],
     district: 'Баянзүрх',
   },
-  suis: { label: 'СУИС', names: ['монгол улсын соёл урлагийн их сургууль', 'суис', 'mnuac'], district: null },
+  // СУИС: its admission system says "Улаанбаатар хот, Баянгол дүүрэг" (owner's decision, 2026-10-18).
+  suis: { label: 'СУИС', names: ['монгол улсын соёл урлагийн их сургууль', 'суис', 'mnuac'], district: 'Баянгол' },
 };
 
 const args = process.argv.slice(2);

@@ -146,9 +146,13 @@ function clampMatchScore(value: number): number {
 
 const PASSED_NOTE =
   ' Босго давсан нь элсэх баталгаа биш, эрэлттэй хөтөлбөрт илүү өндөр оноо хэрэгтэй байж болно.';
-/** A direct-selection program admits whoever meets the minimums, in the order they pay. */
+/**
+ * A direct-selection program admits applicants who meet the minimums until its seats are full (АШУҮИС,
+ * Этүгэн, ОУУБИС). A university's own extra rule, such as АШУҮИС's one program paid in order, is in its
+ * majors' examNote.
+ */
 const DIRECT_NOTE =
-  ' Шууд сонгох хөтөлбөрт зөвхөн 1 хөтөлбөр сонгох бөгөөд сургалтын төлбөрөө төлсөн дарааллаар баталгаажна.';
+  ' Шууд элсүүлэх хөтөлбөрт босго хангасан бүртгүүлэгчийг суудал дүүртэл элсүүлдэг тул элсэх эрхээ хугацаанд нь баталгаажуулаарай.';
 const SKILL_EXAM_NOTE = 'Ур чадварын шалгалтыг их сургууль өөрөө авна — сургуулиас тодруулна уу.';
 
 /**

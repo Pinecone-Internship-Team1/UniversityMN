@@ -251,6 +251,15 @@ describe('sum of two exams (АШУҮИС)', () => {
     expect(outcome.reason).toContain('Нийлбэр оноо 1100.0 (Математик + Англи хэл)');
   });
 
+  test('direct selection: the note fits every direct university, not only АШУҮИС', () => {
+    const outcome = scoreMajorMatch(HEALTH_INFORMATICS, { Математик: 600, 'Англи хэл': 500 });
+    expect(outcome.verdict).toBe('ELIGIBLE');
+    expect(outcome.reason).toEndWith(
+      ' Шууд элсүүлэх хөтөлбөрт босго хангасан бүртгүүлэгчийг суудал дүүртэл элсүүлдэг тул элсэх эрхээ хугацаанд нь баталгаажуулаарай.'
+    );
+    expect(outcome.reason).not.toContain('1 хөтөлбөр');
+  });
+
   test('branch row still unknown: neutral', () => {
     expect(scoreMajorMatch(DARKHAN_UNKNOWN, { Хими: 620, Биологи: 580 }).verdict).toBe('CHECK_WITH_SCHOOL');
   });

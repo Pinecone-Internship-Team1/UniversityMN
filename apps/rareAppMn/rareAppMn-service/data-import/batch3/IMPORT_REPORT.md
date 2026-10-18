@@ -91,3 +91,13 @@ Live pages: https://oyutan-mn-web.zelmeganbayr0408.workers.dev/university/etugen
 - No separate "Улаанбаатар Их Сургууль" row exists, so ОУУБИС has no duplicate.
 - **Local only:** the old seed demo rows of these five (faculty "Бусад хөтөлбөрүүд", maj_<slug>_1..3, sp_/dorm_/adm_ rows) were left alone, as the runbook asks. Production never had them.
 - **Universities with empty pages on production after the import:** none. All 11 have programs (query run on production).
+
+## Follow-ups (2026-10-18, owner's decisions)
+- **Direct-selection note** (`src/lib/scoreMatch.ts`): `DIRECT_NOTE` was АШУҮИС's own rule ("зөвхөн 1 хөтөлбөр … төлсөн дарааллаар"), which isn't true for Этүгэн or ОУУБИС. It now reads " Шууд элсүүлэх хөтөлбөрт босго хангасан бүртгүүлэгчийг суудал дүүртэл элсүүлдэг тул элсэх эрхээ хугацаанд нь баталгаажуулаарай." A new test checks a passing direct major gets it and no "1 хөтөлбөр"; service tests: 19 pass.
+- **АШУҮИС's rule kept visible:** the 52 АШУҮИС direct-selection programs (`selection_type: direct`) now end their `notes_mn` in `ashuuis/data/programs.json` with "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд)." Imported with `import-mnums.mjs` (local, then production): 52 majors, `exam_note` only.
+- **СУИС district:** `import-batch3.mjs` now sets СУИС's district to Баянгол (its admission system says "Улаанбаатар хот, Баянгол дүүрэг"): location "Сүхбаатар дүүрэг, Улаанбаатар" → **"Баянгол дүүрэг, Улаанбаатар"** on local and production.
+- The other "worth checking by eye" items are left as they are.
+- **Safety:**
+  - Production backup `~/Documents/oyutan-backups/rareapp-db-20261018-2241-before-batch3-followups.sql` (11 tables, 1,221 rows) and Time Travel bookmark `00000068-00000000-00005108-7e163360386ace3917a265cf7a179b87`, both taken right before the first write. No migration.
+  - Every row of all 11 universities in the 6 tables was snapshotted before and after, on local and on production. The only differences: 52 АШУҮИС `majors.exam_note` and СУИС `schools.location`.
+  - Second runs: 0 statements.
