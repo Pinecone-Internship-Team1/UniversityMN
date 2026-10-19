@@ -36,27 +36,11 @@ const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     number: "03",
-    name: "Khuslen",
-    school: "52-р сургууль",
-    role: "Full-Stack Developer",
-    image: "/team/khuslen-profile-pic.jpg",
-    github: "https://github.com",
-  },
-  {
-    number: "04",
     name: "Ikhbayar",
     school: "ISU",
     role: "Research & Data, Frontend Developer",
     image: "/team/ikhbayar-profile-pic.jpg",
     github: "https://github.com/bikhbayar01-sudo",
-  },
-  {
-    number: "05",
-    name: "Tsogt",
-    school: "Шинэ Монгол ТК",
-    role: "Research & Data, Frontend Developer",
-    image: "/team/tsogt-profile-pic.jpg",
-    github: "https://github.com",
   },
 ];
 
@@ -104,7 +88,7 @@ export function TeamSection() {
         </div>
 
         {/* Team Cards Grid */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="mt-16 grid max-w-5xl gap-6 sm:grid-cols-3">
           {TEAM_MEMBERS.map((member, i) => (
             <motion.div
               key={member.number}
