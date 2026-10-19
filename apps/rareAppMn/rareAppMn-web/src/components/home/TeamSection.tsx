@@ -23,7 +23,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Erkhes",
     school: "130-р сургууль",
     role: "Co-Founder & Full-Stack Developer",
-    image: "/team/erkhes-profile-pic.jpg",
     github: "https://github.com/erkhes9632",
   },
   {
@@ -31,7 +30,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Zelme",
     school: "Орос 3-р сургууль",
     role: "Co-Founder & Full-Stack Developer",
-    image: "/team/zelme-profile-pic.jpg",
     github: "https://github.com/zetsu19",
   },
   {
@@ -39,7 +37,6 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Ikhbayar",
     school: "ISU",
     role: "Research & Data, Frontend Developer",
-    image: "/team/ikhbayar-profile-pic.jpg",
     github: "https://github.com/bikhbayar01-sudo",
   },
 ];
@@ -116,7 +113,9 @@ export function TeamSection() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center font-mono text-4xl font-bold text-ink/20">
+                  // No photo yet: a dark tile (same in both themes) so the
+                  // white labels on the card stay readable.
+                  <div className="flex h-full w-full items-center justify-center bg-[#1d1a15] font-mono text-5xl font-bold text-white/25">
                     {initialsOf(member.name)}
                   </div>
                 )}
