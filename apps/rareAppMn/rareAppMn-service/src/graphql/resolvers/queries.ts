@@ -1,8 +1,8 @@
-import { and, count, eq, gte, inArray, lte, or, sql, type SQL } from 'drizzle-orm';
+import { and, count, desc, eq, gte, inArray, lte, or, sql, type SQL } from 'drizzle-orm';
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type { GraphQLContext } from '../../context';
 import { requireAdmin, requireUser } from '../../context';
-import { majors, schools, type Major, type School } from '../../db/schema';
+import { majors, schools, users, type Major, type School } from '../../db/schema';
 import { MAX_SCORE_SUBJECTS, badInput, isPlainObject, notFound, parseScores } from '../../lib/validate';
 import { hasRelevantScores, scoreMajorMatch } from '../../lib/scoreMatch';
 
@@ -102,6 +102,11 @@ export interface MajorFilterInput extends PaginationInput {
   maxCutOffScore?: number | null;
 }
 
+export interface UserFilterInput extends PaginationInput {
+  search?: string | null;
+  role?: 'STUDENT' | 'ADMIN' | null;
+}
+
 async function resolveInternalUser(context: GraphQLContext) {
   const authUser = requireUser(context);
   return context.loaders.userByClerkUserId.load(authUser.clerkUserId);
@@ -117,6 +122,42 @@ export const queries = {
   ) => {
     requireAdmin(context);
     return context.loaders.userByClerkUserId.load(args.clerkUserId);
+  },
+
+  users: async (
+    _parent: unknown,
+    args: { filter?: UserFilterInput | null },
+    context: GraphQLContext
+  ) => {
+    requireAdmin(context);
+    const filter = args.filter ?? {};
+    const { limit, offset } = clampPagination(filter);
+
+    const whereClause = and(
+      or(
+        containsText(users.name, filter.search),
+        containsText(users.email, filter.search),
+        containsText(users.clerkUserId, filter.search)
+      ),
+      filter.role ? eq(users.role, filter.role === 'ADMIN' ? 'admin' : 'student') : undefined
+    );
+
+    const [items, totalRows] = await context.db.batch([
+      context.db
+        .select()
+        .from(users)
+        .where(whereClause)
+        .orderBy(desc(users.createdAt), sql`${users}.rowid`)
+        .limit(limit)
+        .offset(offset),
+      context.db.select({ value: count() }).from(users).where(whereClause),
+    ]);
+    const totalCount = totalRows[0]?.value ?? 0;
+
+    return {
+      items,
+      pageInfo: { totalCount, limit, offset, hasNextPage: offset + items.length < totalCount },
+    };
   },
 
   school: async (_parent: unknown, args: { id: string }, context: GraphQLContext) => {

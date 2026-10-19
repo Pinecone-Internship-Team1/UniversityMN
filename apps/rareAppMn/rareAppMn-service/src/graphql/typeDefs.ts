@@ -191,6 +191,11 @@ export const typeDefs = /* GraphQL */ `
     pageInfo: PageInfo!
   }
 
+  type UserPage {
+    items: [UserProfile!]!
+    pageInfo: PageInfo!
+  }
+
   union CompareItem = School | Major
 
   input UserProfileInput {
@@ -261,6 +266,14 @@ export const typeDefs = /* GraphQL */ `
     offset: Int
   }
 
+  input UserFilterInput {
+    "Matches the name, email or Clerk user id."
+    search: String
+    role: UserRole
+    limit: Int
+    offset: Int
+  }
+
   input MajorFilterInput {
     schoolId: ID
     category: String
@@ -275,6 +288,8 @@ export const typeDefs = /* GraphQL */ `
   type Query {
     me: UserProfile
     userByClerkId(clerkUserId: String!): UserProfile
+    "Admin only: every user, newest first."
+    users(filter: UserFilterInput): UserPage!
     school(id: ID!): School
     schools(filter: SchoolFilterInput): SchoolPage!
     major(id: ID!): Major

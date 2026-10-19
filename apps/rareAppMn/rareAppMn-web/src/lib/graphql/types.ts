@@ -159,6 +159,14 @@ export interface SchoolFilterInput {
   offset?: number;
 }
 
+export interface UserFilterInput {
+  /** Matches the name, email or Clerk user id. */
+  search?: string;
+  role?: UserRole;
+  limit?: number;
+  offset?: number;
+}
+
 export interface MajorFilterInput {
   schoolId?: string;
   category?: string;

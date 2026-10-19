@@ -5,7 +5,7 @@ import { School, ShieldAlert, Users } from "lucide-react";
 import { useState } from "react";
 import { useQuery } from "urql";
 import { SchoolManager } from "@/components/admin/SchoolManager";
-import { UserLookup } from "@/components/admin/UserLookup";
+import { UserList } from "@/components/admin/UserList";
 import { useClerkUserSync } from "@/components/providers/ClerkUserSync";
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -125,7 +125,7 @@ export function AdminDashboard() {
         })}
       </div>
 
-      <div className="mt-6">{tab === "catalog" ? <SchoolManager /> : <UserLookup />}</div>
+      <div className="mt-6">{tab === "catalog" ? <SchoolManager /> : <UserList />}</div>
     </div>
   );
 }

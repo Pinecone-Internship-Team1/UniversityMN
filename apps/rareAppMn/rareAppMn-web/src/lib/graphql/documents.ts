@@ -18,6 +18,7 @@ import type {
   SchoolInput,
   School,
   SchoolPage,
+  UserFilterInput,
   UserProfile,
   UserProfileInput,
 } from "./types";
@@ -770,41 +771,59 @@ export interface IdVariables {
   id: string;
 }
 
-export const USER_BY_CLERK_ID_QUERY = /* GraphQL */ `
-  query UserByClerkId($clerkUserId: String!) {
-    userByClerkId(clerkUserId: $clerkUserId) {
-      id
-      clerkUserId
-      email
-      name
-      role
-      scores
-      createdAt
-      updatedAt
-      savedSchools {
+/** Admin only (the service rejects anyone else): every user, newest first. */
+export const ADMIN_USERS_QUERY = /* GraphQL */ `
+  query AdminUsers($filter: UserFilterInput) {
+    users(filter: $filter) {
+      items {
         id
+        clerkUserId
+        email
         name
+        avatarUrl
+        role
+        scores
+        createdAt
+        updatedAt
+        savedSchools {
+          id
+          name
+        }
+        savedMajors {
+          id
+          name
+        }
       }
-      savedMajors {
-        id
-        name
+      pageInfo {
+        totalCount
+        limit
+        offset
+        hasNextPage
       }
     }
   }
 `;
 
-export interface UserByClerkIdVariables {
-  clerkUserId: string;
+export type AdminUser = Pick<
+  UserProfile,
+  | "id"
+  | "clerkUserId"
+  | "email"
+  | "name"
+  | "avatarUrl"
+  | "role"
+  | "scores"
+  | "createdAt"
+  | "updatedAt"
+> & {
+  savedSchools: Pick<School, "id" | "name">[];
+  savedMajors: Pick<Major, "id" | "name">[];
+};
+
+export interface AdminUsersVariables {
+  filter?: UserFilterInput;
 }
 
-export interface UserByClerkIdResult {
-  userByClerkId:
-    | (Pick<
-        UserProfile,
-        "id" | "clerkUserId" | "email" | "name" | "role" | "scores" | "createdAt" | "updatedAt"
-      > & {
-        savedSchools: Pick<School, "id" | "name">[];
-        savedMajors: Pick<Major, "id" | "name">[];
-      })
-    | null;
+export interface AdminUsersResult {
+  users: { items: AdminUser[]; pageInfo: PageInfo };
 }
