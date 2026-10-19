@@ -1,0 +1,179 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "МУБИС",
+  "description": "МУБИС-ийн албан ёсны холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "msue-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлтийн систем (бүртгэл)",
+   "url": "https://burtgel.msue.edu.mn/"
+  },
+  {
+   "id": "msue-l-02",
+   "category": "admission",
+   "title_mn": "Элсэлт — Бакалавр",
+   "url": "https://www.msue.edu.mn/p/r/5644"
+  },
+  {
+   "id": "msue-l-03",
+   "category": "admission",
+   "title_mn": "Сургалт — Бакалавр ('Босго оноо 2026-2027' PDF)",
+   "url": "https://www.msue.edu.mn/p/r/5650"
+  },
+  {
+   "id": "msue-l-04",
+   "category": "admission",
+   "title_mn": "Босго оноо 2026-2027 (Google Drive PDF)",
+   "url": "https://drive.google.com/file/d/1TUTXE0ZBCT_NvMuULmIYjkxcd0i243pi/preview"
+  },
+  {
+   "id": "msue-l-05",
+   "category": "admission",
+   "title_mn": "МУБИС-Элсэлт 2026 (Google Drive PDF)",
+   "url": "https://drive.google.com/file/d/15FJPrGsC_JqNKULMaBF0EDVyjJ0DvvkK/preview"
+  },
+  {
+   "id": "msue-l-06",
+   "category": "admission",
+   "title_mn": "Хяналтын тоо 2025-2026",
+   "url": "https://www.msue.edu.mn/p/r/6700"
+  },
+  {
+   "id": "msue-l-07",
+   "category": "admission",
+   "title_mn": "Хөрвөх сургалт",
+   "url": "https://www.msue.edu.mn/p/r/5645"
+  },
+  {
+   "id": "msue-l-08",
+   "category": "admission",
+   "title_mn": "Баян-Өлгий салбарын бүртгэл 2026 (Google Form)",
+   "url": "https://forms.gle/JQ5xKR7pfXNBXmtJA"
+  },
+  {
+   "id": "msue-l-09",
+   "category": "info",
+   "title_mn": "Магадлан итгэмжлэгдсэн хөтөлбөрүүд",
+   "url": "https://www.msue.edu.mn/p/r/5651"
+  },
+  {
+   "id": "msue-l-10",
+   "category": "student",
+   "title_mn": "Тэтгэлэг",
+   "url": "https://www.msue.edu.mn/p/r/6651"
+  },
+  {
+   "id": "msue-l-11",
+   "category": "student",
+   "title_mn": "Багш мэргэжлийн тэтгэлэг (БЗС)",
+   "url": "https://elf.gov.mn/babbmst/"
+  },
+  {
+   "id": "msue-l-12",
+   "category": "student",
+   "title_mn": "Сургалтын зээл (БЗС)",
+   "url": "http://loan.elf.gov.mn/home"
+  },
+  {
+   "id": "msue-l-13",
+   "category": "student",
+   "title_mn": "Оюутны хөгжил, үйлчилгээний төв",
+   "url": "https://www.msue.edu.mn/p/r/6655"
+  },
+  {
+   "id": "msue-l-14",
+   "category": "student",
+   "title_mn": "Оюутны дотуур байр",
+   "url": "https://ts.msue.edu.mn/p/r/5659"
+  },
+  {
+   "id": "msue-l-15",
+   "category": "student",
+   "title_mn": "Гадаад оюутанд зориулсан гарын авлага",
+   "url": "https://www.msue.edu.mn/p/r/6686"
+  },
+  {
+   "id": "msue-l-16",
+   "category": "school",
+   "title_mn": "Математик, байгалийн ухааны сургууль",
+   "url": "https://smns.msue.edu.mn"
+  },
+  {
+   "id": "msue-l-17",
+   "category": "school",
+   "title_mn": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+   "url": "https://shss.msue.edu.mn/"
+  },
+  {
+   "id": "msue-l-18",
+   "category": "school",
+   "title_mn": "Дүрслэх урлаг, технологийн сургууль",
+   "url": "https://sfat.msue.edu.mn/"
+  },
+  {
+   "id": "msue-l-19",
+   "category": "school",
+   "title_mn": "Боловсрол судлалын сургууль",
+   "url": "https://ses.msue.edu.mn/"
+  },
+  {
+   "id": "msue-l-20",
+   "category": "school",
+   "title_mn": "Багшийн сургууль",
+   "url": "https://ts.msue.edu.mn/"
+  },
+  {
+   "id": "msue-l-21",
+   "category": "school",
+   "title_mn": "Биеийн тамирын сургууль",
+   "url": "https://spe.msue.edu.mn/"
+  },
+  {
+   "id": "msue-l-22",
+   "category": "school",
+   "title_mn": "Сургуулийн өмнөх боловсролын сургууль",
+   "url": "https://spse.msue.edu.mn/"
+  },
+  {
+   "id": "msue-l-23",
+   "category": "branch",
+   "title_mn": "Архангай аймаг дахь салбар сургууль",
+   "url": "https://ast.msue.edu.mn/"
+  },
+  {
+   "id": "msue-l-24",
+   "category": "branch",
+   "title_mn": "Баян-Өлгий аймаг дахь салбар сургууль",
+   "url": "https://bost.msue.edu.mn"
+  },
+  {
+   "id": "msue-l-25",
+   "category": "exam",
+   "title_mn": "Боловсролын үнэлгээний төв (ЭШ)",
+   "url": "https://eec.mn"
+  },
+  {
+   "id": "msue-l-26",
+   "category": "contact",
+   "title_mn": "Холбоо барих",
+   "url": "https://www.msue.edu.mn/Home/Contact"
+  },
+  {
+   "id": "msue-l-27",
+   "category": "contact",
+   "title_mn": "Facebook",
+   "url": "https://www.facebook.com/MSUE1951/"
+  },
+  {
+   "id": "msue-l-28",
+   "category": "info",
+   "title_mn": "Шилэн данс",
+   "url": "https://shilendans.gov.mn/organization/37305?ry=2025&group=117"
+  }
+ ]
+}

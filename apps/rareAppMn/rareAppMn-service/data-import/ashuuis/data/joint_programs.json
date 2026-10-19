@@ -1,0 +1,62 @@
+{
+ "_meta": {
+  "dataset": "joint_programs",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн англи хэлний хөтөлбөр, салбарын 2+4/2+3 зам, солилцоо.",
+  "language": "mn",
+  "verified_at": "2026-10-11"
+ },
+ "records": [
+  {
+   "id": "j-mbbs",
+   "school_id": "mnums-med",
+   "format": "Англи хэлээр",
+   "program_mn": "Англи хэлээр хүний их эмч бэлтгэх хөтөлбөр (MBBS)",
+   "detail_mn": "12-р ангиас шууд элсэхгүй: Хүний их эмчийн оюутнуудаас 8-р сард англи хэлний шалгалтаар сонгоно. Солонгос, Канад, Монгол оюутантай; Солонгос, АНУ-ын түнш эмнэлэгт эмнэлзүйн дадлага.",
+   "source_urls": [
+    "https://mnums.edu.mn/schools/med",
+    "https://mnums.edu.mn/admission/requirements"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "j-darkhan-2-4",
+   "school_id": "mnums-darkhan",
+   "format": "2+4",
+   "program_mn": "Анагаах ухааны суурь боловсрол: Хүний, Шүдний, Уламжлалт анагаахын их эмч",
+   "detail_mn": "Дархан-Уул салбарт эхний 2 жил, дараа нь Улаанбаатарт 4 жил гэж ойлгогдоно (сургуулиас тодруулна уу).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "unverified"
+  },
+  {
+   "id": "j-darkhan-2-3",
+   "school_id": "mnums-darkhan",
+   "format": "2+3",
+   "program_mn": "Эрүүл мэндийн боловсрол: Эм зүйч, Био-анагаах судлаач",
+   "detail_mn": "Дархан-Уул салбарт эхний 2 жил, дараа нь Улаанбаатарт 3 жил гэж ойлгогдоно (сургуулиас тодруулна уу).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "unverified"
+  },
+  {
+   "id": "x-exchange",
+   "school_id": null,
+   "format": "солилцоо",
+   "program_mn": "Солилцоо, гадаад дадлага",
+   "detail_mn": "Японы Кюүшюү их сургуультай оюутан солилцоо; Оита их сургуультай хамтарсан докторантур. Дархан-Уул салбар: Франц, Япон, Орос, Хятад, Тайландад дадлага; Герман хэлний B1-тэй сувилагч Германд үргэлжлүүлэн суралцаж ажиллах боломж.",
+   "source_urls": [
+    "https://news.mnums.edu.mn/?p=5729",
+    "https://news.mnums.edu.mn/?p=5743",
+    "https://mnums-da.edu.mn/mn/post/433"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  }
+ ]
+}

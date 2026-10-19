@@ -1,0 +1,44 @@
+{
+ "_meta": {
+  "dataset": "scholarships",
+  "university": "СУИС",
+  "description": "СУИС-ийн тэтгэлэг, зээл, хөнгөлөлт (элсэлтийн системийн 'Тэтгэлэг' хуудас).",
+  "language": "mn",
+  "verified_at": "2026-10-18"
+ },
+ "records": [
+  {
+   "id": "suis-sch-new",
+   "name_mn": "Шинэ элсэгчдэд олгох тэтгэлэг",
+   "coverage_mn": "Сургалтын төлбөрийн дунджаар 50% хүртэл.",
+   "requirements_mn": "Элсэлтийн хуудсанд '650 оноо' гэж заасан; хүсэлтийг сургалтын албанд журмын дагуу өгнө.",
+   "deadline_mn": "2026-07-03 – 2026-08-27 (хүсэлт)",
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/scholarship"
+   ],
+   "status": "current"
+  },
+  {
+   "id": "suis-sch-state",
+   "name_mn": "Төрийн сангийн зээл, тэтгэлэг",
+   "coverage_mn": null,
+   "requirements_mn": "Нөхцөлийг сургуулиас тодруулна уу.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/scholarship"
+   ],
+   "status": "partial"
+  },
+  {
+   "id": "suis-sch-director",
+   "name_mn": "Захирлын нэрэмжит тэтгэлэг",
+   "coverage_mn": null,
+   "requirements_mn": "Нөхцөлийг сургуулиас тодруулна уу.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/scholarship"
+   ],
+   "status": "partial"
+  }
+ ]
+}

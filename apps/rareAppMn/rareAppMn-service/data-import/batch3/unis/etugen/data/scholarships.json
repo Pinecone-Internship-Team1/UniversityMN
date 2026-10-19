@@ -1,0 +1,107 @@
+{
+ "_meta": {
+  "dataset": "scholarships",
+  "university": "Этүгэн",
+  "description": "Этүгэн их сургуулийн тэтгэлэг, хөнгөлөлт.",
+  "language": "mn",
+  "verified_at": "2026-10-16",
+  "note_mn": "type: tuition_discount | grant | loan | sponsor_scholarship. Давхцсан тохиолдолд нэгийг сонгоно (журмын 8.3)."
+ },
+ "records": [
+  {
+   "id": "etu-talent",
+   "type": "tuition_discount",
+   "name_mn": "Авьяасыг тэтгэнэ (Элсэлтийн шалгалтын оноо, байраар)",
+   "coverage_mn": "Тухайн жилийн сургалтын төлбөрийн: 1–5-р байр эсвэл 760–800 оноо — 100%; 6–10-р байр эсвэл 720–759 — 50%; 11–15-р байр эсвэл 700–719 — 25%; 16–20-р байр эсвэл 650–699 — 15%. 100% авсан оюутан голч 3.2-оос дээш бол төгсөх хүртэл үргэлжилнэ.",
+   "requirements_mn": "Нийслэл, аймагт тухайн мэргэжлийн бүлгээр Элсэлтийн шалгалтын оноогоор тэргүүлсэн элсэгч (журмын 8.2.1).",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/student/32",
+    "https://etugen.edu.mn/public/juram2627.pdf",
+    "https://burtgel.etugen.edu.mn/"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-16"
+  },
+  {
+   "id": "etu-olympiad-national",
+   "type": "tuition_discount",
+   "name_mn": "Олимпиадын амжилт (олон улсын, улсын)",
+   "coverage_mn": "1-р байр 100%, 2–5-р байр 70%, 6–10-р байр 50%, 11–15-р байр 30%; суралцах бүх хугацаанд (1–5-р байр голч 3.2-оос дээш бол үргэлжилнэ).",
+   "requirements_mn": "Олон улсын, улсын олимпиадад байр эзэлсэн; онооны дараалалгүйгээр тухайн мэргэжилд шууд элсэнэ.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/student/32",
+    "https://burtgel.etugen.edu.mn/",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-16"
+  },
+  {
+   "id": "etu-olympiad-local",
+   "type": "tuition_discount",
+   "name_mn": "Олимпиадын амжилт (аймаг, нийслэл, Этүгэний уламжлалт олимпиад)",
+   "coverage_mn": "Эхний жилийн төлбөрийн: 1-р байр 50%, 2–5-р байр 30%, 6–10-р байр 20%, 11–15-р байр 10%.",
+   "requirements_mn": "Аймаг, нийслэлийн болон Этүгэний уламжлалт олимпиад, сорилд байр эзэлсэн. Тэтгэлгийн хуудсанд 11–15-р байрыг 20% гэж бичсэн нь бүртгэлийн системийн 10%-тай зөрүүтэй.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://burtgel.etugen.edu.mn/",
+    "https://etugen.edu.mn/Home/student/32"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-16"
+  },
+  {
+   "id": "etu-gifted",
+   "type": "tuition_discount",
+   "name_mn": "Гоц авьяастай элсэгчийн хөнгөлөлт",
+   "coverage_mn": "Хувиар хөнгөлнө (суралцах бүх хугацаа эсвэл тухайн жил); хувийг тохиролцоно.",
+   "requirements_mn": "Спорт, урлаг зэрэгт гоц авьяастай эсвэл энхийн үйлсэд гавьяа байгуулсныг элсэлтийн төв комиссын өмнө нотолно.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/student/32",
+    "https://burtgel.etugen.edu.mn/account/bachelorregister",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-16"
+  },
+  {
+   "id": "etu-gov-priority",
+   "type": "grant",
+   "name_mn": "Засгийн газрын сургалтын төлбөрийн тэтгэлэг (тэргүүлэх, эрэлттэй мэргэжил)",
+   "coverage_mn": "Био-анагаах ухаан, Эмнэлгийн тоног төхөөрөмжийн ашиглалтын инженер, Цахилгаан хангамжийн инженер: 100%. Сувилахуй: голч 2.8–3.0 бол 70%, 3.0-аас дээш бол 100%. Багш (бага, сургуулийн өмнөх боловсрол): 100%.",
+   "requirements_mn": "Инженер, био-анагаах: 1-р шалгалт 600-аас дээш, голч 3.0-аас дээш. Сувилахуй: 1-р шалгалт 501-ээс дээш. Багш: 1-р шалгалт 520-оос дээш, голч 2.8-аас дээш. Монгол Улсын иргэн, төгсөөд орон нутагт 3, нийслэлд 5-аас доошгүй жил ажиллах гэрээтэй (журмын 8.1).",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://etugen.edu.mn/public/juram2627.pdf",
+    "https://burtgel.etugen.edu.mn/",
+    "https://etugen.edu.mn/Home/About",
+    "https://etugen.edu.mn/Home/student/34"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-16"
+  },
+  {
+   "id": "etu-namseoul",
+   "type": "tuition_discount",
+   "name_mn": "Хамтарсан хөтөлбөрийн тэтгэлэг (БНСУ-ын Намсөүл их сургууль)",
+   "coverage_mn": "Хэлний бэлтгэлийн жилийн төлбөр 100%; TOPIK шаардлага хангавал 1,000,000 вон ба сургалтын төлбөрийн 40%; III, IV дамжаанд голчоор 30–40%.",
+   "requirements_mn": "Хамтарсан хөтөлбөрийн оюутан; голч 3.0-аас дээш; TOPIK 3+ (Хөдөлгөөн засалд 4+) (журмын 10.1).",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://etugen.edu.mn/public/juram2627.pdf",
+    "https://burtgel.etugen.edu.mn/"
+   ],
+   "school_id": null,
+   "status": "current",
+   "verified_at": "2026-10-16"
+  }
+ ]
+}

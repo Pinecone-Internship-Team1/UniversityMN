@@ -44,21 +44,62 @@ export function formatMajorTuition(major: {
   return major.tuitionFee != null && major.tuitionIsEstimate ? `≈ ${fee} хүртэл` : fee;
 }
 
+interface ExamWeights {
+  primaryWeight: number | null;
+  secondaryWeight: number | null;
+}
+
+/** Null weights mean the usual 0.7 суурь / 0.3 дагалдах. */
+function examWeights(major: ExamWeights): [number, number] {
+  return [major.primaryWeight ?? 0.7, major.secondaryWeight ?? 0.3];
+}
+
+/**
+ * True when both exams weigh the same (АШУҮИС adds them), so neither is the main
+ * one: they read "1-р шалгалт" / "2-р шалгалт" instead of "Суурь" / "Дагалдах".
+ */
+export function examsWeighEqually(major: ExamWeights): boolean {
+  const [primary, secondary] = examWeights(major);
+  return primary === secondary;
+}
+
 /**
  * A major's cut-off: "490", or "Суурь ≥ 490, дагалдах ≥ 450" when each exam has
- * its own minimum. A дагалдах minimum of 0 means it isn't known yet.
+ * its own minimum ("1-р шалгалт ≥ 490, 2-р шалгалт ≥ 490" when the exams weigh
+ * the same). A second minimum of 0 means it isn't known yet.
  */
-export function formatCutOff(major: {
-  cutOffScore: number | null;
-  secondaryCutOffScore: number | null;
-}): string | null {
+export function formatCutOff(
+  major: {
+    cutOffScore: number | null;
+    secondaryCutOffScore: number | null;
+  } & ExamWeights,
+): string | null {
   if (major.secondaryCutOffScore != null) {
-    const primary = `Суурь ≥ ${major.cutOffScore ?? "—"}`;
+    const [first, second] = examsWeighEqually(major)
+      ? ["1-р шалгалт", "2-р шалгалт"]
+      : ["Суурь", "дагалдах"];
+    const primary = `${first} ≥ ${major.cutOffScore ?? "—"}`;
     return major.secondaryCutOffScore > 0
-      ? `${primary}, дагалдах ≥ ${major.secondaryCutOffScore}`
-      : `${primary} (дагалдах: тодорхойгүй)`;
+      ? `${primary}, ${second} ≥ ${major.secondaryCutOffScore}`
+      : `${primary} (${second}: тодорхойгүй)`;
   }
   return major.cutOffScore != null ? String(major.cutOffScore) : null;
+}
+
+/** How the two exams make the score: "Оноо = 0.7 × суурь + 0.3 × дагалдах." or a plain sum. */
+export function formatExamFormula(major: ExamWeights): string {
+  const [primary, secondary] = examWeights(major);
+  if (primary === 1 && secondary === 1) {
+    return "1-р шалгалтын жагсаалтаас нэг, 2-р шалгалтынхаас нэг шалгалт өгнө. Нийлбэр оноо = 1-р шалгалт + 2-р шалгалт.";
+  }
+  return `Суурь жагсаалтаас нэг, дагалдахаас нэг шалгалт өгнө. Оноо = ${primary} × суурь + ${secondary} × дагалдах.`;
+}
+
+/** "Жагсаалтаар сонгох (8 хүртэл)" / "Шууд сонгох (1)", or null when the university doesn't say. */
+export function formatSelectionType(selectionType: string | null): string | null {
+  if (selectionType === "list") return "Жагсаалтаар сонгох (8 хүртэл)";
+  if (selectionType === "direct") return "Шууд сонгох (1)";
+  return null;
 }
 
 /** Shown next to cut-off scores: the threshold only lets a student compete for a place. */
@@ -75,22 +116,32 @@ function formatSubjectChoices(subjects: string[]): string {
  * A major's admission exams as labelled lines. With a суурь/дагалдах split the
  * student takes one exam from each line; otherwise every listed subject counts.
  */
-export function examSubjectLines(major: {
-  requiredSubjects: string[] | null;
-  primarySubjects: string[] | null;
-  secondarySubjects: string[] | null;
-}): { label: string; text: string }[] {
+export function examSubjectLines(
+  major: {
+    requiredSubjects: string[] | null;
+    primarySubjects: string[] | null;
+    secondarySubjects: string[] | null;
+  } & ExamWeights,
+): { label: string; text: string }[] {
   const primary = major.primarySubjects ?? [];
   const secondary = major.secondarySubjects ?? [];
   if (primary.length > 0) {
     const overlaps = secondary.some((subject) => primary.includes(subject));
+    const [primaryWeight, secondaryWeight] = examWeights(major);
+    const share = (weight: number) => Math.round((weight / (primaryWeight + secondaryWeight)) * 100);
+    const equal = examsWeighEqually(major);
     return [
-      { label: "Суурь (70%)", text: formatSubjectChoices(primary) },
+      {
+        label: equal ? "1-р шалгалт" : `Суурь (${share(primaryWeight)}%)`,
+        text: formatSubjectChoices(primary),
+      },
       ...(secondary.length > 0
         ? [
             {
-              label: "Дагалдах (30%)",
-              text: `${formatSubjectChoices(secondary)}${overlaps ? " (суурьт сонгосноос өөр)" : ""}`,
+              label: equal ? "2-р шалгалт" : `Дагалдах (${share(secondaryWeight)}%)`,
+              text: `${formatSubjectChoices(secondary)}${
+                overlaps ? (equal ? " (1-р шалгалтад сонгосноос өөр)" : " (суурьт сонгосноос өөр)") : ""
+              }`,
             },
           ]
         : []),
@@ -166,10 +217,11 @@ export function formatMajorPlace(
 }
 
 /** Degree types an admin can pick for a program; anything else is a custom program. */
-export const DEGREE_TYPES = ["BACHELOR", "MASTER", "DOCTORATE", "DIPLOMA"];
+export const DEGREE_TYPES = ["BACHELOR", "ASSOCIATE", "MASTER", "DOCTORATE", "DIPLOMA"];
 
 const DEGREE_TYPE_LABELS: Record<string, string> = {
   BACHELOR: "Бакалавр",
+  ASSOCIATE: "Дэд бакалавр",
   MASTER: "Магистр",
   DOCTORATE: "Доктор",
   PHD: "Доктор",

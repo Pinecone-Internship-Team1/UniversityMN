@@ -28,6 +28,7 @@ import {
   parsePhoneList,
   parsePreferences,
   parseScores,
+  parseSelectionType,
   parseSubjectList,
   requiredText,
 } from '../../lib/validate';
@@ -70,6 +71,9 @@ export interface MajorInput {
   examNote?: string | null;
   cutOffScore?: number | null;
   secondaryCutOffScore?: number | null;
+  primaryWeight?: number | null;
+  secondaryWeight?: number | null;
+  selectionType?: string | null;
   degreeType?: string | null;
   tuitionFee?: number | null;
   tuitionIsEstimate?: boolean | null;
@@ -134,6 +138,9 @@ function majorValues(input: MajorInput) {
       input.secondaryCutOffScore,
       'secondaryCutOffScore'
     ),
+    primaryWeight: optionalNonNegativeNumber(input.primaryWeight, 'primaryWeight'),
+    secondaryWeight: optionalNonNegativeNumber(input.secondaryWeight, 'secondaryWeight'),
+    selectionType: parseSelectionType(input.selectionType),
     degreeType: optionalText(input.degreeType, 'degreeType'),
     tuitionFee: optionalNonNegativeNumber(input.tuitionFee, 'tuitionFee'),
     tuitionIsEstimate: input.tuitionIsEstimate ?? false,

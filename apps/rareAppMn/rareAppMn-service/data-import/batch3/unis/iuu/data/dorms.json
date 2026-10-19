@@ -1,0 +1,54 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "ОУУБИС",
+  "description": "ОУУБИС-ийн оюутны байр.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "iuu-dorm-facts",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны ерөнхий мэдээлэл",
+   "facts_mn": [
+    "ОУУБИС-ийн кампус дотор, газрын зураг дээр 'C' гэж тэмдэглэсэн.",
+    "2008 оны 10-р сард ашиглалтад орсон.",
+    "6 давхар, 180 оюутны багтаамжтай.",
+    "Давхар бүрт гал тогоо, 8 оюутан тутамд нэг угаалгын өрөө, интернэттэй.",
+    "Сургууль 'хямд төлбөртэй' гэж бичсэн; үнэ, бүртгэлийн журмыг нийтлээгүй.",
+    "Оюутны байрны төлбөрийн тэтгэлэг олгодог."
+   ],
+   "source_urls": [
+    "https://www.iuu.edu.mn/p/10",
+    "https://www.iuu.edu.mn/p/11",
+    "https://www.iuu.edu.mn/timeline?size=100",
+    "https://www.iuu.edu.mn/a/72"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "iuu-dorm-main",
+   "record_type": "building",
+   "name_mn": "ОУУБИС-ийн оюутны байр",
+   "location_mn": "Улаанбаатар, Баянзүрх дүүрэг, 25-р хороо, Намянжугийн гудамж — ОУУБИС-ийн кампус ('C' байр)",
+   "floors": 6,
+   "capacity": 180,
+   "rooms": null,
+   "room_types": null,
+   "opened_year": 2008,
+   "price_per_year": null,
+   "price_year": null,
+   "price_per_year_note_mn": "Үнийг нийтлээгүй ('хямд төлбөртэй' гэж бичсэн).",
+   "currency": "MNT",
+   "source_urls": [
+    "https://www.iuu.edu.mn/p/10",
+    "https://www.iuu.edu.mn/p/11",
+    "https://www.iuu.edu.mn/timeline?size=100"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "partial"
+  }
+ ]
+}

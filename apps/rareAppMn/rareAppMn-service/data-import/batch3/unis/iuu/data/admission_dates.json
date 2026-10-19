@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "dataset": "admission_dates",
+    "university": "ОУУБИС",
+    "description": "ОУУБИС-ийн хуудсанд харуулах огноонууд. 'жишиг' = 2026 оны огноо. ОУУБИС-ийн өөрийн бүртгэлийн хугацаа журамд (скан) байгаа; 2027 оных зарлагдаагүй.",
+    "language": "mn",
+    "verified_at": "2026-10-16",
+    "sources": [
+      "https://ikon.mn/n/3qqx",
+      "https://ikon.mn/n/3ni1",
+      "https://ikon.mn/n/3o5r",
+      "https://www.iuu.edu.mn/p/11",
+      "https://www.iuu.edu.mn/a/72"
+    ]
+  },
+  "records": [
+    {
+      "id": "iuu-date-2026-registration",
+      "event_mn": "ОУУБИС-ийн хаврын элсэлтийн бүртгэл (2026)",
+      "start": "2026-06-29",
+      "end": "2026-08-29",
+      "status": "current",
+      "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+    },
+    {
+      "id": "iuu-date-2026-contract",
+      "event_mn": "Хаврын элсэлт: суралцах гэрээ байгуулах эцсийн өдөр (2026)",
+      "start": null,
+      "end": "2026-08-30",
+      "status": "current",
+      "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+    },
+    {
+      "id": "iuu-date-2027-winter-registration",
+      "event_mn": "ОУУБИС-ийн өвлийн элсэлтийн бүртгэл (2027)",
+      "start": "2027-01-04",
+      "end": "2027-01-23",
+      "status": "current",
+      "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+    },
+    {
+      "id": "iuu-date-2027-winter-contract",
+      "event_mn": "Өвлийн элсэлт: суралцах гэрээ байгуулах эцсийн өдөр (2027)",
+      "start": null,
+      "end": "2027-01-25",
+      "status": "current",
+      "source_url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+    },
+    {
+      "id": "iuu-date-winter-esh-reg-2026",
+      "event_mn": "Өвлийн Элсэлтийн шалгалт, Монгол хэл бичгийн шалгалтын бүртгэл (eyesh.eec.mn; зөвхөн өмнөх оны шалгуулагч; хичээл бүр 20,000₮)",
+      "start": "2026-10-01",
+      "end": "2026-11-23",
+      "status": "current",
+      "source_url": "https://ikon.mn/n/3qqx"
+    },
+    {
+      "id": "iuu-date-esh-reg-2026",
+      "event_mn": "2026 оны жишиг: Элсэлтийн шалгалтын бүртгэл хаагдсан (5-р сарын 15-ны 18:00, eyesh.eec.mn)",
+      "start": null,
+      "end": "2026-05-15",
+      "status": "reference",
+      "source_url": "https://ikon.mn/n/3ni1"
+    },
+    {
+      "id": "iuu-date-esh-2026",
+      "event_mn": "2026 оны жишиг: Элсэлтийн шалгалт эхэлсэн",
+      "start": "2026-06-25",
+      "end": null,
+      "status": "reference",
+      "source_url": "https://ikon.mn/n/3o5r"
+    },
+    {
+      "id": "iuu-date-classes-2026",
+      "event_mn": "2026 оны жишиг: Хичээлийн жил эхэлсэн (ОУУБИС-д хичээлийн жил 9-р сарын 1-нд нээгддэг)",
+      "start": "2026-09-01",
+      "end": null,
+      "status": "reference",
+      "source_url": "https://www.iuu.edu.mn/p/11"
+    },
+    {
+      "id": "iuu-date-scholarship-2026",
+      "event_mn": "2026 оны жишиг: 2026-2027 оны I улирлын тэтгэлгийг 527 оюутанд гардуулсан",
+      "start": "2026-09-24",
+      "end": null,
+      "status": "reference",
+      "source_url": "https://www.iuu.edu.mn/a/72"
+    }
+  ]
+}

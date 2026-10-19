@@ -1,0 +1,820 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the МУБИС part of the next-universities dataset (oyutan-next-unis, unis/msue/data/*.json, after the 2026-10-15 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-15",
+    "mapped_at": "2026-10-15",
+    "university_id": "sch_mubis",
+    "how_to_use": "Run data-import/import-next-unis.mjs msue (--local / --remote, then --apply): it reads data-import/next-unis/unis/msue/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "one_minimum": "one minimum on the combined score (secondary_cut_off_score null): w1·exam1 + w2·exam2 ≥ cut_off_score; СЭЗИС weights 0.5/0.5 = the average of the two exams",
+      "per_exam": "each exam has its own minimum (cut_off_score, secondary_cut_off_score; 0 = unknown); weights 1/1 when the formula is not published, so the page shows a plain sum",
+      "skills_test": "group 2 is the university's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\"",
+      "neutral": "no exam subjects or cut-offs (unclear / unknown split, or an extra subject minimum such as Математик ≥ 600): \"Сургуулиас тодруулна уу\", rule in exam_note"
+    },
+    "skipped_programs": [],
+    "counts": {
+      "dataset_programs": 63,
+      "imported_programs": 63,
+      "by_degree": {
+        "BACHELOR": 63,
+        "ASSOCIATE": 0
+      },
+      "by_score_check": {
+        "skills_test": 53,
+        "per_exam": 10
+      },
+      "faculties": 9,
+      "scholarships": 7,
+      "dorms": 3,
+      "admission_dates": 7
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "msue-smns",
+      "type": "constituent",
+      "name": "Математик, байгалийн ухааны сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу-14 (МУБИС)",
+      "db_id": "acb02c65-5423-52f9-983f-9fc4a4370927"
+    },
+    {
+      "dataset_id": "msue-shss",
+      "type": "constituent",
+      "name": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Бага тойруу-14 (МУБИС)",
+      "db_id": "7a525458-3e7c-5397-8605-5c58d62f2376"
+    },
+    {
+      "dataset_id": "msue-sfat",
+      "type": "constituent",
+      "name": "Дүрслэх урлаг, технологийн сургууль",
+      "location": "Улаанбаатар, Бага тойруу-14, МУБИС-ийн төв байрны ард 7-р байр",
+      "db_id": "a4461cbb-e41e-5366-b9fb-56472d9036ec"
+    },
+    {
+      "dataset_id": "msue-ses",
+      "type": "constituent",
+      "name": "Боловсрол судлалын сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, 8-р хороо, Энхтайваны өргөн чөлөө, МУБИС Ё байр",
+      "db_id": "e66495ba-bb78-5901-9187-138de15f6f7f"
+    },
+    {
+      "dataset_id": "msue-ts",
+      "type": "constituent",
+      "name": "Багшийн сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу",
+      "db_id": "16b81c45-02e3-5ac5-b67b-0fe91f1fa118"
+    },
+    {
+      "dataset_id": "msue-spe",
+      "type": "constituent",
+      "name": "Биеийн тамирын сургууль",
+      "location": "Улаанбаатар, Сүхбаатар дүүрэг, VIII хороо, Бага тойруу-14, МУБИС-ийн X байр",
+      "db_id": "17d0777f-1ea8-5570-b733-fbbc995a4752"
+    },
+    {
+      "dataset_id": "msue-spse",
+      "type": "constituent",
+      "name": "Сургуулийн өмнөх боловсролын сургууль",
+      "location": "Улаанбаатар, Баянгол дүүрэг, Дилав хутагт Жамсранжавын гудамж-18",
+      "db_id": "683cd192-60ab-560c-9d87-cac82cac5203"
+    },
+    {
+      "dataset_id": "msue-arkhangai",
+      "type": "branch",
+      "name": "Архангай аймаг дахь салбар сургууль",
+      "location": "Архангай аймаг, Цэцэрлэг хот",
+      "db_id": "4f968940-7420-51c9-91fa-2ff16739237b"
+    },
+    {
+      "dataset_id": "msue-bayan-ulgii",
+      "type": "branch",
+      "name": "Баян-Өлгий аймаг дахь салбар сургууль",
+      "location": "Баян-Өлгий аймаг, Өлгий сум, 11-р баг, А.Жамила-1 гудамж, 123 тоот",
+      "db_id": "f3977937-8aad-5a27-8465-c4a7cd73a602"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "msue-smns-bagsh-matematikiin-bolovsrol",
+      "dataset_school": "msue-smns",
+      "faculty": "Математик, байгалийн ухааны сургууль",
+      "name": "Багш, Математикийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "2a5bde90-bca3-5af4-bcd8-b088128f249e"
+    },
+    {
+      "dataset_id": "msue-smns-bagsh-medeelel-zuin-bolovsrol",
+      "dataset_school": "msue-smns",
+      "faculty": "Математик, байгалийн ухааны сургууль",
+      "name": "Багш, Мэдээлэл зүйн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "2069f136-bd0b-56f8-8e91-a36466e1ff2d"
+    },
+    {
+      "dataset_id": "msue-smns-bagsh-fizikiin-bolovsrol",
+      "dataset_school": "msue-smns",
+      "faculty": "Математик, байгалийн ухааны сургууль",
+      "name": "Багш, Физикийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "7f287a2e-9d23-5ea3-9dec-b0727f36c1cb"
+    },
+    {
+      "dataset_id": "msue-smns-bagsh-khimiin-bolovsrol",
+      "dataset_school": "msue-smns",
+      "faculty": "Математик, байгалийн ухааны сургууль",
+      "name": "Багш, Химийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "9109761c-0892-52ab-ba7f-fe4ac3f19786"
+    },
+    {
+      "dataset_id": "msue-smns-bagsh-biologiin-bolovsrol",
+      "dataset_school": "msue-smns",
+      "faculty": "Математик, байгалийн ухааны сургууль",
+      "name": "Багш, Биологийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "73bc6da3-4fc0-5e70-b7da-4f146619a868"
+    },
+    {
+      "dataset_id": "msue-smns-bagsh-gazarzuin-bolovsrol",
+      "dataset_school": "msue-smns",
+      "faculty": "Математик, байгалийн ухааны сургууль",
+      "name": "Багш, Газарзүйн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "0ed16c58-3a03-5f31-a86b-bdaecc19ea47"
+    },
+    {
+      "dataset_id": "msue-smns-programm-khangamj",
+      "dataset_school": "msue-smns",
+      "faculty": "Математик, байгалийн ухааны сургууль",
+      "name": "Программ хангамж",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "326c69b0-98b3-5f6f-b5d1-db203ff216b5"
+    },
+    {
+      "dataset_id": "msue-smns-bagsh-eruul-mendiin-bolovsrol-arga-zui",
+      "dataset_school": "msue-smns",
+      "faculty": "Математик, байгалийн ухааны сургууль",
+      "name": "Багш, Эрүүл мэндийн боловсрол, арга зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "0dee772b-5707-5495-9a9a-5c7f7872de07"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-mongol-khel-uran-zokhiolyn-bolovsrol",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Монгол хэл, уран зохиолын боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "7ee2a573-1824-51f3-bf05-c3665fca91b2"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-angli-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Англи хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "7b6af3cf-687b-559d-b774-3259b8e54992"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-oros-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Орос хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "30b6235e-63d3-5de6-a798-66ffe97fd692"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-khyatad-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Хятад хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "e346328b-03b4-5317-8887-12059fa4713d"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-yapon-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Япон хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "7619b598-cfd0-58b6-94fc-7ca23f6e0d2b"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-solongos-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Солонгос хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "3727a874-13ae-547e-9750-c7936864d94a"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-german-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Герман хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "9a8e8e70-36c5-52db-a885-bac72e85ee13"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-niigmiin-ukhaany-bolovsrol-tuukhiin-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Нийгмийн ухааны боловсрол (Түүхийн багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "fab8a7aa-39a0-524c-b9cf-11a942d585a9"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-niigmiin-ukhaany-bolovsrol-niigmiin-ukhaany-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Нийгмийн ухааны боловсрол (Нийгмийн ухааны багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "dcf832fd-4ffa-5dcd-9150-0dd98f393b1c"
+    },
+    {
+      "dataset_id": "msue-shss-setguul-zui",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Сэтгүүл зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "4ddb27bb-a2d6-581b-acdc-e5aa253e62b4"
+    },
+    {
+      "dataset_id": "msue-sfat-bagsh-durslekh-urlagiin-bolovsrol",
+      "dataset_school": "msue-sfat",
+      "faculty": "Дүрслэх урлаг, технологийн сургууль",
+      "name": "Багш, Дүрслэх урлагийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "69ea8c27-7a70-5eb4-af16-5c603015304c"
+    },
+    {
+      "dataset_id": "msue-sfat-bagsh-dizain-tekhnologiin-bolovsrol",
+      "dataset_school": "msue-sfat",
+      "faculty": "Дүрслэх урлаг, технологийн сургууль",
+      "name": "Багш, Дизайн технологийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "fad35ae0-ee65-5f39-a7ba-ff4290d903a6"
+    },
+    {
+      "dataset_id": "msue-sfat-bagsh-dizain-zurag-zuin-bolovsrol",
+      "dataset_school": "msue-sfat",
+      "faculty": "Дүрслэх урлаг, технологийн сургууль",
+      "name": "Багш, Дизайн зураг зүйн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "f38a72c7-72fe-5b3b-b3bb-488157b9c10a"
+    },
+    {
+      "dataset_id": "msue-sfat-grafik-dizain",
+      "dataset_school": "msue-sfat",
+      "faculty": "Дүрслэх урлаг, технологийн сургууль",
+      "name": "График дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "5d0bd726-b431-5576-ab30-be89495611b0"
+    },
+    {
+      "dataset_id": "msue-sfat-khuvtsas-dizain",
+      "dataset_school": "msue-sfat",
+      "faculty": "Дүрслэх урлаг, технологийн сургууль",
+      "name": "Хувцас дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "f3122cfb-effc-5ae5-90cb-db170cee6737"
+    },
+    {
+      "dataset_id": "msue-ses-bolovsrol-sudlaach",
+      "dataset_school": "msue-ses",
+      "faculty": "Боловсрол судлалын сургууль",
+      "name": "Боловсрол судлаач",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "94babe7b-0904-5009-82fc-d2e38f70172d"
+    },
+    {
+      "dataset_id": "msue-ses-setgel-sudlaach",
+      "dataset_school": "msue-ses",
+      "faculty": "Боловсрол судлалын сургууль",
+      "name": "Сэтгэл судлаач",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "ef591b84-3193-5814-b6ec-f40c9cfc5198"
+    },
+    {
+      "dataset_id": "msue-ses-niigmiin-ajil",
+      "dataset_school": "msue-ses",
+      "faculty": "Боловсрол судлалын сургууль",
+      "name": "Нийгмийн ажил",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "a04e2833-04b5-533c-bd5f-704a924f51d6"
+    },
+    {
+      "dataset_id": "msue-ses-bagsh-tusgai-kheregtseet-bolovsrol",
+      "dataset_school": "msue-ses",
+      "faculty": "Боловсрол судлалын сургууль",
+      "name": "Багш, Тусгай хэрэгцээт боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "ff7ff2a1-fb7b-51b9-b0c0-7fdfad59b9c8"
+    },
+    {
+      "dataset_id": "msue-ses-bagsh-nasan-turshiin-bolovsrol",
+      "dataset_school": "msue-ses",
+      "faculty": "Боловсрол судлалын сургууль",
+      "name": "Багш, Насан туршийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "71a4a122-056f-5824-b925-7d933f4bfea2"
+    },
+    {
+      "dataset_id": "msue-ses-setgel-sudlaach-surguuliin-setgelzuich",
+      "dataset_school": "msue-ses",
+      "faculty": "Боловсрол судлалын сургууль",
+      "name": "Сэтгэл судлаач, сургуулийн сэтгэлзүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "8ebf21e0-84ee-545a-a134-f2be99fea980"
+    },
+    {
+      "dataset_id": "msue-ses-niigmiin-ajil-khuukhdiin-arga-zuich",
+      "dataset_school": "msue-ses",
+      "faculty": "Боловсрол судлалын сургууль",
+      "name": "Нийгмийн ажил, хүүхдийн арга зүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "fd973ff1-b4b3-51dc-bb7c-fda54b46824f"
+    },
+    {
+      "dataset_id": "msue-ts-bagsh-baga-bolovsrol",
+      "dataset_school": "msue-ts",
+      "faculty": "Багшийн сургууль",
+      "name": "Багш, Бага боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "9a081327-4c63-5057-a5c7-e7b9f023e334"
+    },
+    {
+      "dataset_id": "msue-ts-bagsh-khugjmiin-bolovsrol",
+      "dataset_school": "msue-ts",
+      "faculty": "Багшийн сургууль",
+      "name": "Багш, Хөгжмийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "4ceffa7d-a855-5a1a-b291-6f45f5897a7b"
+    },
+    {
+      "dataset_id": "msue-spe-bagsh-bieiin-tamiryn-bolovsrol",
+      "dataset_school": "msue-spe",
+      "faculty": "Биеийн тамирын сургууль",
+      "name": "Багш, Биеийн тамирын боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "336067d6-3a3c-5c37-a576-0685be5d672b"
+    },
+    {
+      "dataset_id": "msue-spe-sportyn-dasgaljuulagch",
+      "dataset_school": "msue-spe",
+      "faculty": "Биеийн тамирын сургууль",
+      "name": "Спортын дасгалжуулагч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "4a8cb4d7-4a76-519b-b045-f5f2ae9e9a39"
+    },
+    {
+      "dataset_id": "msue-spe-sportyn-setguul-zui",
+      "dataset_school": "msue-spe",
+      "faculty": "Биеийн тамирын сургууль",
+      "name": "Спортын сэтгүүл зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "23abea90-eaa4-5b1f-8377-22bff24ce8d0"
+    },
+    {
+      "dataset_id": "msue-spe-sportyn-ayalal-juulchlal",
+      "dataset_school": "msue-spe",
+      "faculty": "Биеийн тамирын сургууль",
+      "name": "Спортын аялал жуулчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "a35406d1-3bcc-5eb4-9b37-4db31bbed7e4"
+    },
+    {
+      "dataset_id": "msue-spe-bieiin-tamiryn-arga-zui",
+      "dataset_school": "msue-spe",
+      "faculty": "Биеийн тамирын сургууль",
+      "name": "Биеийн тамирын арга зүй",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "47391b9d-65e8-52eb-b2ec-6e80c144d91d"
+    },
+    {
+      "dataset_id": "msue-spse-bagsh-surguuliin-umnukh-bolovsrol",
+      "dataset_school": "msue-spse",
+      "faculty": "Сургуулийн өмнөх боловсролын сургууль",
+      "name": "Багш, Сургуулийн өмнөх боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "6c41a435-1603-5c77-a1ea-61a376f8cde2"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-niigmiin-ukhaany-bolovsrol-tuukh-niigmiin-ukhaany-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Нийгмийн ухааны боловсрол (Түүх, нийгмийн ухааны багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "9cdb3de8-d302-54d4-ab3a-b0667c9941c0"
+    },
+    {
+      "dataset_id": "msue-shss-arkhiv-alban-khereg-khutlult",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Архив, албан хэрэг хөтлөлт",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "9ada5792-1446-5588-a2d9-90ca77327e29"
+    },
+    {
+      "dataset_id": "msue-shss-tuukh-soyolyn-ayalal-juulchlal",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Түүх, соёлын аялал жуулчлал",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "d99abb89-9d81-5209-abfd-00b85a3d81de"
+    },
+    {
+      "dataset_id": "msue-shss-khel-uran-zokhiol-sudlaach",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Хэл, уран зохиол судлаач",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "915dd898-d1cb-5ce7-93a9-78096d47c927"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-german-angli-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Герман, англи хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "b8e1df05-3b12-5a2f-81f2-c0c2ff12baf2"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-oros-angli-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Орос, англи хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "c5131668-2806-5099-aa08-3b6d87fae6e9"
+    },
+    {
+      "dataset_id": "msue-shss-bagsh-gadaad-khelnii-bolovsrol-yapon-angli-khelnii-bagsh",
+      "dataset_school": "msue-shss",
+      "faculty": "Нийгэм, хүмүүнлэгийн ухааны сургууль",
+      "name": "Багш, Гадаад хэлний боловсрол (Япон, англи хэлний багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "38f14ee6-e0cb-5570-b0d4-9fb9bdc983f4"
+    },
+    {
+      "dataset_id": "msue-spe-bieiin-tamiryn-bagsh-arga-zuich",
+      "dataset_school": "msue-spe",
+      "faculty": "Биеийн тамирын сургууль",
+      "name": "Биеийн тамирын багш, арга зүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "f77a690c-68b2-53d3-8ddd-c0bc93bf2c7a"
+    },
+    {
+      "dataset_id": "msue-spe-bieiin-tamiryn-bagsh-arga-zui-khudulguun-zasalch",
+      "dataset_school": "msue-spe",
+      "faculty": "Биеийн тамирын сургууль",
+      "name": "Биеийн тамирын багш, арга зүй, хөдөлгөөн засалч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "bb9bbac0-cdfa-55f3-b00f-4ac806fe4dce"
+    },
+    {
+      "dataset_id": "msue-spe-sportyn-dasgaljuulagch-bieiin-tamiryn-bagsh",
+      "dataset_school": "msue-spe",
+      "faculty": "Биеийн тамирын сургууль",
+      "name": "Спортын дасгалжуулагч, биеийн тамирын багш",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "cf9027b0-6c46-516d-aaf1-c5af7c8dcbe3"
+    },
+    {
+      "dataset_id": "msue-sfat-multimedia-dizain",
+      "dataset_school": "msue-sfat",
+      "faculty": "Дүрслэх урлаг, технологийн сургууль",
+      "name": "Мультимедиа дизайн",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "4feb6d9a-af1c-5586-8391-ba177652fb4c"
+    },
+    {
+      "dataset_id": "msue-sfat-zuraach-uran-zurag",
+      "dataset_school": "msue-sfat",
+      "faculty": "Дүрслэх урлаг, технологийн сургууль",
+      "name": "Зураач (Уран зураг)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "5af47106-a5db-5eeb-9b0f-3aa5cc27e443"
+    },
+    {
+      "dataset_id": "msue-sfat-tekhnik-sportyn-dasgaljuulagch-bagsh",
+      "dataset_school": "msue-sfat",
+      "faculty": "Дүрслэх урлаг, технологийн сургууль",
+      "name": "Техник спортын дасгалжуулагч, багш",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "576e7f88-79eb-58d4-9731-c3dcd4971663"
+    },
+    {
+      "dataset_id": "msue-arkhangai-bagsh-baga-bolovsrol",
+      "dataset_school": "msue-arkhangai",
+      "faculty": "Архангай аймаг дахь салбар сургууль",
+      "name": "Багш, Бага боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "4385b2fe-2645-5ae6-bc46-bc0c9591baf3"
+    },
+    {
+      "dataset_id": "msue-arkhangai-bagsh-surguuliin-umnukh-bolovsrol",
+      "dataset_school": "msue-arkhangai",
+      "faculty": "Архангай аймаг дахь салбар сургууль",
+      "name": "Багш, Сургуулийн өмнөх боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "4f3bf5b5-5b07-5c2b-b6aa-7e7ae86e5a7b"
+    },
+    {
+      "dataset_id": "msue-arkhangai-bagsh-mongol-khel-uran-zokhiolyn-bolovsrol",
+      "dataset_school": "msue-arkhangai",
+      "faculty": "Архангай аймаг дахь салбар сургууль",
+      "name": "Багш, Монгол хэл, уран зохиолын боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "56218f12-7794-5ad2-a7c5-f764fea84743"
+    },
+    {
+      "dataset_id": "msue-arkhangai-bagsh-matematikiin-bolovsrol",
+      "dataset_school": "msue-arkhangai",
+      "faculty": "Архангай аймаг дахь салбар сургууль",
+      "name": "Багш, Математикийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "4e7861ac-25ba-5e0b-87bf-521783dbe6df"
+    },
+    {
+      "dataset_id": "msue-arkhangai-bagsh-niigmiin-ukhaany-bolovsrol-tuukh-niigmiin-ukhaany-bagsh",
+      "dataset_school": "msue-arkhangai",
+      "faculty": "Архангай аймаг дахь салбар сургууль",
+      "name": "Багш, Нийгмийн ухааны боловсрол (Түүх, нийгмийн ухааны багш)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "cf01aa3b-1dce-59c9-b5ce-56f810de66b3"
+    },
+    {
+      "dataset_id": "msue-arkhangai-niigmiin-ajil",
+      "dataset_school": "msue-arkhangai",
+      "faculty": "Архангай аймаг дахь салбар сургууль",
+      "name": "Нийгмийн ажил",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "f6af68fa-71d3-5558-8510-3f45c3c4efec"
+    },
+    {
+      "dataset_id": "msue-arkhangai-setgel-sudlaach",
+      "dataset_school": "msue-arkhangai",
+      "faculty": "Архангай аймаг дахь салбар сургууль",
+      "name": "Сэтгэл судлаач",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "per_exam",
+      "db_id": "11f72022-2689-52ff-a7f2-a6c2aa8adcc4"
+    },
+    {
+      "dataset_id": "msue-bayan-ulgii-bagsh-baga-bolovsrol",
+      "dataset_school": "msue-bayan-ulgii",
+      "faculty": "Баян-Өлгий аймаг дахь салбар сургууль",
+      "name": "Багш, Бага боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "d2fa42c8-bec0-5083-a1f1-19113c0c0adf"
+    },
+    {
+      "dataset_id": "msue-bayan-ulgii-bagsh-surguuliin-umnukh-bolovsrol",
+      "dataset_school": "msue-bayan-ulgii",
+      "faculty": "Баян-Өлгий аймаг дахь салбар сургууль",
+      "name": "Багш, Сургуулийн өмнөх боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "96fac935-86f9-5776-bd09-43c9043979e5"
+    },
+    {
+      "dataset_id": "msue-bayan-ulgii-bagsh-khugjmiin-bolovsrol",
+      "dataset_school": "msue-bayan-ulgii",
+      "faculty": "Баян-Өлгий аймаг дахь салбар сургууль",
+      "name": "Багш, Хөгжмийн боловсрол",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "0c48464c-1a90-5d40-be26-3579fad3333e"
+    },
+    {
+      "dataset_id": "msue-bayan-ulgii-bagsh-baga-bolovsrol-khamtarsan-khutulbur",
+      "dataset_school": "msue-bayan-ulgii",
+      "faculty": "Баян-Өлгий аймаг дахь салбар сургууль",
+      "name": "Багш, Бага боловсрол (хамтарсан хөтөлбөр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "2b83a877-b619-57c2-bd48-f5d5d3bb1c60"
+    },
+    {
+      "dataset_id": "msue-bayan-ulgii-bagsh-surguuliin-umnukh-bolovsrol-khamtarsan-khutulbur",
+      "dataset_school": "msue-bayan-ulgii",
+      "faculty": "Баян-Өлгий аймаг дахь салбар сургууль",
+      "name": "Багш, Сургуулийн өмнөх боловсрол (хамтарсан хөтөлбөр)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "skills_test",
+      "db_id": "15552d75-0103-5bae-8eaf-5a9c453f7c98"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "msue-teacher-bzs",
+      "name": "Багш мэргэжлээр суралцагчийн тэтгэлэг (Боловсролын зээлийн сан)",
+      "db_id": "b6927d04-56f3-5b72-8378-b088a81920bc"
+    },
+    {
+      "dataset_id": "msue-teacher-child",
+      "name": "Багш, ажилтны хүүхдийн тэтгэлэг (БЗС)",
+      "db_id": "937c39ba-73e6-53cf-acf0-24a59fb9326c"
+    },
+    {
+      "dataset_id": "msue-demand-fields",
+      "name": "Зарим эрэлттэй мэргэжлээр суралцагчийн сургалтын төлбөрийн тэтгэлэг (МУБИС-ийн тэтгэлгийн хуудсанд)",
+      "db_id": "0ea8d528-37d2-5a07-8253-66db80517505"
+    },
+    {
+      "dataset_id": "msue-bzs-aid",
+      "name": "Буцалтгүй тусламж (БЗС)",
+      "db_id": "8167ae95-7a74-59c0-9f5f-e020a488bfb1"
+    },
+    {
+      "dataset_id": "msue-loan",
+      "name": "Сургалтын зээл (хөнгөлөлттэй хүүтэй, БЗС)",
+      "db_id": "64e91abd-d10c-5d74-ae1b-57c55f4bb63a"
+    },
+    {
+      "dataset_id": "msue-china-2plus2",
+      "name": "БНХАУ-д тэтгэлгээр суралцах 2+2 хөтөлбөр (Хятад хэлний багш)",
+      "db_id": "17f12c9d-0314-5a2e-9505-7509b27e4e01"
+    },
+    {
+      "dataset_id": "msue-first-year-discount",
+      "name": "МУБИС-ийн эхний жилийн сургалтын төлбөрийн хөнгөлөлт (ЭЕШ 500+)",
+      "db_id": "b8759a96-07ea-554d-8197-627a8bb9b553"
+    }
+  ],
+  "dorms": [
+    {
+      "dataset_id": "msue-dorm-1",
+      "name": "МУБИС-ийн оюутны 1-р байр",
+      "db_id": "82f1fc8a-12fe-524a-bb66-5493798122bb"
+    },
+    {
+      "dataset_id": "msue-dorm-orgoo",
+      "name": "Оюутны өргөө 1, 2-р байр",
+      "db_id": "dac165bb-4499-5b62-adc2-3f0dc0b60686"
+    },
+    {
+      "dataset_id": "msue-dorm-bayan-ulgii",
+      "name": "Баян-Өлгий салбарын дотуур байр",
+      "db_id": "01863604-b8a7-5b22-b9bd-74d379d8dcbb"
+    }
+  ],
+  "admission_dates": [
+    {
+      "dataset_id": "msue-date-esh-2026",
+      "event": "2026 оны жишиг: Элсэлтийн шалгалт (ЭШ, бүх элсэгч)",
+      "db_id": "2ec244de-1a1e-5e49-9304-31c2d1650d7a"
+    },
+    {
+      "dataset_id": "msue-date-esh-results-2026",
+      "event": "2026 оны жишиг: ЭШ-ийн дүн гарсан (5 хоногийн дотор БҮТ-д дүнгээ шалгуулах боломжтой)",
+      "db_id": "dcb9a047-e28f-5501-80f9-c93e8a620553"
+    },
+    {
+      "dataset_id": "msue-date-bost-reg-2026",
+      "event": "2026 оны жишиг: Баян-Өлгий салбарын бакалаврын элсэлтийн бүртгэл эхэлсэн (Google Form)",
+      "db_id": "37a7e86f-582b-5995-996a-f3e0eaf16cd4"
+    },
+    {
+      "dataset_id": "msue-date-online-adm-2026",
+      "event": "2026 оны жишиг: Улаанбаатарын их сургуулиудын цахим элсэлтийн бүртгэл эхэлсэн (COP17-ийн улмаас цахимаар)",
+      "db_id": "8a1346a5-9176-5b17-9f55-991cf6be6ce9"
+    },
+    {
+      "dataset_id": "msue-date-course-selection-2026",
+      "event": "2026 оны жишиг: Цахим хичээл сонголт эхэлсэн (Улаанбаатарын их сургуулиуд)",
+      "db_id": "f1a7480d-b7d3-5459-8c94-27c72d84bb9a"
+    },
+    {
+      "dataset_id": "msue-date-classes-2026",
+      "event": "2026 оны жишиг: Танхимын хичээл эхэлсэн (9-р сарын 14 эсвэл 15 — эх сурвалж 1 өдрөөр зөрүүтэй)",
+      "db_id": "2f13dcde-42db-5e4b-a96b-be209d06d3cd"
+    },
+    {
+      "dataset_id": "msue-date-fee-deadline-2026",
+      "event": "2026-2027 намрын улирлын төлбөрийн үлдэгдэл: МУБИС 9-р сарын 30-нд мэдэгдэж, Оюутны холбооны хүсэлтээр 12-р сар хүртэл сунгасан (яг өдөр заагаагүй)",
+      "db_id": "431c8274-03b7-5109-8411-c430eec2c2e9"
+    }
+  ]
+}

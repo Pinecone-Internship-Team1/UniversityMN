@@ -1,0 +1,1659 @@
+{
+  "_meta": {
+    "dataset": "programs",
+    "university": "ОТИС",
+    "description": "ОТИС-ийн бакалаврын өдрийн 4 жилийн хөтөлбөрүүд (2026-2027): 3 сургуулийн 18 хөтөлбөр, шалгалтын 2 бүлэг, шалгалт тус бүрийн босго.",
+    "language": "mn",
+    "verified_at": "2026-10-18",
+    "sources": [
+      "https://api.otgontenger.edu.mn/enrollment",
+      "https://api.otgontenger.edu.mn/programs",
+      "https://www.otgontenger.edu.mn/mn/programs",
+      "https://www.otgontenger.edu.mn/branch/humanities",
+      "https://www.otgontenger.edu.mn/branch/economic-and-business",
+      "http://otgontenger.edu.mn/mn/student/scholarship",
+      "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+    ],
+    "scoring_mn": "ОТИС: хөтөлбөр бүр ЭЕШ-1 (жагсаалтаас аль нэг хичээл) ба ЭЕШ-2 'Дагалдах шалгалт'-тай; шалгалт тус бүр өөрийн босготой (ихэнх нь 490/490; Багш, сургуулийн өмнөх боловсрол 440/490 — 2-р нь ур чадвар; Программ хангамж 490/450). Онооны томьёо (жин) нийтлээгүй. Хүснэгт нь '2026-2027 оны хичээлийн жилд оюутан элсүүлэх журам'-ын 1-р хавсралт боловч журмын текстэд өмнөх онуудыг дурдсан тул бүх мөрийг 'магадлалтай' гэж тэмдэглэв.",
+    "fields_mn": {
+      "suuri_options/dagaldah_options": "ЭЕШ-1 / ЭЕШ-2 (Дагалдах шалгалт) бүлэг, журмын хүснэгтэд бичсэн дарааллаар.",
+      "weights": "{suuri: 1, dagaldah: 1} = томьёо нийтлээгүй (formula_known: false); шалгалт тус бүрийн босгоор шалгана.",
+      "code": "Элсэлтийн журмын хүснэгтийн индекс; code_on_program_list = хөтөлбөрийн жагсаалтын индекс (зарим нь зөрүүтэй).",
+      "tuition_2026_2027": "Төлбөр нийтлээгүй тул бүх мөрөнд null."
+    },
+    "subject_names_mn": "Хүснэгтэд 'Ур чадвар' гэж бичсэнийг 'Ур чадварын шалгалт' гэж нэгтгэв; бусад нэр oyutan.mn-ийн нэртэй адил.",
+    "counts": {
+      "total": 19,
+      "by_school": {
+        "otg-hum": 10,
+        "otg-econ": 7,
+        "otg-law": 2
+      },
+      "by_split_confidence": {
+        "confirmed": 19
+      }
+    },
+    "gap_fill_mn": "2026-10-18: Claude Code-ийн Step 2 нөхөлт — IMPORT_LOG.md-г үз."
+  },
+  "records": [
+    {
+      "id": "otg-hum-gadaad-khelnii-orchuulga-solongos",
+      "name_mn": "Гадаад хэлний орчуулга /Солонгос/",
+      "name_en": "Foreign Language Translation (Korean)",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "023101",
+      "code_on_program_list": "D023101",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл, Орос хэл эсвэл Математик — босго 490. 2-р шалгалт: Нийгэм судлал, Монгол хэл эсвэл Түүх — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Математик",
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Түүх"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Түүх"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). Сайтын хуучин хүснэгтэд 1-р шалгалт Англи хэл / Нийгэм судлал гэж байсан.",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "023101",
+        "table_name_mn": "Гадаад хэлний орчуулга /хятад хэл, солонгос хэл/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-hum-bagsh-mongol-khel-uran-zokhiolyn-bolovsrol",
+      "name_mn": "Багш, монгол хэл уран зохиолын боловсрол",
+      "name_en": "Teacher, Mongolian Language and Literature Education",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "011430",
+      "code_on_program_list": "D011407",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Монгол хэл эсвэл Нийгэм судлал — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Монгол хэл",
+          "Нийгэм судлал"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). 2-р шалгалт нь ОТИС-ийн авдаг ур чадварын шалгалт: бүртгэл дууссанаас хойш ажлын 5 хоногт авч, 0–100 оноог 200–800 хэмжээст оноонд шилжүүлнэ (журмын 4.1, 4.3). Сайтын хуучин хүснэгтэд 1-р шалгалт Монгол хэл, 2-р шалгалт Нийгэм судлал / Түүх гэж байсан.",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "011430",
+        "table_name_mn": "Багш, монгол хэл, уран зохиолын боловсрол"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Хөтөлбөрийн жагсаалтад индексийг D011407 гэж, элсэлтийн журмын хүснэгтэд 011430 гэж бичсэн.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-hum-niigmiin-ajil",
+      "name_mn": "Нийгмийн ажил",
+      "name_en": "Social Work",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "092301",
+      "code_on_program_list": "D092301",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490. 2-р шалгалт: Монгол хэл эсвэл Математик — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Англи хэл",
+          "Монгол хэл",
+          "Математик"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Монгол хэл",
+          "Математик"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "092301",
+        "table_name_mn": "Нийгмийн ажил"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-hum-bagsh-surguuliin-umnukh-nasny-bolovsrol",
+      "name_mn": "Багш, сургуулийн өмнөх насны боловсрол",
+      "name_en": "Teacher, Preschool Education",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "011201",
+      "code_on_program_list": "D011201",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Монгол хэл, Нийгэм судлал эсвэл Математик — босго 440. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+      "threshold_score": 440,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Математик",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 440,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). 2-р шалгалт нь ОТИС-ийн авдаг ур чадварын шалгалт: бүртгэл дууссанаас хойш ажлын 5 хоногт авч, 0–100 оноог 200–800 хэмжээст оноонд шилжүүлнэ (журмын 4.1, 4.3). Хамтарсан хөтөлбөрөөр (2-р хавсралт) бас элсүүлнэ.",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "011201",
+        "table_name_mn": "Багш, сургуулийн өмнөх боловсрол"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Хүснэгтэд 'Багш, сургуулийн өмнөх боловсрол' гэж бичсэн.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-hum-gadaad-khelnii-orchuulga-khyatad-khel",
+      "name_mn": "Гадаад хэлний орчуулга /Хятад хэл/",
+      "name_en": "Foreign Language Translation (Chinese)",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "023101",
+      "code_on_program_list": "D023101",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл, Орос хэл эсвэл Математик — босго 490. 2-р шалгалт: Нийгэм судлал, Монгол хэл эсвэл Түүх — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Математик",
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Түүх"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Түүх"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). Сайтын хуучин хүснэгтэд 1-р шалгалт Англи хэл / Нийгэм судлал гэж байсан.",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "023101",
+        "table_name_mn": "Гадаад хэлний орчуулга /хятад хэл, солонгос хэл/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-hum-setguul-zui",
+      "name_mn": "Сэтгүүл зүй",
+      "name_en": "Journalism",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "032101",
+      "code_on_program_list": "D032101",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Монгол хэл, Нийгэм судлал эсвэл Англи хэл — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Англи хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). 2-р шалгалт нь ОТИС-ийн авдаг ур чадварын шалгалт: бүртгэл дууссанаас хойш ажлын 5 хоногт авч, 0–100 оноог 200–800 хэмжээст оноонд шилжүүлнэ (журмын 4.1, 4.3).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "032101",
+        "table_name_mn": "Сэтгүүл зүй"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-hum-bagsh-gadaad-khelnii-bolovsrol-angli-khel",
+      "name_mn": "Багш, гадаад хэлний боловсрол /англи хэл/",
+      "name_en": "Teacher, Foreign Language Education (English)",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "011435",
+      "code_on_program_list": "D011409",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл, Орос хэл эсвэл Монгол хэл — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Монгол хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл",
+          "Монгол хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). 2-р шалгалт нь ОТИС-ийн авдаг ур чадварын шалгалт: бүртгэл дууссанаас хойш ажлын 5 хоногт авч, 0–100 оноог 200–800 хэмжээст оноонд шилжүүлнэ (журмын 4.1, 4.3). Сайтын хуучин хүснэгтэд 2-р шалгалт Монгол хэл / Нийгэм судлал гэж байсан.",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "011435",
+        "table_name_mn": "Багш, гадаад хэлний боловсрол /англи хэл/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Хөтөлбөрийн жагсаалтад индексийг D011409 гэж, элсэлтийн журмын хүснэгтэд 011435 гэж бичсэн.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-hum-olon-ulsyn-khariltsaa",
+      "name_mn": "Олон улсын харилцаа",
+      "name_en": "International Relations",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "031202",
+      "code_on_program_list": "D031202",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл эсвэл Орос хэл — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Түүх — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Нийгэм судлал",
+          "Түүх"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Түүх"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). Хамтарсан хөтөлбөрөөр (2-р хавсралт) бас элсүүлнэ.",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "031202",
+        "table_name_mn": "Олон улсын харилцаа"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-hum-agaaryn-teevriin-uilchilgee-agaaryn-bukheegiin-ajiltan",
+      "name_mn": "Агаарын тээврийн үйлчилгээ /агаарын бүхээгийн ажилтан/",
+      "name_en": "Air Transport Services (Cabin Crew)",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "104102",
+      "code_on_program_list": "D104102",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 480.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 480,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 480,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). 2-р шалгалт нь ОТИС-ийн авдаг ур чадварын шалгалт: бүртгэл дууссанаас хойш ажлын 5 хоногт авч, 0–100 оноог 200–800 хэмжээст оноонд шилжүүлнэ (журмын 4.1, 4.3). 1-р хавсралтад 104102 индексээр, хамтарсан хөтөлбөрийн 2-р хавсралтад 104104 индексээр ижил шалгалт, босготой. Дүрэмт хувцасны төлбөр сургалтын төлбөрт багтана (журмын 6.5).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "104102",
+        "table_name_mn": "Агаарын тээврийн үйлчилгээ"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Элсэлтийн журмын хүснэгтэд 'Агаарын тээврийн үйлчилгээ' (104104), хөтөлбөрийн жагсаалтад индекс D104102. ЭЕШ-ын онооны хөнгөлөлтийн хуудсанд 'АТҮ'-ний хөтөлбөрт хөнгөлөлтийг бага (40%, 35%, 30%) гэж бичсэн — 'АТҮ' нь энэ хөтөлбөрийн товчлол гэж ойлгов.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current",
+      "code_joint_program": "104104"
+    },
+    {
+      "id": "otg-hum-setgel-sudlal",
+      "name_mn": "Сэтгэл судлал",
+      "name_en": "Psychology",
+      "school_id": "otg-hum",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "031301",
+      "code_on_program_list": "D032101",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал эсвэл Математик — босго 490. 2-р шалгалт: Монгол хэл эсвэл Англи хэл — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Математик",
+          "Монгол хэл",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Монгол хэл",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). Хамтарсан хөтөлбөрөөр (2-р хавсралт) бас элсүүлнэ.",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "031301",
+        "table_name_mn": "Сэтгэл судлал"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Хөтөлбөрийн жагсаалтад индексийг D032101 (Сэтгүүл зүйтэй ижил) гэж, элсэлтийн журмын хүснэгтэд 031301 гэж бичсэн.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/humanities",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-econ-programm-khangamj",
+      "name_mn": "Программ хангамж",
+      "name_en": "Software Engineering",
+      "school_id": "otg-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "061302",
+      "code_on_program_list": "D0611302",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "061302",
+        "table_name_mn": "Программ хангамж"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Элсэлтийн журмын хүснэгтэд нэг газар 'Програм хангамж' гэж нэг 'м'-ээр бичсэн.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/economic-and-business",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-econ-ayalal-juulchlal",
+      "name_mn": "Аялал жуулчлал",
+      "name_en": "Tourism",
+      "school_id": "otg-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "101501",
+      "code_on_program_list": "D041304",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Газарзүй, Математик эсвэл Англи хэл — босго 490. 2-р шалгалт: Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Газарзүй",
+          "Математик",
+          "Англи хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Газарзүй",
+          "Математик",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8). 2-р шалгалт нь ОТИС-ийн авдаг ур чадварын шалгалт: бүртгэл дууссанаас хойш ажлын 5 хоногт авч, 0–100 оноог 200–800 хэмжээст оноонд шилжүүлнэ (журмын 4.1, 4.3). Сайтын хуучин хүснэгтэд 1-р шалгалт Математик / Монгол хэл, 2-р шалгалт Нийгэм судлал / Англи хэл гэж байсан.",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "101501",
+        "table_name_mn": "Аялал жуулчлал"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Хөтөлбөрийн жагсаалтад индексийг D041304 гэж бичсэн (элсэлтийн журмын хүснэгтэд энэ индекс Хүний нөөцийн менеджментийнх); хүснэгтэд Аялал жуулчлал 101501.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/economic-and-business",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-econ-sankhuu-bank",
+      "name_mn": "Санхүү, Банк",
+      "name_en": "Finance and Banking",
+      "school_id": "otg-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "041201",
+      "code_on_program_list": "D041201",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "041201",
+        "table_name_mn": "Санхүү, банк"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/economic-and-business",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-econ-biznesiin-udirdlaga",
+      "name_mn": "Бизнесийн удирдлага",
+      "name_en": "Business Administration",
+      "school_id": "otg-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "041301",
+      "code_on_program_list": "D041301",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "041301",
+        "table_name_mn": "Бизнесийн удирдлага"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/economic-and-business",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-econ-nyagtlan-bodokh-burtgel",
+      "name_mn": "Нягтлан бодох бүртгэл",
+      "name_en": "Accounting",
+      "school_id": "otg-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "041101",
+      "code_on_program_list": "D041101",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "041101",
+        "table_name_mn": "Нягтлан бодох бүртгэл"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/economic-and-business",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-econ-khunii-nuutsiin-menedjment",
+      "name_mn": "Хүний нөөцийн менеджмент",
+      "name_en": "Human Resource Management",
+      "school_id": "otg-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "041304",
+      "code_on_program_list": null,
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "041304",
+        "table_name_mn": "Хүний нөөцийн менеджмент"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Их сургуулийн бакалаврын хөтөлбөрийн жагсаалтад байхгүй (зөвхөн магистрын 'Хүний нөөцийн менежмент' бий), гэхдээ 2026-2027 оны тамгатай элсэлтийн журмын 1-р хавсралтад бакалаврын өдрийн хөтөлбөрөөр орсон.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/branch/economic-and-business",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-econ-marketing",
+      "name_mn": "Маркетинг",
+      "name_en": "Marketing",
+      "school_id": "otg-econ",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "041401",
+      "code_on_program_list": null,
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "041401",
+        "table_name_mn": "Маркетинг"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Их сургуулийн бакалаврын хөтөлбөрийн жагсаалтад байхгүй (зөвхөн магистрын 'Маркетинг' бий), гэхдээ 2026-2027 оны тамгатай элсэлтийн журмын 1-р хавсралтад бакалаврын өдрийн хөтөлбөрөөр орсон.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/branch/economic-and-business",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-law-erkh-zui",
+      "name_mn": "Эрх зүй",
+      "name_en": "Law",
+      "school_id": "otg-law",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "042101",
+      "code_on_program_list": "D042101",
+      "official_url": "https://www.otgontenger.edu.mn/mn/programs",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал — босго 490. 2-р шалгалт: Математик эсвэл Англи хэл — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Математик",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "042101",
+        "table_name_mn": "Эрхзүй"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Элсэлтийн журмын хүснэгтэд 'Эрхзүй' гэж бичсэн.",
+      "source_urls": [
+        "https://api.otgontenger.edu.mn/enrollment",
+        "https://api.otgontenger.edu.mn/programs",
+        "https://www.otgontenger.edu.mn/mn/programs",
+        "https://www.otgontenger.edu.mn/branch/huul-zuin-surguul",
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "otg-law-biznesiin-erkh-zui",
+      "name_mn": "Бизнесийн эрх зүй",
+      "name_en": "Business Law",
+      "school_id": "otg-law",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын өдрийн хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": "042103",
+      "code_on_program_list": null,
+      "official_url": "https://elselt.otgontenger.edu.mn/home",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал — босго 490. 2-р шалгалт: Математик эсвэл Англи хэл — босго 490.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Математик",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 0.5,
+          "dagaldah": 0.5
+        },
+        "formula_known": true,
+        "score_formula": "average",
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "ОТИС-ийн 2026-2027 оны хичээлийн жилд оюутан элсүүлэх журмын 1-р хавсралтаас (тамгатай хувилбар, элсэлтийн систем) авав; БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралттай ижил. Онооны дарааллаар жагсааж, хяналтын тоонд багтсан бүртгүүлэгч хөтөлбөрөө сонгоно (журмын 5.1, 5.6–5.8).",
+        "source_url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "status": "current",
+        "score_formula_mn": "Суурь (1-р) болон дагалдах (2-р) шалгалт тус бүр 50% жинтэй (журмын 5.2) — хоёр шалгалтын онооны дундажаар эрэмбэлнэ; шалгалт бүр өөрийн босгыг давсан байх ёстой.",
+        "exam_names_mn": "ЭЕШ-1 (жагсаалтаас аль нэгийг заавал өгсөн байх) / ЭЕШ-2 (Дагалдах шалгалт)",
+        "table_index": "042103",
+        "table_name_mn": "Бизнесийн эрх зүй"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг их сургуулийн сайтад нийтлээгүй (төлбөрийн хуудсанд зөвхөн дансаар төлөх заавар бий). Отгонтэнгэр их сургуулиас (7010-1991, info@otgontenger.edu.mn) тодруулна уу.",
+        "source_url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "ОТИС-ийн хөтөлбөрийн жагсаалтад ороогүй ч 2026-2027 оны элсэлтийн журмын 1-р хавсралтад бий; суралцах хугацааг сургуулиас тодруулна уу.",
+      "source_urls": [
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+        "https://elselt.otgontenger.edu.mn/home"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    }
+  ]
+}

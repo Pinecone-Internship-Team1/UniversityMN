@@ -149,3 +149,126 @@ describe('per-exam minimums (ШУТИС)', () => {
     );
   });
 });
+
+// Majors as the АШУҮИС import writes them, from the untouched ashuuis-oyutan-mn data/programs.json:
+// group 1 / group 2 go to primary / secondary subjects, each with its own minimum, weights 1 / 1 (a plain
+// sum, max 1600) and the program's selection type.
+const MEDICAL_DOCTOR = {
+  // mnums-med-khunii-ikh-emch
+  name: 'Хүний их эмч',
+  requiredSubjects: null,
+  primarySubjects: ['Хими', 'Математик'],
+  secondarySubjects: ['Биологи', 'Физик'],
+  examNote:
+    '1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).',
+  cutOffScore: 490,
+  secondaryCutOffScore: 490,
+  primaryWeight: 1,
+  secondaryWeight: 1,
+  selectionType: 'list',
+};
+
+const NURSE = {
+  // mnums-nursing-suvilagch: the second exam is АШУҮИС's own skills test
+  name: 'Сувилагч',
+  requiredSubjects: null,
+  primarySubjects: ['Хими', 'Биологи'],
+  secondarySubjects: ['Ур чадварын шалгалт'],
+  examNote:
+    '1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 450. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.',
+  cutOffScore: 430,
+  secondaryCutOffScore: 450,
+  primaryWeight: 1,
+  secondaryWeight: 1,
+  selectionType: 'direct',
+};
+
+const HEALTH_INFORMATICS = {
+  // mnums-bio-eruul-mendiin-medeelel-zuich (direct selection)
+  name: 'Эрүүл мэндийн мэдээлэл зүйч',
+  requiredSubjects: null,
+  primarySubjects: ['Математик', 'Физик'],
+  secondarySubjects: ['Нийгэм судлал', 'Англи хэл'],
+  examNote:
+    '1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.',
+  cutOffScore: 490,
+  secondaryCutOffScore: 450,
+  primaryWeight: 1,
+  secondaryWeight: 1,
+  selectionType: 'direct',
+};
+
+const DARKHAN_UNKNOWN = {
+  // mnums-darkhan-niigmiin-eruul-mend-sudlalch (split unknown)
+  name: 'Нийгмийн эрүүл мэнд судлалч',
+  requiredSubjects: [],
+  primarySubjects: [],
+  secondarySubjects: [],
+  examNote: 'Шалгалтын хичээл, босгыг Дархан-Уул салбар сургуулиас тодруулна уу (mnums-da.edu.mn, 7037 7734).',
+  cutOffScore: null,
+  secondaryCutOffScore: null,
+  primaryWeight: 1,
+  secondaryWeight: 1,
+  selectionType: null,
+};
+
+describe('sum of two exams (АШУҮИС)', () => {
+  test('both groups meet their minimums: eligible, scored as the plain sum', () => {
+    const outcome = scoreMajorMatch(MEDICAL_DOCTOR, { Хими: 620, Биологи: 580 });
+    expect(outcome.verdict).toBe('ELIGIBLE');
+    expect(outcome.eligible).toBe(true);
+    expect(outcome.reason).toStartWith('Босго давсан — өрсөлдөх эрхтэй.');
+    expect(outcome.reason).toContain('Нийлбэр оноо 1200.0 (Хими + Биологи)');
+    expect(outcome.reason).not.toContain('0.7');
+    expect(outcome.matchScore).toBeCloseTo(1200 / 980);
+  });
+
+  test('group 2 below its minimum: below, names Биологи 490 and suggests Физик, not Математик', () => {
+    const outcome = scoreMajorMatch(MEDICAL_DOCTOR, { Хими: 620, Биологи: 480 });
+    expect(outcome.verdict).toBe('BELOW_CUT_OFF');
+    expect(outcome.eligible).toBe(false);
+    expect(outcome.reason).toStartWith('Босго хүрэхгүй: 2-р шалгалт Биологи 480 (босго 490).');
+    expect(outcome.reason).toContain('Оноо оруулаагүй Физик хичээлээр');
+    expect(outcome.reason).not.toContain('Математик');
+  });
+
+  test('skills-test program: neutral when group 1 meets its minimum', () => {
+    const outcome = scoreMajorMatch(NURSE, { Хими: 500 });
+    expect(outcome.verdict).toBe('CHECK_WITH_SCHOOL');
+    expect(outcome.reason).toBe('Ур чадварын шалгалтыг их сургууль өөрөө авна — сургуулиас тодруулна уу.');
+  });
+
+  test('skills-test program: below when group 1 misses its minimum', () => {
+    const outcome = scoreMajorMatch(NURSE, { Хими: 420 });
+    expect(outcome.verdict).toBe('BELOW_CUT_OFF');
+    expect(outcome.reason).toStartWith('Босго хүрэхгүй: 1-р шалгалтын оноо 420');
+  });
+
+  test('direct selection: eligible with the "шууд элсэх" wording', () => {
+    const outcome = scoreMajorMatch(HEALTH_INFORMATICS, { Математик: 600, 'Англи хэл': 500 });
+    expect(outcome.verdict).toBe('ELIGIBLE');
+    expect(outcome.reason).toStartWith('Босго давсан — шууд элсэх боломжтой.');
+    expect(outcome.reason).toContain('Нийлбэр оноо 1100.0 (Математик + Англи хэл)');
+  });
+
+  test('direct selection: the note fits every direct university, not only АШУҮИС', () => {
+    const outcome = scoreMajorMatch(HEALTH_INFORMATICS, { Математик: 600, 'Англи хэл': 500 });
+    expect(outcome.verdict).toBe('ELIGIBLE');
+    expect(outcome.reason).toEndWith(
+      ' Шууд элсүүлэх хөтөлбөрт босго хангасан бүртгүүлэгчийг суудал дүүртэл элсүүлдэг тул элсэх эрхээ хугацаанд нь баталгаажуулаарай.'
+    );
+    expect(outcome.reason).not.toContain('1 хөтөлбөр');
+  });
+
+  test('branch row still unknown: neutral', () => {
+    expect(scoreMajorMatch(DARKHAN_UNKNOWN, { Хими: 620, Биологи: 580 }).verdict).toBe('CHECK_WITH_SCHOOL');
+  });
+
+  test('a sum and a 0.7/0.3 total rank on the same scale', () => {
+    // Both clear their minimums by the same margin (each exam 10% above its minimum).
+    const sum = scoreMajorMatch(MEDICAL_DOCTOR, { Хими: 539, Биологи: 539 });
+    const weighted = scoreMajorMatch(COMPUTER_SCIENCE, { Математик: 539, Физик: 495 });
+    expect(sum.matchScore).toBeCloseTo(1.1);
+    expect(weighted.matchScore).toBeCloseTo(1.1);
+  });
+});

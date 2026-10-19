@@ -1,0 +1,107 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "СУИС",
+  "description": "СУИС-ийн албан ёсны холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-18"
+ },
+ "records": [
+  {
+   "id": "suis-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлтийн цахим систем",
+   "url": "https://burtgel.mnuac.edu.mn"
+  },
+  {
+   "id": "suis-l-02",
+   "category": "admission",
+   "title_mn": "Бакалаврын элсэлт",
+   "url": "https://burtgel.mnuac.edu.mn/bachelor"
+  },
+  {
+   "id": "suis-l-03",
+   "category": "admission",
+   "title_mn": "Бакалаврын хөтөлбөр",
+   "url": "https://mnuac.edu.mn/main/409093"
+  },
+  {
+   "id": "suis-l-04",
+   "category": "admission",
+   "title_mn": "Дүрэм журам",
+   "url": "https://mnuac.edu.mn/main/485828"
+  },
+  {
+   "id": "suis-l-05",
+   "category": "info",
+   "title_mn": "Их сургуулийн албан ёсны сайт",
+   "url": "https://www.mnuac.edu.mn"
+  },
+  {
+   "id": "suis-l-06",
+   "category": "info",
+   "title_mn": "Холбоо барих",
+   "url": "https://mnuac.edu.mn/main/421896"
+  },
+  {
+   "id": "suis-l-07",
+   "category": "info",
+   "title_mn": "Магистрын хөтөлбөр",
+   "url": "https://mnuac.edu.mn/main/409095"
+  },
+  {
+   "id": "suis-l-08",
+   "category": "info",
+   "title_mn": "Докторын хөтөлбөр",
+   "url": "https://mnuac.edu.mn/main/409097"
+  },
+  {
+   "id": "suis-l-09",
+   "category": "info",
+   "title_mn": "Англи хэлээр (English)",
+   "url": "https://en.mnuac.edu.mn/main/391614"
+  },
+  {
+   "id": "suis-l-10",
+   "category": "info",
+   "title_mn": "Шилэн данс",
+   "url": "https://shilendans.gov.mn/organization/37119"
+  },
+  {
+   "id": "suis-l-11",
+   "category": "student",
+   "title_mn": "Оюутны веб",
+   "url": "http://student.mnuac.edu.mn"
+  },
+  {
+   "id": "suis-l-12",
+   "category": "student",
+   "title_mn": "Номын сангийн каталог",
+   "url": "http://catalog.mnuac.edu.mn"
+  },
+  {
+   "id": "suis-l-13",
+   "category": "student",
+   "title_mn": "Цахим сургалт",
+   "url": "http://open.mnuac.edu.mn"
+  },
+  {
+   "id": "suis-l-14",
+   "category": "school",
+   "title_mn": "Театрын урлагийн сургууль",
+   "url": "https://sssa.mnuac.edu.mn/"
+  },
+  {
+   "id": "suis-l-15",
+   "category": "school",
+   "title_mn": "Соёлын сургууль (фэйсбүүк)",
+   "url": "https://www.facebook.com/suis.soyoliinsurguuli/"
+  },
+  {
+   "id": "suis-l-16",
+   "category": "exam",
+   "title_mn": "Боловсролын үнэлгээний төв (ЭШ)",
+   "url": "https://www.eec.mn"
+  }
+ ]
+}

@@ -57,6 +57,13 @@
       "when": 1791538058607,
       "tag": "0007_add_major_secondary_cut_off",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1791988868448,
+      "tag": "0008_add_major_weights_and_selection",
+      "breakpoints": true
     }
   ]
 }

@@ -75,6 +75,11 @@ export interface Major {
   cutOffScore: number | null;
   /** The дагалдах exam's own minimum; when set, `cutOffScore` is the суурь exam's and both must be met. */
   secondaryCutOffScore: number | null;
+  /** Exam weights in the admission score; null means 0.7 / 0.3. АШУҮИС adds the two exams (1 / 1). */
+  primaryWeight: number | null;
+  secondaryWeight: number | null;
+  /** "list" (ranked, up to 8 choices) or "direct" (meet the minimums, one choice); null when unknown. */
+  selectionType: string | null;
   degreeType: string | null;
   tuitionFee: number | null;
   /** `tuitionFee` is an estimated upper bound, not an official yearly fee. */
@@ -203,6 +208,9 @@ export interface MajorInput {
   examNote?: string | null;
   cutOffScore?: number | null;
   secondaryCutOffScore?: number | null;
+  primaryWeight?: number | null;
+  secondaryWeight?: number | null;
+  selectionType?: string | null;
   degreeType?: string | null;
   tuitionFee?: number | null;
   tuitionIsEstimate?: boolean | null;

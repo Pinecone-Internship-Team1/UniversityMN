@@ -1,0 +1,135 @@
+{
+ "_meta": {
+  "dataset": "schools",
+  "university": "СУИС",
+  "description": "СУИС-ийн бүрэлдэхүүн сургуулиуд (нэрсийг хэсэгчлэн баталгаажуулсан).",
+  "language": "mn",
+  "verified_at": "2026-10-18"
+ },
+ "records": [
+  {
+   "id": "suis-teatr",
+   "type": "constituent",
+   "name_mn": "Театрын урлагийн сургууль",
+   "abbr_mn": null,
+   "website": "https://sssa.mnuac.edu.mn/",
+   "page": "https://sssa.mnuac.edu.mn/",
+   "location_mn": "Улаанбаатар",
+   "contacts": {
+    "contact_page": "https://sssa.mnuac.edu.mn/main/490937"
+   },
+   "departments_mn": [
+    {
+     "name_mn": "Найруулах, жүжиглэх урлагийн тэнхим",
+     "url": "https://sssa.mnuac.edu.mn/main/426691"
+    },
+    {
+     "name_mn": "Ярих урлаг, театр, кино судлалын тэнхим",
+     "url": "https://sssa.mnuac.edu.mn/main/426663"
+    }
+   ],
+   "notes_mn": "1957 оноос театр, кино урлагийн мэргэжилтэн бэлтгэдэг (элсэлтийн системийн танилцуулга).",
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor",
+    "https://sssa.mnuac.edu.mn/",
+    "https://sssa.mnuac.edu.mn/main/426691",
+    "https://sssa.mnuac.edu.mn/main/426663"
+   ],
+   "status": "current",
+   "verified_at": "2026-10-18"
+  },
+  {
+   "id": "suis-dursleh",
+   "type": "constituent",
+   "name_mn": "Дүрслэх урлагийн академи",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://burtgel.mnuac.edu.mn/bachelor",
+   "location_mn": "Улаанбаатар",
+   "contacts": null,
+   "notes_mn": "Д.Амгалангийн нэрэмжит Дүрслэх урлагийн академи — 1945 онд байгуулагдсан (элсэлтийн системийн танилцуулга). 2016 оны мэдээнд 'Дүрслэх, дизайн урлагийн сургууль' нэрээр.",
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor",
+    "https://ikon.mn/n/o3c",
+    "https://mafa.mnuac.edu.mn/main/424545?content=5255818"
+   ],
+   "status": "current",
+   "departments_mn": null,
+   "verified_at": "2026-10-18"
+  },
+  {
+   "id": "suis-buzhig",
+   "type": "constituent",
+   "name_mn": "Бүжгийн урлагийн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://burtgel.mnuac.edu.mn/bachelor",
+   "location_mn": "Улаанбаатар",
+   "contacts": null,
+   "notes_mn": "1944 оноос бүжгийн мэргэжилтэн бэлтгэж эхэлсэн (элсэлтийн системийн танилцуулга).",
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor",
+    "https://pubhtml5.com/wrnh/vnoh/%D0%A1%D0%BE%D1%91%D0%BB_%D1%83%D1%80%D0%BB%D0%B0%D0%B3%D0%B8%D0%B9%D0%BD_%D0%B8%D1%85_%D1%81%D1%83%D1%80%D0%B3%D1%83%D1%83%D0%BB%D1%8C_%D0%91%D2%AF%D0%B6%D0%B3%D0%B8%D0%B9%D0%BD_%D1%83%D1%80%D0%BB%D0%B0%D0%B3%D0%B8%D0%B9%D0%BD_%D1%81%D1%83%D1%80%D0%B3%D1%83%D1%83%D0%BB%D1%8C/6"
+   ],
+   "status": "current",
+   "departments_mn": null,
+   "verified_at": "2026-10-18"
+  },
+  {
+   "id": "suis-soyol",
+   "type": "constituent",
+   "name_mn": "Соёлын сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://www.facebook.com/suis.soyoliinsurguuli/",
+   "location_mn": "Улаанбаатар",
+   "contacts": {
+    "facebook": "https://www.facebook.com/suis.soyoliinsurguuli/"
+   },
+   "notes_mn": "1965 онд байгуулагдсан; соёл судлал, аялал жуулчлал, номын сан, менежмент, музей-соёлын өвийн чиглэлээр (элсэлтийн системийн танилцуулга).",
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor",
+    "https://www.facebook.com/suis.soyoliinsurguuli/",
+    "https://scc.mnuac.edu.mn/main/424270",
+    "https://scc.mnuac.edu.mn/main/424802?content=492953"
+   ],
+   "status": "current",
+   "departments_mn": null,
+   "verified_at": "2026-10-18"
+  },
+  {
+   "id": "suis-kino",
+   "type": "constituent",
+   "name_mn": "Кино, телевиз медиа урлагийн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://burtgel.mnuac.edu.mn/bachelor",
+   "location_mn": "Улаанбаатар",
+   "contacts": null,
+   "notes_mn": "1996 онд байгуулагдсан; сэтгүүлч, кино-телевизийн найруулагч, зураглаач, дууны инженер, аниматор бэлтгэдэг (элсэлтийн системийн танилцуулга).",
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor"
+   ],
+   "status": "current",
+   "departments_mn": null,
+   "verified_at": "2026-10-18"
+  },
+  {
+   "id": "suis-khugjim",
+   "type": "constituent",
+   "name_mn": "Хөгжмийн урлагийн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://burtgel.mnuac.edu.mn/bachelor",
+   "location_mn": "Улаанбаатар",
+   "contacts": null,
+   "notes_mn": "Хөгжмийн урлаг, дуулах урлаг, үндэсний язгуур урлаг, хөгжмийн багшийн чиглэлээр (элсэлтийн системийн танилцуулга).",
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor"
+   ],
+   "status": "current",
+   "departments_mn": null,
+   "verified_at": "2026-10-18"
+  }
+ ]
+}

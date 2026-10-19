@@ -1,0 +1,227 @@
+{
+  "_meta": {
+    "dataset": "sources",
+    "university": "ОТИС",
+    "description": "Энэ датасетэд ашигласан эх сурвалжууд ба уншиж чадаагүй (цоорхой) эх сурвалжууд.",
+    "language": "mn",
+    "verified_at": "2026-10-16",
+    "note_mn": "gap = true бол уншиж чадаагүй; gap_fill_hint_mn-д тэндээс юу авахыг бичсэн."
+  },
+  "records": [
+    {
+      "id": "src-enroll-api",
+      "url": "https://api.otgontenger.edu.mn/enrollment",
+      "used_for": "2026-2027 оны элсэлтийн журам ба 1-р хавсралтын хүснэгт (ЭЕШ-1/ЭЕШ-2 хичээл, босго) — гол эх сурвалж",
+      "gap": false
+    },
+    {
+      "id": "src-enroll-mn",
+      "url": "https://otgontenger.edu.mn/mn/enrollment",
+      "used_for": "Элсэлтийн хуудас: бүртгэл (Б байр), утас 9510-1991, холбоосууд",
+      "gap": false
+    },
+    {
+      "id": "src-enroll-en",
+      "url": "http://www.otgontenger.edu.mn/en/enrollment",
+      "used_for": "Журмын гарчиг (2026-2027), бүртгэлийн газар; англи хуудсанд хавсралт байхгүй",
+      "gap": false
+    },
+    {
+      "id": "src-api-programs",
+      "url": "https://api.otgontenger.edu.mn/programs",
+      "used_for": "Хөтөлбөрийн жагсаалт: индекс, хугацаа, 'босго' утга (36 мөр)",
+      "gap": false
+    },
+    {
+      "id": "src-programs",
+      "url": "https://www.otgontenger.edu.mn/mn/programs",
+      "used_for": "Бакалавр 24 мөр (13 + 8 + 3), магистр 10, доктор 2; хугацаа",
+      "gap": false
+    },
+    {
+      "id": "src-tuition",
+      "url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees",
+      "used_for": "Сургалтын төлбөрийн хуудас — дүн байхгүй, зөвхөн Хаан банкаар төлөх заавар",
+      "gap": false
+    },
+    {
+      "id": "src-rules",
+      "url": "https://www.otgontenger.edu.mn/about/rules?term=term_5_4",
+      "used_for": "Журмын жагсаалт (31 баримт; 'Элсэлтийн журам', тэтгэлгийн журам холбоосгүй)",
+      "gap": false
+    },
+    {
+      "id": "src-scholar",
+      "url": "http://otgontenger.edu.mn/mn/student/scholarship",
+      "used_for": "Тэтгэлэг, хөнгөлөлт, ЭЕШ-ын онооны хөнгөлөлт, гадаад хөтөлбөр, төрийн сангийн тусламж",
+      "gap": false
+    },
+    {
+      "id": "src-contact",
+      "url": "https://www.otgontenger.edu.mn/mn/contact",
+      "used_for": "Хаяг, утас, дотоод утас, байр/өрөөний жагсаалт, координат",
+      "gap": false
+    },
+    {
+      "id": "src-hum",
+      "url": "https://www.otgontenger.edu.mn/branch/humanities",
+      "used_for": "Хүмүүнлэгийн сургууль: захирал, 33 багш, Улаанбаатар дахь хаяг",
+      "gap": false
+    },
+    {
+      "id": "src-econ",
+      "url": "https://www.otgontenger.edu.mn/branch/economic-and-business",
+      "used_for": "Эдийн засаг бизнесийн удирдлагын сургууль: захирал, ACBSP",
+      "gap": false
+    },
+    {
+      "id": "src-home",
+      "url": "https://www.otgontenger.edu.mn/mn",
+      "used_for": "Нүүр хуудас: 1991/1999, магадлан итгэмжлэл, 18 бакалаврын хөтөлбөр, мэдээний жагсаалт",
+      "gap": false
+    },
+    {
+      "id": "src-the",
+      "url": "https://www.otgontenger.edu.mn/news/times-higher-education-sustainability-impact-ratings-2026-unelgeenii-sdg-4-quality-education-canartai-bolovsrol-angilald-delxiin-201-300-dugaar-bairt-erembelegdlee",
+      "used_for": "THE тогтвортой хөгжлийн үнэлгээ 2026, 'Чанартай боловсрол' 201–300 (их сургуулийн мэдээ, 2026-06-24)",
+      "gap": false
+    },
+    {
+      "id": "src-malaga",
+      "url": "https://www.otgontenger.edu.mn/mn/news/show/635",
+      "used_for": "Erasmus+ KA171 — Малагын их сургууль (мэдээний гарчиг, 2026-09-03)",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-2026",
+      "url": "https://ikon.mn/n/3okx",
+      "used_for": "2026 оны Элсэлтийн шалгалт 6/25–28, ур чадварын шалгалт 6/29–30; босгыг 3 жилээр зарлах төлөвлөгөө (2026-06-29)",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-esh",
+      "url": "https://ikon.mn/n/3off",
+      "used_for": "Элсэлтийн шалгалтын шинэчлэл: 2027 онд туршина, 2028 оноос Суралцах чадварын шалгалт (2026-06-22)",
+      "gap": false
+    },
+    {
+      "id": "gap-table-104104",
+      "url": "https://api.otgontenger.edu.mn/enrollment",
+      "used_for": "ЦООРХОЙ: Агаарын тээврийн үйлчилгээ (104104) мөр — сайтын текст '4…' гэж тасарч дуусдаг",
+      "gap": false,
+      "gap_fill_hint_mn": "Хөтчөөр https://api.otgontenger.edu.mn/enrollment эсвэл https://www.otgontenger.edu.mn/enrollment нээж 1-р хавсралтын 17-р мөрийг (104104 Агаарын тээврийн үйлчилгээ) уншина: ЭЕШ-1 босго (жагсаалтад 490 гэж бий), ЭЕШ-2 хичээл(үүд) ба босго; хүснэгт цааш үргэлжилдэг бол бусад мөр. Хуудсанд тасарсан бол элсэлтийн системээс эсвэл 7010-1991-ээс авна.",
+      "filled_at": "2026-10-18",
+      "filled_note": "Тамгатай журмын 1-р хавсралтаас: Агаарын тээврийн үйлчилгээ — Англи хэл, Нийгэм судлал 490 / Ур чадвар 480 (104102; хамтарсанд 104104)."
+    },
+    {
+      "id": "gap-elselt-system",
+      "url": "https://elselt.otgontenger.edu.mn/home",
+      "used_for": "ЦООРХОЙ: Элсэлтийн систем — robots.txt-ээр хаагдсан",
+      "gap": false,
+      "gap_fill_hint_mn": "Нээж: хөтөлбөр тус бүрийн шалгалтын хичээл, босго (ялангуяа 104104), сургалтын төлбөр/кредитийн үнэ, бүртгэлийн хураамж, 2026 оны бүртгэлийн огноо, Хүний нөөцийн менеджмент, Маркетинг сонгогдох эсэх, 2.5–3.5 жилийн хувилбар хэнд зориулсныг авна.",
+      "filled_at": "2026-10-18",
+      "filled_note": "Headless Chrome-оор нээв: 2026-2027 оны бакалаврын журмын PDF-ийн холбоос олдов. Сургалтын төлбөрийн дүн системд байхгүй."
+    },
+    {
+      "id": "gap-elselt-otu",
+      "url": "https://elselt.otu.edu.mn/home",
+      "used_for": "ЦООРХОЙ: Элсэлтийн системийн хуучин хаяг — татаж чадаагүй",
+      "gap": true,
+      "gap_fill_hint_mn": "Дээрхтэй ижил мэдээлэл; аль хаяг ажиллаж байгааг тэмдэглэнэ."
+    },
+    {
+      "id": "gap-admission-regulation",
+      "url": "https://www.otgontenger.edu.mn/about/rules?term=term_5_4",
+      "used_for": "ЦООРХОЙ: 'Элсэлтийн журам' (12-р мөр) — файлын холбоос харагдахгүй",
+      "gap": false,
+      "gap_fill_hint_mn": "Хөтчөөр нээж 'Элсэлтийн журам'-ын файлыг олоод: онооны томьёо (жин/нийлбэр), эрэмбэлэх дүрэм, бүртгэлийн хураамж, баталгаажуулалтын төлбөр, ур чадварын шалгалтын агуулга/огноо/дүгнэлт, 2.5–3.5 жилийн хувилбарын нөхцөлийг авна.",
+      "filled_at": "2026-10-18",
+      "filled_note": "Элсэлтийн журмын файлыг элсэлтийн системээс авав (src-rules-pdf-2026)."
+    },
+    {
+      "id": "gap-scholarship-regulation",
+      "url": "https://www.otgontenger.edu.mn/about/rules?term=term_5_4",
+      "used_for": "ЦООРХОЙ: Тэтгэлэг, хөнгөлөлтийн журам (25-р мөр) ба 'Үүсгэн байгуулагчийн тэтгэлэг' (31-р мөр) — холбоосгүй",
+      "gap": true,
+      "gap_fill_hint_mn": "Файлыг олж Үүсгэн байгуулагчийн тэтгэлгийн хэмжээ, шалгуур, хугацаа; ЭЕШ-ын хөнгөлөлтийн 'АТҮ' товчлолын утгыг авна."
+    },
+    {
+      "id": "gap-scholarship-images",
+      "url": "http://otgontenger.edu.mn/mn/student/scholarship",
+      "used_for": "ЦООРХОЙ: Тэтгэлгийн хуудасны 8 зураг",
+      "gap": true,
+      "gap_fill_hint_mn": "Зургууд: https://api.otgontenger.edu.mn/storage/student-scholarship-programs/01KH6BBB254GGZQV9GA9NW4CKT.png, https://api.otgontenger.edu.mn/storage/student-scholarship-programs/01KH6BPGNEV659V49437WJ89Y4.png, https://api.otgontenger.edu.mn/storage/student-scholarship-programs/01KH6BR8571ATRYSFDYFNFK51V.png, https://api.otgontenger.edu.mn/storage/student-scholarship-programs/01KH6BTKKMQDHNZCE990FPSN1G.png, https://api.otgontenger.edu.mn/storage/student-scholarship-programs/01KH6BX6N5R0ZS4ZZRFXFHNC4B.png, https://api.otgontenger.edu.mn/storage/student-scholarship-programs/01KH6C5CHF4P4X824BB9CKKAZ2.png, https://api.otgontenger.edu.mn/storage/student-scholarship-programs/01KH6C710CGHPYMP456CZ9VMQY.png, https://api.otgontenger.edu.mn/storage/student-scholarship-programs/01KH6CE7EMR1DYW89YHA17ZWN2.png — тэтгэлэг бүрийн хэмжээ, шалгуур, хугацаа бичигдсэн эсэхийг шалгана."
+    },
+    {
+      "id": "gap-enroll-widgets",
+      "url": "https://otgontenger.edu.mn/mn/enrollment",
+      "used_for": "ЦООРХОЙ: Элсэлтийн хуудасны 3 зураг (Элсэх мэргэжлүүд, Тэтгэлэг, Заавар)",
+      "gap": true,
+      "gap_fill_hint_mn": "Зургууд: https://api.otgontenger.edu.mn/storage/enrollment-widgets/01KGDCVYSHH1GBSVSZR3WYAJFX.png, https://api.otgontenger.edu.mn/storage/enrollment-widgets/01KGDCX55RT457N3CD87AAARQX.png, https://api.otgontenger.edu.mn/storage/enrollment-widgets/01KGDCXJXR75K0HN3FAMASGSSF.png — дүрс тэмдэг эсэх, эсвэл заавар, огноо, төлбөр агуулсан эсэхийг шалгана."
+    },
+    {
+      "id": "gap-tuition",
+      "url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees",
+      "used_for": "ЦООРХОЙ: Сургалтын төлбөрийн дүн — хуудсанд байхгүй, дансны дугаар JavaScript цонхонд",
+      "gap": true,
+      "gap_fill_hint_mn": "Хөтчөөр нээж Хаан банкны дансны дугаарыг авна; 2026-2027 оны кредитийн/жилийн төлбөрийг элсэлтийн систем, Facebook эсвэл 7010-1991-ээс авна. Англи хувилбар http://www.otgontenger.edu.mn/en/tuition-fees татагдаагүй."
+    },
+    {
+      "id": "gap-facebook",
+      "url": "https://www.facebook.com/OtgonTengerUni",
+      "used_for": "ЦООРХОЙ: Facebook хуудас (уншигдахгүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "2026 оны элсэлтийн нийтлэлүүдээс: сургалтын төлбөр, бүртгэлийн огноо, ур чадварын шалгалтын (Сэтгүүл зүй, Сургуулийн өмнөх боловсрол) огноо/агуулга, оюутны байр, нэмэлт элсэлтийг авна."
+    },
+    {
+      "id": "gap-elselt-page",
+      "url": "https://www.otgontenger.edu.mn/mn/elselt",
+      "used_for": "ЦООРХОЙ: Монгол элсэлтийн хуудас (/mn/elselt) — татахад алдаа гарсан",
+      "gap": true,
+      "gap_fill_hint_mn": "Нээж /mn/enrollment-ээс ялгаатай мэдээлэл (огноо, заавар, хураамж) байгаа эсэхийг шалгана."
+    },
+    {
+      "id": "gap-about",
+      "url": "http://www.otgontenger.edu.mn/mn/about/about",
+      "used_for": "ЦООРХОЙ: 'Бидний тухай' хуудас — татахад алдаа гарсан",
+      "gap": true,
+      "gap_fill_hint_mn": "Түүх (үүсгэн байгуулагч, нэр өөрчлөлт), оюутан/багш/төгсөгчийн тоо, эрхэм зорилго, алсын харааг авна."
+    },
+    {
+      "id": "gap-student",
+      "url": "https://www.otgontenger.edu.mn/mn/student",
+      "used_for": "ЦООРХОЙ: 'Оюутан' хуудас — татахад алдаа гарсан",
+      "gap": true,
+      "gap_fill_hint_mn": "Оюутны байр, хоолны газар, клуб, эрүүл мэндийн үйлчилгээний мэдээллийг авна."
+    },
+    {
+      "id": "gap-cert",
+      "url": "https://otgontenger.edu.mn/mn/certified-quality",
+      "used_for": "ЦООРХОЙ: Чанарын баталгаажуулалт (магадлан итгэмжлэл) — татахад алдаа гарсан",
+      "gap": true,
+      "gap_fill_hint_mn": "Байгууллага, хөтөлбөрийн магадлан итгэмжлэлийн он, хүчинтэй хугацаа, ACBSP-ийн статусыг авна."
+    },
+    {
+      "id": "gap-law-school",
+      "url": "https://www.otgontenger.edu.mn/branch/huul-zuin-surguul",
+      "used_for": "ЦООРХОЙ: Хууль зүйн сургуулийн хуудас — уншаагүй (хязгаараас болж)",
+      "gap": true,
+      "gap_fill_hint_mn": "Захирал, танилцуулга, хөтөлбөрийн мэдээллийг авна."
+    },
+    {
+      "id": "gap-the-ranking",
+      "url": "https://www.otgontenger.edu.mn/news/times-higher-education-sustainability-impact-ratings-2026-unelgeenii-sdg-4-quality-education-canartai-bolovsrol-angilald-delxiin-201-300-dugaar-bairt-erembelegdlee",
+      "used_for": "ЦООРХОЙ: THE эрэмбийг их сургуулийн мэдээнээс л авсан",
+      "gap": true,
+      "gap_fill_hint_mn": "Times Higher Education-ийн сайтаас Otgontenger University-ийн Sustainability Impact Ratings 2026 (SDG 4) үр дүнг баталгаажуулж, хуудасны URL-ыг нэмнэ."
+    },
+    {
+      "id": "src-rules-pdf-2026",
+      "url": "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+      "used_for": "2026-2027 оны бакалаврын элсэлтийн журам (тамгатай PDF): 1-р хавсралтын хүснэгт, онооны жин (5.2), огноо, хураамж, хөнгөлөлт",
+      "gap": false,
+      "filled_at": "2026-10-18",
+      "filled_note": "elselt.otgontenger.edu.mn-ээс олсон; бүх 18 мөрийг (Бизнесийн эрх зүйг нэмж) зургаар уншиж, А/34 тушаалтай тулгав."
+    }
+  ]
+}

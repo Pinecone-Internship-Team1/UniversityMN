@@ -1,0 +1,156 @@
+{
+ "_meta": {
+  "dataset": "schools",
+  "university": "Этүгэн",
+  "description": "Этүгэн их сургуулийн бакалаврын элсэлт авдаг бүрэлдэхүүн сургуулиуд, салбар, нэгж.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "etu-health",
+   "type": "constituent",
+   "name_mn": "Эрүүл мэндийн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://etugen.edu.mn/Home/admission/17",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+   "notes_mn": "2026-2027 оны элсэлтийн хүснэгтэд Анагаах ухаан-Хүний их эмч, Уламжлалт анагаах ухааны их эмч, Эм зүйч, Био-Анагаах ухаан, Эм найруулагч хөтөлбөрүүд энэ сургуулийн дор бичигдсэн. Сайтын хуучин хөтөлбөрийн жагсаалтад Эм зүйч, Эм найруулагч 'Эм зүйн сургууль'-д харьяалагдаж байсан.",
+   "contacts": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/admission/17",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-dental",
+   "type": "constituent",
+   "name_mn": "Нүүр ам судлалын сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://etugen.edu.mn/Home/admission/17",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+   "notes_mn": null,
+   "contacts": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/admission/17",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-nursing",
+   "type": "constituent",
+   "name_mn": "Сувилахуйн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://etugen.edu.mn/Home/admission/17",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+   "notes_mn": null,
+   "contacts": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/admission/17",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-mgmt",
+   "type": "constituent",
+   "name_mn": "Төрийн захиргаа, эдийн засаг, менежментийн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://etugen.edu.mn/Home/admission/17",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+   "notes_mn": "Элсэлтийн магистрын хүснэгтэд 'Төрийн захиргаа, бизнесийн удирдлагын сургууль', сайтын хуучин жагсаалтад 'Хүмүүнлэгийн сургууль' нэрээр бичигдсэн.",
+   "contacts": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/admission/17",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-eng",
+   "type": "constituent",
+   "name_mn": "Инженер, технологийн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://etugen.edu.mn/Home/admission/17",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+   "notes_mn": "Сайтын хуучин хөтөлбөрийн жагсаалтад 'Инженерийн сургууль' нэрээр.",
+   "contacts": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/admission/17",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-teacher",
+   "type": "constituent",
+   "name_mn": "Багшийн сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://etugen.edu.mn/Home/admission/17",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+   "notes_mn": "Сайтын хуучин хөтөлбөрийн жагсаалтад багшийн хөтөлбөрүүд 'Хүмүүнлэгийн сургууль'-д байсан.",
+   "contacts": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/admission/17",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-orkhon",
+   "type": "branch",
+   "name_mn": "Орхон аймаг дахь салбар сургууль",
+   "abbr_mn": null,
+   "website": null,
+   "page": "https://etugen.edu.mn/Home/academic/31",
+   "location_mn": "Орхон аймаг, Эрдэнэт",
+   "contacts": {
+    "phones": [
+     "7700-3344",
+     "1131-9150"
+    ],
+    "email": "info@etugen.edu.mn",
+    "note_mn": "Салбарын тусдаа хаяг, утас сайтад байхгүй — их сургуулийн ерөнхий утас."
+   },
+   "notes_mn": "Элсэлтийн журамд 'Эрдэнэт салбар сургууль' гэж нэрлэсэн; элсэгчийн босго оноо 430-аас багагүй. Сайтын салбарын хуудсанд бакалаврын өдрийн 2 хөтөлбөр (Нягтлан бодох бүртгэл, Төрийн захиргааны удирдлага) бичигдсэн. Сургуулийн түүхэнд 2016 онд Дархан-Уул, Орхон аймагт салбар нээсэн гэсэн.",
+   "source_urls": [
+    "https://etugen.edu.mn/Home/academic/31",
+    "https://burtgel.etugen.edu.mn/account/bachelorregister",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "etu-vocational",
+   "type": "unit",
+   "name_mn": "Мэргэжлийн боловсролын сургууль",
+   "abbr_mn": "МБС",
+   "website": null,
+   "page": "https://etugen.edu.mn/Home/academic/19",
+   "location_mn": "Улаанбаатар, Сүхбаатар дүүрэг (Этүгэн их сургуулийн хичээлийн байрууд)",
+   "notes_mn": "1 жилийн мэргэжлийн боловсрол (туслах сувилагч, эмчилгээний бариа засалч, тогооч) болон 3 сар хүртэлх чадамжийн гэрчилгээний сургалт — бакалаврын элсэлт авахгүй.",
+   "contacts": null,
+   "source_urls": [
+    "https://etugen.edu.mn/Home/academic/19",
+    "https://burtgel.etugen.edu.mn/account/bachelorregister",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  }
+ ]
+}

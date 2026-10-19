@@ -1,0 +1,2480 @@
+{
+ "_meta": {
+  "dataset": "programs",
+  "university": "СУИС",
+  "description": "СУИС-ийн бакалаврын өдрийн мэргэжлүүд (2026-2027): элсэлтийн системийн 35 мэргэжил, ЭШ-ын хичээл, босго, ур чадварын шалгалт.",
+  "language": "mn",
+  "verified_at": "2026-10-18",
+  "sources": [
+   "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "https://burtgel.mnuac.edu.mn/api/v1/program/programs/public?language=mn",
+   "https://burtgel.mnuac.edu.mn/api/v1/exam/public/eesh-thresholds",
+   "https://burtgel.mnuac.edu.mn/bachelor/score-calculator"
+  ],
+  "counts": {
+   "total": 35,
+   "imported": 35,
+   "by_split_confidence": {
+    "confirmed": 24,
+    "unclear": 11
+   }
+  },
+  "scoring_mn": "2026-2027: ур чадварын шалгалттай мэргэжилд элсэх оноо = ЭШ ÷ 2 + ур чадвар (дээд тал нь 1200); зөвхөн ЭШ шаарддаг 7 мэргэжилд 2 хичээлийн дундаж (800). ЭШ-ын хичээл бүр өөрийн босготой (450, 460, 490), ур чадварын шалгалтын тэнцэх оноо 490 (жүжиглэх, найруулахын 1-р шат 400); 11 мэргэжилд 2 шаттай ур чадварын шалгалт. 2016-2017: ур чадварын шалгалттай 19 хөтөлбөрт ЭЕШ-ын аль нэг хичээлээс 400+, ур чадварын шалгалт 800 оноогоор; ур чадварын шалгалтгүй 6 хөтөлбөрт заасан 2 хичээлийн аль нэгээс 400+. Хоёр оноог хэрхэн нийлүүлэхийг заагаагүй.",
+  "fields_mn": {
+   "exam_2026_2027.page_thresholds": "2016 оны дүрмийн утгууд (оноор нь).",
+   "code": "2016 оны мэргэжлийн индекс.",
+   "status": "unverified = 2016 оны жагсаалт, импортлохгүй; 2026-2027 оны жагсаалтаар солино."
+  }
+ },
+ "records": [
+  {
+   "id": "suis-dursleh-bagsh-durslekh-urlagiin-bolovsrol",
+   "name_mn": "Багш, дүрслэх урлагийн боловсрол",
+   "name_en": null,
+   "school_id": "suis-dursleh",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "011419",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Математик, Нийгэм судлал эсвэл Монгол хэл — босго 460. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 460,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Нийгэм судлал",
+     "Монгол хэл",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Математик",
+     "Нийгэм судлал",
+     "Монгол хэл"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 460,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Математик, Нийгэм судлал эсвэл Монгол хэл (аль нэг хичээлээр) 460-аас багагүй; ур чадварын шалгалт (зохиомж, хар зураг, уран зураг, бие дааж хийсэн ажил) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-bagsh-khugjmiin-bolovsrol-khugjmiin-bagsh",
+   "name_mn": "Багш, хөгжмийн боловсрол (Хөгжмийн багш)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "011424",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Англи хэл, Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (ур чадвар, хөгжмийн боловсролын мэдэгдэхүүн) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-buzhig-bagsh-bujgiin-bolovsrol-bujgiin-bagsh",
+   "name_mn": "Багш, бүжгийн боловсрол (Бүжгийн багш)",
+   "name_en": null,
+   "school_id": "suis-buzhig",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "011425",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл эсвэл Нийгэм судлал — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (бие бялдрын хөгжил, уян хатан чанар, сонсгол, ой тогтоолт, хөгжмийн мэдрэмж, бүжиглэх ур чадвар, үсрэлт, хөдөлгөөний эвсэл, ярилцлага) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-kino-zurag-avalt-kino-televiziin-zuraglaach",
+   "name_mn": "Зураг авалт (Кино, телевизийн зураглаач)",
+   "name_en": null,
+   "school_id": "suis-kino",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021101",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл, Нийгэм судлал эсвэл Физик — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Физик",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Физик"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл, Нийгэм судлал эсвэл Физик (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (видео танилцуулга, эсээ бичлэг, ур чадвар) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-kino-duu-chimeenii-tekhnologi-duuny-injener-duuny-nairuulagch",
+   "name_mn": "Дуу чимээний технологи (Дууны инженер, дууны найруулагч)",
+   "name_en": null,
+   "school_id": "suis-kino",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021102",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Англи хэл, Монгол хэл эсвэл Нийгэм судлал — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Англи хэл, Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (соноршуулга, ярилцлага) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-dursleh-grafik-dizain-konsept-artist-kompiyuteriin-grafik-dizain-foto-media-artist",
+   "name_mn": "График дизайн (Консепт Артист, Компьютерийн график дизайн, Фото медиа Артист)",
+   "name_en": null,
+   "school_id": "suis-dursleh",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021105",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Англи хэл эсвэл Математик — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Математик",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Англи хэл эсвэл Математик (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (зохиомж, хар зураг, уран зураг, бие дааж хийсэн ажил) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-kino-animeishn-mulitimedia-dizain",
+   "name_mn": "Анимейшн, мультимедиа дизайн",
+   "name_en": null,
+   "school_id": "suis-kino",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021106",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Англи хэл эсвэл Математик — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Математик",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Англи хэл эсвэл Математик (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (хар зураг, зохиомж) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-dursleh-khuvtsasny-dizain",
+   "name_mn": "Хувцасны дизайн",
+   "name_en": null,
+   "school_id": "suis-dursleh",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021202",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Англи хэл эсвэл Математик — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Математик",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Англи хэл эсвэл Математик (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (зохиомж, хар зураг, уран зураг, бие дааж хийсэн ажил) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-dursleh-uran-zurag-uran-zurag-mongol-zurag-monumentali-uran-zurag",
+   "name_mn": "Уран зураг (Уран зураг; Монгол зураг; Монументаль уран зураг)",
+   "name_en": null,
+   "school_id": "suis-dursleh",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021301",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл, Нийгэм судлал эсвэл Түүх — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Түүх",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Түүх"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл, Нийгэм судлал эсвэл Түүх (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (зохиомж, хар зураг, уран зураг, бие дааж хийсэн ажил) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-teatr-taiz-delgetsiin-zurag-taiz-delgets-kinony-zuraach",
+   "name_mn": "Тайз, дэлгэцийн зураг (Тайз, дэлгэц, киноны зураач)",
+   "name_en": null,
+   "school_id": "suis-teatr",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021304",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Англи хэл, Нийгэм судлал эсвэл Түүх — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Нийгэм судлал",
+     "Түүх",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Нийгэм судлал",
+     "Түүх"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Англи хэл, Нийгэм судлал эсвэл Түүх (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (хар зураг, уран зураг, бие дааж хийсэн ажил) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-dursleh-uran-barimal-uran-barimal-keramik-urlag-arisan-urlag-chimeglekh-urlag-uran-darkhan-uran-siilber",
+   "name_mn": "Уран баримал (Уран баримал; керамик урлаг; арьсан урлаг; чимэглэх урлаг; уран дархан; уран сийлбэр)",
+   "name_en": null,
+   "school_id": "suis-dursleh",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021305",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл, Нийгэм судлал эсвэл Түүх — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Түүх",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Түүх"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл, Нийгэм судлал эсвэл Түүх (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (зохиомж, хар зураг, уран зураг, бие дааж хийсэн ажил) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-dursleh-zuraasan-zurag-zuraasan-zurag-nomyn-zurag",
+   "name_mn": "Зураасан зураг (Зураасан зураг, Номын зураг)",
+   "name_en": null,
+   "school_id": "suis-dursleh",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021310",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл, Нийгэм судлал эсвэл Түүх — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Түүх",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Түүх"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл, Нийгэм судлал эсвэл Түүх (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (зохиомж, хар зураг, уран зураг, бие дааж хийсэн ажил) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-khugjmiin-urlag-zokhiomj-midi-zokhiomj-khugjim-sudlal-udirdakh-nairal-duu-nairal-khugjim",
+   "name_mn": "Хөгжмийн урлаг (Зохиомж; MIDI зохиомж хөгжим судлал; удирдах-найрал дуу; найрал хөгжим)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021501",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Англи хэл, Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (хөгжмийн зохиомж, midi зохиомж, хөгжим судлал, найрал дуу, хөгжим удирдах) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-khugjimdukh-urlag-undesnii",
+   "name_mn": "Хөгжимдөх урлаг (Үндэсний)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021507",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Англи хэл, Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (ур чадвар, биеий хөгжил) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-khugjimdukh-urlag-songodog",
+   "name_mn": "Хөгжимдөх урлаг (Сонгодог)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021507",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Англи хэл, Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (ур чадвар, биеий хөгжил) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-khugjimdukh-urlag-orchin-tsag",
+   "name_mn": "Хөгжимдөх урлаг (Орчин цаг)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021507",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Монгол хэл, Нийгэм судлал эсвэл Англи хэл (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (ур чадвар, биеий хөгжил) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Англи хэл",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-duulakh-urlag-orchin-tsagiin",
+   "name_mn": "Дуулах урлаг (Орчин цагийн)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021508",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (ур чадвар, биеийн хөгжил, хоолойн эрүүл ахуй, уран уншлага, хөдөлгөөний эвсэл) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-duulakh-urlag-duuriin",
+   "name_mn": "Дуулах урлаг (Дуурийн)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021508",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (ур чадвар, биеийн хөгжил, хоолойн эрүүл ахуй, уран уншлага, хөдөлгөөний эвсэл) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-duulakh-urlag-urtyn-ardyn",
+   "name_mn": "Дуулах урлаг (Уртын, ардын)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021508",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (ур чадвар, биеийн хөгжил, хоолойн эрүүл ахуй, уран уншлага, хөдөлгөөний эвсэл) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-khugjim-undesnii-yazguur-urlag-khuumei-tuuli",
+   "name_mn": "Үндэсний язгуур урлаг (Хөөмэй, тууль)",
+   "name_en": null,
+   "school_id": "suis-khugjim",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021509",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Нийгэм судлал эсвэл Түүх (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (сонсгол, ой тогтоолт, ярилцлага) — тэнцэх оноо 490; 2-р шат (ур чадвар, биеий хөгжил) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Нийгэм судлал",
+     "Түүх",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Нийгэм судлал",
+     "Түүх"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-teatr-jujiglekh-urlag-kino-dramyn",
+   "name_mn": "Жүжиглэх урлаг (Кино; драмын)",
+   "name_en": null,
+   "school_id": "suis-teatr",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021510",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (хөдөлгөөний эвсэл, дуулах ур чадвар, өөрийн судалбар, сонсгол римт, ёгт үлгэр) — тэнцэх оноо 400; 2-р шат (1-р биеийн өгүүллэг, өгөгдсөн судалбар, анхаарал, ой тогтоолт, ярилцлага) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-teatr-nairuulakh-urlag-jujgiin",
+   "name_mn": "Найруулах урлаг (Жүжгийн)",
+   "name_en": null,
+   "school_id": "suis-teatr",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021512-1",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "ЭШ: Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) — босго 450. Үүнээс гадна СУИС-ийн 2 шаттай ур чадварын шалгалт: 1-р шат (хөдөлгөөний эвсэл, дуулах ур чадвар, өөрийн судалбар, сонсгол римт, ёгт үлгэр) — тэнцэх оноо 400; 2-р шат (1-р биеийн өгүүллэг, өгөгдсөн судалбар, анхаарал, ой тогтоолт, ярилцлага) — тэнцэх оноо 490. Элсэх оноо = ЭШ ÷ 2 + ур чадвар — дэлгэрэнгүйг сургуулиас тодруулна уу.",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "threshold_type": null,
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "formula_known": false,
+    "score_formula": null,
+    "selection_type": "list",
+    "split_confidence": "unclear",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ 450+ ба 2 шаттай ур чадварын шалгалт (тус бүр 800 онооноос) — нийт 3 шалгалт тул сайт оноогоор шалгахгүй. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-kino-nairuulakh-urlag-televiziin-kinony",
+   "name_mn": "Найруулах урлаг (Телевизийн; киноны)",
+   "name_en": null,
+   "school_id": "suis-kino",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021512-2",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл эсвэл Нийгэм судлал — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (видео танилцуулга, эсээ бичлэг, ур чадвар) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-buzhig-bujgiin-urlag-bujiglekh-urlag-bujgiin-nairuulga",
+   "name_mn": "Бүжгийн урлаг (Бүжиглэх урлаг; бүжгийн найруулга)",
+   "name_en": null,
+   "school_id": "suis-buzhig",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "021513",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл эсвэл Нийгэм судлал — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (бие бялдрын хөгжил, уян хатан чанар, сонсгол, ой тогтоолт, хөгжмийн мэдрэмж, бүжиглэх ур чадвар, үсрэлт, хөдөлгөөний эвсэл, ярилцлага) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-teatr-jujig-kinony-zokhiol",
+   "name_mn": "Жүжиг, киноны зохиол",
+   "name_en": null,
+   "school_id": "suis-teatr",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "023205",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл эсвэл Нийгэм судлал — босго 450. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) 450-аас багагүй; ур чадварын шалгалт (ярилцлага, эсээ бичих) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-teatr-urlag-sudlal-urlag-sudlaach-teatr-kino",
+   "name_mn": "Урлаг судлал (Урлаг судлаач, Театр, кино)",
+   "name_en": null,
+   "school_id": "suis-teatr",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "028801",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Монгол хэл эсвэл Түүх — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Түүх",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Түүх"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 0.5
+    },
+    "formula_known": true,
+    "score_formula": "average",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): Монгол хэл + Нийгэм судлал; Монгол хэл + Англи хэл; Түүх + Нийгэм судлал; Түүх + Англи хэл — хичээл бүр 490-аас багагүй. Ур чадварын шалгалтгүй; элсэх оноо = 2 хичээлийн дундаж (дээд тал нь 800), онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-soyol-soyol-sudlal-soyolyn-uv-muzei",
+   "name_mn": "Соёл судлал (Соёлын өв, музей)",
+   "name_en": null,
+   "school_id": "suis-soyol",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "031401",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Түүх эсвэл Монгол хэл — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Түүх",
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Түүх",
+     "Монгол хэл"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 0.5
+    },
+    "formula_known": true,
+    "score_formula": "average",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): Түүх + Нийгэм судлал; Түүх + Англи хэл; Монгол хэл + Нийгэм судлал; Англи хэл + Монгол хэл — хичээл бүр 490-аас багагүй. Ур чадварын шалгалтгүй; элсэх оноо = 2 хичээлийн дундаж (дээд тал нь 800), онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-kino-setguul-zui-radio-televiziin",
+   "name_mn": "Сэтгүүл зүй (Радио, телевизийн)",
+   "name_en": null,
+   "school_id": "suis-kino",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "032101",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Англи хэл, Монгол хэл эсвэл Нийгэм судлал — босго 490. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Англи хэл, Монгол хэл эсвэл Нийгэм судлал (аль нэг хичээлээр) 490-аас багагүй; ур чадварын шалгалт (эсээ) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-soyol-nomyn-san-sudlal",
+   "name_mn": "Номын сан судлал",
+   "name_en": null,
+   "school_id": "suis-soyol",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "032201",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал эсвэл Монгол хэл — босго 450. 2-р шалгалт: Түүх эсвэл Англи хэл — босго 450.",
+   "threshold_score": 450,
+   "secondary_threshold_score": 450,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Нийгэм судлал",
+     "Монгол хэл",
+     "Түүх",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Нийгэм судлал",
+     "Монгол хэл"
+    ],
+    "dagaldah_options": [
+     "Түүх",
+     "Англи хэл"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 450,
+    "dagaldah_threshold": 450,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 0.5
+    },
+    "formula_known": true,
+    "score_formula": "average",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): Нийгэм судлал + Түүх; Нийгэм судлал + Англи хэл; Монгол хэл + Түүх; Монгол хэл + Англи хэл — хичээл бүр 450-аас багагүй. Ур чадварын шалгалтгүй; элсэх оноо = 2 хичээлийн дундаж (дээд тал нь 800), онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-soyol-menejment-soyol-urlagiin",
+   "name_mn": "Менежмент (Соёл урлагийн)",
+   "name_en": null,
+   "school_id": "suis-soyol",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "041303",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 0.5
+    },
+    "formula_known": true,
+    "score_formula": "average",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): Математик + Нийгэм судлал; Математик + Англи хэл — хичээл бүр 490-аас багагүй. Ур чадварын шалгалтгүй; элсэх оноо = 2 хичээлийн дундаж (дээд тал нь 800), онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-soyol-menejment-shou-biznesiin",
+   "name_mn": "Менежмент (Шоу, бизнесийн)",
+   "name_en": null,
+   "school_id": "suis-soyol",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "041303",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 0.5
+    },
+    "formula_known": true,
+    "score_formula": "average",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): Математик + Нийгэм судлал; Математик + Англи хэл — хичээл бүр 490-аас багагүй. Ур чадварын шалгалтгүй; элсэх оноо = 2 хичээлийн дундаж (дээд тал нь 800), онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-soyol-marketing-dijital-marketing",
+   "name_mn": "Маркетинг (Дижитал маркетинг)",
+   "name_en": null,
+   "school_id": "suis-soyol",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "041401",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 0.5
+    },
+    "formula_known": true,
+    "score_formula": "average",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): Математик + Нийгэм судлал; Математик + Англи хэл — хичээл бүр 490-аас багагүй. Ур чадварын шалгалтгүй; элсэх оноо = 2 хичээлийн дундаж (дээд тал нь 800), онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-soyol-marketing-zar-surtachlagaany",
+   "name_mn": "Маркетинг (Зар суртачлагааны)",
+   "name_en": null,
+   "school_id": "suis-soyol",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "041401",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 0.5
+    },
+    "formula_known": true,
+    "score_formula": "average",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): Математик + Нийгэм судлал; Математик + Англи хэл — хичээл бүр 490-аас багагүй. Ур чадварын шалгалтгүй; элсэх оноо = 2 хичээлийн дундаж (дээд тал нь 800), онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-dursleh-tuukh-soyolyn-dursgalt-zuiliin-sergeen-zasvarlalt",
+   "name_mn": "Түүх соёлын дурсгалт зүйлийн сэргээн засварлалт",
+   "name_en": null,
+   "school_id": "suis-dursleh",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "028802",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Монгол хэл, Нийгэм судлал эсвэл Түүх — босго 490. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Түүх",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Монгол хэл",
+     "Нийгэм судлал",
+     "Түүх"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Монгол хэл, Нийгэм судлал эсвэл Түүх (аль нэг хичээлээр) 490-аас багагүй; ур чадварын шалгалт (хар зураг, уран зураг, ярилцлага) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  },
+  {
+   "id": "suis-soyol-tuukh-soyolyn-ayalal-juulchlal",
+   "name_mn": "Түүх, соёлын аялал жуулчлал",
+   "name_en": null,
+   "school_id": "suis-soyol",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": "101502",
+   "official_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+   "selection_type": "list",
+   "selection_type_mn": "Онооны эрэмбээр (жагсаалтаар) сонгоно",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "Суурь (33%): Англи хэл эсвэл Түүх — босго 490. Дагалдах (67%): Ур чадварын шалгалт (их сургууль өөрөө авна) — босго 490.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Англи хэл",
+     "Түүх",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Англи хэл",
+     "Түүх"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "swap_subjects": null,
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "threshold_type": "per_exam",
+    "subject_minimums": null,
+    "weights": {
+     "suuri": 0.5,
+     "dagaldah": 1
+    },
+    "formula_known": true,
+    "score_formula": "weighted",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "СУИС-ийн элсэлтийн систем (2026): ЭШ — Англи хэл эсвэл Түүх (аль нэг хичээлээр) 490-аас багагүй; ур чадварын шалгалт (ярилцлага, эсээ бичих) 800 онооноос, тэнцэх оноо 490. Элсэх оноо = ЭШ-ын оноо ÷ 2 + ур чадварын шалгалтын оноо (дээд тал нь 1200); онооны дарааллаар жагсааж мэргэжил сонгуулна. Элсэлтийн системд Нийгэм судлалыг \"Нийгмийн тухай мэдлэг\", Түүхийг \"Монгол улсын түүх\" гэж бичсэн.",
+    "source_url": "https://burtgel.mnuac.edu.mn/bachelor/programs",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_credit": null,
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — сургуулиас тодруулна уу."
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor/programs"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "current"
+  }
+ ]
+}

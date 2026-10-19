@@ -1,0 +1,191 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "СЭЗИС",
+  "description": "СЭЗИС-ийн албан ёсны холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "ufe-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлтийн систем (бүртгэл)",
+   "url": "https://admission.ufe.edu.mn"
+  },
+  {
+   "id": "ufe-l-02",
+   "category": "admission",
+   "title_mn": "Нэвтрэх / Бүртгүүлэх",
+   "url": "https://admission.ufe.edu.mn/mn/auth/eec"
+  },
+  {
+   "id": "ufe-l-03",
+   "category": "admission",
+   "title_mn": "Бакалаврын өдрийн хөтөлбөр — мэргэжлийн жагсаалт",
+   "url": "https://admission.ufe.edu.mn/mn/professions/1"
+  },
+  {
+   "id": "ufe-l-04",
+   "category": "admission",
+   "title_mn": "2026-2027 'Элсэлтийн шалгуур' (бүлэг, босго)",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/199"
+  },
+  {
+   "id": "ufe-l-05",
+   "category": "admission",
+   "title_mn": "2026-2027 элсэлтийн босго оноо (зураг)",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/178"
+  },
+  {
+   "id": "ufe-l-06",
+   "category": "admission",
+   "title_mn": "Элсэлтийн журам",
+   "url": "https://admission.ufe.edu.mn/mn/admission-procedure"
+  },
+  {
+   "id": "ufe-l-07",
+   "category": "admission",
+   "title_mn": "Элсэлтийн түгээмэл асуулт",
+   "url": "https://admission.ufe.edu.mn/mn/degree/1/faq"
+  },
+  {
+   "id": "ufe-l-08",
+   "category": "admission",
+   "title_mn": "Сонголтын явц",
+   "url": "https://admission.ufe.edu.mn/mn/information/score"
+  },
+  {
+   "id": "ufe-l-09",
+   "category": "admission",
+   "title_mn": "Элсэлтийн мэдээ",
+   "url": "https://admission.ufe.edu.mn/mn/news"
+  },
+  {
+   "id": "ufe-l-10",
+   "category": "admission",
+   "title_mn": "Элсэлтийн танилцуулга (flipbook)",
+   "url": "https://heyzine.com/flip-book/243b02785b.html"
+  },
+  {
+   "id": "ufe-l-11",
+   "category": "program",
+   "title_mn": "Бакалаврын үндсэн хөтөлбөр",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/193"
+  },
+  {
+   "id": "ufe-l-12",
+   "category": "program",
+   "title_mn": "Олон улсын хамтарсан 2+2 хөтөлбөр",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/194"
+  },
+  {
+   "id": "ufe-l-13",
+   "category": "program",
+   "title_mn": "Rotation — олон улсад дамжин суралцах",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/195"
+  },
+  {
+   "id": "ufe-l-14",
+   "category": "program",
+   "title_mn": "BTEC — олон улсын мэргэжлийн диплом",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/196"
+  },
+  {
+   "id": "ufe-l-15",
+   "category": "program",
+   "title_mn": "Хос хөтөлбөр",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/197"
+  },
+  {
+   "id": "ufe-l-16",
+   "category": "program",
+   "title_mn": "+MBA хөтөлбөр",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/198"
+  },
+  {
+   "id": "ufe-l-17",
+   "category": "scholarship",
+   "title_mn": "Шинэ элсэгчийн тэтгэлэг 2026",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/177"
+  },
+  {
+   "id": "ufe-l-18",
+   "category": "scholarship",
+   "title_mn": "Шинэ элсэгчийн тэтгэлгийн журам (PDF)",
+   "url": "https://backadmission.ufe.edu.mn/content/post/image/202604/180067846491c672de3775ac9b7d8103.pdf"
+  },
+  {
+   "id": "ufe-l-19",
+   "category": "scholarship",
+   "title_mn": "Урилгаар элсэх",
+   "url": "https://admission.ufe.edu.mn/mn/newsDetail/189"
+  },
+  {
+   "id": "ufe-l-20",
+   "category": "student",
+   "title_mn": "Шинэ элсэгчийн сайт",
+   "url": "https://sites.google.com/ufe.edu.mn/orientation/"
+  },
+  {
+   "id": "ufe-l-21",
+   "category": "student",
+   "title_mn": "Оюутны дотуур байр",
+   "url": "https://dormitory.ufe.edu.mn/"
+  },
+  {
+   "id": "ufe-l-22",
+   "category": "student",
+   "title_mn": "Суралцах гэрээ (E-Geree)",
+   "url": "https://egeree.mn"
+  },
+  {
+   "id": "ufe-l-23",
+   "category": "student",
+   "title_mn": "Оюутны портал",
+   "url": "https://student.ufe.edu.mn/"
+  },
+  {
+   "id": "ufe-l-24",
+   "category": "school",
+   "title_mn": "Инженер, технологийн сургууль (UFE Tech)",
+   "url": "https://ufetech.mn"
+  },
+  {
+   "id": "ufe-l-25",
+   "category": "school",
+   "title_mn": "Боловсролын сургуулийн хөтөлбөрүүд (элсэлтийн систем)",
+   "url": "https://admission.ufe.edu.mn/mn/professions/17"
+  },
+  {
+   "id": "ufe-l-26",
+   "category": "school",
+   "title_mn": "Нийгмийн шинжлэх ухааны сургуулийн хөтөлбөр (элсэлтийн систем)",
+   "url": "https://admission.ufe.edu.mn/mn/professions/19"
+  },
+  {
+   "id": "ufe-l-27",
+   "category": "exam",
+   "title_mn": "Боловсролын үнэлгээний төв — ЭШ бүртгэл",
+   "url": "https://eyesh.eec.mn"
+  },
+  {
+   "id": "ufe-l-28",
+   "category": "info",
+   "title_mn": "СЭЗИС-ийн танилцуулга",
+   "url": "https://ufe.edu.mn/c/28"
+  },
+  {
+   "id": "ufe-l-29",
+   "category": "contact",
+   "title_mn": "Холбоо барих",
+   "url": "https://ufe.edu.mn/contact"
+  },
+  {
+   "id": "ufe-l-30",
+   "category": "contact",
+   "title_mn": "Элсэлтийн холбоо барих",
+   "url": "https://admission.ufe.edu.mn/mn/contact"
+  }
+ ]
+}

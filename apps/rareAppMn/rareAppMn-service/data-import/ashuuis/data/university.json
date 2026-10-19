@@ -1,0 +1,188 @@
+{
+ "_meta": {
+  "dataset": "university",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн ерөнхий мэдээлэл: танилцуулга, түүх, тоо, холбоо барих, оюутны үйлчилгээ, sidebar-ийн утгууд.",
+  "language": "mn",
+  "verified_at": "2026-10-11"
+ },
+ "records": [
+  {
+   "id": "mnums",
+   "name_mn": "Анагаахын шинжлэх ухааны үндэсний их сургууль",
+   "short_name_mn": "АШУҮИС",
+   "name_en": "Mongolian National University of Medical Sciences",
+   "short_name_en": "MNUMS",
+   "website": "https://mnums.edu.mn",
+   "admission_website": "https://mnums.edu.mn/admission",
+   "admission_system_url": "https://admission.mnums.edu.mn",
+   "overview_mn": "Анагаахын шинжлэх ухааны үндэсний их сургууль (АШУҮИС) нь Монголын анагаах ухаан, эрүүл мэндийн боловсролын тэргүүлэх их сургууль бөгөөд 1942 онд Улсын их сургуулийн Хүн эмнэлгийн факультетаас эхтэй. Улаанбаатарт 8 бүрэлдэхүүн сургууль, Дархан-Уул, Говь-Алтай, Дорноговь, Архангай аймагт салбар сургууль, 4 их сургуулийн эмнэлэгтэй; 16,500 гаруй суралцагчтай. Монголын эмнэлгийн мэргэжилтнүүдийн 93.4%-ийг бэлтгэсэн. Хүний, Хүүхдийн, Шүдний, Уламжлалт анагаахын, Зүү төөний их эмч 6 жил, Эм зүйч, Био-анагаах, Эрүүл ахуй, тархвар судлаач 5 жил, бусад бакалавр 4 жил, дэд бакалавр 3 жил суралцана. Элсэлтэд ЭЕШ-ын 2 бүлэг хичээлийн онооны нийлбэрийг ашигладаг.",
+   "history": [
+    {
+     "year": 1942,
+     "event_mn": "Улсын их сургуулийн Хүн эмнэлгийн факультет 4 тэнхим, 34 оюутантай байгуулагдсан (10-р сарын 5).",
+     "status": "current"
+    },
+    {
+     "year": 1961,
+     "event_mn": "Анагаах ухааны дээд сургууль болж бие даасан.",
+     "status": "unverified"
+    },
+    {
+     "year": "1962–1969",
+     "event_mn": "Говь-Алтай (1962), Дархан-Уул (1967), Дорноговь (1969) аймагт салбар анагаахын сургуулиуд байгуулагдсан (албан ёсны сайт; Википедиад он нь зөрүүтэй).",
+     "status": "conflicting"
+    },
+    {
+     "year": 1991,
+     "event_mn": "Анагаах ухааны их сургууль болсон.",
+     "status": "unverified"
+    },
+    {
+     "year": 2003,
+     "event_mn": "Эрүүл мэндийн шинжлэх ухааны их сургууль болсон.",
+     "status": "unverified"
+    },
+    {
+     "year": 2014,
+     "event_mn": "Анагаахын шинжлэх ухааны үндэсний их сургууль (АШУҮИС) нэртэй болсон.",
+     "status": "unverified"
+    },
+    {
+     "year": 2019,
+     "event_mn": "Монголын анхны их сургуулийн эмнэлэг, оюутны хотхон ашиглалтад орсон.",
+     "status": "unverified"
+    }
+   ],
+   "history_source_urls": [
+    "https://mnums.edu.mn/about/intro",
+    "https://mnums.edu.mn/",
+    "https://mn.wikipedia.org/wiki/Анагаахын_Шинжлэх_Ухааны_Үндэсний_Их_Сургууль"
+   ],
+   "motto_mn": "Эрүүл ирээдүйг хамтдаа бүтээе",
+   "stats": [
+    {
+     "label_mn": "Нийт суралцагч",
+     "value": "16,555",
+     "source_url": "https://mnums.edu.mn/",
+     "status": "current"
+    },
+    {
+     "label_mn": "Төгсөлтийн өмнөх сургалтын суралцагч",
+     "value": "11,122",
+     "source_url": "https://mnums.edu.mn/",
+     "status": "current"
+    },
+    {
+     "label_mn": "Бүрэлдэхүүн / салбар сургууль",
+     "value": "8 / 4",
+     "source_url": "https://mnums.edu.mn/",
+     "status": "current"
+    },
+    {
+     "label_mn": "Их сургуулийн эмнэлэг",
+     "value": "4",
+     "source_url": "https://mnums.edu.mn/",
+     "status": "current"
+    },
+    {
+     "label_mn": "Монголын эмнэлгийн мэргэжилтнүүдээс АШУҮИС-ийн төгсөгч",
+     "value": "93.4% (61,022)",
+     "source_url": "https://mnums.edu.mn/",
+     "status": "current"
+    },
+    {
+     "label_mn": "Докторын зэрэгтэй багш",
+     "value": "51%",
+     "source_url": "https://mnums.edu.mn/",
+     "status": "current"
+    },
+    {
+     "label_mn": "Олон улсын магадлан итгэмжлэлтэй хөтөлбөр",
+     "value": "7 (ASIIN, APHEA, ACQUIN, WFOT)",
+     "source_url": "https://mnums.edu.mn/about/intro",
+     "status": "current"
+    }
+   ],
+   "accreditation_memberships": [
+    "ASIIN",
+    "APHEA",
+    "ACQUIN",
+    "WFOT"
+   ],
+   "rankings": null,
+   "rankings_note_mn": "THE, QS-ийн чансааг албан ёсны эх сурвалжаас баталгаажуулж чадсангүй.",
+   "contacts": {
+    "address_mn": "Улаанбаатар 14210, С.Зоригийн гудамж, Ш/х 48/111 (Төв байр)",
+    "phones": [
+     "7775-7575"
+    ],
+    "admission_office_mn": "Суралцагчийн бүртгэл, мэдээллийн алба — Төв байр, 101 тоот; 7775-7575 (1-1); elselt@mnums.edu.mn",
+    "student_office_mn": "Оюутны асуудал — 101 тоот; 7775-7575 (1018); student@mnums.edu.mn",
+    "emails": {
+     "general": "info@mnums.edu.mn",
+     "admission": "elselt@mnums.edu.mn",
+     "students": "student@mnums.edu.mn"
+    }
+   },
+   "location_short_mn": "Улаанбаатар, С.Зоригийн гудамж",
+   "social": {
+    "facebook": "https://www.facebook.com/mnums.edu.mn",
+    "youtube": "https://www.youtube.com/@mnums6321",
+    "twitter": "https://twitter.com/mnums"
+   },
+   "student_services": [
+    {
+     "name_mn": "Оюутны хөгжлийн төв (2016, 420 м²): зөвлөгөө, оюутны холбоо, анхан шатны тусламж, нэг цэгийн үйлчилгээ",
+     "url": "https://mnums.edu.mn/student-life"
+    },
+    {
+     "name_mn": "Оюутны портал (байрны бүртгэл)",
+     "url": "https://student.mnums.edu.mn/login"
+    },
+    {
+     "name_mn": "Оюутны мэдээллийн систем (клубийн бүртгэл)",
+     "url": "https://sis.mnums.edu.mn"
+    },
+    {
+     "name_mn": "Цахим сургалт",
+     "url": "https://elearning.mnums.edu.mn"
+    },
+    {
+     "name_mn": "Номын сан",
+     "url": "https://mnums.edu.mn/library/catalog"
+    },
+    {
+     "name_mn": "Түгээмэл асуулт",
+     "url": "https://mnums.edu.mn/faq"
+    }
+   ],
+   "campus_life_mn": "5 спорт заал, 3 фитнесс, 2 гадна талбай; 9 спортын баг; 57 оюутны клуб (9-р сард sis.mnums.edu.mn-ээр 5 хүртэл клубт хүсэлт гаргаж, 2 хүртэлд нь элсэнэ).",
+   "hospitals_mn": "Их сургуулийн нэгдсэн эмнэлэг, Монгол-Японы эмнэлэг, Нүүр амны эмнэлэг, Монгол анагаах ухааны эмнэлэг гэх мэт (Википедиа; нэрсийг албан ёсны сайтаас баталгаажуулаагүй).",
+   "international_mn": "Англи хэлээр хүний их эмч бэлтгэх (MBBS) хөтөлбөр (Солонгос, Канад, Монгол оюутантай; Солонгос, АНУ-ын эмнэлэгт дадлага); Японы Кюүшюү их сургуультай солилцоо, Оита их сургуультай хамтарсан докторантур.",
+   "sidebar_suggestion": {
+    "tuition_text_mn": "≈ 4.1–7.1 сая ₮/жил (бакалавр); дэд бакалавр 3.5–4.0 сая ₮",
+    "tuition_number": 5884000,
+    "tuition_number_note_mn": "Бакалаврын 20 хөтөлбөрийн 1 жилийн төлбөрийн медиан (2026-2027).",
+    "dorm_flag": "Боломжтой",
+    "scholarship_flag": "Боломжтой",
+    "dorm_howto_mn": "АШУҮИС-ийн Улаанбаатар дахь 3 оюутны байр нийт 1,584 ортой: I байр 360, II байр 360 (Баянзүрх дүүрэг, 6-р хороо), III байр 864 (Баянзүрх дүүрэг, 12-р хороо). Оюутны код авсны дараа student.mnums.edu.mn-ээр бүртгүүлнэ. Өрөө хуваарилагдсаны дараа 24 цагийн дотор байрны төлбөрөө бүтэн төлж баталгаажуулна. Эрүүл мэндийн шинжилгээний хариу, байрны гэрээ (оюутны вэбээс), байрны үнэмлэхээ хэвлүүлж, бичиг баримтаа бүрдүүлээд нүүнэ. 18 нас хүрээгүй бол сум/дүүргийн эмнэлгээс эрт илрүүлгийн шинжилгээний хариу авчирна. Байрны үнэ сайтад нийтлэгдээгүй — 7775-7575 (1018)-аас тодруулна уу.",
+    "phones": [
+     "7775-7575"
+    ],
+    "email": "elselt@mnums.edu.mn",
+    "location_mn": "Улаанбаатар, С.Зоригийн гудамж",
+    "website": "https://mnums.edu.mn"
+   },
+   "source_urls": [
+    "https://mnums.edu.mn/",
+    "https://mnums.edu.mn/about/intro",
+    "https://mnums.edu.mn/admission",
+    "https://mnums.edu.mn/student-life",
+    "https://mnums.edu.mn/faq"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  }
+ ]
+}

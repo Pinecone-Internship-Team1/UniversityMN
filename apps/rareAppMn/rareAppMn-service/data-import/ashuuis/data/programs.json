@@ -1,0 +1,5521 @@
+{
+ "_meta": {
+  "dataset": "programs",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн бакалавр, дэд бакалаврын өдрийн хөтөлбөрүүд: шалгалтын хичээлийн 2 бүлэг, бүлэг тус бүрийн босго, сонголтын төрөл, 2026-2027 оны 1 жилийн төлбөр.",
+  "language": "mn",
+  "verified_at": "2026-10-11",
+  "sources": [
+   "https://mnums.edu.mn/admission/requirements",
+   "https://mnums.edu.mn/en/admission/requirements",
+   "https://mnums.edu.mn/admission",
+   "https://mnums.edu.mn/schools/med",
+   "https://mnums.edu.mn/schools/bio",
+   "https://mnums.edu.mn/schools/public-health",
+   "https://mnums.edu.mn/schools/dental",
+   "https://mnums.edu.mn/schools/pharmacy",
+   "https://mnums.edu.mn/schools/nursing",
+   "https://mnums.edu.mn/schools/traditional",
+   "https://mnums-da.edu.mn/mn/post/276"
+  ],
+  "scoring_mn": "АШУҮИС: ЭЕШ-ын 1-р бүлгийн (жишээ нь Хими/Математик) хамгийн өндөр оноо + 2-р бүлгийн (жишээ нь Биологи/Физик) хамгийн өндөр оноо. Бүлэг бүр өөрийн босготой. 'Жагсаалтаар сонгох' хөтөлбөрт нийлбэрээр жагсааж, тэнцвэл ЕБС-ийн голч дүн, монгол хэлний шалгалтын оноог харгалзана. 'Шууд сонгох' хөтөлбөрт хоёр босгыг хангасан бол шууд элсэнэ.",
+  "fields_mn": {
+   "suuri_options/dagaldah_options": "ЭЕШ-1 / ЭЕШ-2 бүлэг (oyutan.mn-ийн primary/secondary талбартай нийцүүлэхийн тулд МУИС, ШУТИС-тэй ижил нэр).",
+   "weights": "{suuri: 1, dagaldah: 1} = онооны нийлбэр (МУИС, ШУТИС-д 0.7/0.3).",
+   "tuition_2026_2027.per_year": "Албан ёсны 1 жилийн төлбөр (тооцоо биш)."
+  }
+ },
+ "records": [
+  {
+   "id": "mnums-med-khunii-ikh-emch",
+   "name_mn": "Хүний их эмч",
+   "name_en": "Medical Doctor",
+   "school_id": "mnums-med",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/med",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 6851000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 6851000,
+     "max": 6851000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/med"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Англи хэлээр хүний их эмч бэлтгэх (MBBS) хөтөлбөрт 12-р ангиас шууд элсэхгүй: Хүний их эмчийн оюутнуудаас 8-р сард англи хэлний шалгалтаар (IELTS 6.0, TOEFL iBT 70, TOEIC 600-тай дүйцэх) сонгоно.",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/med"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-traditional-ulamjlalt-anagaakhyn-ikh-emch",
+   "name_mn": "Уламжлалт анагаахын их эмч",
+   "name_en": "Doctor of Traditional Medicine",
+   "school_id": "mnums-traditional",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/traditional",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 440. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 440,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 440,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 6851000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 6851000,
+     "max": 6851000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/traditional"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/traditional"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dental-shudnii-ikh-emch",
+   "name_mn": "Шүдний их эмч",
+   "name_en": "Doctor of Dental Surgery",
+   "school_id": "mnums-dental",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/dental",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 6851000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 6851000,
+     "max": 6851000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/dental"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/dental"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-bio-bio-anagaakh-sudlaach",
+   "name_mn": "Био-анагаах судлаач",
+   "name_en": "Biomedical Scientist",
+   "school_id": "mnums-bio",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 5,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/bio",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": true,
+    "is_in_demand_field": false,
+    "note_mn": "Тэргүүлэх мэргэжил (*) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 6528000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 6528000,
+     "max": 6528000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/bio"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/bio"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-public-health-niigmiin-eruul-mend-sudlalch",
+   "name_mn": "Нийгмийн эрүүл мэнд судлалч",
+   "name_en": "Public Health Specialist",
+   "school_id": "mnums-public-health",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/public-health",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Биологи эсвэл Англи хэл — босго 490. 2-р шалгалт: Хими эсвэл Нийгэм судлал — босго 490. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Биологи",
+     "Англи хэл",
+     "Хими",
+     "Нийгэм судлал"
+    ],
+    "suuri_options": [
+     "Биологи",
+     "Англи хэл"
+    ],
+    "dagaldah_options": [
+     "Хими",
+     "Нийгэм судлал"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5888000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5888000,
+     "max": 5888000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/public-health"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/public-health"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-pharmacy-em-zuich",
+   "name_mn": "Эм зүйч",
+   "name_en": "Pharmacist",
+   "school_id": "mnums-pharmacy",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 5,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/pharmacy",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 6528000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 6528000,
+     "max": 6528000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/pharmacy"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/pharmacy"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-med-khuukhdiin-ikh-emch",
+   "name_mn": "Хүүхдийн их эмч",
+   "name_en": "Paediatrician",
+   "school_id": "mnums-med",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/med",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 6851000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 6851000,
+     "max": 6851000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/med"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Анагаах ухааны сургуулийн хуудсанд 'Хүүхдийн эмч' гэж бичсэн.",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/med"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-traditional-zuu-tuunii-ikh-emch",
+   "name_mn": "Зүү төөний их эмч",
+   "name_en": "Acupuncture and Moxibustion Doctor",
+   "school_id": "mnums-traditional",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/traditional",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 440. 2-р шалгалт: Биологи эсвэл Физик — босго 450. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 440,
+   "secondary_threshold_score": 450,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 440,
+    "dagaldah_threshold": 450,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 7072000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 7072000,
+     "max": 7072000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "conflicting"
+    },
+    "source_url": "https://mnums.edu.mn/schools/traditional",
+    "status": "conflicting"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Сургуулийн хуудсанд 1 жилийн төлбөр 7,072,000₮ — ikon.mn-ийн 2026-2027 оны мэдээнд АШУҮИС-ийн дээд хэмжээг 6,851,000₮ гэсэнтэй зөрүүтэй.",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/traditional"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-public-health-eruul-akhui-tarkhvar-sudlaach",
+   "name_mn": "Эрүүл ахуй, тархвар судлаач",
+   "name_en": "Hygienist and Epidemiologist",
+   "school_id": "mnums-public-health",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 5,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/public-health",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Англи хэл — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Биологи — босго 440. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 490,
+   "secondary_threshold_score": 440,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Англи хэл",
+     "Нийгэм судлал",
+     "Биологи"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Англи хэл"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Биологи"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 440,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5952000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5952000,
+     "max": 5952000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/public-health"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Нийгмийн эрүүл мэндийн сургуулийн хуудсанд 'Эрүүл ахуйч, тархвар судлаач' гэж бичсэн.",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/public-health"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-bio-eruul-mendiin-medeelel-zuich",
+   "name_mn": "Эрүүл мэндийн мэдээлэл зүйч",
+   "name_en": "Health Informatician",
+   "school_id": "mnums-bio",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/bio",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": true,
+    "is_in_demand_field": false,
+    "note_mn": "Тэргүүлэх мэргэжил (*) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 450,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Физик",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Математик",
+     "Физик"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 450,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5728000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5728000,
+     "max": 5728000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/bio"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/bio"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-public-health-eruul-mendiin-niigmiin-ajiltan",
+   "name_mn": "Эрүүл мэндийн нийгмийн ажилтан",
+   "name_en": "Health Social Worker",
+   "school_id": "mnums-public-health",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/public-health",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490. 2-р шалгалт: Монгол хэл эсвэл Математик — босго 490. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Нийгэм судлал",
+     "Англи хэл",
+     "Монгол хэл",
+     "Математик"
+    ],
+    "suuri_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "dagaldah_options": [
+     "Монгол хэл",
+     "Математик"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5728000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5728000,
+     "max": 5728000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/public-health"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/public-health"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-traditional-ulamjlalt-anagaakhyn-zasalch",
+   "name_mn": "Уламжлалт анагаахын засалч",
+   "name_en": "Traditional Medicine Therapist",
+   "school_id": "mnums-traditional",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/traditional",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 440. 2-р шалгалт: Биологи эсвэл Англи хэл — босго 440. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 440,
+   "secondary_threshold_score": 440,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Англи хэл"
+    ],
+    "suuri_threshold": 440,
+    "dagaldah_threshold": 440,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5984000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5984000,
+     "max": 5984000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/traditional"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/traditional"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-public-health-khudulmuriin-ayuulgui-baidal-eruul-akhui",
+   "name_mn": "Хөдөлмөрийн аюулгүй байдал, эрүүл ахуй",
+   "name_en": "Occupational Safety and Health",
+   "school_id": "mnums-public-health",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/public-health",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Биологи — босго 490. 2-р шалгалт: Монгол хэл эсвэл Нийгэм судлал — босго 440. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 440,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Биологи",
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "suuri_options": [
+     "Математик",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Монгол хэл",
+     "Нийгэм судлал"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 440,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5728000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5728000,
+     "max": 5728000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/public-health"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/public-health"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-public-health-eruul-mendiin-khool-zuich",
+   "name_mn": "Эрүүл мэндийн хоол зүйч",
+   "name_en": "Clinical Nutritionist",
+   "school_id": "mnums-public-health",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/public-health",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 440. 2-р шалгалт: Биологи эсвэл Нийгэм судлал — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 440,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Нийгэм судлал"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Нийгэм судлал"
+    ],
+    "suuri_threshold": 440,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5880000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5880000,
+     "max": 5880000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/public-health"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/public-health"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-public-health-ediin-zasagch-eruul-mendiin",
+   "name_mn": "Эдийн засагч (эрүүл мэндийн)",
+   "name_en": "Health Economist",
+   "school_id": "mnums-public-health",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/public-health",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5728000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5728000,
+     "max": 5728000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/public-health"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/public-health"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-nursing-suvilagch",
+   "name_mn": "Сувилагч",
+   "name_en": "Nurse",
+   "school_id": "mnums-nursing",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/nursing",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 450. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 450,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 450,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 5040000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 5040000,
+     "max": 5040000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/nursing"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Хүснэгтэд ур чадварын шалгалтын босгыг 450 гэсэн ч тест 60+ оноо (ЭЕШ-ийн хуваарьт 480+) авбал тэнцдэг — тэнцэх нь гол нөхцөл, зөрүүг сургуулиас тодруулна уу. «Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/nursing"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-nursing-ekh-barigch",
+   "name_mn": "Эх баригч",
+   "name_en": "Midwife",
+   "school_id": "mnums-nursing",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/nursing",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 450. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 450,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 450,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 4515000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 4515000,
+     "max": 4515000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/nursing"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Хүснэгтэд ур чадварын шалгалтын босгыг 450 гэсэн ч тест 60+ оноо (ЭЕШ-ийн хуваарьт 480+) авбал тэнцдэг — тэнцэх нь гол нөхцөл, зөрүүг сургуулиас тодруулна уу. «Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/nursing"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-nursing-khudulguun-zasalch",
+   "name_mn": "Хөдөлгөөн засалч",
+   "name_en": "Physiotherapist",
+   "school_id": "mnums-nursing",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/nursing",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 440. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 490. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 440,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 440,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 4440000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 4440000,
+     "max": 4440000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/nursing"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/nursing"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-nursing-khudulmur-zasalch",
+   "name_mn": "Хөдөлмөр засалч",
+   "name_en": "Occupational Therapist",
+   "school_id": "mnums-nursing",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/nursing",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 440. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 490. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 440,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 440,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 4402000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 4402000,
+     "max": 4402000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/nursing"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/nursing"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-nursing-khel-zasalch",
+   "name_mn": "Хэл засалч",
+   "name_en": "Speech Therapist",
+   "school_id": "mnums-nursing",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/nursing",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Англи хэл — босго 440. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 490. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 440,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Англи хэл",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Англи хэл"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 440,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 4080000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 4080000,
+     "max": 4080000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/nursing"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/nursing"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-med-durs-onoshilgoony-tekhnikch",
+   "name_mn": "Дүрс оношилгооны техникч",
+   "name_en": "Diagnostic Imaging Technician",
+   "school_id": "mnums-med",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/med",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 440. 2-р шалгалт: Биологи эсвэл Физик — босго 440. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 440,
+   "secondary_threshold_score": 440,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 440,
+    "dagaldah_threshold": 440,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 3658000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 3658000,
+     "max": 3658000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/med"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/med"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-bio-emnelgiin-tonog-tukhuurumj-ashiglaltyn-tekhnikch",
+   "name_mn": "Эмнэлгийн тоног төхөөрөмж ашиглалтын техникч",
+   "name_en": "Medical Equipment Technician",
+   "school_id": "mnums-bio",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/bio",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": true,
+    "is_in_demand_field": false,
+    "note_mn": "Тэргүүлэх мэргэжил (*) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 450,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Математик",
+     "Физик",
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Математик",
+     "Физик"
+    ],
+    "dagaldah_options": [
+     "Нийгэм судлал",
+     "Англи хэл"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 450,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 3570000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 3570000,
+     "max": 3570000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/bio"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Сургуулийн хуудсанд 'Эмнэлгийн тоног төхөөрөмжийн ашиглалт' нэрээр (дэд бакалавр, 3 жил). «Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/bio"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dental-nuur-amny-eruul-akhuich",
+   "name_mn": "Нүүр амны эрүүл ахуйч",
+   "name_en": "Dental Hygienist",
+   "school_id": "mnums-dental",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/dental",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 490. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 490. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 3630000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 3630000,
+     "max": 3630000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/dental"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/dental"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-med-laboratoriin-tekhnikch",
+   "name_mn": "Лабораторийн техникч",
+   "name_en": "Laboratory Technician",
+   "school_id": "mnums-med",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/med",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 450. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 450,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 450,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 3552000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 3552000,
+     "max": 3552000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/med"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Хүснэгтэд ур чадварын шалгалтын босгыг 450 гэсэн ч тест 60+ оноо (ЭЕШ-ийн хуваарьт 480+) авбал тэнцдэг — тэнцэх нь гол нөхцөл, зөрүүг сургуулиас тодруулна уу. «Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/med"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-pharmacy-em-nairuulagch",
+   "name_mn": "Эм найруулагч",
+   "name_en": "Pharmacy Technician",
+   "school_id": "mnums-pharmacy",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/pharmacy",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 3520000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 3520000,
+     "max": 3520000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/pharmacy"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Хүснэгтэд ур чадварын шалгалтын босгыг 410 гэсэн ч тест 60+ оноо (ЭЕШ-ийн хуваарьт 480+) авбал тэнцдэг — тэнцэх нь гол нөхцөл, зөрүүг сургуулиас тодруулна уу. «Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/pharmacy"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-nursing-suvilagch-ded-bakalavr",
+   "name_mn": "Сувилагч (дэд бакалавр)",
+   "name_en": "Nurse (associate)",
+   "school_id": "mnums-nursing",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/nursing",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 450. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 450,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 450,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 3960000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 3960000,
+     "max": 3960000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/nursing"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Хүснэгтэд ур чадварын шалгалтын босгыг 450 гэсэн ч тест 60+ оноо (ЭЕШ-ийн хуваарьт 480+) авбал тэнцдэг — тэнцэх нь гол нөхцөл, зөрүүг сургуулиас тодруулна уу. «Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/nursing"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dental-nuur-amny-tekhnikch",
+   "name_mn": "Нүүр амны техникч",
+   "name_en": "Dental Technician",
+   "school_id": "mnums-dental",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/dental",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 490. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 490,
+   "secondary_threshold_score": 490,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 490,
+    "dagaldah_threshold": 490,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 3910000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 3910000,
+     "max": 3910000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/dental"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/dental"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-nursing-ulamjlalt-anagaakhyn-suvilagch",
+   "name_mn": "Уламжлалт анагаахын сувилагч",
+   "name_en": "Traditional Medicine Nurse",
+   "school_id": "mnums-nursing",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums.edu.mn/schools/nursing",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно.",
+    "source_url": "https://mnums.edu.mn/admission/requirements",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": 3815000,
+    "currency": "MNT",
+    "is_official": true,
+    "estimated_per_year": {
+     "min": 3815000,
+     "max": 3815000,
+     "currency": "MNT",
+     "basis_mn": "Сургуулийн хуудсанд заасан 2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч).",
+     "status": "current"
+    },
+    "source_url": "https://mnums.edu.mn/schools/nursing"
+   },
+   "campus_mn": "Улаанбаатар",
+   "joint_program": null,
+   "notes_mn": "Хүснэгтэд ур чадварын шалгалтын босгыг 410 гэсэн ч тест 60+ оноо (ЭЕШ-ийн хуваарьт 480+) авбал тэнцдэг — тэнцэх нь гол нөхцөл, зөрүүг сургуулиас тодруулна уу. «Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums.edu.mn/admission/requirements",
+    "https://mnums.edu.mn/schools/nursing"
+   ],
+   "verified_at": "2026-10-11",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-khunii-ikh-emch-2-4",
+   "name_mn": "Хүний их эмч (2+4)",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+4",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил + Улаанбаатарт 4 жил гэж ойлгогдоно (тодруулна уу)",
+    "note_mn": "Хөтөлбөрийн хуудсан дээрх '/2+4/' тэмдэглэгээг ингэж ойлгосон — сургуулиас тодруулна уу."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-shudnii-ikh-emch-2-4",
+   "name_mn": "Шүдний их эмч (2+4)",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+4",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил + Улаанбаатарт 4 жил гэж ойлгогдоно (тодруулна уу)",
+    "note_mn": "Хөтөлбөрийн хуудсан дээрх '/2+4/' тэмдэглэгээг ингэж ойлгосон — сургуулиас тодруулна уу."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-ulamjlalt-anagaakhyn-ikh-emch-2-4",
+   "name_mn": "Уламжлалт анагаахын их эмч (2+4)",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+4",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил + Улаанбаатарт 4 жил гэж ойлгогдоно (тодруулна уу)",
+    "note_mn": "Хөтөлбөрийн хуудсан дээрх '/2+4/' тэмдэглэгээг ингэж ойлгосон — сургуулиас тодруулна уу."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-em-zuich-2-3",
+   "name_mn": "Эм зүйч (2+3)",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 5,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+3",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил + Улаанбаатарт 3 жил гэж ойлгогдоно (тодруулна уу)",
+    "note_mn": "Хөтөлбөрийн хуудсан дээрх '/2+3/' тэмдэглэгээг ингэж ойлгосон — сургуулиас тодруулна уу."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-bio-anagaakh-sudlaach-2-3",
+   "name_mn": "Био-анагаах судлаач (2+3)",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 5,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": true,
+    "is_in_demand_field": false,
+    "note_mn": "Тэргүүлэх мэргэжил (*) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+3",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил + Улаанбаатарт 3 жил гэж ойлгогдоно (тодруулна уу)",
+    "note_mn": "Хөтөлбөрийн хуудсан дээрх '/2+3/' тэмдэглэгээг ингэж ойлгосон — сургуулиас тодруулна уу."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-ekh-barigch",
+   "name_mn": "Эх баригч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-suvilagch",
+   "name_mn": "Сувилагч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-niigmiin-eruul-mend-sudlalch",
+   "name_mn": "Нийгмийн эрүүл мэнд судлалч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": null,
+   "selection_type_mn": null,
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": null,
+   "required_subjects_display_mn": "Шалгалтын хичээл, босгыг Дархан-Уул салбар сургуулиас тодруулна уу (mnums-da.edu.mn, 7037 7734).",
+   "threshold_score": null,
+   "secondary_threshold_score": null,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [],
+    "suuri_options": [],
+    "dagaldah_options": [],
+    "suuri_threshold": null,
+    "dagaldah_threshold": null,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр)",
+    "selection_type": null,
+    "split_confidence": "unknown",
+    "note_mn": "Шалгалтын хичээл, босго зөвхөн зураг хэлбэрээр: https://mnums-da.edu.mn/public/assets/front/images/news/images/нийгмийн эрүүл мэнд судлаач 2026.jpg",
+    "source_url": "https://mnums-da.edu.mn/mn/post/276",
+    "status": "unverified"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "Дархан-Уул салбарын хуудасны огноогүй зурагт (Биологи/Англи хэл 430+, Хими/Нийгэм судлал 430+, 2+3 жил) байгаа ч 2026-2027 оны элсэлтийн журам (А/136)-ын Дархан-Уул салбарын хүснэгтэд байхгүй — салбар сургуулиас тодруулна уу.",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "unverified"
+  },
+  {
+   "id": "mnums-darkhan-ulamjlalt-anagaakhyn-zasalch",
+   "name_mn": "Уламжлалт анагаахын засалч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Англи хэл — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Англи хэл"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Англи хэл"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-khudulguun-zasalch",
+   "name_mn": "Хөдөлгөөн засалч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-suvilagch-ded-bakalavr",
+   "name_mn": "Сувилагч (дэд бакалавр)",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-em-nairuulagch",
+   "name_mn": "Эм найруулагч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-ulamjlalt-anagaakhyn-suvilagch",
+   "name_mn": "Уламжлалт анагаахын сувилагч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-laboratoriin-tekhnikch",
+   "name_mn": "Лабораторийн техникч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://mnums-da.edu.mn/mn/post/276",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://mnums-da.edu.mn/mn/post/276",
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-khuukhdiin-ikh-emch",
+   "name_mn": "Хүүхдийн их эмч",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-darkhan-ekh-barigch-ded-bakalavr",
+   "name_mn": "Эх баригч (дэд бакалавр)",
+   "name_en": null,
+   "school_id": "mnums-darkhan",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дархан-Уул",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-khunii-ikh-emch",
+   "name_mn": "Хүний их эмч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-ulamjlalt-anagaakhyn-ikh-emch",
+   "name_mn": "Уламжлалт анагаахын их эмч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-shudnii-ikh-emch",
+   "name_mn": "Шүдний их эмч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-bio-anagaakh-sudlaach",
+   "name_mn": "Био-анагаах судлаач",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": true,
+    "is_in_demand_field": false,
+    "note_mn": "Тэргүүлэх мэргэжил (*) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-em-zuich",
+   "name_mn": "Эм зүйч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-khuukhdiin-ikh-emch",
+   "name_mn": "Хүүхдийн их эмч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-suvilagch",
+   "name_mn": "Сувилагч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-ekh-barigch",
+   "name_mn": "Эх баригч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-laboratoriin-tekhnikch",
+   "name_mn": "Лабораторийн техникч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-em-nairuulagch",
+   "name_mn": "Эм найруулагч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-suvilagch-ded-bakalavr",
+   "name_mn": "Сувилагч (дэд бакалавр)",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-ekh-barigch-ded-bakalavr",
+   "name_mn": "Эх баригч (дэд бакалавр)",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-govi-altai-ulamjlalt-anagaakhyn-suvilagch",
+   "name_mn": "Уламжлалт анагаахын сувилагч",
+   "name_en": null,
+   "school_id": "mnums-govi-altai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Говь-Алтай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-khunii-ikh-emch",
+   "name_mn": "Хүний их эмч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": null,
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-ulamjlalt-anagaakhyn-ikh-emch",
+   "name_mn": "Уламжлалт анагаахын их эмч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+4",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил суралцаад АШУҮИС-д (Улаанбаатар) үргэлжлүүлэн суралцана (2+4).",
+    "note_mn": "Дорноговь салбарын 'Элсэлт 2026' зурагт заасан."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-shudnii-ikh-emch",
+   "name_mn": "Шүдний их эмч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+4",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил суралцаад АШУҮИС-д (Улаанбаатар) үргэлжлүүлэн суралцана (2+4).",
+    "note_mn": "Дорноговь салбарын 'Элсэлт 2026' зурагт заасан."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-bio-anagaakh-sudlaach",
+   "name_mn": "Био-анагаах судлаач",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 5,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": true,
+    "is_in_demand_field": false,
+    "note_mn": "Тэргүүлэх мэргэжил (*) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+3",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил суралцаад АШУҮИС-д (Улаанбаатар) үргэлжлүүлэн суралцана (2+3).",
+    "note_mn": "Дорноговь салбарын 'Элсэлт 2026' зурагт заасан."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-em-zuich",
+   "name_mn": "Эм зүйч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 5,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+3",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил суралцаад АШУҮИС-д (Улаанбаатар) үргэлжлүүлэн суралцана (2+3).",
+    "note_mn": "Дорноговь салбарын 'Элсэлт 2026' зурагт заасан."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-khuukhdiin-ikh-emch",
+   "name_mn": "Хүүхдийн их эмч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 6,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "list",
+   "selection_type_mn": "Жагсаалтаар сонгох (8 хүртэл)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Хоёр шалгалтын онооны нийлбэрээр жагсаана (8 хүртэл хөтөлбөр сонгоно).",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "list",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": {
+    "is_joint": true,
+    "format": "2+4",
+    "partner_mn": "АШУҮИС (Улаанбаатар)",
+    "country_mn": "Монгол",
+    "label_mn": "Салбарт 2 жил суралцаад АШУҮИС-д (Улаанбаатар) үргэлжлүүлэн суралцана (2+4).",
+    "note_mn": "Дорноговь салбарын 'Элсэлт 2026' зурагт заасан."
+   },
+   "notes_mn": null,
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-suvilagch",
+   "name_mn": "Сувилагч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-ekh-barigch",
+   "name_mn": "Эх баригч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 4,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-laboratoriin-tekhnikch",
+   "name_mn": "Лабораторийн техникч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-em-nairuulagch",
+   "name_mn": "Эм найруулагч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-suvilagch-ded-bakalavr",
+   "name_mn": "Сувилагч (дэд бакалавр)",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-ekh-barigch-ded-bakalavr",
+   "name_mn": "Эх баригч (дэд бакалавр)",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-dornogovi-ulamjlalt-anagaakhyn-suvilagch",
+   "name_mn": "Уламжлалт анагаахын сувилагч",
+   "name_en": null,
+   "school_id": "mnums-dornogovi",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": 3,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Дорноговь",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "https://dornogobi-anagaakh.mn/wp-content/uploads/2023/05/%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2026___-scaled.jpg"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-suvilagch",
+   "name_mn": "Сувилагч",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-ekh-barigch",
+   "name_mn": "Эх баригч",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-durs-onoshilgoony-tekhnikch",
+   "name_mn": "Дүрс оношилгооны техникч",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": false,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Биологи эсвэл Физик — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Биологи",
+     "Физик"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-nuur-amny-eruul-akhuich",
+   "name_mn": "Нүүр амны эрүүл ахуйч",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-laboratoriin-tekhnikch",
+   "name_mn": "Лабораторийн техникч",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-em-nairuulagch",
+   "name_mn": "Эм найруулагч",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-suvilagch-ded-bakalavr",
+   "name_mn": "Сувилагч (дэд бакалавр)",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": true,
+    "note_mn": "Эрэлттэй мэргэжил (**) — АШУҮИС-ийн босгын хүснэгт."
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-nuur-amny-tekhnikch",
+   "name_mn": "Нүүр амны техникч",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 430. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 430. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 430,
+   "secondary_threshold_score": 430,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Математик",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Математик"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 430,
+    "dagaldah_threshold": 430,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  },
+  {
+   "id": "mnums-arkhangai-ulamjlalt-anagaakhyn-suvilagch",
+   "name_mn": "Уламжлалт анагаахын сувилагч",
+   "name_en": null,
+   "school_id": "mnums-arkhangai",
+   "degree": "Дэд бакалавр",
+   "study_form": "Өдөр",
+   "credits": null,
+   "duration_years": null,
+   "code": null,
+   "official_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+   "selection_type": "direct",
+   "selection_type_mn": "Шууд сонгох (1)",
+   "priority": {
+    "is_priority_field": false,
+    "is_in_demand_field": false,
+    "note_mn": null
+   },
+   "aptitude_test_required": true,
+   "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Ур чадварын шалгалт (АШУҮИС өөрөө авна) — босго 410. Шууд сонгох хөтөлбөр: хоёр босгыг хангавал элсэх эрхтэй.",
+   "threshold_score": 410,
+   "secondary_threshold_score": 410,
+   "exam_2026_2027": {
+    "subjects_to_prepare": [
+     "Хими",
+     "Биологи",
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_options": [
+     "Хими",
+     "Биологи"
+    ],
+    "dagaldah_options": [
+     "Ур чадварын шалгалт"
+    ],
+    "suuri_threshold": 410,
+    "dagaldah_threshold": 410,
+    "weights": {
+     "suuri": 1,
+     "dagaldah": 1
+    },
+    "score_formula": "sum",
+    "score_formula_mn": "1-р шалгалт + 2-р шалгалт (онооны нийлбэр, дээд тал нь 1600)",
+    "selection_type": "direct",
+    "split_confidence": "confirmed",
+    "note_mn": "2-р шалгалт нь АШУҮИС-ийн өөрийн авдаг Ур чадварын шалгалт: биологийн агуулгаар 100 онооны тест, 60+ оноо авбал тэнцэнэ, admission.mnums.edu.mn-ээр өгнө; оноог ЭЕШ-ийн 200–800 хуваарьт хөрвүүлнэ (60 → 480). Бүлэг бүрээс хамгийн өндөр оноотой нэг хичээлийг тооцно. Сонголтын төрлийг журмын 2-р хавсралтаас (хөтөлбөрийн нэрээр, их сургууль даяар) авав.",
+    "source_url": "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf",
+    "status": "current"
+   },
+   "tuition_2026_2027": {
+    "per_year": null,
+    "currency": "MNT",
+    "is_official": false,
+    "estimated_per_year": null,
+    "note_mn": "Салбар сургуулийн төлбөр олдсонгүй."
+   },
+   "campus_mn": "Архангай",
+   "joint_program": null,
+   "notes_mn": "«Шууд сонгох» бүлгээс зөвхөн 1 хөтөлбөр сонгоно; босго хангасан бол хөтөлбөрөө сонгож, сургалтын төлбөрөө төлснөөр баталгаажна (2026 онд 7-р сарын 1-нд).",
+   "source_urls": [
+    "https://elselt.mnums.edu.mn/assets/pdf/admission_order.pdf"
+   ],
+   "verified_at": "2026-10-14",
+   "status": "current"
+  }
+ ]
+}

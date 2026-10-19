@@ -1,0 +1,149 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "Хүрээ МХТДС",
+  "description": "Хүрээ МХТДС-ийн албан ёсны холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "huree-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлтийн сайт",
+   "url": "https://elselt.huree.edu.mn"
+  },
+  {
+   "id": "huree-l-02",
+   "category": "admission",
+   "title_mn": "Онлайн бүртгэлийн маягт",
+   "url": "https://elselt.huree.edu.mn/register.php"
+  },
+  {
+   "id": "huree-l-03",
+   "category": "admission",
+   "title_mn": "Илгээсэн хүсэлтээ засах",
+   "url": "https://elselt.huree.edu.mn/check_apply.php"
+  },
+  {
+   "id": "huree-l-04",
+   "category": "admission",
+   "title_mn": "Бүрдүүлэх материал, бакалаврын мэргэжлүүд",
+   "url": "https://huree.edu.mn/enter/enter.php#under-graudate"
+  },
+  {
+   "id": "huree-l-05",
+   "category": "admission",
+   "title_mn": "Элсэлтийн тэтгэлэг",
+   "url": "https://huree.edu.mn/enter/enter.php#scholarship"
+  },
+  {
+   "id": "huree-l-06",
+   "category": "department",
+   "title_mn": "Тэнхим: Хотын архитектур, барилга угсралтын тэнхим",
+   "url": "https://huree.edu.mn/department/ar.php"
+  },
+  {
+   "id": "huree-l-07",
+   "category": "department",
+   "title_mn": "Тэнхим: Бизнесийн удирдлага тэнхим",
+   "url": "https://huree.edu.mn/department/ba.php"
+  },
+  {
+   "id": "huree-l-08",
+   "category": "department",
+   "title_mn": "Тэнхим: Компьютерын ухаан (AI)",
+   "url": "https://huree.edu.mn/department/cs.php"
+  },
+  {
+   "id": "huree-l-09",
+   "category": "department",
+   "title_mn": "Тэнхим: Электроникийн инженерчлэл (Robotics)",
+   "url": "https://huree.edu.mn/department/ee.php"
+  },
+  {
+   "id": "huree-l-10",
+   "category": "department",
+   "title_mn": "Тэнхим: Гадаад хэлний орчуулга — Англи",
+   "url": "https://huree.edu.mn/department/el.php"
+  },
+  {
+   "id": "huree-l-11",
+   "category": "department",
+   "title_mn": "Тэнхим: Хоол зүй, шим судлал",
+   "url": "https://huree.edu.mn/department/fn.php"
+  },
+  {
+   "id": "huree-l-12",
+   "category": "department",
+   "title_mn": "Тэнхим: Мэдээллийн технологи",
+   "url": "https://huree.edu.mn/department/it.php"
+  },
+  {
+   "id": "huree-l-13",
+   "category": "department",
+   "title_mn": "Тэнхим: Гадаад хэлний орчуулга — Солонгос",
+   "url": "https://huree.edu.mn/department/kl.php"
+  },
+  {
+   "id": "huree-l-14",
+   "category": "department",
+   "title_mn": "Тэнхим: Эмнэлгийн тоног төхөөрөмж ашиглалт",
+   "url": "https://huree.edu.mn/department/me.php"
+  },
+  {
+   "id": "huree-l-15",
+   "category": "department",
+   "title_mn": "Тэнхим: График дизайн (Мультимедиа)",
+   "url": "https://huree.edu.mn/department/mm.php"
+  },
+  {
+   "id": "huree-l-16",
+   "category": "student",
+   "title_mn": "Санхүүгийн дэмжлэг",
+   "url": "https://huree.edu.mn:443/student/finance.php"
+  },
+  {
+   "id": "huree-l-17",
+   "category": "student",
+   "title_mn": "Зээлийн үйлчилгээ",
+   "url": "https://huree.edu.mn:443/student/loan.php"
+  },
+  {
+   "id": "huree-l-18",
+   "category": "info",
+   "title_mn": "Мэдээ, мэдээлэл",
+   "url": "https://huree.edu.mn:443/bbs/bbs.php"
+  },
+  {
+   "id": "huree-l-19",
+   "category": "info",
+   "title_mn": "Нүүр хуудас",
+   "url": "https://huree.edu.mn"
+  },
+  {
+   "id": "huree-l-20",
+   "category": "info",
+   "title_mn": "Англи хэл дээрх танилцуулга",
+   "url": "https://new.huree.edu.mn/?p=9"
+  },
+  {
+   "id": "huree-l-21",
+   "category": "exam",
+   "title_mn": "Элсэлтийн шалгалтын бүртгэл (БҮТ)",
+   "url": "https://eyesh.eec.mn/profile/login"
+  },
+  {
+   "id": "huree-l-22",
+   "category": "contact",
+   "title_mn": "Холбоо барих",
+   "url": "https://huree.edu.mn:443/contact.php"
+  },
+  {
+   "id": "huree-l-23",
+   "category": "contact",
+   "title_mn": "Фэйсбүүк хуудас",
+   "url": "https://www.facebook.com/huree.university.ICT"
+  }
+ ]
+}

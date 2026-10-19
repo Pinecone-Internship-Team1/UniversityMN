@@ -1,0 +1,53 @@
+{
+ "_meta": {
+  "dataset": "tuition_2026_2027",
+  "university": "Хүрээ МХТДС",
+  "description": "Хүрээ МХТДС-ийн сургалтын төлбөр, хураамж (бакалаврын 2026-2027 оны төлбөр нийтлэгдээгүй).",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "huree-tuition-bachelor",
+   "label_mn": "Бакалаврын сургалтын төлбөр (2026-2027)",
+   "price_per_credit": null,
+   "per_year": null,
+   "currency": "MNT",
+   "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургууль сайтдаа нийтлээгүй байна. Англи хэл дээрх танилцуулгад бичсэн «жилд 1,000 ам.доллар» нь огноогүй, хуучин мэдээлэл. 7701-2002, huree@huree.edu.mn-ээс лавлана уу.",
+   "source_urls": [
+    "https://huree.edu.mn/enter/enter.php",
+    "https://huree.edu.mn:443/student/finance.php",
+    "https://new.huree.edu.mn/?p=9"
+   ],
+   "status": "unknown"
+  },
+  {
+   "id": "huree-fees-2026",
+   "label_mn": "Бүртгэлийн ба элсэлтийн хураамж (2026)",
+   "registration_fee": 10000,
+   "admission_fee": 100000,
+   "currency": "MNT",
+   "quote_mn": "Бүртгэлийн хураамж 10,000₮ /бэлэн байх; Элсэлтийн хураамж 100,000₮ /дансаар",
+   "bank_accounts_mn": [
+    "Хаан банк 5023322903",
+    "Төрийн банк 104100363825 (данс эзэмшигч: Хүрээ МХТДС)"
+   ],
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php"
+   ],
+   "status": "current"
+  },
+  {
+   "id": "huree-tuition-master-2021",
+   "label_mn": "Магистрын хөтөлбөр — 1 кредит (2021 оны байдлаар; бакалаврынх биш)",
+   "price_per_credit": 170000,
+   "currency": "MNT",
+   "note_mn": "Нийт 30 кредит; улирал бүр төлнө. Хүрээ МХТДС-ийн төгсөгчид эхний улиралд 50%, хамтрагч байгууллагын ажилтанд 25%, бусад сургуулийг 3.75+ голчтой төгссөнд эхний улиралд 50% хөнгөлөлт.",
+   "source_urls": [
+    "https://huree.edu.mn/enter/enter.php"
+   ],
+   "status": "stale"
+  }
+ ]
+}

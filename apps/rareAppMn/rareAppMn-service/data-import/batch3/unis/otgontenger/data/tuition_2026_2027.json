@@ -1,0 +1,59 @@
+{
+ "_meta": {
+  "dataset": "tuition_2026_2027",
+  "university": "ОТИС",
+  "description": "ОТИС-ийн 2026-2027 оны сургалтын төлбөр (дүн нийтлэгдээгүй), төлбөр төлөх заавар, хөнгөлөлт.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "otg-tuition-bachelor",
+   "label_mn": "Бакалаврын өдрийн хөтөлбөр — сургалтын төлбөр (2026-2027)",
+   "price_per_credit": null,
+   "price_per_year": null,
+   "currency": "MNT",
+   "applies_to_mn": [
+    "Бүх бакалаврын хөтөлбөр"
+   ],
+   "note_mn": "Төлбөрийн дүнг их сургуулийн сайтад нийтлээгүй — 7010-1991, info@otgontenger.edu.mn-ээс тодруулна уу.",
+   "source_urls": [
+    "https://www.otgontenger.edu.mn/mn/training/tuition-fees",
+    "https://api.otgontenger.edu.mn/enrollment",
+    "https://api.otgontenger.edu.mn/programs"
+   ],
+   "status": "unknown"
+  },
+  {
+   "id": "otg-tuition-payment",
+   "label_mn": "Төлбөр төлөх заавар",
+   "price_per_credit": null,
+   "price_per_year": null,
+   "currency": "MNT",
+   "applies_to_mn": [
+    "Бүх оюутан"
+   ],
+   "note_mn": "Хаан банкны дансаар хүлээн авагч 'Отгонтэнгэр их сургууль'-д төлнө; гүйлгээний утгад овог нэр, анги, курс, регистрийн дугаараа бичнэ. Дансны дугаарыг сургуулиас лавлана уу.",
+   "quote_mn": "Төлбөрөө төлөхдөө овог нэр, анги, курс, регистрийн дугаараа бичнэ.",
+   "source_urls": [
+    "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+   ],
+   "status": "partial"
+  },
+  {
+   "id": "otg-tuition-esh-discount",
+   "label_mn": "ЭЕШ-ын өндөр оноотой элсэгчийн хөнгөлөлт (эхний хичээлийн жил)",
+   "price_per_credit": null,
+   "price_per_year": null,
+   "currency": "MNT",
+   "applies_to_mn": [
+    "Шинэ элсэгч"
+   ],
+   "note_mn": "Суурь шалгалт 751–800 оноо: 100%, 701–750: 75%, 650–700: 50% ('АТҮ'-ний хөтөлбөрт 40%, 35%, 30%).",
+   "source_urls": [
+    "http://otgontenger.edu.mn/mn/student/scholarship"
+   ],
+   "status": "current"
+  }
+ ]
+}

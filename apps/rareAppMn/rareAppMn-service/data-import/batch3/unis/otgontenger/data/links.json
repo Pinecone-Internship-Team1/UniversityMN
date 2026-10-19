@@ -1,0 +1,119 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "ОТИС",
+  "description": "ОТИС-ийн албан ёсны холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "otg-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлтийн хуудас (2026-2027 оны журам, босгын хүснэгт)",
+   "url": "https://otgontenger.edu.mn/mn/enrollment"
+  },
+  {
+   "id": "otg-l-02",
+   "category": "admission",
+   "title_mn": "Элсэлтийн систем (цахим бүртгэл)",
+   "url": "https://elselt.otgontenger.edu.mn/home"
+  },
+  {
+   "id": "otg-l-03",
+   "category": "admission",
+   "title_mn": "Элсэлтийн систем (хуучин хаяг)",
+   "url": "https://elselt.otu.edu.mn/home"
+  },
+  {
+   "id": "otg-l-04",
+   "category": "admission",
+   "title_mn": "Мэргэжлийн хөтөлбөрүүд",
+   "url": "https://www.otgontenger.edu.mn/mn/programs"
+  },
+  {
+   "id": "otg-l-05",
+   "category": "admission",
+   "title_mn": "Журам, дүрэм",
+   "url": "https://www.otgontenger.edu.mn/about/rules?term=term_5_4"
+  },
+  {
+   "id": "otg-l-06",
+   "category": "tuition",
+   "title_mn": "Сургалтын төлбөр (төлбөр төлөх заавар)",
+   "url": "https://www.otgontenger.edu.mn/mn/training/tuition-fees"
+  },
+  {
+   "id": "otg-l-07",
+   "category": "scholarship",
+   "title_mn": "Тэтгэлэг, хөнгөлөлт",
+   "url": "http://otgontenger.edu.mn/mn/student/scholarship"
+  },
+  {
+   "id": "otg-l-08",
+   "category": "school",
+   "title_mn": "Хүмүүнлэгийн сургууль",
+   "url": "https://www.otgontenger.edu.mn/branch/humanities"
+  },
+  {
+   "id": "otg-l-09",
+   "category": "school",
+   "title_mn": "Эдийн засаг бизнесийн удирдлагын сургууль",
+   "url": "https://www.otgontenger.edu.mn/branch/economic-and-business"
+  },
+  {
+   "id": "otg-l-10",
+   "category": "school",
+   "title_mn": "Хууль зүйн сургууль",
+   "url": "https://www.otgontenger.edu.mn/branch/huul-zuin-surguul"
+  },
+  {
+   "id": "otg-l-11",
+   "category": "general",
+   "title_mn": "Албан ёсны сайт",
+   "url": "https://www.otgontenger.edu.mn"
+  },
+  {
+   "id": "otg-l-12",
+   "category": "general",
+   "title_mn": "Холбоо барих",
+   "url": "https://www.otgontenger.edu.mn/mn/contact"
+  },
+  {
+   "id": "otg-l-13",
+   "category": "student",
+   "title_mn": "Оюутны портал",
+   "url": "https://student.otgontenger.edu.mn/login/"
+  },
+  {
+   "id": "otg-l-14",
+   "category": "student",
+   "title_mn": "Цахим номын сан",
+   "url": "http://library.otu.edu.mn"
+  },
+  {
+   "id": "otg-l-15",
+   "category": "student",
+   "title_mn": "Оюутны хөдөлмөр эрхлэлтийг дэмжих төв",
+   "url": "https://www.otgontenger.edu.mn/mn/studentemployment"
+  },
+  {
+   "id": "otg-l-16",
+   "category": "student",
+   "title_mn": "Диплом шалгах",
+   "url": "http://checkdiploma.otgontenger.edu.mn"
+  },
+  {
+   "id": "otg-l-17",
+   "category": "social",
+   "title_mn": "Facebook",
+   "url": "https://www.facebook.com/OtgonTengerUni"
+  },
+  {
+   "id": "otg-l-18",
+   "category": "social",
+   "title_mn": "X (Twitter)",
+   "url": "https://twitter.com/OtgonTengerUni"
+  }
+ ]
+}

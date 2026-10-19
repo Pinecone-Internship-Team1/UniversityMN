@@ -1,0 +1,240 @@
+{
+  "_meta": {
+    "dataset": "sources",
+    "university": "ОУУБИС",
+    "description": "Энэ датасетэд ашигласан эх сурвалжууд ба уншиж чадаагүй (цоорхой) эх сурвалжууд.",
+    "language": "mn",
+    "verified_at": "2026-10-16",
+    "note_mn": "gap = true бол уншиж чадаагүй (скан, Facebook) эсвэл хязгаараас болж нээгээгүй; gap_fill_hint_mn-д тэндээс юу авахыг бичсэн. https://www.iuu.edu.mn хаягийг шууд нээх оролдлого зөвшөөрлийн асуулгаар саатсан ч хайлтын үр дүнгээр https://www.iuu.edu.mn/ хэвийн уншигдсан."
+  },
+  "records": [
+    {
+      "id": "src-home",
+      "url": "https://www.iuu.edu.mn/",
+      "used_for": "Цэс, холбоосууд, холбоо барих, сошиал, 2026 оны мэдээ (тэтгэлэг)",
+      "gap": false
+    },
+    {
+      "id": "src-elselt",
+      "url": "https://www.iuu.edu.mn/i/elselt",
+      "used_for": "Элсэлтийн хуудас: бакалавр, магистр, доктор, оройн ангийн 'Бүртгүүлэх' холбоос (он, хугацаа, хураамжгүй)",
+      "gap": false
+    },
+    {
+      "id": "src-elselt-old",
+      "url": "http://elselt.iuu.edu.mn/",
+      "used_for": "Хуучин элсэлтийн хаяг — /i/elselt руу шилжүүлдэг",
+      "gap": false
+    },
+    {
+      "id": "src-programs",
+      "url": "https://www.iuu.edu.mn/bachelor/program",
+      "used_for": "29 хөтөлбөр: индекс, 'Элсэлтийн шалгалт-1/2' хичээл, хичээлийн ард бичсэн тоо (он заагаагүй) — гол эх сурвалж",
+      "gap": false
+    },
+    {
+      "id": "src-reg-form",
+      "url": "https://www.iuu.edu.mn/bachelor/admission/create",
+      "used_for": "Цахим бүртгэлийн маягт: 29 мэргэжлийн жагсаалт, суурь/дагалдах шалгалт, бүрдүүлэх мэдээлэл",
+      "gap": false
+    },
+    {
+      "id": "src-depts",
+      "url": "https://www.iuu.edu.mn/training/department",
+      "used_for": "15 тэнхимийн жагсаалт",
+      "gap": false
+    },
+    {
+      "id": "src-dept-1",
+      "url": "https://www.iuu.edu.mn/training/department/1",
+      "used_for": "Компьютер, МТ тэнхим: хөтөлбөрийн түүх, магадлан итгэмжлэл, солилцоо/2+2 шаардлага",
+      "gap": false
+    },
+    {
+      "id": "src-dept-8",
+      "url": "https://www.iuu.edu.mn/training/department/8",
+      "used_for": "Дизайны тэнхим: 4 хөтөлбөр, 2+2 хос диплом, түнш сургуулиуд",
+      "gap": false
+    },
+    {
+      "id": "src-schools",
+      "url": "https://www.iuu.edu.mn/university",
+      "used_for": "5 сургуулийн жагсаалт",
+      "gap": false
+    },
+    {
+      "id": "src-school-1",
+      "url": "https://www.iuu.edu.mn/university/1",
+      "used_for": "Хүмүүнлэгийн сургууль: тэнхим, чиглэл, захирал",
+      "gap": false
+    },
+    {
+      "id": "src-school-3",
+      "url": "https://www.iuu.edu.mn/university/3",
+      "used_for": "Инженер, дизайн, технологийн сургууль: тэнхим, 10 хөтөлбөр, индекс, захирал, оюутны тоо",
+      "gap": false
+    },
+    {
+      "id": "src-school-4",
+      "url": "https://www.iuu.edu.mn/university/4",
+      "used_for": "Эдийн засаг бизнесийн сургууль: тэнхим, түүх",
+      "gap": false
+    },
+    {
+      "id": "src-about",
+      "url": "https://www.iuu.edu.mn/aboutUs",
+      "used_for": "Танилцуулга: 1995, БНСУ-ын 100% хөрөнгө оруулалт, алсын хараа, үнэт зүйл, хаяг",
+      "gap": false
+    },
+    {
+      "id": "src-timeline",
+      "url": "https://www.iuu.edu.mn/timeline?size=100",
+      "used_for": "Түүх (40 үйл явдал): хуучин нэрс, магадлан итгэмжлэл, оюутны байр 2008",
+      "gap": false
+    },
+    {
+      "id": "src-contact",
+      "url": "https://www.iuu.edu.mn/i/contact",
+      "used_for": "Хаяг (БЗД 25-р хороо), утас, имэйл, газрын зургийн байршил",
+      "gap": false
+    },
+    {
+      "id": "src-news",
+      "url": "https://www.iuu.edu.mn/as/iuu",
+      "used_for": "Мэдээний жагсаалт (2026): 8 дахь Ректор, солилцоо, Хууль зүйн сургууль; элсэлтийн мэдээ байхгүй",
+      "gap": false
+    },
+    {
+      "id": "src-news-scholarship",
+      "url": "https://www.iuu.edu.mn/a/72",
+      "used_for": "2026-2027 оны I улирлын тэтгэлэг: 12 төрөл, 527 оюутан, 559.7 сая ₮",
+      "gap": false
+    },
+    {
+      "id": "src-scholarship-page",
+      "url": "https://www.iuu.edu.mn/p/26",
+      "used_for": "Тэтгэлгийн төрлүүд, төлбөрийн хөнгөлөлт (дүнгүй)",
+      "gap": false
+    },
+    {
+      "id": "src-life",
+      "url": "https://www.iuu.edu.mn/p/11",
+      "used_for": "Оюутны амьдрал: байр (6 давхар, 180), дугуйлан, 9-р сарын 1, гэрээ, зөвлөх багш",
+      "gap": false
+    },
+    {
+      "id": "src-env",
+      "url": "https://www.iuu.edu.mn/p/10",
+      "used_for": "Сургалтын орчин: I, II байр, оюутны байр (давхар бүр гал тогоо, 8 оюутанд 1 угаалгын өрөө)",
+      "gap": false
+    },
+    {
+      "id": "src-rules",
+      "url": "https://www.iuu.edu.mn/p/15",
+      "used_for": "Дүрэм, журмын жагсаалт (элсэлтийн журам 2026-2027, тэтгэлгийн журам, 2+2 журам)",
+      "gap": false
+    },
+    {
+      "id": "src-joint",
+      "url": "https://www.iuu.edu.mn/p/7",
+      "used_for": "2+2 (TOPIK, 50–100% тэтгэлэг), магистрын 1+1, солилцоо, 90 гаруй түнш",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-winter",
+      "url": "https://ikon.mn/n/3qqx",
+      "used_for": "2026 оны өвлийн шалгалтын бүртгэл 10-01 – 11-23, 20,000₮",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-reg",
+      "url": "https://ikon.mn/n/3ni1",
+      "used_for": "2026 оны Элсэлтийн шалгалтын бүртгэл 5-р сарын 15-нд хаагдсан",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-exam",
+      "url": "https://ikon.mn/n/3o5r",
+      "used_for": "2026 оны Элсэлтийн шалгалт 6-р сарын 25-нд эхэлсэн",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-policy",
+      "url": "https://ikon.mn/n/3okx",
+      "used_for": "Босгыг 3 жилээр зарлаж өсгөх төлөвлөгөө (480, 495, 505) — FAQ",
+      "gap": false
+    },
+    {
+      "id": "gap-regulation-2026",
+      "url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+      "used_for": "ЦООРХОЙ: '2026-2027 ОУУБИС-ийн бакалаврын сургалтанд оюутан элсүүлэх журам' (2026-05-19 байршуулсан) — PDF-д текст байхгүй (скан)",
+      "gap": false,
+      "gap_fill_hint_mn": "Хамгийн чухал. OCR/зураг уншиж: (1) 29 хөтөлбөр бүрийн 2 шалгалтын хичээл, 2026-2027 оны босго (шалгалт тус бүрт эсэх, нийлбэр/дундаж эсэх) — сайтын хүснэгттэй (programs.json → exam_2026_2027.page_thresholds) тулгаж, таарвал seed/exam-tools.mjs-ийн buildExam/applyExam-аар confirmed болгоно; (2) онооны томьёо, жин, эрэмбэлэх, тэнцвэл; (3) ур чадварын шалгалт: аль хөтөлбөр, юу, хэзээ, оноог 200–800 рүү хөрвүүлэх эсэх; (4) бүртгэлийн хугацаа, хураамж, бүрдүүлэх бичиг баримт; (5) сургалтын төлбөр; (6) шинэ элсэгчийн тэтгэлэг/хөнгөлөлт; (7) хяналтын тоо; (8) өвлийн ЭЕШ-ийн оноо тооцох эсэх.",
+      "filled_at": "2026-10-18",
+      "filled_note": "18 хуудас скан: 6–7-р хуудасны хүснэгтийг зургаар уншив — 28 хөтөлбөрийн хичээл, босго (сайттай ижил, А/34-тэй ижил); Банк хүснэгтэд байхгүй. Мөн бүртгэлийн огноо, шууд олгох дүрэм, ур чадварын шалгалт, шинэ элсэгчийн хөнгөлөлт. Сургалтын төлбөр, бүртгэлийн хураамжийн дүн байхгүй."
+    },
+    {
+      "id": "gap-scholarship-regulation",
+      "url": "https://www.iuu.edu.mn/resource/iuu/File/2026/03/04/tagprl9rl55svpne/%D0%A2%D1%8D%D1%82%D0%B3%D1%8D%D0%BB%D0%B3%D0%B8%D0%B9%D0%BD%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+      "used_for": "ЦООРХОЙ: 'Тэтгэлгийн журам' — PDF-д текст байхгүй (скан)",
+      "gap": true,
+      "gap_fill_hint_mn": "Тэтгэлэг тус бүрийн (ялангуяа 'Шинэ элсэгчийн тэтгэлэг', Ректорын, Удирдах зөвлөлийн даргын нэрэмжит) хамрах хувь/дүн, ЭЕШ-ийн оноо эсвэл голч дүнгийн шаардлага, өргөдөл гаргах хугацаа, журмын батлагдсан огноо."
+    },
+    {
+      "id": "gap-facebook",
+      "url": "https://www.facebook.com/ulaanbaataruniversity",
+      "used_for": "ЦООРХОЙ: ОУУБИС-ийн Facebook хуудас — элсэлтийн 2026 оны зарлал, зураг (уншиж чадахгүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "2026 оны 4–8-р сарын нийтлэлүүдээс: '2026-2027 оны элсэлт' босгын хүснэгт (оныг заасан бол page_thresholds-ийг баталгаажуулна), сургалтын төлбөр (кредит эсвэл жилээр), бүртгэлийн хугацаа, ур чадварын шалгалтын хуваарь, оюутны байрны бүртгэл, үнэ."
+    },
+    {
+      "id": "gap-school-law",
+      "url": "https://www.iuu.edu.mn/university/5",
+      "used_for": "ЦООРХОЙ: Хууль зүйн сургуулийн хуудас — нээгээгүй (хязгаар)",
+      "gap": true,
+      "gap_fill_hint_mn": "Эрх зүй хөтөлбөр энэ сургуульд харьяалагдах эсэх, захирал, утас, кредит, хугацаа."
+    },
+    {
+      "id": "gap-school-nursing",
+      "url": "https://www.iuu.edu.mn/university/6",
+      "used_for": "ЦООРХОЙ: Сувилахуйн сургуулийн хуудас — нээгээгүй (хязгаар)",
+      "gap": true,
+      "gap_fill_hint_mn": "Сувилахуй хөтөлбөрийн харьяалал, ур чадварын шалгалтын агуулга/хугацаа, кредит, хугацаа, утас."
+    },
+    {
+      "id": "gap-dept-pages",
+      "url": "https://www.iuu.edu.mn/training/department",
+      "used_for": "ЦООРХОЙ: тэнхимийн хуудсууд /training/department/2–7, 9–15 — нээгээгүй (хязгаар)",
+      "gap": true,
+      "gap_fill_hint_mn": "Хөтөлбөр бүрийн кредит, суралцах хугацаа; багшийн (2, 7), аялал жуулчлалын (11), мал зүйн (12), сувилахуйн (5) ур чадварын шалгалтын агуулга; 'Электроникийн инженерчлэл' (1) нь 'Техник хангамж'-ийн шинэ нэр эсэх."
+    },
+    {
+      "id": "gap-2plus2-regulation",
+      "url": "https://www.iuu.edu.mn/resource/iuu/File/2026/03/04/90la6iafx4ixapbg/22%20%D1%85%D3%A9%D1%82%D3%A9%D0%BB%D0%B1%D3%A9%D1%80%D0%B8%D0%B9%D0%BD%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf",
+      "used_for": "ЦООРХОЙ: '2+2 хөтөлбөрөөр оюутан суралцуулах журам' — нээгээгүй (хязгаар)",
+      "gap": true,
+      "gap_fill_hint_mn": "TOPIK-ийн доод түвшин, голч дүн, хамрагдах хөтөлбөр, түнш их сургуулийн нэр, төлбөр, хос диплом эсэх."
+    },
+    {
+      "id": "gap-academic-regulation",
+      "url": "https://www.iuu.edu.mn/resource/iuu/File/2026/03/04/2p1yjm8uavr3nccd/202509_02.pdf",
+      "used_for": "ЦООРХОЙ: 'Сургалтын журам' (202509_02.pdf) — нээгээгүй (хязгаар)",
+      "gap": true,
+      "gap_fill_hint_mn": "Бакалаврын хөтөлбөрийн нийт кредит, суралцах хугацаа, кредитээр төлбөр тооцох дүрэм, 1 кредитийн үнэ байгаа эсэх."
+    },
+    {
+      "id": "gap-accreditation",
+      "url": "https://www.iuu.edu.mn/p/14",
+      "used_for": "ЦООРХОЙ: Магадлан итгэмжлэлийн хуудас — нээгээгүй (хязгаар)",
+      "gap": true,
+      "gap_fill_hint_mn": "Хөтөлбөр бүрийн магадлан итгэмжлэлийн одоогийн хугацаа (2019, 2020 оных дууссан эсэх)."
+    },
+    {
+      "id": "gap-english-site",
+      "url": "https://www.iuu.edu.mn/?locale=en",
+      "used_for": "ЦООРХОЙ: Англи хувилбар — нээгээгүй (хязгаар)",
+      "gap": true,
+      "gap_fill_hint_mn": "Хөтөлбөрийн албан ёсны англи нэрс (programs.json → name_en одоогоор null)."
+    }
+  ]
+}

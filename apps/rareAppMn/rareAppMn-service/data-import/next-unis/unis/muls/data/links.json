@@ -1,0 +1,191 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "ХААИС",
+  "description": "ХААИС-ийн албан ёсны болон хэрэгтэй холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "muls-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлтийн вэб (хөтөлбөрийн хуудсууд)",
+   "url": "https://elselt.muls.edu.mn",
+   "source_urls": [
+    "https://elselt.muls.edu.mn"
+   ]
+  },
+  {
+   "id": "muls-l-02",
+   "category": "admission",
+   "title_mn": "Цахим бүртгэлийн систем",
+   "url": "http://admission.muls.edu.mn",
+   "source_urls": [
+    "http://admission.muls.edu.mn"
+   ]
+  },
+  {
+   "id": "muls-l-03",
+   "category": "admission",
+   "title_mn": "Бакалаврын хөтөлбөрийн жагсаалт (muls.edu.mn)",
+   "url": "https://muls.edu.mn/program_sum.php?page_value=ZW5jb2RldXNlcmlkMQ%3D%3D",
+   "source_urls": [
+    "https://muls.edu.mn/program_sum.php?page_value=ZW5jb2RldXNlcmlkMQ%3D%3D"
+   ]
+  },
+  {
+   "id": "muls-l-04",
+   "category": "admission",
+   "title_mn": "Элсэлтийн мэдээлэл (muls.edu.mn)",
+   "url": "https://www.muls.edu.mn/view.php?value=ZW5jb2RldXNlcmlkMg%3D%3D",
+   "source_urls": [
+    "https://www.muls.edu.mn/view.php?value=ZW5jb2RldXNlcmlkMg%3D%3D"
+   ]
+  },
+  {
+   "id": "muls-l-05",
+   "category": "exam",
+   "title_mn": "ЭШ-ийн бүртгэл (Боловсролын үнэлгээний төв)",
+   "url": "https://eyesh.eec.mn/",
+   "source_urls": [
+    "https://eyesh.eec.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-06",
+   "category": "school",
+   "title_mn": "Агроэкологийн сургууль",
+   "url": "https://agroecology.muls.edu.mn/",
+   "source_urls": [
+    "https://agroecology.muls.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-07",
+   "category": "school",
+   "title_mn": "Мал эмнэлгийн сургууль",
+   "url": "https://veterinary.muls.edu.mn/",
+   "source_urls": [
+    "https://veterinary.muls.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-08",
+   "category": "school",
+   "title_mn": "Мал аж ахуй, биотехнологийн сургууль",
+   "url": "https://asbt.muls.edu.mn/",
+   "source_urls": [
+    "https://asbt.muls.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-09",
+   "category": "school",
+   "title_mn": "Инженер, технологийн сургууль",
+   "url": "https://engineer.muls.edu.mn/",
+   "source_urls": [
+    "https://engineer.muls.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-10",
+   "category": "school",
+   "title_mn": "Эдийн засаг, бизнесийн сургууль",
+   "url": "https://seb.muls.edu.mn/",
+   "source_urls": [
+    "https://seb.muls.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-11",
+   "category": "school",
+   "title_mn": "Хэрэглээний шинжлэх ухааны сургууль",
+   "url": "https://sas.muls.edu.mn/",
+   "source_urls": [
+    "https://sas.muls.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-12",
+   "category": "branch",
+   "title_mn": "Дархан-Уул салбар (Агроэкологи, бизнесийн сургууль)",
+   "url": "https://sab.edu.mn/",
+   "source_urls": [
+    "https://sab.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-13",
+   "category": "branch",
+   "title_mn": "Дархан-Уул салбарын элсэлтийн вэб",
+   "url": "https://elselt.sab.edu.mn/",
+   "source_urls": [
+    "https://elselt.sab.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-14",
+   "category": "student",
+   "title_mn": "Номын сан",
+   "url": "https://library.muls.edu.mn/",
+   "source_urls": [
+    "https://library.muls.edu.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-15",
+   "category": "scholarship",
+   "title_mn": "БЗС — Засгийн газрын тэтгэлэг",
+   "url": "https://elf.gov.mn/muzgt/",
+   "source_urls": [
+    "https://elf.gov.mn/muzgt/"
+   ]
+  },
+  {
+   "id": "muls-l-16",
+   "category": "scholarship",
+   "title_mn": "БЗС — Зарим эрэлттэй мэргэжлийн тэтгэлэг (малчны хүүхэд г.м.)",
+   "url": "https://elf.gov.mn/zems/",
+   "source_urls": [
+    "https://elf.gov.mn/zems/"
+   ]
+  },
+  {
+   "id": "muls-l-17",
+   "category": "scholarship",
+   "title_mn": "БЗС — Сургалтын төлбөрийн хөнгөлөлт (орон нутаг)",
+   "url": "https://elf.gov.mn/sths/",
+   "source_urls": [
+    "https://elf.gov.mn/sths/"
+   ]
+  },
+  {
+   "id": "muls-l-18",
+   "category": "social",
+   "title_mn": "ХААИС Facebook",
+   "url": "https://www.facebook.com/muls.mn/",
+   "source_urls": [
+    "https://www.facebook.com/muls.mn/"
+   ]
+  },
+  {
+   "id": "muls-l-19",
+   "category": "social",
+   "title_mn": "ХААИС Элсэлт Facebook хуудас",
+   "url": "https://www.facebook.com/people/%D0%A5%D0%90%D0%90%D0%98%D0%A1-%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2025/61557059079498/",
+   "source_urls": [
+    "https://www.facebook.com/people/%D0%A5%D0%90%D0%90%D0%98%D0%A1-%D0%AD%D0%BB%D1%81%D1%8D%D0%BB%D1%82-2025/61557059079498/"
+   ]
+  },
+  {
+   "id": "muls-l-20",
+   "category": "info",
+   "title_mn": "ХААИС нүүр хуудас",
+   "url": "https://muls.edu.mn/",
+   "source_urls": [
+    "https://muls.edu.mn/"
+   ]
+  }
+ ]
+}

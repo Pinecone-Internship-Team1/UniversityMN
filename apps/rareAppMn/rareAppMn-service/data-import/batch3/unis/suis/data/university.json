@@ -1,0 +1,120 @@
+{
+ "_meta": {
+  "dataset": "university",
+  "university": "СУИС",
+  "description": "СУИС-ийн ерөнхий мэдээлэл: танилцуулга, түүх, холбоо барих, оюутны үйлчилгээ, sidebar-ийн утгууд.",
+  "language": "mn",
+  "verified_at": "2026-10-18"
+ },
+ "records": [
+  {
+   "id": "suis",
+   "name_mn": "Монгол Улсын Соёл Урлагийн Их Сургууль",
+   "short_name_mn": "СУИС",
+   "name_en": "Mongolian National University of Arts and Culture",
+   "short_name_en": "MNUAC",
+   "db_slug": "suis",
+   "website": "https://www.mnuac.edu.mn",
+   "admission_website": "https://burtgel.mnuac.edu.mn",
+   "admission_system_url": "https://burtgel.mnuac.edu.mn/bachelor",
+   "overview_mn": "Монгол Улсын Соёл Урлагийн Их Сургууль (СУИС) нь Улаанбаатар хотод байрладаг, соёл, урлагийн чиглэлээр мэргэжилтэн бэлтгэдэг их сургууль юм. Театр, бүжиг, дүрслэх урлаг, дизайн, кино зэрэг чиглэлээр бакалавр, магистр, докторын түвшинд сургалт явуулдаг. Театрын урлагийн сургууль зэрэг хэд хэдэн бүрэлдэхүүн сургуультай. Урлагийн ихэнх мэргэжилд элсэгчид их сургуулийн өөрийн авдаг ур чадварын шалгалт өгдөг. 2026 онд Бүжгийн, Кино-телевиз-медиа, Соёлын, Театрын, Хөгжмийн урлагийн сургууль болон Дүрслэх урлагийн академи гэсэн 6 сургуулийн 35 бакалаврын мэргэжлээр элсэлт авсан. Элсэлтийн бүртгэлийг burtgel.mnuac.edu.mn цахим системээр явуулдаг.",
+   "history": [
+    {
+     "year": 2016,
+     "event_mn": "Засгийн газрын 2-р сарын 8-ны хуралдаанаар Дүрслэх, дизайн урлагийн сургуулийг Ардын зураач Д.Амгалангийн нэрэмжит болгосон.",
+     "source_url": "https://ikon.mn/n/o3c",
+     "status": "current"
+    },
+    {
+     "year": 2016,
+     "event_mn": "2016-2017 оны хичээлийн жилд 25 бакалаврын хөтөлбөрөөр элсэлт авч, 19-д нь ур чадварын шалгалт авсан.",
+     "source_url": "https://ikon.mn/n/s1m",
+     "status": "current"
+    }
+   ],
+   "history_source_urls": [
+    "https://ikon.mn/n/o3c",
+    "https://ikon.mn/n/s1m"
+   ],
+   "history_note_mn": "Байгуулагдсан он болон дэлгэрэнгүй түүхийг их сургуулийн албан ёсны сайтаас шалгана уу.",
+   "stats": [
+    {
+     "label_mn": "Бакалаврын хөтөлбөр (2016-2017 оны элсэлт)",
+     "value": "25 (19-д нь ур чадварын шалгалттай)",
+     "source_url": "https://ikon.mn/n/s1m",
+     "status": "stale"
+    }
+   ],
+   "rankings": null,
+   "rankings_note_mn": "Олон улсын чансааг баталгаажуулаагүй.",
+   "contacts": {
+    "address_mn": null,
+    "address_admission_system_mn": "Элсэлтийн системийн хөл хэсэгт: Улаанбаатар хот, Баянгол дүүрэг (бүтэн хаяг бичээгүй).",
+    "phones": [
+     "7766-0011"
+    ],
+    "emails": {
+     "admission": "burtgel@mnuac.edu.mn"
+    },
+    "contact_page": "https://mnuac.edu.mn/main/421896",
+    "admission_system": "https://burtgel.mnuac.edu.mn",
+    "phones_2016_mn": "2016 оны элсэлтийн мэдээнд: 11-326129, 11-318774, 9418-4844, 9818-4855 (одоо ажиллаж буй эсэхийг шалгана уу).",
+    "note_mn": "Хаяг, утас, цахим шууданг их сургуулийн 'Холбоо барих' хуудаснаас шалгана уу."
+   },
+   "location_short_mn": "Улаанбаатар",
+   "social": {
+    "facebook": null,
+    "facebook_soyoliin_surguuli": "https://www.facebook.com/suis.soyoliinsurguuli/"
+   },
+   "student_services": [
+    {
+     "name_mn": "Элсэлтийн цахим систем (бүртгэл)",
+     "url": "https://burtgel.mnuac.edu.mn"
+    },
+    {
+     "name_mn": "Оюутны веб",
+     "url": "http://student.mnuac.edu.mn"
+    },
+    {
+     "name_mn": "Номын сангийн каталог",
+     "url": "http://catalog.mnuac.edu.mn"
+    },
+    {
+     "name_mn": "Цахим сургалт",
+     "url": "http://open.mnuac.edu.mn"
+    },
+    {
+     "name_mn": "Дүрэм журам",
+     "url": "https://mnuac.edu.mn/main/485828"
+    }
+   ],
+   "sidebar_suggestion": {
+    "tuition_text_mn": "Тодорхойгүй — 2026-2027 оны сургалтын төлбөрийг сургуулиас тодруулна уу",
+    "tuition_number": null,
+    "tuition_number_note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөр нийтлэгдсэн эх сурвалж олдсонгүй.",
+    "dorm_flag": "Тодорхойгүй",
+    "scholarship_flag": "Боломжтой",
+    "dorm_howto_mn": "СУИС-ийн оюутны байрны мэдээлэл (байр бий эсэх, үнэ, хэрхэн бүртгүүлэх) олдсонгүй. Элсэлтийн систем (burtgel.mnuac.edu.mn), Оюутны веб (student.mnuac.edu.mn) болон их сургуулийн сайтын 'Холбоо барих' хэсгээс (mnuac.edu.mn) тодруулна уу. Орон нутгаас ирэх бол ур чадварын шалгалт, элсэлтийн өдрүүдэд Улаанбаатарт байх шаардлага гарч болохыг анхаарна уу.",
+    "phones": [
+     "7766-0011"
+    ],
+    "email": "burtgel@mnuac.edu.mn",
+    "location_mn": "Улаанбаатар",
+    "website": "https://www.mnuac.edu.mn"
+   },
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/",
+    "https://burtgel.mnuac.edu.mn/api/v1/cms/contact-info",
+    "https://burtgel.mnuac.edu.mn/api/v1/cms/page-contents",
+    "https://mnuac.edu.mn/main/409093",
+    "https://mnuac.edu.mn/main/409095",
+    "https://mnuac.edu.mn/main/409097",
+    "https://sssa.mnuac.edu.mn/",
+    "https://ikon.mn/n/s1m",
+    "https://ikon.mn/n/o3c"
+   ],
+   "verified_at": "2026-10-18",
+   "status": "partial"
+  }
+ ]
+}

@@ -19,14 +19,15 @@ type MatchableMajor = Pick<
   | 'examNote'
   | 'cutOffScore'
   | 'secondaryCutOffScore'
->;
+> &
+  Partial<Pick<Major, 'primaryWeight' | 'secondaryWeight' | 'selectionType'>>;
 
 interface ExamPair {
   primary: string;
   primaryScore: number;
   secondary: string;
   secondaryScore: number;
-  /** 0.7 × суурь + 0.3 × дагалдах, rounded to one decimal. */
+  /** The weighted total (0.7 × суурь + 0.3 × дагалдах by default), rounded to one decimal. */
   total: number;
 }
 
@@ -35,6 +36,47 @@ const PRIMARY_WEIGHT = 0.7;
 const SECONDARY_WEIGHT = 0.3;
 /** Run by the school itself, so it has no ЭЕШ score to weigh. */
 const SKILL_EXAM = 'Ур чадварын шалгалт';
+
+/** How a major's two exams are weighed and worded. */
+interface ExamRules {
+  primaryWeight: number;
+  secondaryWeight: number;
+  /**
+   * True when the major sets its own weights or selection type (e.g. АШУҮИС). Such
+   * majors follow the dataset's reference check (`seed/eligibility.mjs`); the rest
+   * keep the МУИС/ШУТИС wording unchanged.
+   */
+  ownRules: boolean;
+  direct: boolean;
+  /** Both exams weigh the same, so they are "1-р шалгалт" / "2-р шалгалт", not "суурь" / "дагалдах". */
+  numbered: boolean;
+  primaryLabel: string;
+  secondaryLabel: string;
+  /** "Тооцоолсон оноо", or "Нийлбэр оноо" for a plain sum. */
+  scoreLabel: string;
+}
+
+function examRulesOf(major: MatchableMajor): ExamRules {
+  const primaryWeight = major.primaryWeight ?? PRIMARY_WEIGHT;
+  const secondaryWeight = major.secondaryWeight ?? SECONDARY_WEIGHT;
+  const numbered = primaryWeight === secondaryWeight;
+  return {
+    primaryWeight,
+    secondaryWeight,
+    ownRules: major.primaryWeight != null || major.secondaryWeight != null || major.selectionType != null,
+    direct: major.selectionType === 'direct',
+    numbered,
+    primaryLabel: numbered ? '1-р шалгалт' : 'суурь',
+    secondaryLabel: numbered ? '2-р шалгалт' : 'дагалдах',
+    scoreLabel: primaryWeight === 1 && secondaryWeight === 1 ? 'Нийлбэр оноо' : 'Тооцоолсон оноо',
+  };
+}
+
+/** "0.7 × Математик + 0.3 × Физик", or "Хими + Биологи" for a plain sum. */
+function formulaText(rules: ExamRules, pair: ExamPair): string {
+  if (rules.primaryWeight === 1 && rules.secondaryWeight === 1) return `${pair.primary} + ${pair.secondary}`;
+  return `${rules.primaryWeight} × ${pair.primary} + ${rules.secondaryWeight} × ${pair.secondary}`;
+}
 
 function subjectList(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
@@ -69,6 +111,7 @@ export function hasRelevantScores(
 
 /** Every суурь/дагалдах pair the student has both scores for, where the two exams differ. */
 function examPairs(
+  rules: ExamRules,
   scores: Record<string, number>,
   primarySubjects: string[],
   secondarySubjects: string[]
@@ -81,7 +124,7 @@ function examPairs(
       const secondaryScore = scoreFor(scores, secondary);
       if (secondary === primary || secondaryScore === undefined) continue;
       const total =
-        Math.round((PRIMARY_WEIGHT * primaryScore + SECONDARY_WEIGHT * secondaryScore) * 10) / 10;
+        Math.round((rules.primaryWeight * primaryScore + rules.secondaryWeight * secondaryScore) * 10) / 10;
       pairs.push({ primary, primaryScore, secondary, secondaryScore, total });
     }
   }
@@ -103,6 +146,14 @@ function clampMatchScore(value: number): number {
 
 const PASSED_NOTE =
   ' Босго давсан нь элсэх баталгаа биш, эрэлттэй хөтөлбөрт илүү өндөр оноо хэрэгтэй байж болно.';
+/**
+ * A direct-selection program admits applicants who meet the minimums until its seats are full (АШУҮИС,
+ * Этүгэн, ОУУБИС). A university's own extra rule, such as АШУҮИС's one program paid in order, is in its
+ * majors' examNote.
+ */
+const DIRECT_NOTE =
+  ' Шууд элсүүлэх хөтөлбөрт босго хангасан бүртгүүлэгчийг суудал дүүртэл элсүүлдэг тул элсэх эрхээ хугацаанд нь баталгаажуулаарай.';
+const SKILL_EXAM_NOTE = 'Ур чадварын шалгалтыг их сургууль өөрөө авна — сургуулиас тодруулна уу.';
 
 /**
  * `scoreText` names the score mid-sentence, e.g. "дундаж оноо 612.5";
@@ -129,7 +180,8 @@ function outcomeFor(
   return { matchScore, eligible, verdict: eligible ? 'ELIGIBLE' : 'BELOW_CUT_OFF', reason };
 }
 
-const UNKNOWN_SECONDARY_CUT_OFF = 'Дагалдах хичээлийн босго тодорхойгүй — сургуулиас тодруулна уу.';
+const unknownSecondaryCutOff = (rules: ExamRules) =>
+  `${rules.numbered ? '2-р шалгалтын' : 'Дагалдах хичээлийн'} босго тодорхойгүй — сургуулиас тодруулна уу.`;
 
 /**
  * For a university that sets a minimum for each exam (e.g. ШУТИС: суурь 490,
@@ -141,6 +193,7 @@ const UNKNOWN_SECONDARY_CUT_OFF = 'Дагалдах хичээлийн босг�
  */
 function perExamOutcome(
   major: MatchableMajor,
+  rules: ExamRules,
   pairs: ExamPair[],
   primarySubjects: string[],
   secondarySubjects: string[],
@@ -150,55 +203,49 @@ function perExamOutcome(
   const secondaryMinimum = major.secondaryCutOffScore ?? 0;
   const secondaryKnown = secondaryMinimum > 0;
   // An unknown дагалдах minimum is ranked as if it equalled the суурь one, so it isn't favoured.
+  // The match score is the total over the weighted minimum, so a sum (АШУҮИС) and a 0.7/0.3
+  // total land on the same scale and rank together.
   const weightedMinimum =
-    PRIMARY_WEIGHT * primaryMinimum +
-    SECONDARY_WEIGHT * (secondaryKnown ? secondaryMinimum : primaryMinimum);
+    rules.primaryWeight * primaryMinimum +
+    rules.secondaryWeight * (secondaryKnown ? secondaryMinimum : primaryMinimum);
   const ratioTo = (score: number, minimum: number) => (minimum > 0 ? score / minimum : score / 100);
   const minimums = secondaryKnown
-    ? `суурь ${primaryMinimum}, дагалдах ${secondaryMinimum}`
-    : `суурь ${primaryMinimum}`;
+    ? `${rules.primaryLabel} ${primaryMinimum}, ${rules.secondaryLabel} ${secondaryMinimum}`
+    : `${rules.primaryLabel} ${primaryMinimum}`;
   const passing = pairs.filter(
     (pair) => pair.primaryScore >= primaryMinimum && pair.secondaryScore >= secondaryMinimum
   );
 
   if (passing.length > 0) {
     const best = bestPair(passing);
+    const primaryOnly = rules.numbered ? '1-р шалгалтын' : 'суурь шалгалтын';
     return {
       matchScore: clampMatchScore(ratioTo(best.total, weightedMinimum)),
       eligible: true,
       verdict: 'ELIGIBLE',
       reason:
-        `Босго давсан — өрсөлдөх эрхтэй. Суурь ${best.primary} ${best.primaryScore}, ` +
-        `дагалдах ${best.secondary} ${best.secondaryScore} оноо нь ${major.name} мэргэжлийн ` +
-        `${secondaryKnown ? 'шалгалт тус бүрийн босгыг' : 'суурь шалгалтын босгыг'} (${minimums}) хангаж байна. ` +
-        `Тооцоолсон оноо ${best.total.toFixed(1)} (0.7 × ${best.primary} + 0.3 × ${best.secondary}).${PASSED_NOTE}` +
-        (secondaryKnown ? '' : ` ${UNKNOWN_SECONDARY_CUT_OFF}`),
+        `${rules.direct ? 'Босго давсан — шууд элсэх боломжтой' : 'Босго давсан — өрсөлдөх эрхтэй'}. ` +
+        `${capitalize(rules.primaryLabel)} ${best.primary} ${best.primaryScore}, ` +
+        `${rules.secondaryLabel} ${best.secondary} ${best.secondaryScore} оноо нь ${major.name} мэргэжлийн ` +
+        `${secondaryKnown ? 'шалгалт тус бүрийн босгыг' : `${primaryOnly} босгыг`} (${minimums}) хангаж байна. ` +
+        `${rules.scoreLabel} ${best.total.toFixed(1)} (${formulaText(rules, best)}).${rules.direct ? DIRECT_NOTE : PASSED_NOTE}` +
+        (secondaryKnown ? '' : ` ${unknownSecondaryCutOff(rules)}`),
     };
   }
 
   const best = bestPair(pairs);
   const shortfalls = [
     best.primaryScore < primaryMinimum
-      ? `суурь ${best.primary} ${best.primaryScore} (босго ${primaryMinimum})`
+      ? `${rules.primaryLabel} ${best.primary} ${best.primaryScore} (босго ${primaryMinimum})`
       : null,
     best.secondaryScore < secondaryMinimum
-      ? `дагалдах ${best.secondary} ${best.secondaryScore} (босго ${secondaryMinimum})`
+      ? `${rules.secondaryLabel} ${best.secondary} ${best.secondaryScore} (босго ${secondaryMinimum})`
       : null,
   ].filter((text): text is string => text !== null);
   // A subject the student left empty could still make a passing pair, so name it instead of a flat no.
-  const passingPrimary = primarySubjects.filter(
-    (subject) => (scoreFor(scores, subject) ?? -Infinity) >= primaryMinimum
-  );
-  const untried = [
-    ...new Set([
-      ...secondarySubjects.filter(
-        (subject) =>
-          scoreFor(scores, subject) === undefined &&
-          passingPrimary.some((primary) => primary !== subject)
-      ),
-      ...primarySubjects.filter((subject) => scoreFor(scores, subject) === undefined),
-    ]),
-  ];
+  const untried = rules.ownRules
+    ? untriedForFailingGroups(primarySubjects, primaryMinimum, secondarySubjects, secondaryMinimum, scores)
+    : untriedSubjects(primarySubjects, primaryMinimum, secondarySubjects, scores);
   const shortBy = (score: number, minimum: number) => (score < minimum ? score / minimum : 1);
   return {
     matchScore: clampMatchScore(
@@ -216,19 +263,64 @@ function perExamOutcome(
       (untried.length
         ? ` Оноо оруулаагүй ${untried.join(', ')} хичээлээр босго хангах боломжтой эсэхийг шалгана уу.`
         : '') +
-      (secondaryKnown ? '' : ` ${UNKNOWN_SECONDARY_CUT_OFF}`),
+      (secondaryKnown ? '' : ` ${unknownSecondaryCutOff(rules)}`),
   };
 }
 
-/** Scores a major admitted on one суурь (70%) and one different дагалдах (30%) exam. */
+/** Empty subjects that could still pass: дагалдах ones next to a passing суурь, and every empty суурь. */
+function untriedSubjects(
+  primarySubjects: string[],
+  primaryMinimum: number,
+  secondarySubjects: string[],
+  scores: Record<string, number>
+): string[] {
+  const passingPrimary = primarySubjects.filter(
+    (subject) => (scoreFor(scores, subject) ?? -Infinity) >= primaryMinimum
+  );
+  return [
+    ...new Set([
+      ...secondarySubjects.filter(
+        (subject) =>
+          scoreFor(scores, subject) === undefined &&
+          passingPrimary.some((primary) => primary !== subject)
+      ),
+      ...primarySubjects.filter((subject) => scoreFor(scores, subject) === undefined),
+    ]),
+  ];
+}
+
+/** The reference check's rule: suggest a group's empty subjects only while that group is failing. */
+function untriedForFailingGroups(
+  primarySubjects: string[],
+  primaryMinimum: number,
+  secondarySubjects: string[],
+  secondaryMinimum: number,
+  scores: Record<string, number>
+): string[] {
+  const passes = (subjects: string[], minimum: number) =>
+    subjects.some((subject) => (scoreFor(scores, subject) ?? -Infinity) >= minimum);
+  const empty = (subjects: string[]) => subjects.filter((subject) => scoreFor(scores, subject) === undefined);
+  return [
+    ...new Set([
+      ...(passes(primarySubjects, primaryMinimum) ? [] : empty(primarySubjects)),
+      ...(passes(secondarySubjects, secondaryMinimum) ? [] : empty(secondarySubjects)),
+    ]),
+  ];
+}
+
+/**
+ * Scores a major admitted on one суурь and one different дагалдах exam, weighted
+ * 0.7 / 0.3 unless the major sets its own weights (АШУҮИС: 1 / 1, a plain sum).
+ */
 function scoreWeightedMatch(
   major: MatchableMajor,
   primarySubjects: string[],
   scores: Record<string, number>
 ): ScoreMatchOutcome {
+  const rules = examRulesOf(major);
   const secondarySubjects = subjectList(major.secondarySubjects);
   const scorableSecondary = secondarySubjects.filter((subject) => subject !== SKILL_EXAM);
-  const pairs = examPairs(scores, primarySubjects, scorableSecondary);
+  const pairs = examPairs(rules, scores, primarySubjects, scorableSecondary);
 
   if (scorableSecondary.length === 0 && secondarySubjects.length > 0) {
     // With a per-exam minimum, a суурь score below it already decides the verdict.
@@ -246,14 +338,16 @@ function scoreWeightedMatch(
         matchScore: clampMatchScore(bestPrimary / primaryMinimum),
         eligible: false,
         verdict: 'BELOW_CUT_OFF',
-        reason: `Босго хүрэхгүй: суурь хичээлийн оноо ${bestPrimary} нь ${major.name} мэргэжлийн ${primaryMinimum} босгоос доогуур байна.`,
+        reason: `Босго хүрэхгүй: ${rules.numbered ? '1-р шалгалтын' : 'суурь хичээлийн'} оноо ${bestPrimary} нь ${major.name} мэргэжлийн ${primaryMinimum} босгоос доогуур байна.`,
       };
     }
     return {
       matchScore: 0,
       eligible: false,
       verdict: 'CHECK_WITH_SCHOOL',
-      reason: `${major.name} мэргэжлийн дагалдах шалгалт нь ${SKILL_EXAM} тул сургуулиас тодруулна уу.`,
+      reason: rules.ownRules
+        ? SKILL_EXAM_NOTE
+        : `${major.name} мэргэжлийн дагалдах шалгалт нь ${SKILL_EXAM} тул сургуулиас тодруулна уу.`,
     };
   }
   if (pairs.length === 0) {
@@ -261,20 +355,20 @@ function scoreWeightedMatch(
       matchScore: 0,
       eligible: false,
       verdict: 'MISSING_SCORES',
-      reason: `${major.name} мэргэжилд суурь (${primarySubjects.join(', ')}) болон түүнээс өөр дагалдах (${scorableSecondary.join(', ')}) хичээлийн оноо хэрэгтэй.`,
+      reason: `${major.name} мэргэжилд ${rules.primaryLabel} (${primarySubjects.join(', ')}) болон түүнээс өөр ${rules.secondaryLabel} (${scorableSecondary.join(', ')}) хичээлийн оноо хэрэгтэй.`,
     };
   }
   if (major.secondaryCutOffScore != null) {
-    return perExamOutcome(major, pairs, primarySubjects, scorableSecondary, scores);
+    return perExamOutcome(major, rules, pairs, primarySubjects, scorableSecondary, scores);
   }
 
   const best = bestPair(pairs);
   return outcomeFor(
     major,
     best.total,
-    `тооцоолсон оноо ${best.total.toFixed(1)} (0.7 × ${best.primary} + 0.3 × ${best.secondary})`,
+    `${rules.scoreLabel.toLowerCase()} ${best.total.toFixed(1)} (${formulaText(rules, best)})`,
     '',
-    PASSED_NOTE
+    rules.direct ? DIRECT_NOTE : PASSED_NOTE
   );
 }
 

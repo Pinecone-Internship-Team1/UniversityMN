@@ -1,0 +1,221 @@
+{
+ "_meta": {
+  "dataset": "tuition_2026_2027",
+  "university": "АШУҮИС",
+  "description": "АШУҮИС-ийн 2026-2027 оны сургалтын төлбөр (хөтөлбөр тус бүрийн 1 жилийн дүн).",
+  "language": "mn",
+  "verified_at": "2026-10-11"
+ },
+ "records": [
+  {
+   "id": "mnums-tuition-table",
+   "label_mn": "2026-2027 оны 1 жилийн сургалтын төлбөр (шинэ элсэгч, Улаанбаатар)",
+   "rows": [
+    {
+     "program_mn": "Хүний их эмч",
+     "school_id": "mnums-med",
+     "degree": "Бакалавр",
+     "per_year": 6851000
+    },
+    {
+     "program_mn": "Уламжлалт анагаахын их эмч",
+     "school_id": "mnums-traditional",
+     "degree": "Бакалавр",
+     "per_year": 6851000
+    },
+    {
+     "program_mn": "Шүдний их эмч",
+     "school_id": "mnums-dental",
+     "degree": "Бакалавр",
+     "per_year": 6851000
+    },
+    {
+     "program_mn": "Био-анагаах судлаач",
+     "school_id": "mnums-bio",
+     "degree": "Бакалавр",
+     "per_year": 6528000
+    },
+    {
+     "program_mn": "Нийгмийн эрүүл мэнд судлалч",
+     "school_id": "mnums-public-health",
+     "degree": "Бакалавр",
+     "per_year": 5888000
+    },
+    {
+     "program_mn": "Эм зүйч",
+     "school_id": "mnums-pharmacy",
+     "degree": "Бакалавр",
+     "per_year": 6528000
+    },
+    {
+     "program_mn": "Хүүхдийн их эмч",
+     "school_id": "mnums-med",
+     "degree": "Бакалавр",
+     "per_year": 6851000
+    },
+    {
+     "program_mn": "Зүү төөний их эмч",
+     "school_id": "mnums-traditional",
+     "degree": "Бакалавр",
+     "per_year": 7072000
+    },
+    {
+     "program_mn": "Эрүүл ахуй, тархвар судлаач",
+     "school_id": "mnums-public-health",
+     "degree": "Бакалавр",
+     "per_year": 5952000
+    },
+    {
+     "program_mn": "Эрүүл мэндийн мэдээлэл зүйч",
+     "school_id": "mnums-bio",
+     "degree": "Бакалавр",
+     "per_year": 5728000
+    },
+    {
+     "program_mn": "Эрүүл мэндийн нийгмийн ажилтан",
+     "school_id": "mnums-public-health",
+     "degree": "Бакалавр",
+     "per_year": 5728000
+    },
+    {
+     "program_mn": "Уламжлалт анагаахын засалч",
+     "school_id": "mnums-traditional",
+     "degree": "Бакалавр",
+     "per_year": 5984000
+    },
+    {
+     "program_mn": "Хөдөлмөрийн аюулгүй байдал, эрүүл ахуй",
+     "school_id": "mnums-public-health",
+     "degree": "Бакалавр",
+     "per_year": 5728000
+    },
+    {
+     "program_mn": "Эрүүл мэндийн хоол зүйч",
+     "school_id": "mnums-public-health",
+     "degree": "Бакалавр",
+     "per_year": 5880000
+    },
+    {
+     "program_mn": "Эдийн засагч (эрүүл мэндийн)",
+     "school_id": "mnums-public-health",
+     "degree": "Бакалавр",
+     "per_year": 5728000
+    },
+    {
+     "program_mn": "Сувилагч",
+     "school_id": "mnums-nursing",
+     "degree": "Бакалавр",
+     "per_year": 5040000
+    },
+    {
+     "program_mn": "Эх баригч",
+     "school_id": "mnums-nursing",
+     "degree": "Бакалавр",
+     "per_year": 4515000
+    },
+    {
+     "program_mn": "Хөдөлгөөн засалч",
+     "school_id": "mnums-nursing",
+     "degree": "Бакалавр",
+     "per_year": 4440000
+    },
+    {
+     "program_mn": "Хөдөлмөр засалч",
+     "school_id": "mnums-nursing",
+     "degree": "Бакалавр",
+     "per_year": 4402000
+    },
+    {
+     "program_mn": "Хэл засалч",
+     "school_id": "mnums-nursing",
+     "degree": "Бакалавр",
+     "per_year": 4080000
+    },
+    {
+     "program_mn": "Дүрс оношилгооны техникч",
+     "school_id": "mnums-med",
+     "degree": "Дэд бакалавр",
+     "per_year": 3658000
+    },
+    {
+     "program_mn": "Эмнэлгийн тоног төхөөрөмж ашиглалтын техникч",
+     "school_id": "mnums-bio",
+     "degree": "Дэд бакалавр",
+     "per_year": 3570000
+    },
+    {
+     "program_mn": "Нүүр амны эрүүл ахуйч",
+     "school_id": "mnums-dental",
+     "degree": "Дэд бакалавр",
+     "per_year": 3630000
+    },
+    {
+     "program_mn": "Лабораторийн техникч",
+     "school_id": "mnums-med",
+     "degree": "Дэд бакалавр",
+     "per_year": 3552000
+    },
+    {
+     "program_mn": "Эм найруулагч",
+     "school_id": "mnums-pharmacy",
+     "degree": "Дэд бакалавр",
+     "per_year": 3520000
+    },
+    {
+     "program_mn": "Сувилагч (дэд бакалавр)",
+     "school_id": "mnums-nursing",
+     "degree": "Дэд бакалавр",
+     "per_year": 3960000
+    },
+    {
+     "program_mn": "Нүүр амны техникч",
+     "school_id": "mnums-dental",
+     "degree": "Дэд бакалавр",
+     "per_year": 3910000
+    },
+    {
+     "program_mn": "Уламжлалт анагаахын сувилагч",
+     "school_id": "mnums-nursing",
+     "degree": "Дэд бакалавр",
+     "per_year": 3815000
+    }
+   ],
+   "source_urls": [
+    "https://mnums.edu.mn/schools/med",
+    "https://mnums.edu.mn/schools/bio",
+    "https://mnums.edu.mn/schools/public-health",
+    "https://mnums.edu.mn/schools/dental",
+    "https://mnums.edu.mn/schools/pharmacy",
+    "https://mnums.edu.mn/schools/nursing",
+    "https://mnums.edu.mn/schools/traditional"
+   ],
+   "status": "current"
+  },
+  {
+   "id": "mnums-tuition-range",
+   "label_mn": "Шинэ элсэгчийн 1 жилийн төлбөрийн хүрээ (ikon.mn, 2026-08-12)",
+   "range": {
+    "min": 3520000,
+    "max": 6851000,
+    "currency": "MNT"
+   },
+   "previous_year": {
+    "min": 3200000,
+    "max": 5440000,
+    "currency": "MNT",
+    "label_mn": "2025-2026"
+   },
+   "note_mn": "Сургуулийн хуудсанд Зүү төөний их эмч 7,072,000₮ гэж бичсэн нь энэ хүрээнээс өндөр.",
+   "source_urls": [
+    "https://ikon.mn/n/3pjj"
+   ],
+   "status": "current"
+  },
+  {
+   "id": "mnums-tuition-branches",
+   "label_mn": "Салбар сургуулиудын төлбөр",
+   "note_mn": "Нийтлэгдсэн текст олдсонгүй.",
+   "status": "unknown"
+  }
+ ]
+}

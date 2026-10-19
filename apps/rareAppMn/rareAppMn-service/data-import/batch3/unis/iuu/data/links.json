@@ -1,0 +1,173 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "ОУУБИС",
+  "description": "ОУУБИС-ийн албан ёсны холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "iuu-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлт (бакалавр, магистр, доктор, оройн анги)",
+   "url": "https://www.iuu.edu.mn/i/elselt"
+  },
+  {
+   "id": "iuu-l-02",
+   "category": "admission",
+   "title_mn": "Бакалаврын цахим бүртгэлийн маягт",
+   "url": "https://www.iuu.edu.mn/bachelor/admission/create"
+  },
+  {
+   "id": "iuu-l-03",
+   "category": "programs",
+   "title_mn": "Бакалаврын хөтөлбөрүүд ба элсэлтийн шалгалтын хичээл",
+   "url": "https://www.iuu.edu.mn/bachelor/program"
+  },
+  {
+   "id": "iuu-l-04",
+   "category": "admission",
+   "title_mn": "2026-2027 бакалаврын сургалтанд оюутан элсүүлэх журам",
+   "url": "https://www.iuu.edu.mn/resource/iuu/File/2026/05/19/6ivalpqtmg3egtk3/2026-2027%20%D0%9E%D0%A3%D0%A3%D0%91%D0%98%D0%A1-%D0%B8%D0%B9%D0%BD%20%D0%B1%D0%B0%D0%BA%D0%B0%D0%BB%D0%B0%D0%B2%D1%80%D1%8B%D0%BD%20%D1%81%D1%83%D1%80%D0%B3%D0%B0%D0%BB%D1%82%D0%B0%D0%BD%D0%B4%20%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD%20%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+  },
+  {
+   "id": "iuu-l-05",
+   "category": "rules",
+   "title_mn": "Дүрэм, журмууд",
+   "url": "https://www.iuu.edu.mn/p/15"
+  },
+  {
+   "id": "iuu-l-06",
+   "category": "scholarship",
+   "title_mn": "Тэтгэлэг",
+   "url": "https://www.iuu.edu.mn/p/26"
+  },
+  {
+   "id": "iuu-l-07",
+   "category": "scholarship",
+   "title_mn": "Бакалаврын оюутанд олгох тэтгэлгийн журам",
+   "url": "https://www.iuu.edu.mn/resource/iuu/File/2026/03/04/tagprl9rl55svpne/%D0%A2%D1%8D%D1%82%D0%B3%D1%8D%D0%BB%D0%B3%D0%B8%D0%B9%D0%BD%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+  },
+  {
+   "id": "iuu-l-08",
+   "category": "international",
+   "title_mn": "Хамтарсан хөтөлбөр (2+2, солилцоо)",
+   "url": "https://www.iuu.edu.mn/p/7"
+  },
+  {
+   "id": "iuu-l-09",
+   "category": "international",
+   "title_mn": "2+2 хөтөлбөрөөр оюутан суралцуулах журам",
+   "url": "https://www.iuu.edu.mn/resource/iuu/File/2026/03/04/90la6iafx4ixapbg/22%20%D1%85%D3%A9%D1%82%D3%A9%D0%BB%D0%B1%D3%A9%D1%80%D0%B8%D0%B9%D0%BD%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+  },
+  {
+   "id": "iuu-l-10",
+   "category": "campus",
+   "title_mn": "Сургалтын орчин (байрууд, оюутны байр)",
+   "url": "https://www.iuu.edu.mn/p/10"
+  },
+  {
+   "id": "iuu-l-11",
+   "category": "campus",
+   "title_mn": "Оюутны амьдрал",
+   "url": "https://www.iuu.edu.mn/p/11"
+  },
+  {
+   "id": "iuu-l-12",
+   "category": "schools",
+   "title_mn": "Сургуулиуд",
+   "url": "https://www.iuu.edu.mn/university"
+  },
+  {
+   "id": "iuu-l-13",
+   "category": "schools",
+   "title_mn": "Тэнхимүүд",
+   "url": "https://www.iuu.edu.mn/training/department"
+  },
+  {
+   "id": "iuu-l-14",
+   "category": "schools",
+   "title_mn": "Хүмүүнлэгийн сургууль",
+   "url": "https://www.iuu.edu.mn/university/1"
+  },
+  {
+   "id": "iuu-l-15",
+   "category": "schools",
+   "title_mn": "Инженер, дизайн, технологийн сургууль",
+   "url": "https://www.iuu.edu.mn/university/3"
+  },
+  {
+   "id": "iuu-l-16",
+   "category": "schools",
+   "title_mn": "Эдийн засаг бизнесийн сургууль",
+   "url": "https://www.iuu.edu.mn/university/4"
+  },
+  {
+   "id": "iuu-l-17",
+   "category": "schools",
+   "title_mn": "Хууль зүйн сургууль",
+   "url": "https://www.iuu.edu.mn/university/5"
+  },
+  {
+   "id": "iuu-l-18",
+   "category": "schools",
+   "title_mn": "Сувилахуйн сургууль",
+   "url": "https://www.iuu.edu.mn/university/6"
+  },
+  {
+   "id": "iuu-l-19",
+   "category": "about",
+   "title_mn": "Танилцуулга",
+   "url": "https://www.iuu.edu.mn/aboutUs"
+  },
+  {
+   "id": "iuu-l-20",
+   "category": "about",
+   "title_mn": "Түүх",
+   "url": "https://www.iuu.edu.mn/timeline?size=100"
+  },
+  {
+   "id": "iuu-l-21",
+   "category": "about",
+   "title_mn": "Магадлан итгэмжлэл",
+   "url": "https://www.iuu.edu.mn/p/14"
+  },
+  {
+   "id": "iuu-l-22",
+   "category": "contact",
+   "title_mn": "Холбоо барих",
+   "url": "https://www.iuu.edu.mn/i/contact"
+  },
+  {
+   "id": "iuu-l-23",
+   "category": "news",
+   "title_mn": "Мэдээ",
+   "url": "https://www.iuu.edu.mn/as/iuu"
+  },
+  {
+   "id": "iuu-l-24",
+   "category": "social",
+   "title_mn": "Facebook",
+   "url": "https://www.facebook.com/ulaanbaataruniversity"
+  },
+  {
+   "id": "iuu-l-25",
+   "category": "social",
+   "title_mn": "YouTube",
+   "url": "https://www.youtube.com/channel/UCSqpmijQ7tPtxA19FxfAFPw"
+  },
+  {
+   "id": "iuu-l-26",
+   "category": "student",
+   "title_mn": "Оюутны портал",
+   "url": "http://info.ubu.mn/content/student/index.php"
+  },
+  {
+   "id": "iuu-l-27",
+   "category": "national",
+   "title_mn": "Элсэлтийн шалгалтын бүртгэл (Боловсролын үнэлгээний төв)",
+   "url": "https://eyesh.eec.mn/"
+  }
+ ]
+}

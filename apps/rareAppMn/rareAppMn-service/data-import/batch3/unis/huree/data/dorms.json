@@ -1,0 +1,44 @@
+{
+ "_meta": {
+  "dataset": "dorms",
+  "university": "Хүрээ МХТДС",
+  "description": "Хүрээ МХТДС-ийн оюутны байр (одоогийн байдал тодорхойгүй).",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "huree-dorm-facts",
+   "record_type": "info",
+   "name_mn": "Оюутны байрны ерөнхий мэдээлэл",
+   "facts_mn": [
+    "Сургуулийн түүхэнд 2004 онд 1,800 м² оюутны байр ашиглалтад орсон гэж бичсэн.",
+    "Англи хэл дээрх танилцуулга хуудсанд (огноогүй) одоогоор байргүй, шинэ кампуст барихаар төлөвлөж байна гэж бичсэн.",
+    "2026-2027 оны байрны үнэ, бүртгэлийн журам сайтад нийтлэгдээгүй — 7701-2002-оос лавлана."
+   ],
+   "source_urls": [
+    "https://huree.edu.mn:443/index.php",
+    "https://new.huree.edu.mn/?p=9"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "conflicting"
+  },
+  {
+   "id": "huree-dorm-2004",
+   "record_type": "building",
+   "name_mn": "Хүрээ МХТДС-ийн оюутны байр",
+   "location_mn": null,
+   "area_m2": 1800,
+   "capacity": null,
+   "price_per_year": null,
+   "price_year": null,
+   "currency": "MNT",
+   "note_mn": "2004 онд ашиглалтад орсон (сургуулийн түүх); одоо ажиллаж байгаа эсэх тодорхойгүй.",
+   "source_urls": [
+    "https://huree.edu.mn:443/index.php"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "conflicting"
+  }
+ ]
+}

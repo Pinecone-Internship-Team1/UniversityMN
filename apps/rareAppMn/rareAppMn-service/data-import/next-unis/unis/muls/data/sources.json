@@ -1,0 +1,297 @@
+{
+  "_meta": {
+    "dataset": "sources",
+    "university": "ХААИС",
+    "description": "Энэ датасетэд ашигласан эх сурвалжууд ба уншиж чадаагүй (цоорхой) эх сурвалжууд.",
+    "language": "mn",
+    "verified_at": "2026-10-15",
+    "note_mn": "gap = true бол уншиж чадаагүй; gap_fill_hint_mn-д тэндээс юу авахыг бичсэн. muls.edu.mn-ийн ихэнх хуудсыг WebFetch robots-оор татгалзсан тул браузераар нээж уншина."
+  },
+  "records": [
+    {
+      "id": "src-elselt-majorview",
+      "url": "https://elselt.muls.edu.mn/majorview/{N}",
+      "used_for": "Хөтөлбөрийн хуудсууд (2 бүлэг хичээл, хуучин оноо, Тэргүүлэх/Эрэлттэй тэмдэглэгээ). Уншсан N: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 30, 32, 41, 42, 43, 44, 45, 53, 56, 59, 61, 62, 63, 66, 67, 68, 69, 70, 177, 181, 191, 192, 194, 195, 198, 199, 201, 202",
+      "gap": false
+    },
+    {
+      "id": "src-home",
+      "url": "https://muls.edu.mn/",
+      "used_for": "Нүүр хуудасны цэс, мэдээ (сорилго 2025-04-26/27, магадлан итгэмжлэл, Job Fair)",
+      "gap": false
+    },
+    {
+      "id": "src-ae",
+      "url": "https://agroecology.muls.edu.mn/",
+      "used_for": "Агроэкологийн сургуулийн 2020 оны мэргэжлийн жагсаалт",
+      "gap": false
+    },
+    {
+      "id": "src-daqar-bio",
+      "url": "https://daqar.org/storage/folder/12222/10102/MTmSCY7v4cNRH0KAa1ggNF6hZbJhK9WJjk1tF1c6.pdf",
+      "used_for": "Биотехнологи хөтөлбөр — Мал аж ахуй, биотехнологийн сургууль (2019)",
+      "gap": false
+    },
+    {
+      "id": "src-sab",
+      "url": "https://www.sab.edu.mn/",
+      "used_for": "Дархан-Уул салбар: нэр, хаяг, утас, имэйл, хөтөлбөрийн чиглэл, Элсэлт 2026 баннер",
+      "gap": false
+    },
+    {
+      "id": "src-sab-elselt",
+      "url": "https://elselt.sab.edu.mn/view.php?value_id=ZW5jb2RldXNlcmlkNA%3D%3D",
+      "used_for": "Дархан-Уул салбарын бүртгүүлэх заавар (2023)",
+      "gap": false
+    },
+    {
+      "id": "src-zindaa-fee",
+      "url": "https://news.zindaa.mn/5ca0",
+      "used_for": "2026-2027 оны төлбөр: 156–169 мянга ₮/кредит, 4.7–5.2 сая ₮/жил (2026-08-13)",
+      "gap": false
+    },
+    {
+      "id": "src-zogii-fee",
+      "url": "https://zogii.mn/newsm/8/2/201658",
+      "used_for": "2025-2026 оны төлбөр 156–169 мянга ₮/кредит (2025-08-25) — зөрүү",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-fee-2024",
+      "url": "https://ikon.mn/n/37oh",
+      "used_for": "2024-2025: 135,000₮/кредит",
+      "gap": false
+    },
+    {
+      "id": "src-todnews-2020",
+      "url": "https://todnews.mn/p/19/show/30692",
+      "used_for": "2020-2021 оны сургууль тус бүрийн кредитийн үнэ, 31 хөтөлбөр / 56 мэргэжил",
+      "gap": false
+    },
+    {
+      "id": "src-newsmn-2025",
+      "url": "https://news.mn/r/2800532/",
+      "used_for": "ХААИС-ийн 2025 оны босго 450–480",
+      "gap": false
+    },
+    {
+      "id": "src-todnews-2024",
+      "url": "https://todnews.mn/p/45/show/35943",
+      "used_for": "ХААИС-ийн 2024 оны босго 450–480",
+      "gap": false
+    },
+    {
+      "id": "src-ugluu-2026",
+      "url": "https://ugluu.mn/523303.html",
+      "used_for": "2026-2027: яамны бакалаврын босго 450–500, салбар сургууль 430",
+      "gap": false
+    },
+    {
+      "id": "src-updown-2026",
+      "url": "https://updown.mn/922389.html",
+      "used_for": "Мөн адил (2026-04-01)",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-tamir",
+      "url": "https://ikon.mn/n/3okx",
+      "used_for": "2027 онд 480 болгох төлөвлөгөө (2026-06-29)",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-esh-reg",
+      "url": "https://ikon.mn/n/3lsg",
+      "used_for": "2026 ЭШ-ийн бүртгэл 03-04 – 05-15",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-esh-dates",
+      "url": "https://ikon.mn/n/3lvf",
+      "used_for": "2026 ЭШ 06-25 – 06-28",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-winter",
+      "url": "https://ikon.mn/n/3qpi",
+      "used_for": "Өвлийн ЭШ-ийн бүртгэл 2026-10-01 – 11-23, 20,000₮/хичээл",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-winter2",
+      "url": "https://ikon.mn/n/3qqx",
+      "used_for": "Өвлийн ЭШ — зөвхөн өмнөх оны шалгуулагчид",
+      "gap": false
+    },
+    {
+      "id": "src-newsmn-dorm",
+      "url": "https://news.mn/r/2809162/",
+      "used_for": "3 байр, ~1,300 оюутан (2025-06-24)",
+      "gap": false
+    },
+    {
+      "id": "src-zogii-dorm",
+      "url": "https://zogii.mn/newsm/8/2/201576",
+      "used_for": "Байрны төлбөр 2025-2026: 1–1.3 сая ₮, барьцаа 100 мянга",
+      "gap": false
+    },
+    {
+      "id": "src-ikon-dorm",
+      "url": "https://ikon.mn/n/37yy",
+      "used_for": "Байрны дотоод журам, хөнгөлөлт (2024-08-26)",
+      "gap": false
+    },
+    {
+      "id": "src-elf-muzgt",
+      "url": "https://elf.gov.mn/muzgt/",
+      "used_for": "Засгийн газрын тэтгэлэг: ЭШ 600+, голч 3.0+",
+      "gap": false
+    },
+    {
+      "id": "src-num-govsch",
+      "url": "https://news.num.edu.mn/?p=113891",
+      "used_for": "ЗГ-ын 2025/215 тогтоол, 2026 оны бүртгэл 02-06 – 02-27",
+      "gap": false
+    },
+    {
+      "id": "src-elf-zems",
+      "url": "https://elf.gov.mn/zems/",
+      "used_for": "Зарим эрэлттэй мэргэжил (малчны хүүхэд — мал аж ахуй, тэжээл, бэлчээр)",
+      "gap": false
+    },
+    {
+      "id": "src-elf-sths",
+      "url": "https://elf.gov.mn/sths/",
+      "used_for": "Орон нутгийн төрийн сургуулийн төлбөрийн хөнгөлөлт",
+      "gap": false
+    },
+    {
+      "id": "src-elf-grants",
+      "url": "https://elf.gov.mn/%D0%B1%D1%83%D1%86%D0%B0%D0%BB%D1%82%D0%B3%D2%AF%D0%B9-%D1%82%D1%83%D1%81%D0%BB%D0%B0%D0%BC%D0%B6-%D1%82%D1%8D%D1%82%D0%B3%D1%8D%D0%BB%D1%8D%D0%B3/",
+      "used_for": "БЗС-ийн тэтгэлгийн төрлүүд",
+      "gap": false
+    },
+    {
+      "id": "src-wiki-en",
+      "url": "https://en.wikipedia.org/wiki/Mongolian_University_of_Life_Sciences",
+      "used_for": "Түүх, байршил, тоо (он тодорхойгүй)",
+      "gap": false
+    },
+    {
+      "id": "src-fao",
+      "url": "https://www.fao.org/agris/data-provider/mongolian-university-life-sciences",
+      "used_for": "1958 он, 5 сургуулийн англи нэр",
+      "gap": false
+    },
+    {
+      "id": "src-edurank",
+      "url": "https://edurank.org/uni/mongolian-university-of-life-sciences/",
+      "used_for": "Гуравдагч чансаа, суралцагчийн тоо (2026-03-15)",
+      "gap": false
+    },
+    {
+      "id": "src-ublife-2018",
+      "url": "https://www.ub.life/p/14548",
+      "used_for": "2018 оны тусгай нөхцөл (хуучин)",
+      "gap": false
+    },
+    {
+      "id": "gap-program-list",
+      "url": "https://muls.edu.mn/program_sum.php?page_value=ZW5jb2RldXNlcmlkMQ%3D%3D",
+      "used_for": "ЦООРХОЙ: Бакалаврын өдрийн хөтөлбөрийн бүрэн жагсаалт, сургуулиар (robots-оор хаалттай)",
+      "gap": false,
+      "gap_fill_hint_mn": "Хөтөлбөр бүрийн аль сургуульд харьяалагдахыг (programs.json → school_assignment ≠ confirmed, ялангуяа muls-ub бүлгийн 17 хөтөлбөр), албан ёсны нэр, кредит, хугацаа, индексийг авна. Мөн https://muls.edu.mn/view_program_new.php?value_profession=ZW5jb2RldXNlcmlk<base64 N> хуудсууд (жишээ нь ...ZW5jb2RldXNlcmlkNjc%3D = Малын их эмч, ...ZW5jb2RldXNlcmlkMg%3D%3D = Бизнесийн эдийн засаг).",
+      "filled_at": "2026-10-15",
+      "filled_note": "Хөтөлбөрийн харьяа сургуулийг elselt.muls.edu.mn-ийн сургууль тус бүрийн жагсаалтаас авав (program_sum.php шаардлагагүй болсон)."
+    },
+    {
+      "id": "gap-admission-system",
+      "url": "http://admission.muls.edu.mn/Home/Profession",
+      "used_for": "ЦООРХОЙ: 2026 оны цахим бүртгэлийн мэргэжлийн жагсаалт (https→http дахин чиглүүлэлт, WebFetch уншаагүй)",
+      "gap": false,
+      "gap_fill_hint_mn": "Мэргэжил бүрийн 2026-2027 оны шалгалтын хичээл, БОСГО, хяналтын тоо, бүртгэлийн хураамж, огноо — programs.json-ийн threshold_score / secondary_threshold_score-д бичиж split_confidence-ийг 'confirmed' болгоно.",
+      "filled_at": "2026-10-15",
+      "filled_note": "admission.muls.edu.mn/Home/Profession одоо 404 (Apache-ийн анхдагч хуудас). Оронд нь elselt.muls.edu.mn: 2026-2027 оны бүртгэлийн нүүр хуудасны 55 хөтөлбөрийн карт (1-р, 2-р хичээлийн босго, сургуулиар) + majorview хуудсууд (хичээл)."
+    },
+    {
+      "id": "gap-elselt-2026",
+      "url": "https://www.muls.edu.mn/view_news.php?value_id=ZW5jb2RldXNlcmlkNDIyNw%3D%3D",
+      "used_for": "ЦООРХОЙ: '“ХААИС-ийн элсэлт-2026” хэлэлцүүлэг' мэдээ (robots-оор хаалттай)",
+      "gap": true,
+      "gap_fill_hint_mn": "2026 оны элсэлтийн журам, бүртгэлийн огноо, хураамж, онооны томьёо (нийлбэр/дундаж/70-30), босго. Мөн https://www.muls.edu.mn/view.php?value=ZW5jb2RldXNlcmlkMg%3D%3D ('элсэлт' хуудас), https://muls.edu.mn/view_news.php?value_id=ZW5jb2RldXNlcmlkMzYyNg%3D%3D (нэмэлт элсэлт)."
+    },
+    {
+      "id": "gap-mock-2026",
+      "url": "https://muls.edu.mn/view_news.php?value_id=ZW5jb2RldXNlcmlkNDQwMA%3D%3D",
+      "used_for": "ЦООРХОЙ: 'ХААИС-ийн элсэлтийн шалгалтын сорилго-2026' мэдээ",
+      "gap": true,
+      "gap_fill_hint_mn": "Сорилгын огноо, хэлбэр, бүртгэл."
+    },
+    {
+      "id": "gap-majorview-unread",
+      "url": "https://elselt.muls.edu.mn/majorview/{N}",
+      "used_for": "ЦООРХОЙ: уншиж чадаагүй majorview хуудсууд (robots алдаа, зарим нь байхгүй байж магадгүй)",
+      "gap": false,
+      "gap_fill_hint_mn": "N = 12, 13, 21, 22, 23, 31, 33–40, 46–52, 54, 55, 57, 58, 60, 64, 65, 71–176, 178–180, 182–190, 193, 196, 197, 200, 203+. Ялангуяа Усны экологи, Газар тариалангаар мэргэшсэн фермерийн аж ахуй (Агроэкологийн сургуулийн 2020 оны жагсаалтад байгаа) хуудсыг хайна. Мөн https://elselt.muls.edu.mn/ нүүр хуудаснаас хөтөлбөрийн жагсаалт.",
+      "filled_at": "2026-10-15",
+      "filled_note": "elselt.muls.edu.mn цэсний 66 хөтөлбөрийн хуудсыг уншив (majorview 218, 222-т өгөгдөл алга)."
+    },
+    {
+      "id": "gap-regulation",
+      "url": "https://www.elselt.mn/a/557",
+      "used_for": "ЦООРХОЙ: 'Хөдөө аж ахуйн их сургуулийн бакалаврын хөтөлбөрт оюутан элсүүлэх журам' (elselt.mn, он тодорхойгүй)",
+      "gap": true,
+      "gap_fill_hint_mn": "Онооны томьёо, эрэмбэлэх дүрэм, тэнцсэн үеийн дүрэм, тусгай нөхцөл, оныг шалгана. Мөн https://www.elselt.mn/a/553."
+    },
+    {
+      "id": "gap-time-images",
+      "url": "https://admin.time.mn/wp-content/uploads/2026/03/BOSGO-1-819x1024.jpg",
+      "used_for": "ЦООРХОЙ: 2026-2027 оны их сургуулиудын босгын жагсаалт (7 зураг; arslan.mn/time.mn)",
+      "gap": true,
+      "gap_fill_hint_mn": "ХААИС орсон эсэхийг шалгаж, хөтөлбөр тус бүрийн 2026-2027 оны босгыг авна. Зургууд: https://admin.time.mn/wp-content/uploads/2026/03/BOSGO-1-819x1024.jpg, https://admin.time.mn/wp-content/uploads/2026/03/2-3-819x1024.jpg, https://admin.time.mn/wp-content/uploads/2026/03/3-5-819x1024.jpg, https://admin.time.mn/wp-content/uploads/2026/03/4-1-819x1024.jpg, https://admin.time.mn/wp-content/uploads/2026/03/5-1-819x1024.jpg, https://admin.time.mn/wp-content/uploads/2026/03/6-819x1024.jpg, https://admin.time.mn/wp-content/uploads/2026/03/7-721x1024.jpg. Нийтлэл: https://www.arslan.mn/social/education/668226.shtml"
+    },
+    {
+      "id": "gap-school-pages",
+      "url": "https://engineer.muls.edu.mn/page.php?id=114",
+      "used_for": "ЦООРХОЙ: Бүрэлдэхүүн сургуулиудын хөтөлбөрийн хуудсууд (robots-оор хаалттай)",
+      "gap": true,
+      "gap_fill_hint_mn": "Сургууль бүрийн бакалаврын хөтөлбөр, тэнхим: https://engineer.muls.edu.mn/page.php?id=114, https://engineer.muls.edu.mn/page.php?id=44, https://sas.muls.edu.mn/page.php?id=16, https://sas.muls.edu.mn/page.php?id=18, https://veterinary.muls.edu.mn/page.php?id=19, https://asbt.muls.edu.mn/, https://seb.muls.edu.mn/, https://agroecology.muls.edu.mn/page.php?id=162, https://agroecology.muls.edu.mn/page.php?id=150. agroecology page.php?id=162 нь 'элсэлтийн ерөнхий шалгалтын босго оноо' хуудас."
+    },
+    {
+      "id": "gap-darkhan",
+      "url": "https://www.sab.edu.mn/",
+      "used_for": "ЦООРХОЙ: Дархан-Уул салбарын хөтөлбөрийн жагсаалт, хичээл, босго, төлбөр, байр",
+      "gap": true,
+      "gap_fill_hint_mn": "Сайтын 'Admission → Available Majors / Admission Process', 'Campus → Dormitory', '2026-2027 оны шинээр элсэгчдэд зориулсан мэдээлэл' (зураг) хуудсууд; https://elselt.sab.edu.mn/; https://elselt.sab.edu.mn/view.php?value_id=ZW5jb2RldXNlcmlkNA%3D%3D (2023 оных — 2026 оны хувилбарыг хайна)."
+    },
+    {
+      "id": "gap-tuition",
+      "url": "https://muls.edu.mn/",
+      "used_for": "ЦООРХОЙ: ХААИС-ийн албан ёсны 2026-2027 оны төлбөр",
+      "gap": true,
+      "gap_fill_hint_mn": "Нүүр хуудасны 'Оюутны төлбөрийн мэдээлэл' цэсээс 2026-2027 оны 1 кредитийн үнэ (сургууль/хичээлийн төрлөөр) — мэдээний 156–169 мянга нь 2025-2026 оных эсэхийг шалгана."
+    },
+    {
+      "id": "gap-contacts",
+      "url": "https://muls.edu.mn/",
+      "used_for": "ЦООРХОЙ: Төв байрны хаяг, утас, элсэлтийн имэйл",
+      "gap": false,
+      "gap_fill_hint_mn": "muls.edu.mn → 'Холбоо барих' хуудас; элсэлтийн албаны утас, имэйл; university.json → contacts, sidebar_suggestion.phones/email-д бичнэ.",
+      "filled_at": "2026-10-15",
+      "filled_note": "elselt.muls.edu.mn/location: төв утас 7510-7777 (сургуулиудын дотуур дугаартай). Ерөнхий имэйл олдсонгүй."
+    },
+    {
+      "id": "gap-scholarships",
+      "url": "https://muls.edu.mn/view_news.php?value_id=ZW5jb2RldXNlcmlkOTc4",
+      "used_for": "ЦООРХОЙ: ХААИС-ийн өөрийн тэтгэлэг, зээл",
+      "gap": true,
+      "gap_fill_hint_mn": "'Оюутны сургалтын тэтгэлэгт хөтөлбөрүүд' мэдээ, мөн https://muls.edu.mn/view_news.php?value_id=ZW5jb2RldXNlcmlkMjM2Nw%3D%3D (Оюутны хөгжлийн зээл), https://muls.edu.mn/view_news.php?value_id=ZW5jb2RldXNlcmlkNDIwNQ%3D%3D (БНСУ-ын Жонбук их сургуультай 2+2). Ректорын тэтгэлэг байгаа эсэх, нөхцөл."
+    },
+    {
+      "id": "gap-priority-list",
+      "url": "https://news.num.edu.mn/?p=113891",
+      "used_for": "ЦООРХОЙ: Засгийн газрын тэтгэлгийн 'Тэргүүлэх хөтөлбөрүүд' Word файл",
+      "gap": true,
+      "gap_fill_hint_mn": "ХААИС-ийн аль хөтөлбөр тэтгэлгийн тэргүүлэх жагсаалтад орсныг авч programs.json → priority-д тусгана."
+    }
+  ]
+}

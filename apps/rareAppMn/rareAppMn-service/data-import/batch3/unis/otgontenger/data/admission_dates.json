@@ -1,0 +1,121 @@
+{
+  "_meta": {
+    "dataset": "admission_dates",
+    "university": "ОТИС",
+    "description": "ОТИС-ийн хуудсанд харуулах огноонууд. 'жишиг' = 2026 оны огноо (2027 оных зарлагдаагүй).",
+    "language": "mn",
+    "verified_at": "2026-10-16",
+    "sources": [
+      "https://ikon.mn/n/3okx",
+      "http://otgontenger.edu.mn/mn/student/scholarship",
+      "https://otgontenger.edu.mn/mn/enrollment"
+    ]
+  },
+  "records": [
+    {
+      "id": "otg-date-2026-registration",
+      "event_mn": "ОТИС-ийн бакалаврын элсэлтийн цахим бүртгэл (2026)",
+      "start": "2026-04-15",
+      "end": "2026-06-29",
+      "note_mn": "10:00-аас 22:00 цаг хүртэл (журмын 3.1).",
+      "source_urls": [
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "otg-date-2026-program-choice",
+      "event_mn": "Хөтөлбөр сонгох, 1,000,000₮ төлж баталгаажуулах (2026)",
+      "start": "2026-07-01",
+      "end": "2026-07-09",
+      "note_mn": "7-р сарын 1-ний 10:00 – 7-р сарын 9-ний 15:00 (журмын 5.7, 5.9).",
+      "source_urls": [
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "otg-date-2026-documents",
+      "event_mn": "Элсэгчийн бичиг баримт бүрдүүлэх, суралцах эрх баталгаажуулах (2026)",
+      "start": "2026-07-15",
+      "end": "2026-07-22",
+      "note_mn": "Ажлын цагаар элсэлтийн бүртгэлийн хэсэгт (журмын 6.1).",
+      "source_urls": [
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "otg-date-2026-early-payment",
+      "event_mn": "Жилийн төлбөрөө бүрэн төлж 10% хөнгөлөлт авах эцсийн хугацаа (2026)",
+      "start": null,
+      "end": "2026-07-24",
+      "note_mn": "Журмын 7.1.",
+      "source_urls": [
+        "https://sus.otgontenger.edu.mn/files/admission/%D0%9E%D0%A2%D0%98%D0%A1_%D0%BE%D1%8E%D1%83%D1%82%D0%B0%D0%BD_%D1%8D%D0%BB%D1%81%D2%AF%D2%AF%D0%BB%D1%8D%D1%85_%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf"
+      ],
+      "status": "current"
+    },
+    {
+      "id": "otg-date-2026-exam",
+      "event_mn": "2026 оны жишиг: Элсэлтийн шалгалт (улсын хэмжээнд)",
+      "start": "2026-06-25",
+      "end": "2026-06-28",
+      "source_urls": [
+        "https://ikon.mn/n/3okx"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "otg-date-2026-skills",
+      "event_mn": "2026 оны жишиг: Их сургуулиудын ур чадварын шалгалт (улсын хэмжээнд; ОТИС-ийн өөрийн огноо нийтлэгдээгүй)",
+      "start": "2026-06-29",
+      "end": "2026-06-30",
+      "source_urls": [
+        "https://ikon.mn/n/3okx"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "otg-date-2026-state-scholarship",
+      "event_mn": "2026 оны жишиг: Ерөнхийлөгчийн болон Ерөнхий сайдын нэрэмжит тэтгэлгийн бүртгэл (жил бүрийн 6-р сарын 15-ны дотор)",
+      "start": null,
+      "end": "2026-06-15",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "otg-date-khan-scholarship",
+      "event_mn": "Жил бүр: ХААН банкны тэтгэлэг (төгсөх ангийн сурагчид) — 3-р сарын дундуур зарлагдана",
+      "start": null,
+      "end": null,
+      "when_mn": "Жил бүрийн 3-р сарын дундуур",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "otg-date-golomt-scholarship",
+      "event_mn": "Жил бүр: Голомт банкны тэтгэлэг — 9-р сард зарлаж, 11-р сард дүнгээ гаргана",
+      "start": null,
+      "end": null,
+      "when_mn": "9-р сар – 11-р сар",
+      "source_urls": [
+        "http://otgontenger.edu.mn/mn/student/scholarship"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "otg-date-2027",
+      "event_mn": "2027 оны элсэлтийн бүртгэл, шалгалтын огноо",
+      "start": null,
+      "end": null,
+      "note_mn": "Хараахан зарлагдаагүй.",
+      "source_urls": [],
+      "status": "unknown"
+    }
+  ]
+}

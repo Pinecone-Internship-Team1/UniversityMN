@@ -1,0 +1,988 @@
+{
+  "_meta": {
+    "description": "Maps each program, school, scholarship, dorm and date in the АШУҮИС dataset (ashuuis-oyutan-mn, data/*.json, after the 2026-10-14 gap fill) to our rows, so a yearly refresh can update by id instead of by name.",
+    "dataset_verified_at": "2026-10-14",
+    "mapped_at": "2026-10-18",
+    "university_id": "sch_ashuuis",
+    "how_to_use": "Run data-import/import-mnums.mjs (--local / --remote, then --apply): it reads data-import/ashuuis/data and this file, matches rows by natural key first, upserts by id and never deletes. Rows missing here get a UUID derived from the dataset id, so every database gets the same id.",
+    "score_check_values": {
+      "sum": "two exam groups, each with its own minimum (cut_off_score, secondary_cut_off_score); score = group 1 + group 2 (primary_weight = secondary_weight = 1); selection_type list / direct",
+      "skills_test": "group 2 is АШУҮИС's own skills test: only the group 1 minimum can be checked, otherwise \"Сургуулиас тодруулна уу\""
+    },
+    "degree_types": {
+      "BACHELOR": "Бакалавр",
+      "ASSOCIATE": "Дэд бакалавр"
+    },
+    "skipped_programs": [
+      "mnums-darkhan-niigmiin-eruul-mend-sudlalch"
+    ],
+    "counts": {
+      "dataset_programs": 79,
+      "imported_programs": 78,
+      "by_degree": {
+        "BACHELOR": 48,
+        "ASSOCIATE": 30
+      },
+      "by_score_check": {
+        "sum": 37,
+        "skills_test": 41
+      },
+      "faculties": 11,
+      "scholarships": 7,
+      "dorms": 4,
+      "admission_dates": 6
+    }
+  },
+  "faculties": [
+    {
+      "dataset_id": "mnums-med",
+      "type": "constituent",
+      "name": "Анагаах ухааны сургууль",
+      "location": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+      "db_id": "7189e1c1-9338-5f83-9592-143654fc403a"
+    },
+    {
+      "dataset_id": "mnums-bio",
+      "type": "constituent",
+      "name": "Био-анагаахын сургууль",
+      "location": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+      "db_id": "fa3ed1f9-35fa-5ebc-8454-ea260a43845a"
+    },
+    {
+      "dataset_id": "mnums-public-health",
+      "type": "constituent",
+      "name": "Нийгмийн эрүүл мэндийн сургууль",
+      "location": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+      "db_id": "f59b6e34-e294-58e7-bbed-014db2d40264"
+    },
+    {
+      "dataset_id": "mnums-dental",
+      "type": "constituent",
+      "name": "Нүүр ам судлалын сургууль",
+      "location": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+      "db_id": "a00f259c-2214-5456-95c6-a6cc7ce8c4a3"
+    },
+    {
+      "dataset_id": "mnums-pharmacy",
+      "type": "constituent",
+      "name": "Эм зүйн сургууль",
+      "location": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+      "db_id": "818629d7-8191-5822-b0f7-d4a4ab3a6e75"
+    },
+    {
+      "dataset_id": "mnums-nursing",
+      "type": "constituent",
+      "name": "Сувилахуйн сургууль",
+      "location": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+      "db_id": "9c387c8f-358f-5d47-aa1d-506fa40c1b75"
+    },
+    {
+      "dataset_id": "mnums-traditional",
+      "type": "constituent",
+      "name": "Монгол анагаах ухааны олон улсын сургууль",
+      "location": "Улаанбаатар (АШУҮИС, С.Зоригийн гудамж)",
+      "db_id": "35b2c0f5-d60d-5b7d-9101-6b484dcc05be"
+    },
+    {
+      "dataset_id": "mnums-darkhan",
+      "type": "branch",
+      "name": "Дархан-Уул аймаг дахь салбар сургууль",
+      "location": "Дархан-Уул аймаг, Дархан сум",
+      "db_id": "72777f27-585a-5807-a043-55606ffaa17b"
+    },
+    {
+      "dataset_id": "mnums-govi-altai",
+      "type": "branch",
+      "name": "Говь-Алтай аймаг дахь салбар сургууль",
+      "location": "Говь-Алтай аймаг, Есөнбулаг сум",
+      "db_id": "550f37dd-18f6-522a-8fb1-a3da92117f90"
+    },
+    {
+      "dataset_id": "mnums-dornogovi",
+      "type": "branch",
+      "name": "Дорноговь аймаг дахь салбар сургууль",
+      "location": "Дорноговь аймаг, Сайншанд сум",
+      "db_id": "857dc86e-753d-563f-94ff-d1de079f5528"
+    },
+    {
+      "dataset_id": "mnums-arkhangai",
+      "type": "branch",
+      "name": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "location": "Архангай аймаг",
+      "db_id": "f214fcaa-9d8a-5f1d-8142-c2c507b1ca77"
+    }
+  ],
+  "programs": [
+    {
+      "dataset_id": "mnums-med-khunii-ikh-emch",
+      "dataset_school": "mnums-med",
+      "faculty": "Анагаах ухааны сургууль",
+      "name": "Хүний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "6203c79a-2d7a-5cef-ac94-d4e9dfbeee80"
+    },
+    {
+      "dataset_id": "mnums-traditional-ulamjlalt-anagaakhyn-ikh-emch",
+      "dataset_school": "mnums-traditional",
+      "faculty": "Монгол анагаах ухааны олон улсын сургууль",
+      "name": "Уламжлалт анагаахын их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "a7c61f9f-c95f-511e-9bbc-8a4da97d44da"
+    },
+    {
+      "dataset_id": "mnums-dental-shudnii-ikh-emch",
+      "dataset_school": "mnums-dental",
+      "faculty": "Нүүр ам судлалын сургууль",
+      "name": "Шүдний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "0f1bcf99-e8e4-5824-9616-3ae5bf2857f5"
+    },
+    {
+      "dataset_id": "mnums-bio-bio-anagaakh-sudlaach",
+      "dataset_school": "mnums-bio",
+      "faculty": "Био-анагаахын сургууль",
+      "name": "Био-анагаах судлаач",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "ba2342d1-dc81-558a-8b7b-8810dd04a55f"
+    },
+    {
+      "dataset_id": "mnums-public-health-niigmiin-eruul-mend-sudlalch",
+      "dataset_school": "mnums-public-health",
+      "faculty": "Нийгмийн эрүүл мэндийн сургууль",
+      "name": "Нийгмийн эрүүл мэнд судлалч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "f5851567-315d-582d-8cda-454d18ae2bd0"
+    },
+    {
+      "dataset_id": "mnums-pharmacy-em-zuich",
+      "dataset_school": "mnums-pharmacy",
+      "faculty": "Эм зүйн сургууль",
+      "name": "Эм зүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "f6421436-9d6f-5fca-9e87-535f4f4fb90a"
+    },
+    {
+      "dataset_id": "mnums-med-khuukhdiin-ikh-emch",
+      "dataset_school": "mnums-med",
+      "faculty": "Анагаах ухааны сургууль",
+      "name": "Хүүхдийн их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "9b5ac838-f89a-5abb-917c-2c913666f9ff"
+    },
+    {
+      "dataset_id": "mnums-traditional-zuu-tuunii-ikh-emch",
+      "dataset_school": "mnums-traditional",
+      "faculty": "Монгол анагаах ухааны олон улсын сургууль",
+      "name": "Зүү төөний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "4b1395a3-671d-55c0-b139-b4d946a2e4dd"
+    },
+    {
+      "dataset_id": "mnums-public-health-eruul-akhui-tarkhvar-sudlaach",
+      "dataset_school": "mnums-public-health",
+      "faculty": "Нийгмийн эрүүл мэндийн сургууль",
+      "name": "Эрүүл ахуй, тархвар судлаач",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "39e338b1-d49b-50c4-9cae-9bd27ce05024"
+    },
+    {
+      "dataset_id": "mnums-bio-eruul-mendiin-medeelel-zuich",
+      "dataset_school": "mnums-bio",
+      "faculty": "Био-анагаахын сургууль",
+      "name": "Эрүүл мэндийн мэдээлэл зүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "80783812-cf0d-5411-a5e2-f5d6336fef12"
+    },
+    {
+      "dataset_id": "mnums-public-health-eruul-mendiin-niigmiin-ajiltan",
+      "dataset_school": "mnums-public-health",
+      "faculty": "Нийгмийн эрүүл мэндийн сургууль",
+      "name": "Эрүүл мэндийн нийгмийн ажилтан",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "bcea20c0-5618-54f4-a772-087c42eba92b"
+    },
+    {
+      "dataset_id": "mnums-traditional-ulamjlalt-anagaakhyn-zasalch",
+      "dataset_school": "mnums-traditional",
+      "faculty": "Монгол анагаах ухааны олон улсын сургууль",
+      "name": "Уламжлалт анагаахын засалч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "bd591347-bf20-5b13-bbe6-86a036c6c5af"
+    },
+    {
+      "dataset_id": "mnums-public-health-khudulmuriin-ayuulgui-baidal-eruul-akhui",
+      "dataset_school": "mnums-public-health",
+      "faculty": "Нийгмийн эрүүл мэндийн сургууль",
+      "name": "Хөдөлмөрийн аюулгүй байдал, эрүүл ахуй",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "52163094-6783-547d-9283-1d6d1ffde396"
+    },
+    {
+      "dataset_id": "mnums-public-health-eruul-mendiin-khool-zuich",
+      "dataset_school": "mnums-public-health",
+      "faculty": "Нийгмийн эрүүл мэндийн сургууль",
+      "name": "Эрүүл мэндийн хоол зүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "a3eef99f-9ec3-5cfa-9f79-26b72c5ca2c0"
+    },
+    {
+      "dataset_id": "mnums-public-health-ediin-zasagch-eruul-mendiin",
+      "dataset_school": "mnums-public-health",
+      "faculty": "Нийгмийн эрүүл мэндийн сургууль",
+      "name": "Эдийн засагч (эрүүл мэндийн)",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "ebbd5c59-d41b-5ffc-bb83-b872429a3320"
+    },
+    {
+      "dataset_id": "mnums-nursing-suvilagch",
+      "dataset_school": "mnums-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Сувилагч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "f035f5fd-c3c1-5dcb-9eed-1c9f6a621887"
+    },
+    {
+      "dataset_id": "mnums-nursing-ekh-barigch",
+      "dataset_school": "mnums-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Эх баригч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "aee29b2f-17c4-5359-8016-bf241930eabb"
+    },
+    {
+      "dataset_id": "mnums-nursing-khudulguun-zasalch",
+      "dataset_school": "mnums-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Хөдөлгөөн засалч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "9ddf46b0-8e09-5113-8192-ea15e494c90b"
+    },
+    {
+      "dataset_id": "mnums-nursing-khudulmur-zasalch",
+      "dataset_school": "mnums-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Хөдөлмөр засалч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "2f63e6bd-e0d6-5226-8cdd-8b141da0d0a5"
+    },
+    {
+      "dataset_id": "mnums-nursing-khel-zasalch",
+      "dataset_school": "mnums-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Хэл засалч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "11d0e8bc-fac7-5062-a97c-a5df4a9ea80d"
+    },
+    {
+      "dataset_id": "mnums-med-durs-onoshilgoony-tekhnikch",
+      "dataset_school": "mnums-med",
+      "faculty": "Анагаах ухааны сургууль",
+      "name": "Дүрс оношилгооны техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "54bfec99-2114-5b75-9dd4-5ad7c128bddb"
+    },
+    {
+      "dataset_id": "mnums-bio-emnelgiin-tonog-tukhuurumj-ashiglaltyn-tekhnikch",
+      "dataset_school": "mnums-bio",
+      "faculty": "Био-анагаахын сургууль",
+      "name": "Эмнэлгийн тоног төхөөрөмж ашиглалтын техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "40aaff2e-6f23-5937-925e-122969758b0e"
+    },
+    {
+      "dataset_id": "mnums-dental-nuur-amny-eruul-akhuich",
+      "dataset_school": "mnums-dental",
+      "faculty": "Нүүр ам судлалын сургууль",
+      "name": "Нүүр амны эрүүл ахуйч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "422a7461-4b45-5a70-82b0-c08685d45982"
+    },
+    {
+      "dataset_id": "mnums-med-laboratoriin-tekhnikch",
+      "dataset_school": "mnums-med",
+      "faculty": "Анагаах ухааны сургууль",
+      "name": "Лабораторийн техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "3e829232-9d26-5eb3-bc7b-f60a658d868d"
+    },
+    {
+      "dataset_id": "mnums-pharmacy-em-nairuulagch",
+      "dataset_school": "mnums-pharmacy",
+      "faculty": "Эм зүйн сургууль",
+      "name": "Эм найруулагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "7d8c1294-8c3e-518c-ae3e-8d3c37c3d36a"
+    },
+    {
+      "dataset_id": "mnums-nursing-suvilagch-ded-bakalavr",
+      "dataset_school": "mnums-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Сувилагч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "de80e3a7-c781-5d4e-8c7b-adade83ef3a9"
+    },
+    {
+      "dataset_id": "mnums-dental-nuur-amny-tekhnikch",
+      "dataset_school": "mnums-dental",
+      "faculty": "Нүүр ам судлалын сургууль",
+      "name": "Нүүр амны техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "51fcaf07-bf44-56ea-b72f-3e387b83f5d8"
+    },
+    {
+      "dataset_id": "mnums-nursing-ulamjlalt-anagaakhyn-suvilagch",
+      "dataset_school": "mnums-nursing",
+      "faculty": "Сувилахуйн сургууль",
+      "name": "Уламжлалт анагаахын сувилагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "6b290bc9-790f-573d-aa69-1b36d84e3059"
+    },
+    {
+      "dataset_id": "mnums-darkhan-khunii-ikh-emch-2-4",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Хүний их эмч (2+4)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "628bbc40-20e2-5848-993b-9634c14e1a8e"
+    },
+    {
+      "dataset_id": "mnums-darkhan-shudnii-ikh-emch-2-4",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Шүдний их эмч (2+4)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "a178dba7-7aad-5749-98fe-9ce2cf53acfc"
+    },
+    {
+      "dataset_id": "mnums-darkhan-ulamjlalt-anagaakhyn-ikh-emch-2-4",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Уламжлалт анагаахын их эмч (2+4)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "baecd566-a43b-5758-a5cc-21733d042450"
+    },
+    {
+      "dataset_id": "mnums-darkhan-em-zuich-2-3",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Эм зүйч (2+3)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "a5d05446-8088-5611-b1ac-ec6fde565184"
+    },
+    {
+      "dataset_id": "mnums-darkhan-bio-anagaakh-sudlaach-2-3",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Био-анагаах судлаач (2+3)",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "d31ef306-f93c-58ea-848b-889e96a1e6d4"
+    },
+    {
+      "dataset_id": "mnums-darkhan-ekh-barigch",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Эх баригч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "9702797d-46cd-52e3-9963-48ce6be80ad6"
+    },
+    {
+      "dataset_id": "mnums-darkhan-suvilagch",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Сувилагч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "05ca1b4e-3bcf-57a7-a61f-3908a2466868"
+    },
+    {
+      "dataset_id": "mnums-darkhan-ulamjlalt-anagaakhyn-zasalch",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Уламжлалт анагаахын засалч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "73edd633-af49-56c4-b66a-301dab178da7"
+    },
+    {
+      "dataset_id": "mnums-darkhan-khudulguun-zasalch",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Хөдөлгөөн засалч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "2d6ffe80-5b80-5107-9619-9ca93303d05d"
+    },
+    {
+      "dataset_id": "mnums-darkhan-suvilagch-ded-bakalavr",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Сувилагч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "b93e2589-de11-551e-bc50-e44412eedb7d"
+    },
+    {
+      "dataset_id": "mnums-darkhan-em-nairuulagch",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Эм найруулагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "1b5cc358-fff3-507b-836b-43e4a006d123"
+    },
+    {
+      "dataset_id": "mnums-darkhan-ulamjlalt-anagaakhyn-suvilagch",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Уламжлалт анагаахын сувилагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "e6ba273b-60dd-5d3f-b10f-976d177f8d1d"
+    },
+    {
+      "dataset_id": "mnums-darkhan-laboratoriin-tekhnikch",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Лабораторийн техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "626f911e-f824-5bb2-b133-e43999c94b42"
+    },
+    {
+      "dataset_id": "mnums-darkhan-khuukhdiin-ikh-emch",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Хүүхдийн их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "a28ed5c9-c941-5b0f-a001-c441e5d0a8a2"
+    },
+    {
+      "dataset_id": "mnums-darkhan-ekh-barigch-ded-bakalavr",
+      "dataset_school": "mnums-darkhan",
+      "faculty": "Дархан-Уул аймаг дахь салбар сургууль",
+      "name": "Эх баригч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "3bfe43a0-2e29-5514-ad49-e02adbfe9c8c"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-khunii-ikh-emch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Хүний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "1c7f891f-433a-5511-9667-3ccb0c206962"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-ulamjlalt-anagaakhyn-ikh-emch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Уламжлалт анагаахын их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "c0442fa4-f666-5a7b-903b-523ec7803785"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-shudnii-ikh-emch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Шүдний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "7083da96-b118-54c4-99b0-b718dd57e1df"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-bio-anagaakh-sudlaach",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Био-анагаах судлаач",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "627e51b9-886a-5c19-a52b-0761c5f89c2b"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-em-zuich",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Эм зүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "20d21a78-d10d-507b-90ee-635b7ec7f6d6"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-khuukhdiin-ikh-emch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Хүүхдийн их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "f74cedbb-9aa5-5285-a166-4001fbe97781"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-suvilagch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Сувилагч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "b36ce3d4-971f-5515-9012-aa7af5c19b52"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-ekh-barigch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Эх баригч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "09357d21-996a-5ab4-aa3f-159fd7934a75"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-laboratoriin-tekhnikch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Лабораторийн техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "d5b66a34-51ab-518c-8795-4c31aabfeef5"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-em-nairuulagch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Эм найруулагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "b504a01e-ddf6-5e24-8209-223031c47d98"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-suvilagch-ded-bakalavr",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Сувилагч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "358bd4ce-ddd1-503c-a4c4-45f22fec3e45"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-ekh-barigch-ded-bakalavr",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Эх баригч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "f40d5ec7-85e0-5a15-b549-0f6fc2951781"
+    },
+    {
+      "dataset_id": "mnums-govi-altai-ulamjlalt-anagaakhyn-suvilagch",
+      "dataset_school": "mnums-govi-altai",
+      "faculty": "Говь-Алтай аймаг дахь салбар сургууль",
+      "name": "Уламжлалт анагаахын сувилагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "70a51053-2d9a-5b4e-9179-5c7054fbcac6"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-khunii-ikh-emch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Хүний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "7674c68a-ca2e-54e6-839e-1527cb898368"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-ulamjlalt-anagaakhyn-ikh-emch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Уламжлалт анагаахын их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "a7a6dd46-9135-58e6-bcda-2293fb3175c7"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-shudnii-ikh-emch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Шүдний их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "b292d2b2-1294-581b-b195-098cf06e0d4e"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-bio-anagaakh-sudlaach",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Био-анагаах судлаач",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "4bb4c9c2-b97b-5cc0-9e14-5e9436124237"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-em-zuich",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Эм зүйч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "7b034b84-310b-5761-9c90-428539c33171"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-khuukhdiin-ikh-emch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Хүүхдийн их эмч",
+      "degree_type": "BACHELOR",
+      "selection_type": "list",
+      "score_check": "sum",
+      "db_id": "52f946f9-18fc-5121-a135-26389c288f2b"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-suvilagch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Сувилагч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "76045341-56ee-5795-9093-16bbad4e6a63"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-ekh-barigch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Эх баригч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "06a4962d-229a-59c0-8932-692a25cd8570"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-laboratoriin-tekhnikch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Лабораторийн техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "e10c6eef-239f-532e-bfba-c47328ec5fc2"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-em-nairuulagch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Эм найруулагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "95b0a1d1-9618-56b0-b189-063a596ed510"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-suvilagch-ded-bakalavr",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Сувилагч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "bb8d3a58-bd04-5902-bb91-784fec91460f"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-ekh-barigch-ded-bakalavr",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Эх баригч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "2434bbf4-937d-50fe-af77-73136eb94afd"
+    },
+    {
+      "dataset_id": "mnums-dornogovi-ulamjlalt-anagaakhyn-suvilagch",
+      "dataset_school": "mnums-dornogovi",
+      "faculty": "Дорноговь аймаг дахь салбар сургууль",
+      "name": "Уламжлалт анагаахын сувилагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "cda8b440-a6b9-5bb5-a0b6-1749a4f222d3"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-suvilagch",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Сувилагч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "0eb4a5fc-2f34-52ac-98df-71acd2a2484e"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-ekh-barigch",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Эх баригч",
+      "degree_type": "BACHELOR",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "bf531180-ccbe-5e1f-9d73-96bfa72050df"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-durs-onoshilgoony-tekhnikch",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Дүрс оношилгооны техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "sum",
+      "db_id": "66d269db-9536-5bac-9ef2-940d0b57b3d1"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-nuur-amny-eruul-akhuich",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Нүүр амны эрүүл ахуйч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "464ab58e-585e-5bf9-a5ac-4761393f0617"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-laboratoriin-tekhnikch",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Лабораторийн техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "559cd1ea-8b49-5b0f-8060-61a0de472bc0"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-em-nairuulagch",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Эм найруулагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "16372650-49b0-5206-bf21-e4258d82419f"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-suvilagch-ded-bakalavr",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Сувилагч (дэд бакалавр)",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "79aa5759-807f-5856-b693-6c8cb0061857"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-nuur-amny-tekhnikch",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Нүүр амны техникч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "7988232a-3833-55ea-9375-9e84a425cd7b"
+    },
+    {
+      "dataset_id": "mnums-arkhangai-ulamjlalt-anagaakhyn-suvilagch",
+      "dataset_school": "mnums-arkhangai",
+      "faculty": "Архангай аймаг дахь Сувилахуйн салбар сургууль",
+      "name": "Уламжлалт анагаахын сувилагч",
+      "degree_type": "ASSOCIATE",
+      "selection_type": "direct",
+      "score_check": "skills_test",
+      "db_id": "97771560-a28e-5f55-be67-226c1aa41bcf"
+    }
+  ],
+  "scholarships": [
+    {
+      "dataset_id": "mnums-dev-loan",
+      "name": "Оюутны хөгжлийн зээл (хүүгүй, барьцаагүй)",
+      "db_id": "d13eaa83-9069-5cb1-ae5b-4fb3d9d9603a"
+    },
+    {
+      "dataset_id": "mnums-gov-professional",
+      "name": "Төрөөс зарим мэргэжлийн сургалтын төлбөрийн тэтгэлэг (сувилагч, хөдөлгөөн засалч, хөдөлмөр засалч г.м.)",
+      "db_id": "48f88314-b04b-5f38-9058-64532c1cad6e"
+    },
+    {
+      "dataset_id": "mnums-rector",
+      "name": "Ректорын сургалтын төлбөрийн тэтгэлэг",
+      "db_id": "b1576129-f10a-5d7f-9e79-84fd8ab282df"
+    },
+    {
+      "dataset_id": "mnums-mitsubishi",
+      "name": "Мицубиши корпорацийн тэтгэлэг",
+      "db_id": "a7ec9e67-98f1-5ff5-afc4-eb4f4f7718cf"
+    },
+    {
+      "dataset_id": "mnums-na-chan-hyun",
+      "name": "На Чан Хён тэтгэлэг",
+      "db_id": "5274cba9-9d77-5ef8-b2a3-7f48ea0dee0b"
+    },
+    {
+      "dataset_id": "mnums-named",
+      "name": "Дотоод, гадаадын нэрэмжит тэтгэлгүүд",
+      "db_id": "fb2b8ffd-deb5-5507-8e36-50a80c212911"
+    },
+    {
+      "dataset_id": "mnums-bzs-aid",
+      "name": "Буцалтгүй тусламж (Боловсролын зээлийн сан)",
+      "db_id": "8a5828df-5c85-5f50-ad04-7ee6854290c4"
+    }
+  ],
+  "dorms": [
+    {
+      "dataset_id": "mnums-dorm-1",
+      "name": "I байр",
+      "db_id": "baeaf54d-6d7b-510b-8a53-14ed91d20cf5"
+    },
+    {
+      "dataset_id": "mnums-dorm-2",
+      "name": "II байр",
+      "db_id": "41c218e7-9058-56c5-9929-30f1cc73f670"
+    },
+    {
+      "dataset_id": "mnums-dorm-3",
+      "name": "III байр",
+      "db_id": "8e377f30-229d-51f2-9b98-0042503399d3"
+    },
+    {
+      "dataset_id": "mnums-dorm-darkhan",
+      "name": "Дархан-Уул салбарын дотуур байр",
+      "db_id": "9b4c902f-1019-50ed-9b40-a5ead8c75401"
+    }
+  ],
+  "admission_dates": [
+    {
+      "dataset_id": "mnums-date-esh-2026",
+      "event": "2026 оны жишиг: ЭЕШ (бүх элсэгч)",
+      "db_id": "3788a914-6720-5805-8c6d-11ab5177124d"
+    },
+    {
+      "dataset_id": "mnums-date-reg-2026",
+      "event": "2026 оны жишиг: АШУҮИС-ийн бакалавр, дэд бакалаврын цахим бүртгэл (admission.mnums.edu.mn)",
+      "db_id": "bcfd51c2-1928-5397-922d-5f4623547fca"
+    },
+    {
+      "dataset_id": "mnums-date-direct-2026",
+      "event": "2026 оны жишиг: Шууд сонгох хөтөлбөрөө сонгож, төлбөрөө төлөх өдөр",
+      "db_id": "b1e5f76e-c1c1-5bee-9fdd-2a3d48f498d0"
+    },
+    {
+      "dataset_id": "mnums-date-darkhan-2026",
+      "event": "2026 оны жишиг: Дархан-Уул салбарын нэмэлт элсэлт (ЭЕШ-гүй бүлэг)",
+      "db_id": "401d528a-1377-5687-a12f-eb8fcb0f9074"
+    },
+    {
+      "dataset_id": "mnums-date-code-2026",
+      "event": "2026 оны жишиг: Оюутны код, цахим шуудан, цахим үнэмлэх олгох (8-р сарын 3 дахь долоо хоног) — ойролцоо огноо",
+      "db_id": "f05d660f-3f6c-5b0e-99e8-2e0ce62ac8db"
+    },
+    {
+      "dataset_id": "mnums-date-orientation-2026",
+      "event": "2026 оны жишиг: 'Удирдлага' хичээл, эрүүл мэндийн үзлэг (8-р сарын сүүлийн долоо хоног) — ойролцоо огноо",
+      "db_id": "078c87c3-f13c-5965-9420-64a6aacdd471"
+    }
+  ]
+}

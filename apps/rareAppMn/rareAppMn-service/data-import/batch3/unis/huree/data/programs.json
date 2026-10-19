@@ -1,0 +1,1222 @@
+{
+  "_meta": {
+    "dataset": "programs",
+    "university": "Хүрээ МХТДС",
+    "description": "Хүрээ МХТДС-ийн бакалаврын хөтөлбөрүүд (2026-2027): 2026 оны онлайн бүртгэлд байгаа 10 хөтөлбөр ба элсэлтийн хүснэгтэд байгаа боловч бүртгэлд байхгүй 4 хөтөлбөр (импортлохгүй); шалгалтын хичээл, босго.",
+    "language": "mn",
+    "verified_at": "2026-10-18",
+    "sources": [
+      "https://huree.edu.mn/enter/enter.php",
+      "https://elselt.huree.edu.mn/register.php",
+      "https://elselt.huree.edu.mn/",
+      "https://huree.edu.mn/department/ar.php",
+      "https://huree.edu.mn/department/ba.php",
+      "https://huree.edu.mn/department/cs.php",
+      "https://huree.edu.mn/department/ee.php",
+      "https://huree.edu.mn/department/el.php",
+      "https://huree.edu.mn/department/fn.php",
+      "https://huree.edu.mn/department/it.php",
+      "https://huree.edu.mn/department/kl.php",
+      "https://huree.edu.mn/department/me.php",
+      "https://huree.edu.mn/department/mm.php"
+    ],
+    "scoring_mn": "Хөтөлбөр бүр 2 шалгалттай: 1-р (суурь) ба 2-р (дагалдах) шалгалт, бүлэг доторх хичээлээс аль нэгийг өгнө. Шалгалт тус бүр өөрийн босготой (450 эсвэл 490). Элсэлтийн онооны томьёо зарлаагүй. Архитектур, График дизайнд 2-р шалгалт нь сургуулийн ур чадварын шалгалт (босго 490).",
+    "fields_mn": {
+      "suuri_options/dagaldah_options": "Хүснэгтийн 'Суурь шалгалт' ба 'Дагалдах шалгалт' багана (тэнхимийн хуудсанд 'ЭШ 1', 'ЭШ 2').",
+      "threshold_type": "per_exam — шалгалт тус бүрийн босго.",
+      "weights": "Томьёо зарлаагүй тул {suuri: 1, dagaldah: 1}, formula_known: false.",
+      "table_row_mn / department_page_mn": "Эх сурвалжийн мөрийг үгчлэн хуулсан.",
+      "online_form_label_mn": "2026 оны онлайн маягтын 'Тэнхим сонгох' жагсаалт дахь нэр (null = жагсаалтад байхгүй)."
+    },
+    "counts": {
+      "total": 14,
+      "by_school": {
+        "huree-main": 14
+      },
+      "by_split_confidence": {
+        "likely": 10,
+        "unclear": 4
+      },
+      "by_status": {
+        "current": 10,
+        "unverified": 4
+      }
+    },
+    "subject_names_mn": "Хичээлийн нэрийг oyutan.mn-ийн нэрээр бичив (физик → Физик г.м.); сургуулийн бичсэнийг table_row_mn-д үлдээв.",
+    "gap_fill_mn": "2026-10-18: Claude Code-ийн Step 2 нөхөлт — IMPORT_LOG.md-г үз."
+  },
+  "records": [
+    {
+      "id": "huree-main-kompiyuteryn-ukhaan",
+      "name_mn": "Компьютерын ухаан",
+      "name_en": "Computer Science (AI)",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 125,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D061301",
+      "official_url": "https://huree.edu.mn/department/cs.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. Хүснэгтэд: 'Математик, физик — 490; Нийгэм судлал Англи хэл — 450'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D061301 | Компьютерын ухаан | Математик, физик | 490 | Нийгэм судлал Англи хэл | 450 | 4 жил | 125",
+        "department_page_mn": "ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(CS) КОМПЬЮТЕРЫН УХААН (AI)",
+      "notes_mn": "Сургууль 'Компьютерын ухаан (AI)' нэрээр танилцуулдаг. Тэнхим 2002 онд 30 оюутан, 3 багштай 'Компьютерын программ хангамжийн тэнхим' нэрээр эхэлсэн; төгсөгчдийн 80 орчим хувь нь мэдээллийн технологи, харилцаа холбоо, банк, уул уурхайн салбарт ажилладаг, 20 орчим хувь нь магистрт суралцдаг гэж тэнхимийн хуудсанд бичсэн.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/cs.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-medeelliin-tekhnologi",
+      "name_mn": "Мэдээллийн технологи",
+      "name_en": "Information Technology",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D061304",
+      "official_url": "https://huree.edu.mn/department/it.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. Хүснэгтэд: 'Математик, физик — 490; Нийгэм судлал, англи хэл — 450'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D061304 | Мэдээллийн технологи | Математик, физик | 490 | Нийгэм судлал, англи хэл | 450 | 4 жил | 120",
+        "department_page_mn": "ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(IT) МЭДЭЭЛЛИЙН ТЕХНОЛОГИ",
+      "notes_mn": "Тэнхимийн хуудсанд программ хангамжийн архитектор, системийн программист, вэб хөгжүүлэгч, сүлжээний инженер зэрэг ажлын байрыг дурдсан.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/it.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-grafik-dizain",
+      "name_mn": "График дизайн",
+      "name_en": "Graphic Design (Multimedia)",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D021106",
+      "official_url": "https://huree.edu.mn/department/mm.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Англи хэл — босго 450. 2-р шалгалт: Ур чадварын шалгалт (Хүрээ МХТДС өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 450,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 450,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. 2-р шалгалт нь сургуулийн өөрийн авдаг ур чадварын шалгалт (тэнхимийн хуудсанд 'ЭШ 2: 490 оноо Ур чадвар'); агуулга, огноо, байршил, дүгнэх аргыг сайтад бичээгүй — 7701-2002 утсаар лавлана уу. Хүснэгтэд: 'Математик, англи хэл — 450; Ур чадварын шалгалт — 490'. Тэнхимийн хуудсанд: 'ЭШ 1: 450 оноо Математик, Англи хэл /аль нэг/; ЭШ 2: 490 оноо Ур чадвар'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D021106 | График дизайн | Математик, англи хэл | 450 | Ур чадварын шалгалт | 490 | 4 жил | 120",
+        "department_page_mn": "ЭШ 1: 450 оноо Математик, Англи хэл /аль нэг/; ЭШ 2: 490 оноо Ур чадвар"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(MM) ГРАФИК ДИЗАЙН (Мультимедиа)",
+      "notes_mn": "Сургууль 'График дизайн (Мультимедиа)' гэж танилцуулдаг; 'График дизайн' хөтөлбөр 2019 онд батлагдсан (сургуулийн түүх).",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/mm.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-sergeegdekh-erchim-khuch",
+      "name_mn": "Сэргээгдэх эрчим хүч",
+      "name_en": "Renewable Energy",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D071301",
+      "official_url": "https://huree.edu.mn/enter/enter.php",
+      "selection_type": null,
+      "selection_type_mn": null,
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "Энэ хөтөлбөр 2026 оны онлайн бүртгэлийн жагсаалтад байхгүй. Сургуулийн элсэлтийн хуудасны он заагаагүй хүснэгтэд 1-р шалгалт: Математик эсвэл Физик (490), 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл (450) гэж бичсэн. Элсэлт авч байгаа эсэхийг 7701-2002 утсаар тодруулна уу.",
+      "threshold_score": null,
+      "secondary_threshold_score": null,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": null,
+        "dagaldah_threshold": null,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": null,
+        "split_confidence": "unclear",
+        "note_mn": "2026 оны онлайн бүртгэлийн маягтын тэнхимийн жагсаалтад энэ хөтөлбөр байхгүй, тэнхимийн тусдаа хуудас ч алга. Сургуулийн элсэлтийн хуудасны он заагаагүй хүснэгтэд: 'Математик, физик — 490; Нийгэм судлал Англи хэл — 450' гэж бичсэн. 2025 оны 4-р сард сургууль '14 хөтөлбөр' танилцуулсан тул хүснэгт өмнөх оных байж магадгүй.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "verify",
+        "page_thresholds": {
+          "year": null,
+          "year_note_mn": "Хүснэгтэд он заагаагүй (2026 оны бүртгэлийн огноотой нэг хуудсанд; 2021 оны магистрын мэдээлэлтэй хамт).",
+          "suuri": 490,
+          "dagaldah": 450,
+          "source_url": "https://huree.edu.mn/enter/enter.php"
+        },
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D071301 | Сэргээгдэх эрчим хүч | Математик, физик | 490 | Нийгэм судлал Англи хэл | 450 | 4 жил | 120",
+        "department_page_mn": null
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": null,
+      "notes_mn": "Электроникийн инженерчлэлийн 4-р курст нарны эрчим хүчний хичээл байдаг; магистрын түвшинд 'Сэргээгдэх эрчим хүч' хөтөлбөр бий (2021 оны мэдээлэл).",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "unverified"
+    },
+    {
+      "id": "huree-main-emnelgiin-tonog-tukhuurumj-ashiglalt",
+      "name_mn": "Эмнэлгийн тоног төхөөрөмж ашиглалт",
+      "name_en": "Medical Equipment Operation",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D078810",
+      "official_url": "https://huree.edu.mn/department/me.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. Хүснэгтэд: 'Математик, физик — 490; Нийгэм судлал Англи хэл — 450'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D078810 | Эмнэлэгийн тоног төхөөрөмжийн ашиглалт | Математик, физик | 490 | Нийгэм судлал Англи хэл | 450 | 4 жил | 120",
+        "department_page_mn": "ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(ME) ЭМНЭЛГИЙН ТОНОГ ТӨХӨӨРӨМЖ АШИГЛАЛТ",
+      "notes_mn": "Тэнхим 2013 онд 4 багштайгаар эхэлсэн. Элсэлтийн хүснэгтэд 'Эмнэлэгийн тоног төхөөрөмжийн ашиглалт' гэж бичсэн; онлайн маягт, тэнхимийн хуудасны нэрийг ашиглав.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/me.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-elektronikiin-injenerchlel",
+      "name_mn": "Электроникийн инженерчлэл",
+      "name_en": "Electronics Engineering (Robotics)",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D071401",
+      "official_url": "https://huree.edu.mn/department/ee.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. Хүснэгтэд: 'Математик, физик — 490; Нийгэм судлал Англи хэл — 450'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D071401 | Электроникийн инженерчлэл | Математик, физик | 490 | Нийгэм судлал Англи хэл | 450 | 4 жил | 120",
+        "department_page_mn": "ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(EE) ЭЛЕКТРОНИКИЙН ИНЖЕНЕРЧЛЭЛ (Robotics)",
+      "notes_mn": "Сургууль 'Электроникийн инженерчлэл (Robotics)' гэж танилцуулдаг; тэнхимийн хуудсанд 2026 онд 4 багштайгаар үйл ажиллагаагаа эхэлсэн гэж бичсэн.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/ee.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-arkhitektur",
+      "name_mn": "Архитектур",
+      "name_en": "Architecture",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 160,
+      "duration_years": 5,
+      "duration_text_mn": "5 жил",
+      "code": "D073104",
+      "official_url": "https://huree.edu.mn/department/ar.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Ур чадварын шалгалт (Хүрээ МХТДС өөрөө авна) — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. 2-р шалгалт нь сургуулийн өөрийн авдаг ур чадварын шалгалт (тэнхимийн хуудсанд 'ЭШ 2: 490 оноо Ур чадвар'); агуулга, огноо, байршил, дүгнэх аргыг сайтад бичээгүй — 7701-2002 утсаар лавлана уу. Хүснэгтэд: 'Математик, физик — 490; Ур чадварын шалгалт — 490'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 490 оноо Ур чадвар'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D073104 | Архитехтур | Математик, физик | 490 | Ур чадварын шалгалт | 490 | 5 жил | 160",
+        "department_page_mn": "ЭШ 1: 490 оноо Математик, Физик /аль нэг/; ЭШ 2: 490 оноо Ур чадвар"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(AR) АРХИТЕКТУР",
+      "notes_mn": "'Хотын архитектур, барилга угсралтын тэнхим'; 'Архитектур' болон 'Инженер' гэсэн чиглэлтэй, 5 жил (160 кредит). Элсэлтийн хүснэгтэд 'Архитехтур' гэж бичсэн; онлайн маягтын нэрийг ашиглав. Элсэлтийн тэтгэлэг энэ хөтөлбөрт 5 жил хүчинтэй.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/ar.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-barilgyn-injenerchlel",
+      "name_mn": "Барилгын инженерчлэл",
+      "name_en": "Civil Engineering",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D073204",
+      "official_url": "https://huree.edu.mn/enter/enter.php",
+      "selection_type": null,
+      "selection_type_mn": null,
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "Энэ хөтөлбөр 2026 оны онлайн бүртгэлийн жагсаалтад байхгүй. Сургуулийн элсэлтийн хуудасны он заагаагүй хүснэгтэд 1-р шалгалт: Математик эсвэл Физик (490), 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл (490) гэж бичсэн. Элсэлт авч байгаа эсэхийг 7701-2002 утсаар тодруулна уу.",
+      "threshold_score": null,
+      "secondary_threshold_score": null,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": null,
+        "dagaldah_threshold": null,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": null,
+        "split_confidence": "unclear",
+        "note_mn": "2026 оны онлайн бүртгэлийн маягтын тэнхимийн жагсаалтад энэ хөтөлбөр байхгүй, тэнхимийн тусдаа хуудас ч алга. Сургуулийн элсэлтийн хуудасны он заагаагүй хүснэгтэд: 'Математик, физик — 490; Нийгэм судлал Англи хэл — 490' гэж бичсэн. 2025 оны 4-р сард сургууль '14 хөтөлбөр' танилцуулсан тул хүснэгт өмнөх оных байж магадгүй.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "verify",
+        "page_thresholds": {
+          "year": null,
+          "year_note_mn": "Хүснэгтэд он заагаагүй (2026 оны бүртгэлийн огноотой нэг хуудсанд; 2021 оны магистрын мэдээлэлтэй хамт).",
+          "suuri": 490,
+          "dagaldah": 490,
+          "source_url": "https://huree.edu.mn/enter/enter.php"
+        },
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D073204 | Барилгын инженерчлэл | Математик, физик | 490 | Нийгэм судлал Англи хэл | 490 | 4 жил | 120",
+        "department_page_mn": null
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": null,
+      "notes_mn": "Архитектурын тэнхимийн хуудсанд 'Инженер' чиглэл бий ч энэ хөтөлбөрийг тусад нь бичээгүй.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "unverified"
+    },
+    {
+      "id": "huree-main-avto-zamyn-injenerchlel",
+      "name_mn": "Авто замын инженерчлэл",
+      "name_en": "Road Engineering",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D073210",
+      "official_url": "https://huree.edu.mn/enter/enter.php",
+      "selection_type": null,
+      "selection_type_mn": null,
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "Энэ хөтөлбөр 2026 оны онлайн бүртгэлийн жагсаалтад байхгүй. Сургуулийн элсэлтийн хуудасны он заагаагүй хүснэгтэд 1-р шалгалт: Математик эсвэл Физик (490), 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл (450) гэж бичсэн. Элсэлт авч байгаа эсэхийг 7701-2002 утсаар тодруулна уу.",
+      "threshold_score": null,
+      "secondary_threshold_score": null,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": null,
+        "dagaldah_threshold": null,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": null,
+        "split_confidence": "unclear",
+        "note_mn": "2026 оны онлайн бүртгэлийн маягтын тэнхимийн жагсаалтад энэ хөтөлбөр байхгүй, тэнхимийн тусдаа хуудас ч алга. Сургуулийн элсэлтийн хуудасны он заагаагүй хүснэгтэд: 'Математик, физик — 490; Нийгэм судлал Англи хэл — 450' гэж бичсэн. 2025 оны 4-р сард сургууль '14 хөтөлбөр' танилцуулсан тул хүснэгт өмнөх оных байж магадгүй.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "verify",
+        "page_thresholds": {
+          "year": null,
+          "year_note_mn": "Хүснэгтэд он заагаагүй (2026 оны бүртгэлийн огноотой нэг хуудсанд; 2021 оны магистрын мэдээлэлтэй хамт).",
+          "suuri": 490,
+          "dagaldah": 450,
+          "source_url": "https://huree.edu.mn/enter/enter.php"
+        },
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D073210 | Авто замын инженерчлэл | Математик, физик | 490 | Нийгэм судлал Англи хэл | 450 | 4 жил | 120",
+        "department_page_mn": null
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": null,
+      "notes_mn": "Тэнхимийн хуудас олдсонгүй.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "unverified"
+    },
+    {
+      "id": "huree-main-biznesiin-udirdlaga",
+      "name_mn": "Бизнесийн удирдлага",
+      "name_en": "Business Administration",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 122,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D041301",
+      "official_url": "https://huree.edu.mn/department/ba.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. Хүснэгтэд: 'Математик — 490; Нийгэм судлал Англи хэл — 490'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Математик; ЭШ 2: 490 оноо Англи хэл, Нийгэм судлал'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D041301 | Бизнесийн удирдлага | Математик | 490 | Нийгэм судлал Англи хэл | 490 | 4 жил | 122",
+        "department_page_mn": "ЭШ 1: 490 оноо Математик; ЭШ 2: 490 оноо Англи хэл, Нийгэм судлал"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(BA) БИЗНЕСИЙН УДИРДЛАГА",
+      "notes_mn": "Тэнхим 2003 оноос хойш ажиллаж, 17 удаа төгсөлт хийж, 270 гаруй төгсөгчтэй. 2, 3-р курсын оюутнууд БНСУ-ын их сургуульд солилцоогоор суралцах боломжтой; 40 гаруй оюутан хамрагдсан.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/ba.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-khunsnii-injenerchlel",
+      "name_mn": "Хүнсний инженерчлэл",
+      "name_en": "Food Engineering",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D072104",
+      "official_url": "https://huree.edu.mn/enter/enter.php",
+      "selection_type": null,
+      "selection_type_mn": null,
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "Энэ хөтөлбөр 2026 оны онлайн бүртгэлийн жагсаалтад байхгүй. Сургуулийн элсэлтийн хуудасны он заагаагүй хүснэгтэд 1-р шалгалт: Математик эсвэл Хими (490), 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл (450) гэж бичсэн. Элсэлт авч байгаа эсэхийг 7701-2002 утсаар тодруулна уу.",
+      "threshold_score": null,
+      "secondary_threshold_score": null,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Хими",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Хими"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": null,
+        "dagaldah_threshold": null,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": null,
+        "split_confidence": "unclear",
+        "note_mn": "2026 оны онлайн бүртгэлийн маягтын тэнхимийн жагсаалтад энэ хөтөлбөр байхгүй, тэнхимийн тусдаа хуудас ч алга. Сургуулийн элсэлтийн хуудасны он заагаагүй хүснэгтэд: 'Математик, хими — 490; Нийгэм судлал Англи хэл — 450' гэж бичсэн. 2025 оны 4-р сард сургууль '14 хөтөлбөр' танилцуулсан тул хүснэгт өмнөх оных байж магадгүй.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "verify",
+        "page_thresholds": {
+          "year": null,
+          "year_note_mn": "Хүснэгтэд он заагаагүй (2026 оны бүртгэлийн огноотой нэг хуудсанд; 2021 оны магистрын мэдээлэлтэй хамт).",
+          "suuri": 490,
+          "dagaldah": 450,
+          "source_url": "https://huree.edu.mn/enter/enter.php"
+        },
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D072104 | Хүнсний инженерчлэл | Математик, хими | 490 | Нийгэм судлал Англи хэл | 450 | 4 жил | 120",
+        "department_page_mn": null
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": null,
+      "notes_mn": "Хоол зүй, шим судлалын тэнхимийн хуудсанд Хүнсний инженерчлэлийг дагалдах болон давхар мэргэжлээр судлах боломжтой гэж бичсэн — тусдаа элсэлт авах эсэх тодорхойгүй.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "unverified"
+    },
+    {
+      "id": "huree-main-khool-zui-shim-sudlal",
+      "name_mn": "Хоол зүй, шим судлал",
+      "name_en": "Nutrition and Dietetics",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D072012",
+      "official_url": "https://huree.edu.mn/department/fn.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Хими — босго 490. 2-р шалгалт: Нийгэм судлал эсвэл Англи хэл — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Хими",
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Хими"
+        ],
+        "dagaldah_options": [
+          "Нийгэм судлал",
+          "Англи хэл"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. Хүснэгтэд: 'Математик, хими — 490; Нийгэм судлал, англи хэл — 450'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Хими, Математик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D072012 | Хоол зүй шим судлал | Математик, хими | 490 | Нийгэм судлал, англи хэл | 450 | 4 жил | 120",
+        "department_page_mn": "ЭШ 1: 490 оноо Хими, Математик /аль нэг/; ЭШ 2: 450 оноо Нийгэм судлал, Англи хэл /аль нэг/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(FN) ХООЛ ЗҮЙ, ШИМ СУДЛАЛ",
+      "notes_mn": "Хүнсний инженерчлэлийг дагалдах болон давхар мэргэжлээр судлах боломжтой (тэнхимийн хуудас). Элсэлтийн хүснэгтэд 'Хоол зүй шим судлал' гэж бичсэн.",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/fn.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-gadaad-khelnii-orchuulga-angli-khel",
+      "name_mn": "Гадаад хэлний орчуулга /Англи хэл/",
+      "name_en": "Foreign Language Translation (English)",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D023101",
+      "official_url": "https://huree.edu.mn/department/el.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл эсвэл Орос хэл — босго 490. 2-р шалгалт: Монгол хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Монгол хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл"
+        ],
+        "dagaldah_options": [
+          "Монгол хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. Хүснэгтэд: 'Англи хэл, Орос хэл — 490; Монгол хэл Нийгэм судлал — 490'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Англи хэл, Орос хэл/аль нэг/; ЭШ 2: 490 оноо Нийгэм судлал , Монгол хэл /аль нэг/'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил. А/34-д энэ индексийн 1-р шалгалтад Математик, 2-р шалгалтад Түүх бас орсон — эдгээрээр өгч болох эсэхийг сургуулиас тодруулна уу.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D023101 | Гадаад хэлний орчуулга /Англи хэл/ | Англи хэл, Орос хэл | 490 | Монгол хэл Нийгэм судлал | 490 | 4 жил | 120",
+        "department_page_mn": "ЭШ 1: 490 оноо Англи хэл, Орос хэл/аль нэг/; ЭШ 2: 490 оноо Нийгэм судлал , Монгол хэл /аль нэг/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(EL) ГАДААД ХЭЛНИЙ ОРЧУУЛГА - АНГЛИ",
+      "notes_mn": "Хоёр орчуулгын хөтөлбөр элсэлтийн хүснэгтэд ижил индекстэй (D023101).",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/el.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "huree-main-gadaad-khelnii-orchuulga-solongos-khel",
+      "name_mn": "Гадаад хэлний орчуулга /Солонгос хэл/",
+      "name_en": "Foreign Language Translation (Korean)",
+      "school_id": "huree-main",
+      "degree": "Бакалавр",
+      "degree_title_mn": null,
+      "program_type_mn": "Бакалаврын зэрэг олгох хөтөлбөр",
+      "study_form": "Өдөр",
+      "study_mode_mn": null,
+      "credits": 120,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил",
+      "code": "D023101",
+      "official_url": "https://huree.edu.mn/department/kl.php",
+      "selection_type": "list",
+      "selection_type_mn": "Сонгон шалгаруулах аргыг (эрэмбээр эсвэл шууд) сургууль зарлаагүй",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Англи хэл эсвэл Орос хэл — босго 490. 2-р шалгалт: Монгол хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Англи хэл",
+          "Орос хэл",
+          "Монгол хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Англи хэл",
+          "Орос хэл"
+        ],
+        "dagaldah_options": [
+          "Монгол хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "likely",
+        "note_mn": "Хичээл, босгыг сургуулийн элсэлтийн хуудасны 'Бакалаврын мэргэжлүүд' хүснэгт болон тэнхимийн хуудаснаас авав; хоёулаа ижил. Хүснэгтэд он бичээгүй ч 2026 оны элсэгчдийн бүртгэлийн мэдээлэлтэй нэг хэсэгт байгаа тул 2026-2027 оны шаардлага гэж үзэв. Бүлэг доторх хичээлээс аль нэгийг өгнө (сургууль '/аль нэг/' гэж бичсэн). Хоёр шалгалтын оноог нийлүүлэх томьёо зарлаагүй. Хүснэгтэд: 'Англи хэл, Орос хэл — 490; Монгол хэл Нийгэм судлал — 490'. Тэнхимийн хуудсанд: 'ЭШ 1: 490 оноо Англи хэл, Орос хэл /аль нэг/; ЭШ 2: 490 оноо Нийгэм судлал , Монгол хэл /аль нэг/'. Босго нь БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын (2026-2027 оны үндэсний босго) хавсралттай ижил. А/34-д энэ индексийн 1-р шалгалтад Математик, 2-р шалгалтад Түүх бас орсон — эдгээрээр өгч болох эсэхийг сургуулиас тодруулна уу.",
+        "source_url": "https://huree.edu.mn/enter/enter.php",
+        "status": "current",
+        "page_thresholds": null,
+        "subject_group_mn": null,
+        "score_formula_mn": "Элсэлтийн онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана. Элсэлтийн тэтгэлгийг харин 1, 2-р шалгалтын онооны дунджаар тогтоодог.",
+        "table_row_mn": "D023101 | Гадаад хэлний орчуулга /Солонгос хэл/ | Англи хэл, Орос хэл | 490 | Монгол хэл Нийгэм судлал | 490 | 4 жил | 120",
+        "department_page_mn": "ЭШ 1: 490 оноо Англи хэл, Орос хэл /аль нэг/; ЭШ 2: 490 оноо Нийгэм судлал , Монгол хэл /аль нэг/"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны бакалаврын сургалтын төлбөрийг сургуулийн сайт, элсэлтийн сайтад нийтлээгүй. 7701-2002, huree@huree.edu.mn эсвэл сургуулийн фэйсбүүк хуудаснаас лавлана уу."
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "online_form_label_mn": "(KL) ГАДААД ХЭЛНИЙ ОРЧУУЛГА - СОЛОНГОС",
+      "notes_mn": "3, 4-р курст TOPIK-ийн бэлтгэл хичээлтэй; БНСУ руу солилцооны оюутнаар явах боломжтой (тэнхимийн хуудас). Хоёр орчуулгын хөтөлбөр элсэлтийн хүснэгтэд ижил индекстэй (D023101).",
+      "source_urls": [
+        "https://huree.edu.mn/enter/enter.php",
+        "https://huree.edu.mn/department/kl.php",
+        "https://elselt.huree.edu.mn/register.php"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+  "_meta": {
+    "dataset": "admission_2026",
+    "university": "СЭЗИС",
+    "description": "СЭЗИС-ийн элсэлтийн үйл явц: алхам, бүлэг, босго, онооны томьёо, ур чадварын шалгалт, нэмэлт элсэлт, тусгай нөхцөл.",
+    "language": "mn",
+    "verified_at": "2026-10-15"
+  },
+  "records": [
+    {
+      "id": "ufe-bachelor-2026",
+      "title_mn": "СЭЗИС-ийн бакалаврын өдрийн хөтөлбөрийн элсэлт (2026-2027 оны жишиг)",
+      "academic_year": "2026-2027",
+      "system_url": "https://admission.ufe.edu.mn",
+      "login_url": "https://admission.ufe.edu.mn/mn/auth/eec",
+      "registration": {
+        "start": "2026-04-22",
+        "end": "2026-06-28",
+        "where_mn": "admission.ufe.edu.mn → 'Нэвтрэх / Бүртгүүлэх' (бүртгүүлсэн имэйлээр мэдээлэл, OTP код ирнэ)"
+      },
+      "registration_fee": null,
+      "registration_fee_note_mn": "Элсэлтийн FAQ: бүртгэлийн хураамж буцаан олгогдохгүй (дүнг заагаагүй).",
+      "seat_confirmation_fee": 500000,
+      "seat_confirmation_fee_note_mn": "Элсэлтийн FAQ: суудал баталгаажуулалтын төлбөр 500,000₮; баталгаажуулалтаа цуцалбал 40%-ийг суутгана.",
+      "steps": [
+        {
+          "step": 1,
+          "title_mn": "Бүртгүүлэх",
+          "detail_mn": "4-р сарын 22 – 6-р сарын 28-нд admission.ufe.edu.mn-д бүртгүүлж, мэргэжлийн сонголтоо хийнэ (имэйлээ зөв оруулна)."
+        },
+        {
+          "step": 2,
+          "title_mn": "ЭЕШ өгөх",
+          "detail_mn": "Мэргэжлийнхээ бүлгийн 2 хичээлээр ЭЕШ өгнө (2026 онд 6-р сарын 25–28). Аялал жуулчлалд СЭЗИС-ийн ур чадварын шалгалт (видео) нэмэгдэнэ."
+        },
+        {
+          "step": 3,
+          "title_mn": "Эрэмбийн жагсаалт",
+          "detail_mn": "БҮТ оноог албан ёсоор гаргасны дараа элсэгчдийн эрэмбийн жагсаалт нийтлэгдэнэ (2026 онд 6-р сарын 30-ны 09:00). Жагсаалтыг 2 шалгалтын дундаж оноогоор гаргана."
+        },
+        {
+          "step": 4,
+          "title_mn": "Мэргэжил, хөтөлбөр баталгаажуулах",
+          "detail_mn": "Эрэмбийн дарааллаар, хяналтын тооны хүрээнд элсэх боломжтой мэргэжил, хөтөлбөрөө баталгаажуулна (2026 онд 6-р сарын 30-ны 10:00-аас). Баталгаажуулаагүй бол суудал дараагийн элсэгчид шилжинэ."
+        },
+        {
+          "step": 5,
+          "title_mn": "Суралцах гэрээ (E-Geree)",
+          "detail_mn": "Суралцах эрхийн бичиг авсан элсэгч egeree.mn-ээр их сургууль, элсэгч, асран хамгаалагчийн 3 талт гэрээг 2026 оны 7-р сарын 3-ны 13:00-аас өмнө байгуулна; хийгээгүй бол эрх цуцлагдана."
+        },
+        {
+          "step": 6,
+          "title_mn": "Англи хэлний түвшин тогтоох шалгалт",
+          "detail_mn": "Гэрээ байгуулсны дараа 24 цагийн дотор имэйлээр ирэх зааврын дагуу онлайнаар өгнө (2026 онд 7-р сарын 3 хүртэл)."
+        },
+        {
+          "step": 7,
+          "title_mn": "Төлбөр, чиглүүлэх сургалт",
+          "detail_mn": "Сургалтын төлбөрөө 8-р сарын 20-ны дотор төлж баталгаажуулна. Чиглүүлэх сургалт 8-р сарын 24–28 (2026 онд цахимаар), хичээл сонголт 8-р сарын 26, хичээл 9-р сарын 1-нд эхэлсэн."
+        }
+      ],
+      "selection_rules": {
+        "ranking_mn": "Онооны жагсаалтыг ЭЕШ-ын хоёр хичээлийн шалгалтын дундаж оноо (ба ур чадварын шалгалтын оноо)-ны эрэмбээр гаргана; тэнцвэл боловсролын гэрчилгээний дундаж оноог чухалчилна (2024 оны журам). Нэг элсэгч хэд хэдэн бүлэгт орж болно.",
+        "threshold_mn": "Босго нь 2 шалгалтын дундаж оноонд: 510 (Аялал жуулчлал) – 620 (Даатгал, Санхүү, банк, Эдийн засаг). Эдийн засагт Математик 600+.",
+        "change_mn": "Мэргэжил, хөтөлбөр солих, татгалзах хүсэлтийг 2026 онд 7-р сарын 3 хүртэл авч 3 ажлын өдөрт шийдвэрлэсэн; хожуу хүсэлтийн төлбөрийг 8-р сарын 20-ноос буцаасан."
+      },
+      "subject_groups": [
+        {
+          "group_mn": "Бүлэг I",
+          "subjects_mn": [
+            "Математик",
+            "Англи хэл"
+          ],
+          "programs_mn": [
+            "Бизнесийн удирдлага",
+            "Даатгал",
+            "Маркетинг + AI",
+            "Нягтлан бодох бүртгэл",
+            "Олон улсын мэргэшсэн нягтлан бодох бүртгэл (ACCA)",
+            "Олон улсын удирдлагын нягтлан бодох бүртгэл (CGMA)",
+            "Энтрепренершип + AI",
+            "Санхүүгийн манлайлал + AI",
+            "Санхүү, банк",
+            "Эдийн засаг",
+            "Мэдээллийн систем + AI"
+          ]
+        },
+        {
+          "group_mn": "Бүлэг II",
+          "subjects_mn": [
+            "Нийгмийн тухай мэдлэг",
+            "Англи хэл"
+          ],
+          "programs_mn": [
+            "Олон улсын худалдаа + AI",
+            "Эрх зүй"
+          ]
+        },
+        {
+          "group_mn": "Бүлэг III",
+          "subjects_mn": [
+            "Англи хэл",
+            "Монгол хэл"
+          ],
+          "programs_mn": [
+            "Нийгмийн инновац"
+          ]
+        },
+        {
+          "group_mn": "Бүлэг IV",
+          "subjects_mn": [
+            "Англи хэл",
+            "Ур чадварын шалгалт"
+          ],
+          "programs_mn": [
+            "Аялал жуулчлал"
+          ]
+        },
+        {
+          "group_mn": "Бүлэг V",
+          "subjects_mn": [
+            "Нийгмийн тухай мэдлэг",
+            "Монгол хэл"
+          ],
+          "programs_mn": [
+            "Зочлох үйлчилгээний менежмент"
+          ]
+        }
+      ],
+      "thresholds_table": [
+        {
+          "program_mn": "Бизнесийн удирдлага",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 580,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Даатгал",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 620,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Маркетинг + AI",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 580,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Нягтлан бодох бүртгэл",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 580,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Олон улсын мэргэшсэн нягтлан бодох бүртгэл (ACCA)",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 600,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Олон улсын удирдлагын нягтлан бодох бүртгэл (CGMA)",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 580,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Энтрепренершип + AI",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 580,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Санхүүгийн манлайлал + AI",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 580,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Санхүү, банк",
+          "degree": "BBA",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 620,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Олон улсын худалдаа + AI",
+          "degree": "BBA",
+          "group_mn": "Бүлэг II",
+          "average_threshold": 550,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Эдийн засаг",
+          "degree": "BS",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 620,
+          "subject_minimums": {
+            "Математик": 600
+          }
+        },
+        {
+          "program_mn": "Мэдээллийн систем + AI",
+          "degree": "BS",
+          "group_mn": "Бүлэг I",
+          "average_threshold": 580,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Нийгмийн инновац",
+          "degree": "BA",
+          "group_mn": "Бүлэг III",
+          "average_threshold": 580,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Аялал жуулчлал",
+          "degree": "BA",
+          "group_mn": "Бүлэг IV",
+          "average_threshold": 510,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Зочлох үйлчилгээний менежмент",
+          "degree": "BA",
+          "group_mn": "Бүлэг V",
+          "average_threshold": 520,
+          "subject_minimums": null
+        },
+        {
+          "program_mn": "Эрх зүй",
+          "degree": "LLB",
+          "group_mn": "Бүлэг II",
+          "average_threshold": 580,
+          "subject_minimums": null
+        }
+      ],
+      "score_formula_mn": "Оноо = (1-р хичээл + 2-р хичээл) ÷ 2. Босгыг энэ дундаж оноонд тавина; дундаж оноогоор эрэмбэлнэ.",
+      "skills_test": {
+        "name_mn": "Ур чадварын шалгалт",
+        "programs_mn": [
+          "Аялал жуулчлал (бүх хэлбэр)",
+          "Аялал жуулчлал + Нягтлан бодох бүртгэл (Хос)",
+          "Аялал жуулчлал + Зочлох үйлчилгээний менежмент (Хос)"
+        ],
+        "detail_mn": "2026: 'Миний мэргэжил – Аялал жуулчлал' сэдэвт 1–2 минутын видео (өөрийгөө танилцуулах, яагаад сонгосон, мэргэжлийн ирээдүйн талаарх бодол); дүрс, дуу тод, чимээгүй орчинд бичсэн байх; dashtseren.ts@ufe.edu.mn хаягаар илгээнэ; утас 9932-9054.",
+        "date_mn": "2026-06-30 хүртэл хүлээн авсан",
+        "scoring_mn": null,
+        "scoring_note_mn": "Видеог хэрхэн дүгнэж, 200–800 хуваарьт шилжүүлдгийг нийтлээгүй.",
+        "source_urls": [
+          "https://admission.ufe.edu.mn/mn/newsDetail/206",
+          "https://admission.ufe.edu.mn/mn/newsDetail/205"
+        ]
+      },
+      "regulation": {
+        "title_mn": "Бакалаврын хөтөлбөрт оюутан элсүүлэх журам",
+        "url": "https://admission.ufe.edu.mn/mn/admission-procedure",
+        "readable": false,
+        "note_mn": "Хуудас PDF-ийг JavaScript-ээр ачаалдаг — PDF-ийн холбоос олдсонгүй."
+      },
+      "applicant_info_url": "https://admission.ufe.edu.mn/mn/newsDetail/199",
+      "contacts_mn": "Элсэлтийн комисс: admission_bachelor@ufe.edu.mn; үндсэн хөтөлбөр 8505-8035, хамтарсан 8505-8037, мэргэшсэн 9199-9111, интерактив 9907-8464, BTEC 9990-2286, Rotation 9980-4389; бүртгэлийн систем 8505-8052; төлбөр 7777-4400 (2-1). Биечлэн: C байр 1 давхар 103 тоот (UFE Connect zone).",
+      "source_urls": [
+        "https://admission.ufe.edu.mn/mn/newsDetail/171",
+        "https://www.ufe.edu.mn/widgetDetail/1866",
+        "https://admission.ufe.edu.mn/mn/newsDetail/199",
+        "https://admission.ufe.edu.mn/mn/newsDetail/210",
+        "https://admission.ufe.edu.mn/mn/newsDetail/211",
+        "https://admission.ufe.edu.mn/mn/newsDetail/212",
+        "https://admission.ufe.edu.mn/mn/newsDetail/214",
+        "https://admission.ufe.edu.mn/mn/newsDetail/218",
+        "https://ufe.edu.mn/widgetDetail/1383",
+        "https://ufe.edu.mn/widgetDetail/1718",
+        "https://admission.ufe.edu.mn/mn/degree/1/faq"
+      ],
+      "verified_at": "2026-10-15",
+      "status": "current"
+    },
+    {
+      "id": "ufe-additional-2026",
+      "title_mn": "Бакалаврын нэмэлт элсэлт (2026 оны жишиг)",
+      "dates_mn": "2026-07-03 – 2026-08-17 09:00 (admission.ufe.edu.mn); дүнг 8-р сарын 17-нд имэйлээр мэдэгдсэн.",
+      "programs_mn": [
+        "ACCA, CGMA",
+        "Аялал жуулчлал",
+        "Даатгал",
+        "Маркетинг + AI",
+        "Мэдээллийн систем (Pearson BTEC)",
+        "Нийгмийн инновац",
+        "Олон улсын худалдаа (Rotation)",
+        "Эдийн засаг (олон улсын хамтарсан)",
+        "Эрх зүй (олон улсын хамтарсан)",
+        "Энтрепренершип + AI",
+        "Санхүүгийн манлайлал + AI"
+      ],
+      "source_urls": [
+        "https://admission.ufe.edu.mn/mn/newsDetail/215",
+        "https://admission.ufe.edu.mn/mn/newsDetail/218"
+      ],
+      "verified_at": "2026-10-15",
+      "status": "reference"
+    },
+    {
+      "id": "ufe-special-routes",
+      "title_mn": "Урилгаар элсэх, шилжин суралцах",
+      "routes_mn": [
+        "Урилгаар элсэх: улсын олимпиадад байр эзэлсэн, СЭЗИС-ийн нэрэмжит олимпиад (Математик, Англи хэл, Нийгмийн тухай мэдлэг) / маркетингийн уралдаанд эрхийн бичиг авсан, урлаг, спортын өндөр амжилттай сурагч онооны жагсаалтад орохгүйгээр хүссэн мэргэжлээ сонгоно. 2026 онд бүртгэл 6-р сарын 13-нд хаагдаж, 6-р сарын 18-нд 499 оролцогчоос 62 нь эрх, тэтгэлэг авсан.",
+        "Шилжин суралцах (бусад их сургуулийн оюутан): үндсэн болон олон улсын хамтарсан хөтөлбөрт; өргөдөл, иргэний үнэмлэх, дүнгийн тодорхойлолт (голч, кредит), ЭЕШ-ын батламж, 800–850 үгийн эссэ. Хугацааг сайтад 'Хаврын улирал: 2026.05.18–2026.08.18', 'Намрын улирал: 2026.12.14–2027.01.15' гэж бичсэн.",
+        "Олон улсын шалгалтын оноог тооцох эсэх нь FAQ-д асуулт хэлбэрээр бий, хариулт уншигдсангүй."
+      ],
+      "source_urls": [
+        "https://admission.ufe.edu.mn/mn/newsDetail/189",
+        "https://admission.ufe.edu.mn/mn/newsDetail/204",
+        "https://admission.ufe.edu.mn/mn/newsDetail/182",
+        "https://admission.ufe.edu.mn/mn/degree/1/faq"
+      ],
+      "verified_at": "2026-10-15",
+      "status": "current"
+    },
+    {
+      "id": "ufe-tech-2026",
+      "title_mn": "Инженер, технологийн сургууль (UFE Tech) — элсэлт 2026",
+      "dates_mn": "2026.04.10 – 2026.07.01 (элсэлтийн мэдээ, хөтөлбөрийн хуудас); ufetech.mn-ийн нүүрэнд 'Эцсийн хугацаа: 2026 оны 8-р сарын 15'.",
+      "thresholds_mn": [
+        "Програм хангамж, Мэдээллийн аюулгүй байдал, Онлайн худалдаа, Хиймэл оюун ухаан, Програм хангамж 2+2: Математик / Физик 520+, Англи хэл / Нийгэм 500+",
+        "UI/UX инженер, Visual art 2+2, Интерьер дизайн 2+2: Математик / Англи хэл 500+, Ур чадвар 520+",
+        "Сэтгэл судлал: Математик / Нийгэм 500+, Англи хэл / Монгол 500+"
+      ],
+      "apply_url": "https://www.ufetech.mn/mn/auth/signup",
+      "contacts_mn": "7714-3232 (ufetech.mn) / 7732-1010 (элсэлтийн мэдээ); contact@ufetech.mn, technology@ufe.edu.mn; СЭЗИС B байр 402 тоот.",
+      "source_urls": [
+        "https://admission.ufe.edu.mn/mn/newsDetail/170",
+        "https://admission.ufe.edu.mn/mn/newsDetail/183",
+        "https://admission.ufe.edu.mn/mn/newsDetail/181",
+        "https://ufetech.mn",
+        "https://ufetech.mn/mn/programs/software-engineering"
+      ],
+      "verified_at": "2026-10-15",
+      "status": "current"
+    },
+    {
+      "id": "ufe-edu-soc-2026",
+      "title_mn": "Боловсролын сургууль, Нийгмийн шинжлэх ухааны сургууль — элсэлт",
+      "detail_mn": "Элсэлтийн системд Боловсролын сургуулийн 4 (Багш, сургуулийн өмнөх боловсрол ×2; Багш, бага боловсрол; Багш, гадаад хэлний боловсрол), Нийгмийн шинжлэх ухааны сургуулийн 1 (Дижитал архив, өгөгдлийн сангийн мэргэжилтэн) хөтөлбөр бий. 2026 онд урилгын шалгаруулалтаар Боловсролын сургуульд 4 сурагч эрх авсан. Хичээл, босго, төлбөрийг нийтлээгүй.",
+      "source_urls": [
+        "https://admission.ufe.edu.mn/mn/professions/17",
+        "https://admission.ufe.edu.mn/mn/professions/19",
+        "https://admission.ufe.edu.mn/mn/newsDetail/204"
+      ],
+      "verified_at": "2026-10-15",
+      "status": "partial"
+    }
+  ]
+}

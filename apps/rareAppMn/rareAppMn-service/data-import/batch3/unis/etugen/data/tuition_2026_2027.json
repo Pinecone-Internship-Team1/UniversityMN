@@ -1,0 +1,69 @@
+{
+ "_meta": {
+  "dataset": "tuition_2026_2027",
+  "university": "Этүгэн",
+  "description": "Этүгэн их сургуулийн 2026-2027 оны сургалтын төлбөр ба элсэлтийн хураамж (төлбөрийн дүн нийтлэгдээгүй).",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "etu-tuition-2026-2027",
+   "label_mn": "2026-2027 оны сургалтын төлбөр (шинэ элсэгч)",
+   "per_year": null,
+   "per_credit": null,
+   "currency": "MNT",
+   "note_mn": "Хөтөлбөр тус бүрийн төлбөр, кредитийн үнийг сайт, элсэлтийн журам, бүртгэлийн системд нийтлээгүй. Шинэ элсэгч бүртгүүлэхдээ тухайн жилийн төлбөрөө төлсөн байна. Төлбөрийг Хаан, Голомт, Хас, Худалдаа хөгжлийн, Капитрон банкны дансаар төлнө.",
+   "source_urls": [
+    "https://etugen.edu.mn/public/juram2627.pdf",
+    "https://burtgel.etugen.edu.mn/account/bachelorregister",
+    "https://etugen.edu.mn/Home/About"
+   ],
+   "status": "unknown"
+  },
+  {
+   "id": "etu-tuition-confirmation",
+   "label_mn": "Элсэх эрх баталгаажуулах төлбөр (2026)",
+   "amount": 250000,
+   "currency": "MNT",
+   "note_mn": "Суралцах эрхийн бичгээ цахимаар авахад төлнө; 2026-2027 оны сургалтын төлбөрөөс хасна.",
+   "source_urls": [
+    "https://etugen.edu.mn/public/juram2627.pdf",
+    "https://burtgel.etugen.edu.mn/account/bachelorregister"
+   ],
+   "status": "reference"
+  },
+  {
+   "id": "etu-fees-other",
+   "label_mn": "Бусад хураамж (2026)",
+   "items": [
+    {
+     "name_mn": "Бүртгэлийн хураамж (4 хүртэл мэргэжил)",
+     "amount": 2000,
+     "currency": "MNT"
+    },
+    {
+     "name_mn": "Бичиг баримтын үнэ",
+     "amount": 30000,
+     "currency": "MNT"
+    }
+   ],
+   "source_urls": [
+    "https://burtgel.etugen.edu.mn/account/bachelorregister",
+    "https://etugen.edu.mn/public/juram2627.pdf"
+   ],
+   "status": "reference"
+  },
+  {
+   "id": "etu-tuition-discounts",
+   "label_mn": "Сургалтын төлбөрийн хөнгөлөлт, тэтгэлэг",
+   "note_mn": "Элсэлтийн шалгалтын оноо/байр, олимпиад, Засгийн газрын тэтгэлэг, хамтарсан хөтөлбөрийн хөнгөлөлтийг тэтгэлгийн хэсгээс харна уу.",
+   "source_urls": [
+    "https://etugen.edu.mn/Home/student/32",
+    "https://etugen.edu.mn/public/juram2627.pdf",
+    "https://burtgel.etugen.edu.mn/"
+   ],
+   "status": "current"
+  }
+ ]
+}

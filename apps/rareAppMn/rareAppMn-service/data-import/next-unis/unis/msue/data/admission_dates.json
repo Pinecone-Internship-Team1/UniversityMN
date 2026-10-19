@@ -1,0 +1,126 @@
+{
+ "_meta": {
+  "dataset": "admission_dates",
+  "university": "МУБИС",
+  "description": "МУБИС-ийн хуудсанд харуулах огноонууд. 'жишиг' = 2026 оны огноо (2027 оных зарлагдаагүй).",
+  "language": "mn",
+  "verified_at": "2026-10-15",
+  "sources": [
+   "https://ikon.mn/n/3olc",
+   "https://ikon.mn/n/3okx",
+   "https://ikon.mn/n/3p7h",
+   "https://bost.msue.edu.mn/n/r/12573",
+   "https://www.msue.edu.mn/n/r/3223"
+  ]
+ },
+ "records": [
+  {
+   "id": "msue-date-esh-2026",
+   "event_mn": "2026 оны жишиг: Элсэлтийн шалгалт (ЭШ, бүх элсэгч)",
+   "start": "2026-06-25",
+   "end": "2026-06-28",
+   "status": "reference",
+   "source_urls": [
+    "https://ikon.mn/n/3olc"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-esh-results-2026",
+   "event_mn": "2026 оны жишиг: ЭШ-ийн дүн гарсан (5 хоногийн дотор БҮТ-д дүнгээ шалгуулах боломжтой)",
+   "start": "2026-06-29",
+   "end": "2026-06-29",
+   "status": "reference",
+   "source_urls": [
+    "https://ikon.mn/n/3olc"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-skills-2026",
+   "event_mn": "2026 оны жишиг: Их сургуулиудын ур чадварын шалгалт (ерөнхий мэдээ — МУБИС-ийн огноо баталгаажаагүй)",
+   "start": "2026-06-29",
+   "end": "2026-06-30",
+   "status": "unverified",
+   "source_urls": [
+    "https://ikon.mn/n/3okx"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-bost-reg-2026",
+   "event_mn": "2026 оны жишиг: Баян-Өлгий салбарын бакалаврын элсэлтийн бүртгэл эхэлсэн (Google Form)",
+   "start": "2026-06-03",
+   "end": null,
+   "status": "reference",
+   "source_urls": [
+    "https://bost.msue.edu.mn/n/r/12573"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-msue-reg-2026",
+   "event_mn": "2026 оны жишиг: МУБИС-ийн бакалаврын бүртгэл (burtgel.msue.edu.mn) — огноо олдсонгүй",
+   "start": null,
+   "end": null,
+   "status": "unknown",
+   "source_urls": [
+    "https://burtgel.msue.edu.mn/"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-online-adm-2026",
+   "event_mn": "2026 оны жишиг: Улаанбаатарын их сургуулиудын цахим элсэлтийн бүртгэл эхэлсэн (COP17-ийн улмаас цахимаар)",
+   "start": "2026-08-17",
+   "end": null,
+   "status": "reference",
+   "source_urls": [
+    "https://ikon.mn/n/3p7h"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-course-selection-2026",
+   "event_mn": "2026 оны жишиг: Цахим хичээл сонголт эхэлсэн (Улаанбаатарын их сургуулиуд)",
+   "start": "2026-08-24",
+   "end": null,
+   "status": "reference",
+   "source_urls": [
+    "https://ikon.mn/n/3p7h"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-classes-2026",
+   "event_mn": "2026 оны жишиг: Танхимын хичээл эхэлсэн (9-р сарын 14 эсвэл 15 — эх сурвалж 1 өдрөөр зөрүүтэй)",
+   "start": "2026-09-15",
+   "end": null,
+   "status": "conflicting",
+   "source_urls": [
+    "https://ikon.mn/n/3p7h"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-fee-deadline-2026",
+   "event_mn": "2026-2027 намрын улирлын төлбөрийн үлдэгдэл: МУБИС 9-р сарын 30-нд мэдэгдэж, Оюутны холбооны хүсэлтээр 12-р сар хүртэл сунгасан (яг өдөр заагаагүй)",
+   "start": "2026-09-30",
+   "end": null,
+   "status": "current",
+   "source_urls": [
+    "https://www.msue.edu.mn/n/r/3223"
+   ],
+   "verified_at": "2026-10-15"
+  },
+  {
+   "id": "msue-date-2027",
+   "event_mn": "2027 оны ЭШ, МУБИС-ийн бүртгэлийн огноо — зарлагдаагүй",
+   "start": null,
+   "end": null,
+   "status": "unknown",
+   "source_urls": [],
+   "verified_at": "2026-10-15"
+  }
+ ]
+}

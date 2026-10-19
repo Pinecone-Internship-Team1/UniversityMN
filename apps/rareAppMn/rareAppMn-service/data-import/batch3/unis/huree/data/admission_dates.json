@@ -1,0 +1,40 @@
+{
+ "_meta": {
+  "dataset": "admission_dates",
+  "university": "Хүрээ МХТДС",
+  "description": "Хүрээ МХТДС-ийн хуудсанд харуулах огноонууд. 'жишиг' = 2026 оны огноо (2027 оных зарлагдаагүй).",
+  "language": "mn",
+  "verified_at": "2026-10-16",
+  "sources": [
+   "https://elselt.huree.edu.mn/",
+   "https://huree.edu.mn/enter/enter.php",
+   "https://ikon.mn/n/3of7"
+  ]
+ },
+ "records": [
+  {
+   "id": "huree-date-esh-2026",
+   "event_mn": "2026 оны жишиг: Элсэлтийн шалгалт (ЭШ, бүх элсэгч)",
+   "start": "2026-06-25",
+   "end": "2026-06-28",
+   "status": "reference",
+   "source_url": "https://ikon.mn/n/3of7"
+  },
+  {
+   "id": "huree-date-reg-2026",
+   "event_mn": "2026 оны жишиг: Хүрээ МХТДС-ийн элсэгчдийн бүртгэл (сургуулийн байранд)",
+   "start": "2026-06-20",
+   "end": "2026-08-30",
+   "status": "reference",
+   "source_url": "https://elselt.huree.edu.mn/"
+  },
+  {
+   "id": "huree-date-2027",
+   "event_mn": "2027 оны элсэлтийн бүртгэлийн огноо — хараахан зарлагдаагүй",
+   "start": null,
+   "end": null,
+   "status": "unknown",
+   "source_url": "https://elselt.huree.edu.mn/"
+  }
+ ]
+}

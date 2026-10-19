@@ -1,0 +1,24 @@
+{
+ "_meta": {
+  "dataset": "tuition_2026_2027",
+  "university": "СУИС",
+  "description": "СУИС-ийн 2026-2027 оны сургалтын төлбөр (одоогоор тодорхойгүй).",
+  "language": "mn",
+  "verified_at": "2026-10-18"
+ },
+ "records": [
+  {
+   "id": "suis-tuition-2026",
+   "label_mn": "2026-2027 оны сургалтын төлбөр",
+   "per_year": null,
+   "price_per_credit": null,
+   "currency": "MNT",
+   "note_mn": "СУИС-ийн 2026-2027 оны сургалтын төлбөрийн мэдээлэл олдсонгүй — элсэлтийн систем (burtgel.mnuac.edu.mn) эсвэл сургуулиас тодруулна уу.",
+   "source_urls": [
+    "https://burtgel.mnuac.edu.mn/bachelor",
+    "https://ikon.mn/n/3pjj"
+   ],
+   "status": "unknown"
+  }
+ ]
+}

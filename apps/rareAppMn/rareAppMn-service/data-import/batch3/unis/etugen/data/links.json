@@ -1,0 +1,143 @@
+{
+ "_meta": {
+  "dataset": "links",
+  "university": "Этүгэн",
+  "description": "Этүгэн их сургуулийн албан ёсны холбоосууд.",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "etu-l-01",
+   "category": "admission",
+   "title_mn": "Элсэлтийн бүртгэлийн систем",
+   "url": "https://burtgel.etugen.edu.mn/"
+  },
+  {
+   "id": "etu-l-02",
+   "category": "admission",
+   "title_mn": "Бакалаврын бүртгэл (ЕБС төгсөгчид)",
+   "url": "https://burtgel.etugen.edu.mn/account/bachelorregister"
+  },
+  {
+   "id": "etu-l-03",
+   "category": "admission",
+   "title_mn": "Элсэлт авах мэргэжил (хичээл, босго)",
+   "url": "https://etugen.edu.mn/Home/admission/17"
+  },
+  {
+   "id": "etu-l-04",
+   "category": "admission",
+   "title_mn": "2026-2027 оны элсэлтийн журам (PDF)",
+   "url": "https://etugen.edu.mn/public/juram2627.pdf"
+  },
+  {
+   "id": "etu-l-05",
+   "category": "admission",
+   "title_mn": "Элсэлтийн бүртгэл",
+   "url": "https://etugen.edu.mn/Home/admission/1"
+  },
+  {
+   "id": "etu-l-06",
+   "category": "admission",
+   "title_mn": "Элсэлтийн журам",
+   "url": "https://etugen.edu.mn/Home/admission/21"
+  },
+  {
+   "id": "etu-l-07",
+   "category": "admission",
+   "title_mn": "Гадаад оюутны элсэлт",
+   "url": "https://etugen.edu.mn/Home/admission/23"
+  },
+  {
+   "id": "etu-l-08",
+   "category": "info",
+   "title_mn": "Түгээмэл асуулт, хариулт",
+   "url": "https://etugen.edu.mn/Home/About"
+  },
+  {
+   "id": "etu-l-09",
+   "category": "study",
+   "title_mn": "Дэд бакалавр, бакалаврын сургалт",
+   "url": "https://etugen.edu.mn/Home/academic/27"
+  },
+  {
+   "id": "etu-l-10",
+   "category": "study",
+   "title_mn": "Хос, хавсарга хөтөлбөр",
+   "url": "https://etugen.edu.mn/Home/academic/17"
+  },
+  {
+   "id": "etu-l-11",
+   "category": "study",
+   "title_mn": "Сургалтын нэгдсэн журам",
+   "url": "https://online.fliphtml5.com/trvbk/ngnv/"
+  },
+  {
+   "id": "etu-l-12",
+   "category": "branch",
+   "title_mn": "Орхон аймаг дахь салбар сургууль",
+   "url": "https://etugen.edu.mn/Home/academic/31"
+  },
+  {
+   "id": "etu-l-13",
+   "category": "student",
+   "title_mn": "Этүгэний тэтгэлэг, хөнгөлөлт",
+   "url": "https://etugen.edu.mn/Home/student/32"
+  },
+  {
+   "id": "etu-l-14",
+   "category": "student",
+   "title_mn": "Улсын чанартай тэтгэлэг",
+   "url": "https://etugen.edu.mn/Home/student/34"
+  },
+  {
+   "id": "etu-l-15",
+   "category": "student",
+   "title_mn": "Оюутны байр",
+   "url": "https://etugen.edu.mn/Home/campus/3"
+  },
+  {
+   "id": "etu-l-16",
+   "category": "student",
+   "title_mn": "Оюутны програм (Оюутны веб)",
+   "url": "https://etugen.edu.mn/Home/student/36"
+  },
+  {
+   "id": "etu-l-17",
+   "category": "international",
+   "title_mn": "Олон улсын хамтын ажиллагаа",
+   "url": "https://etugen.edu.mn/Home/Cooperation/3"
+  },
+  {
+   "id": "etu-l-18",
+   "category": "about",
+   "title_mn": "Бидний түүх",
+   "url": "https://etugen.edu.mn/Home/Timeline/12"
+  },
+  {
+   "id": "etu-l-19",
+   "category": "about",
+   "title_mn": "Сургуулийн бүтэц, хичээлийн байрууд",
+   "url": "https://etugen.edu.mn/Home/University/38"
+  },
+  {
+   "id": "etu-l-20",
+   "category": "social",
+   "title_mn": "Facebook",
+   "url": "https://www.facebook.com/etugen.university"
+  },
+  {
+   "id": "etu-l-21",
+   "category": "exam",
+   "title_mn": "Боловсролын үнэлгээний төв",
+   "url": "http://www.eec.mn/"
+  },
+  {
+   "id": "etu-l-22",
+   "category": "contact",
+   "title_mn": "Холбоо барих",
+   "url": "https://burtgel.etugen.edu.mn/Home/Contact"
+  }
+ ]
+}

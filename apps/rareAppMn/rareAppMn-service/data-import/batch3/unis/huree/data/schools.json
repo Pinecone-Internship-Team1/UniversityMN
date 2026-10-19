@@ -1,0 +1,88 @@
+{
+ "_meta": {
+  "dataset": "schools",
+  "university": "Хүрээ МХТДС",
+  "description": "Хүрээ МХТДС-ийн бакалаврын элсэлт авдаг нэгж (факультетэд хуваагдаагүй — 10 тэнхим).",
+  "language": "mn",
+  "verified_at": "2026-10-16"
+ },
+ "records": [
+  {
+   "id": "huree-main",
+   "type": "constituent",
+   "name_mn": "Хүрээ МХТДС — бакалаврын хөтөлбөрүүд",
+   "abbr_mn": "Хүрээ МХТДС",
+   "website": "https://huree.edu.mn",
+   "page": "https://huree.edu.mn/enter/enter.php",
+   "location_mn": "Улаанбаатар, Баянгол дүүрэг, 11-р хороо, Бичил хороолол, Хасбаатарын гудамж",
+   "contacts": {
+    "office_mn": "Элсэгчдийн бүртгэл — Хүрээ МХТДС-ийн байр (2026 онд 6-р сарын 20 – 8-р сарын 30)",
+    "phones_mn": {
+     "Ерөнхий утас": "7701-2002"
+    },
+    "email": "huree@huree.edu.mn"
+   },
+   "departments_mn": [
+    {
+     "code": "AR",
+     "name_mn": "АРХИТЕКТУР",
+     "url": "https://huree.edu.mn/department/ar.php"
+    },
+    {
+     "code": "BA",
+     "name_mn": "БИЗНЕСИЙН УДИРДЛАГА",
+     "url": "https://huree.edu.mn/department/ba.php"
+    },
+    {
+     "code": "CS",
+     "name_mn": "КОМПЬЮТЕРЫН УХААН (AI)",
+     "url": "https://huree.edu.mn/department/cs.php"
+    },
+    {
+     "code": "EE",
+     "name_mn": "ЭЛЕКТРОНИКИЙН ИНЖЕНЕРЧЛЭЛ (Robotics)",
+     "url": "https://huree.edu.mn/department/ee.php"
+    },
+    {
+     "code": "EL",
+     "name_mn": "ГАДААД ХЭЛНИЙ ОРЧУУЛГА - АНГЛИ",
+     "url": "https://huree.edu.mn/department/el.php"
+    },
+    {
+     "code": "FN",
+     "name_mn": "ХООЛ ЗҮЙ, ШИМ СУДЛАЛ",
+     "url": "https://huree.edu.mn/department/fn.php"
+    },
+    {
+     "code": "IT",
+     "name_mn": "МЭДЭЭЛЛИЙН ТЕХНОЛОГИ",
+     "url": "https://huree.edu.mn/department/it.php"
+    },
+    {
+     "code": "KL",
+     "name_mn": "ГАДААД ХЭЛНИЙ ОРЧУУЛГА - СОЛОНГОС",
+     "url": "https://huree.edu.mn/department/kl.php"
+    },
+    {
+     "code": "ME",
+     "name_mn": "ЭМНЭЛГИЙН ТОНОГ ТӨХӨӨРӨМЖ АШИГЛАЛТ",
+     "url": "https://huree.edu.mn/department/me.php"
+    },
+    {
+     "code": "MM",
+     "name_mn": "ГРАФИК ДИЗАЙН (Мультимедиа)",
+     "url": "https://huree.edu.mn/department/mm.php"
+    }
+   ],
+   "notes_mn": "Элсэлтийн хуудсанд сургуулийг факультетэд хувааж харуулаагүй; онлайн бүртгэлд 10 тэнхимээс 2 хүртэл сонгуулдаг. Нүүр хуудсанд 4 бүрэлдэхүүн, бакалаврын 16 мэргэжилтэй гэж бичсэн ч нэрийг нь заагаагүй.",
+   "source_urls": [
+    "https://huree.edu.mn/enter/enter.php",
+    "https://elselt.huree.edu.mn/register.php",
+    "https://huree.edu.mn:443/index.php",
+    "https://huree.edu.mn:443/contact.php"
+   ],
+   "verified_at": "2026-10-16",
+   "status": "current"
+  }
+ ]
+}

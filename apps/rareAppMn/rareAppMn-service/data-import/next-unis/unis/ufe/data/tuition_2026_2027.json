@@ -1,0 +1,126 @@
+{
+ "_meta": {
+  "dataset": "tuition_2026_2027",
+  "university": "СЭЗИС",
+  "description": "СЭЗИС-ийн 2026-2027 оны сургалтын төлбөр (1 кредит / 1 жил, хөтөлбөрийн төрлөөр).",
+  "language": "mn",
+  "verified_at": "2026-10-15"
+ },
+ "records": [
+  {
+   "id": "ufe-tuition-main",
+   "label_mn": "Бакалаврын үндсэн хөтөлбөр — 1 кредит (2026-2027)",
+   "price_per_credit": 310000,
+   "currency": "MNT",
+   "applies_to_mn": [
+    "Үндсэн хөтөлбөр (16 мэргэжил)",
+    "Хос хөтөлбөр",
+    "+MBA хөтөлбөр"
+   ],
+   "quote_mn": "Сургалтын төлбөр: нэг кредитийн төлбөр 310,000 төгрөг",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/193",
+    "https://admission.ufe.edu.mn/mn/newsDetail/197",
+    "https://admission.ufe.edu.mn/mn/newsDetail/198"
+   ],
+   "status": "current"
+  },
+  {
+   "id": "ufe-tuition-joint",
+   "label_mn": "Олон улсын хамтарсан 2+2 хөтөлбөр — 1 кредит (СЭЗИС-д суралцах 2 жил)",
+   "price_per_credit": 376000,
+   "currency": "MNT",
+   "note_mn": "Түнш их сургуулийн төлбөрийг нийтлээгүй.",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/194"
+   ],
+   "status": "current"
+  },
+  {
+   "id": "ufe-tuition-btec",
+   "label_mn": "BTEC Higher Nationals хөтөлбөр — 1 кредит",
+   "price_per_credit": 447000,
+   "currency": "MNT",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/196"
+   ],
+   "status": "current"
+  },
+  {
+   "id": "ufe-tuition-rotation",
+   "label_mn": "Rotation (олон улсад дамжин суралцах) — 1 жил",
+   "price_per_year": 28000000,
+   "currency": "MNT",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/195"
+   ],
+   "status": "current"
+  },
+  {
+   "id": "ufe-tuition-specialized-interactive",
+   "label_mn": "Мэргэшсэн (ACCA, CGMA) ба Интерактив хөтөлбөр",
+   "price_per_credit": null,
+   "currency": "MNT",
+   "note_mn": "Тусдаа үнэ нийтлээгүй. 'Бакалаврын үндсэн хөтөлбөр'-ийн мэдээнд ACCA, Энтрепренершип + AI, Санхүүгийн манлайлал + AI-г 310,000₮/кредиттэй жагсаасан тул эдгээрт 310,000₮ гэж тооцов (сургуулиас тодруулна уу).",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/193"
+   ],
+   "status": "verify"
+  },
+  {
+   "id": "ufe-tuition-yearly-estimate",
+   "label_mn": "Жилийн төлбөрийн тооцоо (үндсэн хөтөлбөр)",
+   "estimate_range": {
+    "min": 8267000,
+    "max": 13743000,
+    "currency": "MNT"
+   },
+   "typical": {
+    "value": 9300000,
+    "currency": "MNT",
+    "basis_mn": "жилд 30 кредит × 310,000₮"
+   },
+   "note_mn": "Кредит (BBA, BA 120; BS 125; LLB 133) × 310,000₮ ÷ 3–4.5 жил. Нийт: BBA/BA 37.2 сая ₮, BS 38.75 сая ₮, LLB 41.23 сая ₮. Хамтарсан 2+2-ын Монгол дахь жил ≈11.28 сая ₮, BTEC ≈13.41 сая ₮ (30 кредитээр).",
+   "source_urls": [
+    "https://admission.ufe.edu.mn/mn/newsDetail/193",
+    "https://admission.ufe.edu.mn/mn/newsDetail/199"
+   ],
+   "status": "estimate"
+  },
+  {
+   "id": "ufe-tuition-other-schools",
+   "label_mn": "UFE Tech, Боловсролын сургууль, Нийгмийн шинжлэх ухааны сургууль",
+   "note_mn": "Сургалтын төлбөр нийтлэгдээгүй.",
+   "source_urls": [
+    "https://ufetech.mn",
+    "https://admission.ufe.edu.mn/mn/professions/17",
+    "https://admission.ufe.edu.mn/mn/professions/19"
+   ],
+   "status": "unknown"
+  },
+  {
+   "id": "ufe-tuition-confirmation",
+   "label_mn": "Суралцах эрх баталгаажуулах төлбөр (урьдчилгаа)",
+   "history": [
+    {
+     "year": 2024,
+     "amount": 2500000,
+     "note_mn": "Сургалтын төлбөрийн урьдчилгаа; 7-р сарын 16 хүртэл цуцалбал суутгалгүй, 8-р сарын 16-аас хойш 6% суутгана."
+    },
+    {
+     "year": 2025,
+     "amount": 500000,
+     "note_mn": "Гэрээ цуцалбал урьдчилгаанаас суудал баталгаажуулалтын төлбөр болгон суутгаж, буцаан олгохгүй."
+    }
+   ],
+   "note_mn": "2026 оны дүн сайтад тодорхой нийтлэгдээгүй — сургуулиас тодруулна уу.",
+   "source_urls": [
+    "https://ufe.edu.mn/widgetDetail/1383",
+    "https://ufe.edu.mn/widgetDetail/1718",
+    "https://admission.ufe.edu.mn/mn/newsDetail/153",
+    "https://admission.ufe.edu.mn/mn/degree/1/faq"
+   ],
+   "status": "reference"
+  }
+ ]
+}

@@ -1,0 +1,188 @@
+{
+ "_meta": {
+  "dataset": "scholarships",
+  "university": "Хүрээ МХТДС",
+  "description": "Хүрээ МХТДС-ийн тэтгэлэг, хөнгөлөлт, улсын зээл, буцалтгүй тусламж.",
+  "language": "mn",
+  "verified_at": "2026-10-16",
+  "note_mn": "type: tuition_discount | grant | loan | sponsor_scholarship. Элсэлтийн тэтгэлгийг 2026 оны элсэлтийн сайтаас, үргэлжлүүлэх нөхцөлийг (голч 3.5+ / 2.75+) элсэлтийн хуудаснаас авав."
+ },
+ "records": [
+  {
+   "id": "huree-entry-750",
+   "type": "tuition_discount",
+   "name_mn": "Элсэлтийн тэтгэлэг — ЭШ 750–800 оноо",
+   "coverage_mn": "4 жил сургалтын төлбөрийн 100% (Архитектурт 5 жил) ба сар бүр 100,000₮.",
+   "requirements_mn": "ЭШ-ын оноо 750–800; '2 хичээл тус бүр оноонд хүрсэн байх ёстой' (хоёр шалгалт тус бүр энэ түвшинд байх гэж ойлгогдоно — сургуулиас тодруулна уу). Үргэлжлүүлэн авахын тулд өмнөх улирлын голч 3.5+.",
+   "deadline_mn": "Хугацаа нийтлээгүй (2026 онд элсэгчдийн бүртгэл 6-р сарын 20 – 8-р сарын 30).",
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php#scholarship"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-entry-700",
+   "type": "tuition_discount",
+   "name_mn": "Элсэлтийн тэтгэлэг — ЭШ 700–749 оноо",
+   "coverage_mn": "4 жил сургалтын төлбөрийн 100% (Архитектурт 5 жил).",
+   "requirements_mn": "Элсэлтийн шалгалтын 1, 2-р шалгалтын онооны дундаж 700–749. Дараагийн улиралд үргэлжлүүлэн авахын тулд өмнөх улирлын голч 3.5+.",
+   "deadline_mn": "Хугацаа нийтлээгүй (2026 онд элсэгчдийн бүртгэл 6-р сарын 20 – 8-р сарын 30).",
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php#scholarship"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-entry-650",
+   "type": "tuition_discount",
+   "name_mn": "Элсэлтийн тэтгэлэг — ЭШ 650–699 оноо",
+   "coverage_mn": "4 жил сургалтын төлбөрийн 50% (Архитектурт 5 жил).",
+   "requirements_mn": "Элсэлтийн шалгалтын 1, 2-р шалгалтын онооны дундаж 650–699. Дараагийн улиралд үргэлжлүүлэн авахын тулд өмнөх улирлын голч 3.5+.",
+   "deadline_mn": "Хугацаа нийтлээгүй (2026 онд элсэгчдийн бүртгэл 6-р сарын 20 – 8-р сарын 30).",
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php#scholarship"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-entry-600",
+   "type": "tuition_discount",
+   "name_mn": "Элсэлтийн тэтгэлэг — ЭШ 600–649 оноо",
+   "coverage_mn": "2 жил сургалтын төлбөрийн 50%.",
+   "requirements_mn": "Элсэлтийн шалгалтын 1, 2-р шалгалтын онооны дундаж 600–649. Дараагийн улиралд үргэлжлүүлэн авахын тулд өмнөх улирлын голч 3.5+.",
+   "deadline_mn": "Хугацаа нийтлээгүй (2026 онд элсэгчдийн бүртгэл 6-р сарын 20 – 8-р сарын 30).",
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php#scholarship"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-entry-550",
+   "type": "tuition_discount",
+   "name_mn": "Элсэлтийн тэтгэлэг — ЭШ 550–599 оноо",
+   "coverage_mn": "1 жил сургалтын төлбөрийн 50%.",
+   "requirements_mn": "Элсэлтийн шалгалтын 1, 2-р шалгалтын онооны дундаж 550–599. Дараагийн улиралд үргэлжлүүлэн авахын тулд өмнөх улирлын голч 3.5+.",
+   "deadline_mn": "Хугацаа нийтлээгүй (2026 онд элсэгчдийн бүртгэл 6-р сарын 20 – 8-р сарын 30).",
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php#scholarship"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-staff-family",
+   "type": "tuition_discount",
+   "name_mn": "Сургуулийн багш, ажилтны хүүхэд, ах дүүгийн тэтгэлэг",
+   "coverage_mn": "Багш, ажилтны хүүхэд — жил бүр 50%; ах дүү — жил бүр 25%.",
+   "requirements_mn": "Тэтгэлгийн хурлаар шийдвэрлэнэ. Үргэлжлүүлэн авахын тулд өмнөх улирлын голч 2.75+.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php#scholarship"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-two-siblings",
+   "type": "tuition_discount",
+   "name_mn": "Нэг гэр бүлийн 2 оюутны хөнгөлөлт",
+   "coverage_mn": "Жил бүр тус бүр 25%.",
+   "requirements_mn": "Нэг гэр бүлээс 2 оюутан зэрэг суралцаж байх. Үргэлжлүүлэн авахын тулд өмнөх улирлын голч 2.75+.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php#scholarship"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-olympiad",
+   "type": "tuition_discount",
+   "name_mn": "Олимпиадын тэтгэлэг",
+   "coverage_mn": "1 семестр 25%.",
+   "requirements_mn": "Олимпиадын шагналтан; тэтгэлгийн хурлаар шийдвэрлэнэ.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://elselt.huree.edu.mn/",
+    "https://huree.edu.mn/enter/enter.php#scholarship"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-sejong-summer",
+   "type": "tuition_discount",
+   "name_mn": "Онлайн хүсэлтийн хөнгөлөлт ('Сэжун хагдан' зуны сургалт)",
+   "coverage_mn": "'Сэжун хагдан'-д зун 50% хөнгөлөлттэй суралцах.",
+   "requirements_mn": "Элсэлтийн сайтаар онлайнаар хүсэлт өгч бүртгүүлсэн байх. Сайтад: 'Онлайнаар хүсэлтээ өгөөд бүртгүүлбэл 'Сэжун хагдан' зун 50% хөнгөлөлттэй суралцах боломжтой.' 'Сэжун хагдан' нь солонгос хэлний сургалт гэж ойлгогдоно — сургуулиас тодруулна уу.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://elselt.huree.edu.mn/"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "current"
+  },
+  {
+   "id": "huree-rural-2021",
+   "type": "tuition_discount",
+   "name_mn": "Орон нутгийн оюутны хөнгөлөлт (2021 оны хүснэгт)",
+   "coverage_mn": "1 жил 25%.",
+   "requirements_mn": "Санхүүгийн дэмжлэгийн хуудасны 2021 оны байдлаарх хүснэгтэд орон нутгийн оюутанд 1 жилийн 25% хөнгөлөлт гэж бичсэн; одоо хүчинтэй эсэхийг тодруулна уу.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://huree.edu.mn:443/student/finance.php"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "stale"
+  },
+  {
+   "id": "huree-dev-loan",
+   "type": "loan",
+   "name_mn": "Оюутны хөгжлийн зээл (Боловсролын зээлийн сан)",
+   "coverage_mn": "Сургалтын төлбөрийн зээл (улсын хөтөлбөр).",
+   "requirements_mn": "Сургуулийн хуудсанд: бакалавр — ЭШ 600 оноо, голч 2.8; улиралд 10+ багц цаг судлах. Өргөдөл, ирээдүйн зорилгын эссэ, иргэний үнэмлэхний хуулбар, ЭШ-ын батламж, голчийн тодорхойлолт, төлбөрийн нэхэмжлэх (эх хувь), тухайн улирлын хичээлийн жагсаалт бүрдүүлнэ.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://huree.edu.mn:443/student/loan.php"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "reference"
+  },
+  {
+   "id": "huree-state-grant",
+   "type": "grant",
+   "name_mn": "Сургалтын төрийн сангийн буцалтгүй тусламж",
+   "coverage_mn": "Сургалтын төлбөрийн 60% (бүтэн өнчин, хөгжлийн бэрхшээлтэй, эцэг/эх нь хөгжлийн бэрхшээлтэй, хөдөлмөрийн чадвараа бүрэн алдсан гишүүнтэй өрхийн оюутан); дээд боловсролд 3+ хүүхэд суралцдаг өрхийн 1 хүүхдэд.",
+   "requirements_mn": "Улсын журмын дагуу (сургуулийн хуудсанд 2012, 2014 оны тогтоолоор тайлбарласан); хоёр дахь бакалаварт хамаарахгүй.",
+   "deadline_mn": null,
+   "source_urls": [
+    "https://huree.edu.mn:443/student/loan.php"
+   ],
+   "school_id": null,
+   "verified_at": "2026-10-16",
+   "status": "reference"
+  }
+ ]
+}

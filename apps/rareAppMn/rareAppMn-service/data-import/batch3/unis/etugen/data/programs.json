@@ -1,0 +1,2501 @@
+{
+  "_meta": {
+    "dataset": "programs",
+    "university": "Этүгэн",
+    "description": "Этүгэн их сургуулийн бакалавр, дэд бакалаврын өдрийн хөтөлбөрүүд (2026-2027): шалгалтын 2 бүлэг хичээл, шалгалт тус бүрийн босго, сонголтын төрөл. Сургалтын төлбөр нийтлэгдээгүй.",
+    "language": "mn",
+    "verified_at": "2026-10-18",
+    "sources": [
+      "https://etugen.edu.mn/public/juram2627.pdf",
+      "https://etugen.edu.mn/Home/admission/17",
+      "https://burtgel.etugen.edu.mn/account/bachelorregister",
+      "https://etugen.edu.mn/Home/academic/27",
+      "https://etugen.edu.mn/Home/academic/31"
+    ],
+    "scoring_mn": "Этүгэн: шалгалт бүрт (Элсэлтийн шалгалт 1, 2) заасан хичээлүүдээс хамгийн өндөр оноотой хичээлийг тооцож, шалгалт тус бүрийн босгоор шалгана. Онооны томьёо (жин) нийтлэгдээгүй. Хүний их эмч, Шүдний их эмчид онооны дарааллаар жагсааж шалгаруулна; бусад хөтөлбөрт босго хангасан, хяналтын тоонд багтсан бүртгүүлэгчийг шууд элсүүлнэ. Эрдэнэт салбарын босго 430-аас багагүй.",
+    "fields_mn": {
+      "suuri_options/dagaldah_options": "Элсэлтийн шалгалт 1 / Элсэлтийн шалгалт 2-ын хичээлүүд (сургуулийн жагсаасан дарааллаар).",
+      "weights": "{suuri: 1, dagaldah: 1}, formula_known: false — томьёо нийтлэгдээгүй, шалгалт тус бүрийн босго.",
+      "page_thresholds": "Эх сурвалжууд зөрүүтэй үед хоёр утгыг жилтэй нь хадгалав.",
+      "Ур чадварын шалгалт": "2-р шалгалтын хичээлүүдийн нэг сонголт ('Ур чадвар (сорил)'), заавал биш."
+    },
+    "counts": {
+      "total": 29,
+      "by_split_confidence": {
+        "confirmed": 27,
+        "unknown": 2
+      }
+    },
+    "gap_fill_mn": "2026-10-18: Claude Code-ийн Step 2 нөхөлт — IMPORT_LOG.md-г үз."
+  },
+  "records": [
+    {
+      "id": "etu-health-ulamjlalt-anagaakh-ukhaany-ikh-emch",
+      "name_mn": "Уламжлалт анагаах ухааны их эмч",
+      "name_en": "Doctor of Traditional Medicine",
+      "school_id": "etu-health",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 6,
+      "duration_text_mn": "6 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=4",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 440. 2-р шалгалт: Физик эсвэл Биологи — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 440,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Математик",
+          "Физик",
+          "Биологи"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Физик",
+          "Биологи"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 440,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон сайтын 'Элсэлт авах мэргэжил' хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=4"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "current"
+    },
+    {
+      "id": "etu-health-anagaakh-ukhaan-khunii-ikh-emch",
+      "name_mn": "Анагаах ухаан-Хүний их эмч",
+      "name_en": "Medicine (Medical Doctor)",
+      "school_id": "etu-health",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 6,
+      "duration_text_mn": "6 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=1",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны дарааллаар жагсааж шалгаруулна",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Математик",
+          "Биологи",
+          "Физик"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Биологи",
+          "Физик"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон сайтын 'Элсэлт авах мэргэжил' хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Онооны дарааллаар жагсааж шалгаруулна; хяналтын тоонд багтсан эсэхээ жагсаалт гарсны дараа элсэлтийн системд нэвтэрч шалгана (журмын 6.3). Бүрэн дунд боловсролын голч дүнг мөн харгалзана (6.4).",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Японд цалинтай дадлагажих хөтөлбөрт хамрагдах мэргэжлийн жагсаалтад орсон (журмын 10.3).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=1"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "current"
+    },
+    {
+      "id": "etu-health-em-zuich",
+      "name_mn": "Эм зүйч",
+      "name_en": "Pharmacist",
+      "school_id": "etu-health",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 5,
+      "duration_text_mn": "5 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=3",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Математик",
+          "Биологи",
+          "Физик"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Биологи",
+          "Физик"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон сайтын 'Элсэлт авах мэргэжил' хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сайтын хуучин жагсаалтад Эм зүйн сургуульд харьяалагдаж байсан.",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=3"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "current"
+    },
+    {
+      "id": "etu-health-bio-anagaakh-ukhaan",
+      "name_mn": "Био-Анагаах ухаан",
+      "name_en": "Biomedicine",
+      "school_id": "etu-health",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 5,
+      "duration_text_mn": "5 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=2",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": true,
+        "note_mn": "Дээд боловсролын эрэлттэй мэргэжлийн чиглэл (**) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 480. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 480,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Математик",
+          "Биологи",
+          "Физик"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Биологи",
+          "Физик"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 480,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон бүртгэлийн сайтын 2026 оны хүснэгтэд 1-р шалгалт 480, 2-р шалгалт 490 (сайтын огноогүй хүснэгтэд 1-р шалгалт 490 гэж байсан). Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Засгийн газрын тэтгэлэг: 1-р шалгалт 600-аас дээш, голч 3.0-аас дээш бол сургалтын төлбөрийн 100% (журмын 8.1.1). БНСУ-ын Кёнүн их сургуульд нэг улирал солилцоогоор суралцах боломжтой (журмын 10.2).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=2",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-health-em-nairuulagch-ded-bakalavr",
+      "name_mn": "Эм найруулагч (дэд бакалавр)",
+      "name_en": "Pharmacy Technician (associate)",
+      "school_id": "etu-health",
+      "degree": "Дэд бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 3,
+      "duration_text_mn": "3 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=29",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Математик, Биологи, Хими, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 410. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 410,
+      "secondary_threshold_score": 410,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Биологи",
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Биологи"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Биологи",
+          "Хими",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 410,
+        "dagaldah_threshold": 410,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон сайтын 'Элсэлт авах мэргэжил' хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сайтын хуучин жагсаалтад Эм зүйн сургуульд харьяалагдаж байсан.",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=29"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "current"
+    },
+    {
+      "id": "etu-dental-nuur-am-sudlal-shudnii-ikh-emch",
+      "name_mn": "Нүүр ам судлал-Шүдний их эмч",
+      "name_en": "Dentistry (Doctor of Dental Surgery)",
+      "school_id": "etu-dental",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 5,
+      "duration_text_mn": "5 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=9",
+      "selection_type": "list",
+      "selection_type_mn": "Онооны дарааллаар жагсааж шалгаруулна",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Математик — босго 490. 2-р шалгалт: Биологи эсвэл Физик — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Математик",
+          "Биологи",
+          "Физик"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Биологи",
+          "Физик"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "list",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Онооны дарааллаар жагсааж шалгаруулна; хяналтын тоонд багтсан эсэхээ жагсаалт гарсны дараа элсэлтийн системд нэвтэрч шалгана (журмын 6.3). Бүрэн дунд боловсролын голч дүнг мөн харгалзана (6.4).",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сайтын хуучин жагсаалтад 'Нүүр амны их эмч' нэрээр. Хугацааг 2026-2027 оны журмын хүснэгтээс авав (5 жил). БНСУ-ын Кёнүн их сургуульд нэг улирал солилцоогоор суралцах боломжтой.",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=9",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-nursing-suvilakhui",
+      "name_mn": "Сувилахуй",
+      "name_en": "Nursing",
+      "school_id": "etu-nursing",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=7",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Математик, Биологи, Хими, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 430,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Биологи",
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Биологи"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Биологи",
+          "Хими",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 430,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Засгийн газрын тэтгэлэг: 1-р шалгалт 501-ээс дээш, голч 2.8–3.0 бол 70%, 3.0-аас дээш бол 100% (журмын 8.1.2).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=7",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-nursing-olon-ulsyn-suvilakhui",
+      "name_mn": "Олон улсын сувилахуй",
+      "name_en": "International Nursing",
+      "school_id": "etu-nursing",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/admission/17",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 430. 2-р шалгалт: Математик, Биологи, Хими, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 430,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Биологи",
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Биологи"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Биологи",
+          "Хими",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 430,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон бүртгэлийн сайтын 2026 оны хүснэгтэд Сувилахуйтай нэг мөрөнд: бакалавр, 4 жил, 1-р шалгалт 430, 2-р шалгалт 450. Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Хамтарсан хөтөлбөрийн жагсаалтад нэр нь ороогүй.",
+      "source_urls": [
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-nursing-suvilakhui-ded-bakalavr",
+      "name_mn": "Сувилахуй (дэд бакалавр)",
+      "name_en": "Nursing (associate)",
+      "school_id": "etu-nursing",
+      "degree": "Дэд бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 3,
+      "duration_text_mn": "3 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=30",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 410. 2-р шалгалт: Математик, Биологи, Хими, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 410,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Биологи",
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Биологи"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Биологи",
+          "Хими",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 410,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=30",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-nursing-khudulguun-zasal",
+      "name_mn": "Хөдөлгөөн засал",
+      "name_en": "Physical Therapy",
+      "school_id": "etu-nursing",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=6",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Хими эсвэл Биологи — босго 440. 2-р шалгалт: Математик, Биологи, Хими, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 440,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Биологи",
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Биологи"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Биологи",
+          "Хими",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 440,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон сайтын 'Элсэлт авах мэргэжил' хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": {
+        "is_joint": true,
+        "format": "2+1+2",
+        "partner_mn": "Намсөүл их сургууль (Namseoul University)",
+        "country_mn": "БНСУ",
+        "label_mn": "Этүгэнд 2 жил + хэлний бэлтгэл 1 жил + БНСУ-ын Намсөүл их сургуульд 2 жил, хос диплом",
+        "note_mn": "2026-2027 оны журмын хүснэгтэд '(хамтарсан)' гэж тэмдэглэсэн. Гуравдугаар дамжаанд шилжихэд TOPIK 4-өөс дээш түвшин шаардана (журмын 10.1.4)."
+      },
+      "notes_mn": "Сайтын хүснэгтэд 'Хөдөлгөөн засал', журмын хүснэгтэд 'Хөдөлгөөн засал (хамтарсан)'.",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=6"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-sankhuu-bank",
+      "name_mn": "Санхүү, банк",
+      "name_en": "Finance and Banking",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=19",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=19",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-biznesiin-udirdlaga",
+      "name_mn": "Бизнесийн удирдлага",
+      "name_en": "Business Administration",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/admission/17",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "БНСУ-ын Намсөүл их сургуультай 2+1+2 хамтарсан хөтөлбөрөөр (хос диплом) суралцах боломжтой (журмын 10.1).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-nyagtlan-bodokh-burtgel",
+      "name_mn": "Нягтлан бодох бүртгэл",
+      "name_en": "Accounting",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=13",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=13",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-tatvaryn-ediin-zasag-nyagtlan-bodokh-burtgel",
+      "name_mn": "Татварын эдийн засаг, нягтлан бодох бүртгэл",
+      "name_en": "Tax Economics and Accounting",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=27",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=27",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-khunii-nuutsiin-menejment",
+      "name_mn": "Хүний нөөцийн менежмент",
+      "name_en": "Human Resource Management",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=16",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сайтын хуучин жагсаалтад 'Менежмент, хүний нөөцийн' нэрээр.",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=16",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-marketing",
+      "name_mn": "Маркетинг",
+      "name_en": "Marketing",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=18",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сайтын хуучин жагсаалтад 'Маркетингийн менежер' нэрээр. БНСУ-ын Намсөүл их сургуультай 2+1+2 хамтарсан хөтөлбөрөөр (хос диплом) суралцах боломжтой (журмын 10.1).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=18",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-niitiin-udirdlaga-turiin-zakhirgaany-udirdlaga",
+      "name_mn": "Нийтийн удирдлага (Төрийн захиргааны удирдлага)",
+      "name_en": "Public Administration",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=14",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал эсвэл Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Математик",
+          "Англи хэл"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон сайтын 'Элсэлт авах мэргэжил' хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=14"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-ayalal-juulchlal",
+      "name_mn": "Аялал жуулчлал",
+      "name_en": "Tourism",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=15",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Газарзүй, Математик эсвэл Англи хэл — босго 490. 2-р шалгалт: Математик, Хими, Биологи, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Газарзүй",
+          "Математик",
+          "Англи хэл",
+          "Хими",
+          "Биологи",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Газарзүй",
+          "Математик",
+          "Англи хэл"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Хими",
+          "Биологи",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Сайтын хуучин жагсаалтад 'Аялал жуулчлалын менежмент' нэрээр. БНСУ-ын Намсөүл их сургуультай 2+1+2 хамтарсан хөтөлбөрөөр (хос диплом) суралцах боломжтой (журмын 10.1).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=15",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-mgmt-khool-uildverlel-uilchilgeenii-tekhnologi",
+      "name_mn": "Хоол үйлдвэрлэл, үйлчилгээний технологи",
+      "name_en": "Food Production and Service Technology",
+      "school_id": "etu-mgmt",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=17",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Хими, Физик эсвэл Математик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Хими",
+          "Физик",
+          "Математик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Хими",
+          "Физик",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон БШУ-ны сайдын 2026-02-06-ны А/34 тушаалын хавсралтад (072105) 1-р шалгалт Хими, Физик, Математик (490), 2-р шалгалт Англи хэл, Нийгэм судлал (450). Бүртгэлийн сайтын 2026 оны зурган хүснэгтэд 1-р шалгалтад Физикийг орхисон. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=17",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-eng-programm-khangamjiin-injener",
+      "name_mn": "Программ хангамжийн инженер",
+      "name_en": "Software Engineering",
+      "school_id": "etu-eng",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=12",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон сайтын 'Элсэлт авах мэргэжил' хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "БНСУ-ын Намсөүл их сургуультай 2+1+2 хамтарсан хөтөлбөрөөр (хос диплом) суралцах боломжтой (журмын 10.1). БНХАУ-ын Шиньяны Багшийн их сургуультай 3+1 хамтарсан хөтөлбөрөөр (хос диплом) суралцах боломжтой (журмын 10.1.7–10.1.9).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=12"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "current"
+    },
+    {
+      "id": "etu-eng-big-data-khamtarsan-khutulbur",
+      "name_mn": "Big Data (Хамтарсан хөтөлбөр)",
+      "name_en": "Big Data (joint program)",
+      "school_id": "etu-eng",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/admission/17",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": {
+        "is_joint": true,
+        "format": "2+1+2",
+        "partner_mn": "Намсөүл их сургууль (Namseoul University)",
+        "country_mn": "БНСУ",
+        "label_mn": "Этүгэнд 2 жил + хэлний бэлтгэл 1 жил + БНСУ-ын Намсөүл их сургуульд 2 жил, хос диплом",
+        "note_mn": "Гуравдугаар дамжаанд шилжихэд солонгос хэлний TOPIK 3-аас дээш түвшин шаардана (журмын 10.1)."
+      },
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-eng-vr-technology-khamtarsan-khutulbur",
+      "name_mn": "VR Technology (Хамтарсан хөтөлбөр)",
+      "name_en": "VR Technology (joint program)",
+      "school_id": "etu-eng",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/admission/17",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": {
+        "is_joint": true,
+        "format": "2+1+2",
+        "partner_mn": "Намсөүл их сургууль (Namseoul University)",
+        "country_mn": "БНСУ",
+        "label_mn": "Этүгэнд 2 жил + хэлний бэлтгэл 1 жил + БНСУ-ын Намсөүл их сургуульд 2 жил, хос диплом",
+        "note_mn": "Гуравдугаар дамжаанд шилжихэд солонгос хэлний TOPIK 3-аас дээш түвшин шаардана (журмын 10.1)."
+      },
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-eng-tsakhilgaan-khangamjiin-injener",
+      "name_mn": "Цахилгаан хангамжийн инженер",
+      "name_en": "Power Supply Engineering",
+      "school_id": "etu-eng",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=11",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": true,
+        "note_mn": "Дээд боловсролын эрэлттэй мэргэжлийн чиглэл (**) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Засгийн газрын тэтгэлэг: 1-р шалгалт 600-аас дээш, голч 3.0-аас дээш бол сургалтын төлбөрийн 100% (журмын 8.1.1).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=11",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-eng-emnelgiin-tonog-tukhuurumjiin-ashiglaltyn-injener",
+      "name_mn": "Эмнэлгийн тоног төхөөрөмжийн ашиглалтын инженер",
+      "name_en": "Medical Equipment Engineering",
+      "school_id": "etu-eng",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=10",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": true,
+        "note_mn": "Дээд боловсролын эрэлттэй мэргэжлийн чиглэл (**) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": false,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Англи хэл эсвэл Нийгэм судлал — босго 450. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 450,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Англи хэл",
+          "Нийгэм судлал"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 450,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Засгийн газрын тэтгэлэг: 1-р шалгалт 600-аас дээш, голч 3.0-аас дээш бол сургалтын төлбөрийн 100% (журмын 8.1.1).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=10",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-teacher-bagsh-baga-bolovsrol",
+      "name_mn": "Багш, бага боловсрол",
+      "name_en": "Teacher, Primary Education",
+      "school_id": "etu-teacher",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=24",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Монгол хэл эсвэл Математик — босго 450. 2-р шалгалт: Математик, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 450,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Монгол хэл",
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Монгол хэл",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 450,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт болон сайтын 'Элсэлт авах мэргэжил' хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Засгийн газрын тэтгэлэг: 1-р шалгалт 520-оос дээш, голч 2.8-аас дээш бол 100% (журмын 8.1.3).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=24"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "current"
+    },
+    {
+      "id": "etu-teacher-bagsh-surguuliin-umnukh-bolovsrol",
+      "name_mn": "Багш, сургуулийн өмнөх боловсрол",
+      "name_en": "Teacher, Preschool Education",
+      "school_id": "etu-teacher",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=23",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Нийгэм судлал, Монгол хэл эсвэл Математик — босго 440. 2-р шалгалт: Математик, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 440,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Нийгэм судлал",
+          "Монгол хэл",
+          "Математик"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 440,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": "Засгийн газрын тэтгэлэг: 1-р шалгалт 520-оос дээш, голч 2.8-аас дээш бол 100% (журмын 8.1.3). БНХАУ-ын Шиньяны Багшийн их сургуультай 3+1 хамтарсан хөтөлбөрөөр (хос диплом) суралцах боломжтой (журмын 10.1.7–10.1.9).",
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=23",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-teacher-bagsh-matematikiin-bolovsrol",
+      "name_mn": "Багш, математикийн боловсрол",
+      "name_en": "Teacher, Mathematics Education",
+      "school_id": "etu-teacher",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": 4,
+      "duration_text_mn": "4 жил (2026-2027 оны журмын хүснэгт)",
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/Bachlist?id=22",
+      "selection_type": "direct",
+      "selection_type_mn": "Шууд элсүүлнэ (босго хангаж, хяналтын тоонд багтвал)",
+      "priority": {
+        "is_priority_field": true,
+        "is_in_demand_field": false,
+        "note_mn": "Дээд боловсролын тэргүүлэх мэргэжлийн чиглэл (*) — 2026-2027 оны элсэлтийн журмын хүснэгт."
+      },
+      "aptitude_test_required": true,
+      "required_subjects_display_mn": "1-р шалгалт: Математик эсвэл Физик — босго 490. 2-р шалгалт: Математик, Англи хэл, Физик, Монгол хэл, Нийгэм судлал эсвэл Ур чадварын шалгалт — босго 490. Хоёр шалгалтын оноог хэрхэн нийлүүлэхийг (онооны томьёо) сургууль зарлаагүй. Босгыг хангавал шууд элсэх эрхтэй.",
+      "threshold_score": 490,
+      "secondary_threshold_score": 490,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [
+          "Математик",
+          "Физик",
+          "Англи хэл",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "suuri_options": [
+          "Математик",
+          "Физик"
+        ],
+        "dagaldah_options": [
+          "Математик",
+          "Англи хэл",
+          "Физик",
+          "Монгол хэл",
+          "Нийгэм судлал",
+          "Ур чадварын шалгалт"
+        ],
+        "swap_subjects": null,
+        "suuri_threshold": 490,
+        "dagaldah_threshold": 490,
+        "threshold_type": "per_exam",
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "selection_type": "direct",
+        "split_confidence": "confirmed",
+        "note_mn": "2026-2027 оны элсэлтийн журмын хүснэгт (ректорын 2026.03.11-ний 44-р тушаал) болон бүртгэлийн сайтын 2026 оны хүснэгтэд хичээл, босго ижил. Шалгалт бүрт заасан хичээлүүдээс хамгийн өндөр оноотой нэг хичээлийг тооцно (журмын 6.1). Босго оноог хангаж, хяналтын тоонд багтсан бүртгүүлэгчийг шалгалтын дүн зарлагдсан өдрөөс шууд элсүүлнэ (журмын 6.2); хяналтын тоо дүүрсэн бол ижил хичээлээр шалгалт өгсөн тохиолдолд сул суудалтай өөр мэргэжилд шилжиж болно. 2-р шалгалтыг жагсаасан хичээлүүдийн аль нэгээр эсвэл их сургуулийн өөрийн авдаг Ур чадварын шалгалтаар өгч болно (хүснэгтэд 'Ур чадвар (сорил)' гэж бичсэн). Ур чадварын шалгалтыг цахимаар, сорил хэлбэрээр авна; хэлбэрийг элсэлтийн комисс шийдвэрлэнэ. 100 онооны дүнг 200–800 оноонд хөрвүүлнэ (60 оноо бол тэнцэнэ); огноо, мэдээллийг бүртгүүлсэн имэйл, утсаар мэдэгдэнэ.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf",
+        "status": "current",
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй; шалгалт тус бүрийн босгоор шалгана.",
+        "source_urls": [
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://etugen.edu.mn/Home/admission/17",
+          "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+        ]
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Улаанбаатар",
+      "joint_program": null,
+      "notes_mn": null,
+      "source_urls": [
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://etugen.edu.mn/Home/admission/17",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister",
+        "https://etugen.edu.mn/Home/Bachlist?id=22",
+        "https://burtgel.etugen.edu.mn/public/Burtgel%20WEB-d%2026.png"
+      ],
+      "verified_at": "2026-10-18",
+      "status": "current"
+    },
+    {
+      "id": "etu-orkhon-nyagtlan-bodokh-burtgel",
+      "name_mn": "Нягтлан бодох бүртгэл",
+      "name_en": "Accounting (Orkhon branch)",
+      "school_id": "etu-orkhon",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/academic/31",
+      "selection_type": null,
+      "selection_type_mn": null,
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": null,
+      "required_subjects_display_mn": "Эрдэнэт (Орхон аймаг) дахь салбарт элсэгчийн босго оноо 430-аас багагүй байна. Шалгалтын хичээлийг нийтлээгүй тул Этүгэн их сургуулийн элсэлтийн албанаас (9906-4206, 7700-3344) тодруулна уу.",
+      "threshold_score": null,
+      "secondary_threshold_score": null,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [],
+        "suuri_options": [],
+        "dagaldah_options": [],
+        "swap_subjects": null,
+        "suuri_threshold": null,
+        "dagaldah_threshold": null,
+        "threshold_type": null,
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй.",
+        "selection_type": null,
+        "split_confidence": "unknown",
+        "note_mn": "Эрдэнэт салбарын элсэгчдийн хангах босго оноо 430-аас багагүй (2026-2027 оны журмын 6.1, бүртгэлийн систем). Шалгалтын хичээл, аль шалгалтад 430 хамаарахыг нийтлээгүй.",
+        "page_thresholds": [
+          {
+            "year": "2026-2027",
+            "source_mn": "2026-2027 оны элсэлтийн журам 6.1",
+            "min_score": 430,
+            "note_mn": "Эрдэнэт салбарын элсэгчдийн ерөнхий босго"
+          }
+        ],
+        "source_url": "https://etugen.edu.mn/Home/academic/31",
+        "source_urls": [
+          "https://etugen.edu.mn/Home/academic/31",
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://burtgel.etugen.edu.mn/account/bachelorregister"
+        ],
+        "status": "unknown"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Орхон (Эрдэнэт)",
+      "joint_program": null,
+      "notes_mn": "Салбарын хуудсанд '(өдөр), Бакалавр' гэж бичсэн; хуудас огноогүй.",
+      "source_urls": [
+        "https://etugen.edu.mn/Home/academic/31",
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "partial"
+    },
+    {
+      "id": "etu-orkhon-turiin-zakhirgaany-udirdlaga",
+      "name_mn": "Төрийн захиргааны удирдлага",
+      "name_en": "Public Administration (Orkhon branch)",
+      "school_id": "etu-orkhon",
+      "degree": "Бакалавр",
+      "study_form": "Өдөр",
+      "credits": null,
+      "duration_years": null,
+      "duration_text_mn": null,
+      "code": null,
+      "official_url": "https://etugen.edu.mn/Home/academic/31",
+      "selection_type": null,
+      "selection_type_mn": null,
+      "priority": {
+        "is_priority_field": false,
+        "is_in_demand_field": false,
+        "note_mn": null
+      },
+      "aptitude_test_required": null,
+      "required_subjects_display_mn": "Эрдэнэт (Орхон аймаг) дахь салбарт элсэгчийн босго оноо 430-аас багагүй байна. Шалгалтын хичээлийг нийтлээгүй тул Этүгэн их сургуулийн элсэлтийн албанаас (9906-4206, 7700-3344) тодруулна уу.",
+      "threshold_score": null,
+      "secondary_threshold_score": null,
+      "exam_2026_2027": {
+        "subjects_to_prepare": [],
+        "suuri_options": [],
+        "dagaldah_options": [],
+        "swap_subjects": null,
+        "suuri_threshold": null,
+        "dagaldah_threshold": null,
+        "threshold_type": null,
+        "subject_minimums": null,
+        "weights": {
+          "suuri": 1,
+          "dagaldah": 1
+        },
+        "formula_known": false,
+        "score_formula": null,
+        "score_formula_mn": "Онооны томьёог сургууль зарлаагүй.",
+        "selection_type": null,
+        "split_confidence": "unknown",
+        "note_mn": "Эрдэнэт салбарын элсэгчдийн хангах босго оноо 430-аас багагүй (2026-2027 оны журмын 6.1, бүртгэлийн систем). Шалгалтын хичээл, аль шалгалтад 430 хамаарахыг нийтлээгүй.",
+        "page_thresholds": [
+          {
+            "year": "2026-2027",
+            "source_mn": "2026-2027 оны элсэлтийн журам 6.1",
+            "min_score": 430,
+            "note_mn": "Эрдэнэт салбарын элсэгчдийн ерөнхий босго"
+          }
+        ],
+        "source_url": "https://etugen.edu.mn/Home/academic/31",
+        "source_urls": [
+          "https://etugen.edu.mn/Home/academic/31",
+          "https://etugen.edu.mn/public/juram2627.pdf",
+          "https://burtgel.etugen.edu.mn/account/bachelorregister"
+        ],
+        "status": "unknown"
+      },
+      "tuition_2026_2027": {
+        "per_credit": null,
+        "per_year": null,
+        "currency": "MNT",
+        "is_official": false,
+        "estimated_per_year": null,
+        "note_mn": "2026-2027 оны сургалтын төлбөрийг сайт, элсэлтийн журамд нийтлээгүй. Элсэх эрхээ цахимаар баталгаажуулахад төлөх 250,000₮ нь сургалтын төлбөрөөс хасагдана. Төлбөрийг 9906-4206, 7700-3344-өөс лавлана уу.",
+        "source_url": "https://etugen.edu.mn/public/juram2627.pdf"
+      },
+      "campus_mn": "Орхон (Эрдэнэт)",
+      "joint_program": null,
+      "notes_mn": "Салбарын хуудсанд '(өдөр), Бакалавр' гэж бичсэн; хуудас огноогүй.",
+      "source_urls": [
+        "https://etugen.edu.mn/Home/academic/31",
+        "https://etugen.edu.mn/public/juram2627.pdf",
+        "https://burtgel.etugen.edu.mn/account/bachelorregister"
+      ],
+      "verified_at": "2026-10-16",
+      "status": "partial"
+    }
+  ]
+}
