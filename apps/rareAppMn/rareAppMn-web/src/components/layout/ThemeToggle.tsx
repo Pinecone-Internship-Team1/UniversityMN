@@ -2,8 +2,7 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const STORAGE_KEY = "oyutan-theme";
+import { THEME_STORAGE_KEY } from "@/lib/theme";
 
 type Theme = "light" | "dark";
 
@@ -13,31 +12,30 @@ export function ThemeToggle() {
   // already set the real class on <html> before hydration; this effect
   // just reads it back once mounted so the icon reflects reality.
   const [theme, setTheme] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setTheme(
       document.documentElement.classList.contains("dark") ? "dark" : "light",
     );
-    setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (!mounted) return;
-    document.documentElement.classList.toggle("dark", theme === "dark");
+  // Saved only on an explicit click, so the site keeps opening light
+  // (white) for anyone who never chose dark.
+  function toggleTheme() {
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.classList.toggle("dark", next === "dark");
     try {
-      localStorage.setItem(STORAGE_KEY, theme);
+      localStorage.setItem(THEME_STORAGE_KEY, next);
     } catch {
       // Ignore storage failures (private browsing, quota, etc.).
     }
-  }, [theme, mounted]);
+  }
 
   return (
     <button
       type="button"
-      onClick={() =>
-        setTheme((current) => (current === "dark" ? "light" : "dark"))
-      }
+      onClick={toggleTheme}
       aria-label={
         theme === "dark" ? "Цайвар горимд шилжих" : "Харанхуй горимд шилжих"
       }

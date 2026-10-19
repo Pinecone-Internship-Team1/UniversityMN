@@ -11,6 +11,7 @@ import {
   SIGN_UP_PATH,
 } from "@/lib/auth-routes";
 import { clerkAppearance, clerkLocalization } from "@/lib/clerk-ui";
+import { LEGACY_THEME_STORAGE_KEY, THEME_STORAGE_KEY } from "@/lib/theme";
 import "./global.css";
 
 const unbounded = Unbounded({
@@ -33,18 +34,16 @@ export const metadata: Metadata = {
     "ЭЕШ оноо, мэргэжил, сургалтын төлбөр, тэтгэлэг болон бусад мэдээллээр өөрт тохирох сургуулиа олоорой.",
 };
 
+// Light by default, whatever the device's dark-mode setting; dark only when
+// the visitor chose it with ThemeToggle (see lib/theme.ts).
 const THEME_INIT_SCRIPT = `
 (function () {
   try {
-    var stored = localStorage.getItem("oyutan-theme");
-    var theme = stored === "dark" || stored === "light"
-      ? stored
-      : window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.removeItem(${JSON.stringify(LEGACY_THEME_STORAGE_KEY)});
+    var dark = localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)}) === "dark";
+    document.documentElement.classList.toggle("dark", dark);
   } catch (_error) {
-    // localStorage/matchMedia unavailable (e.g. privacy mode) -- default light.
+    // localStorage unavailable (e.g. privacy mode) -- stay light.
   }
 })();
 `;
