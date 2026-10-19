@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GraphqlProvider } from "@/components/providers/GraphqlProvider";
 import { ClerkUserSyncProvider } from "@/components/providers/ClerkUserSync";
 import { AppToaster } from "@/components/providers/AppToaster";
+import { PageViewTracker } from "@/components/providers/PageViewTracker";
 import {
   AFTER_SIGN_IN_PATH,
   AFTER_SIGN_OUT_PATH,
@@ -79,6 +80,7 @@ export default function RootLayout({
           <GraphqlProvider>
             <ClerkUserSyncProvider>{children}</ClerkUserSyncProvider>
             <AppToaster />
+            <PageViewTracker />
           </GraphqlProvider>
         </body>
       </html>

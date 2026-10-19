@@ -1,10 +1,11 @@
-import { and, count, desc, eq, gte, inArray, lte, or, sql, type SQL } from 'drizzle-orm';
+import { and, count, countDistinct, desc, eq, gte, inArray, lte, or, sql, type SQL } from 'drizzle-orm';
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type { GraphQLContext } from '../../context';
 import { requireAdmin, requireUser } from '../../context';
-import { majors, schools, users, type Major, type School } from '../../db/schema';
+import { majors, pageViews, schools, users, type Major, type School } from '../../db/schema';
 import { MAX_SCORE_SUBJECTS, badInput, isPlainObject, notFound, parseScores } from '../../lib/validate';
 import { hasRelevantScores, scoreMajorMatch } from '../../lib/scoreMatch';
+import { clampStatsDays, dayRange, ulaanbaatarDay } from '../../lib/siteStats';
 
 type Region = 'ULAANBAATAR' | 'OUTSIDE_ULAANBAATAR';
 
@@ -157,6 +158,59 @@ export const queries = {
     return {
       items,
       pageInfo: { totalCount, limit, offset, hasNextPage: offset + items.length < totalCount },
+    };
+  },
+
+  siteStats: async (_parent: unknown, args: { days?: number | null }, context: GraphQLContext) => {
+    requireAdmin(context);
+    const days = dayRange(clampStatsDays(args.days), ulaanbaatarDay(new Date()));
+    const from = days[0] as string;
+    const to = days[days.length - 1] as string;
+    const inRange = and(gte(pageViews.day, from), lte(pageViews.day, to));
+    const viewCount = count();
+
+    const [totals, today, daily, topPages] = await context.db.batch([
+      context.db
+        .select({
+          views: count(),
+          visitors: countDistinct(pageViews.visitorId),
+          signedInViews: sql<number>`coalesce(sum(${pageViews.signedIn}), 0)`.mapWith(Number),
+        })
+        .from(pageViews)
+        .where(inRange),
+      context.db
+        .select({ views: count(), visitors: countDistinct(pageViews.visitorId) })
+        .from(pageViews)
+        .where(eq(pageViews.day, to)),
+      context.db
+        .select({ day: pageViews.day, views: count(), visitors: countDistinct(pageViews.visitorId) })
+        .from(pageViews)
+        .where(inRange)
+        .groupBy(pageViews.day),
+      context.db
+        .select({ path: pageViews.path, views: viewCount })
+        .from(pageViews)
+        .where(inRange)
+        .groupBy(pageViews.path)
+        .orderBy(desc(viewCount), pageViews.path)
+        .limit(10),
+    ]);
+
+    const byDay = new Map(daily.map((row) => [row.day, row]));
+    return {
+      from,
+      to,
+      views: totals[0]?.views ?? 0,
+      visitors: totals[0]?.visitors ?? 0,
+      signedInViews: totals[0]?.signedInViews ?? 0,
+      todayViews: today[0]?.views ?? 0,
+      todayVisitors: today[0]?.visitors ?? 0,
+      daily: days.map((day) => ({
+        day,
+        views: byDay.get(day)?.views ?? 0,
+        visitors: byDay.get(day)?.visitors ?? 0,
+      })),
+      topPages,
     };
   },
 

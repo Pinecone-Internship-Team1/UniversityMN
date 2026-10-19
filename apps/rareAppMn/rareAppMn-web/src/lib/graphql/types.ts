@@ -159,6 +159,32 @@ export interface SchoolFilterInput {
   offset?: number;
 }
 
+export interface DailyVisits {
+  /** Ulaanbaatar date, YYYY-MM-DD. */
+  day: string;
+  views: number;
+  visitors: number;
+}
+
+export interface PageVisits {
+  path: string;
+  views: number;
+}
+
+export interface SiteStats {
+  from: string;
+  to: string;
+  views: number;
+  /** Distinct anonymous browsers. */
+  visitors: number;
+  signedInViews: number;
+  todayViews: number;
+  todayVisitors: number;
+  /** Every day in the range, oldest first. */
+  daily: DailyVisits[];
+  topPages: PageVisits[];
+}
+
 export interface UserFilterInput {
   /** Matches the name, email or Clerk user id. */
   search?: string;

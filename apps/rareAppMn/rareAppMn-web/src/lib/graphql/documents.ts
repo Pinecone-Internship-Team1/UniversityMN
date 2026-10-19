@@ -18,6 +18,7 @@ import type {
   SchoolInput,
   School,
   SchoolPage,
+  SiteStats,
   UserFilterInput,
   UserProfile,
   UserProfileInput,
@@ -769,6 +770,54 @@ export interface DeleteMajorResult {
 
 export interface IdVariables {
   id: string;
+}
+
+/** Records one anonymous page view (see PageViewTracker). */
+export const TRACK_PAGE_VIEW_MUTATION = /* GraphQL */ `
+  mutation TrackPageView($path: String!, $visitorId: String!) {
+    trackPageView(path: $path, visitorId: $visitorId)
+  }
+`;
+
+export interface TrackPageViewVariables {
+  path: string;
+  visitorId: string;
+}
+
+export interface TrackPageViewResult {
+  trackPageView: boolean;
+}
+
+/** Admin only: visit stats for the last `days` Ulaanbaatar days. */
+export const SITE_STATS_QUERY = /* GraphQL */ `
+  query SiteStats($days: Int) {
+    siteStats(days: $days) {
+      from
+      to
+      views
+      visitors
+      signedInViews
+      todayViews
+      todayVisitors
+      daily {
+        day
+        views
+        visitors
+      }
+      topPages {
+        path
+        views
+      }
+    }
+  }
+`;
+
+export interface SiteStatsVariables {
+  days: number;
+}
+
+export interface SiteStatsResult {
+  siteStats: SiteStats;
 }
 
 /** Admin only (the service rejects anyone else): every user, newest first. */

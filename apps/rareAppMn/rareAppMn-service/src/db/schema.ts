@@ -243,6 +243,24 @@ export const savedMajors = sqliteTable(
   ]
 );
 
+/**
+ * One row per page view, sent by the web's PageViewTracker for the admin
+ * panel's visit stats. Anonymous: a random per-browser id, no IP or user id.
+ * `day` is the Ulaanbaatar (UTC+8) date, so stats group by local days.
+ */
+export const pageViews = sqliteTable(
+  'page_views',
+  {
+    id: uuid('id'),
+    path: text('path').notNull(),
+    visitorId: text('visitor_id').notNull(),
+    signedIn: integer('signed_in', { mode: 'boolean' }).notNull().default(false),
+    day: text('day').notNull(),
+    createdAt: text('created_at').notNull().default(isoNow),
+  },
+  (table) => [index('page_views_day_idx').on(table.day)]
+);
+
 export const usersRelations = relations(users, ({ many }) => ({
   savedSchools: many(savedSchools),
   savedMajors: many(savedMajors),
