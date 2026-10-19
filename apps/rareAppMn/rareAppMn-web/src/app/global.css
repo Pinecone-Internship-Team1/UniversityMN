@@ -1,3 +1,7 @@
+/* Clerk's component styles sit in their own layer, below Tailwind's
+   utilities, so the class names in lib/clerk-ui.ts override them. */
+@layer theme, base, clerk, components, utilities;
+
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));

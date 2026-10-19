@@ -4,6 +4,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GraphqlProvider } from "@/components/providers/GraphqlProvider";
 import { ClerkUserSyncProvider } from "@/components/providers/ClerkUserSync";
 import { AppToaster } from "@/components/providers/AppToaster";
+import { AFTER_SIGN_OUT_PATH, SIGN_IN_PATH, SIGN_UP_PATH } from "@/lib/auth-routes";
+import { clerkAppearance, clerkLocalization } from "@/lib/clerk-ui";
 import "./global.css";
 
 const unbounded = Unbounded({
@@ -48,7 +50,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      signInUrl={SIGN_IN_PATH}
+      signUpUrl={SIGN_UP_PATH}
+      afterSignOutUrl={AFTER_SIGN_OUT_PATH}
+      localization={clerkLocalization}
+      appearance={clerkAppearance}
+    >
       <html
         lang="mn"
         className={`${unbounded.variable} ${ptSans.variable}`}

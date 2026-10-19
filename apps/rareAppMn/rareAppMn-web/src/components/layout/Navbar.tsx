@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Menu, X, Search, UserCircle } from "lucide-react";
-import { Show, SignInButton, UserButton } from "@clerk/nextjs";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { ACCOUNT_SETTINGS_PATH, PROFILE_PATH } from "@/lib/auth-routes";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
@@ -14,6 +15,27 @@ const NAV_LINKS = [
   { label: "Элсэлт", href: "/admissions" },
   { label: "Харьцуулах", href: "/compare" },
 ];
+
+/**
+ * The one avatar button: its menu goes to our two profile tabs (the
+ * "manage account" item navigates to /profile/account instead of opening
+ * Clerk's pop-up; its label comes from lib/clerk-ui.ts) plus sign-out.
+ */
+function AccountButton() {
+  return (
+    <UserButton userProfileUrl={ACCOUNT_SETTINGS_PATH} userProfileMode="navigation">
+      <UserButton.MenuItems>
+        <UserButton.Link
+          label="Миний профайл"
+          labelIcon={<UserCircle className="h-4 w-4" strokeWidth={1.8} />}
+          href={PROFILE_PATH}
+        />
+        <UserButton.Action label="manageAccount" />
+        <UserButton.Action label="signOut" />
+      </UserButton.MenuItems>
+    </UserButton>
+  );
+}
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -56,47 +78,57 @@ export function Navbar() {
           <ThemeToggle />
 
           <Show when="signed-out">
-            <SignInButton mode="modal">
-              <button
-                type="button"
-                className="ml-1 rounded-full border border-ink/20 px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-paper"
-              >
-                Нэвтрэх
-              </button>
-            </SignInButton>
+            <div className="ml-1 flex items-center gap-2">
+              <SignInButton>
+                <button
+                  type="button"
+                  className="rounded-full border border-ink/20 px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-paper"
+                >
+                  Нэвтрэх
+                </button>
+              </SignInButton>
+              <SignUpButton>
+                <button
+                  type="button"
+                  className="rounded-full border border-ink bg-ink px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-paper transition-all duration-200 hover:border-accent hover:bg-accent"
+                >
+                  Бүртгүүлэх
+                </button>
+              </SignUpButton>
+            </div>
           </Show>
 
           <Show when="signed-in">
-            <div className="ml-1 flex items-center gap-3">
-              <Link
-                href="/profile"
-                aria-label="Миний профайл"
-                className="flex h-10 w-10 items-center justify-center rounded-lg text-ink/80 transition-colors hover:bg-ink/[0.04] hover:text-ink"
-              >
-                <UserCircle className="h-5 w-5" strokeWidth={1.8} />
-              </Link>
-              <UserButton />
+            <div className="ml-1 flex h-10 items-center">
+              <AccountButton />
             </div>
           </Show>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Цэсийг хаах" : "Цэсийг нээх"}
-          aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-ink/80 transition-colors hover:bg-ink/[0.04] hover:text-ink lg:hidden"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        {/* Mobile: avatar button (signed in) + menu toggle */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <Show when="signed-in">
+            <div className="flex h-10 items-center">
+              <AccountButton />
+            </div>
+          </Show>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Цэсийг хаах" : "Цэсийг нээх"}
+            aria-expanded={open}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-ink/80 transition-colors hover:bg-ink/[0.04] hover:text-ink"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation Menu */}
       <div
         className={cn(
           "overflow-hidden border-t border-ink/10 bg-paper transition-[max-height] duration-300 ease-in-out lg:hidden",
-          open ? "max-h-96" : "max-h-0 border-t-0",
+          open ? "max-h-[32rem]" : "max-h-0 border-t-0",
         )}
       >
         <nav className="flex flex-col gap-1 px-5 py-4">
@@ -129,28 +161,25 @@ export function Navbar() {
             </div>
 
             <Show when="signed-out">
-              <SignInButton mode="modal">
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  className="w-full rounded-lg bg-ink px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-paper transition-opacity hover:opacity-95"
-                >
-                  Нэвтрэх
-                </button>
-              </SignInButton>
-            </Show>
-
-            <Show when="signed-in">
-              <Link
-                href="/profile"
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-lg border border-ink/15 px-4 py-2.5 text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-ink/[0.03]"
-              >
-                <UserCircle className="h-4 w-4" strokeWidth={1.8} />
-                Миний профайл
-              </Link>
-              <div className="flex justify-center py-2">
-                <UserButton />
+              <div className="grid grid-cols-2 gap-2.5">
+                <SignInButton>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    className="w-full rounded-lg border border-ink/15 px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-ink/[0.03]"
+                  >
+                    Нэвтрэх
+                  </button>
+                </SignInButton>
+                <SignUpButton>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    className="w-full rounded-lg bg-ink px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-paper transition-opacity hover:opacity-95"
+                  >
+                    Бүртгүүлэх
+                  </button>
+                </SignUpButton>
               </div>
             </Show>
           </div>
