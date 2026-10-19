@@ -6,6 +6,7 @@ import {
   LogOut,
   Plus,
   Save,
+  Settings,
   ShieldCheck,
   Sparkles,
   Trash2,
@@ -24,6 +25,7 @@ import { MajorUnsaveButton } from "@/components/schools/MajorUnsaveButton";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { useClerkUserSync } from "@/components/providers/ClerkUserSync";
 import { buttonClassName } from "@/components/ui/Button";
+import { ACCOUNT_SETTINGS_PATH } from "@/lib/auth-routes";
 import { VERDICT_LABELS, formatMajorPlace, formatTuition, isScoredVerdict } from "@/lib/format";
 import {
   ME_QUERY,
@@ -39,19 +41,15 @@ import {
 import { getErrorMessage } from "@/lib/graphql/errors";
 import type { Region } from "@/lib/graphql/types";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
-import {
-  MAX_SHORT_TEXT_LENGTH,
-  parseOptionalUrl,
-  parseScoreEntries,
-} from "@/lib/validation";
+import { parseScoreEntries } from "@/lib/validation";
 
 function SignedOutPrompt() {
   return (
     <EmptyState
       title="Профайл үзэхийн тулд нэвтэрнэ үү"
-      description="Хадгалсан сургууль, мэргэжлээ хянах, мэдээллээ шинэчлэхийн тулд Clerk-ээр нэвтэрнэ үү."
+      description="Хадгалсан сургууль, мэргэжлээ хянах, мэдээллээ шинэчлэхийн тулд нэвтэрнэ үү."
       action={
-        <SignInButton mode="modal">
+        <SignInButton>
           <Button variant="solid" size="md" className="mt-2">
             Нэвтрэх
           </Button>
@@ -241,8 +239,6 @@ export function ProfileView() {
   >(UPDATE_USER_PROFILE_MUTATION);
 
   const me = data?.me ?? null;
-  const [name, setName] = useState("");
-  const [avatarUrl, setAvatarUrl] = useState("");
   const [scoreRows, setScoreRows] = useState<ScoreRow[]>([createScoreRow()]);
   const [formUserId, setFormUserId] = useState<string | null>(null);
   const [hiddenSchoolIds, setHiddenSchoolIds] = useState<Set<string>>(new Set());
@@ -250,8 +246,6 @@ export function ProfileView() {
 
   if (me && formUserId !== me.id) {
     setFormUserId(me.id);
-    setName(me.name ?? "");
-    setAvatarUrl(me.avatarUrl ?? "");
     setScoreRows(scoresToRows(me.scores));
     setHiddenSchoolIds(new Set());
     setHiddenMajorIds(new Set());
@@ -276,30 +270,16 @@ export function ProfileView() {
   }
 
   async function handleSaveProfile() {
-    const trimmedName = name.trim();
-    if (trimmedName.length > MAX_SHORT_TEXT_LENGTH) {
-      toast.error("Профайл хадгалах боломжгүй", {
-        description: `Нэр ${MAX_SHORT_TEXT_LENGTH} тэмдэгтээс хэтрэхгүй байх ёстой.`,
-      });
-      return;
-    }
-    const parsedAvatarUrl = parseOptionalUrl(avatarUrl, "Профайл зургийн URL");
-    if (!parsedAvatarUrl.ok) {
-      toast.error("Профайл хадгалах боломжгүй", { description: parsedAvatarUrl.error });
-      return;
-    }
     const parsedScores = parseScoreEntries(scoreRows);
     if (!parsedScores.ok) {
       toast.error("Профайл хадгалах боломжгүй", { description: parsedScores.error });
       return;
     }
 
+    // Name and photo come from the account (Clerk) and are synced by
+    // ClerkUserSync, so this form only saves scores.
     const result = await updateUserProfile({
-      input: {
-        name: trimmedName || null,
-        avatarUrl: parsedAvatarUrl.value,
-        scores: parsedScores.value,
-      },
+      input: { scores: parsedScores.value },
     });
 
     if (result.error) {
@@ -311,8 +291,6 @@ export function ProfileView() {
 
     const updated = result.data?.updateUserProfile;
     if (updated) {
-      setName(updated.name ?? "");
-      setAvatarUrl(updated.avatarUrl ?? "");
       setScoreRows(scoresToRows(updated.scores));
     }
     toast.success("Профайл амжилттай хадгаллаа");
@@ -358,7 +336,7 @@ export function ProfileView() {
         <div className="flex items-center gap-5">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/10 bg-paper text-xl font-bold text-ink/50">
             {me.avatarUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element -- arbitrary user-provided avatar URL, not a local/static asset
+              // Plain <img>: an arbitrary user-provided avatar URL, not a local/static asset.
               <img
                 src={me.avatarUrl}
                 alt={me.name ?? me.email}
@@ -400,23 +378,41 @@ export function ProfileView() {
       {/* Edit form */}
       <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
         <h3 className="text-base font-bold text-ink">Мэдээлэл засах</h3>
+
+        {/* Name and photo: read-only here, edited in the account tab */}
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-            Нэр
-            <Input
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              placeholder="Таны нэр"
-            />
-          </label>
-          <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-            Профайл зургийн URL
-            <Input
-              value={avatarUrl}
-              onChange={(event) => setAvatarUrl(event.target.value)}
-              placeholder="https://..."
-            />
-          </label>
+          <div className="flex flex-col gap-1.5">
+            <p className="text-xs font-semibold text-ink/70">Нэр</p>
+            <p className="flex h-11 items-center rounded-xl border border-ink/10 bg-paper px-4 text-sm text-ink">
+              {me.name ?? <span className="text-ink/40">Нэр оруулаагүй</span>}
+            </p>
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <p className="text-xs font-semibold text-ink/70">Профайл зураг</p>
+            <div className="flex h-11 items-center gap-3 rounded-xl border border-ink/10 bg-paper px-4 text-sm text-ink/60">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/10 bg-card text-[10px] font-bold text-ink/50">
+                {me.avatarUrl ? (
+                  // Plain <img>: an arbitrary user-provided avatar URL, not a local/static asset.
+                  <img src={me.avatarUrl} alt="" className="h-full w-full object-cover" />
+                ) : (
+                  (me.name ?? me.email).slice(0, 2).toUpperCase()
+                )}
+              </span>
+              {me.avatarUrl ? "Одоогийн зураг" : "Зураг оруулаагүй"}
+            </div>
+          </div>
+        </div>
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <p className="text-xs text-ink/60">
+            Нэр, профайл зургаа «Бүртгэлийн тохиргоо» хэсгээс солино.
+          </p>
+          <Link
+            href={ACCOUNT_SETTINGS_PATH}
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-ink/70 transition-colors hover:text-accent"
+          >
+            <Settings className="h-3.5 w-3.5" />
+            Бүртгэлийн тохиргоо
+          </Link>
         </div>
 
         {/* Scores editor */}

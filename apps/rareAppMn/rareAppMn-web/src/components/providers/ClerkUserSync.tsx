@@ -49,7 +49,8 @@ export function useClerkUserSync(): ClerkUserSyncValue {
 /**
  * Invisible: mirrors the signed-in Clerk user into the backend's `users`
  * table via `syncClerkUser` so `me`, bookmarks, and profile edits have a
- * row to attach to. Runs once per Clerk user id per session.
+ * row to attach to. Runs once per sign-in, and again whenever the Clerk
+ * name, photo or email changes (they are edited only in the account tab).
  */
 export function ClerkUserSyncProvider({ children }: { children: ReactNode }) {
   const { isSignedIn, userId } = useAuth();
@@ -59,7 +60,7 @@ export function ClerkUserSyncProvider({ children }: { children: ReactNode }) {
     SyncClerkUserVariables
   >(SYNC_CLERK_USER_MUTATION);
   const [state, setState] = useState<SyncState>(IDLE_STATE);
-  const attemptedUserId = useRef<string | null>(null);
+  const attemptedSyncKey = useRef<string | null>(null);
 
   const sync = useCallback(async () => {
     if (!isSignedIn || !userId || !user) return;
@@ -72,7 +73,7 @@ export function ClerkUserSyncProvider({ children }: { children: ReactNode }) {
         userId,
         status: "error",
         errorMessage:
-          "Таны бүртгэлд имэйл хаяг байхгүй байна. Clerk профайлдаа имэйл хаяг нэмнэ үү.",
+          "Таны бүртгэлд имэйл хаяг байхгүй байна. «Бүртгэлийн тохиргоо» хэсэгт имэйл хаяг нэмнэ үү.",
       });
       return;
     }
@@ -97,12 +98,21 @@ export function ClerkUserSyncProvider({ children }: { children: ReactNode }) {
     setState({ userId, status: "synced", errorMessage: null });
   }, [isSignedIn, userId, user, syncClerkUser]);
 
+  const syncKey = user
+    ? [
+        user.id,
+        user.fullName ?? "",
+        user.imageUrl,
+        user.primaryEmailAddress?.emailAddress ?? "",
+      ].join("|")
+    : null;
+
   useEffect(() => {
-    if (!isSignedIn || !userId || !user) return;
-    if (attemptedUserId.current === userId) return;
-    attemptedUserId.current = userId;
+    if (!isSignedIn || !userId || !syncKey) return;
+    if (attemptedSyncKey.current === syncKey) return;
+    attemptedSyncKey.current = syncKey;
     void sync();
-  }, [isSignedIn, userId, user, sync]);
+  }, [isSignedIn, userId, syncKey, sync]);
 
   const current = isSignedIn && state.userId === userId ? state : IDLE_STATE;
   const value = useMemo<ClerkUserSyncValue>(
