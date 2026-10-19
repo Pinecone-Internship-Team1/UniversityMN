@@ -24,9 +24,13 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex min-h-[600px] max-w-[1440px] flex-col items-center justify-center px-6 py-24 text-center sm:min-h-[700px] sm:py-28 md:min-h-[760px] lg:min-h-[820px]">
         {/* Label */}
-        <SectionLabel className="mb-6">
+        <SectionLabel className="mb-3">
           Элсэлтийн гарын авлага — 2026
         </SectionLabel>
+        <p className="mb-6 max-w-md text-xs leading-relaxed text-ink/60 sm:text-[13px]">
+          Босго оноо, хөтөлбөр, хугацаа нь 2026-2027 оны элсэлтийн албан ёсны
+          мэдээлэл. 2027 оных зарлагдмагц шинэчилнэ.
+        </p>
 
         {/* Main Heading */}
         <h1 className="text-balance text-3xl font-bold leading-[1.15] tracking-tight text-ink sm:text-5xl md:text-6xl lg:text-[4.25rem]">

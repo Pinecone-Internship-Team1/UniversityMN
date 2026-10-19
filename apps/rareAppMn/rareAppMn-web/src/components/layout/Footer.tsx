@@ -29,6 +29,11 @@ export function Footer() {
             <p className="mt-3 max-w-xs text-xs leading-relaxed text-ink/70 sm:text-sm">
               Монголын их, дээд сургуулиудыг нэг дороос.
             </p>
+            <p className="mt-3 max-w-sm text-xs leading-relaxed text-ink/50">
+              Oyutan MN нь их, дээд сургуулиудын албан ёсны сайт биш, бие даасан
+              мэдээллийн платформ. Бүртгүүлэхээсээ өмнө сургуулийн сайтаас
+              шалгаарай.
+            </p>
           </div>
 
           {/* Navigation Links */}
