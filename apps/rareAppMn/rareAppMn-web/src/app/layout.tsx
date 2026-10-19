@@ -4,7 +4,12 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GraphqlProvider } from "@/components/providers/GraphqlProvider";
 import { ClerkUserSyncProvider } from "@/components/providers/ClerkUserSync";
 import { AppToaster } from "@/components/providers/AppToaster";
-import { AFTER_SIGN_OUT_PATH, SIGN_IN_PATH, SIGN_UP_PATH } from "@/lib/auth-routes";
+import {
+  AFTER_SIGN_IN_PATH,
+  AFTER_SIGN_OUT_PATH,
+  SIGN_IN_PATH,
+  SIGN_UP_PATH,
+} from "@/lib/auth-routes";
 import { clerkAppearance, clerkLocalization } from "@/lib/clerk-ui";
 import "./global.css";
 
@@ -53,6 +58,8 @@ export default function RootLayout({
     <ClerkProvider
       signInUrl={SIGN_IN_PATH}
       signUpUrl={SIGN_UP_PATH}
+      signInFallbackRedirectUrl={AFTER_SIGN_IN_PATH}
+      signUpFallbackRedirectUrl={AFTER_SIGN_IN_PATH}
       afterSignOutUrl={AFTER_SIGN_OUT_PATH}
       localization={clerkLocalization}
       appearance={clerkAppearance}

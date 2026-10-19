@@ -8,6 +8,8 @@ import type { School } from "@/lib/graphql/types";
 
 const TRACK_ID = "university-carousel";
 const SCROLL_STEP = 340;
+// Auto-advance one card this often (paused on hover and for reduced motion).
+const AUTO_SCROLL_INTERVAL_MS = 4000;
 
 export interface UniversityCarouselProps {
   schools: School[];
@@ -66,7 +68,7 @@ export function UniversityCarousel({ schools }: UniversityCarouselProps) {
           scrollTrack(scrollRef.current, 1);
         }
       }
-    }, 2000);
+    }, AUTO_SCROLL_INTERVAL_MS);
 
     return () => clearInterval(interval);
   }, [reduceMotion, isHovered]);
