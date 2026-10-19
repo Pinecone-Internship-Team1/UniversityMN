@@ -37,7 +37,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     number: "03",
     name: "Ikhbayar",
-    school: "ISU",
+    school: "Ulaanbaatar school",
     role: "Research & Data, Frontend Developer",
     image: "/team/ikhbayar.jpg",
     github: "https://github.com/bikhbayar01-sudo",
