@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { SchoolCardSkeletonRow } from "@/components/ui/Skeleton";
 import { SectionLabel } from "./SectionLabel";
+import { UniversityCarouselArrows } from "./UniversityCarousel";
 import { UniversityCarouselLoader } from "./UniversityCarouselLoader";
 
 export function UniversitySection() {
@@ -25,13 +26,17 @@ export function UniversitySection() {
             </p>
           </div>
 
-          <Link
-            href="/schools"
-            className="inline-flex items-center gap-1.5 self-start rounded-full border border-ink/15 px-4 py-2 text-xs font-bold uppercase tracking-wider text-ink transition-all hover:border-ink hover:bg-ink hover:text-paper sm:self-auto"
-          >
-            Бүгдийг харах
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+          {/* "See all" and the carousel arrows on one row, same height */}
+          <div className="flex shrink-0 items-center justify-between gap-3 sm:justify-end">
+            <Link
+              href="/schools"
+              className="inline-flex h-11 items-center gap-1.5 rounded-full border border-ink/15 px-5 text-xs font-bold uppercase tracking-wider text-ink transition-all hover:border-ink hover:bg-ink hover:text-paper"
+            >
+              Бүгдийг харах
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <UniversityCarouselArrows />
+          </div>
         </div>
 
         <Suspense fallback={<SchoolCardSkeletonRow count={4} />}>
