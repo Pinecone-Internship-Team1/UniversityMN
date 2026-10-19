@@ -54,7 +54,7 @@ export function Navbar() {
           href="/#top"
           className="flex shrink-0 items-center transition-opacity hover:opacity-90"
         >
-          <Logo eager className="h-6 sm:h-7" />
+          <Logo eager className="h-5" />
         </Link>
 
         {/* Desktop Navigation */}

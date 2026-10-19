@@ -24,7 +24,7 @@ export function Footer() {
           {/* Brand & Description */}
           <div className="lg:col-span-5">
             <Link href="/#top" className="inline-flex items-center">
-              <Logo className="h-7" />
+              <Logo className="h-6" />
             </Link>
             <p className="mt-3 max-w-xs text-xs leading-relaxed text-ink/70 sm:text-sm">
               Монголын их, дээд сургуулиудыг нэг дороос.
