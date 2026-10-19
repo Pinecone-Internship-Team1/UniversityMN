@@ -10,6 +10,7 @@ import {
   SIGN_UP_PATH,
 } from "@/lib/auth-routes";
 import { cn } from "@/lib/utils";
+import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 
@@ -51,10 +52,9 @@ export function Navbar() {
         {/* Logo */}
         <Link
           href="/#top"
-          className="flex items-baseline gap-1 text-xl font-bold tracking-tight text-ink transition-opacity hover:opacity-90"
+          className="flex shrink-0 items-center transition-opacity hover:opacity-90"
         >
-          Oyutan
-          <span className="text-accent font-extrabold">MN</span>
+          <Logo eager className="h-6 sm:h-7" />
         </Link>
 
         {/* Desktop Navigation */}
