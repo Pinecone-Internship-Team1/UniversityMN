@@ -23,6 +23,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Erkhes",
     school: "130-р сургууль",
     role: "Co-Founder & Full-Stack Developer",
+    image: "/team/erkhes.jpg",
     github: "https://github.com/erkhes9632",
   },
   {
@@ -30,6 +31,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Zelme",
     school: "Орос 3-р сургууль",
     role: "Co-Founder & Full-Stack Developer",
+    image: "/team/zelme.jpg",
     github: "https://github.com/zetsu19",
   },
   {
@@ -37,6 +39,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Ikhbayar",
     school: "ISU",
     role: "Research & Data, Frontend Developer",
+    image: "/team/ikhbayar.jpg",
     github: "https://github.com/bikhbayar01-sudo",
   },
 ];
@@ -110,7 +113,7 @@ export function TeamSection() {
                     alt={member.name}
                     fill
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                    sizes="(max-width: 640px) 320px, 250px"
                   />
                 ) : (
                   // No photo yet: a dark tile (same in both themes) so the
