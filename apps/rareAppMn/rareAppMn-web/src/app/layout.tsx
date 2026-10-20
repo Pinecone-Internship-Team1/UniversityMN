@@ -30,6 +30,7 @@ const ptSans = PT_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://oyutanmn.site"),
   title: "Oyutan MN — Монголын их, дээд сургуулиудыг нэг дороос",
   description:
     "ЭЕШ оноо, мэргэжил, сургалтын төлбөр, тэтгэлэг болон бусад мэдээллээр өөрт тохирох сургуулиа олоорой.",
