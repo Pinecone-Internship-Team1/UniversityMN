@@ -191,6 +191,40 @@ export const typeDefs = /* GraphQL */ `
     pageInfo: PageInfo!
   }
 
+  type UserPage {
+    items: [UserProfile!]!
+    pageInfo: PageInfo!
+  }
+
+  type DailyVisits {
+    "Ulaanbaatar date, YYYY-MM-DD."
+    day: String!
+    views: Int!
+    visitors: Int!
+  }
+
+  type PageVisits {
+    path: String!
+    views: Int!
+  }
+
+  "Page-view stats for a range of Ulaanbaatar days ending today."
+  type SiteStats {
+    from: String!
+    to: String!
+    views: Int!
+    "Distinct anonymous browsers."
+    visitors: Int!
+    "Views by signed-in users."
+    signedInViews: Int!
+    todayViews: Int!
+    todayVisitors: Int!
+    "Every day in the range, oldest first; days without visits included."
+    daily: [DailyVisits!]!
+    "The 10 most viewed paths."
+    topPages: [PageVisits!]!
+  }
+
   union CompareItem = School | Major
 
   input UserProfileInput {
@@ -261,6 +295,14 @@ export const typeDefs = /* GraphQL */ `
     offset: Int
   }
 
+  input UserFilterInput {
+    "Matches the name, email or Clerk user id."
+    search: String
+    role: UserRole
+    limit: Int
+    offset: Int
+  }
+
   input MajorFilterInput {
     schoolId: ID
     category: String
@@ -275,6 +317,10 @@ export const typeDefs = /* GraphQL */ `
   type Query {
     me: UserProfile
     userByClerkId(clerkUserId: String!): UserProfile
+    "Admin only: every user, newest first."
+    users(filter: UserFilterInput): UserPage!
+    "Admin only: visit stats for the last N days (default 30, max 365)."
+    siteStats(days: Int): SiteStats!
     school(id: ID!): School
     schools(filter: SchoolFilterInput): SchoolPage!
     major(id: ID!): Major
@@ -286,6 +332,8 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type Mutation {
+    "Records one page view (anonymous; sent by the web on each navigation)."
+    trackPageView(path: String!, visitorId: String!): Boolean!
     syncClerkUser(clerkUserId: String!, email: String!, name: String, avatarUrl: String): UserProfile!
     updateUserProfile(input: UserProfileInput!): UserProfile!
     toggleSaveSchool(schoolId: ID!): Boolean!

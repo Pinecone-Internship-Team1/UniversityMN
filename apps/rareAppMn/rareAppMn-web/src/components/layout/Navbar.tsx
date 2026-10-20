@@ -2,9 +2,15 @@
 
 import { useState } from "react";
 import { Menu, X, Search, UserCircle } from "lucide-react";
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import { ACCOUNT_SETTINGS_PATH, PROFILE_PATH } from "@/lib/auth-routes";
+import { Show, UserButton } from "@clerk/nextjs";
+import {
+  ACCOUNT_SETTINGS_PATH,
+  PROFILE_PATH,
+  SIGN_IN_PATH,
+  SIGN_UP_PATH,
+} from "@/lib/auth-routes";
 import { cn } from "@/lib/utils";
+import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 
@@ -46,10 +52,9 @@ export function Navbar() {
         {/* Logo */}
         <Link
           href="/#top"
-          className="flex items-baseline gap-1 text-xl font-bold tracking-tight text-ink transition-opacity hover:opacity-90"
+          className="flex shrink-0 items-center transition-opacity hover:opacity-90"
         >
-          Oyutan
-          <span className="text-accent font-extrabold">MN</span>
+          <Logo eager className="h-5" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -77,24 +82,21 @@ export function Navbar() {
 
           <ThemeToggle />
 
+          {/* Plain links (no redirect_url), so signing in from here lands on /schools */}
           <Show when="signed-out">
             <div className="ml-1 flex items-center gap-2">
-              <SignInButton>
-                <button
-                  type="button"
-                  className="rounded-full border border-ink/20 px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-paper"
-                >
-                  Нэвтрэх
-                </button>
-              </SignInButton>
-              <SignUpButton>
-                <button
-                  type="button"
-                  className="rounded-full border border-ink bg-ink px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-paper transition-all duration-200 hover:border-accent hover:bg-accent"
-                >
-                  Бүртгүүлэх
-                </button>
-              </SignUpButton>
+              <Link
+                href={SIGN_IN_PATH}
+                className="rounded-full border border-ink/20 px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-paper"
+              >
+                Нэвтрэх
+              </Link>
+              <Link
+                href={SIGN_UP_PATH}
+                className="rounded-full border border-ink bg-ink px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-paper transition-all duration-200 hover:border-accent hover:bg-accent"
+              >
+                Бүртгүүлэх
+              </Link>
             </div>
           </Show>
 
@@ -162,24 +164,20 @@ export function Navbar() {
 
             <Show when="signed-out">
               <div className="grid grid-cols-2 gap-2.5">
-                <SignInButton>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(false)}
-                    className="w-full rounded-lg border border-ink/15 px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-ink/[0.03]"
-                  >
-                    Нэвтрэх
-                  </button>
-                </SignInButton>
-                <SignUpButton>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(false)}
-                    className="w-full rounded-lg bg-ink px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-paper transition-opacity hover:opacity-95"
-                  >
-                    Бүртгүүлэх
-                  </button>
-                </SignUpButton>
+                <Link
+                  href={SIGN_IN_PATH}
+                  onClick={() => setOpen(false)}
+                  className="w-full rounded-lg border border-ink/15 px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-ink/[0.03]"
+                >
+                  Нэвтрэх
+                </Link>
+                <Link
+                  href={SIGN_UP_PATH}
+                  onClick={() => setOpen(false)}
+                  className="w-full rounded-lg bg-ink px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-paper transition-opacity hover:opacity-95"
+                >
+                  Бүртгүүлэх
+                </Link>
               </div>
             </Show>
           </div>

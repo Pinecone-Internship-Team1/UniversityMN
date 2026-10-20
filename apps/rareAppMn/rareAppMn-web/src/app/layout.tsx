@@ -4,8 +4,15 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GraphqlProvider } from "@/components/providers/GraphqlProvider";
 import { ClerkUserSyncProvider } from "@/components/providers/ClerkUserSync";
 import { AppToaster } from "@/components/providers/AppToaster";
-import { AFTER_SIGN_OUT_PATH, SIGN_IN_PATH, SIGN_UP_PATH } from "@/lib/auth-routes";
+import { PageViewTracker } from "@/components/providers/PageViewTracker";
+import {
+  AFTER_SIGN_IN_PATH,
+  AFTER_SIGN_OUT_PATH,
+  SIGN_IN_PATH,
+  SIGN_UP_PATH,
+} from "@/lib/auth-routes";
 import { clerkAppearance, clerkLocalization } from "@/lib/clerk-ui";
+import { LEGACY_THEME_STORAGE_KEY, THEME_STORAGE_KEY } from "@/lib/theme";
 import "./global.css";
 
 const unbounded = Unbounded({
@@ -23,23 +30,22 @@ const ptSans = PT_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://oyutanmn.site"),
   title: "Oyutan MN — Монголын их, дээд сургуулиудыг нэг дороос",
   description:
     "ЭЕШ оноо, мэргэжил, сургалтын төлбөр, тэтгэлэг болон бусад мэдээллээр өөрт тохирох сургуулиа олоорой.",
 };
 
+// Light by default, whatever the device's dark-mode setting; dark only when
+// the visitor chose it with ThemeToggle (see lib/theme.ts).
 const THEME_INIT_SCRIPT = `
 (function () {
   try {
-    var stored = localStorage.getItem("oyutan-theme");
-    var theme = stored === "dark" || stored === "light"
-      ? stored
-      : window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.removeItem(${JSON.stringify(LEGACY_THEME_STORAGE_KEY)});
+    var dark = localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)}) === "dark";
+    document.documentElement.classList.toggle("dark", dark);
   } catch (_error) {
-    // localStorage/matchMedia unavailable (e.g. privacy mode) -- default light.
+    // localStorage unavailable (e.g. privacy mode) -- stay light.
   }
 })();
 `;
@@ -53,6 +59,8 @@ export default function RootLayout({
     <ClerkProvider
       signInUrl={SIGN_IN_PATH}
       signUpUrl={SIGN_UP_PATH}
+      signInFallbackRedirectUrl={AFTER_SIGN_IN_PATH}
+      signUpFallbackRedirectUrl={AFTER_SIGN_IN_PATH}
       afterSignOutUrl={AFTER_SIGN_OUT_PATH}
       localization={clerkLocalization}
       appearance={clerkAppearance}
@@ -73,6 +81,7 @@ export default function RootLayout({
           <GraphqlProvider>
             <ClerkUserSyncProvider>{children}</ClerkUserSyncProvider>
             <AppToaster />
+            <PageViewTracker />
           </GraphqlProvider>
         </body>
       </html>

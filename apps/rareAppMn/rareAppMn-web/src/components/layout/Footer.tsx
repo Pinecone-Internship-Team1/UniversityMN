@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Logo } from "./Logo";
 
 const FOOTER_NAV_LINKS = [
   { label: "Сургууль", href: "/schools" },
@@ -22,15 +23,16 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand & Description */}
           <div className="lg:col-span-5">
-            <Link
-              href="/#top"
-              className="inline-flex items-baseline gap-1.5 text-xl font-bold tracking-tight text-ink"
-            >
-              Oyutan
-              <span className="text-accent">MN</span>
+            <Link href="/#top" className="inline-flex items-center">
+              <Logo className="h-6" />
             </Link>
             <p className="mt-3 max-w-xs text-xs leading-relaxed text-ink/70 sm:text-sm">
               Монголын их, дээд сургуулиудыг нэг дороос.
+            </p>
+            <p className="mt-3 max-w-sm text-xs leading-relaxed text-ink/50">
+              Oyutan MN нь их, дээд сургуулиудын албан ёсны сайт биш, бие даасан
+              мэдээллийн платформ. Бүртгүүлэхээсээ өмнө сургуулийн сайтаас
+              шалгаарай.
             </p>
           </div>
 

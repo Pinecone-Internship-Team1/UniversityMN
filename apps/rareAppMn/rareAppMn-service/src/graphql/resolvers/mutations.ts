@@ -5,6 +5,7 @@ import { requireAdmin, requireUser } from '../../context';
 import {
   faculties,
   majors,
+  pageViews,
   savedMajors,
   savedSchools,
   schools,
@@ -12,6 +13,7 @@ import {
   type NewUser,
 } from '../../db/schema';
 import { fetchClerkPrimaryEmail } from '../../lib/auth';
+import { isVisitorId, trackedPath, ulaanbaatarDay } from '../../lib/siteStats';
 import {
   MAX_LONG_TEXT_LENGTH,
   badInput,
@@ -157,6 +159,24 @@ const duplicateFaculty = () => conflict('This university already has a faculty w
 const facultyHasMajors = () => conflict('Delete the majors in this faculty first.');
 
 export const mutations = {
+  trackPageView: async (
+    _parent: unknown,
+    args: { path: string; visitorId: string },
+    context: GraphQLContext
+  ) => {
+    const path = trackedPath(args.path);
+    if (!path) throw badInput('path must be a site path such as /schools.');
+    if (!isVisitorId(args.visitorId)) throw badInput('visitorId is not valid.');
+
+    await context.db.insert(pageViews).values({
+      path,
+      visitorId: args.visitorId,
+      signedIn: context.user !== null,
+      day: ulaanbaatarDay(new Date()),
+    });
+    return true;
+  },
+
   syncClerkUser: async (
     _parent: unknown,
     args: { clerkUserId: string; email: string; name?: string | null; avatarUrl?: string | null },

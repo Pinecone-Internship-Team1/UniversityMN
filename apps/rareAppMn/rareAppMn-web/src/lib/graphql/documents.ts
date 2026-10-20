@@ -18,6 +18,8 @@ import type {
   SchoolInput,
   School,
   SchoolPage,
+  SiteStats,
+  UserFilterInput,
   UserProfile,
   UserProfileInput,
 } from "./types";
@@ -770,41 +772,107 @@ export interface IdVariables {
   id: string;
 }
 
-export const USER_BY_CLERK_ID_QUERY = /* GraphQL */ `
-  query UserByClerkId($clerkUserId: String!) {
-    userByClerkId(clerkUserId: $clerkUserId) {
-      id
-      clerkUserId
-      email
-      name
-      role
-      scores
-      createdAt
-      updatedAt
-      savedSchools {
-        id
-        name
+/** Records one anonymous page view (see PageViewTracker). */
+export const TRACK_PAGE_VIEW_MUTATION = /* GraphQL */ `
+  mutation TrackPageView($path: String!, $visitorId: String!) {
+    trackPageView(path: $path, visitorId: $visitorId)
+  }
+`;
+
+export interface TrackPageViewVariables {
+  path: string;
+  visitorId: string;
+}
+
+export interface TrackPageViewResult {
+  trackPageView: boolean;
+}
+
+/** Admin only: visit stats for the last `days` Ulaanbaatar days. */
+export const SITE_STATS_QUERY = /* GraphQL */ `
+  query SiteStats($days: Int) {
+    siteStats(days: $days) {
+      from
+      to
+      views
+      visitors
+      signedInViews
+      todayViews
+      todayVisitors
+      daily {
+        day
+        views
+        visitors
       }
-      savedMajors {
-        id
-        name
+      topPages {
+        path
+        views
       }
     }
   }
 `;
 
-export interface UserByClerkIdVariables {
-  clerkUserId: string;
+export interface SiteStatsVariables {
+  days: number;
 }
 
-export interface UserByClerkIdResult {
-  userByClerkId:
-    | (Pick<
-        UserProfile,
-        "id" | "clerkUserId" | "email" | "name" | "role" | "scores" | "createdAt" | "updatedAt"
-      > & {
-        savedSchools: Pick<School, "id" | "name">[];
-        savedMajors: Pick<Major, "id" | "name">[];
-      })
-    | null;
+export interface SiteStatsResult {
+  siteStats: SiteStats;
+}
+
+/** Admin only (the service rejects anyone else): every user, newest first. */
+export const ADMIN_USERS_QUERY = /* GraphQL */ `
+  query AdminUsers($filter: UserFilterInput) {
+    users(filter: $filter) {
+      items {
+        id
+        clerkUserId
+        email
+        name
+        avatarUrl
+        role
+        scores
+        createdAt
+        updatedAt
+        savedSchools {
+          id
+          name
+        }
+        savedMajors {
+          id
+          name
+        }
+      }
+      pageInfo {
+        totalCount
+        limit
+        offset
+        hasNextPage
+      }
+    }
+  }
+`;
+
+export type AdminUser = Pick<
+  UserProfile,
+  | "id"
+  | "clerkUserId"
+  | "email"
+  | "name"
+  | "avatarUrl"
+  | "role"
+  | "scores"
+  | "createdAt"
+  | "updatedAt"
+> & {
+  savedSchools: Pick<School, "id" | "name">[];
+  savedMajors: Pick<Major, "id" | "name">[];
+};
+
+export interface AdminUsersVariables {
+  filter?: UserFilterInput;
+}
+
+export interface AdminUsersResult {
+  users: { items: AdminUser[]; pageInfo: PageInfo };
 }

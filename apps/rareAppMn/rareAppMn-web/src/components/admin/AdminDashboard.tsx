@@ -1,11 +1,12 @@
 "use client";
 
 import { SignInButton, useAuth } from "@clerk/nextjs";
-import { School, ShieldAlert, Users } from "lucide-react";
+import { ChartColumn, School, ShieldAlert, Users } from "lucide-react";
 import { useState } from "react";
 import { useQuery } from "urql";
 import { SchoolManager } from "@/components/admin/SchoolManager";
-import { UserLookup } from "@/components/admin/UserLookup";
+import { SiteStatsPanel } from "@/components/admin/SiteStatsPanel";
+import { UserList } from "@/components/admin/UserList";
 import { useClerkUserSync } from "@/components/providers/ClerkUserSync";
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -19,11 +20,12 @@ import {
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { cn } from "@/lib/utils";
 
-type AdminTab = "catalog" | "users";
+type AdminTab = "catalog" | "users" | "visits";
 
 const TABS: { id: AdminTab; label: string; icon: typeof School }[] = [
   { id: "catalog", label: "Их, дээд сургууль, мэргэжил", icon: School },
   { id: "users", label: "Хэрэглэгч", icon: Users },
+  { id: "visits", label: "Хандалт", icon: ChartColumn },
 ];
 
 function DashboardSkeleton() {
@@ -104,7 +106,7 @@ export function AdminDashboard() {
 
   return (
     <div>
-      <div className="inline-flex rounded-xl border border-ink/10 bg-card p-1">
+      <div className="inline-flex max-w-full flex-wrap rounded-xl border border-ink/10 bg-card p-1">
         {TABS.map((item) => {
           const Icon = item.icon;
           const active = tab === item.id;
@@ -125,7 +127,9 @@ export function AdminDashboard() {
         })}
       </div>
 
-      <div className="mt-6">{tab === "catalog" ? <SchoolManager /> : <UserLookup />}</div>
+      <div className="mt-6">
+        {tab === "catalog" ? <SchoolManager /> : tab === "users" ? <UserList /> : <SiteStatsPanel />}
+      </div>
     </div>
   );
 }

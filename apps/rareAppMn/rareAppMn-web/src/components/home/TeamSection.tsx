@@ -23,7 +23,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Erkhes",
     school: "130-р сургууль",
     role: "Co-Founder & Full-Stack Developer",
-    image: "/team/erkhes-profile-pic.jpg",
+    image: "/team/erkhes.jpg",
     github: "https://github.com/erkhes9632",
   },
   {
@@ -31,32 +31,16 @@ const TEAM_MEMBERS: TeamMember[] = [
     name: "Zelme",
     school: "Орос 3-р сургууль",
     role: "Co-Founder & Full-Stack Developer",
-    image: "/team/zelme-profile-pic.jpg",
+    image: "/team/zelme.jpg",
     github: "https://github.com/zetsu19",
   },
   {
     number: "03",
-    name: "Khuslen",
-    school: "52-р сургууль",
-    role: "Full-Stack Developer",
-    image: "/team/khuslen-profile-pic.jpg",
-    github: "https://github.com",
-  },
-  {
-    number: "04",
     name: "Ikhbayar",
-    school: "ISU",
+    school: "Ulaanbaatar school",
     role: "Research & Data, Frontend Developer",
-    image: "/team/ikhbayar-profile-pic.jpg",
+    image: "/team/ikhbayar.jpg",
     github: "https://github.com/bikhbayar01-sudo",
-  },
-  {
-    number: "05",
-    name: "Tsogt",
-    school: "Шинэ Монгол ТК",
-    role: "Research & Data, Frontend Developer",
-    image: "/team/tsogt-profile-pic.jpg",
-    github: "https://github.com",
   },
 ];
 
@@ -104,7 +88,7 @@ export function TeamSection() {
         </div>
 
         {/* Team Cards Grid */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="mx-auto mt-16 grid max-w-xs gap-5 sm:max-w-3xl sm:grid-cols-3">
           {TEAM_MEMBERS.map((member, i) => (
             <motion.div
               key={member.number}
@@ -129,10 +113,12 @@ export function TeamSection() {
                     alt={member.name}
                     fill
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                    sizes="(max-width: 640px) 320px, 250px"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center font-mono text-4xl font-bold text-ink/20">
+                  // No photo yet: a dark tile (same in both themes) so the
+                  // white labels on the card stay readable.
+                  <div className="flex h-full w-full items-center justify-center bg-[#1d1a15] font-mono text-5xl font-bold text-white/25">
                     {initialsOf(member.name)}
                   </div>
                 )}

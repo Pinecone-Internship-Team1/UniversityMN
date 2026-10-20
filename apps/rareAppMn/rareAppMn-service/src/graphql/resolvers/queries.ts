@@ -1,10 +1,11 @@
-import { and, count, eq, gte, inArray, lte, or, sql, type SQL } from 'drizzle-orm';
+import { and, count, countDistinct, desc, eq, gte, inArray, lte, or, sql, type SQL } from 'drizzle-orm';
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type { GraphQLContext } from '../../context';
 import { requireAdmin, requireUser } from '../../context';
-import { majors, schools, type Major, type School } from '../../db/schema';
+import { majors, pageViews, schools, users, type Major, type School } from '../../db/schema';
 import { MAX_SCORE_SUBJECTS, badInput, isPlainObject, notFound, parseScores } from '../../lib/validate';
 import { hasRelevantScores, scoreMajorMatch } from '../../lib/scoreMatch';
+import { clampStatsDays, dayRange, ulaanbaatarDay } from '../../lib/siteStats';
 
 type Region = 'ULAANBAATAR' | 'OUTSIDE_ULAANBAATAR';
 
@@ -102,6 +103,11 @@ export interface MajorFilterInput extends PaginationInput {
   maxCutOffScore?: number | null;
 }
 
+export interface UserFilterInput extends PaginationInput {
+  search?: string | null;
+  role?: 'STUDENT' | 'ADMIN' | null;
+}
+
 async function resolveInternalUser(context: GraphQLContext) {
   const authUser = requireUser(context);
   return context.loaders.userByClerkUserId.load(authUser.clerkUserId);
@@ -117,6 +123,95 @@ export const queries = {
   ) => {
     requireAdmin(context);
     return context.loaders.userByClerkUserId.load(args.clerkUserId);
+  },
+
+  users: async (
+    _parent: unknown,
+    args: { filter?: UserFilterInput | null },
+    context: GraphQLContext
+  ) => {
+    requireAdmin(context);
+    const filter = args.filter ?? {};
+    const { limit, offset } = clampPagination(filter);
+
+    const whereClause = and(
+      or(
+        containsText(users.name, filter.search),
+        containsText(users.email, filter.search),
+        containsText(users.clerkUserId, filter.search)
+      ),
+      filter.role ? eq(users.role, filter.role === 'ADMIN' ? 'admin' : 'student') : undefined
+    );
+
+    const [items, totalRows] = await context.db.batch([
+      context.db
+        .select()
+        .from(users)
+        .where(whereClause)
+        .orderBy(desc(users.createdAt), sql`${users}.rowid`)
+        .limit(limit)
+        .offset(offset),
+      context.db.select({ value: count() }).from(users).where(whereClause),
+    ]);
+    const totalCount = totalRows[0]?.value ?? 0;
+
+    return {
+      items,
+      pageInfo: { totalCount, limit, offset, hasNextPage: offset + items.length < totalCount },
+    };
+  },
+
+  siteStats: async (_parent: unknown, args: { days?: number | null }, context: GraphQLContext) => {
+    requireAdmin(context);
+    const days = dayRange(clampStatsDays(args.days), ulaanbaatarDay(new Date()));
+    const from = days[0] as string;
+    const to = days[days.length - 1] as string;
+    const inRange = and(gte(pageViews.day, from), lte(pageViews.day, to));
+    const viewCount = count();
+
+    const [totals, today, daily, topPages] = await context.db.batch([
+      context.db
+        .select({
+          views: count(),
+          visitors: countDistinct(pageViews.visitorId),
+          signedInViews: sql<number>`coalesce(sum(${pageViews.signedIn}), 0)`.mapWith(Number),
+        })
+        .from(pageViews)
+        .where(inRange),
+      context.db
+        .select({ views: count(), visitors: countDistinct(pageViews.visitorId) })
+        .from(pageViews)
+        .where(eq(pageViews.day, to)),
+      context.db
+        .select({ day: pageViews.day, views: count(), visitors: countDistinct(pageViews.visitorId) })
+        .from(pageViews)
+        .where(inRange)
+        .groupBy(pageViews.day),
+      context.db
+        .select({ path: pageViews.path, views: viewCount })
+        .from(pageViews)
+        .where(inRange)
+        .groupBy(pageViews.path)
+        .orderBy(desc(viewCount), pageViews.path)
+        .limit(10),
+    ]);
+
+    const byDay = new Map(daily.map((row) => [row.day, row]));
+    return {
+      from,
+      to,
+      views: totals[0]?.views ?? 0,
+      visitors: totals[0]?.visitors ?? 0,
+      signedInViews: totals[0]?.signedInViews ?? 0,
+      todayViews: today[0]?.views ?? 0,
+      todayVisitors: today[0]?.visitors ?? 0,
+      daily: days.map((day) => ({
+        day,
+        views: byDay.get(day)?.views ?? 0,
+        visitors: byDay.get(day)?.visitors ?? 0,
+      })),
+      topPages,
+    };
   },
 
   school: async (_parent: unknown, args: { id: string }, context: GraphQLContext) => {

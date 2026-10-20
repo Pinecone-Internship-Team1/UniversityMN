@@ -7,5 +7,10 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
-  }
+  },
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "oyutanmn.site", "custom_domain": true },
+    { "pattern": "www.oyutanmn.site", "custom_domain": true }
+  ]
 }
