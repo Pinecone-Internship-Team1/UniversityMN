@@ -2,13 +2,15 @@ import { eq } from 'drizzle-orm';
 import { Webhook } from 'svix';
 import type { Database } from '../db';
 import { users } from '../db/schema';
-import { roleFor } from '../lib/auth';
+import { clerkUserExistsIn, roleFor, type ClerkPrimaryEmail } from '../lib/auth';
 import { type Env, getClerkWebhookSecret, isLocalDevelopment } from '../lib/env';
+import { upsertClerkUser } from '../lib/userSync';
 import { isPlainObject, isUniqueConstraintError } from '../lib/validate';
 
 interface ClerkEmailAddress {
   id?: string;
   email_address?: string;
+  verification?: { status?: string } | null;
 }
 
 interface ClerkUserEventData {
@@ -38,13 +40,15 @@ function fullName(data: ClerkUserEventData): string | null {
   return parts.length ? parts.join(' ') : null;
 }
 
-function primaryEmail(data: ClerkUserEventData): string | null {
+function primaryEmail(data: ClerkUserEventData): ClerkPrimaryEmail | null {
   const addresses = Array.isArray(data.email_addresses)
     ? data.email_addresses.filter((address): address is ClerkEmailAddress => isPlainObject(address))
     : [];
   const primary =
     addresses.find((address) => address.id === data.primary_email_address_id) ?? addresses[0];
-  return nonEmptyString(primary?.email_address);
+  const address = nonEmptyString(primary?.email_address);
+  if (!address) return null;
+  return { address, verified: primary?.verification?.status === 'verified' };
 }
 
 function parseEvent(payload: string): ClerkWebhookEvent | null {
@@ -78,23 +82,18 @@ async function applyEvent(event: ClerkWebhookEvent, env: Env, db: Database): Pro
       const email = primaryEmail(event.data);
       if (!email) return new Response('ignored: Clerk user has no email address', { status: 200 });
 
-      const name = fullName(event.data);
-      const avatarUrl = nonEmptyString(event.data.image_url);
-      const role = roleFor(clerkUserId, env);
-
-      await db
-        .insert(users)
-        .values({ clerkUserId, email, name, avatarUrl, role })
-        .onConflictDoUpdate({
-          target: users.clerkUserId,
-          set: {
-            email,
-            role,
-            ...(name !== null ? { name } : {}),
-            ...(avatarUrl !== null ? { avatarUrl } : {}),
-            updatedAt: new Date().toISOString(),
-          },
-        });
+      await upsertClerkUser(
+        db,
+        {
+          clerkUserId,
+          email: email.address,
+          emailVerified: email.verified,
+          name: fullName(event.data),
+          avatarUrl: nonEmptyString(event.data.image_url),
+          role: roleFor(clerkUserId, env),
+        },
+        clerkUserExistsIn(env)
+      );
 
       return new Response('ok', { status: 200 });
     }

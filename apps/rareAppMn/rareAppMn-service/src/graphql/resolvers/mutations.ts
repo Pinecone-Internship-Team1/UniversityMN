@@ -12,8 +12,9 @@ import {
   users,
   type NewUser,
 } from '../../db/schema';
-import { fetchClerkPrimaryEmail } from '../../lib/auth';
+import { clerkUserExistsIn, fetchClerkPrimaryEmail } from '../../lib/auth';
 import { isVisitorId, trackedPath, ulaanbaatarDay } from '../../lib/siteStats';
+import { upsertClerkUser } from '../../lib/userSync';
 import {
   MAX_LONG_TEXT_LENGTH,
   badInput,
@@ -187,37 +188,33 @@ export const mutations = {
       throw forbidden('You can only sync your own Clerk profile.');
     }
     let email = parseEmail(args.email);
+    let emailVerified = false;
     const name = optionalText(args.name, 'name');
     const avatarUrl = optionalUrl(args.avatarUrl, 'avatarUrl');
 
     const existing = await context.loaders.userByClerkUserId.load(authUser.clerkUserId);
     if (existing?.email !== email) {
-      const verifiedEmail = await fetchClerkPrimaryEmail(authUser.clerkUserId, context.env);
-      if (verifiedEmail === null) throw badInput('Your account does not have an email address.');
-      if (verifiedEmail !== undefined) email = verifiedEmail;
+      const primaryEmail = await fetchClerkPrimaryEmail(authUser.clerkUserId, context.env);
+      if (primaryEmail === null) throw badInput('Your account does not have an email address.');
+      if (primaryEmail !== undefined) {
+        email = primaryEmail.address;
+        emailVerified = primaryEmail.verified;
+      }
     }
 
-    const [synced] = await translateConstraintErrors(
-      context.db
-        .insert(users)
-        .values({
+    const synced = await translateConstraintErrors(
+      upsertClerkUser(
+        context.db,
+        {
           clerkUserId: authUser.clerkUserId,
           email,
+          emailVerified,
           name,
           avatarUrl,
           role: authUser.role,
-        })
-        .onConflictDoUpdate({
-          target: users.clerkUserId,
-          set: {
-            email,
-            role: authUser.role,
-            ...(name !== null ? { name } : {}),
-            ...(avatarUrl !== null ? { avatarUrl } : {}),
-            updatedAt: new Date().toISOString(),
-          },
-        })
-        .returning(),
+        },
+        clerkUserExistsIn(context.env)
+      ),
       { unique: conflict('This email address is already linked to another account.') }
     );
     context.loaders.userByClerkUserId.clear(authUser.clerkUserId);
