@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SignUpAgainNote } from "@/components/auth/SignUpAgainNote";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 
@@ -13,6 +14,7 @@ export function AuthPageShell({ children }: { children: ReactNode }) {
           Сургуулийн дэлгэрэнгүй мэдээллийг үзэхийн тулд нэвтэрнэ үү. Бүртгэлгүй бол
           бүртгүүлээрэй.
         </p>
+        <SignUpAgainNote />
         <div className="mt-8 flex w-full justify-center">{children}</div>
       </main>
 

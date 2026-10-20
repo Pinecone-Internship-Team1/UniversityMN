@@ -1,4 +1,6 @@
 import { createClerkClient, verifyToken } from '@clerk/backend';
+import { isClerkAPIResponseError } from '@clerk/backend/errors';
+import type { ClerkUserExists } from './userSync';
 import {
   type Env,
   getAdminClerkUserIds,
@@ -80,16 +82,41 @@ export async function getAuthenticatedUser(
   }
 }
 
+export interface ClerkPrimaryEmail {
+  address: string;
+  verified: boolean;
+}
+
 export async function fetchClerkPrimaryEmail(
   clerkUserId: string,
   env: Env
-): Promise<string | null | undefined> {
+): Promise<ClerkPrimaryEmail | null | undefined> {
   const secretKey = getClerkSecretKey(env);
   if (!secretKey) return undefined;
   const clerkUser = await createClerkClient({ secretKey }).users.getUser(clerkUserId);
-  return (
-    clerkUser.primaryEmailAddress?.emailAddress ??
-    clerkUser.emailAddresses[0]?.emailAddress ??
-    null
-  );
+  const primary = clerkUser.primaryEmailAddress ?? clerkUser.emailAddresses[0];
+  if (!primary) return null;
+  return {
+    address: primary.emailAddress,
+    verified: primary.verification?.status === 'verified',
+  };
+}
+
+/**
+ * Asks Clerk whether a user ID exists in the configured instance (a
+ * test-instance ID does not exist in the live one). Any answer other than a
+ * clear 404, or no Clerk secret, counts as "exists" so rows are never moved
+ * on a guess.
+ */
+export function clerkUserExistsIn(env: Env): ClerkUserExists {
+  return async (clerkUserId) => {
+    const secretKey = getClerkSecretKey(env);
+    if (!secretKey) return true;
+    try {
+      await createClerkClient({ secretKey }).users.getUser(clerkUserId);
+      return true;
+    } catch (error) {
+      return !(isClerkAPIResponseError(error) && error.status === 404);
+    }
+  };
 }

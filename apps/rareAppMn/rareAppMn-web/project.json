@@ -43,7 +43,8 @@
         "cwd": "apps/rareAppMn/rareAppMn-web",
         "commands": [
           "next build",
-          "opennextjs-cloudflare build --skipNextBuild"
+          "opennextjs-cloudflare build --skipNextBuild",
+          "node scripts/strip-bundled-env.mjs"
         ],
         "parallel": false
       }
@@ -55,6 +56,7 @@
         "commands": [
           "next build",
           "opennextjs-cloudflare build --skipNextBuild",
+          "node scripts/strip-bundled-env.mjs",
           "opennextjs-cloudflare preview"
         ],
         "parallel": false
@@ -67,6 +69,7 @@
         "commands": [
           "next build",
           "opennextjs-cloudflare build --skipNextBuild",
+          "node scripts/strip-bundled-env.mjs",
           "opennextjs-cloudflare deploy"
         ],
         "parallel": false
