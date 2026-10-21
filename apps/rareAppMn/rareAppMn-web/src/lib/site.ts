@@ -5,12 +5,8 @@ export const SITE_NAME = "Oyutan MN";
 /** What people type to find us: the name in Cyrillic, and the domain as one word. */
 export const SITE_ALTERNATE_NAMES = ["Оюутан MN", "oyutanmn"];
 
-/**
- * Our social profiles, listed as Organization.sameAs in the home page's
- * JSON-LD. Add the Instagram profile URL here (e.g.
- * "https://www.instagram.com/<handle>/").
- */
-export const SOCIAL_PROFILES: string[] = [];
+/** Our social profiles, listed as Organization.sameAs in the home page's JSON-LD. */
+export const SOCIAL_PROFILES: string[] = ["https://www.instagram.com/oyutan_mn/"];
 
 /** public/brand/og-image.png: the 1200×630 card shown when a link is shared. */
 export const OG_IMAGE = {
