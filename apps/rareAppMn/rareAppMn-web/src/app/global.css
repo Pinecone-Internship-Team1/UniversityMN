@@ -145,6 +145,38 @@
   }
 }
 
+/*
+ * Invisible tap areas for touch screens: an ::after at least 44x44px, centred
+ * on the element, so small icons and links are easier to tap without looking
+ * any different. Used as max-lg:tap-target so desktop is untouched.
+ * tap-area is for elements that are already positioned (absolute/relative);
+ * tap-target also makes the element position: relative.
+ */
+@utility tap-area {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(100%, 2.75rem);
+    height: max(100%, 2.75rem);
+    transform: translate(-50%, -50%);
+  }
+}
+
+@utility tap-target {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(100%, 2.75rem);
+    height: max(100%, 2.75rem);
+    transform: translate(-50%, -50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

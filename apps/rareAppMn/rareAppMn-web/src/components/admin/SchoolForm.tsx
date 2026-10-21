@@ -262,7 +262,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
                     )
                   }
                   aria-label={`Утасны дугаар ${index + 1}-г хасах`}
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-ink/[0.06] hover:text-ink"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-ink/[0.06] hover:text-ink max-lg:tap-target"
                 >
                   <X className="h-4 w-4" />
                 </button>

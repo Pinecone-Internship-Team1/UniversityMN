@@ -325,7 +325,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                 type="button"
                 onClick={() => setSearch("")}
                 aria-label="Хайлтыг цэвэрлэх"
-                className="absolute right-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-ink/40 hover:bg-ink/[0.06] hover:text-ink"
+                className="absolute right-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-ink/40 hover:bg-ink/[0.06] hover:text-ink max-lg:tap-area"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -346,7 +346,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                   aria-checked={active}
                   onClick={() => setDegree(option.key)}
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold transition-colors",
+                    "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold transition-colors max-lg:py-[13px]",
                     active
                       ? "border-ink bg-ink text-paper"
                       : "border-ink/15 text-ink/70 hover:border-ink/40 hover:text-ink",
@@ -411,7 +411,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                       }
                       aria-expanded={open}
                       disabled={Boolean(query)}
-                      className="flex min-w-0 flex-1 items-center gap-2.5 rounded-lg px-2 py-2 text-left transition-colors hover:bg-ink/[0.04] disabled:hover:bg-transparent"
+                      className="flex min-w-0 flex-1 items-center gap-2.5 rounded-lg px-2 py-2 text-left transition-colors hover:bg-ink/[0.04] disabled:hover:bg-transparent max-lg:tap-target"
                     >
                       <ChevronRight
                         className={cn(

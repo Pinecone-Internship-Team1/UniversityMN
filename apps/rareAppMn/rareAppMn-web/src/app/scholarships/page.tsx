@@ -96,7 +96,7 @@ export default async function ScholarshipsPage() {
                       </div>
                       <Link
                         href={`/university/${getUniversitySlug(school.id) ?? school.id}`}
-                        className="text-xs font-semibold text-ink/70 transition-colors hover:text-accent"
+                        className="text-xs font-semibold text-ink/70 transition-colors hover:text-accent max-lg:tap-target"
                       >
                         {university?.short ?? school.name}
                       </Link>

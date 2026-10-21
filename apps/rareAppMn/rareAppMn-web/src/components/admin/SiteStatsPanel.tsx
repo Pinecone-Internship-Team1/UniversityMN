@@ -227,8 +227,8 @@ export function SiteStatsPanel() {
               onClick={() => setDays(range.days)}
               className={
                 days === range.days
-                  ? "rounded-full bg-card px-3.5 py-1.5 text-xs font-semibold text-ink shadow-sm"
-                  : "rounded-full px-3.5 py-1.5 text-xs font-semibold text-ink/60 hover:text-ink"
+                  ? "rounded-full bg-card px-3.5 py-1.5 text-xs font-semibold text-ink shadow-sm max-lg:tap-target"
+                  : "rounded-full px-3.5 py-1.5 text-xs font-semibold text-ink/60 hover:text-ink max-lg:tap-target"
               }
             >
               {range.label}
@@ -288,7 +288,7 @@ export function SiteStatsPanel() {
               </p>
             )}
             <details className="mt-4">
-              <summary className="cursor-pointer text-xs font-semibold text-ink/60 hover:text-ink">
+              <summary className="cursor-pointer text-xs font-semibold text-ink/60 hover:text-ink max-lg:tap-target">
                 Хүснэгтээр харах
               </summary>
               <table className="mt-3 w-full max-w-md text-left text-xs">

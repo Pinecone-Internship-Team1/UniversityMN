@@ -30,7 +30,7 @@ export function DormGuideDetails({ guide }: { guide: DormGuide }) {
       {guide.note && <p className="text-[11px] leading-relaxed text-ink/50">{guide.note}</p>}
       {hasDetails && (
         <details className="rounded-xl border border-ink/10 bg-paper px-4 py-3">
-          <summary className="cursor-pointer text-sm font-bold text-ink">
+          <summary className="cursor-pointer text-sm font-bold text-ink max-lg:tap-target">
             Дотуур байранд хэрхэн орох вэ
           </summary>
           <div className="mt-3 space-y-4 text-xs leading-relaxed text-ink/70">
@@ -55,12 +55,12 @@ export function DormGuideDetails({ guide }: { guide: DormGuide }) {
                 <h3 className="text-xs font-bold text-ink">Журам, заавар</h3>
                 <ul className="mt-1.5 space-y-1">
                   {guide.links.map((link) => (
-                    <li key={link.url}>
+                    <li key={link.url} className="max-lg:relative">
                       <a
                         href={link.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="font-semibold text-accent hover:underline"
+                        className="font-semibold text-accent hover:underline max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-0.5"
                       >
                         {link.title}
                       </a>

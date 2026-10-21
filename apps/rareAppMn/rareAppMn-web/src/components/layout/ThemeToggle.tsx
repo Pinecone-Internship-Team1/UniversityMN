@@ -39,7 +39,7 @@ export function ThemeToggle() {
       aria-label={
         theme === "dark" ? "Цайвар горимд шилжих" : "Харанхуй горимд шилжих"
       }
-      className="relative flex h-10 w-10 items-center justify-center rounded-lg text-ink/80 transition-colors hover:bg-ink/[0.04] hover:text-ink"
+      className="relative flex h-10 w-10 items-center justify-center rounded-lg text-ink/80 transition-colors hover:bg-ink/[0.04] hover:text-ink max-lg:tap-area"
     >
       <Sun
         className={`h-[18px] w-[18px] transition-all duration-300 ${

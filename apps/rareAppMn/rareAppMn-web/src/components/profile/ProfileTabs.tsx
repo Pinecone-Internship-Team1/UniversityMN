@@ -33,7 +33,7 @@ export function ProfileTabs({ className }: { className?: string }) {
             href={tab.href}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-colors sm:text-[13px]",
+              "inline-flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition-colors max-lg:tap-target sm:text-[13px]",
               active ? "bg-card text-ink shadow-sm" : "text-ink/60 hover:text-ink",
             )}
           >

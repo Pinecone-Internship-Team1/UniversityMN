@@ -35,17 +35,28 @@ export const clerkAppearance = {
     fontSize: "0.875rem",
     borderRadius: "0.625rem",
   },
+  // On phones: 16px fields so iOS doesn't zoom in on focus (max-sm only, so
+  // Clerk's own 14px size and line height stay as they were elsewhere).
+  // Below lg: 44px-tall fields and buttons, and invisible 44px tap areas
+  // (tap-area/tap-target in global.css) on Clerk's small controls.
   elements: {
     cardBox: "rounded-2xl border border-ink/10 shadow-none",
     headerTitle: "font-bold tracking-tight",
     formButtonPrimary:
-      "rounded-full font-semibold uppercase tracking-wider shadow-none transition-colors duration-200 hover:bg-accent",
-    socialButtonsBlockButton: "rounded-full",
-    formFieldInput: "rounded-xl",
-    otpCodeFieldInput: "rounded-xl",
-    footerActionLink: "font-semibold text-accent hover:text-accent",
-    formFieldAction: "text-accent hover:text-accent",
-    identityPreviewEditButton: "text-accent",
+      "rounded-full font-semibold uppercase tracking-wider shadow-none transition-colors duration-200 hover:bg-accent max-lg:min-h-11",
+    socialButtonsBlockButton: "rounded-full max-lg:min-h-11",
+    formFieldInput: "rounded-xl max-sm:text-base max-lg:min-h-11",
+    otpCodeFieldInput: "rounded-xl max-sm:text-base",
+    formFieldInputShowPasswordButton: "max-lg:tap-area",
+    footerActionLink: "font-semibold text-accent hover:text-accent max-lg:tap-target",
+    formFieldAction: "text-accent hover:text-accent max-lg:tap-target",
+    identityPreviewEditButton: "text-accent max-lg:tap-area",
+    userButtonTrigger: "max-lg:tap-area",
+    navbarMobileMenuButton: "max-lg:tap-area",
+    profileSectionPrimaryButton: "max-lg:tap-area",
+    menuButton: "max-lg:tap-area",
+    // Sits just above "add email"/"connect account": widen it, not taller.
+    menuButtonEllipsis: "max-lg:after:absolute max-lg:after:-inset-x-2.5 max-lg:after:inset-y-0",
   },
 } satisfies ClerkAppearance;
 
