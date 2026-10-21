@@ -129,14 +129,13 @@ describe("fixed pages", () => {
     for (const [key, page] of Object.entries(PAGE_SEO)) {
       expect(page.title).toContain("Oyutan MN");
       expect(page.title).toContain("Оюутан MN");
-      // The home title is the exact wording asked for (64 characters).
-      if (key !== "home") expect(page.title.length).toBeLessThanOrEqual(MAX_TITLE_LENGTH);
+      expect(page.title.length).toBeLessThanOrEqual(MAX_TITLE_LENGTH);
       expect(page.description.length).toBeLessThanOrEqual(MAX_DESCRIPTION_LENGTH);
     }
   });
 
   test("the home title is the one asked for", () => {
-    expect(PAGE_SEO.home.title).toBe("Oyutan MN (Оюутан MN) — их, дээд сургуулийн босго оноо, тэтгэлэг");
+    expect(PAGE_SEO.home.title).toBe("Oyutan MN (Оюутан MN) — их сургуулийн босго оноо, тэтгэлэг");
   });
 });
 

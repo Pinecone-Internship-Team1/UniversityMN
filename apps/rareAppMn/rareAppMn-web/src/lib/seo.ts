@@ -12,8 +12,7 @@ const BRAND = `${SITE_NAME} (Оюутан MN)`;
 export const PAGE_SEO = {
   home: {
     path: "/",
-    // The wording asked for; at 64 characters Google may cut "тэтгэлэг".
-    title: `${BRAND} — их, дээд сургуулийн босго оноо, тэтгэлэг`,
+    title: `${BRAND} — их сургуулийн босго оноо, тэтгэлэг`,
     description: `${BRAND}: МУИС, ШУТИС, СЭЗИС зэрэг их, дээд сургуулийн ЭЕШ босго оноо, мэргэжил, сургалтын төлбөр, тэтгэлэг, элсэлтийн хуанли нэг дороос.`,
   },
   schools: {
