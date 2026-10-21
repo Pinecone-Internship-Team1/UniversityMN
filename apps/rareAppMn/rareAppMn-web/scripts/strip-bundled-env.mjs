@@ -38,6 +38,11 @@ for (const entry of entries) {
 if (found.length) {
   console.error("Clerk keys that must not be deployed are in the bundle:");
   for (const line of new Set(found)) console.error(`  ${line}`);
+  // Nx loads the app's .env.local (test keys) into every task's environment,
+  // where it beats .env.production.local; `bun run web:deploy` turns that off.
+  console.error(
+    "Deploy with `bun run web:deploy` (NX_LOAD_DOT_ENV_FILES=false), and keep the live key in .env.production.local.",
+  );
   process.exit(1);
 }
 console.log("Bundled env: production only; no Clerk secret or test keys.");
