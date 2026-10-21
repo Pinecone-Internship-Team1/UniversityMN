@@ -26,18 +26,15 @@ function canonicalRedirect(request: NextRequest): Response | null {
   );
 }
 
-// School details, comparison and the profile need an account; the home page,
-// /schools, /scholarships and /admissions stay public.
-const isSignInRequired = createRouteMatcher([
-  "/university(.*)",
-  "/compare(.*)",
-  "/profile(.*)",
-]);
+// Comparison and the profile need an account. The home page, /schools,
+// /scholarships, /admissions and the school pages stay public; a school page
+// shows signed-out visitors a preview (see app/university/[id]/page.tsx).
+const isSignInRequired = createRouteMatcher(["/compare(.*)", "/profile(.*)"]);
 
 const clerkProxy = clerkMiddleware(
   async (auth, request) => {
     // Signed-out visitors are redirected to /sign-in?redirect_url=<this page>,
-    // so they land back on the school they clicked.
+    // so they land back on the page they opened.
     if (isSignInRequired(request)) await auth.protect();
   },
   { signInUrl: SIGN_IN_PATH, signUpUrl: SIGN_UP_PATH },

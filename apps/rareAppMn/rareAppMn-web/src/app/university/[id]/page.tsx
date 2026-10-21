@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { cache } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,12 +16,18 @@ import {
   Scale,
   Phone,
   Mail,
+  LogIn,
 } from "lucide-react";
+import { auth } from "@clerk/nextjs/server";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MajorScoreCheck } from "@/components/schools/MajorScoreCheck";
 import { SchoolBookmarkButton } from "@/components/schools/SchoolBookmarkButton";
 import { UniversityPrograms } from "@/components/schools/UniversityPrograms";
+import {
+  UniversityPreview,
+  signInHref,
+} from "@/components/schools/UniversityPreview";
 import { DormGuideDetails } from "@/components/schools/DormGuideDetails";
 import { ComingSoon } from "@/components/ui/ComingSoon";
 import { compareHref } from "@/lib/compare";
@@ -38,6 +46,13 @@ import {
   formatSchoolTuition,
   formatSchoolType,
 } from "@/lib/format";
+import {
+  schoolDescription,
+  schoolJsonLd,
+  schoolPath,
+  schoolTitle,
+} from "@/lib/seo";
+import { jsonLdHtml, pageMetadata } from "@/lib/site";
 import { UNIVERSITIES, getUniversityBySchoolId } from "@/lib/university-logos";
 
 interface PageProps {
@@ -46,18 +61,34 @@ interface PageProps {
 
 /**
  * The URL segment is either a known static slug (e.g. "muis", mapped to its
- * backend id in university-logos.ts) or a raw backend School id.
+ * backend id in university-logos.ts) or a raw backend School id. Cached for
+ * the request, so generateMetadata and the page share one fetch.
  */
-async function resolveSchool(idOrSlug: string): Promise<SchoolDetail | null> {
-  const client = createServerGraphqlClient();
-  const schoolId = UNIVERSITIES[idOrSlug]?.schoolId ?? idOrSlug;
+const resolveSchool = cache(
+  async (idOrSlug: string): Promise<SchoolDetail | null> => {
+    const client = createServerGraphqlClient();
+    const schoolId = UNIVERSITIES[idOrSlug]?.schoolId ?? idOrSlug;
 
-  const detailResult = await client
-    .query<SchoolQueryResult, SchoolQueryVariables>(SCHOOL_QUERY, {
-      id: schoolId,
-    })
-    .toPromise();
-  return detailResult.data?.school ?? null;
+    const detailResult = await client
+      .query<SchoolQueryResult, SchoolQueryVariables>(SCHOOL_QUERY, {
+        id: schoolId,
+      })
+      .toPromise();
+    return detailResult.data?.school ?? null;
+  },
+);
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const school = await resolveSchool(id);
+  if (!school) notFound();
+  return pageMetadata({
+    title: schoolTitle(school),
+    description: schoolDescription(school),
+    path: schoolPath(school.id),
+  });
 }
 
 export default async function UniversityDetailPage({ params }: PageProps) {
@@ -68,6 +99,11 @@ export default async function UniversityDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  // Signed-out visitors and search engines get the same public preview; the
+  // full page (programs, exams, scholarships, dorms, save, compare) needs sign-in.
+  const { userId } = await auth();
+  const signedIn = userId != null;
+
   const university = getUniversityBySchoolId(school.id);
   const shortName = university?.short ?? school.name;
   const imageSrc = school.logoUrl ?? university?.image;
@@ -75,6 +111,10 @@ export default async function UniversityDetailPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-paper text-ink">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(schoolJsonLd(school)) }}
+      />
       <Navbar />
 
       <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 sm:py-20">
@@ -135,262 +175,303 @@ export default async function UniversityDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            <SchoolBookmarkButton
-              schoolId={school.id}
-              initialSaved={school.isSaved}
-              schoolName={shortName}
-            />
-            <Link
-              href={compareHref("schools", [school.id])}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-ink transition-all hover:border-ink hover:bg-ink hover:text-paper max-lg:tap-target"
-            >
-              <Scale className="h-4 w-4" />
-              Харьцуулах
-            </Link>
-            {school.website && (
+          {signedIn ? (
+            <div className="flex flex-wrap items-center gap-3">
+              <SchoolBookmarkButton
+                schoolId={school.id}
+                initialSaved={school.isSaved}
+                schoolName={shortName}
+              />
               <Link
-                href={school.website}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold uppercase tracking-wider text-paper transition-all hover:bg-accent max-lg:tap-target"
+                href={compareHref("schools", [school.id])}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-ink transition-all hover:border-ink hover:bg-ink hover:text-paper max-lg:tap-target"
               >
-                <Globe className="h-4 w-4" />
-                Албан ёсны сайт
+                <Scale className="h-4 w-4" />
+                Харьцуулах
               </Link>
-            )}
-          </div>
+              {school.website && (
+                <Link
+                  href={school.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold uppercase tracking-wider text-paper transition-all hover:bg-accent max-lg:tap-target"
+                >
+                  <Globe className="h-4 w-4" />
+                  Албан ёсны сайт
+                </Link>
+              )}
+            </div>
+          ) : (
+            <Link
+              href={signInHref(school.id)}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold uppercase tracking-wider text-paper transition-all hover:bg-accent max-lg:tap-target"
+            >
+              <LogIn className="h-4 w-4" />
+              Нэвтэрч бүгдийг хар
+            </Link>
+          )}
         </div>
 
-        {/* Grid Content Section */}
-        <div className="mt-10 grid gap-8 md:grid-cols-12">
-          <div className="space-y-8 md:col-span-8">
-            <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-              <h2 className="text-xl font-bold tracking-tight text-ink">
-                Сургуулийн тухай
-              </h2>
-              {school.overview ? (
-                <p className="mt-4 text-sm leading-relaxed text-ink/80 sm:text-base">
-                  {school.overview}
-                </p>
-              ) : (
-                <ComingSoon />
-              )}
-            </section>
-
-            <UniversityPrograms faculties={school.faculties} majors={school.majors} />
-
-            {/* Scholarships */}
-            <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-              <div className="flex items-center gap-2 text-ink">
-                <Award className="h-5 w-5 text-accent" />
-                <h2 className="text-xl font-bold tracking-tight">
-                  Тэтгэлэг ба Боломжууд
+        {/* Grid Content Section: the full page, or the public preview */}
+        {signedIn ? (
+          <div className="mt-10 grid gap-8 md:grid-cols-12">
+            <div className="space-y-8 md:col-span-8">
+              <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+                <h2 className="text-xl font-bold tracking-tight text-ink">
+                  Сургуулийн тухай
                 </h2>
-              </div>
-              {school.scholarships.length === 0 ? (
-                <ComingSoon />
-              ) : (
-                <ul className="mt-4 space-y-3 text-sm text-ink/80">
-                  {school.scholarships.map((scholarship) => (
-                    <li
-                      key={scholarship.id}
-                      className="flex items-start gap-2"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                      <div>
-                        <p className="font-semibold text-ink">
-                          {scholarship.name}
-                        </p>
-                        {scholarship.coverage && (
-                          <p className="text-xs text-ink/60">
-                            {scholarship.coverage}
-                          </p>
-                        )}
-                        {scholarship.requirements && (
-                          <p className="mt-0.5 whitespace-pre-line text-xs text-ink/60">
-                            Шаардлага: {scholarship.requirements}
-                          </p>
-                        )}
-                        {scholarship.deadline && (
-                          <p className="mt-0.5 text-xs font-semibold text-ink/70">
-                            Эцсийн хугацаа: {formatDateMn(scholarship.deadline)}
-                          </p>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
+                {school.overview ? (
+                  <p className="mt-4 text-sm leading-relaxed text-ink/80 sm:text-base">
+                    {school.overview}
+                  </p>
+                ) : (
+                  <ComingSoon />
+                )}
+              </section>
 
-            <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-              <div className="flex items-center gap-2 text-ink">
-                <BedDouble className="h-5 w-5 text-accent" />
-                <h2 className="text-xl font-bold tracking-tight">
-                  Оюутны байр
-                </h2>
-              </div>
-              {school.dormitories.length === 0 && !school.dormGuide ? (
-                <ComingSoon />
-              ) : (
-                <>
-                  {school.dormitories.length > 0 && (
-                    <ul className="mt-4 space-y-3 text-sm text-ink/80">
-                      {school.dormitories.map((dormitory) => (
-                        <li
-                          key={dormitory.id}
-                          className="rounded-xl border border-ink/10 bg-paper px-4 py-3"
-                        >
-                          {dormitory.name && (
-                            <p className="mb-2 text-sm font-bold text-ink">{dormitory.name}</p>
-                          )}
-                          <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
-                            {dormitory.capacity != null && (
-                              <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                                {dormitory.capacity.toLocaleString("mn-MN")} ор
-                              </span>
-                            )}
-                            {dormitory.feePerYear != null && (
-                              <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                                Жилийн төлбөр: {formatFee(dormitory.feePerYear, dormitory.currency)}
-                              </span>
-                            )}
-                            {dormitory.feePerMonth != null && (
-                              <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                                Сарын төлбөр: {formatFee(dormitory.feePerMonth, dormitory.currency)}
-                              </span>
-                            )}
-                          </div>
-                          {(dormitory.facilities ?? []).length > 0 && (
-                            <p className="mt-2 text-xs text-ink/60">
-                              {(dormitory.facilities ?? []).join(" · ")}
+              <UniversityPrograms
+                faculties={school.faculties}
+                majors={school.majors}
+              />
+
+              {/* Scholarships */}
+              <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+                <div className="flex items-center gap-2 text-ink">
+                  <Award className="h-5 w-5 text-accent" />
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Тэтгэлэг ба Боломжууд
+                  </h2>
+                </div>
+                {school.scholarships.length === 0 ? (
+                  <ComingSoon />
+                ) : (
+                  <ul className="mt-4 space-y-3 text-sm text-ink/80">
+                    {school.scholarships.map((scholarship) => (
+                      <li
+                        key={scholarship.id}
+                        className="flex items-start gap-2"
+                      >
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        <div>
+                          <p className="font-semibold text-ink">
+                            {scholarship.name}
+                          </p>
+                          {scholarship.coverage && (
+                            <p className="text-xs text-ink/60">
+                              {scholarship.coverage}
                             </p>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {school.dormGuide && <DormGuideDetails guide={school.dormGuide} />}
-                </>
-              )}
-            </section>
+                          {scholarship.requirements && (
+                            <p className="mt-0.5 whitespace-pre-line text-xs text-ink/60">
+                              Шаардлага: {scholarship.requirements}
+                            </p>
+                          )}
+                          {scholarship.deadline && (
+                            <p className="mt-0.5 text-xs font-semibold text-ink/70">
+                              Эцсийн хугацаа:{" "}
+                              {formatDateMn(scholarship.deadline)}
+                            </p>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
 
-            {school.majors.length > 0 && (
-              <MajorScoreCheck majors={school.majors} faculties={school.faculties} />
-            )}
-
-            {/* Admission schedule */}
-            <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-              <div className="flex items-center gap-2 text-ink">
-                <CalendarDays className="h-5 w-5 text-accent" />
-                <h2 className="text-xl font-bold tracking-tight">
-                  Элсэлтийн хуанли
-                </h2>
-              </div>
-              {school.admissionSchedules.length === 0 ? (
-                <ComingSoon />
-              ) : (
-                <ul className="mt-4 space-y-3 text-sm text-ink/80">
-                  {school.admissionSchedules.map((schedule) => (
-                    <li
-                      key={schedule.id}
-                      className="flex items-center justify-between gap-4 rounded-xl border border-ink/10 bg-paper px-4 py-3"
-                    >
-                      <span className="font-semibold text-ink">
-                        {schedule.eventName}
-                      </span>
-                      <span className="text-xs font-medium text-ink/60">
-                        {formatDateRange(schedule.startDate, schedule.endDate)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          </div>
-
-          {/* Sidebar Specs */}
-          <div className="md:col-span-4">
-            <div className="sticky top-28 space-y-4 rounded-2xl border border-ink/10 bg-card p-6">
-              <h3 className="text-base font-bold text-ink">Ерөнхий мэдээлэл</h3>
-
-              <div className="space-y-4 pt-2 text-xs text-ink/80">
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 text-ink/40" />
-                  <div>
-                    <p className="font-semibold text-ink">Байршил</p>
-                    <p className="mt-0.5">
-                      {school.location ?? "Улаанбаатар хот"}
-                    </p>
-                  </div>
+              <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+                <div className="flex items-center gap-2 text-ink">
+                  <BedDouble className="h-5 w-5 text-accent" />
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Оюутны байр
+                  </h2>
                 </div>
-
-                {school.phones.length > 0 && (
-                  <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
-                    <Phone className="mt-0.5 h-4 w-4 text-ink/40" />
-                    <div>
-                      <p className="font-semibold text-ink">Утас</p>
-                      <ul className="mt-0.5 space-y-0.5">
-                        {school.phones.map((phone) => (
-                          <li key={phone} className="max-lg:relative">
-                            <a
-                              href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-                              className="transition-colors hover:text-accent max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-px"
-                            >
-                              {phone}
-                            </a>
+                {school.dormitories.length === 0 && !school.dormGuide ? (
+                  <ComingSoon />
+                ) : (
+                  <>
+                    {school.dormitories.length > 0 && (
+                      <ul className="mt-4 space-y-3 text-sm text-ink/80">
+                        {school.dormitories.map((dormitory) => (
+                          <li
+                            key={dormitory.id}
+                            className="rounded-xl border border-ink/10 bg-paper px-4 py-3"
+                          >
+                            {dormitory.name && (
+                              <p className="mb-2 text-sm font-bold text-ink">
+                                {dormitory.name}
+                              </p>
+                            )}
+                            <div className="flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
+                              {dormitory.capacity != null && (
+                                <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                                  {dormitory.capacity.toLocaleString("mn-MN")}{" "}
+                                  ор
+                                </span>
+                              )}
+                              {dormitory.feePerYear != null && (
+                                <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                                  Жилийн төлбөр:{" "}
+                                  {formatFee(
+                                    dormitory.feePerYear,
+                                    dormitory.currency,
+                                  )}
+                                </span>
+                              )}
+                              {dormitory.feePerMonth != null && (
+                                <span className="rounded-full bg-ink/5 px-2.5 py-1">
+                                  Сарын төлбөр:{" "}
+                                  {formatFee(
+                                    dormitory.feePerMonth,
+                                    dormitory.currency,
+                                  )}
+                                </span>
+                              )}
+                            </div>
+                            {(dormitory.facilities ?? []).length > 0 && (
+                              <p className="mt-2 text-xs text-ink/60">
+                                {(dormitory.facilities ?? []).join(" · ")}
+                              </p>
+                            )}
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  </div>
+                    )}
+                    {school.dormGuide && (
+                      <DormGuideDetails guide={school.dormGuide} />
+                    )}
+                  </>
                 )}
+              </section>
 
-                {school.email && (
-                  <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
-                    <Mail className="mt-0.5 h-4 w-4 text-ink/40" />
-                    <div className="min-w-0">
-                      <p className="font-semibold text-ink">И-мэйл</p>
-                      <a
-                        href={`mailto:${school.email}`}
-                        className="mt-0.5 block break-all transition-colors hover:text-accent max-lg:tap-target"
+              {school.majors.length > 0 && (
+                <MajorScoreCheck
+                  majors={school.majors}
+                  faculties={school.faculties}
+                />
+              )}
+
+              {/* Admission schedule */}
+              <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+                <div className="flex items-center gap-2 text-ink">
+                  <CalendarDays className="h-5 w-5 text-accent" />
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Элсэлтийн хуанли
+                  </h2>
+                </div>
+                {school.admissionSchedules.length === 0 ? (
+                  <ComingSoon />
+                ) : (
+                  <ul className="mt-4 space-y-3 text-sm text-ink/80">
+                    {school.admissionSchedules.map((schedule) => (
+                      <li
+                        key={schedule.id}
+                        className="flex items-center justify-between gap-4 rounded-xl border border-ink/10 bg-paper px-4 py-3"
                       >
-                        {school.email}
-                      </a>
+                        <span className="font-semibold text-ink">
+                          {schedule.eventName}
+                        </span>
+                        <span className="text-xs font-medium text-ink/60">
+                          {formatDateRange(
+                            schedule.startDate,
+                            schedule.endDate,
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            </div>
+
+            {/* Sidebar Specs */}
+            <div className="md:col-span-4">
+              <div className="sticky top-28 space-y-4 rounded-2xl border border-ink/10 bg-card p-6">
+                <h3 className="text-base font-bold text-ink">
+                  Ерөнхий мэдээлэл
+                </h3>
+
+                <div className="space-y-4 pt-2 text-xs text-ink/80">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="mt-0.5 h-4 w-4 text-ink/40" />
+                    <div>
+                      <p className="font-semibold text-ink">Байршил</p>
+                      <p className="mt-0.5">
+                        {school.location ?? "Улаанбаатар хот"}
+                      </p>
                     </div>
                   </div>
-                )}
 
-                <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
-                  <Banknote className="mt-0.5 h-4 w-4 text-ink/40" />
-                  <div>
-                    <p className="font-semibold text-ink">Сургалтын төлбөр</p>
-                    <p className="mt-0.5">{formatSchoolTuition(school)}</p>
+                  {school.phones.length > 0 && (
+                    <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
+                      <Phone className="mt-0.5 h-4 w-4 text-ink/40" />
+                      <div>
+                        <p className="font-semibold text-ink">Утас</p>
+                        <ul className="mt-0.5 space-y-0.5">
+                          {school.phones.map((phone) => (
+                            <li key={phone} className="max-lg:relative">
+                              <a
+                                href={`tel:${phone.replace(/[^\d+]/g, "")}`}
+                                className="transition-colors hover:text-accent max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-px"
+                              >
+                                {phone}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {school.email && (
+                    <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
+                      <Mail className="mt-0.5 h-4 w-4 text-ink/40" />
+                      <div className="min-w-0">
+                        <p className="font-semibold text-ink">И-мэйл</p>
+                        <a
+                          href={`mailto:${school.email}`}
+                          className="mt-0.5 block break-all transition-colors hover:text-accent max-lg:tap-target"
+                        >
+                          {school.email}
+                        </a>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
+                    <Banknote className="mt-0.5 h-4 w-4 text-ink/40" />
+                    <div>
+                      <p className="font-semibold text-ink">Сургалтын төлбөр</p>
+                      <p className="mt-0.5">{formatSchoolTuition(school)}</p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
-                  <GraduationCap className="mt-0.5 h-4 w-4 text-ink/40" />
-                  <div>
-                    <p className="font-semibold text-ink">Дотуур байр</p>
-                    <p className="mt-0.5">{formatAvailability(school.dormAvailable)}</p>
+                  <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
+                    <GraduationCap className="mt-0.5 h-4 w-4 text-ink/40" />
+                    <div>
+                      <p className="font-semibold text-ink">Дотуур байр</p>
+                      <p className="mt-0.5">
+                        {formatAvailability(school.dormAvailable)}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
-                  <Users className="mt-0.5 h-4 w-4 text-ink/40" />
-                  <div>
-                    <p className="font-semibold text-ink">Тэтгэлэг</p>
-                    <p className="mt-0.5">
-                      {formatAvailability(school.scholarshipAvailable)}
-                    </p>
+                  <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
+                    <Users className="mt-0.5 h-4 w-4 text-ink/40" />
+                    <div>
+                      <p className="font-semibold text-ink">Тэтгэлэг</p>
+                      <p className="mt-0.5">
+                        {formatAvailability(school.scholarshipAvailable)}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <UniversityPreview school={school} />
+        )}
       </main>
 
       <Footer />

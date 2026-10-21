@@ -3,12 +3,10 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SearchExplorer } from "@/components/schools/SearchExplorer";
 import { SectionLabel } from "@/components/home/SectionLabel";
+import { PAGE_SEO } from "@/lib/seo";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Сургууль хайх — Oyutan MN",
-  description:
-    "Байршил, сургалтын төлбөр, дотуур байр, тэтгэлэг, ЭЕШ босго оноогоор Монголын их, дээд сургууль, мэргэжлийг шүүж хайгаарай.",
-};
+export const metadata: Metadata = pageMetadata(PAGE_SEO.schools);
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

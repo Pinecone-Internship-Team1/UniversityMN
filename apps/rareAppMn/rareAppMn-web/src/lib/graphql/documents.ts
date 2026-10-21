@@ -119,10 +119,31 @@ export interface SchoolsQueryResult {
   schools: SchoolPage;
 }
 
+/** Every university's id and date, for sitemap.xml. */
+export const SITEMAP_SCHOOLS_QUERY = /* GraphQL */ `
+  query SitemapSchools($filter: SchoolFilterInput) {
+    schools(filter: $filter) {
+      items {
+        id
+        createdAt
+      }
+      pageInfo {
+        totalCount
+        limit
+        offset
+        hasNextPage
+      }
+    }
+  }
+`;
+
+export type SitemapSchool = Pick<School, "id" | "createdAt">;
+
 export const SCHOOL_QUERY = /* GraphQL */ `
   query School($id: ID!) {
     school(id: $id) {
       ${SCHOOL_CARD_FIELDS}
+      aliases
       faculties {
         id
         schoolId
@@ -182,6 +203,7 @@ export interface SchoolQueryVariables {
 }
 
 export interface SchoolDetail extends School {
+  aliases: string[];
   faculties: Faculty[];
   majors: Major[];
   scholarships: Scholarship[];

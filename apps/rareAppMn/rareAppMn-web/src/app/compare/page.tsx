@@ -4,12 +4,10 @@ import { SectionLabel } from "@/components/home/SectionLabel";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { MAX_COMPARE_ITEMS, type CompareMode } from "@/lib/compare";
+import { PAGE_SEO } from "@/lib/seo";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Харьцуулах — Oyutan MN",
-  description:
-    "Их, дээд сургууль эсвэл мэргэжлүүдийг сургалтын төлбөр, ЭЕШ босго оноо, дотуур байр, тэтгэлгээр нь зэрэгцүүлэн харьцуулаарай.",
-};
+export const metadata: Metadata = pageMetadata(PAGE_SEO.compare);
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

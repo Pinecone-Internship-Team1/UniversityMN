@@ -15,13 +15,11 @@ import {
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { fetchAllSchools } from "@/lib/graphql/fetch-all-schools";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
+import { PAGE_SEO } from "@/lib/seo";
+import { pageMetadata } from "@/lib/site";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 
-export const metadata: Metadata = {
-  title: "Элсэлтийн хуанли — Oyutan MN",
-  description:
-    "Монголын их, дээд сургуулиудын элсэлтийн бүртгэл, шалгалт, үр дүнгийн хугацааг нэг хуанлиас.",
-};
+export const metadata: Metadata = pageMetadata(PAGE_SEO.admissions);
 
 type DirectorySchool = AdmissionDirectoryResult["schools"]["items"][number];
 type ScheduleStatus = "open" | "upcoming" | "ended" | "unknown";
