@@ -97,7 +97,7 @@ export function SchoolManager() {
                 setSearch(event.target.value);
                 setPage(1);
               }}
-              placeholder="Их, дээд сургууль хайх..."
+              placeholder="Хайх: muis, shutis, Хүрээ…"
               className="pl-11"
               aria-label="Их, дээд сургууль хайх"
             />

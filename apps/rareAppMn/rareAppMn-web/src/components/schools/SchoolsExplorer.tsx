@@ -87,7 +87,7 @@ export function SchoolsExplorer() {
           <Input
             value={filters.search}
             onChange={(event) => updateFilter("search", event.target.value)}
-            placeholder="Сургуулийн нэрээр хайх..."
+            placeholder="Хайх: muis, shutis, Хүрээ…"
             className="pl-11"
             aria-label="Сургуулийн нэрээр хайх"
           />

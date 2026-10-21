@@ -12,6 +12,8 @@ import {
   SIGN_UP_PATH,
 } from "@/lib/auth-routes";
 import { clerkAppearance, clerkLocalization } from "@/lib/clerk-ui";
+import { PAGE_SEO } from "@/lib/seo";
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
 import { LEGACY_THEME_STORAGE_KEY, THEME_STORAGE_KEY } from "@/lib/theme";
 import "./global.css";
 
@@ -29,11 +31,20 @@ const ptSans = PT_Sans({
   display: "swap",
 });
 
+// Pages without their own metadata (e.g. 404) fall back to the home page's
+// title and share card. No canonical here: each page sets its own.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oyutanmn.site"),
-  title: "Oyutan MN — Монголын их, дээд сургуулиудыг нэг дороос",
-  description:
-    "ЭЕШ оноо, мэргэжил, сургалтын төлбөр, тэтгэлэг болон бусад мэдээллээр өөрт тохирох сургуулиа олоорой.",
+  metadataBase: new URL(SITE_URL),
+  title: PAGE_SEO.home.title,
+  description: PAGE_SEO.home.description,
+  applicationName: SITE_NAME,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "mn_MN",
+    images: [OG_IMAGE],
+  },
+  twitter: { card: "summary_large_image", images: [OG_IMAGE] },
 };
 
 // Light by default, whatever the device's dark-mode setting; dark only when

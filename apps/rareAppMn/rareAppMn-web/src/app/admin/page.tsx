@@ -3,10 +3,11 @@ import { AdminDashboard } from "@/components/admin/AdminDashboard";
 import { SectionLabel } from "@/components/home/SectionLabel";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { PAGE_SEO } from "@/lib/seo";
+import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Админ самбар — Oyutan MN",
-  description: "Сургууль, мэргэжлийн мэдээлэл болон хэрэглэгчдийг удирдах.",
+  ...pageMetadata(PAGE_SEO.admin),
   robots: { index: false, follow: false },
 };
 

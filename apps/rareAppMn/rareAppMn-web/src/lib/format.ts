@@ -1,11 +1,15 @@
 import type { ScoreMatchVerdict } from "@/lib/graphql/types";
 
+/** A plain MNT amount in millions, to one decimal: 4_520_000 → "4.5". */
+export function formatMillions(amount: number): string {
+  const rounded = Math.round((amount / 1_000_000) * 10) / 10;
+  return rounded.toLocaleString("mn-MN");
+}
+
 /** Formats a tuition fee (plain MNT amount) as e.g. "4.5 сая ₮". */
 export function formatTuition(fee: number | null | undefined): string {
   if (fee == null) return "Мэдээлэл удахгүй нэмэгдэнэ";
-  const millions = fee / 1_000_000;
-  const rounded = Math.round(millions * 10) / 10;
-  return `${rounded.toLocaleString("mn-MN")} сая ₮`;
+  return `${formatMillions(fee)} сая ₮`;
 }
 
 /** A university's yearly tuition: its own text (e.g. a range) when set, else the formatted fee. */

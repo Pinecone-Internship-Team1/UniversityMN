@@ -17,6 +17,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { facultySearchText, majorSearchText } from '../src/lib/search.ts';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SERVICE = path.join(HERE, '..');
@@ -157,7 +158,7 @@ if (universityRows.length !== 1) {
 }
 const SCHOOL_ID = universityRows[0].id;
 const [schoolRow] = query(`SELECT * FROM schools WHERE id = ${lit(SCHOOL_ID)}`);
-const dbFaculties = query(`SELECT id, school_id, name, location FROM faculties WHERE school_id = ${lit(SCHOOL_ID)}`);
+const dbFaculties = query(`SELECT id, school_id, name, location, search_text FROM faculties WHERE school_id = ${lit(SCHOOL_ID)}`);
 const dbMajors = query(`SELECT * FROM majors WHERE school_id = ${lit(SCHOOL_ID)}`);
 const dbScholarships = query(`SELECT * FROM scholarships WHERE school_id = ${lit(SCHOOL_ID)}`);
 const dbDorms = query(`SELECT * FROM dormitories WHERE school_id = ${lit(SCHOOL_ID)}`);
@@ -180,6 +181,7 @@ const faculties = datasetSchools
       school_id: SCHOOL_ID,
       name: school.name_mn,
       location: school.location_mn,
+      search_text: facultySearchText(school.name_mn),
     },
   }));
 const facultyIdFor = new Map(faculties.map((f) => [f.dataset.id, f.row.id]));
@@ -214,6 +216,7 @@ const majors = programs.map((program) => {
       degree_type: degreeType(program),
       tuition_fee: fee,
       tuition_is_estimate: estimate,
+      search_text: majorSearchText(program.name_mn),
     },
   };
 });

@@ -1,9 +1,10 @@
 import { GraphQLError, GraphQLScalarType, Kind, type ValueNode } from 'graphql';
 import type { GraphQLContext } from '../../context';
 import type { Major, School, User } from '../../db/schema';
+import { matchesSearch, parseSearch } from '../../lib/search';
 import { notFound } from '../../lib/validate';
 import { mutations } from './mutations';
-import { queries } from './queries';
+import { queries, searchSchoolMajors } from './queries';
 
 function parseJsonLiteral(
   ast: ValueNode,
@@ -39,6 +40,12 @@ const JSONScalar = new GraphQLScalarType({
   parseValue: (value) => value,
   parseLiteral: parseJsonLiteral,
 });
+
+/** Keeps the rows whose name matches `search` (all of them when it's empty). */
+function filterByName<T extends { name: string }>(rows: T[], search: string | null | undefined): T[] {
+  const query = parseSearch(search);
+  return query ? rows.filter((row) => matchesSearch(query, row.name)) : rows;
+}
 
 async function resolveSchoolOrThrow(schoolId: string, context: GraphQLContext): Promise<School> {
   const school = await context.loaders.schoolById.load(schoolId);
@@ -87,6 +94,7 @@ export const resolvers = {
 
   School: {
     phones: (parent: School) => parent.phones ?? [],
+    aliases: (parent: School) => parent.aliases ?? [],
     dormGuide: (parent: School) => {
       const guide = parent.dormGuide;
       if (!guide) return null;
@@ -100,10 +108,13 @@ export const resolvers = {
         links: guide.links ?? [],
       };
     },
-    faculties: (parent: School, _args: unknown, context: GraphQLContext) =>
-      context.loaders.facultiesBySchoolId.load(parent.id),
-    majors: (parent: School, _args: unknown, context: GraphQLContext) =>
-      context.loaders.majorsBySchoolId.load(parent.id),
+    faculties: async (
+      parent: School,
+      args: { search?: string | null },
+      context: GraphQLContext
+    ) => filterByName(await context.loaders.facultiesBySchoolId.load(parent.id), args.search),
+    majors: (parent: School, args: { search?: string | null }, context: GraphQLContext) =>
+      searchSchoolMajors(context, parent.id, args.search),
     scholarships: (parent: School, _args: unknown, context: GraphQLContext) =>
       context.loaders.scholarshipsBySchoolId.load(parent.id),
     dormitories: (parent: School, _args: unknown, context: GraphQLContext) =>

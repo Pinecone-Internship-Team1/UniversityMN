@@ -12,7 +12,8 @@
     "service:db:migrate:local": "cd apps/rareAppMn/rareAppMn-service && wrangler d1 migrations apply rareapp-db --local",
     "service:db:migrate:remote": "cd apps/rareAppMn/rareAppMn-service && wrangler d1 migrations apply rareapp-db --remote",
     "service:db:seed:local": "cd apps/rareAppMn/rareAppMn-service && curl -sf -X POST http://localhost:8787/dev/seed | head -c 2000",
-    "web:dev": "cd apps/rareAppMn/rareAppMn-web && next dev"
+    "web:dev": "cd apps/rareAppMn/rareAppMn-web && next dev",
+    "web:deploy": "NX_LOAD_DOT_ENV_FILES=false nx run rareAppMn-web:deploy --skip-nx-cache"
   },
   "private": true,
   "dependencies": {

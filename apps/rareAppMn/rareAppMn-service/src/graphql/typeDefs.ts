@@ -57,11 +57,14 @@ export const typeDefs = /* GraphQL */ `
     "Contact phone numbers, in display order; empty when none are known."
     phones: [String!]!
     email: String
+    "Other names search finds it by: short names, slugs, English names (e.g. МУИС, muis, NUM)."
+    aliases: [String!]!
     "How to apply for the university's dorms; null when not known."
     dormGuide: DormGuide
-    "The university's schools (faculties), each holding its majors."
-    faculties: [Faculty!]!
-    majors: [Major!]!
+    "The university's schools (faculties), each holding its majors. search keeps the names that match it, like Query.majors."
+    faculties(search: String): [Faculty!]!
+    "search keeps the majors that match it, as Query.majors does, best match first."
+    majors(search: String): [Major!]!
     scholarships: [Scholarship!]!
     dormitories: [Dormitory!]!
     admissionSchedules: [AdmissionSchedule!]!
@@ -249,6 +252,8 @@ export const typeDefs = /* GraphQL */ `
     website: String
     phones: [String!]
     email: String
+    "Omitted keeps the current aliases; null or [] clears them."
+    aliases: [String!]
   }
 
   input FacultyInput {
@@ -286,6 +291,7 @@ export const typeDefs = /* GraphQL */ `
   }
 
   input SchoolFilterInput {
+    "Name, short name or alias, in Cyrillic or Latin letters (muis, МУИС, NUM, mongol ulsiin ih surguuli)."
     search: String
     location: String
     dormAvailable: Boolean
@@ -307,6 +313,7 @@ export const typeDefs = /* GraphQL */ `
     schoolId: ID
     category: String
     degreeType: String
+    "Major name and/or the university's short name, in Cyrillic or Latin letters (programm hangamj, muis huuli)."
     search: String
     minCutOffScore: Float
     maxCutOffScore: Float

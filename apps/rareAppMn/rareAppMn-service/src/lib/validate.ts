@@ -1,4 +1,5 @@
 import { GraphQLError } from 'graphql';
+import { cleanAliases } from './search';
 
 /**
  * Typed `GraphQLError` helpers used by every resolver so clients get a
@@ -52,6 +53,7 @@ export const MAX_LONG_TEXT_LENGTH = 10_000;
 export const MAX_SCORE_SUBJECTS = 50;
 export const MAX_REQUIRED_SUBJECTS = 20;
 export const MAX_PHONES = 10;
+export const MAX_ALIASES = 20;
 
 const MAX_URL_LENGTH = 2048;
 const MAX_EMAIL_LENGTH = 254;
@@ -120,6 +122,19 @@ export function parsePhoneList(value: string[] | null | undefined, field: string
     }
   }
   return phones.length > 0 ? phones : null;
+}
+
+/** A school's search aliases (short names, English names), trimmed and de-duplicated; null when there are none. */
+export function parseAliases(value: string[] | null | undefined): string[] | null {
+  if (value === null || value === undefined) return null;
+  const aliases = cleanAliases(value);
+  if (aliases.length > MAX_ALIASES) throw badInput(`aliases can contain at most ${MAX_ALIASES} names.`);
+  for (const alias of aliases) {
+    if (alias.length > MAX_SHORT_TEXT_LENGTH) {
+      throw badInput(`Each alias must be at most ${MAX_SHORT_TEXT_LENGTH} characters.`);
+    }
+  }
+  return aliases.length > 0 ? aliases : null;
 }
 
 const SELECTION_TYPES = new Set(['list', 'direct']);

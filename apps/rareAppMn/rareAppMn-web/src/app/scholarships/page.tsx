@@ -15,13 +15,11 @@ import {
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { fetchAllSchools } from "@/lib/graphql/fetch-all-schools";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
+import { PAGE_SEO } from "@/lib/seo";
+import { pageMetadata } from "@/lib/site";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 
-export const metadata: Metadata = {
-  title: "Тэтгэлэг — Oyutan MN",
-  description:
-    "Монголын их, дээд сургуулиудын тэтгэлэг, хамрах хүрээ, шаардлага болон бүртгэлийн эцсийн хугацааг нэг дороос.",
-};
+export const metadata: Metadata = pageMetadata(PAGE_SEO.scholarships);
 
 type DirectorySchool = ScholarshipDirectoryResult["schools"]["items"][number];
 

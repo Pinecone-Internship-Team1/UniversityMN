@@ -103,7 +103,7 @@ export function MajorsExplorer() {
           <Input
             value={filters.search}
             onChange={(event) => updateFilter("search", event.target.value)}
-            placeholder="Мэргэжлийн нэрээр хайх..."
+            placeholder="Хайх: muis, программ хангамж…"
             className="pl-11"
             aria-label="Мэргэжлийн нэрээр хайх"
           />

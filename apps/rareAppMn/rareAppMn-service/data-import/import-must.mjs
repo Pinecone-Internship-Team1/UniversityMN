@@ -13,6 +13,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { facultySearchText, majorSearchText } from '../src/lib/search.ts';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SERVICE = path.join(HERE, '..');
@@ -110,7 +111,7 @@ if (universityRows.length !== 1 || universityRows[0].id !== SCHOOL_ID) {
   throw new Error(`expected exactly one ШУТИС row with id ${SCHOOL_ID}, found ${JSON.stringify(universityRows)}`);
 }
 const [schoolRow] = query(`SELECT * FROM schools WHERE id = ${lit(SCHOOL_ID)}`);
-const dbFaculties = query(`SELECT id, school_id, name, location FROM faculties WHERE school_id = ${lit(SCHOOL_ID)}`);
+const dbFaculties = query(`SELECT id, school_id, name, location, search_text FROM faculties WHERE school_id = ${lit(SCHOOL_ID)}`);
 const dbMajors = query(`SELECT * FROM majors WHERE school_id = ${lit(SCHOOL_ID)}`);
 const dbScholarships = query(`SELECT * FROM scholarships WHERE school_id = ${lit(SCHOOL_ID)}`);
 const dbDorms = query(`SELECT * FROM dormitories WHERE school_id = ${lit(SCHOOL_ID)}`);
@@ -132,6 +133,7 @@ const faculties = datasetSchools
         school_id: SCHOOL_ID,
         name: school.name_mn,
         location: school.location_mn,
+        search_text: facultySearchText(school.name_mn),
       },
     };
   });
@@ -162,6 +164,7 @@ const majors = programs.map((program) => {
       degree_type: DEGREE_TYPE,
       tuition_fee: tuition,
       tuition_is_estimate: tuition != null,
+      search_text: majorSearchText(program.name_mn),
     },
   };
 });

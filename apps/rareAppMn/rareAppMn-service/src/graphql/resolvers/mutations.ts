@@ -14,6 +14,12 @@ import {
 } from '../../db/schema';
 import { clerkUserExistsIn, fetchClerkPrimaryEmail } from '../../lib/auth';
 import { isVisitorId, trackedPath, ulaanbaatarDay } from '../../lib/siteStats';
+import {
+  facultySearchText,
+  majorSearchText,
+  schoolSearchAliases,
+  schoolSearchText,
+} from '../../lib/search';
 import { upsertClerkUser } from '../../lib/userSync';
 import {
   MAX_LONG_TEXT_LENGTH,
@@ -27,6 +33,7 @@ import {
   optionalNonNegativeNumber,
   optionalText,
   optionalUrl,
+  parseAliases,
   parseEmail,
   parsePhoneList,
   parsePreferences,
@@ -56,6 +63,8 @@ export interface SchoolInput {
   website?: string | null;
   phones?: string[] | null;
   email?: string | null;
+  /** Omitted: keep the school's current aliases. */
+  aliases?: string[] | null;
 }
 
 export interface FacultyInput {
@@ -102,9 +111,12 @@ async function translateConstraintErrors<T>(
   }
 }
 
-function schoolValues(input: SchoolInput) {
+/** `currentAliases` are kept when the input leaves `aliases` out (older admin pages). */
+function schoolValues(input: SchoolInput, currentAliases: string[] | null = null) {
+  const name = requiredText(input.name, 'School name');
+  const aliases = input.aliases === undefined ? currentAliases : parseAliases(input.aliases);
   return {
-    name: requiredText(input.name, 'School name'),
+    name,
     logoUrl: optionalUrl(input.logoUrl, 'logoUrl'),
     coverUrl: optionalUrl(input.coverUrl, 'coverUrl'),
     location: optionalText(input.location, 'location'),
@@ -116,21 +128,28 @@ function schoolValues(input: SchoolInput) {
     website: optionalUrl(input.website, 'website'),
     phones: parsePhoneList(input.phones, 'phones'),
     email: optionalEmail(input.email, 'email'),
+    aliases,
+    searchText: schoolSearchText(name, aliases),
+    searchAliases: schoolSearchAliases(aliases),
   };
 }
 
 function facultyValues(input: FacultyInput) {
+  const name = requiredText(input.name, 'Faculty name');
   return {
     schoolId: input.schoolId,
-    name: requiredText(input.name, 'Faculty name'),
+    name,
     location: optionalText(input.location, 'location'),
+    searchText: facultySearchText(name),
   };
 }
 
 function majorValues(input: MajorInput) {
+  const name = requiredText(input.name, 'Major name');
   return {
     facultyId: input.facultyId,
-    name: requiredText(input.name, 'Major name'),
+    name,
+    searchText: majorSearchText(name),
     category: optionalText(input.category, 'category'),
     requiredSubjects: parseSubjectList(input.requiredSubjects, 'requiredSubjects'),
     primarySubjects: parseSubjectList(input.primarySubjects, 'primarySubjects'),
@@ -319,9 +338,11 @@ export const mutations = {
     context: GraphQLContext
   ) => {
     requireAdmin(context);
+    const current =
+      args.input.aliases === undefined ? await context.loaders.schoolById.load(args.id) : null;
     const [updated] = await context.db
       .update(schools)
-      .set(schoolValues(args.input))
+      .set(schoolValues(args.input, current?.aliases ?? null))
       .where(eq(schools.id, args.id))
       .returning();
     context.loaders.schoolById.clear(args.id);
@@ -372,7 +393,7 @@ export const mutations = {
     const [updated] = await translateConstraintErrors(
       context.db
         .update(faculties)
-        .set({ name: values.name, location: values.location })
+        .set({ name: values.name, location: values.location, searchText: values.searchText })
         .where(eq(faculties.id, args.id))
         .returning(),
       { unique: duplicateFaculty() }
