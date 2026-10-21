@@ -126,7 +126,7 @@ function liveSchool(id: string): SchoolSeoInput {
 
 describe("fixed pages", () => {
   test("titles carry our name in both alphabets and stay short", () => {
-    for (const [key, page] of Object.entries(PAGE_SEO)) {
+    for (const page of Object.values(PAGE_SEO)) {
       expect(page.title).toContain("Oyutan MN");
       expect(page.title).toContain("Оюутан MN");
       expect(page.title.length).toBeLessThanOrEqual(MAX_TITLE_LENGTH);
@@ -277,6 +277,9 @@ describe("JSON-LD", () => {
       alternateName: ["Оюутан MN", "oyutanmn"],
       url: "https://oyutanmn.site/",
     });
-    expect(graph[1]).toMatchObject({ logo: "https://oyutanmn.site/brand/oyutan-icon.png" });
+    expect(graph[1]).toMatchObject({
+      logo: "https://oyutanmn.site/brand/oyutan-icon.png",
+      sameAs: ["https://www.instagram.com/oyutan_mn/"],
+    });
   });
 });
