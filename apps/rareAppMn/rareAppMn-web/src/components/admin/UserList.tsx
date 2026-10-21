@@ -128,8 +128,8 @@ export function UserList() {
               }}
               className={
                 role === option.value
-                  ? "rounded-full bg-card px-3.5 py-1.5 text-xs font-semibold text-ink shadow-sm"
-                  : "rounded-full px-3.5 py-1.5 text-xs font-semibold text-ink/60 hover:text-ink"
+                  ? "rounded-full bg-card px-3.5 py-1.5 text-xs font-semibold text-ink shadow-sm max-lg:tap-target"
+                  : "rounded-full px-3.5 py-1.5 text-xs font-semibold text-ink/60 hover:text-ink max-lg:tap-target"
               }
             >
               {option.label}
@@ -210,7 +210,7 @@ export function UserList() {
                 onClick={() => setPage((current) => Math.max(1, current - 1))}
                 disabled={page <= 1}
                 aria-label="Өмнөх хуудас"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -222,7 +222,7 @@ export function UserList() {
                 onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
                 disabled={page >= totalPages}
                 aria-label="Дараагийн хуудас"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>

@@ -116,7 +116,7 @@ export function AdminDashboard() {
               type="button"
               onClick={() => setTab(item.id)}
               className={cn(
-                "flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200",
+                "flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 max-lg:py-3.5",
                 active ? "bg-ink text-paper" : "text-ink/60 hover:text-ink",
               )}
             >

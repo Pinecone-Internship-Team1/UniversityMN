@@ -162,7 +162,7 @@ function CompareTable<T extends { id: string }>({
       <table className="w-full min-w-[560px] border-collapse text-left text-sm">
         <thead>
           <tr className="border-b border-ink/10">
-            <th className="w-40 p-4 text-[11px] font-bold uppercase tracking-wider text-ink/50">
+            <th className="sticky left-0 z-10 w-40 bg-card p-4 text-[11px] font-bold uppercase tracking-wider text-ink/50 lg:static lg:z-auto lg:bg-transparent">
               Үзүүлэлт
             </th>
             {items.map((item) => (
@@ -173,7 +173,7 @@ function CompareTable<T extends { id: string }>({
                     type="button"
                     onClick={() => onRemove(item.id)}
                     aria-label="Харьцуулалтаас хасах"
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive"
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>
@@ -185,7 +185,9 @@ function CompareTable<T extends { id: string }>({
         <tbody>
           {rows.map((row) => (
             <tr key={row.label} className="border-b border-ink/10 last:border-b-0">
-              <th className="p-4 text-xs font-semibold text-ink/60">{row.label}</th>
+              <th className="sticky left-0 z-10 bg-card p-4 text-xs font-semibold text-ink/60 lg:static lg:z-auto lg:bg-transparent">
+                {row.label}
+              </th>
               {items.map((item) => (
                 <td key={item.id} className="p-4 text-xs text-ink/80">
                   {row.render(item)}
@@ -294,7 +296,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                 update({ mode: tab.id, ids: [] });
               }}
               className={cn(
-                "flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200",
+                "flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 max-lg:tap-target",
                 active ? "bg-ink text-paper" : "text-ink/60 hover:text-ink",
               )}
             >
@@ -356,7 +358,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                         onClick={() =>
                           update({ mode: selection.mode, ids: [...selection.ids, result.id] })
                         }
-                        className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-ink/20 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-40"
+                        className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-ink/20 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-ink transition-colors max-lg:tap-target hover:border-ink hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-40"
                       >
                         <Plus className="h-3 w-3" />
                         {selected ? "Нэмэгдсэн" : "Нэмэх"}
@@ -397,7 +399,10 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                 rows={SCHOOL_ROWS}
                 onRemove={remove}
                 title={(school) => (
-                  <Link href={universityHref(school)} className="hover:text-accent">
+                  <Link
+                    href={universityHref(school)}
+                    className="hover:text-accent max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-[13px]"
+                  >
                     {schoolShortName(school)}
                   </Link>
                 )}

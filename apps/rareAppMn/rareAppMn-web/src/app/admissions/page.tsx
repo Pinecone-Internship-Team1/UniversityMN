@@ -115,7 +115,7 @@ export default async function AdmissionsPage() {
                       <p className="text-sm font-bold text-ink">{schedule.eventName}</p>
                       <Link
                         href={`/university/${getUniversitySlug(school.id) ?? school.id}`}
-                        className="mt-1 inline-block text-xs font-semibold text-ink/60 transition-colors hover:text-accent"
+                        className="mt-1 inline-block text-xs font-semibold text-ink/60 transition-colors hover:text-accent max-lg:tap-target"
                       >
                         {university?.short ?? school.name}
                         {school.location ? ` · ${school.location}` : ""}

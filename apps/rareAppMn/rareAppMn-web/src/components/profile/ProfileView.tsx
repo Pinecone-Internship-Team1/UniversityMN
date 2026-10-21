@@ -408,7 +408,7 @@ export function ProfileView() {
           </p>
           <Link
             href={ACCOUNT_SETTINGS_PATH}
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-ink/70 transition-colors hover:text-accent"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-ink/70 transition-colors hover:text-accent max-lg:tap-target"
           >
             <Settings className="h-3.5 w-3.5" />
             Бүртгэлийн тохиргоо
@@ -459,7 +459,7 @@ export function ProfileView() {
                     )
                   }
                   aria-label="Мөр хасах"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -469,7 +469,7 @@ export function ProfileView() {
           <button
             type="button"
             onClick={() => setScoreRows((rows) => [...rows, createScoreRow()])}
-            className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-ink/60 transition-colors hover:text-accent"
+            className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-ink/60 transition-colors hover:text-accent max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-top-3 max-lg:after:-bottom-4"
           >
             <Plus className="h-3.5 w-3.5" />
             Хичээл нэмэх

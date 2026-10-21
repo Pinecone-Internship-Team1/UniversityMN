@@ -353,7 +353,7 @@ function MajorForm({
             placeholder="жишээ: 4800000"
           />
         </label>
-        <label className="flex items-center gap-2 text-xs font-semibold text-ink/70 sm:col-span-2">
+        <label className="flex items-center gap-2 text-xs font-semibold text-ink/70 max-lg:tap-target sm:col-span-2">
           <input
             type="checkbox"
             checked={values.tuitionIsEstimate}

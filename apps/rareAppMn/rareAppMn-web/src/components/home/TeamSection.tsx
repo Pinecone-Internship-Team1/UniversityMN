@@ -161,7 +161,7 @@ export function TeamSection() {
                         href={member.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="rounded-full p-2 text-ink/60 transition-all duration-300 hover:bg-accent/10 hover:text-accent hover:scale-110"
+                        className="rounded-full p-2 text-ink/60 transition-all duration-300 hover:bg-accent/10 hover:text-accent hover:scale-110 max-lg:tap-target"
                       >
                         <FaGithub className="h-4 w-4" />
                       </Link>

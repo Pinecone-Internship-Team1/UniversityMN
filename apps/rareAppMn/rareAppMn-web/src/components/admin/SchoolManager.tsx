@@ -86,7 +86,7 @@ export function SchoolManager() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-12">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
       <aside className="space-y-3 lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
         <div className="flex gap-2">
           <div className="relative flex-1">
@@ -155,7 +155,7 @@ export function SchoolManager() {
                   onClick={() => setPage((current) => Math.max(1, current - 1))}
                   disabled={page <= 1}
                   aria-label="Өмнөх хуудас"
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
@@ -167,7 +167,7 @@ export function SchoolManager() {
                   onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
                   disabled={page >= totalPages}
                   aria-label="Дараагийн хуудас"
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>
@@ -207,7 +207,7 @@ export function SchoolManager() {
               <div className="flex shrink-0 items-center gap-1">
                 <Link
                   href={`/university/${getUniversitySlug(selected.id) ?? selected.id}`}
-                  className="inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[11px] font-bold uppercase tracking-wider text-ink/60 transition-colors hover:bg-ink/[0.06] hover:text-ink"
+                  className="inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[11px] font-bold uppercase tracking-wider text-ink/60 transition-colors max-lg:tap-target hover:bg-ink/[0.06] hover:text-ink"
                 >
                   <ExternalLink className="h-3.5 w-3.5" />
                   Хуудас
@@ -247,7 +247,7 @@ export function SchoolManager() {
                     aria-selected={active}
                     onClick={() => setPanelTab(tab.id)}
                     className={cn(
-                      "-mb-px border-b-2 px-3 py-2.5 text-[11px] font-bold uppercase tracking-wider transition-colors",
+                      "-mb-px border-b-2 px-3 py-2.5 text-[11px] font-bold uppercase tracking-wider transition-colors max-lg:tap-target",
                       active
                         ? "border-accent text-ink"
                         : "border-transparent text-ink/50 hover:text-ink",

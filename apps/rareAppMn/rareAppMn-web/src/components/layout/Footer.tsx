@@ -23,7 +23,10 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand & Description */}
           <div className="lg:col-span-5">
-            <Link href="/#top" className="inline-flex items-center">
+            <Link
+              href="/#top"
+              className="inline-flex items-center max-lg:tap-target"
+            >
               <Logo className="h-6" />
             </Link>
             <p className="mt-3 max-w-xs text-xs leading-relaxed text-ink/70 sm:text-sm">
@@ -43,10 +46,10 @@ export function Footer() {
             </p>
             <ul className="mt-4 flex flex-col gap-2.5">
               {FOOTER_NAV_LINKS.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="max-lg:relative">
                   <Link
                     href={link.href}
-                    className="inline-block text-xs font-medium text-ink/70 transition-all duration-200 hover:translate-x-1 hover:text-accent sm:text-sm"
+                    className="inline-block text-xs font-medium text-ink/70 transition-all duration-200 hover:translate-x-1 hover:text-accent max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-[5px] sm:text-sm"
                   >
                     {link.label}
                   </Link>
@@ -62,10 +65,10 @@ export function Footer() {
             </p>
             <ul className="mt-4 flex flex-col gap-2.5">
               {FOOTER_INFO_LINKS.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="max-lg:relative">
                   <Link
                     href={link.href}
-                    className="inline-block text-xs font-medium text-ink/70 transition-all duration-200 hover:translate-x-1 hover:text-accent sm:text-sm"
+                    className="inline-block text-xs font-medium text-ink/70 transition-all duration-200 hover:translate-x-1 hover:text-accent max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-[5px] sm:text-sm"
                   >
                     {link.label}
                   </Link>

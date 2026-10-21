@@ -29,7 +29,7 @@ export function SearchExplorer({ mode }: { mode: SearchMode }) {
               scroll={false}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200",
+                "flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 max-lg:tap-target",
                 active
                   ? "bg-ink text-paper"
                   : "text-ink/60 hover:text-ink",

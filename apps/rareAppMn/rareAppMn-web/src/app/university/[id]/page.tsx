@@ -81,7 +81,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
         {/* Back Link */}
         <Link
           href="/#discovery"
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-ink/60 transition-colors hover:text-accent"
+          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-ink/60 transition-colors hover:text-accent max-lg:tap-target"
         >
           <ArrowLeft className="h-4 w-4" />
           Буцах
@@ -143,7 +143,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
             />
             <Link
               href={compareHref("schools", [school.id])}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-ink transition-all hover:border-ink hover:bg-ink hover:text-paper"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-ink transition-all hover:border-ink hover:bg-ink hover:text-paper max-lg:tap-target"
             >
               <Scale className="h-4 w-4" />
               Харьцуулах
@@ -153,7 +153,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                 href={school.website}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold uppercase tracking-wider text-paper transition-all hover:bg-accent"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold uppercase tracking-wider text-paper transition-all hover:bg-accent max-lg:tap-target"
               >
                 <Globe className="h-4 w-4" />
                 Албан ёсны сайт
@@ -333,10 +333,10 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                       <p className="font-semibold text-ink">Утас</p>
                       <ul className="mt-0.5 space-y-0.5">
                         {school.phones.map((phone) => (
-                          <li key={phone}>
+                          <li key={phone} className="max-lg:relative">
                             <a
                               href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-                              className="transition-colors hover:text-accent"
+                              className="transition-colors hover:text-accent max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-px"
                             >
                               {phone}
                             </a>
@@ -354,7 +354,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                       <p className="font-semibold text-ink">И-мэйл</p>
                       <a
                         href={`mailto:${school.email}`}
-                        className="mt-0.5 block break-all transition-colors hover:text-accent"
+                        className="mt-0.5 block break-all transition-colors hover:text-accent max-lg:tap-target"
                       >
                         {school.email}
                       </a>

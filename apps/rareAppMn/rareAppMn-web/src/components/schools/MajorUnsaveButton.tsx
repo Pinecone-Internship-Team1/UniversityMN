@@ -46,7 +46,7 @@ export function MajorUnsaveButton({
         }
       }}
       aria-label="Хадгалснаас хасах"
-      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive disabled:cursor-not-allowed disabled:opacity-50"
+      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive disabled:cursor-not-allowed disabled:opacity-50 max-lg:tap-target"
     >
       <X className="h-3.5 w-3.5" />
     </button>

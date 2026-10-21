@@ -52,7 +52,7 @@ export function Navbar() {
         {/* Logo */}
         <Link
           href="/#top"
-          className="flex shrink-0 items-center transition-opacity hover:opacity-90"
+          className="flex shrink-0 items-center transition-opacity hover:opacity-90 max-lg:tap-target"
         >
           <Logo eager className="h-5" />
         </Link>
@@ -119,7 +119,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Цэсийг хаах" : "Цэсийг нээх"}
             aria-expanded={open}
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-ink/80 transition-colors hover:bg-ink/[0.04] hover:text-ink"
+            className="relative flex h-10 w-10 items-center justify-center rounded-lg text-ink/80 transition-colors after:absolute after:-inset-y-0.5 after:left-0 after:-right-1 hover:bg-ink/[0.04] hover:text-ink"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -139,7 +139,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-md px-3 py-2 text-[14px] font-semibold tracking-wide text-ink/80 transition-colors hover:bg-ink/[0.03] hover:text-ink"
+              className="relative rounded-md px-3 py-2 text-[14px] font-semibold tracking-wide text-ink/80 transition-colors after:absolute after:inset-x-0 after:-inset-y-0.5 hover:bg-ink/[0.03] hover:text-ink"
             >
               {link.label}
             </Link>
@@ -149,7 +149,7 @@ export function Navbar() {
             <Link
               href="/schools"
               onClick={() => setOpen(false)}
-              className="flex items-center justify-center gap-2 rounded-lg border border-ink/15 px-4 py-2.5 text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-ink/[0.03]"
+              className="flex items-center justify-center gap-2 rounded-lg border border-ink/15 px-4 py-2.5 text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors tap-target hover:bg-ink/[0.03]"
             >
               <Search className="h-4 w-4" strokeWidth={2} />
               Сургууль хайх
@@ -167,14 +167,14 @@ export function Navbar() {
                 <Link
                   href={SIGN_IN_PATH}
                   onClick={() => setOpen(false)}
-                  className="w-full rounded-lg border border-ink/15 px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors hover:bg-ink/[0.03]"
+                  className="w-full rounded-lg border border-ink/15 px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-ink transition-colors tap-target hover:bg-ink/[0.03]"
                 >
                   Нэвтрэх
                 </Link>
                 <Link
                   href={SIGN_UP_PATH}
                   onClick={() => setOpen(false)}
-                  className="w-full rounded-lg bg-ink px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-paper transition-opacity hover:opacity-95"
+                  className="w-full rounded-lg bg-ink px-4 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-paper transition-opacity tap-target hover:opacity-95"
                 >
                   Бүртгүүлэх
                 </Link>

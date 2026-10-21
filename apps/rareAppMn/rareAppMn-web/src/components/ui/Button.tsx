@@ -32,7 +32,7 @@ export function buttonClassName({
   className,
 }: ButtonVariantProps & { className?: string }) {
   return cn(
-    "inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full font-semibold uppercase tracking-wider transition-all duration-200 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50",
+    "inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-full font-semibold uppercase tracking-wider transition-all duration-200 active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 max-lg:tap-target",
     VARIANT_CLASSES[variant],
     SIZE_CLASSES[size],
     className,

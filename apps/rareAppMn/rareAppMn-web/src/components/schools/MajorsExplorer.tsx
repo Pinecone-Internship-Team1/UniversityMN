@@ -112,7 +112,7 @@ export function MajorsExplorer() {
           type="button"
           onClick={() => setFiltersOpen((open) => !open)}
           className={cn(
-            "inline-flex items-center justify-center gap-2 rounded-xl border px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors sm:w-auto",
+            "inline-flex items-center justify-center gap-2 rounded-xl border px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors max-lg:tap-target sm:w-auto",
             filtersOpen || hasActiveFilters
               ? "border-accent bg-accent-soft text-accent"
               : "border-ink/15 text-ink hover:border-ink",
@@ -238,7 +238,7 @@ export function MajorsExplorer() {
                   onClick={() => setPage((current) => Math.max(1, current - 1))}
                   disabled={page <= 1}
                   aria-label="Өмнөх хуудас"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink/[0.04] disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink/[0.04] disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
@@ -250,7 +250,7 @@ export function MajorsExplorer() {
                   onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
                   disabled={page >= totalPages}
                   aria-label="Дараагийн хуудас"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink/[0.04] disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink/[0.04] disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
                 >
                   <ChevronRight className="h-4 w-4" />
                 </button>

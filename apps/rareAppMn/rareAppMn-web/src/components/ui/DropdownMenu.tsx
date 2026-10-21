@@ -50,7 +50,7 @@ export function DropdownMenu({ items, label = "Үйлдлүүд", className }: D
         aria-expanded={open}
         onClick={() => setOpen((current) => !current)}
         className={cn(
-          "flex h-8 w-8 items-center justify-center rounded-full text-ink/50 transition-colors hover:bg-ink/[0.06] hover:text-ink",
+          "flex h-8 w-8 items-center justify-center rounded-full text-ink/50 transition-colors hover:bg-ink/[0.06] hover:text-ink max-lg:relative max-lg:after:absolute max-lg:after:-inset-y-1.5 max-lg:after:-left-1 max-lg:after:-right-2",
           open && "bg-ink/[0.06] text-ink",
         )}
       >
@@ -74,7 +74,7 @@ export function DropdownMenu({ items, label = "Үйлдлүүд", className }: D
                   item.onSelect();
                 }}
                 className={cn(
-                  "flex w-full items-center gap-2.5 px-3.5 py-2 text-left text-xs font-semibold transition-colors hover:bg-ink/[0.05] disabled:pointer-events-none disabled:opacity-50",
+                  "flex w-full items-center gap-2.5 px-3.5 py-2 text-left text-xs font-semibold transition-colors hover:bg-ink/[0.05] disabled:pointer-events-none disabled:opacity-50 max-lg:min-h-11",
                   item.destructive ? "text-destructive" : "text-ink/80",
                 )}
               >

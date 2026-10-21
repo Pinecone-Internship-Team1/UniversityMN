@@ -93,7 +93,7 @@ export function MajorBookmarkButton({
       aria-label={saved ? "Хадгалсан мэргэжлээс хасах" : "Мэргэжлийг хадгалах"}
       disabled={fetching}
       className={cn(
-        "flex shrink-0 items-center justify-center rounded-full border transition-all duration-200 active:scale-90 disabled:cursor-not-allowed disabled:opacity-60",
+        "flex shrink-0 items-center justify-center rounded-full border transition-all duration-200 active:scale-90 disabled:cursor-not-allowed disabled:opacity-60 max-lg:tap-target",
         DIMENSION_CLASSES[size],
         saved
           ? "border-accent bg-accent text-paper"
