@@ -2,8 +2,9 @@ import { and, count, countDistinct, desc, eq, gte, inArray, lte, or, sql, type S
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type { GraphQLContext } from '../../context';
 import { requireAdmin, requireUser } from '../../context';
-import { majors, pageViews, schools, users, type Major, type School } from '../../db/schema';
+import { faculties, majors, pageViews, schools, users, type Major, type School } from '../../db/schema';
 import { MAX_SCORE_SUBJECTS, badInput, isPlainObject, notFound, parseScores } from '../../lib/validate';
+import { foldSearchText, parseSearch, type SearchQuery } from '../../lib/search';
 import { hasRelevantScores, scoreMajorMatch } from '../../lib/scoreMatch';
 import { clampStatsDays, dayRange, ulaanbaatarDay } from '../../lib/siteStats';
 
@@ -67,6 +68,130 @@ function containsText(column: SQLiteColumn, value: string | null | undefined): S
   if (!term) return undefined;
   const patterns = new Set(caseVariants(term).map((variant) => `%${escapeLikeTerm(variant)}%`));
   return or(...[...patterns].map((pattern) => sql`${column} like ${pattern} escape '\\'`));
+}
+
+/**
+ * Folded search text (src/lib/search.ts) is plain lowercase ASCII words, so it
+ * never holds a LIKE wildcard; the phrase is cut to the same byte budget.
+ */
+function foldedPhrase(search: SearchQuery): string {
+  return search.folded.slice(0, MAX_LIKE_TERM_BYTES);
+}
+
+/** Rows with every folded word of one reading of the search, e.g. `programm hangamj`. */
+function hasFoldedWords(search: SearchQuery, wordMatches: (word: string) => SQL | undefined): SQL {
+  return or(...search.readings.map((words) => and(...words.map(wordMatches)))) ?? sql`0`;
+}
+
+/** Majors of the universities that have this folded alias (МУИС → `muis`). */
+function majorOfSchoolWithAlias(alias: string): SQL {
+  return sql`${majors.schoolId} in (select ${schools.id} from ${schools} where ${schools.searchAliases} like ${`%|${alias}|%`})`;
+}
+
+/**
+ * Cyrillic: the name contains the text, as before, or the text is one of the
+ * university's aliases (МУИС). Latin: every typed word is in the folded name
+ * or aliases ("muis", "mongol ulsiin ih surguuli").
+ */
+function schoolSearchCondition(search: SearchQuery | null): SQL | undefined {
+  if (!search) return undefined;
+  if (search.cyrillic) {
+    const phrase = foldedPhrase(search);
+    return or(
+      containsText(schools.name, search.text),
+      phrase ? sql`${schools.searchAliases} like ${`%|${phrase}|%`}` : undefined
+    );
+  }
+  return hasFoldedWords(search, (word) => sql`${schools.searchText} like ${`%${word}%`}`);
+}
+
+/** Exact alias first, then an alias that starts with the text, then a name word that does. */
+function schoolSearchRank(search: SearchQuery): SQL {
+  const phrase = foldedPhrase(search);
+  return sql`case
+    when ${schools.searchAliases} like ${`%|${phrase}|%`} then 0
+    when ${schools.searchAliases} like ${`%|${phrase}%`} then 1
+    when ' ' || ${schools.searchText} like ${`% ${phrase}%`} then 2
+    else 3 end`;
+}
+
+/** Majors in a faculty whose folded name has this word ("huuli" → Хууль зүйн сургууль). */
+function majorInFacultyWith(word: string): SQL {
+  return sql`${majors.facultyId} in (select ${faculties.id} from ${faculties} where ${faculties.searchText} like ${`%${word}%`})`;
+}
+
+/**
+ * Cyrillic: the name contains the text, as before, or one word is a
+ * university's alias and the name contains the rest ("МУИС программ"). Latin:
+ * every typed word is in the folded name, in the faculty's name, or is the
+ * university's alias ("programm hangamj", "huuli", "muis programm").
+ */
+function majorSearchCondition(search: SearchQuery | null): SQL | undefined {
+  if (!search) return undefined;
+  if (search.cyrillic) {
+    const words = search.text.split(/\s+/).slice(0, 5);
+    return or(
+      containsText(majors.name, search.text),
+      ...words.map((word, index) => {
+        const alias = foldSearchText(word).slice(0, MAX_LIKE_TERM_BYTES);
+        if (!alias) return undefined;
+        const rest = words.filter((_word, other) => other !== index).join(' ');
+        return and(majorOfSchoolWithAlias(alias), containsText(majors.name, rest));
+      })
+    );
+  }
+  return hasFoldedWords(search, (word) =>
+    or(sql`${majors.searchText} like ${`%${word}%`}`, majorInFacultyWith(word), majorOfSchoolWithAlias(word))
+  );
+}
+
+/**
+ * For a Cyrillic search no major name matches: majors whose faculty name has
+ * the text ("хууль" → Хууль зүйн сургууль's "Эрх зүй"). Searches that match
+ * names keep exactly their old results.
+ */
+function majorFacultyFallback(search: SearchQuery): SQL | undefined {
+  const facultyName = containsText(faculties.name, search.text);
+  return facultyName
+    ? sql`${majors.facultyId} in (select ${faculties.id} from ${faculties} where ${facultyName})`
+    : undefined;
+}
+
+/**
+ * The exact name first, then the university's majors when the text is its
+ * alias, then names that start with it, then names that have it; majors found
+ * only by their faculty's name come last.
+ */
+function majorSearchRank(search: SearchQuery): SQL {
+  const phrase = foldedPhrase(search);
+  return sql`case
+    when ${majors.searchText} = ${phrase} then 0
+    when ${majorOfSchoolWithAlias(phrase)} then 1
+    when ' ' || ${majors.searchText} like ${`% ${phrase}%`} then 2
+    when ${majors.searchText} like ${`%${phrase}%`} then 3
+    else 4 end`;
+}
+
+/**
+ * A university's majors matching `value` the way `Query.majors` matches them,
+ * best first; all of them (unsorted) when `value` is empty.
+ */
+export async function searchSchoolMajors(
+  context: GraphQLContext,
+  schoolId: string,
+  value: string | null | undefined
+): Promise<Major[]> {
+  const search = parseSearch(value);
+  if (!search) return context.loaders.majorsBySchoolId.load(schoolId);
+  const find = (condition: SQL | undefined) =>
+    context.db
+      .select()
+      .from(majors)
+      .where(and(eq(majors.schoolId, schoolId), condition))
+      .orderBy(majorSearchRank(search), sql`${majors}.rowid`);
+  const rows = await find(majorSearchCondition(search));
+  const fallback = search.cyrillic && rows.length === 0 ? majorFacultyFallback(search) : undefined;
+  return fallback ? find(fallback) : rows;
 }
 
 function equalsText(column: SQLiteColumn, value: string | null | undefined): SQL | undefined {
@@ -225,9 +350,10 @@ export const queries = {
   ) => {
     const filter = args.filter ?? {};
     const { limit, offset } = clampPagination(filter);
+    const search = parseSearch(filter.search);
 
     const conditions: (SQL | undefined)[] = [
-      containsText(schools.name, filter.search),
+      schoolSearchCondition(search),
       containsText(schools.location, filter.location),
     ];
     if (typeof filter.dormAvailable === 'boolean') {
@@ -246,7 +372,7 @@ export const queries = {
         .select()
         .from(schools)
         .where(whereClause)
-        .orderBy(sql`${schools}.rowid`)
+        .orderBy(...(search ? [schoolSearchRank(search)] : []), sql`${schools}.rowid`)
         .limit(limit)
         .offset(offset),
       context.db.select({ value: count() }).from(schools).where(whereClause),
@@ -270,11 +396,11 @@ export const queries = {
   ) => {
     const filter = args.filter ?? {};
     const { limit, offset } = clampPagination(filter);
+    const search = parseSearch(filter.search);
 
     const conditions: (SQL | undefined)[] = [
       equalsText(majors.category, filter.category),
       equalsText(majors.degreeType, filter.degreeType),
-      containsText(majors.name, filter.search),
     ];
     if (filter.schoolId) conditions.push(eq(majors.schoolId, filter.schoolId));
     if (typeof filter.minCutOffScore === 'number') {
@@ -283,19 +409,27 @@ export const queries = {
     if (typeof filter.maxCutOffScore === 'number') {
       conditions.push(lte(majors.cutOffScore, filter.maxCutOffScore));
     }
-    const whereClause = and(...conditions);
 
-    const [items, totalRows] = await context.db.batch([
-      context.db
-        .select()
-        .from(majors)
-        .where(whereClause)
-        .orderBy(sql`${majors}.rowid`)
-        .limit(limit)
-        .offset(offset),
-      context.db.select({ value: count() }).from(majors).where(whereClause),
-    ]);
-    const totalCount = totalRows[0]?.value ?? 0;
+    const page = async (searchCondition: SQL | undefined) => {
+      const whereClause = and(...conditions, searchCondition);
+      const [items, totalRows] = await context.db.batch([
+        context.db
+          .select()
+          .from(majors)
+          .where(whereClause)
+          .orderBy(...(search ? [majorSearchRank(search)] : []), sql`${majors}.rowid`)
+          .limit(limit)
+          .offset(offset),
+        context.db.select({ value: count() }).from(majors).where(whereClause),
+      ]);
+      return { items, totalCount: totalRows[0]?.value ?? 0 };
+    };
+
+    let { items, totalCount } = await page(majorSearchCondition(search));
+    if (search?.cyrillic && totalCount === 0) {
+      const fallback = majorFacultyFallback(search);
+      if (fallback) ({ items, totalCount } = await page(fallback));
+    }
 
     return {
       items,

@@ -74,6 +74,28 @@ export function parseOptionalEmail(raw: string, label: string): ValidationResult
   return valid(value);
 }
 
+export const MAX_ALIASES = 20;
+
+/** Comma-separated search names (МУИС, muis, NUM), trimmed and de-duplicated. */
+export function parseAliasList(raw: string): ValidationResult<string[]> {
+  const seen = new Set<string>();
+  const aliases: string[] = [];
+  for (const part of raw.split(",")) {
+    const alias = part.trim();
+    if (!alias || seen.has(alias.toLowerCase())) continue;
+    seen.add(alias.toLowerCase());
+    aliases.push(alias);
+  }
+  if (aliases.length > MAX_ALIASES) {
+    return invalid(`Хамгийн ихдээ ${MAX_ALIASES} хайлтын нэр оруулах боломжтой.`);
+  }
+  const tooLong = aliases.find((alias) => alias.length > MAX_SHORT_TEXT_LENGTH);
+  if (tooLong) {
+    return invalid(`"${tooLong.slice(0, 30)}…" хэт урт байна (${MAX_SHORT_TEXT_LENGTH} тэмдэгтээс ихгүй).`);
+  }
+  return valid(aliases);
+}
+
 /** Trimmed, de-duplicated phone numbers (6-15 digits each); blank rows are ignored. */
 export function parsePhoneList(raw: string[]): ValidationResult<string[]> {
   const phones = [...new Set(raw.map((phone) => phone.trim()).filter(Boolean))];

@@ -23,6 +23,7 @@ import type { SchoolInput } from "@/lib/graphql/types";
 import {
   MAX_LONG_TEXT_LENGTH,
   MAX_PHONES,
+  parseAliasList,
   parseOptionalEmail,
   parseOptionalNumber,
   parseOptionalText,
@@ -58,6 +59,8 @@ interface SchoolFormValues {
   overview: string;
   dormAvailable: Availability;
   scholarshipAvailable: Availability;
+  /** Comma-separated. */
+  aliases: string;
 }
 
 function toFormValues(school: AdminSchool | null): SchoolFormValues {
@@ -74,6 +77,7 @@ function toFormValues(school: AdminSchool | null): SchoolFormValues {
     overview: school?.overview ?? "",
     dormAvailable: toAvailability(school?.dormAvailable),
     scholarshipAvailable: toAvailability(school?.scholarshipAvailable),
+    aliases: school?.aliases?.join(", ") ?? "",
   };
 }
 
@@ -98,6 +102,8 @@ function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput
   if (!coverUrl.ok) return coverUrl;
   const overview = parseOptionalText(values.overview, "Танилцуулга", MAX_LONG_TEXT_LENGTH);
   if (!overview.ok) return overview;
+  const aliases = parseAliasList(values.aliases);
+  if (!aliases.ok) return aliases;
 
   return {
     ok: true,
@@ -114,6 +120,7 @@ function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput
       overview: overview.value,
       dormAvailable: fromAvailability(values.dormAvailable),
       scholarshipAvailable: fromAvailability(values.scholarshipAvailable),
+      aliases: aliases.value,
     },
   };
 }
@@ -190,6 +197,17 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
             onChange={(event) => set("name", event.target.value)}
             placeholder="жишээ: Монгол Улсын Их Сургууль"
           />
+        </label>
+        <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
+          Хайлтын нэрс (товч нэр, англи нэр — таслалаар)
+          <Input
+            value={values.aliases}
+            onChange={(event) => set("aliases", event.target.value)}
+            placeholder="жишээ: МУИС, muis, NUM, National University of Mongolia"
+          />
+          <span className="font-normal text-ink/50">
+            Хайлтад эдгээр нэрээр ч олдоно. Латин үсгээр бичсэн хайлт (muis, huree) автоматаар таарна.
+          </span>
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
           Байршил

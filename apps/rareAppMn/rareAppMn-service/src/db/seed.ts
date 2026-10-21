@@ -1,4 +1,5 @@
 import { notInArray } from 'drizzle-orm';
+import { facultySearchText, majorSearchText, schoolSearchAliases, schoolSearchText } from '../lib/search';
 import type { Database } from './index';
 import {
   admissionSchedules,
@@ -816,6 +817,7 @@ function seedFaculties(entry: SchoolSeed) {
     id: seedFacultyId(entry, name),
     schoolId: entry.id,
     name,
+    searchText: facultySearchText(name),
   }));
 }
 
@@ -865,6 +867,21 @@ async function assertOnlySeedData(db: Database): Promise<void> {
   }
 }
 
+/** The same aliases migration 0010 gives the real rows, so "muis" works on a seeded database too. */
+const SEED_ALIASES: Record<string, string[]> = {
+  sch_muis: ['МУИС', 'muis', 'NUM', 'National University of Mongolia'],
+  sch_shutis: ['ШУТИС', 'shutis', 'MUST', 'Mongolian University of Science and Technology'],
+  sch_sezis: ['СЭЗИС', 'sezis', 'UFE', 'University of Finance and Economics'],
+  sch_ashuuis: ['АШУҮИС', 'ashuuis', 'MNUMS', 'Mongolian National University of Medical Sciences'],
+  sch_khaais: ['ХААИС', 'haais', 'khaais', 'MULS', 'Mongolian University of Life Sciences'],
+  sch_mubis: ['МУБИС', 'mubis', 'MNUE', 'MSUE', 'Mongolian National University of Education'],
+  sch_otgontenger: ['Отгонтэнгэр', 'ОТИС', 'otgontenger', 'Otgontenger University'],
+  sch_suis: ['СУИС', 'suis', 'MNUAC', 'MSUAC', 'Mongolian National University of Arts and Culture'],
+  sch_huree: ['Хүрээ', 'huree', 'Huree University of ICT'],
+  sch_iuu: ['ОУУБИС', 'ouubis', 'IUU', 'International University of Ulaanbaatar'],
+  sch_etugen: ['Этүгэн', 'etugen', 'Etugen University'],
+};
+
 /**
  * Wipes and re-inserts the demo dataset above. Idempotent and safe to
  * re-run: fixed ids mean repeated runs produce identical data rather than
@@ -889,6 +906,9 @@ export async function seedDatabase(db: Database): Promise<SeedSummary> {
       scholarshipAvailable: entry.scholarshipAvailable,
       overview: entry.overview,
       website: entry.website,
+      aliases: SEED_ALIASES[entry.id] ?? null,
+      searchText: schoolSearchText(entry.name, SEED_ALIASES[entry.id]),
+      searchAliases: schoolSearchAliases(SEED_ALIASES[entry.id]),
     }),
     ...(entry.majors.length > 0
       ? [
@@ -899,6 +919,7 @@ export async function seedDatabase(db: Database): Promise<SeedSummary> {
               schoolId: entry.id,
               facultyId: seedFacultyId(entry, major.faculty),
               name: major.name,
+              searchText: majorSearchText(major.name),
               category: major.category,
               requiredSubjects: major.requiredSubjects,
               cutOffScore: major.cutOffScore,

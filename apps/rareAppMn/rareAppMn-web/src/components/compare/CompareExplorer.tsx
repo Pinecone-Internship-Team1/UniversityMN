@@ -1,15 +1,12 @@
 "use client";
 
-import { GraduationCap, Plus, Scale, School, Search, X } from "lucide-react";
+import { ArrowDown, GraduationCap, Scale, School, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { useQuery } from "urql";
-import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
-import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
-import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { MAX_COMPARE_ITEMS, compareHref, type CompareMode } from "@/lib/compare";
 import {
   examSubjectLines,
@@ -23,20 +20,21 @@ import {
 } from "@/lib/format";
 import {
   COMPARE_ITEMS_QUERY,
-  MAJORS_QUERY,
-  SCHOOLS_QUERY,
   type CompareItemsResult,
   type CompareItemsVariables,
   type CompareMajor,
   type CompareSchool,
-  type MajorsQueryResult,
-  type MajorsQueryVariables,
-  type SchoolsQueryResult,
-  type SchoolsQueryVariables,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
+import { MajorPicker } from "./MajorPicker";
+import {
+  SchoolCardPicker,
+  SchoolCardPickerSkeleton,
+  SchoolOptionsState,
+  useSchoolOptions,
+} from "./SchoolOptions";
 
 export interface CompareExplorerProps {
   mode: CompareMode;
@@ -58,7 +56,8 @@ const MODES: { id: CompareMode; label: string; icon: typeof School }[] = [
   { id: "majors", label: "Мэргэжил", icon: GraduationCap },
 ];
 
-const PICKER_LIMIT = 6;
+/** The table shows once this many are picked. */
+const MIN_COMPARE_ITEMS = 2;
 
 function schoolShortName(school: { id: string; name: string }): string {
   return getUniversityBySchoolId(school.id)?.short ?? school.name;
@@ -104,7 +103,7 @@ const SCHOOL_ROWS: CompareRow<CompareSchool>[] = [
           href={school.website}
           target="_blank"
           rel="noreferrer"
-          className="font-semibold text-accent hover:underline"
+          className="font-semibold text-accent hover:underline max-lg:tap-target"
         >
           Нээх
         </a>
@@ -118,7 +117,7 @@ const MAJOR_ROWS: CompareRow<CompareMajor>[] = [
   {
     label: "Сургууль",
     render: (major) => (
-      <Link href={universityHref(major.school)} className="font-semibold hover:text-accent">
+      <Link href={universityHref(major.school)} className="font-semibold hover:text-accent max-lg:tap-target">
         {schoolShortName(major.school)}
       </Link>
     ),
@@ -210,20 +209,10 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
     setSelection({ mode, ids });
   }
 
-  const [search, setSearch] = useState("");
-  const debouncedSearch = useDebouncedValue(search.trim(), 300);
+  const schoolOptions = useSchoolOptions();
   const isFull = selection.ids.length >= MAX_COMPARE_ITEMS;
-
-  const [schoolSearch] = useQuery<SchoolsQueryResult, SchoolsQueryVariables>({
-    query: SCHOOLS_QUERY,
-    variables: { filter: { search: debouncedSearch, limit: PICKER_LIMIT } },
-    pause: selection.mode !== "schools" || !debouncedSearch,
-  });
-  const [majorSearch] = useQuery<MajorsQueryResult, MajorsQueryVariables>({
-    query: MAJORS_QUERY,
-    variables: { filter: { search: debouncedSearch, limit: PICKER_LIMIT } },
-    pause: selection.mode !== "majors" || !debouncedSearch,
-  });
+  const canCompare = selection.ids.length >= MIN_COMPARE_ITEMS;
+  const noun = selection.mode === "schools" ? "сургууль" : "мэргэжил";
 
   const [compareResult, reexecuteCompare] = useQuery<CompareItemsResult, CompareItemsVariables>({
     query: COMPARE_ITEMS_QUERY,
@@ -253,24 +242,6 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
     }
   }, [compareSettled, compareResult.data, selection, router]);
 
-  const pickerResults =
-    selection.mode === "schools"
-      ? (schoolSearch.data?.schools.items ?? []).map((school) => ({
-          id: school.id,
-          title: schoolShortName(school),
-          subtitle: school.location ?? school.name,
-        }))
-      : (majorSearch.data?.majors.items ?? []).map((major) => ({
-          id: major.id,
-          title: major.name,
-          subtitle: [formatMajorPlace(major.faculty, schoolShortName(major.school)), major.category]
-            .filter(Boolean)
-            .join(" · "),
-        }));
-  const pickerFetching =
-    selection.mode === "schools" ? schoolSearch.fetching : majorSearch.fetching;
-  const pickerError = selection.mode === "schools" ? schoolSearch.error : majorSearch.error;
-
   const schools = compareItems.filter(
     (item): item is CompareSchool => item.__typename === "School",
   );
@@ -279,6 +250,14 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
   );
   const remove = (id: string) =>
     update({ mode: selection.mode, ids: selection.ids.filter((current) => current !== id) });
+  const toggle = (id: string) => {
+    if (selection.ids.includes(id)) remove(id);
+    else if (!isFull) update({ mode: selection.mode, ids: [...selection.ids, id] });
+  };
+  // Picked majors in pick order, for the chips above the list.
+  const pickedMajors = selection.ids
+    .map((id) => majors.find((major) => major.id === id))
+    .filter((major): major is CompareMajor => major !== undefined);
 
   return (
     <div>
@@ -292,7 +271,6 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
               type="button"
               onClick={() => {
                 if (active) return;
-                setSearch("");
                 update({ mode: tab.id, ids: [] });
               }}
               className={cn(
@@ -307,78 +285,102 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
         })}
       </div>
 
-      <div className="mt-6 rounded-2xl border border-ink/10 bg-card p-5">
-        <div className="relative">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/40" />
-          <Input
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            placeholder={
-              selection.mode === "schools"
-                ? "Харьцуулах сургуулиа хайж нэмэх..."
-                : "Харьцуулах мэргэжлээ хайж нэмэх..."
-            }
-            className="pl-11"
-            aria-label="Харьцуулах зүйл хайх"
-          />
-        </div>
-        <p className="mt-2 text-xs text-ink/50">
-          {selection.ids.length}/{MAX_COMPARE_ITEMS} сонгосон
-          {isFull ? " · Дээд хязгаарт хүрсэн" : ""}
-        </p>
-
-        {debouncedSearch && (
-          <div className="mt-4">
-            {pickerError ? (
-              <p className="text-xs font-medium text-destructive">{getErrorMessage(pickerError)}</p>
-            ) : pickerFetching && pickerResults.length === 0 ? (
-              <div className="space-y-2">
-                {[0, 1, 2].map((i) => (
-                  <Skeleton key={i} className="h-12 w-full" />
-                ))}
-              </div>
-            ) : pickerResults.length === 0 ? (
-              <p className="text-xs text-ink/60">Илэрц олдсонгүй.</p>
-            ) : (
-              <ul className="space-y-2">
-                {pickerResults.map((result) => {
-                  const selected = selection.ids.includes(result.id);
-                  return (
-                    <li
-                      key={result.id}
-                      className="flex items-center justify-between gap-3 rounded-xl border border-ink/10 bg-paper px-4 py-2.5"
-                    >
-                      <div className="min-w-0">
-                        <p className="truncate text-sm font-semibold text-ink">{result.title}</p>
-                        <p className="truncate text-xs text-ink/60">{result.subtitle}</p>
-                      </div>
-                      <button
-                        type="button"
-                        disabled={selected || isFull}
-                        onClick={() =>
-                          update({ mode: selection.mode, ids: [...selection.ids, result.id] })
-                        }
-                        className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-ink/20 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-ink transition-colors max-lg:tap-target hover:border-ink hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-40"
-                      >
-                        <Plus className="h-3 w-3" />
-                        {selected ? "Нэмэгдсэн" : "Нэмэх"}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
+      <div className="mt-6 rounded-2xl border border-ink/10 bg-card p-4 sm:p-5">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+          <p className="text-sm font-bold text-ink" aria-live="polite">
+            {selection.ids.length}/{MAX_COMPARE_ITEMS} сонгосон
+          </p>
+          <div className="flex items-center gap-4">
+            {selection.ids.length > 0 && (
+              <button
+                type="button"
+                onClick={() => update({ mode: selection.mode, ids: [] })}
+                className="text-xs font-semibold text-ink/60 hover:text-ink max-lg:tap-target"
+              >
+                Бүгдийг арилгах
+              </button>
+            )}
+            {canCompare && (
+              <a
+                href="#compare-table"
+                className="inline-flex items-center gap-1 text-xs font-bold text-accent hover:underline max-lg:tap-target lg:hidden"
+              >
+                Харьцуулалт
+                <ArrowDown className="h-3.5 w-3.5" />
+              </a>
             )}
           </div>
+        </div>
+        <p className="mt-1 text-xs text-ink/60">
+          {isFull
+            ? `Дээд тал нь ${MAX_COMPARE_ITEMS}. Өөрийг сонгох бол нэгийг нь хасна уу.`
+            : selection.mode === "schools"
+              ? "Сургуулиа товшиж сонгоно, дахин товшвол хасна."
+              : "Мэргэжлээ товшиж сонгоно, аль ч сургуулиас холиж болно."}
+        </p>
+
+        {selection.mode === "majors" && pickedMajors.length > 0 && (
+          <ul className="mt-3 flex flex-wrap gap-2" aria-label="Сонгосон мэргэжлүүд">
+            {pickedMajors.map((major) => (
+              <li
+                key={major.id}
+                title={`${major.name} · ${formatMajorPlace(major.faculty, schoolShortName(major.school))}`}
+                className="flex min-w-0 max-w-full items-center gap-1 rounded-full border border-accent bg-accent-soft py-1 pl-3 pr-1 text-xs font-semibold text-ink"
+              >
+                <span className="truncate">
+                  {major.name}
+                  <span className="font-normal text-ink/60">
+                    {" · "}
+                    {formatMajorPlace(major.faculty, schoolShortName(major.school))}
+                  </span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => remove(major.id)}
+                  aria-label={`${major.name}-г хасах`}
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-ink/50 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              </li>
+            ))}
+          </ul>
         )}
+
+        <div className="mt-4">
+          {selection.mode === "schools" ? (
+            <SchoolOptionsState
+              fetching={schoolOptions.fetching}
+              error={schoolOptions.error}
+              retry={schoolOptions.retry}
+              skeleton={<SchoolCardPickerSkeleton />}
+            >
+              <SchoolCardPicker
+                options={schoolOptions.options}
+                selectedIds={selection.ids}
+                full={isFull}
+                onToggle={toggle}
+              />
+            </SchoolOptionsState>
+          ) : (
+            <MajorPicker
+              schools={schoolOptions}
+              selectedIds={selection.ids}
+              full={isFull}
+              onToggle={toggle}
+            />
+          )}
+        </div>
       </div>
 
-      <div className="mt-8">
-        {selection.ids.length === 0 ? (
-          <EmptyState
-            icon={Scale}
-            title="Харьцуулах зүйлээ сонгоно уу"
-            description="Дээрх хайлтаас дор хаяж хоёр сургууль эсвэл мэргэжил нэмж харьцуулаарай."
-          />
+      <div id="compare-table" className="mt-8 scroll-mt-24">
+        {!canCompare ? (
+          <div className="flex items-center gap-3 rounded-2xl border border-dashed border-ink/15 px-5 py-6 text-sm text-ink/60">
+            <Scale className="h-5 w-5 shrink-0 text-ink/40" />
+            {selection.ids.length === 0
+              ? `${MIN_COMPARE_ITEMS}-${MAX_COMPARE_ITEMS} ${noun} сонгоход харьцуулалт энд гарна.`
+              : `Дахиад нэг ${noun} сонгоход харьцуулалт энд гарна.`}
+          </div>
         ) : compareResult.error ? (
           <ErrorState
             description={getErrorMessage(compareResult.error)}
@@ -386,43 +388,34 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
           />
         ) : compareResult.fetching && compareItems.length === 0 ? (
           <Skeleton className="h-72 w-full rounded-2xl" />
+        ) : selection.mode === "schools" ? (
+          <CompareTable
+            items={schools}
+            rows={SCHOOL_ROWS}
+            onRemove={remove}
+            title={(school) => (
+              <Link
+                href={universityHref(school)}
+                className="hover:text-accent max-lg:tap-target"
+              >
+                {schoolShortName(school)}
+              </Link>
+            )}
+          />
         ) : (
-          <>
-            {selection.ids.length === 1 && (
-              <p className="mb-4 text-xs font-medium text-ink/60">
-                Харьцуулахын тулд дахин нэгийг нэмнэ үү.
-              </p>
+          <CompareTable
+            items={majors}
+            rows={MAJOR_ROWS}
+            onRemove={remove}
+            title={(major) => (
+              <>
+                {major.name}
+                <span className="mt-0.5 block text-[11px] font-normal text-ink/50">
+                  {formatMajorPlace(major.faculty, schoolShortName(major.school))}
+                </span>
+              </>
             )}
-            {selection.mode === "schools" ? (
-              <CompareTable
-                items={schools}
-                rows={SCHOOL_ROWS}
-                onRemove={remove}
-                title={(school) => (
-                  <Link
-                    href={universityHref(school)}
-                    className="hover:text-accent max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-[13px]"
-                  >
-                    {schoolShortName(school)}
-                  </Link>
-                )}
-              />
-            ) : (
-              <CompareTable
-                items={majors}
-                rows={MAJOR_ROWS}
-                onRemove={remove}
-                title={(major) => (
-                  <>
-                    {major.name}
-                    <span className="mt-0.5 block text-[11px] font-normal text-ink/50">
-                      {formatMajorPlace(major.faculty, schoolShortName(major.school))}
-                    </span>
-                  </>
-                )}
-              />
-            )}
-          </>
+          />
         )}
       </div>
     </div>

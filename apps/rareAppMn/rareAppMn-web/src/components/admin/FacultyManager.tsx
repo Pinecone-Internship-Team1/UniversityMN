@@ -21,14 +21,18 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
+import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { DEGREE_TYPES, OTHER_DEGREE, degreeKey, formatDegreeKey } from "@/lib/format";
 import {
+  ADMIN_SCHOOL_CATALOG_SEARCH_QUERY,
   ADMIN_SCHOOL_FACULTIES_QUERY,
   CATALOG_CACHE,
   CREATE_FACULTY_MUTATION,
   DELETE_FACULTY_MUTATION,
   UPDATE_FACULTY_MUTATION,
   type AdminMajor,
+  type AdminSchoolCatalogSearchResult,
+  type AdminSchoolCatalogSearchVariables,
   type AdminSchoolFacultiesResult,
   type CreateFacultyResult,
   type DeleteFacultyResult,
@@ -195,6 +199,16 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
     AdminSchoolFacultiesResult,
     IdVariables
   >({ query: ADMIN_SCHOOL_FACULTIES_QUERY, variables: { id: schoolId } });
+  // The API matches the search (Latin letters too: "huuli", "programm"), like every other search.
+  const query = useDebouncedValue(search.trim(), 250);
+  const [{ data: searchData }] = useQuery<
+    AdminSchoolCatalogSearchResult,
+    AdminSchoolCatalogSearchVariables
+  >({
+    query: ADMIN_SCHOOL_CATALOG_SEARCH_QUERY,
+    variables: { id: schoolId, search: query },
+    pause: !query,
+  });
   const [{ fetching: deleting }, deleteFaculty] = useMutation<
     DeleteFacultyResult,
     IdVariables
@@ -251,9 +265,11 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
 
   // The degree filter narrows each school's majors but keeps every school
   // listed (so programs of that degree can still be added). A search also
-  // hides schools without matches and expands the rest.
-  const query = search.trim().toLocaleLowerCase();
-  const matches = (text: string) => text.toLocaleLowerCase().includes(query);
+  // hides schools without matches and expands the rest; until its first
+  // answer arrives, everything stays listed.
+  const found = query ? searchData?.school : null;
+  const facultyMatches = new Set(found?.faculties.map((faculty) => faculty.id));
+  const majorMatches = new Set(found?.majors.map((major) => major.id));
   const rows = faculties
     .map((faculty) => {
       const majors = majorsByFaculty.get(faculty.id) ?? [];
@@ -264,13 +280,14 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
         faculty,
         total: majors.length,
         majors:
-          !query || matches(faculty.name)
+          !found || facultyMatches.has(faculty.id)
             ? ofDegree
-            : ofDegree.filter((m) => matches(m.name)),
+            : ofDegree.filter((m) => majorMatches.has(m.id)),
       };
     })
     .filter(
-      (row) => !query || row.majors.length > 0 || matches(row.faculty.name),
+      (row) =>
+        !found || row.majors.length > 0 || facultyMatches.has(row.faculty.id),
     );
 
   return (
@@ -316,7 +333,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
             <Input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Мэргэжил эсвэл сургууль хайх..."
+              placeholder="Хайх: программ хангамж, huuli…"
               aria-label="Мэргэжил эсвэл сургууль хайх"
               className="pl-11 pr-10"
             />

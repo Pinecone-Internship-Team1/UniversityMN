@@ -107,6 +107,8 @@ export interface School {
   website: string | null;
   phones: string[];
   email: string | null;
+  /** Other names search finds it by (МУИС, muis, NUM); only on queries that ask for it. */
+  aliases?: string[];
   dormGuide?: DormGuide | null;
   isSaved: boolean;
   createdAt: string;
@@ -224,6 +226,7 @@ export interface SchoolInput {
   website?: string | null;
   phones?: string[] | null;
   email?: string | null;
+  aliases?: string[] | null;
 }
 
 export interface FacultyInput {

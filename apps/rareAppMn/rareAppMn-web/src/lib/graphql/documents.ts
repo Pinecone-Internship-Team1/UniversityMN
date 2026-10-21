@@ -442,6 +442,64 @@ export interface AnalyzeScoreMatchResult {
   };
 }
 
+/** Every university, for the compare page's school cards and chips. */
+export const COMPARE_SCHOOL_OPTIONS_QUERY = /* GraphQL */ `
+  query CompareSchoolOptions($filter: SchoolFilterInput) {
+    schools(filter: $filter) {
+      items {
+        id
+        name
+        logoUrl
+        aliases
+      }
+      pageInfo {
+        totalCount
+        limit
+        offset
+        hasNextPage
+      }
+    }
+  }
+`;
+
+export type CompareSchoolOption = Pick<School, "id" | "name" | "logoUrl"> & { aliases: string[] };
+
+export interface CompareSchoolOptionsResult {
+  schools: { items: CompareSchoolOption[]; pageInfo: PageInfo };
+}
+
+/** One university's majors to pick from on the compare page; `search` filters them like every other search. */
+export const COMPARE_SCHOOL_MAJORS_QUERY = /* GraphQL */ `
+  query CompareSchoolMajors($id: ID!, $search: String) {
+    school(id: $id) {
+      id
+      majors(search: $search) {
+        id
+        name
+        degreeType
+        faculty {
+          id
+          name
+          location
+        }
+      }
+    }
+  }
+`;
+
+export interface CompareSchoolMajorsVariables {
+  id: string;
+  search?: string;
+}
+
+export type CompareMajorOption = Pick<Major, "id" | "name" | "degreeType"> & {
+  faculty: Pick<Faculty, "id" | "name" | "location"> | null;
+};
+
+export interface CompareSchoolMajorsResult {
+  school: { id: string; majors: CompareMajorOption[] } | null;
+}
+
 export const COMPARE_ITEMS_QUERY = /* GraphQL */ `
   query CompareItems($ids: [ID!]!, $type: CompareType!) {
     compareItems(ids: $ids, type: $type) {
@@ -576,6 +634,7 @@ const ADMIN_SCHOOL_FIELDS = /* GraphQL */ `
   website
   phones
   email
+  aliases
   createdAt
 `;
 
@@ -644,6 +703,30 @@ export const ADMIN_SCHOOL_FACULTIES_QUERY = /* GraphQL */ `
     }
   }
 `;
+
+/** The ids of a university's faculties and majors that match a search, matched by the API like every other search. */
+export const ADMIN_SCHOOL_CATALOG_SEARCH_QUERY = /* GraphQL */ `
+  query AdminSchoolCatalogSearch($id: ID!, $search: String!) {
+    school(id: $id) {
+      id
+      faculties(search: $search) {
+        id
+      }
+      majors(search: $search) {
+        id
+      }
+    }
+  }
+`;
+
+export interface AdminSchoolCatalogSearchVariables {
+  id: string;
+  search: string;
+}
+
+export interface AdminSchoolCatalogSearchResult {
+  school: { id: string; faculties: Pick<Faculty, "id">[]; majors: Pick<Major, "id">[] } | null;
+}
 
 export interface AdminSchoolFacultiesResult {
   school:

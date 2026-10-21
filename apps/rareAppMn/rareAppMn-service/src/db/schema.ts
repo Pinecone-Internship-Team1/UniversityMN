@@ -73,6 +73,12 @@ export const schools = sqliteTable('schools', {
   /** Contact phone numbers as written, e.g. `["+976 7730-7730", "11-320159"]`. */
   phones: text('phones', { mode: 'json' }).$type<string[]>(),
   email: text('email'),
+  /** Other names a search should find it by: short names, slugs, English names, e.g. `["МУИС", "muis", "NUM"]`. */
+  aliases: text('aliases', { mode: 'json' }).$type<string[]>(),
+  /** `name` and `aliases` folded for search (see src/lib/search.ts); null until filled. */
+  searchText: text('search_text'),
+  /** `aliases` folded, between pipes (`|muis|num|`), so an exact alias match is one `LIKE`. */
+  searchAliases: text('search_aliases'),
   createdAt: text('created_at').notNull().default(isoNow),
 });
 
@@ -88,6 +94,8 @@ export const faculties = sqliteTable(
     /** Set only when it differs from the university's, e.g. a branch school in another aimag. */
     location: text('location'),
     createdAt: text('created_at').notNull().default(isoNow),
+    /** `name` folded for search (see src/lib/search.ts), so "huuli" finds the majors of Хууль зүйн сургууль. */
+    searchText: text('search_text'),
   },
   (table) => [uniqueIndex('faculties_school_name_idx').on(table.schoolId, table.name)]
 );
@@ -144,6 +152,8 @@ export const majors = sqliteTable(
     tuitionFee: real('tuition_fee'),
     /** True when `tuitionFee` is an estimated upper bound rather than an official yearly fee. */
     tuitionIsEstimate: integer('tuition_is_estimate', { mode: 'boolean' }).notNull().default(false),
+    /** `name` folded for search (see src/lib/search.ts); null until filled. */
+    searchText: text('search_text'),
   },
   (table) => [
     index('majors_school_id_idx').on(table.schoolId),
