@@ -7,7 +7,7 @@ import { Info } from "lucide-react";
  */
 export function SignUpAgainNote() {
   return (
-    <p className="mt-6 flex max-w-md items-start gap-3 rounded-2xl border border-accent/25 bg-accent/[0.06] px-4 py-3 text-sm leading-relaxed text-ink">
+    <p className="mt-6 flex w-full items-start gap-3 rounded-2xl border border-accent/25 bg-accent/[0.06] px-4 py-3 text-sm leading-relaxed text-ink">
       <Info className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden />
       <span>
         Нэвтрэх системээ шинэчиллээ. Өмнө нь бүртгэлтэй байсан бол өмнөх имэйл

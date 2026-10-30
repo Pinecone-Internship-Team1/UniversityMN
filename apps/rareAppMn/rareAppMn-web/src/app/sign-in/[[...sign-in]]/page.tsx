@@ -3,6 +3,7 @@ import { SignIn } from "@clerk/nextjs";
 import { AuthPageShell } from "@/components/auth/AuthPageShell";
 import { PAGE_SEO } from "@/lib/seo";
 import { pageMetadata } from "@/lib/site";
+import { authCardAppearance } from "@/lib/clerk-ui";
 
 export const metadata: Metadata = {
   ...pageMetadata(PAGE_SEO.signIn),
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function SignInPage() {
   return (
     <AuthPageShell>
-      <SignIn />
+      <SignIn appearance={authCardAppearance} />
     </AuthPageShell>
   );
 }

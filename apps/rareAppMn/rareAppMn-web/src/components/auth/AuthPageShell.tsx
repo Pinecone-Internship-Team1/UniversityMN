@@ -9,13 +9,14 @@ export function AuthPageShell({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-paper text-ink">
       <Navbar />
 
-      <main className="mx-auto flex max-w-[1440px] flex-col items-center px-5 py-12 sm:px-8 sm:py-16">
-        <p className="max-w-md text-center text-sm leading-relaxed text-ink/70">
+      {/* One column: the intro, the note and Clerk's card share a width. */}
+      <main className="mx-auto flex w-full max-w-md flex-col items-center px-5 py-10 sm:px-0 sm:py-16">
+        <p className="text-center text-sm leading-relaxed text-ink-soft">
           Сургуулийн дэлгэрэнгүй мэдээллийг үзэхийн тулд нэвтэрнэ үү. Бүртгэлгүй бол
           бүртгүүлээрэй.
         </p>
         <SignUpAgainNote />
-        <div className="mt-8 flex w-full justify-center">{children}</div>
+        <div className="mt-6 w-full">{children}</div>
       </main>
 
       <Footer />

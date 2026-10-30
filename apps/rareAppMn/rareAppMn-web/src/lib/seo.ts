@@ -54,7 +54,7 @@ export const PAGE_SEO = {
   account: {
     path: "/profile/account",
     title: `Бүртгэлийн тохиргоо — ${BRAND}`,
-    description: "Нэвтрэх хаяг, нууц үг болон бүртгэлийн тохиргоогоо удирдах.",
+    description: "Нэвтрэх хаяг болон бүртгэлийн тохиргоогоо удирдах.",
   },
   admin: {
     path: "/admin",

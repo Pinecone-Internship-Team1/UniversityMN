@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// Clerk's account screens (name, photo, email, password, Google account,
+// Clerk's account screens (name, photo, email, Google account,
 // devices) on their own sub-routes, e.g. /profile/account/security.
 export default function AccountSettingsPage() {
   return (
@@ -19,7 +19,8 @@ export default function AccountSettingsPage() {
       appearance={{
         elements: {
           rootBox: "w-full",
-          cardBox: "w-full max-w-none",
+          // Fit the content instead of Clerk's fixed 44rem height.
+          cardBox: "h-auto min-h-[28rem] w-full max-w-none",
         },
       }}
     />
