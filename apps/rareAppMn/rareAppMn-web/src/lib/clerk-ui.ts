@@ -39,15 +39,29 @@ export const clerkAppearance = {
   // Clerk's own 14px size and line height stay as they were elsewhere).
   // Below lg: 44px-tall fields and buttons, and invisible 44px tap areas
   // (tap-area/tap-target in global.css) on Clerk's small controls.
+  // Buttons match the site's pills (Navbar): flat ink, bold uppercase, accent
+  // on hover, no Clerk gradient sheen (::after) or arrow icon.
   elements: {
     cardBox: "rounded-2xl border border-ink/10 shadow-none",
-    headerTitle: "font-bold tracking-tight",
+    headerTitle: "text-xl font-bold tracking-tight",
+    headerSubtitle: "leading-relaxed text-ink-soft",
     formButtonPrimary:
-      "rounded-full font-semibold uppercase tracking-wider shadow-none transition-colors duration-200 hover:bg-accent max-lg:min-h-11",
-    socialButtonsBlockButton: "rounded-full max-lg:min-h-11",
-    formFieldInput: "rounded-xl max-sm:text-base max-lg:min-h-11",
-    otpCodeFieldInput: "rounded-xl max-sm:text-base",
-    formFieldInputShowPasswordButton: "max-lg:tap-area",
+      "h-10 rounded-full bg-ink text-[13px] font-bold uppercase tracking-wider text-paper shadow-none transition-colors duration-200 after:hidden hover:bg-accent focus-visible:shadow-[0_0_0_2px_var(--card),0_0_0_4px_var(--accent)] disabled:opacity-50 max-lg:min-h-11",
+    buttonArrowIcon: "hidden",
+    socialButtonsBlockButton:
+      "h-10 rounded-full text-ink shadow-[0_0_0_1px_var(--border-ink)] transition-colors duration-200 hover:bg-ink/[0.04] hover:shadow-[0_0_0_1px_var(--ink)] focus-visible:shadow-[0_0_0_2px_var(--accent)] max-lg:min-h-11",
+    socialButtonsBlockButtonText: "font-semibold text-ink",
+    formFieldInput:
+      "h-10 rounded-xl max-sm:text-base max-lg:min-h-11 focus-visible:shadow-[0_0_0_2px_var(--accent)]",
+    formFieldErrorText: "text-destructive",
+    // One wide tap area (Clerk's hidden input spans the row), so the boxes
+    // can stay 40-44px wide and still fit a 375px screen.
+    otpCodeFieldInputs: "gap-2",
+    otpCodeFieldInput: "h-12 w-10 rounded-xl text-lg font-semibold sm:w-11",
+    otpCodeFieldErrorText: "text-destructive",
+    formResendCodeLink:
+      "font-semibold text-accent hover:text-accent disabled:font-normal disabled:text-ink-soft disabled:opacity-100 max-lg:tap-target",
+    footerActionText: "text-ink-soft",
     footerActionLink: "font-semibold text-accent hover:text-accent max-lg:tap-target",
     formFieldAction: "text-accent hover:text-accent max-lg:tap-target",
     identityPreviewEditButton: "text-accent max-lg:tap-area",
@@ -57,6 +71,20 @@ export const clerkAppearance = {
     menuButton: "max-lg:tap-area",
     // Sits just above "add email"/"connect account": widen it, not taller.
     menuButtonEllipsis: "max-lg:after:absolute max-lg:after:-inset-x-2.5 max-lg:after:inset-y-0",
+  },
+} satisfies ClerkAppearance;
+
+/**
+ * <SignIn /> and <SignUp /> only: one flat card like the site's own (Clerk
+ * otherwise raises the form on top of a tinted footer), as wide as the
+ * column in AuthPageShell.
+ */
+export const authCardAppearance = {
+  elements: {
+    rootBox: "w-full",
+    cardBox: "w-full",
+    card: "rounded-none bg-card px-5 py-8 shadow-none sm:px-10",
+    footer: "border-t border-ink/10 bg-card",
   },
 } satisfies ClerkAppearance;
 
@@ -103,14 +131,10 @@ const MN_OVERRIDES = {
     action__openUserMenu: "Хэрэглэгчийн цэс нээх",
     action__closeUserMenu: "Хэрэглэгчийн цэс хаах",
   },
-  formFieldInputPlaceholder__signUpPassword: "Нууц үг үүсгэх",
   formFieldInput__emailAddress_format: "Жишээ: name@example.com",
   formFieldLabel__passkeyName: "Passkey-н нэр",
   signIn: {
     start: { titleCombined: "{{applicationName}} руу үргэлжлүүлэх" },
-    passwordPwned: { title: "Нууц үг алдагдсан байна" },
-    passwordCompromised: { title: "Нууц үг алдагдсан байна" },
-    passwordUntrusted: { title: "Нууц үг найдваргүй байна" },
     emailLink: {
       clientMismatch: {
         title: "Энэ төхөөрөмж дээр баталгаажуулах холбоос ажиллахгүй",
@@ -150,6 +174,15 @@ const MN_OVERRIDES = {
       },
     },
   },
+  // mnMN's versions read like machine translation ("identifier not found",
+  // "the form's code is wrong"); the "exists" one is missing (English).
+  unstable__errors: {
+    form_identifier_not_found:
+      "Энэ имэйл хаягаар бүртгэл олдсонгүй. Доорх «Бүртгүүлэх» холбоосоор бүртгүүлнэ үү.",
+    form_identifier_exists__email_address:
+      "Энэ имэйл хаяг бүртгэлтэй байна. Доорх «Нэвтрэх» холбоосоор нэвтэрнэ үү.",
+    form_code_incorrect: "Код буруу байна. Дахин оролдоно уу.",
+  },
   userProfile: {
     emailAddressPage: {
       formHint: "Имэйл хаягийг бүртгэлдээ нэмэхийн өмнө баталгаажуулах шаардлагатай.",
@@ -165,14 +198,6 @@ const MN_OVERRIDES = {
         menuAction__destructive: "Устгах",
       },
     },
-  },
-  unstable__errors: {
-    form_password_matches_identifier:
-      "Нууц үг таны имэйл, утасны дугаар эсвэл хэрэглэгчийн нэртэй адил байж болохгүй. Өөр нууц үг сонгоно уу.",
-    form_password_pwned__sign_in:
-      "Энэ нууц үг алдагдсан нууц үгсийн жагсаалтад байгаа тул ашиглах боломжгүй. Нууц үгээ сэргээнэ үү.",
-    form_password_untrusted__sign_in:
-      "Таны нууц үг алдагдсан байж болзошгүй. Өөр аргаар нэвтэрнэ үү; нэвтэрсний дараа нууц үгээ солих шаардлагатай.",
   },
 } satisfies ClerkLocalization;
 
