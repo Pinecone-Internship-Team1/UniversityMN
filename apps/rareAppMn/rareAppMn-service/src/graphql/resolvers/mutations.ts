@@ -230,7 +230,6 @@ export const mutations = {
           emailVerified,
           name,
           avatarUrl,
-          role: authUser.role,
         },
         clerkUserExistsIn(context.env)
       ),

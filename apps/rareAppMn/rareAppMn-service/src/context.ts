@@ -29,7 +29,7 @@ export async function createContext(
 ): Promise<ContextExtensions> {
   const { request, env } = initialContext;
   const db = createDb(env.DB);
-  const user = await getAuthenticatedUser(request, env);
+  const user = await getAuthenticatedUser(request, env, db);
 
   return { db, loaders: createLoaders(db), user };
 }

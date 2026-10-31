@@ -2,7 +2,7 @@ import { eq } from 'drizzle-orm';
 import { Webhook } from 'svix';
 import type { Database } from '../db';
 import { users } from '../db/schema';
-import { clerkUserExistsIn, roleFor, type ClerkPrimaryEmail } from '../lib/auth';
+import { clerkUserExistsIn, type ClerkPrimaryEmail } from '../lib/auth';
 import { type Env, getClerkWebhookSecret, isLocalDevelopment } from '../lib/env';
 import { upsertClerkUser } from '../lib/userSync';
 import { isPlainObject, isUniqueConstraintError } from '../lib/validate';
@@ -90,7 +90,6 @@ async function applyEvent(event: ClerkWebhookEvent, env: Env, db: Database): Pro
           emailVerified: email.verified,
           name: fullName(event.data),
           avatarUrl: nonEmptyString(event.data.image_url),
-          role: roleFor(clerkUserId, env),
         },
         clerkUserExistsIn(env)
       );
