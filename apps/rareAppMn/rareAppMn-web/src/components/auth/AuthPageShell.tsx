@@ -1,25 +1,20 @@
 import type { ReactNode } from "react";
 import { SignUpAgainNote } from "@/components/auth/SignUpAgainNote";
-import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
+import { PageShell } from "@/components/layout/PageShell";
 
-/** Our /sign-in and /sign-up pages: Clerk's form inside the site's Navbar/Footer. */
+/** Our /sign-in and /sign-up pages: Clerk's form inside the site's header and footer. */
 export function AuthPageShell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <Navbar />
-
+    <PageShell>
       {/* One column: the intro, the note and Clerk's card share a width. */}
-      <main className="mx-auto flex w-full max-w-md flex-col items-center px-5 py-10 sm:px-0 sm:py-16">
-        <p className="text-center text-sm leading-relaxed text-ink-soft">
+      <div className="mx-auto flex w-full max-w-md flex-col items-center px-4 py-8 md:py-14">
+        <p className="text-center text-base leading-relaxed text-ink-2">
           Сургуулийн дэлгэрэнгүй мэдээллийг үзэхийн тулд нэвтэрнэ үү. Бүртгэлгүй бол
           бүртгүүлээрэй.
         </p>
         <SignUpAgainNote />
         <div className="mt-6 w-full">{children}</div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </PageShell>
   );
 }

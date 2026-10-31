@@ -1,26 +1,22 @@
 import type { ReactNode } from "react";
-import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
-import { SectionLabel } from "@/components/home/SectionLabel";
+import { PageShell } from "@/components/layout/PageShell";
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/Section";
 import { ProfileTabs } from "@/components/profile/ProfileTabs";
 
 export default function ProfileLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <Navbar />
+    <PageShell>
+      <Container className="py-6 md:py-12">
+        <SectionHeader
+          as="h1"
+          title="Таны профайл"
+        />
 
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 sm:py-16">
-        <SectionLabel>Миний профайл</SectionLabel>
-        <h1 className="mt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl md:text-4xl">
-          Таны профайл
-        </h1>
+        <ProfileTabs className="mt-6" />
 
-        <ProfileTabs className="mt-8" />
-
-        <div className="mt-8">{children}</div>
-      </main>
-
-      <Footer />
-    </div>
+        <div className="mt-6 md:mt-8">{children}</div>
+      </Container>
+    </PageShell>
   );
 }

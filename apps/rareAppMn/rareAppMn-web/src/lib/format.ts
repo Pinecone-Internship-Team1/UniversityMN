@@ -6,6 +6,13 @@ export function formatMillions(amount: number): string {
   return rounded.toLocaleString("mn-MN");
 }
 
+/** A ?score= from the URL: a whole number in the ЭЕШ range (200–800), else null. */
+export function parseExamScore(value: string | undefined): number | null {
+  if (!value) return null;
+  const score = Number(value);
+  return Number.isInteger(score) && score >= 200 && score <= 800 ? score : null;
+}
+
 /** Formats a tuition fee (plain MNT amount) as e.g. "4.5 сая ₮". */
 export function formatTuition(fee: number | null | undefined): string {
   if (fee == null) return "Мэдээлэл удахгүй нэмэгдэнэ";

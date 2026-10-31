@@ -5,7 +5,7 @@ function GuideList({ title, items, ordered }: { title: string; items: string[]; 
   const List = ordered ? "ol" : "ul";
   return (
     <div>
-      <h3 className="text-xs font-bold text-ink">{title}</h3>
+      <h3 className="text-base font-bold text-ink">{title}</h3>
       <List className={`mt-1.5 space-y-1 pl-4 ${ordered ? "list-decimal" : "list-disc"}`}>
         {items.map((item) => (
           <li key={item}>{item}</li>
@@ -27,13 +27,13 @@ export function DormGuideDetails({ guide }: { guide: DormGuide }) {
 
   return (
     <div className="mt-4 space-y-3">
-      {guide.note && <p className="text-[11px] leading-relaxed text-ink/50">{guide.note}</p>}
+      {guide.note && <p className="text-sm leading-relaxed text-ink-3">{guide.note}</p>}
       {hasDetails && (
-        <details className="rounded-xl border border-ink/10 bg-paper px-4 py-3">
-          <summary className="cursor-pointer text-sm font-bold text-ink max-lg:tap-target">
+        <details className="rounded-xl border border-border-ink bg-paper px-4 py-3">
+          <summary className="flex min-h-12 cursor-pointer items-center text-base font-bold text-ink">
             Дотуур байранд хэрхэн орох вэ
           </summary>
-          <div className="mt-3 space-y-4 text-xs leading-relaxed text-ink/70">
+          <div className="mt-3 space-y-4 text-[15px] leading-relaxed text-ink-2">
             {guide.steps.length > 0 && (
               <ol className="space-y-2">
                 {guide.steps.map((step, index) => (
@@ -52,7 +52,7 @@ export function DormGuideDetails({ guide }: { guide: DormGuide }) {
             <GuideList title="Анхаарах дүрэм" items={guide.rules} />
             {guide.links.length > 0 && (
               <div>
-                <h3 className="text-xs font-bold text-ink">Журам, заавар</h3>
+                <h3 className="text-base font-bold text-ink">Журам, заавар</h3>
                 <ul className="mt-1.5 space-y-1">
                   {guide.links.map((link) => (
                     <li key={link.url} className="max-lg:relative">

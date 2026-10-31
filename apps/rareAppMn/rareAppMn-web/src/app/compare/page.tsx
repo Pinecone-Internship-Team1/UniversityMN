@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { CompareExplorer } from "@/components/compare/CompareExplorer";
-import { SectionLabel } from "@/components/home/SectionLabel";
-import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
+import { PageShell } from "@/components/layout/PageShell";
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/Section";
 import { MAX_COMPARE_ITEMS, type CompareMode } from "@/lib/compare";
 import { PAGE_SEO } from "@/lib/seo";
 import { pageMetadata } from "@/lib/site";
@@ -30,25 +30,18 @@ export default async function ComparePage({ searchParams }: PageProps) {
   ].slice(0, MAX_COMPARE_ITEMS);
 
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <Navbar />
+    <PageShell>
+      <Container className="py-6 md:py-12">
+        <SectionHeader
+          as="h1"
+          title="Сургууль, мэргэжлээ зэрэгцүүлэн харьцуул"
+          description={<>Хамгийн ихдээ {MAX_COMPARE_ITEMS} сургууль эсвэл мэргэжлийг сонгоод төлбөр, босго оноо, дотуур байр, тэтгэлгийг нь нэг дор хараарай.</>}
+        />
 
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 sm:py-16">
-        <SectionLabel>Харьцуулах</SectionLabel>
-        <h1 className="mt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl md:text-4xl">
-          Сургууль, мэргэжлээ зэрэгцүүлэн харьцуул
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70 sm:text-base">
-          Хамгийн ихдээ {MAX_COMPARE_ITEMS} сургууль эсвэл мэргэжлийг сонгоод төлбөр,
-          босго оноо, дотуур байр, тэтгэлгийг нь нэг дор хараарай.
-        </p>
-
-        <div className="mt-10">
+        <div className="mt-6 md:mt-8">
           <CompareExplorer mode={mode} ids={ids} />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </Container>
+    </PageShell>
   );
 }

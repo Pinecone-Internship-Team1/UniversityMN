@@ -8,6 +8,23 @@ export const SITE_ALTERNATE_NAMES = ["Оюутан MN", "oyutanmn"];
 /** Our social profiles, listed as Organization.sameAs in the home page's JSON-LD. */
 export const SOCIAL_PROFILES: string[] = ["https://www.instagram.com/oyutan_mn/"];
 
+/** Footer social links. A null href is a placeholder: it isn't shown until filled in. */
+export const SOCIAL_LINKS: { label: string; href: string | null }[] = [
+  { label: "Instagram", href: "https://www.instagram.com/oyutan_mn/" },
+  { label: "Facebook", href: null },
+];
+
+export const CONTACT_EMAIL = "oyutanmn@gmail.com";
+
+/** When the admission data was last checked against the schools' sources. */
+export const DATA_UPDATED_AT = "2026.10.31";
+
+/** A mailto link for reporting wrong data, with the page or school in the subject. */
+export function reportHref(about?: string): string {
+  const subject = about ? `Мэдээллийн алдаа: ${about}` : "Мэдээллийн алдаа";
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`;
+}
+
 /** public/brand/og-image.png: the 1200×630 card shown when a link is shared. */
 export const OG_IMAGE = {
   url: "/brand/og-image.png",

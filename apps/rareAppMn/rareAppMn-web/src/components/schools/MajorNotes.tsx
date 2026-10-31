@@ -11,7 +11,7 @@ export function MajorNotes({ majors }: MajorNotesProps) {
   const showsEstimate = majors.some((major) => major.tuitionFee != null && major.tuitionIsEstimate);
   if (!showsCutOff && !showsEstimate) return null;
   return (
-    <div className="mt-4 space-y-1 text-[11px] leading-relaxed text-ink/50">
+    <div className="mt-5 space-y-1.5 text-sm leading-relaxed text-ink-3">
       {showsCutOff && <p>{CUT_OFF_NOTE}</p>}
       {showsEstimate && <p>≈ тэмдэгтэй төлбөр нь жилийн ойролцоо тооцоо, албан ёсны дүн биш.</p>}
     </div>

@@ -1,49 +1,37 @@
 "use client";
 
 import { GraduationCap, School } from "lucide-react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { Tabs, type TabItem } from "@/components/ui/Tabs";
 import { MajorsExplorer } from "./MajorsExplorer";
 import { SchoolsExplorer } from "./SchoolsExplorer";
 
 export type SearchMode = "schools" | "majors";
 
-const TABS: { id: SearchMode; label: string; icon: typeof School; href: string }[] = [
+const TABS: TabItem<SearchMode>[] = [
   { id: "schools", label: "Сургууль", icon: School, href: "/schools" },
   { id: "majors", label: "Мэргэжил", icon: GraduationCap, href: "/schools?tab=majors" },
 ];
 
 /** Lets visitors pivot the same search experience between schools (location/tuition/dorm) and majors (category/cutoff score). */
-export function SearchExplorer({ mode }: { mode: SearchMode }) {
+export function SearchExplorer({ mode, score = null }: { mode: SearchMode; score?: number | null }) {
   return (
     <div>
-      <div className="inline-flex rounded-xl border border-ink/10 bg-card p-1">
-        {TABS.map((tab) => {
-          const Icon = tab.icon;
-          const active = mode === tab.id;
-          return (
-            <Link
-              key={tab.id}
-              href={tab.href}
-              replace
-              scroll={false}
-              aria-current={active ? "page" : undefined}
-              className={cn(
-                "flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 max-lg:tap-target",
-                active
-                  ? "bg-ink text-paper"
-                  : "text-ink/60 hover:text-ink",
-              )}
-            >
-              <Icon className="h-3.5 w-3.5" />
-              {tab.label}
-            </Link>
-          );
-        })}
-      </div>
+      <Tabs
+        items={TABS}
+        value={mode}
+        label="Хайлтын төрөл"
+        fullWidth
+        className="sm:inline-flex sm:w-auto"
+        linkProps={{ replace: true, scroll: false }}
+      />
 
-      <div className="mt-6">
-        {mode === "schools" ? <SchoolsExplorer /> : <MajorsExplorer />}
+      <div className="mt-5">
+        {mode === "schools" ? (
+          <SchoolsExplorer />
+        ) : (
+          // Keyed by score so a new score from the homepage starts a fresh search.
+          <MajorsExplorer key={score ?? "none"} initialScore={score} />
+        )}
       </div>
     </div>
   );

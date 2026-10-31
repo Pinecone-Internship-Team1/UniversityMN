@@ -1,6 +1,7 @@
-import { ArrowRight, Banknote, Home, MapPin } from "lucide-react";
+import { ArrowRight, Banknote, MapPin, Target } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Badge } from "@/components/ui/Badge";
 import { formatSchoolTuition } from "@/lib/format";
 import type { School } from "@/lib/graphql/types";
 import {
@@ -13,91 +14,142 @@ import { SchoolBookmarkButton } from "./SchoolBookmarkButton";
 export interface SchoolCardProps {
   school: School;
   className?: string;
+  /** ЭЕШ cut-off range across the school's majors, e.g. "430–490" (only where the majors were loaded). */
+  cutOffRange?: string | null;
+  /** A one-line yearly tuition, e.g. "6.2–8.5 сая ₮"; defaults to the school's own tuition text. */
+  tuitionSummary?: string | null;
+  /** Hide the bookmark (e.g. in a decorative preview). */
+  showBookmark?: boolean;
   /** Forwarded to the bookmark button, e.g. to remove this card from a "saved schools" list once unsaved. */
   onToggled?: (saved: boolean) => void;
 }
 
-export function SchoolCard({ school, className, onToggled }: SchoolCardProps) {
+/** The school's logo in a rounded tile, or its first letters when there is none. */
+export function SchoolLogo({
+  school,
+  size = 48,
+  className,
+}: {
+  school: Pick<School, "id" | "name" | "logoUrl">;
+  size?: number;
+  className?: string;
+}) {
   const university = getUniversityBySchoolId(school.id);
   const logoSrc = school.logoUrl ?? university?.image;
-  const slug = getUniversitySlug(school.id) ?? school.id;
-  const href = `/university/${slug}`;
-
   return (
     <div
       className={cn(
-        "group relative flex w-[290px] shrink-0 flex-col justify-between rounded-2xl border border-ink/10 bg-card p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-ink/20 hover:shadow-md sm:w-[320px]",
+        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border-ink bg-white p-1.5",
+        className,
+      )}
+      style={{ width: size, height: size }}
+    >
+      {logoSrc ? (
+        <Image
+          src={logoSrc}
+          alt=""
+          width={size}
+          height={size}
+          sizes={`${size}px`}
+          unoptimized={Boolean(school.logoUrl)}
+          className="h-full w-full object-contain"
+        />
+      ) : (
+        <span className="text-sm font-bold text-ink-2">{school.name.slice(0, 2)}</span>
+      )}
+    </div>
+  );
+}
+
+/**
+ * One school in a list. The whole card is a link (the name's ::after covers
+ * it), and the bookmark sits above that layer, so there's no button inside a
+ * link and each has its own tap target.
+ */
+export function SchoolCard({
+  school,
+  className,
+  cutOffRange,
+  tuitionSummary,
+  showBookmark = true,
+  onToggled,
+}: SchoolCardProps) {
+  const university = getUniversityBySchoolId(school.id);
+  const slug = getUniversitySlug(school.id) ?? school.id;
+  const href = `/university/${slug}`;
+  const shortName = university?.short ?? school.name;
+  const tuition = tuitionSummary ?? formatSchoolTuition(school);
+  // The school's own tuition text may already say "/жил"; a computed range doesn't.
+  const perYear = tuitionSummary != null;
+
+  return (
+    <article
+      className={cn(
+        "group relative flex flex-col rounded-2xl border border-border-ink bg-card p-5 shadow-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-ink/25 hover:shadow-lift active:scale-[0.99]",
         className,
       )}
     >
-      <div className="absolute right-4 top-4 z-10">
-        <SchoolBookmarkButton
-          schoolId={school.id}
-          initialSaved={school.isSaved}
-          schoolName={university?.short ?? school.name}
-          size="sm"
-          onToggled={onToggled}
-        />
+      <div className="flex items-start gap-3 pr-12">
+        <SchoolLogo school={school} />
+        <div className="min-w-0">
+          <h3 className="text-lg font-bold leading-tight text-ink">
+            <Link
+              href={href}
+              className="rounded-sm after:absolute after:inset-0 after:rounded-2xl after:content-[''] group-hover:text-accent"
+            >
+              {shortName}
+            </Link>
+          </h3>
+          {shortName !== school.name && (
+            <p className="mt-0.5 line-clamp-2 text-[15px] leading-snug text-ink-3">{school.name}</p>
+          )}
+        </div>
       </div>
 
-      <Link href={href} className="flex flex-1 flex-col">
-        <div className="flex items-start justify-between gap-4 pr-10">
-          <span className="rounded-full bg-ink/5 px-3 py-1 text-[11px] font-semibold text-ink/70">
-            {school.location ?? "Монгол Улс"}
-          </span>
+      {showBookmark && (
+        <div className="absolute right-4 top-4 z-10">
+          <SchoolBookmarkButton
+            schoolId={school.id}
+            initialSaved={school.isSaved}
+            schoolName={shortName}
+            size="sm"
+            className="h-10 w-10"
+            onToggled={onToggled}
+          />
         </div>
+      )}
 
-        <div className="mt-5 flex items-center gap-3">
-          {logoSrc ? (
-            <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-ink/10 bg-paper p-1.5 shadow-2xs">
-              <Image
-                src={logoSrc}
-                alt={`${school.name} лого`}
-                fill
-                sizes="44px"
-                unoptimized={Boolean(school.logoUrl)}
-                className="object-contain p-0.5"
-              />
-            </div>
-          ) : (
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ink/5 text-xs font-bold text-ink/60">
-              {school.name.slice(0, 2)}
-            </div>
-          )}
-          <h3 className="min-w-0 truncate text-xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
-            {university?.short ?? school.name}
-          </h3>
-        </div>
-
-        <div className="mt-6 space-y-2.5 border-t border-ink/10 pt-4 text-xs text-ink/80">
-          <div className="flex items-center gap-2">
-            <MapPin className="h-3.5 w-3.5 shrink-0 text-ink/40" />
-            <span className="truncate">
-              {school.location ?? "Байршил тодорхойгүй"}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Banknote className="h-3.5 w-3.5 shrink-0 text-ink/40" />
+      <ul className="mt-4 space-y-2 text-[15px] text-ink-2">
+        <li className="flex items-center gap-2.5">
+          <span className="sr-only">Байршил: </span>
+          <MapPin className="h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
+          <span className="truncate">{school.location ?? "Байршил тодорхойгүй"}</span>
+        </li>
+        {cutOffRange && (
+          <li className="flex items-center gap-2.5">
+            <Target className="h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
             <span>
-              Төлбөр:{" "}
-              <strong className="font-semibold text-ink">
-                {formatSchoolTuition(school)}
-              </strong>
+              Босго оноо <strong className="font-bold text-ink">{cutOffRange}</strong>
             </span>
-          </div>
-          {school.dormAvailable && (
-            <div className="flex items-center gap-2">
-              <Home className="h-3.5 w-3.5 shrink-0 text-ink/40" />
-              <span>Дотуур байртай</span>
-            </div>
-          )}
-        </div>
+          </li>
+        )}
+        <li className="flex items-center gap-2.5">
+          <span className="sr-only">Сургалтын төлбөр: </span>
+          <Banknote className="h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
+          <span className="truncate" title={tuition}>
+            <strong className="font-bold text-ink">{tuition}</strong>
+            {perYear && <span className="text-ink-3"> / жил</span>}
+          </span>
+        </li>
+      </ul>
 
-        <div className="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-ink transition-colors group-hover:text-accent">
-          Дэлгэрэнгүй харах
-          <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-        </div>
-      </Link>
-    </div>
+      <div className="mt-auto flex items-center justify-between gap-3 pt-4">
+        {school.dormAvailable ? <Badge variant="success">Дотуур байртай</Badge> : <span />}
+        <span className="inline-flex items-center gap-1 text-[15px] font-bold text-ink group-hover:text-accent" aria-hidden="true">
+          Дэлгэрэнгүй
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </span>
+      </div>
+    </article>
   );
 }

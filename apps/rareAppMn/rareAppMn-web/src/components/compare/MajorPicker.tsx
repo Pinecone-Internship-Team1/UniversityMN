@@ -115,7 +115,7 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
       </SchoolOptionsState>
 
       <div className="relative">
-        <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/40" />
+        <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-3" />
         <Input
           value={search}
           onChange={(event) => setSearch(event.target.value)}
@@ -128,7 +128,7 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
             type="button"
             onClick={() => setSearch("")}
             aria-label="Хайлтыг цэвэрлэх"
-            className="absolute right-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-ink/40 hover:bg-ink/[0.06] hover:text-ink max-lg:tap-area"
+            className="absolute right-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-ink-3 hover:bg-ink/[0.06] hover:text-ink max-lg:tap-area"
           >
             <X className="h-3.5 w-3.5" />
           </button>
@@ -136,12 +136,12 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
       </div>
 
       {!schoolId && !query ? (
-        <p className="text-xs leading-relaxed text-ink/60">
+        <p className="text-[15px] leading-relaxed text-ink-3">
           Дээрээс сургуулиа сонгоод жагсаалтаас нь сонгоорой, эсвэл бүх сургуулийн мэргэжлээс
           хайгаарай. Латин үсгээр бичиж болно: “muis”, “programm hangamj”.
         </p>
       ) : result.error ? (
-        <p className="text-xs font-medium text-destructive">{getErrorMessage(result.error)}</p>
+        <p className="text-[15px] font-medium text-destructive">{getErrorMessage(result.error)}</p>
       ) : result.fetching && !result.data ? (
         <div className="space-y-2">
           {[0, 1, 2].map((i) => (
@@ -149,12 +149,12 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
           ))}
         </div>
       ) : rows.length === 0 ? (
-        <p className="text-xs text-ink/60">
+        <p className="text-[15px] text-ink-3">
           {query ? `“${query}” олдсонгүй.` : "Энэ сургуульд мэргэжил бүртгэгдээгүй байна."}
         </p>
       ) : (
         <div className={cn("transition-opacity duration-200", result.fetching && "opacity-60")}>
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-ink/50">
+          <p className="mb-2 text-sm font-semibold text-ink-3">
             {school ? `${school.short} · ` : ""}
             {total} мэргэжил{query ? " олдлоо" : ""}
           </p>
@@ -172,19 +172,19 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
                       "flex min-h-11 w-full items-center justify-between gap-3 rounded-xl border px-4 py-2.5 text-left transition-colors duration-150",
                       selected
                         ? "border-accent bg-accent-soft"
-                        : "border-ink/10 bg-paper hover:border-ink/30",
-                      "disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-ink/10",
+                        : "border-border-ink bg-paper hover:border-ink/30",
+                      "disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border-ink",
                     )}
                   >
                     <span className="min-w-0">
                       <span className="block text-sm font-semibold text-ink">{row.name}</span>
                       {row.detail && (
-                        <span className="mt-0.5 block text-xs text-ink/60">{row.detail}</span>
+                        <span className="mt-0.5 block text-[15px] text-ink-3">{row.detail}</span>
                       )}
                     </span>
                     <span
                       className={cn(
-                        "inline-flex shrink-0 items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider",
+                        "inline-flex shrink-0 items-center gap-1 rounded-full border px-2.5 py-1 text-sm font-bold",
                         selected
                           ? "border-accent bg-accent text-accent-foreground"
                           : "border-ink/20 text-ink",
@@ -202,7 +202,7 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
             <button
               type="button"
               onClick={() => setShown({ key: listKey, count: visible + pageSize })}
-              className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-dashed border-ink/20 text-xs font-bold uppercase tracking-wider text-ink/70 transition-colors hover:border-ink/40 hover:text-ink lg:min-h-10"
+              className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-dashed border-ink/20 text-[15px] font-bold text-ink-2 transition-colors hover:border-ink/40 hover:text-ink lg:min-h-10"
             >
               Дахиад харах ({total - rows.length} үлдсэн)
             </button>

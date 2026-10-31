@@ -61,7 +61,7 @@ export function SchoolLogo({ option, className }: { option: SchoolOption; classN
   return (
     <span
       className={cn(
-        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-lg border border-ink/10 bg-paper",
+        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border-ink bg-paper",
         className,
       )}
     >
@@ -75,7 +75,7 @@ export function SchoolLogo({ option, className }: { option: SchoolOption; classN
           className="object-contain p-1"
         />
       ) : (
-        <span className="text-[10px] font-bold text-ink/60">{option.short.slice(0, 2)}</span>
+        <span className="text-[10px] font-bold text-ink-3">{option.short.slice(0, 2)}</span>
       )}
     </span>
   );
@@ -122,8 +122,8 @@ export function SchoolCardPicker({ options, selectedIds, full, onToggle }: Schoo
                 "flex h-full min-h-11 w-full flex-col gap-2 rounded-xl border p-3 text-left transition-colors duration-150",
                 selected
                   ? "border-accent bg-accent-soft"
-                  : "border-ink/10 bg-paper hover:border-ink/30",
-                "disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-ink/10",
+                  : "border-border-ink bg-paper hover:border-ink/30",
+                "disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border-ink",
               )}
             >
               <span className="flex w-full items-center gap-2.5">
@@ -132,7 +132,7 @@ export function SchoolCardPicker({ options, selectedIds, full, onToggle }: Schoo
                   {selected && (
                     <span
                       aria-hidden
-                      className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[11px] font-bold text-accent-foreground ring-2 ring-card"
+                      className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-foreground ring-2 ring-card"
                     >
                       {order + 1}
                     </span>
@@ -140,7 +140,7 @@ export function SchoolCardPicker({ options, selectedIds, full, onToggle }: Schoo
                 </span>
                 <span className="min-w-0 truncate text-sm font-bold text-ink">{option.short}</span>
               </span>
-              <span className="line-clamp-2 text-[11px] leading-snug text-ink/60">{option.name}</span>
+              <span className="line-clamp-2 text-sm leading-snug text-ink-3">{option.name}</span>
             </button>
           </li>
         );
@@ -160,7 +160,7 @@ export function SchoolCardPickerSkeleton() {
 }
 
 const chipClass =
-  "inline-flex min-h-9 items-center gap-2 rounded-full border px-3 text-xs font-semibold transition-colors max-lg:min-h-11";
+  "inline-flex min-h-9 items-center gap-2 rounded-full border px-3 text-[15px] font-semibold transition-colors max-lg:min-h-11";
 
 interface SchoolChipsProps {
   options: SchoolOption[];
@@ -185,7 +185,7 @@ export function SchoolChips({ options, activeId, onChange }: SchoolChipsProps) {
           chipClass,
           active
             ? "border-ink bg-ink text-paper"
-            : "border-ink/15 bg-paper text-ink/80 hover:border-ink/40 hover:text-ink",
+            : "border-ink/15 bg-paper text-ink-2 hover:border-ink/40 hover:text-ink",
         )}
       >
         {label}
