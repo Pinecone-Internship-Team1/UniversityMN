@@ -44,7 +44,7 @@ export async function handleImageUpload(
   env: Env,
   db: Database
 ): Promise<Response> {
-  const user = await getAuthenticatedUser(request, env);
+  const user = await getAuthenticatedUser(request, env, db);
   if (!user) return errorResponse('You must be signed in to perform this action.', 401);
   if (user.role !== 'admin') {
     return errorResponse('Admin privileges are required for this action.', 403);

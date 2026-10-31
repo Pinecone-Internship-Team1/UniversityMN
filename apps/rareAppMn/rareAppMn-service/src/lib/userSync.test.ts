@@ -44,7 +44,6 @@ function liveFields(overrides: Partial<ClerkUserFields> = {}): ClerkUserFields {
     emailVerified: true,
     name: 'Бат',
     avatarUrl: null,
-    role: 'student',
     ...overrides,
   };
 }
@@ -145,6 +144,17 @@ describe('upsertClerkUser', () => {
     expect(await db.select().from(users)).toHaveLength(2);
   });
 
+  test('a new row is a student; a sync never changes the role of an existing row', async () => {
+    const created = await upsertClerkUser(db, liveFields(), stillInClerk);
+    expect(created?.role).toBe('student');
+
+    await db.update(users).set({ role: 'admin' }).where(eq(users.clerkUserId, LIVE_ID));
+    const synced = await upsertClerkUser(db, liveFields({ name: 'Renamed' }), stillInClerk);
+
+    expect(synced?.name).toBe('Renamed');
+    expect(synced?.role).toBe('admin');
+  });
+
   test('a second sync after the move just updates the moved row', async () => {
     const old = await seedTestModeUser(db);
     await upsertClerkUser(db, liveFields(), goneFromClerk);
@@ -237,6 +247,19 @@ describe('Clerk webhook user.created', () => {
     const [row] = await db.select().from(users);
     expect(row?.id).toBe(old.id);
     expect(row?.clerkUserId).toBe(LIVE_ID);
+  });
+
+  test('keeps the admin role D1 already has', async () => {
+    const db = createTestDb();
+    await db.insert(users).values({ clerkUserId: LIVE_ID, email: EMAIL, role: 'admin' });
+    restoreFetch = stubClerkApi(() => 200);
+
+    const response = await handleClerkWebhook(userCreated('verified'), CLERK_ENV, db);
+
+    expect(response.status).toBe(200);
+    const [row] = await db.select().from(users);
+    expect(row?.name).toBe('Бат');
+    expect(row?.role).toBe('admin');
   });
 
   test('an unverified email answers 409 and leaves the old row alone', async () => {

@@ -1,7 +1,6 @@
 import { and, eq } from 'drizzle-orm';
 import type { Database } from '../db';
 import { users, type User } from '../db/schema';
-import type { UserRole } from './auth';
 
 export interface ClerkUserFields {
   clerkUserId: string;
@@ -10,7 +9,6 @@ export interface ClerkUserFields {
   emailVerified: boolean;
   name: string | null;
   avatarUrl: string | null;
-  role: UserRole;
 }
 
 /** Whether a Clerk user ID exists in the Clerk instance the service uses now. */
@@ -18,7 +16,9 @@ export type ClerkUserExists = (clerkUserId: string) => Promise<boolean>;
 
 /**
  * Mirrors a Clerk user into `users` (used by `syncClerkUser` and the Clerk
- * webhook).
+ * webhook). Only profile fields are written: `role` is never part of the
+ * payload, so a new row gets the column default (`student`) and an existing
+ * row keeps whatever role D1 already has.
  *
  * `users.email` is unique, so a person who signs up again in Clerk's live
  * instance with the email of their old test-instance account would collide
@@ -32,10 +32,9 @@ export async function upsertClerkUser(
   fields: ClerkUserFields,
   clerkUserExists: ClerkUserExists
 ): Promise<User | undefined> {
-  const { clerkUserId, email, name, avatarUrl, role } = fields;
+  const { clerkUserId, email, name, avatarUrl } = fields;
   const changes = {
     email,
-    role,
     ...(name !== null ? { name } : {}),
     ...(avatarUrl !== null ? { avatarUrl } : {}),
   };
@@ -47,7 +46,7 @@ export async function upsertClerkUser(
 
   const [synced] = await db
     .insert(users)
-    .values({ clerkUserId, email, name, avatarUrl, role })
+    .values({ clerkUserId, email, name, avatarUrl })
     .onConflictDoUpdate({
       target: users.clerkUserId,
       set: { ...changes, updatedAt: new Date().toISOString() },
@@ -59,7 +58,7 @@ export async function upsertClerkUser(
 async function moveRowWithSameEmail(
   db: Database,
   clerkUserId: string,
-  changes: Pick<User, 'email' | 'role'> & Partial<Pick<User, 'name' | 'avatarUrl'>>,
+  changes: Pick<User, 'email'> & Partial<Pick<User, 'name' | 'avatarUrl'>>,
   clerkUserExists: ClerkUserExists
 ): Promise<User | null> {
   const [own] = await db

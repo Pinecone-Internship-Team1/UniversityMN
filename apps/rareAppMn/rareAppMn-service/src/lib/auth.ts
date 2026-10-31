@@ -1,5 +1,8 @@
 import { createClerkClient, verifyToken } from '@clerk/backend';
 import { isClerkAPIResponseError } from '@clerk/backend/errors';
+import { eq } from 'drizzle-orm';
+import type { Database } from '../db';
+import { users } from '../db/schema';
 import type { ClerkUserExists } from './userSync';
 import {
   type Env,
@@ -23,10 +26,6 @@ function extractBearerToken(header: string): string | null {
   return BEARER_PATTERN.exec(header)?.[1] ?? null;
 }
 
-export function roleFor(clerkUserId: string, env: Env): UserRole {
-  return getAdminClerkUserIds(env).includes(clerkUserId) ? 'admin' : 'student';
-}
-
 function decodeUnverifiedSubject(token: string): string | null {
   const segments = token.split('.');
   if (segments.length !== 3 || !segments[1]) return null;
@@ -40,19 +39,16 @@ function decodeUnverifiedSubject(token: string): string | null {
 }
 
 /**
- * Resolves the caller's identity for the current request.
+ * Resolves the caller's Clerk user ID for the current request.
  *
  * Clerk is not connected to a real account yet in local development: when
  * `CLERK_SECRET_KEY` is unset/mocked, `ENVIRONMENT=development`, and the
- * request is served from localhost, the bearer token (or the first
- * configured admin id) is trusted as-is so the GraphQL API remains testable
+ * request is served from localhost, the bearer token (or the first ID in
+ * `ADMIN_CLERK_USER_IDS`) is trusted as-is so the GraphQL API remains testable
  * offline. In any other case, an unconfigured Clerk secret means every
  * request is treated as anonymous.
  */
-export async function getAuthenticatedUser(
-  request: Request,
-  env: Env
-): Promise<AuthenticatedUser | null> {
+async function getAuthenticatedClerkUserId(request: Request, env: Env): Promise<string | null> {
   const header = request.headers.get('authorization');
   const token = header ? extractBearerToken(header) : null;
   if (header && !token) return null;
@@ -64,8 +60,7 @@ export async function getAuthenticatedUser(
     const devClerkUserId = token
       ? (decodeUnverifiedSubject(token) ?? token)
       : getAdminClerkUserIds(env)[0];
-    if (!devClerkUserId) return null;
-    return { clerkUserId: devClerkUserId, role: roleFor(devClerkUserId, env) };
+    return devClerkUserId ?? null;
   }
 
   if (!token) return null;
@@ -76,10 +71,30 @@ export async function getAuthenticatedUser(
       secretKey,
       ...(authorizedParties.length ? { authorizedParties } : {}),
     });
-    return { clerkUserId: payload.sub, role: roleFor(payload.sub, env) };
+    return payload.sub;
   } catch {
     return null;
   }
+}
+
+/**
+ * Resolves the caller and their role. `users.role` in D1 is the only source
+ * of the role: it is never taken from the request, Clerk metadata or env
+ * vars, and Clerk syncs never write it. Callers without a row are students.
+ */
+export async function getAuthenticatedUser(
+  request: Request,
+  env: Env,
+  db: Database
+): Promise<AuthenticatedUser | null> {
+  const clerkUserId = await getAuthenticatedClerkUserId(request, env);
+  if (!clerkUserId) return null;
+  const [row] = await db
+    .select({ role: users.role })
+    .from(users)
+    .where(eq(users.clerkUserId, clerkUserId))
+    .limit(1);
+  return { clerkUserId, role: row?.role ?? 'student' };
 }
 
 export interface ClerkPrimaryEmail {
