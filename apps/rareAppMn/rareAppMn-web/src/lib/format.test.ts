@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { formatAimag, formatDateMn, formatDateRange, formatMajorPlace } from "./format";
+import { formatAimag, formatDateMn, formatDateRange, formatMajorPlace, parseExamScore } from "./format";
 
 describe("formatDateMn", () => {
   test("a stored date in Mongolian order, read from the string", () => {
@@ -82,5 +82,22 @@ describe("formatMajorPlace", () => {
   test("formatAimag", () => {
     expect(formatAimag("Өмнөговь аймаг, Даланзадгад")).toBe("Өмнөговь аймаг");
     expect(formatAimag("Сүхбаатар дүүрэг, Улаанбаатар")).toBeNull();
+  });
+});
+
+describe("parseExamScore", () => {
+  test("a whole ЭЕШ score from the URL", () => {
+    expect(parseExamScore("620")).toBe(620);
+    expect(parseExamScore("200")).toBe(200);
+    expect(parseExamScore("800")).toBe(800);
+  });
+
+  test("anything else is ignored", () => {
+    expect(parseExamScore(undefined)).toBeNull();
+    expect(parseExamScore("")).toBeNull();
+    expect(parseExamScore("abc")).toBeNull();
+    expect(parseExamScore("620.5")).toBeNull();
+    expect(parseExamScore("199")).toBeNull();
+    expect(parseExamScore("801")).toBeNull();
   });
 });

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Award } from "lucide-react";
-import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
-import { SectionLabel } from "@/components/home/SectionLabel";
+import { Award, CalendarDays } from "lucide-react";
+import { PageShell } from "@/components/layout/PageShell";
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
@@ -18,6 +18,7 @@ import { createServerGraphqlClient } from "@/lib/graphql-server";
 import { PAGE_SEO } from "@/lib/seo";
 import { pageMetadata } from "@/lib/site";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = pageMetadata(PAGE_SEO.scholarships);
 
@@ -48,20 +49,15 @@ export default async function ScholarshipsPage() {
     });
 
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <Navbar />
+    <PageShell>
+      <Container className="py-6 md:py-12">
+        <SectionHeader
+          as="h1"
+          title="Сургуулиудын тэтгэлэг, хөнгөлөлт"
+          description="Тэтгэлэг бүрийн хамрах хүрээ, шаардлага болон эцсийн хугацааг харьцуулж, өөрт тохирохыг нь цагтаа бүртгүүлээрэй."
+        />
 
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 sm:py-16">
-        <SectionLabel>Тэтгэлэг</SectionLabel>
-        <h1 className="mt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl md:text-4xl">
-          Сургуулиудын тэтгэлэг, хөнгөлөлт
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70 sm:text-base">
-          Тэтгэлэг бүрийн хамрах хүрээ, шаардлага болон эцсийн хугацааг харьцуулж,
-          өөрт тохирохыг нь цагтаа бүртгүүлээрэй.
-        </p>
-
-        <div className="mt-10">
+        <div className="mt-6 md:mt-8">
           {error ? (
             <ErrorState
               title="Тэтгэлгийн мэдээллийг ачааллаж чадсангүй"
@@ -75,55 +71,56 @@ export default async function ScholarshipsPage() {
             />
           ) : (
             <>
-              <p className="mb-5 text-xs font-semibold uppercase tracking-wider text-ink/50">
-                {entries.length} тэтгэлэг
-              </p>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <p className="mb-4 text-[15px] font-bold text-ink-2">{entries.length} тэтгэлэг</p>
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
                 {entries.map(({ scholarship, school, expired }) => {
                   const university = getUniversityBySchoolId(school.id);
                   return (
-                    <article
+                    <li
                       key={scholarship.id}
-                      className="flex flex-col gap-3 rounded-2xl border border-ink/10 bg-card p-5"
+                      className={cn(
+                        "flex flex-col rounded-2xl border border-border-ink bg-card p-5",
+                        expired && "bg-card/60",
+                      )}
                     >
-                      <div className="flex items-start justify-between gap-3">
-                        <h2 className="text-sm font-bold text-ink">{scholarship.name}</h2>
-                        <Badge variant={expired ? "outline" : "accent"}>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <Badge variant={expired ? "outline" : "success"}>
                           {expired ? "Хугацаа дууссан" : "Нээлттэй"}
                         </Badge>
+                        <Link
+                          href={`/university/${getUniversitySlug(school.id) ?? school.id}`}
+                          className="inline-flex min-h-8 items-center text-[15px] font-bold text-ink-2 underline-offset-4 hover:text-accent hover:underline max-lg:tap-target"
+                        >
+                          {university?.short ?? school.name}
+                        </Link>
                       </div>
-                      <Link
-                        href={`/university/${getUniversitySlug(school.id) ?? school.id}`}
-                        className="text-xs font-semibold text-ink/70 transition-colors hover:text-accent max-lg:tap-target"
-                      >
-                        {university?.short ?? school.name}
-                      </Link>
+                      <h2 className="mt-3 font-sans text-lg leading-snug font-bold tracking-normal text-ink">
+                        {scholarship.name}
+                      </h2>
                       {scholarship.coverage && (
-                        <p className="text-xs text-ink/70">
-                          <span className="font-semibold text-ink">Хамрах хүрээ: </span>
+                        <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
+                          <span className="font-bold text-ink">Хамрах хүрээ: </span>
                           {scholarship.coverage}
                         </p>
                       )}
                       {scholarship.requirements && (
-                        <p className="text-xs text-ink/70">
-                          <span className="font-semibold text-ink">Шаардлага: </span>
+                        <p className="mt-2 line-clamp-4 text-[15px] leading-relaxed text-ink-2">
+                          <span className="font-bold text-ink">Шаардлага: </span>
                           {scholarship.requirements}
                         </p>
                       )}
-                      <p className="mt-auto border-t border-ink/10 pt-3 text-xs font-semibold text-ink/70">
-                        Эцсийн хугацаа:{" "}
-                        {formatDateMn(scholarship.deadline) ?? "Тодорхойгүй"}
+                      <p className="mt-auto flex items-center gap-2 border-t border-border-ink pt-3 text-[15px] font-bold text-ink [&:not(:first-child)]:mt-4">
+                        <CalendarDays className="h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
+                        Эцсийн хугацаа: {formatDateMn(scholarship.deadline) ?? "Тодорхойгүй"}
                       </p>
-                    </article>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </>
           )}
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </Container>
+    </PageShell>
   );
 }

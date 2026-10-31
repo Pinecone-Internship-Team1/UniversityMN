@@ -155,17 +155,17 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
   }
 
   return (
-    <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+    <section className="rounded-2xl border border-border-ink bg-card p-5 md:p-8">
       <div className="flex items-center gap-2 text-ink">
         <Calculator className="h-5 w-5 text-accent" />
         <h2 className="text-xl font-bold tracking-tight">Оноогоо шалгах</h2>
       </div>
-      <p className="mt-2 text-sm text-ink/60">
+      <p className="mt-2 text-sm text-ink-3">
         Мэргэжлээ сонгоод ЭЕШ-ийн оноогоо оруулбал босго оноог хангаж буй эсэхийг харуулна.
         {isSignedIn ? " Профайлдаа хадгалсан оноо автоматаар бөглөгдөнө." : ""}
       </p>
 
-      <label className="mt-5 flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
+      <label className="mt-5 flex flex-col gap-1.5 text-[15px] font-semibold text-ink-2">
         Мэргэжил
         <Select
           value={selected.id}
@@ -185,14 +185,14 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
             ),
           )}
         </Select>
-        {selectedPlace && <span className="font-normal text-ink/50">{selectedPlace}</span>}
+        {selectedPlace && <span className="font-normal text-ink-3">{selectedPlace}</span>}
       </label>
 
       {((selected.primarySubjects ?? []).length > 0 || selected.examNote) && (
-        <div className="mt-3 rounded-lg bg-ink/[0.03] px-3 py-2 text-[11px] leading-relaxed text-ink/60">
+        <div className="mt-3 rounded-lg bg-ink/[0.03] px-3 py-2 text-sm leading-relaxed text-ink-3">
           {exams.map((exam) => (
             <p key={exam.label}>
-              <span className="font-semibold text-ink/70">{exam.label}:</span> {exam.text}
+              <span className="font-semibold text-ink-2">{exam.label}:</span> {exam.text}
             </p>
           ))}
           {(selected.primarySubjects ?? []).length > 0 && (
@@ -205,7 +205,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
       {subjects.length === 0 ? (
         <div className="mt-4 flex items-center gap-3">
           <Badge variant="default">{VERDICT_LABELS.CHECK_WITH_SCHOOL}</Badge>
-          <p className="text-xs text-ink/60">Энэ хөтөлбөрийн оноог тооцох боломжгүй.</p>
+          <p className="text-[15px] text-ink-3">Энэ хөтөлбөрийн оноог тооцох боломжгүй.</p>
         </div>
       ) : (
         <>
@@ -213,7 +213,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
             {subjects.map((subject) => (
               <label
                 key={subject}
-                className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70"
+                className="flex flex-col gap-1.5 text-[15px] font-semibold text-ink-2"
               >
                 {subject}
                 <Input
@@ -237,15 +237,15 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
             <Button variant="solid" size="md" onClick={handleCheck} disabled={checking}>
               {checking ? "Шалгаж байна..." : "Шалгах"}
             </Button>
-            {errorMessage && <p className="text-xs font-medium text-destructive">{errorMessage}</p>}
+            {errorMessage && <p className="text-[15px] font-medium text-destructive">{errorMessage}</p>}
           </div>
 
           {outcome && (
-            <div className="mt-5 rounded-xl border border-ink/10 bg-paper p-4" aria-live="polite">
+            <div className="mt-5 rounded-xl border border-border-ink bg-paper p-4" aria-live="polite">
               <div className="flex items-center justify-between gap-3">
                 <div className="min-w-0">
                   <p className="text-sm font-bold text-ink">{outcome.major.name}</p>
-                  {selectedPlace && <p className="mt-0.5 text-xs text-ink/50">{selectedPlace}</p>}
+                  {selectedPlace && <p className="mt-0.5 text-[15px] text-ink-3">{selectedPlace}</p>}
                 </div>
                 <Badge
                   variant={
@@ -269,7 +269,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
                   />
                 </div>
               )}
-              <p className="mt-3 text-xs leading-relaxed text-ink/70">{outcome.reason}</p>
+              <p className="mt-3 text-[15px] leading-relaxed text-ink-2">{outcome.reason}</p>
             </div>
           )}
         </>

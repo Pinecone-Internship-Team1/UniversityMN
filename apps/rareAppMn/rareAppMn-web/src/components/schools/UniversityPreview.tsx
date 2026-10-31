@@ -7,22 +7,18 @@ import {
   Bookmark,
   CalendarDays,
   ClipboardList,
+  Info,
   Lock,
   MapPin,
   Scale,
 } from "lucide-react";
 import { buttonClassName } from "@/components/ui/Button";
 import { ComingSoon } from "@/components/ui/ComingSoon";
+import { InfoSection } from "./InfoSection";
 import { SIGN_IN_PATH, SIGN_UP_PATH } from "@/lib/auth-routes";
 import { formatCutOff, formatDegreeType, formatSchoolTuition } from "@/lib/format";
 import type { SchoolDetail } from "@/lib/graphql/documents";
-import {
-  formatCutOffRange,
-  formatTuitionRange,
-  previewMajors,
-  schoolPath,
-  shortOverview,
-} from "@/lib/seo";
+import { previewMajors, schoolPath, shortOverview } from "@/lib/seo";
 import { getUniversityBySchoolId } from "@/lib/university-logos";
 
 const PREVIEW_MAJOR_COUNT = 6;
@@ -49,8 +45,6 @@ export function signInHref(schoolId: string, path = SIGN_IN_PATH): string {
 export function UniversityPreview({ school }: { school: SchoolDetail }) {
   const founded = getUniversityBySchoolId(school.id)?.founded;
   const overview = shortOverview(school.overview);
-  const cutOffs = formatCutOffRange(school);
-  const tuition = formatTuitionRange(school);
   const majors = previewMajors(
     school.majors,
     school.faculties.map((faculty) => faculty.id),
@@ -59,66 +53,45 @@ export function UniversityPreview({ school }: { school: SchoolDetail }) {
   const facultyNames = new Map(school.faculties.map((faculty) => [faculty.id, faculty.name]));
   const hiddenMajorCount = school.majors.length - majors.length;
 
-  const facts = [
-    { label: "Байгуулагдсан", value: founded ? `${founded} он` : null },
-    { label: "Мэргэжил", value: school.majors.length > 0 ? String(school.majors.length) : null },
-    { label: "ЭЕШ босго оноо", value: cutOffs },
-    { label: "Жилийн төлбөр", value: tuition },
-  ];
-
   return (
-    <div className="mt-10 grid gap-8 md:grid-cols-12">
-      <div className="space-y-8 md:col-span-8">
-        <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {facts.map((fact) => (
-            <div key={fact.label} className="rounded-2xl border border-ink/10 bg-card p-4">
-              <dt className="text-[11px] font-bold uppercase tracking-wider text-ink/50">
-                {fact.label}
-              </dt>
-              <dd className="mt-1.5 text-lg font-bold text-ink sm:text-xl">{fact.value ?? "—"}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-          <h2 className="text-xl font-bold tracking-tight text-ink">Сургуулийн тухай</h2>
+    <div className="mt-6 grid grid-cols-1 gap-6 md:mt-8 md:grid-cols-12 md:gap-8">
+      <div className="space-y-4 md:col-span-8">
+        <InfoSection icon={Info} title="Сургуулийн тухай" collapsible={false}>
           {overview ? (
-            <p className="mt-4 text-sm leading-relaxed text-ink/80 sm:text-base">{overview}</p>
+            <p className="text-base leading-relaxed text-ink-2">{overview}</p>
           ) : (
-            <ComingSoon />
+            <ComingSoon className="mt-0" />
           )}
-        </section>
+        </InfoSection>
 
-        <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
-          <div className="flex items-center gap-2 text-ink">
-            <BookOpen className="h-5 w-5 text-accent" />
-            <h2 className="text-xl font-bold tracking-tight">Мэргэжлүүд</h2>
-          </div>
+        <InfoSection
+          icon={BookOpen}
+          title="Мэргэжлүүд"
+          collapsible={false}
+          meta={school.majors.length > 0 ? `${school.majors.length} хөтөлбөр` : undefined}
+        >
           {majors.length === 0 ? (
-            <ComingSoon />
+            <ComingSoon className="mt-0" />
           ) : (
             <>
-              <ul className="mt-4 divide-y divide-ink/10 rounded-xl border border-ink/10 bg-paper">
+              <ul className="divide-y divide-border-ink rounded-xl border border-border-ink bg-paper">
                 {majors.map((major) => {
                   const faculty = major.facultyId ? facultyNames.get(major.facultyId) : null;
                   const cutOff = formatCutOff(major);
                   const degree = formatDegreeType(major.degreeType);
                   return (
-                    <li
-                      key={major.id}
-                      className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
-                    >
+                    <li key={major.id} className="flex items-start justify-between gap-3 px-4 py-3">
                       <div className="min-w-0">
-                        <p className="text-sm font-bold text-ink">{major.name}</p>
+                        <p className="text-base font-bold leading-snug text-ink">{major.name}</p>
                         {(faculty || degree) && (
-                          <p className="mt-0.5 text-xs text-ink/60">
+                          <p className="mt-0.5 text-sm text-ink-3">
                             {[degree, faculty].filter(Boolean).join(" · ")}
                           </p>
                         )}
                       </div>
                       {cutOff && (
-                        <span className="shrink-0 text-xs font-semibold text-ink/70">
-                          Босго: {cutOff}
+                        <span className="shrink-0 rounded-lg bg-ink/[0.06] px-2.5 py-1 text-sm font-bold text-ink-2">
+                          {cutOff}
                         </span>
                       )}
                     </li>
@@ -126,37 +99,46 @@ export function UniversityPreview({ school }: { school: SchoolDetail }) {
                 })}
               </ul>
               {hiddenMajorCount > 0 && (
-                <p className="mt-3 text-xs font-semibold text-ink/60">
-                  + {hiddenMajorCount} мэргэжил нэвтэрсний дараа харагдана
+                <p className="mt-3 text-[15px] text-ink-3">
+                  Үлдсэн {hiddenMajorCount} хөтөлбөр нэвтэрсний дараа харагдана.
                 </p>
               )}
             </>
           )}
-        </section>
+        </InfoSection>
 
-        <section className="rounded-2xl border border-accent/30 bg-accent-soft p-6 sm:p-8">
-          <div className="flex items-center gap-2 text-ink">
-            <Lock className="h-5 w-5 text-accent" />
-            <h2 className="text-xl font-bold tracking-tight">Нэвтэрч бүх мэдээллийг хар</h2>
+        <section
+          aria-labelledby="unlock-title"
+          className="rounded-2xl border border-border-ink bg-card p-5 md:p-7"
+        >
+          <div className="flex items-start gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">
+              <Lock className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <div>
+              <h2 id="unlock-title" className="text-lg leading-tight text-ink md:text-xl">
+                Нэвтэрч бүх мэдээллийг хар
+              </h2>
+              <p className="mt-1 text-[15px] text-ink-2">
+                Бүртгэл үнэгүй. Нэвтэрсний дараа энэ хуудас руу буцаж ирнэ.
+              </p>
+            </div>
           </div>
-          <p className="mt-2 text-sm text-ink/70">
-            Бүртгэл үнэгүй. Нэвтэрсний дараа энэ хуудас руу буцаж ирнэ.
-          </p>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-4 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
             {LOCKED_SECTIONS.map(({ icon: Icon, label }) => (
-              <li key={label} className="flex items-start gap-2.5 text-sm text-ink/80">
-                <Icon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+              <li key={label} className="flex items-start gap-2.5 text-[15px] text-ink-2">
+                <Icon className="mt-0.5 h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
                 {label}
               </li>
             ))}
           </ul>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Link href={signInHref(school.id)} className={buttonClassName({ size: "lg" })}>
-              Нэвтэрч бүгдийг хар
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <Link href={signInHref(school.id)} className={buttonClassName({})}>
+              Нэвтрэх
             </Link>
             <Link
               href={signInHref(school.id, SIGN_UP_PATH)}
-              className={buttonClassName({ variant: "outline", size: "lg" })}
+              className={buttonClassName({ variant: "secondary" })}
             >
               Бүртгүүлэх
             </Link>
@@ -164,39 +146,41 @@ export function UniversityPreview({ school }: { school: SchoolDetail }) {
         </section>
       </div>
 
-      <div className="md:col-span-4">
-        <div className="sticky top-28 space-y-4 rounded-2xl border border-ink/10 bg-card p-6">
-          <h3 className="text-base font-bold text-ink">Ерөнхий мэдээлэл</h3>
-
-          <div className="space-y-4 pt-2 text-xs text-ink/80">
-            <div className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-4 w-4 text-ink/40" />
+      <aside className="md:col-span-4">
+        <section
+          aria-labelledby="preview-facts-title"
+          className="rounded-2xl border border-border-ink bg-card p-5 md:sticky md:top-24"
+        >
+          <h2 id="preview-facts-title" className="font-sans text-lg font-bold tracking-normal text-ink">
+            Ерөнхий мэдээлэл
+          </h2>
+          <ul className="mt-3 divide-y divide-border-ink text-[15px]">
+            <li className="flex gap-3 py-3">
+              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-ink-3" aria-hidden="true" />
               <div>
-                <p className="font-semibold text-ink">Байршил</p>
-                <p className="mt-0.5">{school.location ?? "Улаанбаатар хот"}</p>
+                <p className="font-bold text-ink">Байршил</p>
+                <p className="mt-0.5 text-ink-2">{school.location ?? "Улаанбаатар хот"}</p>
               </div>
-            </div>
-
+            </li>
             {founded && (
-              <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
-                <CalendarDays className="mt-0.5 h-4 w-4 text-ink/40" />
+              <li className="flex gap-3 py-3">
+                <CalendarDays className="mt-0.5 h-5 w-5 shrink-0 text-ink-3" aria-hidden="true" />
                 <div>
-                  <p className="font-semibold text-ink">Байгуулагдсан он</p>
-                  <p className="mt-0.5">{founded}</p>
+                  <p className="font-bold text-ink">Байгуулагдсан он</p>
+                  <p className="mt-0.5 text-ink-2">{founded}</p>
                 </div>
-              </div>
+              </li>
             )}
-
-            <div className="flex items-start gap-3 border-t border-ink/10 pt-3">
-              <Banknote className="mt-0.5 h-4 w-4 text-ink/40" />
+            <li className="flex gap-3 py-3">
+              <Banknote className="mt-0.5 h-5 w-5 shrink-0 text-ink-3" aria-hidden="true" />
               <div>
-                <p className="font-semibold text-ink">Сургалтын төлбөр</p>
-                <p className="mt-0.5">{formatSchoolTuition(school)}</p>
+                <p className="font-bold text-ink">Сургалтын төлбөр</p>
+                <p className="mt-0.5 text-ink-2">{formatSchoolTuition(school)}</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </li>
+          </ul>
+        </section>
+      </aside>
     </div>
   );
 }

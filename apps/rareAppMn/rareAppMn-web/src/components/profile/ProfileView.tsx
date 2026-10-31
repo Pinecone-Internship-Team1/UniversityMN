@@ -62,7 +62,7 @@ function SignedOutPrompt() {
 function ProfileSkeleton() {
   return (
     <div className="space-y-8">
-      <div className="flex items-center gap-5 rounded-2xl border border-ink/10 bg-card p-6">
+      <div className="flex items-center gap-5 rounded-2xl border border-border-ink bg-card p-6">
         <Skeleton className="h-16 w-16 rounded-full" />
         <div className="space-y-2">
           <Skeleton className="h-5 w-40" />
@@ -128,8 +128,8 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
             onClick={() => setRegion(option.value)}
             className={
               region === option.value
-                ? "rounded-full bg-card px-3.5 py-1.5 text-xs font-semibold text-ink shadow-sm"
-                : "rounded-full px-3.5 py-1.5 text-xs font-semibold text-ink/60 hover:text-ink"
+                ? "rounded-full bg-card px-3.5 py-1.5 text-[15px] font-semibold text-ink shadow-sm"
+                : "rounded-full px-3.5 py-1.5 text-[15px] font-semibold text-ink-3 hover:text-ink"
             }
           >
             {option.label}
@@ -153,7 +153,7 @@ function RecommendationList({ region }: { region: Region }) {
 
   if (fetching) {
     return (
-      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {[0, 1, 2].map((i) => (
           <Skeleton key={i} className="h-28 w-full rounded-xl" />
         ))}
@@ -184,15 +184,15 @@ function RecommendationList({ region }: { region: Region }) {
   }
 
   return (
-    <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {recommendations.map((result) => (
         <Link
           key={`${result.school.id}-${result.major.id}`}
           href={universityHref(result.school)}
-          className="flex flex-col gap-2 rounded-xl border border-ink/10 bg-card p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-sm"
+          className="flex flex-col gap-2 rounded-xl border border-border-ink bg-card p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-sm"
         >
           <div className="flex items-start justify-between gap-2">
-            <p className="text-sm font-bold text-ink">{result.major.name}</p>
+            <p className="text-base font-bold text-ink">{result.major.name}</p>
             <Badge
               variant={
                 result.verdict === "ELIGIBLE"
@@ -207,13 +207,13 @@ function RecommendationList({ region }: { region: Region }) {
                 : VERDICT_LABELS[result.verdict]}
             </Badge>
           </div>
-          <p className="text-xs text-ink/60">
+          <p className="text-[15px] text-ink-3">
             {formatMajorPlace(
               result.major.faculty,
               getUniversityBySchoolId(result.school.id)?.short ?? result.school.name,
             )}
           </p>
-          <p className="text-[11px] leading-relaxed text-ink/50">
+          <p className="text-sm leading-relaxed text-ink-3">
             {result.reason}
           </p>
         </Link>
@@ -332,9 +332,9 @@ export function ProfileView() {
   return (
     <div className="space-y-10">
       {/* Identity header */}
-      <div className="flex flex-col gap-6 rounded-2xl border border-ink/10 bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-6 rounded-2xl border border-border-ink bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-5">
-          <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/10 bg-paper text-xl font-bold text-ink/50">
+          <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border-ink bg-paper text-xl font-bold text-ink-3">
             {me.avatarUrl ? (
               // Plain <img>: an arbitrary user-provided avatar URL, not a local/static asset.
               <img
@@ -355,7 +355,7 @@ export function ProfileView() {
                 {me.role === "ADMIN" ? "Админ" : "Сурагч"}
               </Badge>
             </div>
-            <p className="text-sm text-ink/60">{me.email}</p>
+            <p className="text-sm text-ink-3">{me.email}</p>
           </div>
         </div>
 
@@ -376,21 +376,21 @@ export function ProfileView() {
       </div>
 
       {/* Edit form */}
-      <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+      <section className="rounded-2xl border border-border-ink bg-card p-5 md:p-8">
         <h3 className="text-base font-bold text-ink">Мэдээлэл засах</h3>
 
         {/* Name and photo: read-only here, edited in the account tab */}
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
-            <p className="text-xs font-semibold text-ink/70">Нэр</p>
-            <p className="flex h-11 items-center rounded-xl border border-ink/10 bg-paper px-4 text-sm text-ink">
-              {me.name ?? <span className="text-ink/40">Нэр оруулаагүй</span>}
+            <p className="text-[15px] font-semibold text-ink-2">Нэр</p>
+            <p className="flex h-11 items-center rounded-xl border border-border-ink bg-paper px-4 text-sm text-ink">
+              {me.name ?? <span className="text-ink-3">Нэр оруулаагүй</span>}
             </p>
           </div>
           <div className="flex flex-col gap-1.5">
-            <p className="text-xs font-semibold text-ink/70">Профайл зураг</p>
-            <div className="flex h-11 items-center gap-3 rounded-xl border border-ink/10 bg-paper px-4 text-sm text-ink/60">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/10 bg-card text-[10px] font-bold text-ink/50">
+            <p className="text-[15px] font-semibold text-ink-2">Профайл зураг</p>
+            <div className="flex h-11 items-center gap-3 rounded-xl border border-border-ink bg-paper px-4 text-sm text-ink-3">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border-ink bg-card text-[10px] font-bold text-ink-3">
                 {me.avatarUrl ? (
                   // Plain <img>: an arbitrary user-provided avatar URL, not a local/static asset.
                   <img src={me.avatarUrl} alt="" className="h-full w-full object-cover" />
@@ -403,12 +403,12 @@ export function ProfileView() {
           </div>
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
-          <p className="text-xs text-ink/60">
+          <p className="text-[15px] text-ink-3">
             Нэр, профайл зургаа «Бүртгэлийн тохиргоо» хэсгээс солино.
           </p>
           <Link
             href={ACCOUNT_SETTINGS_PATH}
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-ink/70 transition-colors hover:text-accent max-lg:tap-target"
+            className="inline-flex items-center gap-1.5 text-[15px] font-bold text-ink-2 transition-colors hover:text-accent max-lg:tap-target"
           >
             <Settings className="h-3.5 w-3.5" />
             Бүртгэлийн тохиргоо
@@ -416,14 +416,14 @@ export function ProfileView() {
         </div>
 
         {/* Scores editor */}
-        <div className="mt-6 border-t border-ink/10 pt-5">
+        <div className="mt-6 border-t border-border-ink pt-5">
           <div className="flex items-center gap-2">
             <GraduationCap className="h-4 w-4 text-accent" />
-            <h4 className="text-sm font-bold text-ink">
+            <h4 className="text-base font-bold text-ink">
               Миний ЭЕШ-ийн оноо
             </h4>
           </div>
-          <p className="mt-1 text-xs text-ink/60">
+          <p className="mt-1 text-[15px] text-ink-3">
             Хичээл бүрийн нэр болон авсан оноогоо оруулбал танд тохирох
             мэргэжлүүдийг доор санал болгоно.
           </p>
@@ -459,7 +459,7 @@ export function ProfileView() {
                     )
                   }
                   aria-label="Мөр хасах"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-ink-3 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -469,14 +469,14 @@ export function ProfileView() {
           <button
             type="button"
             onClick={() => setScoreRows((rows) => [...rows, createScoreRow()])}
-            className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-ink/60 transition-colors hover:text-accent max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-top-3 max-lg:after:-bottom-4"
+            className="mt-3 inline-flex items-center gap-1.5 text-[15px] font-bold text-ink-3 transition-colors hover:text-accent max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-top-3 max-lg:after:-bottom-4"
           >
             <Plus className="h-3.5 w-3.5" />
             Хичээл нэмэх
           </button>
         </div>
 
-        <div className="mt-6 flex items-center gap-3 border-t border-ink/10 pt-5">
+        <div className="mt-6 flex items-center gap-3 border-t border-border-ink pt-5">
           <Button
             variant="solid"
             size="md"
@@ -512,7 +512,7 @@ export function ProfileView() {
             description="Сургуулиудын хуудсаас хадгалах тэмдгийг дарж хадгалаарай."
           />
         ) : (
-          <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
             {visibleSavedSchools.map((school) => (
               <SchoolCard
                 key={school.id}
@@ -544,13 +544,13 @@ export function ProfileView() {
             {visibleSavedMajors.map((major) => (
               <li
                 key={major.id}
-                className="flex items-center justify-between gap-4 rounded-xl border border-ink/10 bg-card px-4 py-3"
+                className="flex items-center justify-between gap-4 rounded-xl border border-border-ink bg-card px-4 py-3"
               >
                 <Link href={universityHref(major.school)} className="group min-w-0">
-                  <p className="truncate text-sm font-bold text-ink transition-colors group-hover:text-accent">
+                  <p className="truncate text-base font-bold text-ink transition-colors group-hover:text-accent">
                     {major.name}
                   </p>
-                  <p className="mt-0.5 text-xs text-ink/60">
+                  <p className="mt-0.5 text-[15px] text-ink-3">
                     {[
                       formatMajorPlace(
                         major.faculty,

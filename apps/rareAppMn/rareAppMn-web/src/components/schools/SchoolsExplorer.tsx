@@ -1,12 +1,12 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Search, SlidersHorizontal } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useQuery } from "urql";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { SchoolCardSkeletonGrid } from "@/components/ui/Skeleton";
-import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
+import { Field, Input } from "@/components/ui/Input";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import {
   SCHOOLS_QUERY,
@@ -15,6 +15,7 @@ import {
 } from "@/lib/graphql/documents";
 import type { SchoolFilterInput } from "@/lib/graphql/types";
 import { cn } from "@/lib/utils";
+import { CheckboxField, Filters, Pager, ResultCount, SearchField } from "./ExplorerParts";
 import { SchoolCard } from "./SchoolCard";
 
 const PAGE_SIZE = 9;
@@ -78,49 +79,50 @@ export function SchoolsExplorer() {
   const hasActiveFilters =
     filters.search || filters.location || filters.maxTuitionFee || filters.dormAvailable || filters.scholarshipAvailable;
 
+  const activeCount = [
+    filters.location,
+    filters.maxTuitionFee,
+    filters.dormAvailable,
+    filters.scholarshipAvailable,
+  ].filter(Boolean).length;
+
+  function clearFilters() {
+    setPage(1);
+    setFilters((current) => ({ ...INITIAL_FILTERS, search: current.search }));
+  }
+
+  function resetAll() {
+    setPage(1);
+    setFilters(INITIAL_FILTERS);
+  }
+
   return (
     <div>
-      {/* Search bar + filter toggle */}
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <div className="relative flex-1">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/40" />
-          <Input
-            value={filters.search}
-            onChange={(event) => updateFilter("search", event.target.value)}
-            placeholder="Хайх: muis, shutis, Хүрээ…"
-            className="pl-11"
-            aria-label="Сургуулийн нэрээр хайх"
-          />
-        </div>
-        <button
-          type="button"
-          onClick={() => setFiltersOpen((open) => !open)}
-          className={cn(
-            "inline-flex items-center justify-center gap-2 rounded-xl border px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors max-lg:tap-target sm:w-auto",
-            filtersOpen || hasActiveFilters
-              ? "border-accent bg-accent-soft text-accent"
-              : "border-ink/15 text-ink hover:border-ink",
-          )}
+      <div className="flex flex-wrap gap-2 sm:gap-3">
+        <SearchField
+          value={filters.search}
+          onChange={(value) => updateFilter("search", value)}
+          placeholder="МУИС, shutis…"
+          label="Сургуулийн нэрээр хайх"
+        />
+        <Filters
+          open={filtersOpen}
+          onOpenChange={setFiltersOpen}
+          activeCount={activeCount}
+          resultCount={pageInfo?.totalCount ?? null}
+          onClear={clearFilters}
         >
-          <SlidersHorizontal className="h-4 w-4" />
-          Шүүлтүүр
-        </button>
-      </div>
-
-      {/* Filter panel */}
-      {filtersOpen && (
-        <div className="mt-4 grid gap-4 rounded-2xl border border-ink/10 bg-card p-5 sm:grid-cols-3">
-          <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-            Байршил
+          <Field label="Байршил" htmlFor="filter-location">
             <Input
+              id="filter-location"
               value={filters.location}
               onChange={(event) => updateFilter("location", event.target.value)}
               placeholder="жишээ: Сүхбаатар дүүрэг"
             />
-          </label>
-          <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-            Дээд сургалтын төлбөр (сая ₮)
+          </Field>
+          <Field label="Жилийн төлбөр хүртэл (сая ₮)" htmlFor="filter-tuition">
             <Input
+              id="filter-tuition"
               type="number"
               min={0}
               inputMode="decimal"
@@ -128,83 +130,56 @@ export function SchoolsExplorer() {
               onChange={(event) => updateFilter("maxTuitionFee", event.target.value)}
               placeholder="жишээ: 5"
             />
-          </label>
-          <div className="flex flex-col gap-2.5 text-xs font-semibold text-ink/70">
-            <span>Нэмэлт</span>
-            <label className="flex items-center gap-2 font-medium text-ink/80 max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-[5px]">
-              <input
-                type="checkbox"
-                checked={filters.dormAvailable}
-                onChange={(event) => updateFilter("dormAvailable", event.target.checked)}
-                className="h-4 w-4 accent-accent"
-              />
-              Дотуур байртай
-            </label>
-            <label className="flex items-center gap-2 font-medium text-ink/80 max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-[5px]">
-              <input
-                type="checkbox"
-                checked={filters.scholarshipAvailable}
-                onChange={(event) => updateFilter("scholarshipAvailable", event.target.checked)}
-                className="h-4 w-4 accent-accent"
-              />
-              Тэтгэлэгтэй
-            </label>
-          </div>
-        </div>
-      )}
+          </Field>
+          <fieldset className="flex flex-col gap-2">
+            <legend className="mb-1.5 text-[15px] font-bold text-ink">Нэмэлт</legend>
+            <CheckboxField
+              label="Дотуур байртай"
+              checked={filters.dormAvailable}
+              onChange={(checked) => updateFilter("dormAvailable", checked)}
+            />
+            <CheckboxField
+              label="Тэтгэлэгтэй"
+              checked={filters.scholarshipAvailable}
+              onChange={(checked) => updateFilter("scholarshipAvailable", checked)}
+            />
+          </fieldset>
+        </Filters>
+      </div>
 
-      {/* Results */}
-      <div className="mt-8">
+      <div className="mt-6">
         {error ? (
           <ErrorState onRetry={() => reexecuteQuery({ requestPolicy: "network-only" })} />
         ) : fetching && !data ? (
-          <SchoolCardSkeletonGrid count={PAGE_SIZE} />
+          <SchoolCardSkeletonGrid count={6} />
         ) : !data || data.schools.items.length === 0 ? (
           <EmptyState
             title="Тохирох сургууль олдсонгүй"
             description="Хайлт эсвэл шүүлтүүрээ өөрчилж дахин оролдоно уу."
+            action={
+              hasActiveFilters ? (
+                <Button variant="secondary" onClick={resetAll}>
+                  Бүгдийг цэвэрлэх
+                </Button>
+              ) : undefined
+            }
           />
         ) : (
           <>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-wider text-ink/50">
-              {data.schools.pageInfo.totalCount} сургууль олдлоо
-            </p>
-            <div
+            <ResultCount>{data.schools.pageInfo.totalCount} сургууль олдлоо</ResultCount>
+            <ul
               className={cn(
-                "grid grid-cols-1 gap-5 transition-opacity duration-200 sm:grid-cols-2 lg:grid-cols-3",
-                fetching && "opacity-50",
+                "grid grid-cols-1 gap-3 transition-opacity duration-200 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3",
+                fetching && "opacity-60",
               )}
             >
               {data.schools.items.map((school) => (
-                <SchoolCard key={school.id} school={school} className="w-full" />
+                <li key={school.id}>
+                  <SchoolCard school={school} className="h-full" />
+                </li>
               ))}
-            </div>
-
-            {totalPages > 1 && (
-              <div className="mt-10 flex items-center justify-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setPage((current) => Math.max(1, current - 1))}
-                  disabled={page <= 1}
-                  aria-label="Өмнөх хуудас"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink/[0.04] disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <span className="text-xs font-bold uppercase tracking-wider text-ink/60">
-                  {page} / {totalPages}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
-                  disabled={page >= totalPages}
-                  aria-label="Дараагийн хуудас"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink/[0.04] disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
-              </div>
-            )}
+            </ul>
+            <Pager page={page} totalPages={totalPages} onPageChange={setPage} />
           </>
         )}
       </div>

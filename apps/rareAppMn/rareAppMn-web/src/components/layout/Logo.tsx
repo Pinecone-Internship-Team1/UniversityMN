@@ -13,6 +13,10 @@ interface LogoProps {
   eager?: boolean;
 }
 
+// The wordmark is shown at most ~24px tall (≈180px wide), so ask next/image
+// for a ~360px file (2x) instead of the 1080/1920px defaults for width 846.
+const SIZES = "180px";
+
 export function Logo({ className, eager = false }: LogoProps) {
   const loading = eager ? "eager" : "lazy";
   return (
@@ -22,6 +26,7 @@ export function Logo({ className, eager = false }: LogoProps) {
         alt="Oyutan MN"
         width={LOGO_WIDTH}
         height={LOGO_HEIGHT}
+        sizes={SIZES}
         loading={loading}
         className={cn("w-auto dark:hidden", className)}
       />
@@ -30,6 +35,7 @@ export function Logo({ className, eager = false }: LogoProps) {
         alt="Oyutan MN"
         width={LOGO_WIDTH}
         height={LOGO_HEIGHT}
+        sizes={SIZES}
         loading={loading}
         className={cn("hidden w-auto dark:block", className)}
       />

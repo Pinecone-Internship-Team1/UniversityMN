@@ -7,16 +7,21 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: var(--font-unbounded), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-face), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-pt-sans), ui-sans-serif, system-ui, sans-serif;
 
   --color-paper: var(--paper);
   --color-paper-deep: var(--paper-deep);
   --color-card: var(--card);
   --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
   --color-ink-soft: var(--ink-soft);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
   --color-border-ink: var(--border-ink);
 
   --color-background: var(--background);
@@ -35,20 +40,36 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
   --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+
+  --shadow-card: 0 1px 2px rgb(22 20 15 / 0.04), 0 1px 1px rgb(22 20 15 / 0.03);
+  --shadow-lift: 0 12px 32px -12px rgb(22 20 15 / 0.18), 0 2px 6px rgb(22 20 15 / 0.05);
+  --shadow-sheet: 0 -8px 40px rgb(22 20 15 / 0.18);
 }
 
+/*
+ * ink-2 / ink-3 are the two secondary text colors. Both pass WCAG AA (4.5:1)
+ * on paper and card in each theme, unlike ink/40-ink/50, so small text and
+ * labels use these instead of an opacity on ink.
+ */
 :root {
   --paper: #f5f1e7;
   --paper-deep: #ece5d3;
   --card: #fbfaf5;
   --ink: #16140f;
-  --ink-soft: rgba(22, 20, 15, 0.62);
+  --ink-2: rgba(22, 20, 15, 0.78);
+  --ink-3: rgba(22, 20, 15, 0.67);
+  --ink-soft: var(--ink-3);
   --accent: #c1421c;
+  --accent-strong: #a8370f;
   --accent-soft: rgba(193, 66, 28, 0.1);
+  --success: #2c6e39;
+  --success-soft: rgba(44, 110, 57, 0.1);
   --border-ink: rgba(22, 20, 15, 0.12);
 
   --background: var(--paper);
@@ -60,7 +81,7 @@
   --secondary: var(--paper-deep);
   --secondary-foreground: var(--ink);
   --muted: var(--paper-deep);
-  --muted-foreground: var(--ink-soft);
+  --muted-foreground: var(--ink-3);
   --accent-foreground: #fff8ee;
   --destructive: #a3271a;
   --border: var(--border-ink);
@@ -73,10 +94,15 @@
   --paper-deep: #1d1a15;
   --card: #1c1a15;
   --ink: #f3ede0;
-  --ink-soft: rgba(243, 237, 224, 0.64);
+  --ink-2: rgba(243, 237, 224, 0.8);
+  --ink-3: rgba(243, 237, 224, 0.66);
+  --ink-soft: var(--ink-3);
   --accent: #e2693b;
+  --accent-strong: #ee7d50;
   --accent-soft: rgba(226, 105, 59, 0.16);
-  --border-ink: rgba(243, 237, 224, 0.12);
+  --success: #74c584;
+  --success-soft: rgba(116, 197, 132, 0.14);
+  --border-ink: rgba(243, 237, 224, 0.13);
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -87,7 +113,7 @@
   --secondary: var(--paper-deep);
   --secondary-foreground: var(--ink);
   --muted: var(--paper-deep);
-  --muted-foreground: var(--ink-soft);
+  --muted-foreground: var(--ink-3);
   --accent-foreground: #1b0f09;
   --destructive: #f0695a;
   --border: var(--border-ink);
@@ -101,35 +127,56 @@
   }
   html {
     scroll-behavior: smooth;
+    /* Anchored sections land below the sticky header. */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-size: 1rem;
+    line-height: 1.6;
     font-feature-settings: "ss01" 1;
     transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  /* The display font (Montserrat) for the page title and section titles; everything else is PT Sans. */
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.18;
+    text-wrap: balance;
+  }
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
   ::selection {
     background: var(--accent);
     color: var(--accent-foreground);
+  }
+  /* The search field's own clear button is hidden; ours is consistent. */
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
-  }
-
-  .bg-grain {
-    position: relative;
-  }
-  .bg-grain::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.035;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 160px 160px;
   }
 
   .text-balance {
@@ -142,6 +189,10 @@
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
   }
 }
 
@@ -174,6 +225,116 @@
     width: max(100%, 2.75rem);
     height: max(100%, 2.75rem);
     transform: translate(-50%, -50%);
+  }
+}
+
+/*
+ * Scroll reveal without JavaScript: content is always visible by default and
+ * only fades in where the browser supports view timelines and the visitor
+ * hasn't asked for reduced motion. Nothing is hidden for crawlers or no-JS.
+ */
+@utility reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* The school-logo strip: one track holding the list twice, moved by half. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee {
+  animation: marquee 40s linear infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Hero background logos: a slow bob, transform only (GPU), none for reduced motion. */
+@utility hero-float {
+  transform: rotate(var(--float-rotate, 0deg));
+  @media (prefers-reduced-motion: no-preference) {
+    animation: hero-float 8s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+}
+
+@keyframes hero-float {
+  from {
+    transform: translate3d(0, -7px, 0) rotate(var(--float-rotate, 0deg));
+  }
+  to {
+    transform: translate3d(0, 7px, 0) rotate(calc(var(--float-rotate, 0deg) * 0.6));
+  }
+}
+
+/* The hero brand mark: a very slow "breath" and a soft pulse from the dot. */
+@utility brand-breathe {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: brand-breathe 7s ease-in-out infinite alternate;
+  }
+}
+@keyframes brand-breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.025);
+  }
+}
+
+@utility brand-dot-pulse {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: brand-dot-pulse 3.2s ease-out infinite;
+  }
+}
+@keyframes brand-dot-pulse {
+  from {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+/* Bottom sheet (<dialog>) slide-in. */
+@keyframes sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

@@ -7,8 +7,9 @@ export function Skeleton({
 }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
+      aria-hidden="true"
       className={cn(
-        "animate-pulse rounded-xl bg-ink/[0.06] dark:bg-ink/[0.08]",
+        "animate-pulse rounded-xl bg-ink/[0.07] dark:bg-ink/[0.09]",
         className,
       )}
       {...props}
@@ -16,32 +17,31 @@ export function Skeleton({
   );
 }
 
-export function SchoolCardSkeleton() {
+/** Same footprint as SchoolCard, so nothing moves when the cards arrive. */
+export function SchoolCardSkeleton({ className }: { className?: string }) {
   return (
-    <div className="flex w-[290px] shrink-0 flex-col gap-5 rounded-2xl border border-ink/10 bg-card p-6 sm:w-[320px]">
-      <div className="flex items-start justify-between gap-4">
-        <Skeleton className="h-6 w-24 rounded-full" />
-        <Skeleton className="h-11 w-11 rounded-xl" />
+    <div className={cn("flex w-full flex-col gap-4 rounded-2xl border border-border-ink bg-card p-5", className)}>
+      <div className="flex items-center gap-3">
+        <Skeleton className="h-12 w-12 rounded-xl" />
+        <div className="flex-1 space-y-2">
+          <Skeleton className="h-5 w-24" />
+          <Skeleton className="h-4 w-4/5" />
+        </div>
       </div>
-      <div className="space-y-2">
-        <Skeleton className="h-6 w-2/3" />
-        <Skeleton className="h-4 w-full" />
+      <div className="space-y-2.5">
+        <Skeleton className="h-4 w-3/4" />
+        <Skeleton className="h-4 w-1/2" />
+        <Skeleton className="h-4 w-2/3" />
       </div>
-      <div className="space-y-2.5 border-t border-ink/10 pt-4">
-        <Skeleton className="h-3.5 w-3/4" />
-        <Skeleton className="h-3.5 w-1/2" />
-        <Skeleton className="h-3.5 w-2/3" />
-      </div>
-      <Skeleton className="h-4 w-28" />
     </div>
   );
 }
 
 export function SchoolCardSkeletonRow({ count = 4 }: { count?: number }) {
   return (
-    <div className="mt-10 flex gap-5 overflow-hidden pb-4 pt-2">
+    <div className="flex gap-4 overflow-hidden">
       {Array.from({ length: count }).map((_, index) => (
-        <SchoolCardSkeleton key={index} />
+        <SchoolCardSkeleton key={index} className="w-[300px] shrink-0 sm:w-[340px]" />
       ))}
     </div>
   );
@@ -49,7 +49,7 @@ export function SchoolCardSkeletonRow({ count = 4 }: { count?: number }) {
 
 export function SchoolCardSkeletonGrid({ count = 6 }: { count?: number }) {
   return (
-    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div role="status" aria-label="Ачаалж байна" className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {Array.from({ length: count }).map((_, index) => (
         <SchoolCardSkeleton key={index} />
       ))}

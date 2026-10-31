@@ -1,47 +1,35 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { PageShell } from "@/components/layout/PageShell";
+import { Container } from "@/components/ui/Container";
 import { Skeleton } from "@/components/ui/Skeleton";
 
+/** Same layout as the school page, so nothing jumps when it arrives. */
 export default function UniversityDetailLoading() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <Navbar />
-
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 sm:py-20">
-        <Skeleton className="h-4 w-20" />
-
-        <div className="mt-8 flex flex-col gap-8 rounded-3xl border border-ink/10 bg-card p-6 sm:p-10 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-6">
-            <Skeleton className="h-20 w-20 rounded-2xl sm:h-24 sm:w-24" />
-            <div className="space-y-3">
-              <Skeleton className="h-5 w-32 rounded-full" />
-              <Skeleton className="h-8 w-48" />
-              <Skeleton className="h-4 w-64" />
-            </div>
+    <PageShell>
+      <Container className="pt-3 pb-12 md:pt-6 md:pb-20" role="status" aria-label="Ачаалж байна">
+        <Skeleton className="h-11 w-24 rounded-full" />
+        <div className="mt-3 flex items-start gap-4 md:mt-4">
+          <Skeleton className="h-[72px] w-[72px] rounded-2xl md:h-24 md:w-24" />
+          <div className="flex-1 space-y-3">
+            <Skeleton className="h-8 w-40" />
+            <Skeleton className="h-5 w-3/4 max-w-sm" />
+            <Skeleton className="h-5 w-1/2 max-w-xs" />
           </div>
-          <Skeleton className="h-12 w-40 rounded-full" />
         </div>
-
-        <div className="mt-10 grid gap-8 md:grid-cols-12">
-          <div className="space-y-8 md:col-span-8">
+        <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {[0, 1, 2, 3].map((i) => (
+            <Skeleton key={i} className="h-[84px] rounded-2xl" />
+          ))}
+        </div>
+        <div className="mt-6 grid grid-cols-1 gap-6 md:mt-8 md:grid-cols-12 md:gap-8">
+          <div className="space-y-4 md:col-span-8">
             {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8"
-              >
-                <Skeleton className="h-6 w-40" />
-                <Skeleton className="mt-4 h-4 w-full" />
-                <Skeleton className="mt-2 h-4 w-5/6" />
-              </div>
+              <Skeleton key={i} className="h-40 rounded-2xl" />
             ))}
           </div>
-          <div className="md:col-span-4">
-            <Skeleton className="h-64 w-full rounded-2xl" />
-          </div>
+          <Skeleton className="h-64 rounded-2xl md:col-span-4" />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </Container>
+    </PageShell>
   );
 }

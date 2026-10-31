@@ -39,20 +39,20 @@ export const clerkAppearance = {
   // Clerk's own 14px size and line height stay as they were elsewhere).
   // Below lg: 44px-tall fields and buttons, and invisible 44px tap areas
   // (tap-area/tap-target in global.css) on Clerk's small controls.
-  // Buttons match the site's pills (Navbar): flat ink, bold uppercase, accent
-  // on hover, no Clerk gradient sheen (::after) or arrow icon.
+  // Buttons match the site's primary button: accent pill, bold sentence case,
+  // 48px tall, no Clerk gradient sheen (::after) or arrow icon.
   elements: {
     cardBox: "rounded-2xl border border-ink/10 shadow-none",
-    headerTitle: "text-xl font-bold tracking-tight",
+    headerTitle: "font-display text-xl font-bold tracking-tight",
     headerSubtitle: "leading-relaxed text-ink-soft",
     formButtonPrimary:
-      "h-10 rounded-full bg-ink text-[13px] font-bold uppercase tracking-wider text-paper shadow-none transition-colors duration-200 after:hidden hover:bg-accent focus-visible:shadow-[0_0_0_2px_var(--card),0_0_0_4px_var(--accent)] disabled:opacity-50 max-lg:min-h-11",
+      "min-h-12 rounded-full bg-accent text-base font-bold normal-case tracking-normal text-accent-foreground shadow-none transition-colors duration-200 after:hidden hover:bg-accent-strong focus-visible:shadow-[0_0_0_2px_var(--card),0_0_0_4px_var(--accent)] disabled:opacity-50",
     buttonArrowIcon: "hidden",
     socialButtonsBlockButton:
-      "h-10 rounded-full text-ink shadow-[0_0_0_1px_var(--border-ink)] transition-colors duration-200 hover:bg-ink/[0.04] hover:shadow-[0_0_0_1px_var(--ink)] focus-visible:shadow-[0_0_0_2px_var(--accent)] max-lg:min-h-11",
+      "min-h-12 rounded-full text-ink shadow-[0_0_0_1px_var(--border-ink)] transition-colors duration-200 hover:bg-ink/[0.04] hover:shadow-[0_0_0_1px_var(--ink)] focus-visible:shadow-[0_0_0_2px_var(--accent)]",
     socialButtonsBlockButtonText: "font-semibold text-ink",
     formFieldInput:
-      "h-10 rounded-xl max-sm:text-base max-lg:min-h-11 focus-visible:shadow-[0_0_0_2px_var(--accent)]",
+      "min-h-12 rounded-xl text-base focus-visible:shadow-[0_0_0_2px_var(--accent)]",
     formFieldErrorText: "text-destructive",
     // One wide tap area (Clerk's hidden input spans the row), so the boxes
     // can stay 40-44px wide and still fit a 375px screen.

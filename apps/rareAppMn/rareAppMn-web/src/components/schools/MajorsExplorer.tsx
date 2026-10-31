@@ -1,12 +1,13 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Search, SlidersHorizontal } from "lucide-react";
+import { X } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useQuery } from "urql";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
-import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
+import { Field, Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { formatCutOff, formatMajorPlace, formatMajorTuition } from "@/lib/format";
@@ -20,6 +21,7 @@ import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-log
 import { cn } from "@/lib/utils";
 import { MajorBookmarkButton } from "./MajorBookmarkButton";
 import { MajorNotes } from "./MajorNotes";
+import { Filters, Pager, ResultCount, SearchField } from "./ExplorerParts";
 
 const PAGE_SIZE = 10;
 
@@ -58,18 +60,26 @@ function buildFilter(filters: FilterState, page: number): MajorFilterInput {
 
 function MajorResultSkeleton() {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-xl border border-ink/10 bg-card p-4">
+    <div className="flex items-start justify-between gap-4 rounded-2xl border border-border-ink bg-card p-4">
       <div className="min-w-0 flex-1 space-y-2">
-        <Skeleton className="h-4 w-1/3" />
-        <Skeleton className="h-3 w-1/2" />
+        <Skeleton className="h-5 w-2/3" />
+        <Skeleton className="h-4 w-1/2" />
+        <Skeleton className="h-7 w-40 rounded-full" />
       </div>
-      <Skeleton className="h-8 w-8 rounded-full" />
+      <Skeleton className="h-10 w-10 rounded-full" />
     </div>
   );
 }
 
-export function MajorsExplorer() {
-  const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
+export interface MajorsExplorerProps {
+  /** The visitor's ЭЕШ score from the homepage (?score=): shows majors whose cut-off is at or below it. */
+  initialScore?: number | null;
+}
+
+export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
+  const [filters, setFilters] = useState<FilterState>(() =>
+    initialScore != null ? { ...INITIAL_FILTERS, maxCutOffScore: String(initialScore) } : INITIAL_FILTERS,
+  );
   const [page, setPage] = useState(1);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -95,74 +105,91 @@ export function MajorsExplorer() {
   const hasActiveFilters =
     filters.search || filters.category || filters.minCutOffScore || filters.maxCutOffScore;
 
+  const activeCount = [filters.category, filters.minCutOffScore, filters.maxCutOffScore].filter(Boolean).length;
+  const scoreFilter = Number(filters.maxCutOffScore);
+
+  function clearFilters() {
+    setPage(1);
+    setFilters((current) => ({ ...INITIAL_FILTERS, search: current.search }));
+  }
+
+  function resetAll() {
+    setPage(1);
+    setFilters(INITIAL_FILTERS);
+  }
+
   return (
     <div>
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <div className="relative flex-1">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink/40" />
-          <Input
-            value={filters.search}
-            onChange={(event) => updateFilter("search", event.target.value)}
-            placeholder="Хайх: muis, программ хангамж…"
-            className="pl-11"
-            aria-label="Мэргэжлийн нэрээр хайх"
-          />
-        </div>
-        <button
-          type="button"
-          onClick={() => setFiltersOpen((open) => !open)}
-          className={cn(
-            "inline-flex items-center justify-center gap-2 rounded-xl border px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors max-lg:tap-target sm:w-auto",
-            filtersOpen || hasActiveFilters
-              ? "border-accent bg-accent-soft text-accent"
-              : "border-ink/15 text-ink hover:border-ink",
-          )}
+      <div className="flex flex-wrap gap-2 sm:gap-3">
+        <SearchField
+          value={filters.search}
+          onChange={(value) => updateFilter("search", value)}
+          placeholder="Мэргэжлийн нэр…"
+          label="Мэргэжлийн нэрээр хайх"
+        />
+        <Filters
+          open={filtersOpen}
+          onOpenChange={setFiltersOpen}
+          activeCount={activeCount}
+          resultCount={pageInfo?.totalCount ?? null}
+          onClear={clearFilters}
         >
-          <SlidersHorizontal className="h-4 w-4" />
-          Шүүлтүүр
-        </button>
-      </div>
-
-      {filtersOpen && (
-        <div className="mt-4 grid gap-4 rounded-2xl border border-ink/10 bg-card p-5 sm:grid-cols-3">
-          <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-            Чиглэл
+          <Field label="Чиглэл" htmlFor="filter-category">
             <Input
+              id="filter-category"
               value={filters.category}
               onChange={(event) => updateFilter("category", event.target.value)}
               placeholder="жишээ: Инженерчлэл"
             />
-          </label>
-          <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-            ЭЕШ доод оноо
+          </Field>
+          <Field label="Босго оноо — доод" htmlFor="filter-min-score">
             <Input
+              id="filter-min-score"
               type="number"
+              inputMode="numeric"
               min={0}
               max={800}
               value={filters.minCutOffScore}
               onChange={(event) => updateFilter("minCutOffScore", event.target.value)}
-              placeholder="жишээ: 500"
+              placeholder="жишээ: 450"
             />
-          </label>
-          <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-            ЭЕШ дээд оноо
+          </Field>
+          <Field label="Босго оноо — дээд (таны оноо)" htmlFor="filter-max-score">
             <Input
+              id="filter-max-score"
               type="number"
+              inputMode="numeric"
               min={0}
               max={800}
               value={filters.maxCutOffScore}
               onChange={(event) => updateFilter("maxCutOffScore", event.target.value)}
-              placeholder="жишээ: 650"
+              placeholder="жишээ: 620"
             />
-          </label>
+          </Field>
+        </Filters>
+      </div>
+
+      {filters.maxCutOffScore && Number.isFinite(scoreFilter) && (
+        <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-accent/30 bg-accent-soft px-4 py-3">
+          <p className="flex-1 text-[15px] text-ink">
+            Таны оноо: <strong className="font-bold">{scoreFilter}</strong> · босго нь үүнээс ихгүй мэргэжлүүд
+          </p>
+          <button
+            type="button"
+            onClick={() => updateFilter("maxCutOffScore", "")}
+            className="-mr-2 inline-flex min-h-11 items-center gap-1.5 rounded-full px-2 text-[15px] font-bold text-accent-strong"
+          >
+            <X className="h-4 w-4" aria-hidden="true" />
+            Арилгах
+          </button>
         </div>
       )}
 
-      <div className="mt-8">
+      <div className="mt-6">
         {error ? (
           <ErrorState onRetry={() => reexecuteQuery({ requestPolicy: "network-only" })} />
         ) : fetching && !data ? (
-          <div className="space-y-3">
+          <div className="space-y-3" role="status" aria-label="Ачаалж байна">
             {Array.from({ length: 5 }).map((_, i) => (
               <MajorResultSkeleton key={i} />
             ))}
@@ -171,91 +198,74 @@ export function MajorsExplorer() {
           <EmptyState
             title="Тохирох мэргэжил олдсонгүй"
             description="Хайлт эсвэл шүүлтүүрээ өөрчилж дахин оролдоно уу."
+            action={
+              hasActiveFilters ? (
+                <Button variant="secondary" onClick={resetAll}>
+                  Бүгдийг цэвэрлэх
+                </Button>
+              ) : undefined
+            }
           />
         ) : (
           <>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-wider text-ink/50">
-              {data.majors.pageInfo.totalCount} мэргэжил олдлоо
-            </p>
-            <div
+            <ResultCount>{data.majors.pageInfo.totalCount} мэргэжил олдлоо</ResultCount>
+            <ul
               className={cn(
-                "space-y-3 transition-opacity duration-200",
-                fetching && "opacity-50",
+                "grid grid-cols-1 gap-3 transition-opacity duration-200 lg:grid-cols-2",
+                fetching && "opacity-60",
               )}
             >
               {data.majors.items.map((major) => {
                 const university = getUniversityBySchoolId(major.school.id);
                 const slug = getUniversitySlug(major.school.id) ?? major.school.id;
+                const cutOff = formatCutOff(major);
+                const place = formatMajorPlace(major.faculty, university?.short ?? major.school.name);
 
                 return (
-                  <Link
+                  // The name's link covers the card; the bookmark sits above it.
+                  <li
                     key={major.id}
-                    href={`/university/${slug}`}
-                    className="group flex items-center justify-between gap-4 rounded-xl border border-ink/10 bg-card p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-sm"
+                    className="group relative flex items-start gap-3 rounded-2xl border border-border-ink bg-card p-4 transition-[border-color,box-shadow] duration-200 hover:border-ink/25 hover:shadow-lift"
                   >
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-bold text-ink transition-colors group-hover:text-accent">
-                        {major.name}
-                      </p>
-                      <p className="mt-0.5 text-xs text-ink/60">
-                        {[
-                          formatMajorPlace(major.faculty, university?.short ?? major.school.name),
-                          major.category,
-                        ]
-                          .filter(Boolean)
-                          .join(" · ")}
-                      </p>
-                      <div className="mt-2 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
-                        {formatCutOff(major) != null && (
-                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            Босго оноо: {formatCutOff(major)}
-                          </span>
+                      <h3 className="text-base font-bold leading-snug text-ink">
+                        <Link
+                          href={`/university/${slug}`}
+                          className="after:absolute after:inset-0 after:rounded-2xl after:content-[''] group-hover:text-accent"
+                        >
+                          {major.name}
+                        </Link>
+                      </h3>
+                      {(place || major.category) && (
+                        <p className="mt-0.5 text-[15px] leading-snug text-ink-3">
+                          {[place, major.category].filter(Boolean).join(" · ")}
+                        </p>
+                      )}
+                      <div className="mt-2.5 flex flex-wrap gap-2 text-sm font-bold text-ink-2">
+                        {cutOff != null && (
+                          <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">Босго: {cutOff}</span>
                         )}
                         {major.tuitionFee != null && (
-                          <span className="rounded-full bg-ink/5 px-2.5 py-1">
-                            {formatMajorTuition(major)}
-                          </span>
+                          <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">{formatMajorTuition(major)}</span>
                         )}
                       </div>
                     </div>
-                    <MajorBookmarkButton
-                      majorId={major.id}
-                      initialSaved={major.isSaved}
-                      majorName={major.name}
-                      size="sm"
-                    />
-                  </Link>
+                    <div className="relative z-10">
+                      <MajorBookmarkButton
+                        majorId={major.id}
+                        initialSaved={major.isSaved}
+                        majorName={major.name}
+                        size="sm"
+                        className="h-10 w-10"
+                      />
+                    </div>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
 
             <MajorNotes majors={data.majors.items} />
-
-            {totalPages > 1 && (
-              <div className="mt-10 flex items-center justify-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setPage((current) => Math.max(1, current - 1))}
-                  disabled={page <= 1}
-                  aria-label="Өмнөх хуудас"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink/[0.04] disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <span className="text-xs font-bold uppercase tracking-wider text-ink/60">
-                  {page} / {totalPages}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
-                  disabled={page >= totalPages}
-                  aria-label="Дараагийн хуудас"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink/[0.04] disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
-              </div>
-            )}
+            <Pager page={page} totalPages={totalPages} onPageChange={setPage} />
           </>
         )}
       </div>

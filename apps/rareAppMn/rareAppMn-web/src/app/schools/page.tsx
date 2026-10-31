@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
+import { PageShell } from "@/components/layout/PageShell";
 import { SearchExplorer } from "@/components/schools/SearchExplorer";
-import { SectionLabel } from "@/components/home/SectionLabel";
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/Section";
+import { parseExamScore } from "@/lib/format";
 import { PAGE_SEO } from "@/lib/seo";
 import { pageMetadata } from "@/lib/site";
 
@@ -13,29 +14,21 @@ interface PageProps {
 }
 
 export default async function SchoolsPage({ searchParams }: PageProps) {
-  const { tab } = await searchParams;
+  const { tab, score } = await searchParams;
   const mode = tab === "majors" ? "majors" : "schools";
 
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <Navbar />
-
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 sm:py-16">
-        <SectionLabel>Сургууль хайх</SectionLabel>
-        <h1 className="mt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl md:text-4xl">
-          Өөрт тохирох сургууль, мэргэжлээ ол
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70 sm:text-base">
-          Байршил, сургалтын төлбөр, дотуур байр, тэтгэлэг, ЭЕШ босго оноогоор
-          шүүж, танд хамгийн тохирох сургууль эсвэл мэргэжлийг олоорой.
-        </p>
-
-        <div className="mt-10">
-          <SearchExplorer mode={mode} />
+    <PageShell>
+      <Container className="py-6 md:py-12">
+        <SectionHeader
+          as="h1"
+          title="Сургууль, мэргэжлээ ол"
+          description="Байршил, төлбөр, дотуур байр, тэтгэлэг, ЭЕШ босго оноогоор шүүж хайгаарай."
+        />
+        <div className="mt-6 md:mt-8">
+          <SearchExplorer mode={mode} score={parseExamScore(typeof score === "string" ? score : undefined)} />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </Container>
+    </PageShell>
   );
 }

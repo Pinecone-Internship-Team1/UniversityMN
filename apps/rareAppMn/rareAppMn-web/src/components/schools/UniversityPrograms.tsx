@@ -51,32 +51,33 @@ function facultiesOffering(degree: string, faculties: Faculty[], majors: Major[]
 function MajorCard({ major }: { major: Major }) {
   const exams = examSubjectLines(major);
   return (
-    <div className="rounded-xl border border-ink/10 bg-card p-4">
+    <div className="rounded-xl border border-border-ink bg-card p-4">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-sm font-bold text-ink">{major.name}</p>
-          {major.category && <p className="mt-0.5 text-xs text-ink/60">{major.category}</p>}
+          <p className="text-base font-bold leading-snug text-ink">{major.name}</p>
+          {major.category && <p className="mt-0.5 text-[15px] text-ink-3">{major.category}</p>}
         </div>
         <MajorBookmarkButton
           majorId={major.id}
           initialSaved={major.isSaved}
           majorName={major.name}
           size="sm"
+          className="h-10 w-10"
         />
       </div>
       {exams.length > 0 && (
-        <dl className="mt-2 space-y-0.5 text-[11px] text-ink/60">
+        <dl className="mt-2 space-y-0.5 text-sm text-ink-3">
           {exams.map((exam) => (
             <div key={exam.label}>
-              <dt className="inline font-semibold text-ink/70">{exam.label}: </dt>
+              <dt className="inline font-semibold text-ink-2">{exam.label}: </dt>
               <dd className="inline">{exam.text}</dd>
             </div>
           ))}
         </dl>
       )}
-      {major.examNote && <p className="mt-2 text-[11px] text-ink/60">{major.examNote}</p>}
+      {major.examNote && <p className="mt-2 text-sm text-ink-3">{major.examNote}</p>}
       {(major.cutOffScore != null || major.tuitionFee != null) && (
-        <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-ink/70">
+        <div className="mt-3 flex flex-wrap gap-2 text-sm font-semibold text-ink-2">
           {major.cutOffScore != null && (
             <span className="rounded-full bg-ink/5 px-2.5 py-1">
               Босго оноо: {formatCutOff(major)}
@@ -135,7 +136,7 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
   }
 
   return (
-    <section className="rounded-2xl border border-ink/10 bg-card p-6 sm:p-8">
+    <section className="rounded-2xl border border-border-ink bg-card p-5 md:p-8">
       <div className="flex items-center gap-2 text-ink">
         <BookOpen className="h-5 w-5 text-accent" />
         <h2 className="text-xl font-bold tracking-tight">Хөтөлбөрүүд</h2>
@@ -145,7 +146,7 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
         <ComingSoon />
       ) : (
         <>
-          <p className="mt-4 text-sm text-ink/70">Ямар зэргийн хөтөлбөр сонирхож байна вэ?</p>
+          <p className="mt-4 text-sm text-ink-2">Ямар зэргийн хөтөлбөр сонирхож байна вэ?</p>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             {degrees.map((degree) => {
               const active = selected === degree.key;
@@ -159,27 +160,27 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
                     "group flex items-center gap-4 rounded-xl border p-4 text-left transition-all duration-200",
                     active
                       ? "border-accent bg-accent-soft"
-                      : "border-ink/10 bg-paper hover:-translate-y-0.5 hover:border-ink/25",
+                      : "border-border-ink bg-paper hover:-translate-y-0.5 hover:border-ink/25",
                   )}
                 >
                   <span
                     className={cn(
                       "flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors",
-                      active ? "bg-accent text-white" : "bg-ink/5 text-ink/60",
+                      active ? "bg-accent text-white" : "bg-ink/5 text-ink-3",
                     )}
                   >
                     <GraduationCap className="h-5 w-5" />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block text-base font-bold text-ink">{degree.label}</span>{" "}
-                    <span className="block text-xs text-ink/60">
+                    <span className="block text-[15px] text-ink-3">
                       {degree.programCount} хөтөлбөр · {degree.schoolCount} сургууль
                     </span>
                   </span>
                   <ChevronRight
                     className={cn(
                       "h-4 w-4 shrink-0 transition-transform",
-                      active ? "rotate-90 text-accent" : "text-ink/30 group-hover:translate-x-0.5",
+                      active ? "rotate-90 text-accent" : "text-ink-3 group-hover:translate-x-0.5",
                     )}
                   />
                 </button>
@@ -191,34 +192,34 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
             <div className="mt-6">
               <p className="text-sm font-semibold text-ink">
                 {selectedLabel} зэргийн хөтөлбөртэй сургуулиуд{" "}
-                <span className="font-normal text-ink/50">({groups.length})</span>
+                <span className="font-normal text-ink-3">({groups.length})</span>
               </p>
               <ul className="mt-3 space-y-2">
                 {groups.map((group) => {
                   const open = openIds.has(group.id);
                   return (
-                    <li key={group.id} className="rounded-xl border border-ink/10 bg-paper">
+                    <li key={group.id} className="rounded-xl border border-border-ink bg-paper">
                       <button
                         type="button"
                         aria-expanded={open}
                         onClick={() => toggle(group.id)}
-                        className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition-colors hover:bg-ink/[0.03]"
+                        className="flex min-h-14 w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition-colors hover:bg-ink/[0.03] active:bg-ink/[0.06]"
                       >
                         <ChevronRight
                           className={cn(
-                            "h-4 w-4 shrink-0 text-ink/40 transition-transform duration-200",
+                            "h-4 w-4 shrink-0 text-ink-3 transition-transform duration-200",
                             open && "rotate-90",
                           )}
                         />
-                        <span className="min-w-0 flex-1 text-sm font-bold text-ink">
+                        <span className="min-w-0 flex-1 text-base font-bold text-ink">
                           {group.name}
                         </span>
-                        <span className="shrink-0 rounded-full bg-ink/5 px-2.5 py-0.5 text-[11px] font-semibold text-ink/60">
+                        <span className="shrink-0 rounded-full bg-ink/5 px-2.5 py-0.5 text-sm font-semibold text-ink-3">
                           {group.majors.length} хөтөлбөр
                         </span>
                       </button>
                       {open && (
-                        <div className="grid gap-3 border-t border-ink/10 p-4 sm:grid-cols-2">
+                        <div className="grid gap-3 border-t border-border-ink p-4 sm:grid-cols-2">
                           {group.majors.map((major) => (
                             <MajorCard key={major.id} major={major} />
                           ))}

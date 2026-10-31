@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarDays } from "lucide-react";
-import { Footer } from "@/components/layout/Footer";
-import { Navbar } from "@/components/layout/Navbar";
-import { SectionLabel } from "@/components/home/SectionLabel";
+import { PageShell } from "@/components/layout/PageShell";
+import { Container } from "@/components/ui/Container";
+import { SectionHeader } from "@/components/ui/Section";
 import { Badge, type BadgeVariant } from "@/components/ui/Badge";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
@@ -18,6 +18,8 @@ import { createServerGraphqlClient } from "@/lib/graphql-server";
 import { PAGE_SEO } from "@/lib/seo";
 import { pageMetadata } from "@/lib/site";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
+import { cn } from "@/lib/utils";
+import { SchoolLogo } from "@/components/schools/SchoolCard";
 
 export const metadata: Metadata = pageMetadata(PAGE_SEO.admissions);
 
@@ -32,8 +34,8 @@ const STATUS_ORDER: Record<ScheduleStatus, number> = {
 };
 
 const STATUS_BADGES: Record<ScheduleStatus, { label: string; variant: BadgeVariant }> = {
-  open: { label: "Явагдаж байна", variant: "accent" },
-  upcoming: { label: "Удахгүй", variant: "default" },
+  open: { label: "Явагдаж байна", variant: "success" },
+  upcoming: { label: "Удахгүй", variant: "accent" },
   unknown: { label: "Хугацаа тодорхойгүй", variant: "outline" },
   ended: { label: "Дууссан", variant: "outline" },
 };
@@ -74,20 +76,15 @@ export default async function AdmissionsPage() {
     });
 
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <Navbar />
+    <PageShell>
+      <Container className="py-6 md:py-12">
+        <SectionHeader
+          as="h1"
+          title="Элсэлтийн хуанли"
+          description="Сургууль бүрийн элсэлтийн бүртгэл болон бусад чухал үйл явдлын хугацааг нэг дороос хянаарай."
+        />
 
-      <main className="mx-auto max-w-[1440px] px-6 py-12 sm:px-8 sm:py-16">
-        <SectionLabel>Элсэлт</SectionLabel>
-        <h1 className="mt-4 text-2xl font-bold tracking-tight text-ink sm:text-3xl md:text-4xl">
-          Элсэлтийн хуанли
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/70 sm:text-base">
-          Сургууль бүрийн элсэлтийн бүртгэл болон бусад чухал үйл явдлын хугацааг
-          нэг дороос хянаарай.
-        </p>
-
-        <div className="mt-10">
+        <div className="mt-6 md:mt-8">
           {error ? (
             <ErrorState
               title="Элсэлтийн мэдээллийг ачааллаж чадсангүй"
@@ -100,30 +97,35 @@ export default async function AdmissionsPage() {
               description="Сургуулиуд элсэлтийн хуваариа нэмэх үед энд харагдана."
             />
           ) : (
-            <ul className="space-y-3">
+            <ul className="grid grid-cols-1 gap-3 lg:grid-cols-2">
               {entries.map(({ schedule, school, status }) => {
                 const university = getUniversityBySchoolId(school.id);
                 const badge = STATUS_BADGES[status];
                 return (
                   <li
                     key={schedule.id}
-                    className="flex flex-col gap-3 rounded-2xl border border-ink/10 bg-card p-5 sm:flex-row sm:items-center sm:justify-between"
+                    className={cn(
+                      "flex gap-4 rounded-2xl border border-border-ink bg-card p-4 md:p-5",
+                      status === "ended" && "bg-card/60",
+                    )}
                   >
-                    <div className="min-w-0">
-                      <p className="text-sm font-bold text-ink">{schedule.eventName}</p>
+                    <SchoolLogo school={{ id: school.id, name: school.name, logoUrl: null }} size={44} className="mt-0.5 hidden min-[400px]:flex" />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                        <Badge variant={badge.variant}>{badge.label}</Badge>
+                        <span className="text-[15px] font-bold text-ink tabular-nums">
+                          {formatDateRange(schedule.startDate, schedule.endDate)}
+                        </span>
+                      </div>
+                      <h2 className="mt-2 font-sans text-base leading-snug font-bold tracking-normal text-ink md:text-lg">
+                        {schedule.eventName}
+                      </h2>
                       <Link
                         href={`/university/${getUniversitySlug(school.id) ?? school.id}`}
-                        className="mt-1 inline-block text-xs font-semibold text-ink/60 transition-colors hover:text-accent max-lg:tap-target"
+                        className="mt-0.5 inline-flex min-h-8 items-center text-[15px] text-ink-2 underline-offset-4 hover:text-accent hover:underline max-lg:tap-target"
                       >
                         {university?.short ?? school.name}
-                        {school.location ? ` · ${school.location}` : ""}
                       </Link>
-                    </div>
-                    <div className="flex shrink-0 flex-wrap items-center gap-3">
-                      <span className="text-xs font-medium text-ink/70">
-                        {formatDateRange(schedule.startDate, schedule.endDate)}
-                      </span>
-                      <Badge variant={badge.variant}>{badge.label}</Badge>
                     </div>
                   </li>
                 );
@@ -131,9 +133,7 @@ export default async function AdmissionsPage() {
             </ul>
           )}
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </Container>
+    </PageShell>
   );
 }

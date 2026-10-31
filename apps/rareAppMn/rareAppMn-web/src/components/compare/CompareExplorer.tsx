@@ -1,12 +1,13 @@
 "use client";
 
-import { ArrowDown, GraduationCap, Scale, School, X } from "lucide-react";
+import { ArrowDown, GraduationCap, MoveHorizontal, Scale, School, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { useQuery } from "urql";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { Skeleton } from "@/components/ui/Skeleton";
+import { Tabs, type TabItem } from "@/components/ui/Tabs";
 import { MAX_COMPARE_ITEMS, compareHref, type CompareMode } from "@/lib/compare";
 import {
   examSubjectLines,
@@ -27,7 +28,6 @@ import {
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
-import { cn } from "@/lib/utils";
 import { MajorPicker } from "./MajorPicker";
 import {
   SchoolCardPicker,
@@ -51,7 +51,7 @@ interface CompareRow<T> {
   render: (item: T) => ReactNode;
 }
 
-const MODES: { id: CompareMode; label: string; icon: typeof School }[] = [
+const MODES: TabItem<CompareMode>[] = [
   { id: "schools", label: "Сургууль", icon: School },
   { id: "majors", label: "Мэргэжил", icon: GraduationCap },
 ];
@@ -137,7 +137,7 @@ const MAJOR_ROWS: CompareRow<CompareMajor>[] = [
               {exam.label}: {exam.text}
             </span>
           ))}
-          {major.examNote && <span className="block text-ink/60">{major.examNote}</span>}
+          {major.examNote && <span className="block text-ink-3">{major.examNote}</span>}
         </>
       );
     },
@@ -157,24 +157,30 @@ function CompareTable<T extends { id: string }>({
   onRemove: (id: string) => void;
 }) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-ink/10 bg-card">
-      <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+    <div>
+      {/* The table scrolls inside its frame (never the page); the first column stays put. */}
+      <p className="mb-2 flex items-center gap-1.5 text-sm text-ink-3 lg:hidden">
+        <MoveHorizontal className="h-4 w-4" aria-hidden="true" />
+        Хүснэгтийг хажуу тийш гүйлгэж харна уу
+      </p>
+      <div className="overflow-x-auto overscroll-x-contain rounded-2xl border border-border-ink bg-card" tabIndex={0} role="region" aria-label="Харьцуулах хүснэгт">
+      <table className="w-full min-w-[560px] border-collapse text-left text-[15px]">
         <thead>
-          <tr className="border-b border-ink/10">
-            <th className="sticky left-0 z-10 w-40 bg-card p-4 text-[11px] font-bold uppercase tracking-wider text-ink/50 lg:static lg:z-auto lg:bg-transparent">
+          <tr className="border-b border-border-ink">
+            <th className="sticky left-0 z-10 w-28 bg-card p-3 text-sm font-bold text-ink-3 shadow-[1px_0_0_var(--border-ink)] sm:w-40 sm:p-4 lg:static lg:z-auto lg:bg-transparent lg:shadow-none">
               Үзүүлэлт
             </th>
             {items.map((item) => (
-              <th key={item.id} className="p-4 align-top">
+              <th key={item.id} className="min-w-40 p-3 align-top sm:p-4">
                 <div className="flex items-start justify-between gap-2">
-                  <div className="min-w-0 text-sm font-bold text-ink">{title(item)}</div>
+                  <div className="min-w-0 text-base font-bold text-ink">{title(item)}</div>
                   <button
                     type="button"
                     onClick={() => onRemove(item.id)}
                     aria-label="Харьцуулалтаас хасах"
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
+                    className="-mt-1 -mr-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink-3 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
                   >
-                    <X className="h-3.5 w-3.5" />
+                    <X className="h-4 w-4" />
                   </button>
                 </div>
               </th>
@@ -183,12 +189,12 @@ function CompareTable<T extends { id: string }>({
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.label} className="border-b border-ink/10 last:border-b-0">
-              <th className="sticky left-0 z-10 bg-card p-4 text-xs font-semibold text-ink/60 lg:static lg:z-auto lg:bg-transparent">
+            <tr key={row.label} className="border-b border-border-ink last:border-b-0">
+              <th className="sticky left-0 z-10 bg-card p-3 text-[15px] font-bold text-ink-3 shadow-[1px_0_0_var(--border-ink)] sm:p-4 lg:static lg:z-auto lg:bg-transparent lg:shadow-none">
                 {row.label}
               </th>
               {items.map((item) => (
-                <td key={item.id} className="p-4 text-xs text-ink/80">
+                <td key={item.id} className="p-3 align-top text-[15px] text-ink-2 sm:p-4">
                   {row.render(item)}
                 </td>
               ))}
@@ -196,6 +202,7 @@ function CompareTable<T extends { id: string }>({
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
@@ -261,31 +268,18 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
 
   return (
     <div>
-      <div className="inline-flex rounded-xl border border-ink/10 bg-card p-1">
-        {MODES.map((tab) => {
-          const Icon = tab.icon;
-          const active = selection.mode === tab.id;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => {
-                if (active) return;
-                update({ mode: tab.id, ids: [] });
-              }}
-              className={cn(
-                "flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 max-lg:tap-target",
-                active ? "bg-ink text-paper" : "text-ink/60 hover:text-ink",
-              )}
-            >
-              <Icon className="h-3.5 w-3.5" />
-              {tab.label}
-            </button>
-          );
-        })}
-      </div>
+      <Tabs
+        items={MODES}
+        value={selection.mode}
+        onChange={(next) => {
+          if (next !== selection.mode) update({ mode: next, ids: [] });
+        }}
+        label="Юуг харьцуулах вэ"
+        fullWidth
+        className="sm:inline-flex sm:w-auto"
+      />
 
-      <div className="mt-6 rounded-2xl border border-ink/10 bg-card p-4 sm:p-5">
+      <div className="mt-6 rounded-2xl border border-border-ink bg-card p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
           <p className="text-sm font-bold text-ink" aria-live="polite">
             {selection.ids.length}/{MAX_COMPARE_ITEMS} сонгосон
@@ -295,7 +289,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
               <button
                 type="button"
                 onClick={() => update({ mode: selection.mode, ids: [] })}
-                className="text-xs font-semibold text-ink/60 hover:text-ink max-lg:tap-target"
+                className="text-[15px] font-semibold text-ink-3 hover:text-ink max-lg:tap-target"
               >
                 Бүгдийг арилгах
               </button>
@@ -303,7 +297,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
             {canCompare && (
               <a
                 href="#compare-table"
-                className="inline-flex items-center gap-1 text-xs font-bold text-accent hover:underline max-lg:tap-target lg:hidden"
+                className="inline-flex items-center gap-1 text-[15px] font-bold text-accent hover:underline max-lg:tap-target lg:hidden"
               >
                 Харьцуулалт
                 <ArrowDown className="h-3.5 w-3.5" />
@@ -311,7 +305,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
             )}
           </div>
         </div>
-        <p className="mt-1 text-xs text-ink/60">
+        <p className="mt-1 text-[15px] text-ink-3">
           {isFull
             ? `Дээд тал нь ${MAX_COMPARE_ITEMS}. Өөрийг сонгох бол нэгийг нь хасна уу.`
             : selection.mode === "schools"
@@ -325,11 +319,11 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
               <li
                 key={major.id}
                 title={`${major.name} · ${formatMajorPlace(major.faculty, schoolShortName(major.school))}`}
-                className="flex min-w-0 max-w-full items-center gap-1 rounded-full border border-accent bg-accent-soft py-1 pl-3 pr-1 text-xs font-semibold text-ink"
+                className="flex min-w-0 max-w-full items-center gap-1 rounded-full border border-accent bg-accent-soft py-1 pl-3 pr-1 text-[15px] font-semibold text-ink"
               >
                 <span className="truncate">
                   {major.name}
-                  <span className="font-normal text-ink/60">
+                  <span className="font-normal text-ink-3">
                     {" · "}
                     {formatMajorPlace(major.faculty, schoolShortName(major.school))}
                   </span>
@@ -338,7 +332,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                   type="button"
                   onClick={() => remove(major.id)}
                   aria-label={`${major.name}-г хасах`}
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-ink/50 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-ink-3 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -375,8 +369,8 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
 
       <div id="compare-table" className="mt-8 scroll-mt-24">
         {!canCompare ? (
-          <div className="flex items-center gap-3 rounded-2xl border border-dashed border-ink/15 px-5 py-6 text-sm text-ink/60">
-            <Scale className="h-5 w-5 shrink-0 text-ink/40" />
+          <div className="flex items-center gap-3 rounded-2xl border border-dashed border-ink/15 px-5 py-6 text-sm text-ink-3">
+            <Scale className="h-5 w-5 shrink-0 text-ink-3" />
             {selection.ids.length === 0
               ? `${MIN_COMPARE_ITEMS}-${MAX_COMPARE_ITEMS} ${noun} сонгоход харьцуулалт энд гарна.`
               : `Дахиад нэг ${noun} сонгоход харьцуулалт энд гарна.`}
@@ -410,7 +404,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
             title={(major) => (
               <>
                 {major.name}
-                <span className="mt-0.5 block text-[11px] font-normal text-ink/50">
+                <span className="mt-0.5 block text-sm font-normal text-ink-3">
                   {formatMajorPlace(major.faculty, schoolShortName(major.school))}
                 </span>
               </>
