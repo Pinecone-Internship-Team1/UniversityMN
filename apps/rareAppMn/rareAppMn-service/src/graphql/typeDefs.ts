@@ -345,6 +345,8 @@ export const typeDefs = /* GraphQL */ `
     updateUserProfile(input: UserProfileInput!): UserProfile!
     toggleSaveSchool(schoolId: ID!): Boolean!
     toggleSaveMajor(majorId: ID!): Boolean!
+    "Admin only: make another user an admin or a student. Admins cannot change their own role."
+    setUserRole(userId: ID!, role: UserRole!): UserProfile!
     createSchool(input: SchoolInput!): School!
     updateSchool(id: ID!, input: SchoolInput!): School!
     deleteSchool(id: ID!): Boolean!

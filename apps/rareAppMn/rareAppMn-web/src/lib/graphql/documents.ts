@@ -22,6 +22,7 @@ import type {
   UserFilterInput,
   UserProfile,
   UserProfileInput,
+  UserRole,
 } from "./types";
 
 /**
@@ -980,4 +981,24 @@ export interface AdminUsersVariables {
 
 export interface AdminUsersResult {
   users: { items: AdminUser[]; pageInfo: PageInfo };
+}
+
+/** Admin only: make another user an admin or a student (never yourself). */
+export const SET_USER_ROLE_MUTATION = /* GraphQL */ `
+  mutation SetUserRole($userId: ID!, $role: UserRole!) {
+    setUserRole(userId: $userId, role: $role) {
+      id
+      role
+      updatedAt
+    }
+  }
+`;
+
+export interface SetUserRoleResult {
+  setUserRole: Pick<UserProfile, "id" | "role" | "updatedAt">;
+}
+
+export interface SetUserRoleVariables {
+  userId: string;
+  role: UserRole;
 }

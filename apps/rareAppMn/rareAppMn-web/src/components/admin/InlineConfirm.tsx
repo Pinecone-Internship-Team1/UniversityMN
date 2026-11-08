@@ -9,16 +9,21 @@ export interface InlineConfirmProps {
   onCancel: () => void;
   busy?: boolean;
   confirmLabel?: string;
+  busyLabel?: string;
+  /** "danger" (default) for deletes and removals, "accent" for granting something. */
+  tone?: "danger" | "accent";
   className?: string;
 }
 
-/** A slim "are you sure?" strip shown in place, after picking a destructive menu action. */
+/** A slim "are you sure?" strip shown in place, after picking a destructive or sensitive action. */
 export function InlineConfirm({
   message,
   onConfirm,
   onCancel,
   busy,
   confirmLabel = "Устгах",
+  busyLabel = "Устгаж байна...",
+  tone = "danger",
   className,
 }: InlineConfirmProps) {
   return (
@@ -26,14 +31,22 @@ export function InlineConfirm({
       role="alertdialog"
       aria-label={message}
       className={cn(
-        "flex flex-wrap items-center justify-between gap-2 rounded-lg border border-destructive/25 bg-destructive/5 px-3 py-2",
+        "flex flex-wrap items-center justify-between gap-2 rounded-lg border px-3 py-2",
+        tone === "danger"
+          ? "border-destructive/25 bg-destructive/5"
+          : "border-accent/30 bg-accent/5",
         className,
       )}
     >
       <p className="text-xs font-medium text-ink/80">{message}</p>
       <div className="flex gap-1.5">
-        <Button variant="destructive" size="sm" disabled={busy} onClick={() => void onConfirm()}>
-          {busy ? "Устгаж байна..." : confirmLabel}
+        <Button
+          variant={tone === "danger" ? "destructive" : "primary"}
+          size="sm"
+          disabled={busy}
+          onClick={() => void onConfirm()}
+        >
+          {busy ? busyLabel : confirmLabel}
         </Button>
         <Button variant="ghost" size="sm" disabled={busy} onClick={onCancel}>
           Болих
