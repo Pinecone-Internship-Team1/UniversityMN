@@ -1,9 +1,11 @@
 "use client";
 
-import { ChevronDown, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Search, ShieldCheck, ShieldOff } from "lucide-react";
 import { useState } from "react";
-import { useQuery } from "urql";
+import { useMutation, useQuery } from "urql";
+import { InlineConfirm } from "@/components/admin/InlineConfirm";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { Input } from "@/components/ui/Input";
@@ -12,10 +14,13 @@ import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { formatDateMn } from "@/lib/format";
 import {
   ADMIN_USERS_QUERY,
+  SET_USER_ROLE_MUTATION,
   USER_PROFILE_CACHE,
   type AdminUser,
   type AdminUsersResult,
   type AdminUsersVariables,
+  type SetUserRoleResult,
+  type SetUserRoleVariables,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
 import type { UserRole } from "@/lib/graphql/types";
@@ -50,9 +55,77 @@ function UserAvatar({ user }: { user: AdminUser }) {
   );
 }
 
-function UserDetails({ user }: { user: AdminUser }) {
+function userLabel(user: AdminUser): string {
+  return user.name ? `${user.name} (${user.email})` : user.email;
+}
+
+/** Make admin / remove admin, behind an "are you sure?" step. Hidden for yourself. */
+function RoleControl({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
+  const [confirming, setConfirming] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [{ fetching }, setUserRole] = useMutation<SetUserRoleResult, SetUserRoleVariables>(
+    SET_USER_ROLE_MUTATION,
+  );
+  const isAdmin = user.role === "ADMIN";
+
+  if (isSelf) {
+    return <p className="text-ink/60">Та өөрийн эрхийг өөрчлөх боломжгүй.</p>;
+  }
+
+  async function handleConfirm() {
+    setErrorMessage(null);
+    const result = await setUserRole(
+      { userId: user.id, role: isAdmin ? "STUDENT" : "ADMIN" },
+      USER_PROFILE_CACHE,
+    );
+    if (result.error) {
+      setErrorMessage(getErrorMessage(result.error));
+      return;
+    }
+    setConfirming(false);
+  }
+
+  return (
+    <div className="space-y-2">
+      {confirming ? (
+        <InlineConfirm
+          tone={isAdmin ? "danger" : "accent"}
+          message={
+            isAdmin
+              ? `“${userLabel(user)}” хэрэглэгчийн админ эрхийг хасахдаа итгэлтэй байна уу?`
+              : `“${userLabel(user)}” хэрэглэгчийг админ болгохдоо итгэлтэй байна уу? Админ сургууль, мэргэжил засах, хэрэглэгчийн эрх өөрчлөх боломжтой болно.`
+          }
+          confirmLabel={isAdmin ? "Тийм, эрхийг хасах" : "Тийм, админ болгох"}
+          busyLabel="Хадгалж байна..."
+          busy={fetching}
+          onConfirm={handleConfirm}
+          onCancel={() => {
+            setConfirming(false);
+            setErrorMessage(null);
+          }}
+        />
+      ) : (
+        <Button variant={isAdmin ? "outline" : "primary"} size="sm" onClick={() => setConfirming(true)}>
+          {isAdmin ? <ShieldOff className="h-4 w-4" /> : <ShieldCheck className="h-4 w-4" />}
+          {isAdmin ? "Админ эрхийг хасах" : "Админ болгох"}
+        </Button>
+      )}
+      {errorMessage && (
+        <p role="alert" className="text-destructive">
+          {errorMessage}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function UserDetails({ user, isSelf }: { user: AdminUser; isSelf: boolean }) {
   return (
     <dl className="grid gap-x-6 gap-y-2.5 border-t border-ink/[0.07] bg-paper px-4 py-4 text-xs sm:grid-cols-[9rem_1fr]">
+      <dt className="font-semibold text-ink sm:pt-1">Эрх</dt>
+      <dd>
+        <RoleControl user={user} isSelf={isSelf} />
+      </dd>
       <dt className="font-semibold text-ink">Clerk ID</dt>
       <dd className="select-all break-all font-mono text-ink/70">{user.clerkUserId}</dd>
       <dt className="font-semibold text-ink">ЭЕШ оноо</dt>
@@ -71,8 +144,8 @@ function UserDetails({ user }: { user: AdminUser }) {
   );
 }
 
-/** Admin panel: every registered user, newest first, with search and a role filter. */
-export function UserList() {
+/** Admin panel: every registered user, newest first, with search, a role filter and role changes. */
+export function UserList({ currentUserId }: { currentUserId: string }) {
   const [search, setSearch] = useState("");
   const [role, setRole] = useState<UserRole | null>(null);
   const [page, setPage] = useState(1);
@@ -198,7 +271,7 @@ export function UserList() {
                       />
                     </span>
                   </button>
-                  {expanded && <UserDetails user={user} />}
+                  {expanded && <UserDetails user={user} isSelf={user.id === currentUserId} />}
                 </li>
               );
             })}

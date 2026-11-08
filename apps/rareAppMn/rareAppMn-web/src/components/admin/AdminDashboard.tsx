@@ -128,7 +128,7 @@ export function AdminDashboard() {
       </div>
 
       <div className="mt-6">
-        {tab === "catalog" ? <SchoolManager /> : tab === "users" ? <UserList /> : <SiteStatsPanel />}
+        {tab === "catalog" ? <SchoolManager /> : tab === "users" ? <UserList currentUserId={data.me.id} /> : <SiteStatsPanel />}
       </div>
     </div>
   );

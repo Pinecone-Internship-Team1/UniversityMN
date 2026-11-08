@@ -20,6 +20,7 @@ import {
   schoolSearchAliases,
   schoolSearchText,
 } from '../../lib/search';
+import { setUserRole } from '../../lib/userRoles';
 import { upsertClerkUser } from '../../lib/userSync';
 import {
   MAX_LONG_TEXT_LENGTH,
@@ -319,6 +320,22 @@ export const mutations = {
       { foreignKey: notFound('Major') }
     );
     return true;
+  },
+
+  setUserRole: async (
+    _parent: unknown,
+    args: { userId: string; role: 'ADMIN' | 'STUDENT' },
+    context: GraphQLContext
+  ) => {
+    const admin = requireAdmin(context);
+    const updated = await setUserRole(
+      context.db,
+      admin.clerkUserId,
+      args.userId,
+      args.role === 'ADMIN' ? 'admin' : 'student'
+    );
+    context.loaders.userByClerkUserId.clear(updated.clerkUserId);
+    return updated;
   },
 
   createSchool: async (
