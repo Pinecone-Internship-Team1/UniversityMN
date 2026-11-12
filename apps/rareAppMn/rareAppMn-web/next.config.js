@@ -1,4 +1,9 @@
 //@ts-check
+const createNextIntlPlugin = require("next-intl/plugin");
+
+// Points next-intl at src/i18n/request.ts, which picks the language from the
+// NEXT_LOCALE cookie (no locale in the URL).
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -11,4 +16,4 @@ const nextConfig = {
   htmlLimitedBots: /.*/,
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

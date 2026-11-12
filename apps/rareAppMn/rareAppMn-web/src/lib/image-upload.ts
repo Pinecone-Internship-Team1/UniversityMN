@@ -14,13 +14,32 @@ const ENCODE_QUALITY = 0.85;
 
 export const IMAGE_UPLOAD_ACCEPT = "image/png,image/jpeg,image/webp,image/gif";
 
-/** An upload failure whose message is safe to show to the admin as-is. */
-export class ImageUploadError extends Error {}
+/** Message keys under "errors.image" in messages/*.json. */
+export type ImageUploadErrorCode =
+  | "unauthenticated"
+  | "forbidden"
+  | "tooLarge"
+  | "unreadable"
+  | "processFailed"
+  | "saveFailed";
 
-const MESSAGES_BY_STATUS: Record<number, string> = {
-  401: "Энэ үйлдлийг хийхийн тулд нэвтэрнэ үү.",
-  403: "Танд зураг оруулах эрх байхгүй байна.",
-  413: "Зураг хэт том байна. Илүү жижиг зураг сонгоно уу.",
+/**
+ * An upload failure the admin should see. `code` is the message key: show
+ * t(`image.${code}`) with t = useTranslations("errors"), or t("network")
+ * when `network` is set.
+ */
+export class ImageUploadError extends Error {
+  constructor(
+    readonly code: ImageUploadErrorCode | "network",
+  ) {
+    super(code);
+  }
+}
+
+const CODES_BY_STATUS: Record<number, ImageUploadErrorCode> = {
+  401: "unauthenticated",
+  403: "forbidden",
+  413: "tooLarge",
 };
 
 function canvasToBlob(
@@ -45,7 +64,7 @@ export async function resizeImage(
   try {
     bitmap = await createImageBitmap(file);
   } catch {
-    throw new ImageUploadError("Зургийг уншиж чадсангүй. PNG, JPG эсвэл WebP зураг сонгоно уу.");
+    throw new ImageUploadError("unreadable");
   }
 
   const scale = Math.min(1, maxSize / Math.max(bitmap.width, bitmap.height));
@@ -55,7 +74,7 @@ export async function resizeImage(
   const context = canvas.getContext("2d");
   if (!context) {
     bitmap.close();
-    throw new ImageUploadError("Зургийг боловсруулж чадсангүй.");
+    throw new ImageUploadError("processFailed");
   }
   context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
   bitmap.close();
@@ -65,8 +84,8 @@ export async function resizeImage(
     webp?.type === "image/webp"
       ? webp
       : await canvasToBlob(canvas, keepTransparency ? "image/png" : "image/jpeg", ENCODE_QUALITY);
-  if (!blob) throw new ImageUploadError("Зургийг боловсруулж чадсангүй.");
-  if (blob.size > MAX_UPLOAD_BYTES) throw new ImageUploadError(MESSAGES_BY_STATUS[413]);
+  if (!blob) throw new ImageUploadError("processFailed");
+  if (blob.size > MAX_UPLOAD_BYTES) throw new ImageUploadError("tooLarge");
   return blob;
 }
 
@@ -83,15 +102,11 @@ export async function uploadImage(image: Blob, token: string | null): Promise<st
       body: image,
     });
   } catch {
-    throw new ImageUploadError(
-      "Сервертэй холбогдож чадсангүй. Интернэт холболтоо шалгаад дахин оролдоно уу.",
-    );
+    throw new ImageUploadError("network");
   }
 
   if (!response.ok) {
-    throw new ImageUploadError(
-      MESSAGES_BY_STATUS[response.status] ?? "Зургийг хадгалж чадсангүй. Дахин оролдоно уу.",
-    );
+    throw new ImageUploadError(CODES_BY_STATUS[response.status] ?? "saveFailed");
   }
   const { url } = (await response.json()) as { url: string };
   return url;

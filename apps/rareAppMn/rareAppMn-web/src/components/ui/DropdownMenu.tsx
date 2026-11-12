@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { LucideIcon } from "lucide-react";
 import { MoreHorizontal } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -21,7 +22,9 @@ export interface DropdownMenuProps {
 }
 
 /** A "⋯" button that opens a small menu of actions; closes on outside click or Escape. */
-export function DropdownMenu({ items, label = "Үйлдлүүд", className }: DropdownMenuProps) {
+export function DropdownMenu({ items, label, className }: DropdownMenuProps) {
+  const t = useTranslations("common");
+  label ??= t("actions");
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 

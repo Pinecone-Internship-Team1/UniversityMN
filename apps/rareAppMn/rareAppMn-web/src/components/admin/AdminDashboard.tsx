@@ -18,14 +18,16 @@ import {
   type ViewerQueryResult,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 type AdminTab = "catalog" | "users" | "visits";
 
-const TABS: { id: AdminTab; label: string; icon: typeof School }[] = [
-  { id: "catalog", label: "Их, дээд сургууль, мэргэжил", icon: School },
-  { id: "users", label: "Хэрэглэгч", icon: Users },
-  { id: "visits", label: "Хандалт", icon: ChartColumn },
+/** Labels: messages "admin.tabs.<id>". */
+const TABS: { id: AdminTab; icon: typeof School }[] = [
+  { id: "catalog", icon: School },
+  { id: "users", icon: Users },
+  { id: "visits", icon: ChartColumn },
 ];
 
 function DashboardSkeleton() {
@@ -39,6 +41,10 @@ function DashboardSkeleton() {
 
 export function AdminDashboard() {
   const { isLoaded, isSignedIn } = useAuth();
+  const t = useTranslations("admin");
+  const tp = useTranslations("profile");
+  const tc = useTranslations("common");
+  const tErrors = useTranslations("errors");
   const { status: syncStatus, errorMessage: syncError, retry: retrySync } =
     useClerkUserSync();
   const [tab, setTab] = useState<AdminTab>("catalog");
@@ -53,12 +59,12 @@ export function AdminDashboard() {
     return (
       <EmptyState
         icon={ShieldAlert}
-        title="Админ самбарт нэвтэрнэ үү"
-        description="Энэ хэсгийг зөвхөн админ эрхтэй хэрэглэгч ашиглах боломжтой."
+        title={t("signInTitle")}
+        description={t("signInText")}
         action={
           <SignInButton mode="modal">
             <Button variant="solid" size="md" className="mt-2">
-              Нэвтрэх
+              {tc("signIn")}
             </Button>
           </SignInButton>
         }
@@ -68,7 +74,7 @@ export function AdminDashboard() {
   if (error) {
     return (
       <ErrorState
-        description={getErrorMessage(error)}
+        description={getErrorMessage(tErrors, error)}
         onRetry={() => reexecute({ requestPolicy: "network-only" })}
       />
     );
@@ -77,7 +83,7 @@ export function AdminDashboard() {
     if (syncStatus === "error") {
       return (
         <ErrorState
-          title="Профайлыг холбож чадсангүй"
+          title={tp("syncError")}
           description={syncError ?? undefined}
           onRetry={retrySync}
         />
@@ -86,8 +92,8 @@ export function AdminDashboard() {
     if (syncStatus === "synced" && !fetching && !stale && data) {
       return (
         <ErrorState
-          title="Профайл олдсонгүй"
-          description="Таны профайл серверт үүсээгүй байна. Дахин оролдоно уу."
+          title={tp("notFoundTitle")}
+          description={tp("notFoundText")}
           onRetry={retrySync}
         />
       );
@@ -98,8 +104,8 @@ export function AdminDashboard() {
     return (
       <EmptyState
         icon={ShieldAlert}
-        title="Админ эрх шаардлагатай"
-        description="Таны бүртгэлд админ эрх олгогдоогүй байна. Эрх авах бол системийн админд хандана уу."
+        title={t("forbiddenTitle")}
+        description={t("forbiddenText")}
       />
     );
   }
@@ -121,7 +127,7 @@ export function AdminDashboard() {
               )}
             >
               <Icon className="h-3.5 w-3.5" />
-              {item.label}
+              {t(`tabs.${item.id}`)}
             </button>
           );
         })}

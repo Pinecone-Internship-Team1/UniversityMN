@@ -1,12 +1,14 @@
 import { PageShell } from "@/components/layout/PageShell";
 import { Container } from "@/components/ui/Container";
 import { Skeleton } from "@/components/ui/Skeleton";
+import { useTranslations } from "next-intl";
 
 /** Same layout as the school page, so nothing jumps when it arrives. */
 export default function UniversityDetailLoading() {
+  const t = useTranslations("common");
   return (
     <PageShell>
-      <Container className="pt-3 pb-12 md:pt-6 md:pb-20" role="status" aria-label="Ачаалж байна">
+      <Container className="pt-3 pb-12 md:pt-6 md:pb-20" role="status" aria-label={t("loading")}>
         <Skeleton className="h-11 w-24 rounded-full" />
         <div className="mt-3 flex items-start gap-4 md:mt-4">
           <Skeleton className="h-[72px] w-[72px] rounded-2xl md:h-24 md:w-24" />

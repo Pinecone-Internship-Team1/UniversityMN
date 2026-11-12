@@ -10,6 +10,7 @@ import {
   type ToggleSaveMajorVariables,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
+import { useTranslations } from "next-intl";
 
 export interface MajorUnsaveButtonProps {
   majorId: string;
@@ -23,6 +24,8 @@ export function MajorUnsaveButton({
   majorName,
   onUnsaved,
 }: MajorUnsaveButtonProps) {
+  const t = useTranslations("bookmark");
+  const tErrors = useTranslations("errors");
   const [{ fetching }, toggleSaveMajor] = useMutation<
     ToggleSaveMajorResult,
     ToggleSaveMajorVariables
@@ -35,17 +38,17 @@ export function MajorUnsaveButton({
       onClick={async () => {
         const result = await toggleSaveMajor({ majorId }, MAJOR_BOOKMARK_CACHE);
         if (result.error) {
-          toast.error("Хасахад алдаа гарлаа", {
-            description: getErrorMessage(result.error),
+          toast.error(t("removeFailed"), {
+            description: getErrorMessage(tErrors, result.error),
           });
           return;
         }
         if (result.data?.toggleSaveMajor === false) {
           onUnsaved();
-          toast.success(`${majorName ?? "Мэргэжил"} хадгалснаас хасав`);
+          toast.success(t("removed", { name: majorName ?? t("majorFallback") }));
         }
       }}
-      aria-label="Хадгалснаас хасах"
+      aria-label={t("unsave")}
       className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-destructive/10 hover:text-destructive disabled:cursor-not-allowed disabled:opacity-50 max-lg:tap-target"
     >
       <X className="h-3.5 w-3.5" />

@@ -1,6 +1,7 @@
 import { ArrowRight, Banknote, MapPin, Target } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/Badge";
 import { formatSchoolTuition } from "@/lib/format";
 import type { School } from "@/lib/graphql/types";
@@ -74,11 +75,13 @@ export function SchoolCard({
   showBookmark = true,
   onToggled,
 }: SchoolCardProps) {
+  const t = useTranslations("schoolCard");
+  const tFormat = useTranslations("format");
   const university = getUniversityBySchoolId(school.id);
   const slug = getUniversitySlug(school.id) ?? school.id;
   const href = `/university/${slug}`;
   const shortName = university?.short ?? school.name;
-  const tuition = tuitionSummary ?? formatSchoolTuition(school);
+  const tuition = tuitionSummary ?? formatSchoolTuition(tFormat, school);
   // The school's own tuition text may already say "/жил"; a computed range doesn't.
   const perYear = tuitionSummary != null;
 
@@ -121,32 +124,32 @@ export function SchoolCard({
 
       <ul className="mt-4 space-y-2 text-[15px] text-ink-2">
         <li className="flex items-center gap-2.5">
-          <span className="sr-only">Байршил: </span>
+          <span className="sr-only">{t("location")} </span>
           <MapPin className="h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
-          <span className="truncate">{school.location ?? "Байршил тодорхойгүй"}</span>
+          <span className="truncate">{school.location ?? t("locationUnknown")}</span>
         </li>
         {cutOffRange && (
           <li className="flex items-center gap-2.5">
             <Target className="h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
             <span>
-              Босго оноо <strong className="font-bold text-ink">{cutOffRange}</strong>
+              {t.rich("cutOff", { range: cutOffRange, b: (chunks) => <strong className="font-bold text-ink">{chunks}</strong> })}
             </span>
           </li>
         )}
         <li className="flex items-center gap-2.5">
-          <span className="sr-only">Сургалтын төлбөр: </span>
+          <span className="sr-only">{t("tuition")} </span>
           <Banknote className="h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
           <span className="truncate" title={tuition}>
             <strong className="font-bold text-ink">{tuition}</strong>
-            {perYear && <span className="text-ink-3"> / жил</span>}
+            {perYear && <span className="text-ink-3"> {t("perYear")}</span>}
           </span>
         </li>
       </ul>
 
       <div className="mt-auto flex items-center justify-between gap-3 pt-4">
-        {school.dormAvailable ? <Badge variant="success">Дотуур байртай</Badge> : <span />}
+        {school.dormAvailable ? <Badge variant="success">{t("hasDorm")}</Badge> : <span />}
         <span className="inline-flex items-center gap-1 text-[15px] font-bold text-ink group-hover:text-accent" aria-hidden="true">
-          Дэлгэрэнгүй
+          {t("details")}
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </span>
       </div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { useQuery } from "urql";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { Skeleton } from "@/components/ui/Skeleton";
@@ -91,7 +92,8 @@ interface SchoolOptionsStateProps {
 
 /** Loading and error states shared by the cards and the chips. */
 export function SchoolOptionsState({ fetching, error, retry, skeleton, children }: SchoolOptionsStateProps) {
-  if (error) return <ErrorState description={getErrorMessage(error)} onRetry={retry} />;
+  const tErrors = useTranslations("errors");
+  if (error) return <ErrorState description={getErrorMessage(tErrors, error)} onRetry={retry} />;
   if (fetching) return <>{skeleton}</>;
   return <>{children}</>;
 }
@@ -171,6 +173,7 @@ interface SchoolChipsProps {
 
 /** "Бүх сургууль" plus one chip per university; one is active at a time. */
 export function SchoolChips({ options, activeId, onChange }: SchoolChipsProps) {
+  const t = useTranslations("majorPicker");
   const chip = (id: string | null, label: ReactNode, title?: string) => {
     const active = activeId === id;
     return (
@@ -193,8 +196,8 @@ export function SchoolChips({ options, activeId, onChange }: SchoolChipsProps) {
     );
   };
   return (
-    <div role="radiogroup" aria-label="Сургуулиар харах" className="flex flex-wrap gap-2">
-      {chip(null, "Бүх сургууль")}
+    <div role="radiogroup" aria-label={t("bySchool")} className="flex flex-wrap gap-2">
+      {chip(null, t("allSchools"))}
       {options.map((option) =>
         chip(
           option.id,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import { useQuery } from "urql";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
@@ -53,6 +54,7 @@ function buildFilter(filters: FilterState, page: number): SchoolFilterInput {
 }
 
 export function SchoolsExplorer() {
+  const t = useTranslations("explorer");
   const [filters, setFilters] = useState<FilterState>(INITIAL_FILTERS);
   const [page, setPage] = useState(1);
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -102,8 +104,8 @@ export function SchoolsExplorer() {
         <SearchField
           value={filters.search}
           onChange={(value) => updateFilter("search", value)}
-          placeholder="МУИС, shutis…"
-          label="Сургуулийн нэрээр хайх"
+          placeholder={t("schoolSearchPlaceholder")}
+          label={t("schoolSearchLabel")}
         />
         <Filters
           open={filtersOpen}
@@ -112,15 +114,15 @@ export function SchoolsExplorer() {
           resultCount={pageInfo?.totalCount ?? null}
           onClear={clearFilters}
         >
-          <Field label="Байршил" htmlFor="filter-location">
+          <Field label={t("location")} htmlFor="filter-location">
             <Input
               id="filter-location"
               value={filters.location}
               onChange={(event) => updateFilter("location", event.target.value)}
-              placeholder="жишээ: Сүхбаатар дүүрэг"
+              placeholder={t("locationPlaceholder")}
             />
           </Field>
-          <Field label="Жилийн төлбөр хүртэл (сая ₮)" htmlFor="filter-tuition">
+          <Field label={t("maxTuition")} htmlFor="filter-tuition">
             <Input
               id="filter-tuition"
               type="number"
@@ -128,18 +130,18 @@ export function SchoolsExplorer() {
               inputMode="decimal"
               value={filters.maxTuitionFee}
               onChange={(event) => updateFilter("maxTuitionFee", event.target.value)}
-              placeholder="жишээ: 5"
+              placeholder={t("maxTuitionPlaceholder")}
             />
           </Field>
           <fieldset className="flex flex-col gap-2">
-            <legend className="mb-1.5 text-[15px] font-bold text-ink">Нэмэлт</legend>
+            <legend className="mb-1.5 text-[15px] font-bold text-ink">{t("extras")}</legend>
             <CheckboxField
-              label="Дотуур байртай"
+              label={t("hasDorm")}
               checked={filters.dormAvailable}
               onChange={(checked) => updateFilter("dormAvailable", checked)}
             />
             <CheckboxField
-              label="Тэтгэлэгтэй"
+              label={t("hasScholarship")}
               checked={filters.scholarshipAvailable}
               onChange={(checked) => updateFilter("scholarshipAvailable", checked)}
             />
@@ -154,19 +156,19 @@ export function SchoolsExplorer() {
           <SchoolCardSkeletonGrid count={6} />
         ) : !data || data.schools.items.length === 0 ? (
           <EmptyState
-            title="Тохирох сургууль олдсонгүй"
-            description="Хайлт эсвэл шүүлтүүрээ өөрчилж дахин оролдоно уу."
+            title={t("noSchools")}
+            description={t("noResultsText")}
             action={
               hasActiveFilters ? (
                 <Button variant="secondary" onClick={resetAll}>
-                  Бүгдийг цэвэрлэх
+                  {t("clearAll")}
                 </Button>
               ) : undefined
             }
           />
         ) : (
           <>
-            <ResultCount>{data.schools.pageInfo.totalCount} сургууль олдлоо</ResultCount>
+            <ResultCount>{t("schoolCount", { count: data.schools.pageInfo.totalCount })}</ResultCount>
             <ul
               className={cn(
                 "grid grid-cols-1 gap-3 transition-opacity duration-200 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3",

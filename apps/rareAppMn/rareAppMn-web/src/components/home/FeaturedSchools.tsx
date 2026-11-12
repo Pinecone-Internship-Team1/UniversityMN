@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { Section, SectionHeader } from "@/components/ui/Section";
@@ -9,12 +11,15 @@ import { formatCutOffRange, formatTuitionRange } from "@/lib/seo";
 
 const FEATURED_COUNT = 6;
 
-const SEE_ALL = (
-  <Link href="/schools" className="group inline-flex min-h-11 items-center gap-1.5 text-base font-bold text-accent-strong">
-    Бүгдийг харах
-    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-  </Link>
-);
+function SeeAll() {
+  const t = useTranslations("common");
+  return (
+    <Link href="/schools" className="group inline-flex min-h-11 items-center gap-1.5 text-base font-bold text-accent-strong">
+      {t("seeAll")}
+      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+    </Link>
+  );
+}
 
 /** Snap-scrolls sideways on phones (the next card peeks in); a grid on wide screens. */
 const TRACK =
@@ -22,11 +27,26 @@ const TRACK =
 const ITEM = "w-[85%] max-w-[340px] shrink-0 snap-start md:w-auto md:max-w-none";
 
 function Header() {
-  return <SectionHeader eyebrow="Сургуулиуд" title="Онцлох сургуулиуд" action={<span className="hidden md:block">{SEE_ALL}</span>} />;
+  const t = useTranslations("home.featured");
+  return (
+    <SectionHeader
+      eyebrow={t("eyebrow")}
+      title={t("title")}
+      action={
+        <span className="hidden md:block">
+          <SeeAll />
+        </span>
+      }
+    />
+  );
 }
 
 export async function FeaturedSchools() {
-  const { schools, error } = await getHomeSchools();
+  const [{ schools, error }, t, tFormat] = await Promise.all([
+    getHomeSchools(),
+    getTranslations("home.featured"),
+    getTranslations("format"),
+  ]);
   const featured = schools.slice(0, FEATURED_COUNT);
   // The cards' cut-off and tuition ranges come from each school's majors.
   const details = await Promise.all(featured.map((school) => getSchoolDetail(school.id)));
@@ -35,9 +55,9 @@ export async function FeaturedSchools() {
     <Section>
       <Header />
       {error ? (
-        <ErrorState className="mt-8" title="Сургуулиудыг ачаалж чадсангүй" />
+        <ErrorState className="mt-8" title={t("error")} />
       ) : (
-        <ul className={TRACK} aria-label="Онцлох сургуулиуд">
+        <ul className={TRACK} aria-label={t("title")}>
           {featured.map((school, index) => {
             const detail = details[index];
             return (
@@ -46,14 +66,16 @@ export async function FeaturedSchools() {
                   school={school}
                   className="h-full"
                   cutOffRange={detail ? formatCutOffRange(detail) : null}
-                  tuitionSummary={detail ? formatTuitionRange(detail) : null}
+                  tuitionSummary={detail ? formatTuitionRange(tFormat, detail) : null}
                 />
               </li>
             );
           })}
         </ul>
       )}
-      <div className="mt-6 md:hidden">{SEE_ALL}</div>
+      <div className="mt-6 md:hidden">
+        <SeeAll />
+      </div>
     </Section>
   );
 }

@@ -3,6 +3,7 @@
 import { useAuth } from "@clerk/nextjs";
 import { Calculator } from "lucide-react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { useClient, useQuery } from "urql";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -17,8 +18,8 @@ import {
   type ViewerQueryResult,
 } from "@/lib/graphql/documents";
 import {
-  VERDICT_LABELS,
   examSubjectLines,
+  formatVerdict,
   formatCutOff,
   formatExamFormula,
   formatMajorPlace,
@@ -43,7 +44,7 @@ type CheckableMajor = Pick<
   | "secondaryWeight"
 >;
 
-/** Run by the school itself, so there is no ЭЕШ score to enter for it. */
+/** Run by the school itself, so there is no ЭЕШ score to enter for it. Matches the data (Mongolian). */
 const SKILL_EXAM = "Ур чадварын шалгалт";
 
 /** The ЭЕШ subjects a student can enter scores for. */
@@ -71,6 +72,10 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
   );
   const { isSignedIn } = useAuth();
   const client = useClient();
+  const t = useTranslations("scoreCheck");
+  const tFormat = useTranslations("format");
+  const tErrors = useTranslations("errors");
+  const tValidation = useTranslations("validation");
 
   const [{ data: viewerData }] = useQuery<ViewerQueryResult>({
     query: VIEWER_QUERY,
@@ -100,7 +105,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
   const selected = checkable.find((major) => major.id === majorId) ?? checkable[0];
   if (!selected) return null;
   const subjects = scorableSubjects(selected);
-  const exams = examSubjectLines(selected);
+  const exams = examSubjectLines(tFormat, selected);
   const facultyOf = (major: CheckableMajor) =>
     faculties.find((faculty) => faculty.id === major.facultyId);
   const selectedPlace = formatMajorPlace(facultyOf(selected));
@@ -116,7 +121,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
   const majorOption = (major: CheckableMajor) => (
     <option key={major.id} value={major.id}>
       {major.name}
-      {major.cutOffScore != null ? ` (босго: ${formatCutOff(major)})` : ""}
+      {major.cutOffScore != null ? ` (${t("optionCutOff", { value: formatCutOff(tFormat, major) ?? "" })})` : ""}
     </option>
   );
 
@@ -126,6 +131,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
     setOutcome(null);
 
     const parsed = parseScoreEntries(
+      tValidation,
       subjects.map((subject) => ({ subject, score: scores[subject] ?? "" })),
     );
     if (!parsed.ok) {
@@ -133,7 +139,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
       return;
     }
     if (Object.keys(parsed.value).length === 0) {
-      setErrorMessage("Дор хаяж нэг хичээлийн оноо оруулна уу.");
+      setErrorMessage(t("needOneScore"));
       return;
     }
 
@@ -148,7 +154,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
     setChecking(false);
 
     if (result.error) {
-      setErrorMessage(getErrorMessage(result.error));
+      setErrorMessage(getErrorMessage(tErrors, result.error));
       return;
     }
     setOutcome(result.data?.analyzeScoreMatch ?? null);
@@ -158,15 +164,15 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
     <section className="rounded-2xl border border-border-ink bg-card p-5 md:p-8">
       <div className="flex items-center gap-2 text-ink">
         <Calculator className="h-5 w-5 text-accent" />
-        <h2 className="text-xl font-bold tracking-tight">Оноогоо шалгах</h2>
+        <h2 className="text-xl font-bold tracking-tight">{t("title")}</h2>
       </div>
       <p className="mt-2 text-sm text-ink-3">
-        Мэргэжлээ сонгоод ЭЕШ-ийн оноогоо оруулбал босго оноог хангаж буй эсэхийг харуулна.
-        {isSignedIn ? " Профайлдаа хадгалсан оноо автоматаар бөглөгдөнө." : ""}
+        {t("intro")}
+        {isSignedIn ? ` ${t("prefilled")}` : ""}
       </p>
 
       <label className="mt-5 flex flex-col gap-1.5 text-[15px] font-semibold text-ink-2">
-        Мэргэжил
+        {t("major")}
         <Select
           value={selected.id}
           onChange={(event) => {
@@ -196,7 +202,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
             </p>
           ))}
           {(selected.primarySubjects ?? []).length > 0 && (
-            <p className="mt-1">{formatExamFormula(selected)}</p>
+            <p className="mt-1">{formatExamFormula(tFormat, selected)}</p>
           )}
           {selected.examNote && <p className="mt-1">{selected.examNote}</p>}
         </div>
@@ -204,8 +210,8 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
 
       {subjects.length === 0 ? (
         <div className="mt-4 flex items-center gap-3">
-          <Badge variant="default">{VERDICT_LABELS.CHECK_WITH_SCHOOL}</Badge>
-          <p className="text-[15px] text-ink-3">Энэ хөтөлбөрийн оноог тооцох боломжгүй.</p>
+          <Badge variant="default">{formatVerdict(tFormat, "CHECK_WITH_SCHOOL")}</Badge>
+          <p className="text-[15px] text-ink-3">{t("cannotScore")}</p>
         </div>
       ) : (
         <>
@@ -235,7 +241,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <Button variant="solid" size="md" onClick={handleCheck} disabled={checking}>
-              {checking ? "Шалгаж байна..." : "Шалгах"}
+              {checking ? t("checking") : t("check")}
             </Button>
             {errorMessage && <p className="text-[15px] font-medium text-destructive">{errorMessage}</p>}
           </div>
@@ -256,7 +262,7 @@ export function MajorScoreCheck({ majors, faculties }: MajorScoreCheckProps) {
                         : "outline"
                   }
                 >
-                  {VERDICT_LABELS[outcome.verdict]}
+                  {formatVerdict(tFormat, outcome.verdict)}
                   {isScoredVerdict(outcome.verdict) &&
                     ` · ${Math.round(outcome.matchScore * 100)}%`}
                 </Badge>

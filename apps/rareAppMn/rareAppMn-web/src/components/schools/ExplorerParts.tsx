@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight, Search, SlidersHorizontal, X } from "lucide-react";
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { BottomSheet } from "@/components/ui/BottomSheet";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -20,6 +21,7 @@ export function SearchField({
   placeholder: string;
   label: string;
 }) {
+  const t = useTranslations("explorer");
   return (
     <div className="relative flex-1">
       <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-ink-3" aria-hidden="true" />
@@ -36,7 +38,7 @@ export function SearchField({
         <button
           type="button"
           onClick={() => onChange("")}
-          aria-label="Хайлтыг арилгах"
+          aria-label={t("clearSearch")}
           className="absolute right-1 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-ink-3 hover:text-ink"
         >
           <X className="h-4 w-4" />
@@ -64,6 +66,7 @@ export interface FiltersProps {
  * Filters apply as they change; the sheet's button just closes it.
  */
 export function Filters({ open, onOpenChange, activeCount, resultCount, onClear, children }: FiltersProps) {
+  const t = useTranslations("explorer");
   const wide = useMediaQuery("(min-width: 768px)");
   return (
     <>
@@ -79,7 +82,7 @@ export function Filters({ open, onOpenChange, activeCount, resultCount, onClear,
         )}
       >
         <SlidersHorizontal className="h-5 w-5" aria-hidden="true" />
-        <span className="max-[359px]:sr-only">Шүүлтүүр</span>
+        <span className="max-[359px]:sr-only">{t("filters")}</span>
         {activeCount > 0 && (
           <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-accent px-1.5 text-sm text-accent-foreground">
             {activeCount}
@@ -93,14 +96,14 @@ export function Filters({ open, onOpenChange, activeCount, resultCount, onClear,
         <BottomSheet
           open={open}
           onClose={() => onOpenChange(false)}
-          title="Шүүлтүүр"
+          title={t("filters")}
           footer={
             <div className="flex gap-3">
               <Button variant="secondary" onClick={onClear} disabled={activeCount === 0} className="flex-1">
-                Цэвэрлэх
+                {t("clear")}
               </Button>
               <Button onClick={() => onOpenChange(false)} className="flex-[2]">
-                Үр дүн харах{resultCount != null ? ` (${resultCount})` : ""}
+                {resultCount != null ? t("showResultsCount", { count: resultCount }) : t("showResults")}
               </Button>
             </div>
           }
@@ -121,12 +124,13 @@ function FiltersInline({
   onClear: () => void;
   activeCount: number;
 }) {
+  const t = useTranslations("explorer");
   return (
     <div className="order-last mt-1 w-full rounded-2xl border border-border-ink bg-card p-5">
       <div className="grid gap-5 md:grid-cols-3">{children}</div>
       {activeCount > 0 && (
         <button type="button" onClick={onClear} className="mt-4 min-h-11 font-bold text-accent-strong hover:underline">
-          Шүүлтүүр цэвэрлэх
+          {t("clearFilters")}
         </button>
       )}
     </div>
@@ -174,20 +178,21 @@ export function Pager({
   totalPages: number;
   onPageChange: (page: number) => void;
 }) {
+  const t = useTranslations("explorer");
   if (totalPages <= 1) return null;
   const go = (next: number) => {
     onPageChange(next);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <nav aria-label="Хуудаслалт" className="mt-10 flex items-center justify-center gap-3">
-      <Button variant="secondary" size="icon" onClick={() => go(page - 1)} disabled={page <= 1} aria-label="Өмнөх хуудас">
+    <nav aria-label={t("pagination")} className="mt-10 flex items-center justify-center gap-3">
+      <Button variant="secondary" size="icon" onClick={() => go(page - 1)} disabled={page <= 1} aria-label={t("prevPage")}>
         <ChevronLeft />
       </Button>
       <span className="min-w-20 text-center text-base font-bold text-ink-2 tabular-nums">
         {page} / {totalPages}
       </span>
-      <Button variant="secondary" size="icon" onClick={() => go(page + 1)} disabled={page >= totalPages} aria-label="Дараагийн хуудас">
+      <Button variant="secondary" size="icon" onClick={() => go(page + 1)} disabled={page >= totalPages} aria-label={t("nextPage")}>
         <ChevronRight />
       </Button>
     </nav>

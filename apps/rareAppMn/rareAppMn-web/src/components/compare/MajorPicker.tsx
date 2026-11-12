@@ -2,6 +2,7 @@
 
 import { Check, Plus, Search, X } from "lucide-react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { useQuery } from "urql";
 import { Input } from "@/components/ui/Input";
 import { Skeleton } from "@/components/ui/Skeleton";
@@ -50,6 +51,9 @@ interface MajorPickerProps {
  * box filters them. Rows toggle like the school cards.
  */
 export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPickerProps) {
+  const t = useTranslations("majorPicker");
+  const tFormat = useTranslations("format");
+  const tErrors = useTranslations("errors");
   const [schoolId, setSchoolId] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const query = useDebouncedValue(search.trim(), 300);
@@ -84,7 +88,7 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
     rows = majors.slice(0, visible).map((major) => ({
       id: major.id,
       name: major.name,
-      detail: [formatMajorPlace(major.faculty), formatDegreeType(major.degreeType)]
+      detail: [formatMajorPlace(major.faculty), formatDegreeType(tFormat, major.degreeType)]
         .filter(Boolean)
         .join(" · "),
     }));
@@ -95,7 +99,7 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
       name: major.name,
       detail: [
         formatMajorPlace(major.faculty, shortName(major.school.id, major.school.name)),
-        formatDegreeType(major.degreeType),
+        formatDegreeType(tFormat, major.degreeType),
       ]
         .filter(Boolean)
         .join(" · "),
@@ -119,15 +123,15 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
         <Input
           value={search}
           onChange={(event) => setSearch(event.target.value)}
-          placeholder={school ? "Хайх: программ хангамж, huuli…" : "Хайх: muis, программ хангамж…"}
-          aria-label={school ? `${school.short}-ийн мэргэжлээс хайх` : "Мэргэжил хайх"}
+          placeholder={school ? t("placeholderSchool") : t("placeholderAll")}
+          aria-label={school ? t("searchInSchool", { school: school.short }) : t("searchAll")}
           className="pl-11 pr-10"
         />
         {search && (
           <button
             type="button"
             onClick={() => setSearch("")}
-            aria-label="Хайлтыг цэвэрлэх"
+            aria-label={t("clearSearch")}
             className="absolute right-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-ink-3 hover:bg-ink/[0.06] hover:text-ink max-lg:tap-area"
           >
             <X className="h-3.5 w-3.5" />
@@ -137,11 +141,10 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
 
       {!schoolId && !query ? (
         <p className="text-[15px] leading-relaxed text-ink-3">
-          Дээрээс сургуулиа сонгоод жагсаалтаас нь сонгоорой, эсвэл бүх сургуулийн мэргэжлээс
-          хайгаарай. Латин үсгээр бичиж болно: “muis”, “programm hangamj”.
+          {t("intro")}
         </p>
       ) : result.error ? (
-        <p className="text-[15px] font-medium text-destructive">{getErrorMessage(result.error)}</p>
+        <p className="text-[15px] font-medium text-destructive">{getErrorMessage(tErrors, result.error)}</p>
       ) : result.fetching && !result.data ? (
         <div className="space-y-2">
           {[0, 1, 2].map((i) => (
@@ -150,13 +153,13 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
         </div>
       ) : rows.length === 0 ? (
         <p className="text-[15px] text-ink-3">
-          {query ? `“${query}” олдсонгүй.` : "Энэ сургуульд мэргэжил бүртгэгдээгүй байна."}
+          {query ? t("notFound", { query }) : t("noMajors")}
         </p>
       ) : (
         <div className={cn("transition-opacity duration-200", result.fetching && "opacity-60")}>
           <p className="mb-2 text-sm font-semibold text-ink-3">
             {school ? `${school.short} · ` : ""}
-            {total} мэргэжил{query ? " олдлоо" : ""}
+            {query ? t("countFound", { count: total }) : t("count", { count: total })}
           </p>
           <ul className="space-y-2">
             {rows.map((row) => {
@@ -191,7 +194,7 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
                       )}
                     >
                       {selected ? <Check className="h-3 w-3" /> : <Plus className="h-3 w-3" />}
-                      {selected ? "Сонгосон" : "Нэмэх"}
+                      {selected ? t("selected") : t("add")}
                     </span>
                   </button>
                 </li>
@@ -204,7 +207,7 @@ export function MajorPicker({ schools, selectedIds, full, onToggle }: MajorPicke
               onClick={() => setShown({ key: listKey, count: visible + pageSize })}
               className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-dashed border-ink/20 text-[15px] font-bold text-ink-2 transition-colors hover:border-ink/40 hover:text-ink lg:min-h-10"
             >
-              Дахиад харах ({total - rows.length} үлдсэн)
+              {t("showMore", { count: total - rows.length })}
             </button>
           )}
         </div>

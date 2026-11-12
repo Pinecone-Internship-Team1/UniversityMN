@@ -30,6 +30,10 @@ import {
   type UpdateMajorResult,
 } from "@/lib/graphql/documents";
 import { getErrorMessage, getErrorMessageWithDetail } from "@/lib/graphql/errors";
+import { useTranslations } from "next-intl";
+import type { FormatT, ValidationT } from "@/i18n/types";
+
+type MajorFormT = ReturnType<typeof useTranslations<"admin.majors">>;
 import type { Faculty, MajorInput } from "@/lib/graphql/types";
 import {
   MAX_EXAM_SCORE,
@@ -87,39 +91,42 @@ function toFormValues(
 /** АШУҮИС adds its two exams (1 + 1); МУИС, ШУТИС use 0.7 + 0.3. */
 const MAX_EXAM_WEIGHT = 1;
 
-function parseMajorForm(values: MajorFormValues): ValidationResult<MajorInput> {
-  if (!values.facultyId) return { ok: false, error: "Сургууль сонгоно уу." };
-  const name = parseRequiredText(values.name, "Мэргэжлийн нэр");
+/** `t` names each field in error messages ("admin.majors.fields.<field>"). */
+function parseMajorForm(tv: ValidationT, t: MajorFormT, values: MajorFormValues): ValidationResult<MajorInput> {
+  if (!values.facultyId) return { ok: false, error: t("pickFaculty") };
+  const name = parseRequiredText(tv, values.name, t("fields.name"));
   if (!name.ok) return name;
-  const category = parseOptionalText(values.category, "Чиглэл");
+  const category = parseOptionalText(tv, values.category, t("fields.category"));
   if (!category.ok) return category;
-  const degreeType = parseOptionalText(values.degreeType, "Зэрэг");
+  const degreeType = parseOptionalText(tv, values.degreeType, t("fields.degree"));
   if (!degreeType.ok) return degreeType;
-  const requiredSubjects = parseSubjectList(values.requiredSubjects, "Шалгалтын хичээл");
+  const requiredSubjects = parseSubjectList(tv, values.requiredSubjects, t("fields.requiredSubjects"));
   if (!requiredSubjects.ok) return requiredSubjects;
-  const primarySubjects = parseSubjectList(values.primarySubjects, "Суурь шалгалт");
+  const primarySubjects = parseSubjectList(tv, values.primarySubjects, t("fields.primarySubjects"));
   if (!primarySubjects.ok) return primarySubjects;
-  const secondarySubjects = parseSubjectList(values.secondarySubjects, "Дагалдах шалгалт");
+  const secondarySubjects = parseSubjectList(tv, values.secondarySubjects, t("fields.secondarySubjects"));
   if (!secondarySubjects.ok) return secondarySubjects;
-  const examNote = parseOptionalText(values.examNote, "Шалгалтын тайлбар", MAX_LONG_TEXT_LENGTH);
+  const examNote = parseOptionalText(tv, values.examNote, t("fields.examNote"), MAX_LONG_TEXT_LENGTH);
   if (!examNote.ok) return examNote;
-  const cutOffScore = parseOptionalNumber(values.cutOffScore, "Босго оноо", MAX_EXAM_SCORE);
+  const cutOffScore = parseOptionalNumber(tv, values.cutOffScore, t("fields.cutOff"), MAX_EXAM_SCORE);
   if (!cutOffScore.ok) return cutOffScore;
   const secondaryCutOffScore = parseOptionalNumber(
+    tv,
     values.secondaryCutOffScore,
-    "Дагалдах шалгалтын босго",
+    t("fields.secondaryCutOff"),
     MAX_EXAM_SCORE,
   );
   if (!secondaryCutOffScore.ok) return secondaryCutOffScore;
-  const primaryWeight = parseOptionalNumber(values.primaryWeight, "Суурь шалгалтын жин", MAX_EXAM_WEIGHT);
+  const primaryWeight = parseOptionalNumber(tv, values.primaryWeight, t("fields.primaryWeight"), MAX_EXAM_WEIGHT);
   if (!primaryWeight.ok) return primaryWeight;
   const secondaryWeight = parseOptionalNumber(
+    tv,
     values.secondaryWeight,
-    "Дагалдах шалгалтын жин",
+    t("fields.secondaryWeight"),
     MAX_EXAM_WEIGHT,
   );
   if (!secondaryWeight.ok) return secondaryWeight;
-  const tuitionFee = parseOptionalNumber(values.tuitionFee, "Сургалтын төлбөр");
+  const tuitionFee = parseOptionalNumber(tv, values.tuitionFee, t("fields.tuitionFee"));
   if (!tuitionFee.ok) return tuitionFee;
 
   return {
@@ -157,6 +164,11 @@ function MajorForm({
   major: AdminMajor | null;
   onDone: () => void;
 }) {
+  const t = useTranslations("admin.majors");
+  const tc = useTranslations("common");
+  const tv = useTranslations("validation");
+  const tErrors = useTranslations("errors");
+  const tFormat = useTranslations("format");
   const [values, setValues] = useState<MajorFormValues>(() =>
     toFormValues(major, defaultFacultyId, defaultDegreeType),
   );
@@ -177,7 +189,7 @@ function MajorForm({
 
   async function handleSubmit() {
     setErrorMessage(null);
-    const parsed = parseMajorForm(values);
+    const parsed = parseMajorForm(tv, t, values);
     if (!parsed.ok) {
       setErrorMessage(parsed.error);
       return;
@@ -188,12 +200,12 @@ function MajorForm({
       : await createMajor({ input: parsed.value }, CATALOG_CACHE);
 
     if (result.error) {
-      const message = getErrorMessageWithDetail(result.error);
+      const message = getErrorMessageWithDetail(tErrors, result.error);
       setErrorMessage(message);
-      toast.error("Мэргэжлийг хадгалж чадсангүй", { description: message });
+      toast.error(t("saveFailed"), { description: message });
       return;
     }
-    toast.success(major ? "Мэргэжил шинэчлэгдлээ" : "Шинэ мэргэжил нэмэгдлээ");
+    toast.success(major ? t("updated") : t("created"));
     onDone();
   }
 
@@ -205,23 +217,23 @@ function MajorForm({
         void handleSubmit();
       }}
     >
-      <p className="text-[11px] text-ink/50">* — заавал бөглөх талбар</p>
+      <p className="text-[11px] text-ink/50">{t("requiredNote")}</p>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Мэргэжлийн нэр *
+          {t("nameLabel")}
           <Input
             value={values.name}
             onChange={(event) => set("name", event.target.value)}
-            placeholder="жишээ: Компьютерийн ухаан"
+            placeholder={t("namePlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Сургууль *
+          {t("facultyLabel")}
           <Select
             value={values.facultyId}
             onChange={(event) => set("facultyId", event.target.value)}
           >
-            <option value="">Сонгоно уу</option>
+            <option value="">{t("choose")}</option>
             {faculties.map((faculty) => (
               <option key={faculty.id} value={faculty.id}>
                 {faculty.name}
@@ -230,23 +242,23 @@ function MajorForm({
           </Select>
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Чиглэл
+          {t("fields.category")}
           <Input
             value={values.category}
             onChange={(event) => set("category", event.target.value)}
-            placeholder="жишээ: Инженерчлэл"
+            placeholder={t("categoryPlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Зэрэг
+          {t("fields.degree")}
           <Select
             value={values.degreeType}
             onChange={(event) => set("degreeType", event.target.value)}
           >
-            <option value="">Сонгоогүй</option>
+            <option value="">{t("notChosen")}</option>
             {DEGREE_TYPES.map((degreeType) => (
               <option key={degreeType} value={degreeType}>
-                {formatDegreeType(degreeType)}
+                {formatDegreeType(tFormat, degreeType)}
               </option>
             ))}
             {values.degreeType && !DEGREE_TYPES.includes(values.degreeType) && (
@@ -255,61 +267,61 @@ function MajorForm({
           </Select>
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Шалгалтын хичээлүүд (суурь/дагалдахгүй бол, таслалаар)
+          {t("requiredSubjectsLabel")}
           <Input
             value={values.requiredSubjects}
             onChange={(event) => set("requiredSubjects", event.target.value)}
-            placeholder="жишээ: Математик, Физик"
+            placeholder={t("subjectsPlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Суурь шалгалт (70%, аль нэгийг өгнө)
+          {t("primarySubjectsLabel")}
           <Input
             value={values.primarySubjects}
             onChange={(event) => set("primarySubjects", event.target.value)}
-            placeholder="жишээ: Математик, Физик"
+            placeholder={t("subjectsPlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Дагалдах шалгалт (30%, аль нэгийг өгнө)
+          {t("secondarySubjectsLabel")}
           <Input
             value={values.secondarySubjects}
             onChange={(event) => set("secondarySubjects", event.target.value)}
-            placeholder="жишээ: Англи хэл, Нийгэм судлал"
+            placeholder={t("secondaryPlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Шалгалтын тайлбар (оноо тооцоход ашиглахгүй)
+          {t("examNoteLabel")}
           <Input
             value={values.examNote}
             onChange={(event) => set("examNote", event.target.value)}
-            placeholder="жишээ: Суурь/дагалдахыг сургуулиас тодруулна уу."
+            placeholder={t("examNotePlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Босго оноо
+          {t("fields.cutOff")}
           <Input
             type="number"
             min={0}
             max={MAX_EXAM_SCORE}
             value={values.cutOffScore}
             onChange={(event) => set("cutOffScore", event.target.value)}
-            placeholder="жишээ: 550"
+            placeholder={t("example", { value: 550 })}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Дагалдах шалгалтын босго (тусад нь тавьдаг бол)
+          {t("secondaryCutOffLabel")}
           <Input
             type="number"
             min={0}
             max={MAX_EXAM_SCORE}
             value={values.secondaryCutOffScore}
             onChange={(event) => set("secondaryCutOffScore", event.target.value)}
-            placeholder="жишээ: 450"
+            placeholder={t("example", { value: 450 })}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Суурь шалгалтын жин (хоосон бол 0.7)
+          {t("primaryWeightLabel")}
           <Input
             type="number"
             min={0}
@@ -317,11 +329,11 @@ function MajorForm({
             step="0.1"
             value={values.primaryWeight}
             onChange={(event) => set("primaryWeight", event.target.value)}
-            placeholder="жишээ: 1 (нийлбэр оноо)"
+            placeholder={t("weightPlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Дагалдах шалгалтын жин (хоосон бол 0.3)
+          {t("secondaryWeightLabel")}
           <Input
             type="number"
             min={0}
@@ -329,28 +341,28 @@ function MajorForm({
             step="0.1"
             value={values.secondaryWeight}
             onChange={(event) => set("secondaryWeight", event.target.value)}
-            placeholder="жишээ: 1 (нийлбэр оноо)"
+            placeholder={t("weightPlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Сонголтын төрөл
+          {t("selectionLabel")}
           <Select
             value={values.selectionType}
             onChange={(event) => set("selectionType", event.target.value)}
           >
-            <option value="">Тодорхойгүй</option>
-            <option value="list">{formatSelectionType("list")}</option>
-            <option value="direct">{formatSelectionType("direct")}</option>
+            <option value="">{t("unknown")}</option>
+            <option value="list">{formatSelectionType(tFormat, "list")}</option>
+            <option value="direct">{formatSelectionType(tFormat, "direct")}</option>
           </Select>
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Жилийн сургалтын төлбөр (₮)
+          {t("tuitionLabel")}
           <Input
             type="number"
             min={0}
             value={values.tuitionFee}
             onChange={(event) => set("tuitionFee", event.target.value)}
-            placeholder="жишээ: 4800000"
+            placeholder={t("tuitionPlaceholder")}
           />
         </label>
         <label className="flex items-center gap-2 text-xs font-semibold text-ink/70 max-lg:tap-target sm:col-span-2">
@@ -360,7 +372,7 @@ function MajorForm({
             onChange={(event) => set("tuitionIsEstimate", event.target.checked)}
             className="h-4 w-4 accent-accent"
           />
-          Төлбөр нь ойролцоо тооцоо (сайтад &quot;≈ … хүртэл&quot; гэж харагдана)
+          {t("estimateLabel")}
         </label>
       </div>
 
@@ -371,10 +383,10 @@ function MajorForm({
       <div className="flex flex-wrap gap-2">
         <Button type="submit" variant="solid" size="sm" disabled={saving}>
           <Save className="h-3.5 w-3.5" />
-          {saving ? "Хадгалж байна..." : major ? "Хадгалах" : "Нэмэх"}
+          {saving ? t("saving") : major ? tc("save") : t("add")}
         </Button>
         <Button variant="ghost" size="sm" onClick={onDone} disabled={saving}>
-          Болих
+          {tc("cancel")}
         </Button>
       </div>
     </form>
@@ -382,13 +394,14 @@ function MajorForm({
 }
 
 /** One line of secondary details: category · degree · cut-off · tuition · exam subjects. */
-function majorSummary(major: AdminMajor): string {
+function majorSummary(t: MajorFormT, tFormat: FormatT, major: AdminMajor): string {
+  const cutOff = formatCutOff(tFormat, major);
   return [
     major.category,
-    formatDegreeType(major.degreeType),
-    formatCutOff(major) != null ? `Босго: ${formatCutOff(major)}` : null,
-    major.tuitionFee != null ? formatMajorTuition(major) : null,
-    ...examSubjectLines(major).map((exam) => `${exam.label}: ${exam.text}`),
+    formatDegreeType(tFormat, major.degreeType),
+    cutOff != null ? t("cutOffShort", { value: cutOff }) : null,
+    major.tuitionFee != null ? formatMajorTuition(tFormat, major) : null,
+    ...examSubjectLines(tFormat, major).map((exam) => `${exam.label}: ${exam.text}`),
   ]
     .filter(Boolean)
     .join(" · ");
@@ -415,8 +428,13 @@ export function MajorList({
   majors,
   canAdd = true,
   defaultDegreeType = "BACHELOR",
-  emptyMessage = "Энэ сургуульд мэргэжил нэмэгдээгүй байна.",
+  emptyMessage,
 }: MajorListProps) {
+  const t = useTranslations("admin.majors");
+  const tc = useTranslations("common");
+  const tFormat = useTranslations("format");
+  const tErrors = useTranslations("errors");
+  emptyMessage ??= t("empty");
   const [editing, setEditing] = useState<AdminMajor | "new" | null>(null);
   const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null);
   const [{ fetching: deleting }, deleteMajor] = useMutation<
@@ -427,12 +445,12 @@ export function MajorList({
   async function handleDelete(major: AdminMajor) {
     const result = await deleteMajor({ id: major.id }, CATALOG_CACHE);
     if (result.error) {
-      toast.error("Мэргэжлийг устгаж чадсангүй", { description: getErrorMessage(result.error) });
+      toast.error(t("deleteFailed"), { description: getErrorMessage(tErrors, result.error) });
       return;
     }
     setConfirmingDeleteId(null);
     if (editing !== "new" && editing?.id === major.id) setEditing(null);
-    toast.success(`${major.name} устгагдлаа`);
+    toast.success(t("deleted", { name: major.name }));
   }
 
   return (
@@ -444,7 +462,7 @@ export function MajorList({
       {majors.length > 0 && (
         <ul className="divide-y divide-ink/[0.07] rounded-lg border border-ink/10 bg-card">
           {majors.map((major) => {
-            const summary = majorSummary(major);
+            const summary = majorSummary(t, tFormat, major);
             return (
               <li key={major.id} className="px-3 py-2">
                 {editing !== "new" && editing?.id === major.id ? (
@@ -471,10 +489,10 @@ export function MajorList({
                       )}
                     </div>
                     <DropdownMenu
-                      label={`${major.name}: үйлдлүүд`}
+                      label={t("actions", { name: major.name })}
                       items={[
                         {
-                          label: "Засах",
+                          label: tc("edit"),
                           icon: Pencil,
                           onSelect: () => {
                             setConfirmingDeleteId(null);
@@ -482,7 +500,7 @@ export function MajorList({
                           },
                         },
                         {
-                          label: "Устгах",
+                          label: tc("delete"),
                           icon: Trash2,
                           destructive: true,
                           onSelect: () => setConfirmingDeleteId(major.id),
@@ -494,7 +512,7 @@ export function MajorList({
                 {confirmingDeleteId === major.id && (
                   <InlineConfirm
                     className="mt-2"
-                    message={`“${major.name}” мэргэжлийг устгах уу?`}
+                    message={t("confirmDelete", { name: major.name })}
                     busy={deleting}
                     onConfirm={() => handleDelete(major)}
                     onCancel={() => setConfirmingDeleteId(null)}
@@ -522,7 +540,7 @@ export function MajorList({
         canAdd && (
           <Button variant="ghost" size="sm" onClick={() => setEditing("new")}>
             <Plus className="h-3.5 w-3.5" />
-            Мэргэжил нэмэх
+            {t("addMajor")}
           </Button>
         )
       )}

@@ -1,14 +1,16 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { buttonClassName } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
+/** Labels are keys in the "footer" messages. */
 const POPULAR_LINKS = [
-  { label: "Мэргэжил хайх", href: "/schools?tab=majors" },
-  { label: "Тэтгэлэг", href: "/scholarships" },
-  { label: "Элсэлтийн хуанли", href: "/admissions" },
-];
+  { label: "searchMajors", href: "/schools?tab=majors" },
+  { label: "scholarships", href: "/scholarships" },
+  { label: "admissionCalendar", href: "/admissions" },
+] as const;
 
 /** The body of the 404 and error pages: a big code, a title, a line of help and ways out. */
 export function StatusPage({
@@ -23,6 +25,8 @@ export function StatusPage({
   /** Replaces the default «Нүүр хуудас» / «Сургууль хайх» buttons. */
   actions?: ReactNode;
 }) {
+  const t = useTranslations("footer");
+  const tc = useTranslations("common");
   return (
     <Container size="narrow" className="flex flex-col items-center py-16 text-center md:py-24">
       <p className="font-display text-7xl font-bold tracking-tight text-accent md:text-8xl" aria-hidden="true">
@@ -35,22 +39,22 @@ export function StatusPage({
           <>
             <Link href="/schools" className={buttonClassName({})}>
               <Search />
-              Сургууль хайх
+              {tc("searchSchools")}
             </Link>
             <Link href="/" className={buttonClassName({ variant: "secondary" })}>
-              Нүүр хуудас
+              {tc("home")}
             </Link>
           </>
         )}
       </div>
-      <nav aria-label="Түгээмэл хуудсууд" className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-1">
+      <nav aria-label={tc("popularPages")} className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-1">
         {POPULAR_LINKS.map((link) => (
           <Link
             key={link.href}
             href={link.href}
             className="inline-flex min-h-11 items-center font-bold text-ink-2 underline-offset-4 hover:text-accent hover:underline"
           >
-            {link.label}
+            {t(link.label)}
           </Link>
         ))}
       </nav>

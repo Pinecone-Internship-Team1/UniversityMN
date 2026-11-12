@@ -1,30 +1,32 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { Container } from "@/components/ui/Container";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/site";
 import { Logo } from "./Logo";
 
+/** Titles and labels are keys in the "footer" messages (null title = the brand name). */
 const FOOTER_SECTIONS = [
   {
-    title: "Хэсгүүд",
+    title: "sections",
     links: [
-      { label: "Сургууль хайх", href: "/schools" },
-      { label: "Мэргэжил хайх", href: "/schools?tab=majors" },
-      { label: "Тэтгэлэг", href: "/scholarships" },
-      { label: "Элсэлтийн хуанли", href: "/admissions" },
-      { label: "Харьцуулах", href: "/compare" },
+      { label: "searchSchools", href: "/schools" },
+      { label: "searchMajors", href: "/schools?tab=majors" },
+      { label: "scholarships", href: "/scholarships" },
+      { label: "admissionCalendar", href: "/admissions" },
+      { label: "compare", href: "/compare" },
     ],
   },
   {
-    title: "Oyutan MN",
+    title: null,
     links: [
-      { label: "Бидний тухай", href: "/#about" },
-      { label: "Манай баг", href: "/#team" },
-      { label: "Түгээмэл асуултууд", href: "/#faq" },
+      { label: "about", href: "/#about" },
+      { label: "team", href: "/#team" },
+      { label: "faq", href: "/#faq" },
     ],
   },
-];
+] as const;
 
 const SOCIAL_ICONS: Record<string, typeof FaInstagram> = {
   Instagram: FaInstagram,
@@ -35,6 +37,8 @@ const LINK_CLASSES =
   "inline-flex min-h-11 items-center text-base text-ink-2 transition-colors hover:text-accent lg:min-h-9";
 
 export function Footer() {
+  const t = useTranslations("footer");
+  const tc = useTranslations("common");
   const socials = SOCIAL_LINKS.filter((link): link is { label: string; href: string } => link.href != null);
 
   return (
@@ -42,37 +46,38 @@ export function Footer() {
       <Container className="pt-12 pb-safe md:pt-16">
         <div className="grid gap-10 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
-            <Link href="/" aria-label="Oyutan MN — нүүр хуудас" className="inline-flex h-11 items-center">
+            <Link href="/" aria-label={tc("homeAria")} className="inline-flex h-11 items-center">
               <Logo className="h-6" />
             </Link>
             <p className="mt-3 max-w-sm text-base text-ink">
-              Их, дээд сургуулийн элсэлтийн мэдээлэл — нэг дор.
+              {t("tagline")}
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-3">
-              Oyutan MN нь их, дээд сургуулиудын албан ёсны сайт биш, бие даасан
-              мэдээллийн платформ. Бүртгүүлэхээсээ өмнө сургуулийн сайтаас
-              шалгаарай.
+              {t("disclaimer")}
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 md:col-span-7 md:grid-cols-3">
-            {FOOTER_SECTIONS.map((section) => (
-              <nav key={section.title} aria-label={section.title}>
-                <p className="text-sm font-bold text-ink">{section.title}</p>
+            {FOOTER_SECTIONS.map((section) => {
+              const title = section.title ? t(section.title) : "Oyutan MN";
+              return (
+              <nav key={title} aria-label={title}>
+                <p className="text-sm font-bold text-ink">{title}</p>
                 <ul className="mt-2">
                   {section.links.map((link) => (
                     <li key={link.href}>
                       <Link href={link.href} className={LINK_CLASSES}>
-                        {link.label}
+                        {t(link.label)}
                       </Link>
                     </li>
                   ))}
                 </ul>
               </nav>
-            ))}
+              );
+            })}
 
             <div className="col-span-2 md:col-span-1">
-              <p className="text-sm font-bold text-ink">Холбоо барих</p>
+              <p className="text-sm font-bold text-ink">{t("contact")}</p>
               <a href={`mailto:${CONTACT_EMAIL}`} className={`${LINK_CLASSES} mt-2 gap-2 break-all`}>
                 <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                 {CONTACT_EMAIL}
@@ -106,12 +111,12 @@ export function Footer() {
           <ul className="flex flex-wrap gap-x-5">
             <li>
               <Link href="/privacy" className="inline-flex min-h-11 items-center hover:text-accent">
-                Нууцлалын бодлого
+                {t("privacy")}
               </Link>
             </li>
             <li>
               <Link href="/terms" className="inline-flex min-h-11 items-center hover:text-accent">
-                Үйлчилгээний нөхцөл
+                {t("terms")}
               </Link>
             </li>
           </ul>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { RotateCcw } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { PageShell } from "@/components/layout/PageShell";
 import { StatusPage } from "@/components/layout/StatusPage";
 import { buttonClassName } from "@/components/ui/Button";
@@ -14,25 +15,27 @@ export default function Error({
   error: Error & { digest?: string };
   retry: () => void;
 }) {
+  const t = useTranslations("status");
+  const tc = useTranslations("common");
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
     <PageShell>
-      <title>Алдаа гарлаа — Oyutan MN</title>
+      <title>{`${t("errorTabTitle")} — Oyutan MN`}</title>
       <StatusPage
-        code="Өө!"
-        title="Уучлаарай, алдаа гарлаа"
-        description="Хуудсыг ачаалах үед асуудал гарлаа. Дахин оролдох эсвэл нүүр хуудас руу буцна уу."
+        code={t("errorCode")}
+        title={t("errorTitle")}
+        description={t("errorText")}
         actions={
           <>
             <button type="button" onClick={() => retry()} className={buttonClassName({})}>
               <RotateCcw />
-              Дахин оролдох
+              {tc("retry")}
             </button>
             <Link href="/" className={buttonClassName({ variant: "secondary" })}>
-              Нүүр хуудас
+              {tc("home")}
             </Link>
           </>
         }

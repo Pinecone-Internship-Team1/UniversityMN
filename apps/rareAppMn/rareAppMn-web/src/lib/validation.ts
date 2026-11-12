@@ -1,3 +1,5 @@
+import type { ValidationT } from "@/i18n/types";
+
 export const MAX_EXAM_SCORE = 800;
 export const MAX_SCORE_SUBJECTS = 50;
 export const MAX_SUBJECT_LENGTH = 100;
@@ -27,20 +29,26 @@ export function isHttpUrl(value: string): boolean {
   }
 }
 
+/**
+ * Each parser takes `t` = useTranslations("validation"); `label` is the
+ * field's name in the current language, already translated by the caller.
+ */
 export function parseRequiredText(
+  t: ValidationT,
   raw: string,
   label: string,
   maxLength = MAX_SHORT_TEXT_LENGTH,
 ): ValidationResult<string> {
   const value = raw.trim();
-  if (!value) return invalid(`${label} оруулна уу.`);
+  if (!value) return invalid(t("required", { label }));
   if (value.length > maxLength) {
-    return invalid(`${label} ${maxLength} тэмдэгтээс хэтрэхгүй байх ёстой.`);
+    return invalid(t("tooLong", { label, max: maxLength }));
   }
   return valid(value);
 }
 
 export function parseOptionalText(
+  t: ValidationT,
   raw: string,
   label: string,
   maxLength = MAX_SHORT_TEXT_LENGTH,
@@ -48,28 +56,29 @@ export function parseOptionalText(
   const value = raw.trim();
   if (!value) return valid(null);
   if (value.length > maxLength) {
-    return invalid(`${label} ${maxLength} тэмдэгтээс хэтрэхгүй байх ёстой.`);
+    return invalid(t("tooLong", { label, max: maxLength }));
   }
   return valid(value);
 }
 
 export function parseOptionalUrl(
+  t: ValidationT,
   raw: string,
   label: string,
 ): ValidationResult<string | null> {
   const value = raw.trim();
   if (!value) return valid(null);
   if (value.length > MAX_URL_LENGTH || !isHttpUrl(value)) {
-    return invalid(`${label} нь http:// эсвэл https://-ээр эхэлсэн зөв холбоос байх ёстой.`);
+    return invalid(t("url", { label }));
   }
   return valid(value);
 }
 
-export function parseOptionalEmail(raw: string, label: string): ValidationResult<string | null> {
+export function parseOptionalEmail(t: ValidationT, raw: string, label: string): ValidationResult<string | null> {
   const value = raw.trim();
   if (!value) return valid(null);
   if (value.length > MAX_EMAIL_LENGTH || !EMAIL_PATTERN.test(value)) {
-    return invalid(`${label} зөв и-мэйл хаяг байх ёстой.`);
+    return invalid(t("email", { label }));
   }
   return valid(value);
 }
@@ -77,7 +86,7 @@ export function parseOptionalEmail(raw: string, label: string): ValidationResult
 export const MAX_ALIASES = 20;
 
 /** Comma-separated search names (МУИС, muis, NUM), trimmed and de-duplicated. */
-export function parseAliasList(raw: string): ValidationResult<string[]> {
+export function parseAliasList(t: ValidationT, raw: string): ValidationResult<string[]> {
   const seen = new Set<string>();
   const aliases: string[] = [];
   for (const part of raw.split(",")) {
@@ -87,31 +96,32 @@ export function parseAliasList(raw: string): ValidationResult<string[]> {
     aliases.push(alias);
   }
   if (aliases.length > MAX_ALIASES) {
-    return invalid(`Хамгийн ихдээ ${MAX_ALIASES} хайлтын нэр оруулах боломжтой.`);
+    return invalid(t("tooManyAliases", { max: MAX_ALIASES }));
   }
   const tooLong = aliases.find((alias) => alias.length > MAX_SHORT_TEXT_LENGTH);
   if (tooLong) {
-    return invalid(`"${tooLong.slice(0, 30)}…" хэт урт байна (${MAX_SHORT_TEXT_LENGTH} тэмдэгтээс ихгүй).`);
+    return invalid(t("aliasTooLong", { alias: tooLong.slice(0, 30), max: MAX_SHORT_TEXT_LENGTH }));
   }
   return valid(aliases);
 }
 
 /** Trimmed, de-duplicated phone numbers (6-15 digits each); blank rows are ignored. */
-export function parsePhoneList(raw: string[]): ValidationResult<string[]> {
+export function parsePhoneList(t: ValidationT, raw: string[]): ValidationResult<string[]> {
   const phones = [...new Set(raw.map((phone) => phone.trim()).filter(Boolean))];
   if (phones.length > MAX_PHONES) {
-    return invalid(`Хамгийн ихдээ ${MAX_PHONES} утасны дугаар оруулах боломжтой.`);
+    return invalid(t("tooManyPhones", { max: MAX_PHONES }));
   }
   for (const phone of phones) {
     const digits = phone.replace(/\D/g, "").length;
     if (phone.length > MAX_PHONE_LENGTH || !PHONE_PATTERN.test(phone) || digits < 6 || digits > 15) {
-      return invalid(`"${phone}" утасны дугаар буруу байна.`);
+      return invalid(t("badPhone", { phone }));
     }
   }
   return valid(phones);
 }
 
 export function parseOptionalNumber(
+  t: ValidationT,
   raw: string,
   label: string,
   max?: number,
@@ -120,15 +130,15 @@ export function parseOptionalNumber(
   if (!value) return valid(null);
   const number = Number(value);
   if (!Number.isFinite(number) || number < 0) {
-    return invalid(`${label} 0-ээс их буюу тэнцүү тоо байх ёстой.`);
+    return invalid(t("notNegative", { label }));
   }
   if (max !== undefined && number > max) {
-    return invalid(`${label} ${max}-аас хэтрэхгүй байх ёстой.`);
+    return invalid(t("tooBig", { label, max }));
   }
   return valid(number);
 }
 
-export function parseSubjectList(raw: string, label: string): ValidationResult<string[]> {
+export function parseSubjectList(t: ValidationT, raw: string, label: string): ValidationResult<string[]> {
   const subjects = [
     ...new Set(
       raw
@@ -138,11 +148,11 @@ export function parseSubjectList(raw: string, label: string): ValidationResult<s
     ),
   ];
   if (subjects.length > MAX_REQUIRED_SUBJECTS) {
-    return invalid(`${label} ${MAX_REQUIRED_SUBJECTS}-оос олон байж болохгүй.`);
+    return invalid(t("tooManySubjects", { label, max: MAX_REQUIRED_SUBJECTS }));
   }
   const tooLong = subjects.find((subject) => subject.length > MAX_SUBJECT_LENGTH);
   if (tooLong) {
-    return invalid(`"${tooLong}" хичээлийн нэр хэт урт байна.`);
+    return invalid(t("subjectTooLong", { subject: tooLong }));
   }
   return valid(subjects);
 }
@@ -153,6 +163,7 @@ export interface ScoreEntry {
 }
 
 export function parseScoreEntries(
+  t: ValidationT,
   entries: ScoreEntry[],
 ): ValidationResult<Record<string, number>> {
   const scores: [string, number][] = [];
@@ -162,23 +173,23 @@ export function parseScoreEntries(
     const subject = entry.subject.trim();
     const rawScore = entry.score.trim();
     if (!subject && !rawScore) continue;
-    if (!subject) return invalid("Оноо оруулсан мөр бүрт хичээлийн нэрийг бичнэ үү.");
+    if (!subject) return invalid(t("subjectNameMissing"));
     if (subject.length > MAX_SUBJECT_LENGTH) {
-      return invalid(`"${subject}" хичээлийн нэр хэт урт байна.`);
+      return invalid(t("subjectTooLong", { subject }));
     }
-    if (seen.has(subject)) return invalid(`"${subject}" хичээл давхардсан байна.`);
-    if (!rawScore) return invalid(`"${subject}" хичээлийн оноог оруулна уу.`);
+    if (seen.has(subject)) return invalid(t("subjectDuplicate", { subject }));
+    if (!rawScore) return invalid(t("scoreMissing", { subject }));
 
     const score = Number(rawScore);
     if (!Number.isFinite(score) || score < 0 || score > MAX_EXAM_SCORE) {
-      return invalid(`"${subject}" хичээлийн оноо 0-${MAX_EXAM_SCORE} хооронд байх ёстой.`);
+      return invalid(t("scoreRange", { subject, max: MAX_EXAM_SCORE }));
     }
     seen.add(subject);
     scores.push([subject, score]);
   }
 
   if (scores.length > MAX_SCORE_SUBJECTS) {
-    return invalid(`Хамгийн ихдээ ${MAX_SCORE_SUBJECTS} хичээлийн оноо оруулах боломжтой.`);
+    return invalid(t("tooManyScores", { max: MAX_SCORE_SUBJECTS }));
   }
   return valid(Object.fromEntries(scores));
 }

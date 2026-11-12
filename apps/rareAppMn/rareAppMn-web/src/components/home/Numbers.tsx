@@ -1,15 +1,17 @@
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { getHomeSchools, getMajorCount, getScholarshipDirectory } from "@/lib/home-data";
 import { LogoStrip } from "./LogoStrip";
 import { StatGrid, StatGridSkeleton } from "./StatGrid";
 
 function NumbersFrame({ children }: { children: ReactNode }) {
+  const t = useTranslations("home.numbers");
   return (
     <section aria-labelledby="numbers-title" className="border-y border-border-ink bg-card/60 py-12 md:py-16">
       <Container>
         <h2 id="numbers-title" className="sr-only">
-          Oyutan MN тоогоор
+          {t("title")}
         </h2>
         {children}
       </Container>

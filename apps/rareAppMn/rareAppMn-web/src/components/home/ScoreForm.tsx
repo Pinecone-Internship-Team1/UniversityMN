@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { buttonClassName } from "@/components/ui/Button";
 import { INPUT_CLASSES } from "@/components/ui/Input";
 import { cn } from "@/lib/utils";
@@ -8,6 +9,7 @@ import { cn } from "@/lib/utils";
  * works before (or without) JavaScript; the browser checks the 200–800 range.
  */
 export function ScoreForm({ className }: { className?: string }) {
+  const t = useTranslations("home.scoreForm");
   return (
     <form
       action="/schools"
@@ -16,7 +18,7 @@ export function ScoreForm({ className }: { className?: string }) {
     >
       <input type="hidden" name="tab" value="majors" />
       <label htmlFor="hero-score" className="block px-1 text-[15px] font-bold text-ink">
-        ЭЕШ оноогоо оруул
+        {t("label")}
       </label>
       <div className="mt-2 flex gap-2">
         <input
@@ -33,12 +35,12 @@ export function ScoreForm({ className }: { className?: string }) {
           className={cn(INPUT_CLASSES, "min-w-0 flex-1 text-lg font-bold tabular-nums")}
         />
         <button type="submit" className={buttonClassName({ variant: "solid", className: "px-4 max-[399px]:[&_svg]:hidden max-[359px]:text-[15px] sm:px-5" })}>
-          Тохирох мэргэжлээ хар
+          {t("submit")}
           <ArrowRight />
         </button>
       </div>
       <p id="hero-score-hint" className="mt-2 px-1 text-sm leading-snug text-ink-3">
-        Босго оноо нь элсэлтийн баталгаа биш. Эцсийн мэдээллийг сургуулийн сайтаас шалгаарай.
+        {t("hint")}
       </p>
     </form>
   );

@@ -1,0 +1,892 @@
+{
+  "common": {
+    "homeAria": "Oyutan MN — home",
+    "searchSchools": "Find a school",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out",
+    "myProfile": "My profile",
+    "accountSettings": "Account settings",
+    "seeAll": "See all",
+    "aboutUs": "About us",
+    "loading": "Loading…",
+    "retry": "Try again",
+    "close": "Close",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "skipToContent": "Skip to main content",
+    "home": "Home",
+    "popularPages": "Popular pages",
+    "comingSoon": "Details coming soon.",
+    "actions": "Actions",
+    "loadErrorTitle": "Couldn't load this",
+    "loadErrorText": "Your connection may have dropped for a moment. Wait a bit and try again.",
+    "deleting": "Deleting..."
+  },
+  "nav": {
+    "schools": "Schools",
+    "majors": "Majors",
+    "scholarships": "Scholarships",
+    "admissions": "Admissions",
+    "compare": "Compare",
+    "mainMenu": "Main menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "colorMode": "Color mode",
+    "language": "Language"
+  },
+  "theme": {
+    "toggle": "Switch color mode"
+  },
+  "language": {
+    "switchTo": "Монгол хэл рүү шилжих",
+    "current": "English"
+  },
+  "footer": {
+    "sections": "Explore",
+    "searchSchools": "Find a school",
+    "searchMajors": "Find a major",
+    "scholarships": "Scholarships",
+    "admissionCalendar": "Admission calendar",
+    "compare": "Compare",
+    "about": "About us",
+    "team": "Our team",
+    "faq": "FAQ",
+    "tagline": "University admissions info, all in one place.",
+    "disclaimer": "Oyutan MN is an independent information platform, not an official site of any university. Always double-check with the school's own website before you apply.",
+    "contact": "Contact",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service"
+  },
+  "site": {
+    "reportSubject": "Data error",
+    "reportSubjectAbout": "Data error: {about}",
+    "ogImageAlt": "Oyutan MN — every Mongolian university in one place"
+  },
+  "format": {
+    "millions": "₮{amount}M",
+    "millionsApprox": "≈ ₮{amount}M",
+    "millionsRange": "₮{low}–{high}M",
+    "comingSoon": "Details coming soon",
+    "noData": "No data",
+    "university": "University",
+    "college": "College",
+    "available": "Available",
+    "unavailable": "Not available",
+    "upTo": "up to ≈ {fee}",
+    "cutOffSplit": "Main exam ≥ {primary}, second exam ≥ {secondary}",
+    "cutOffSplitUnknown": "Main exam ≥ {primary} (second exam: not known)",
+    "cutOffEqual": "Exam 1 ≥ {primary}, Exam 2 ≥ {secondary}",
+    "cutOffEqualUnknown": "Exam 1 ≥ {primary} (Exam 2: not known)",
+    "formulaSum": "Take one exam from the Exam 1 list and one from the Exam 2 list. Total score = Exam 1 + Exam 2.",
+    "formulaWeighted": "Take one exam from the main list and one from the second list. Score = {primary} × main + {secondary} × second.",
+    "selectionList": "Ranked choice (up to 8)",
+    "selectionDirect": "Direct choice (1)",
+    "cutOffNote": "The cut-off is the minimum score to compete for a place. Popular programs may need a higher score to get in.",
+    "subjectChoices": "{rest} or {last}",
+    "examFirst": "Exam 1",
+    "examSecond": "Exam 2",
+    "examPrimary": "Main exam ({share}%)",
+    "examSecondary": "Second exam ({share}%)",
+    "differentFromFirst": " (not the one you chose for Exam 1)",
+    "differentFromPrimary": " (not the one you chose as your main exam)",
+    "exams": "Exams",
+    "verdict": {
+      "ELIGIBLE": "Meets the cut-off",
+      "BELOW_CUT_OFF": "Below the cut-off",
+      "MISSING_SCORES": "Scores missing",
+      "CHECK_WITH_SCHOOL": "Check with the school"
+    },
+    "dateUntil": "until {date}",
+    "dateUnknown": "Dates not announced",
+    "degree": {
+      "BACHELOR": "Bachelor's",
+      "ASSOCIATE": "Associate",
+      "MASTER": "Master's",
+      "DOCTORATE": "Doctorate",
+      "DIPLOMA": "Diploma",
+      "OTHER": "Other"
+    },
+    "estimateNote": "Fees marked ≈ are yearly estimates, not official amounts."
+  },
+  "errors": {
+    "UNAUTHENTICATED": "Please sign in to do this.",
+    "FORBIDDEN": "You don't have permission to do this.",
+    "NOT_FOUND": "We couldn't find that. It may have been deleted.",
+    "CONFLICT": "This conflicts with an existing record.",
+    "BAD_USER_INPUT": "Some of the details you entered aren't valid.",
+    "network": "Couldn't reach the server. Check your internet connection and try again.",
+    "fallback": "Something went wrong. Please try again.",
+    "image": {
+      "unauthenticated": "Please sign in to do this.",
+      "forbidden": "You don't have permission to upload images.",
+      "tooLarge": "That image is too large. Please choose a smaller one.",
+      "unreadable": "Couldn't read that image. Please choose a PNG, JPG or WebP file.",
+      "processFailed": "Couldn't process the image.",
+      "saveFailed": "Couldn't save the image. Please try again."
+    }
+  },
+  "validation": {
+    "required": "Please enter {label}.",
+    "tooLong": "{label} must be at most {max} characters.",
+    "url": "{label} must be a valid link starting with http:// or https://.",
+    "email": "{label} must be a valid email address.",
+    "tooManyAliases": "You can add at most {max} search names.",
+    "aliasTooLong": "\"{alias}…\" is too long (max {max} characters).",
+    "tooManyPhones": "You can add at most {max} phone numbers.",
+    "badPhone": "\"{phone}\" isn't a valid phone number.",
+    "notNegative": "{label} must be 0 or more.",
+    "tooBig": "{label} can't be more than {max}.",
+    "tooManySubjects": "{label} can't have more than {max} items.",
+    "subjectTooLong": "The subject name \"{subject}\" is too long.",
+    "subjectNameMissing": "Enter a subject name on every row that has a score.",
+    "subjectDuplicate": "\"{subject}\" is listed twice.",
+    "scoreMissing": "Enter a score for \"{subject}\".",
+    "scoreRange": "The score for \"{subject}\" must be between 0 and {max}.",
+    "tooManyScores": "You can enter scores for at most {max} subjects."
+  },
+  "seo": {
+    "brand": "Oyutan MN",
+    "home": {
+      "title": "Oyutan MN — university cut-off scores & scholarships",
+      "description": "Entrance exam (ЭЕШ) cut-off scores, majors, tuition, scholarships and admission dates for NUM, MUST, UFE and other Mongolian universities."
+    },
+    "schools": {
+      "title": "Find Mongolian universities and majors — Oyutan MN",
+      "description": "Search Mongolian universities and majors like NUM, MUST, UFE and MNUMS, filtered by entrance exam cut-off, tuition, location, dorms and scholarships."
+    },
+    "scholarships": {
+      "title": "University scholarships in Mongolia — Oyutan MN",
+      "description": "Scholarships at Mongolian universities: who qualifies, requirements and application deadlines, all in one place. Oyutan MN."
+    },
+    "admissions": {
+      "title": "Admission calendar — Oyutan MN",
+      "description": "Registration, exam and results dates for Mongolian universities in one calendar: NUM, MUST, UFE and more. Oyutan MN."
+    },
+    "compare": {
+      "title": "Compare universities and majors — Oyutan MN",
+      "description": "Compare universities and majors side by side by tuition, entrance exam cut-off, dorms and scholarships. Oyutan MN."
+    },
+    "signIn": {
+      "title": "Sign in — Oyutan MN",
+      "description": "Sign in to Oyutan MN to see full school details."
+    },
+    "signUp": {
+      "title": "Sign up — Oyutan MN",
+      "description": "Create a free Oyutan MN account to see full school details."
+    },
+    "profile": {
+      "title": "My profile — Oyutan MN",
+      "description": "Your profile, saved schools and saved majors."
+    },
+    "account": {
+      "title": "Account settings — Oyutan MN",
+      "description": "Manage your sign-in details and account settings."
+    },
+    "admin": {
+      "title": "Admin dashboard — Oyutan MN",
+      "description": "Manage schools, majors and users."
+    },
+    "schoolTitle": {
+      "full": "{name} — cut-off scores, majors, tuition | Oyutan MN",
+      "medium": "{name} — cut-off scores, tuition | Oyutan MN",
+      "short": "{name} — cut-off scores | Oyutan MN"
+    },
+    "schoolFacts": {
+      "majors": "{count, plural, one {# major} other {# majors}}",
+      "cutOff": "entrance exam cut-off {range}",
+      "tuition": "tuition {range}/year",
+      "fallback": "cut-off scores, majors and tuition",
+      "more": "Scholarships, dorms, admissions."
+    }
+  },
+  "home": {
+    "hero": {
+      "titleLead": "Stop jumping between university websites.",
+      "titleAccent": "It's all here.",
+      "lead": "Oyutan MN is a free platform that brings together cut-off scores, majors, tuition, scholarships and admission dates for every Mongolian university."
+    },
+    "scoreForm": {
+      "label": "Enter your entrance exam (ЭЕШ) score",
+      "submit": "See matching majors",
+      "hint": "Meeting the cut-off doesn't guarantee admission. Always confirm the final details on the school's website."
+    },
+    "numbers": {
+      "title": "Oyutan MN in numbers",
+      "schools": "universities and colleges",
+      "majors": "majors and programs",
+      "scholarships": "scholarships",
+      "admissionYear": "admission data"
+    },
+    "featured": {
+      "eyebrow": "Schools",
+      "title": "Featured schools",
+      "error": "Couldn't load schools"
+    },
+    "howItWorks": {
+      "eyebrow": "How it works",
+      "title": "Just three steps",
+      "searchTitle": "Search",
+      "searchText": "Look up schools and majors by name or by your entrance exam score.",
+      "compareTitle": "Compare",
+      "compareText": "See tuition, cut-off scores and scholarships side by side.",
+      "decideTitle": "Decide",
+      "decideText": "Pick the one that fits you and apply on its official website."
+    },
+    "finalCta": {
+      "title": "Find the right school for you",
+      "text": "Start searching now, no account needed."
+    },
+    "problem": {
+      "eyebrow": "The problem",
+      "title": "We ran into the same problem",
+      "description": "When our admission year came, we spent hours searching just like everyone else. Information was scattered everywhere, and it was hard to tell what was current and what was out of date.",
+      "sitesTitle": "Too many websites",
+      "sitesText": "Every school has its own site, and the details are spread across different pages.",
+      "socialTitle": "Facebook, Telegram",
+      "socialText": "Important announcements get buried in posts and group chats, and they're hard to find.",
+      "separateTitle": "Checking one by one",
+      "separateText": "You look up tuition, majors, entrance exam cut-offs and scholarships separately.",
+      "timeTitle": "It takes forever",
+      "timeText": "Comparing schools can eat up hours, even days."
+    },
+    "solution": {
+      "eyebrow": "The fix",
+      "title": "Before and now",
+      "before": "Before",
+      "rows": {
+        "0": {
+          "before": "Information scattered everywhere",
+          "after": "Every school in one search"
+        },
+        "1": {
+          "before": "Every school's site works differently",
+          "after": "Clear cards with the same layout"
+        },
+        "2": {
+          "before": "Digging through Facebook and Telegram",
+          "after": "Collected from official sites, rules and announcements"
+        },
+        "3": {
+          "before": "Tuition, exams and scholarships looked up separately",
+          "after": "Tuition, cut-offs and scholarships in one place"
+        },
+        "4": {
+          "before": "Choosing takes ages",
+          "after": "Compare side by side, then decide"
+        }
+      },
+      "closingMuted": "We don't make the choice for you.",
+      "closing": "We just put the right information in one place."
+    },
+    "trust": {
+      "title": "Our data comes from the schools' official websites and admission rules.",
+      "updated": "Last updated:",
+      "wrongData": "Spotted a mistake?",
+      "report": "Let us know"
+    },
+    "faq": {
+      "eyebrow": "Questions & answers",
+      "title": "Frequently asked questions",
+      "items": {
+        "what": {
+          "question": "What is Oyutan MN?",
+          "answer": "A platform that brings together admissions info for Mongolian universities and colleges — cut-off scores, majors, tuition, scholarships and admission dates — in one place."
+        },
+        "free": {
+          "question": "Is it free?",
+          "answer": "Yes, completely free. Creating an account is free too."
+        },
+        "source": {
+          "question": "Where does the information come from?",
+          "answer": "We collect it from the schools' official websites, admission rules and announcements."
+        },
+        "official": {
+          "question": "Is this an official site?",
+          "answer": "No. We're an independent platform, not affiliated with any school. Always confirm the final details on the school's own website."
+        },
+        "updates": {
+          "question": "How often is it updated?",
+          "answer": "Whenever new admission information is announced. Last updated: {date}."
+        },
+        "report": {
+          "question": "How do I report wrong information?",
+          "answer": "Email us at <link>{email}</link> and we'll check and fix it."
+        }
+      }
+    },
+    "team": {
+      "eyebrow": "About us",
+      "title": "Built by students, for students",
+      "story1": "We're high school students. The idea came to us while we were jumping from site to site and group to group, trying to choose a university.",
+      "story2": "We believe every student in Mongolia, whatever their school or city, deserves the same accurate information, for free.",
+      "teamTitle": "Our team",
+      "github": "{name} on GitHub",
+      "schools": {
+        "school130": "School No. 130",
+        "russian3": "Russian School No. 3",
+        "ulaanbaatar": "Ulaanbaatar school"
+      }
+    },
+    "tour": {
+      "eyebrow": "The platform",
+      "title": "What can you do here?",
+      "description": "Everything you need for admissions, collected from the schools' official sources and shown in one consistent format.",
+      "filter": "Filters",
+      "schoolsTitle": "Search and filter schools",
+      "schoolsText": "Filter by location, tuition, dorms and scholarships to find the school you need.",
+      "dormSearch": "Has dorms",
+      "majorsTitle": "Find majors by your exam score",
+      "majorsText": "Enter your entrance exam (ЭЕШ) score and see the majors whose cut-off you meet.",
+      "yourScore": "Your exam score",
+      "majorMeta": "{school} · Cut-off {cutOff}",
+      "fits": "You qualify",
+      "compareTitle": "Compare schools",
+      "compareText": "Put two or three schools side by side by tuition, cut-off scores and scholarships.",
+      "rowCutOff": "Cut-off score",
+      "rowTuition": "Tuition / year",
+      "rowMajors": "Majors",
+      "rowScholarships": "Scholarships",
+      "calendarTitle": "Scholarships and admission calendar",
+      "calendarText": "Keep track of open scholarships and upcoming deadlines so you never miss one.",
+      "open": "Open",
+      "deadline": "Deadline {date}"
+    }
+  },
+  "legal": {
+    "draft": "Draft — not final",
+    "questions": "Questions? Get in touch at <email></email>.",
+    "privacy": {
+      "title": "Privacy policy",
+      "intro": "This is a draft of our privacy policy. The content may change before the final version is published.",
+      "storedTitle": "What we store",
+      "stored1": "We use your email address when you sign up. Once you're signed in, we store the schools and majors you save and the entrance exam scores you add to your profile.",
+      "stored2": "To count site visits, we create a random number for each browser that contains no personal information.",
+      "useTitle": "How we use it",
+      "use1": "Only to show you what you've saved and to suggest majors that match your scores. We never sell your information."
+    },
+    "terms": {
+      "title": "Terms of service",
+      "intro": "This is a draft of our terms of service. The content may change before the final version is published.",
+      "whatTitle": "What Oyutan MN is",
+      "what1": "Oyutan MN is a free, independent platform that brings university admissions information together in one place. We are not the official site of any school.",
+      "accuracyTitle": "Accuracy of information",
+      "accuracy1": "We collect information from the schools' official websites and admission rules, but mistakes or outdated details can happen. Meeting a cut-off score doesn't guarantee admission. Always confirm the final details on the school's website before you apply."
+    }
+  },
+  "auth": {
+    "intro": "Sign in to see full school details. New here? Create a free account.",
+    "signUpAgain": "We've upgraded our sign-in system. If you had an account before, please sign up once more with the same email address. Everything you saved is still there."
+  },
+  "profile": {
+    "tabProfile": "My profile",
+    "tabAccount": "Settings",
+    "tabsLabel": "Profile sections",
+    "pageTitle": "Your profile",
+    "signedOutTitle": "Sign in to see your profile",
+    "signedOutText": "Sign in to keep track of saved schools and majors and to update your details.",
+    "region": {
+      "ULAANBAATAR": "Ulaanbaatar",
+      "OUTSIDE_ULAANBAATAR": "Outside Ulaanbaatar"
+    },
+    "regionLabel": "Location",
+    "noScoresTitle": "Add your scores to find majors that fit you",
+    "noScoresText": "Once you enter and save your subject scores above, recommended majors will show up here.",
+    "recommendationsError": "Couldn't load recommended majors",
+    "noMatchesTitle": "No matching majors",
+    "noMatchesText": "No majors that require the subjects you entered have been added yet. Check that the subject names are spelled exactly as in the majors' requirements (in Mongolian).",
+    "cannotSave": "Can't save your profile",
+    "saveFailed": "Couldn't save your profile",
+    "saved": "Profile saved",
+    "loadError": "Couldn't load your profile",
+    "syncError": "Couldn't connect your profile",
+    "notFoundTitle": "Profile not found",
+    "notFoundText": "Your profile hasn't been created on the server yet. Please try again.",
+    "noName": "No name set",
+    "roleAdmin": "Admin",
+    "roleStudent": "Student",
+    "editTitle": "Edit details",
+    "name": "Name",
+    "nameMissing": "No name added",
+    "photo": "Profile photo",
+    "currentPhoto": "Current photo",
+    "noPhoto": "No photo added",
+    "editHint": "Change your name and photo under \"Account settings\".",
+    "scoresTitle": "My entrance exam (ЭЕШ) scores",
+    "scoresHint": "Enter each subject's name and your score, and we'll recommend majors that fit you below.",
+    "subjectPlaceholder": "e.g. Математик",
+    "scorePlaceholder": "Score",
+    "removeRow": "Remove row",
+    "addSubject": "Add subject",
+    "saving": "Saving...",
+    "recommendationsTitle": "Recommended majors for you",
+    "savedSchools": "Saved schools ({count})",
+    "noSavedSchools": "No saved schools yet",
+    "noSavedSchoolsText": "Tap the bookmark icon on any school to save it.",
+    "savedMajors": "Saved majors ({count})",
+    "noSavedMajors": "No saved majors yet",
+    "noSavedMajorsText": "Save majors from a school's detail page."
+  },
+  "userSync": {
+    "noEmail": "Your account has no email address. Add one under \"Account settings\".",
+    "emailConflict": "This email address is already linked to another account.",
+    "syncFailed": "Couldn't connect your profile"
+  },
+  "schoolsPage": {
+    "title": "Find your school and major",
+    "description": "Filter by location, tuition, dorms, scholarships and entrance exam (ЭЕШ) cut-off score."
+  },
+  "comparePage": {
+    "title": "Compare schools and majors side by side",
+    "description": "Pick up to {max} schools or majors and see their tuition, cut-off scores, dorms and scholarships in one view."
+  },
+  "admin": {
+    "label": "Admin",
+    "title": "Admin dashboard",
+    "signInTitle": "Sign in to the admin dashboard",
+    "signInText": "Only users with admin access can use this section.",
+    "forbiddenTitle": "Admin access required",
+    "forbiddenText": "Your account doesn't have admin access. Ask a system admin if you need it.",
+    "tabs": {
+      "catalog": "Universities and majors",
+      "users": "Users",
+      "visits": "Traffic"
+    },
+    "upload": {
+      "failed": "Couldn't upload the image",
+      "failedText": "Couldn't upload the image. Please try again.",
+      "uploading": "Uploading...",
+      "replace": "Replace",
+      "upload": "Upload image",
+      "remove": "Remove"
+    },
+    "stats": {
+      "pages": {
+        "home": "Home",
+        "schools": "Schools",
+        "scholarships": "Scholarships",
+        "admissions": "Admissions",
+        "compare": "Compare",
+        "profile": "My profile",
+        "account": "Account settings",
+        "signIn": "Sign in",
+        "signUp": "Sign up",
+        "schoolPage": "School page"
+      },
+      "barLabel": "{date}: {views} views, {visitors} visitors",
+      "views": "{count} views",
+      "visitors": "{count} visitors",
+      "noVisits": "No visits recorded yet",
+      "range": "Period",
+      "days": "{count} days",
+      "loadError": "Couldn't load traffic data",
+      "viewsLabel": "Views",
+      "viewsNote": "Pages opened",
+      "visitorsLabel": "Visitors",
+      "visitorsNote": "Unique browsers",
+      "today": "Today",
+      "signedIn": "Signed-in users",
+      "dailyTitle": "Daily traffic",
+      "dailyHint": "Hover over a bar to see that day's views and visitors.",
+      "dailyEmpty": "Traffic will show up here once visits start being recorded.",
+      "asTable": "View as table",
+      "day": "Day",
+      "topPages": "Most viewed pages",
+      "topPagesHint": "The 10 most opened pages in the selected period."
+    },
+    "users": {
+      "role": {
+        "all": "All",
+        "STUDENT": "Student",
+        "ADMIN": "Admin"
+      },
+      "cannotChangeSelf": "You can't change your own role.",
+      "confirmRemoveAdmin": "Are you sure you want to remove admin access from “{name}”?",
+      "confirmMakeAdmin": "Are you sure you want to make “{name}” an admin? Admins can edit universities and majors and change other users' roles.",
+      "yesRemove": "Yes, remove access",
+      "yesMake": "Yes, make admin",
+      "saving": "Saving...",
+      "removeAdmin": "Remove admin access",
+      "makeAdmin": "Make admin",
+      "roleLabel": "Role",
+      "scores": "Exam scores",
+      "notEntered": "Not entered",
+      "savedSchools": "Saved schools",
+      "savedMajors": "Saved majors",
+      "none": "None",
+      "updated": "Updated",
+      "searchPlaceholder": "Search by name, email or Clerk ID...",
+      "searchLabel": "Search users",
+      "total": "{count, plural, one {# user} other {# users}} in total",
+      "loadError": "Couldn't load users",
+      "noUsers": "No users found",
+      "savedCounts": "{schools, plural, one {# school} other {# schools}} · {majors, plural, one {# major} other {# majors}}"
+    },
+    "schools": {
+      "deleteFailed": "Couldn't delete the university",
+      "deleted": "Deleted {name}",
+      "searchPlaceholder": "Search: muis, shutis, Хүрээ…",
+      "searchLabel": "Search universities",
+      "new": "New",
+      "noSchools": "No universities found",
+      "locationUnknown": "Location not listed",
+      "pickTitle": "Choose a university",
+      "pickText": "Pick a university from the list on the left to edit it, or add a new one.",
+      "newTitle": "New university",
+      "page": "Page",
+      "actions": "{name}: actions",
+      "delete": "Delete university",
+      "confirmDelete": "Delete “{name}” and all of its schools and majors?",
+      "tabs": {
+        "faculties": "Schools and majors",
+        "details": "General info"
+      }
+    },
+    "schoolForm": {
+      "fields": {
+        "name": "University name",
+        "location": "Location",
+        "tuitionFee": "Tuition",
+        "tuitionText": "Tuition (text)",
+        "website": "Website",
+        "email": "Email",
+        "logo": "Logo",
+        "cover": "Cover image",
+        "overview": "Overview"
+      },
+      "saveFailed": "Couldn't save the university",
+      "updated": "University details updated",
+      "created": "New university added",
+      "requiredNote": "* — required field",
+      "nameLabel": "University name *",
+      "namePlaceholder": "e.g. Монгол Улсын Их Сургууль",
+      "aliasesLabel": "Search names (short name, English name — comma-separated)",
+      "aliasesPlaceholder": "e.g. МУИС, muis, NUM, National University of Mongolia",
+      "aliasesHint": "Search will also find the university by these names. Searches typed in Latin letters (muis, huree) match automatically.",
+      "locationPlaceholder": "e.g. Сүхбаатар дүүрэг, Улаанбаатар",
+      "tuitionFeeLabel": "Yearly tuition (₮)",
+      "tuitionFeePlaceholder": "e.g. 4500000",
+      "tuitionTextLabel": "Tuition (text shown on the site, optional)",
+      "tuitionTextPlaceholder": "e.g. ≈ 5.8–8.5 сая ₮/жил (хөтөлбөрөөс хамаарна)",
+      "emailPlaceholder": "e.g. info@num.edu.mn",
+      "phones": "Phone numbers",
+      "phonePlaceholder": "e.g. +976 7730-7730",
+      "phoneN": "Phone number {n}",
+      "removePhoneN": "Remove phone number {n}",
+      "addPhone": "Add phone",
+      "overviewPlaceholder": "A short overview of the university",
+      "dorm": "Dorms",
+      "scholarship": "Scholarships",
+      "unknownOption": "Unknown (shows “Details coming soon”)",
+      "saving": "Saving...",
+      "uploadingImage": "Uploading image...",
+      "saveChanges": "Save changes",
+      "create": "Add university"
+    },
+    "faculties": {
+      "nameField": "School name",
+      "locationField": "Location",
+      "duplicate": "A school with this name already exists at this university.",
+      "hasMajors": "This school still has majors, so it can't be deleted. Delete its majors or move them to another school first.",
+      "saveFailed": "Couldn't save the school",
+      "updated": "School updated",
+      "created": "New school added",
+      "namePlaceholder": "School name, e.g. Хууль зүйн сургууль",
+      "locationPlaceholder": "Location (if in another province), e.g. Ховд аймаг",
+      "saving": "Saving...",
+      "add": "Add",
+      "deleteFailed": "Couldn't delete the school",
+      "deleted": "Deleted {name}",
+      "allDegrees": "All",
+      "title": "Schools",
+      "counts": "{faculties, plural, one {# school} other {# schools}} · {majors, plural, one {# major} other {# majors}}",
+      "searchLabel": "Search majors or schools",
+      "degreeFilter": "Filter by degree",
+      "emptyTitle": "No schools added yet",
+      "emptyText": "Before adding majors, create this university's schools with the “Add school” button.",
+      "actions": "{name}: actions",
+      "cannotDelete": "“{name}” has {count, plural, one {# major} other {# majors}}, so it can't be deleted. Delete its majors or move them to another school first.",
+      "gotIt": "Got it",
+      "confirmDelete": "Delete the school “{name}”?",
+      "noDegreeMajors": "This school has no {degree} majors.",
+      "unassignedTitle": "Majors without a school",
+      "unassignedHint": "Use “Edit” to assign each of these majors to a school.",
+      "addFaculty": "Add school"
+    },
+    "majors": {
+      "pickFaculty": "Please choose a school.",
+      "fields": {
+        "name": "Major name",
+        "category": "Field",
+        "degree": "Degree",
+        "requiredSubjects": "Exam subjects",
+        "primarySubjects": "Main exam",
+        "secondarySubjects": "Second exam",
+        "examNote": "Exam note",
+        "cutOff": "Cut-off score",
+        "secondaryCutOff": "Second exam cut-off",
+        "primaryWeight": "Main exam weight",
+        "secondaryWeight": "Second exam weight",
+        "tuitionFee": "Tuition"
+      },
+      "saveFailed": "Couldn't save the major",
+      "updated": "Major updated",
+      "created": "New major added",
+      "requiredNote": "* — required field",
+      "nameLabel": "Major name *",
+      "namePlaceholder": "e.g. Компьютерийн ухаан",
+      "facultyLabel": "School *",
+      "choose": "Choose",
+      "categoryPlaceholder": "e.g. Инженерчлэл",
+      "notChosen": "Not set",
+      "requiredSubjectsLabel": "Exam subjects (if there's no main/second split, comma-separated)",
+      "subjectsPlaceholder": "e.g. Математик, Физик",
+      "primarySubjectsLabel": "Main exam (70%, the student takes one)",
+      "secondarySubjectsLabel": "Second exam (30%, the student takes one)",
+      "secondaryPlaceholder": "e.g. Англи хэл, Нийгэм судлал",
+      "examNoteLabel": "Exam note (not used for scoring)",
+      "examNotePlaceholder": "e.g. Суурь/дагалдахыг сургуулиас тодруулна уу.",
+      "example": "e.g. {value}",
+      "secondaryCutOffLabel": "Second exam cut-off (if set separately)",
+      "primaryWeightLabel": "Main exam weight (0.7 if empty)",
+      "secondaryWeightLabel": "Second exam weight (0.3 if empty)",
+      "weightPlaceholder": "e.g. 1 (scores are added)",
+      "selectionLabel": "Selection type",
+      "unknown": "Unknown",
+      "tuitionLabel": "Yearly tuition (₮)",
+      "tuitionPlaceholder": "e.g. 4800000",
+      "estimateLabel": "Tuition is an estimate (shown on the site as \"up to ≈ …\")",
+      "saving": "Saving...",
+      "add": "Add",
+      "cutOffShort": "Cut-off: {value}",
+      "empty": "No majors have been added to this school yet.",
+      "deleteFailed": "Couldn't delete the major",
+      "deleted": "Deleted {name}",
+      "actions": "{name}: actions",
+      "confirmDelete": "Delete the major “{name}”?",
+      "addMajor": "Add major"
+    }
+  },
+  "status": {
+    "notFoundTitle": "Page not found",
+    "notFoundText": "The page you're looking for may have been removed or renamed, or the address may be mistyped.",
+    "errorTabTitle": "Something went wrong",
+    "errorCode": "Oops!",
+    "errorTitle": "Sorry, something went wrong",
+    "errorText": "There was a problem loading this page. Try again or go back to the home page."
+  },
+  "admissionsPage": {
+    "title": "Admission calendar",
+    "description": "Track every school's registration period and other key admission dates in one place.",
+    "error": "Couldn't load admission dates",
+    "emptyTitle": "No admission dates have been added yet",
+    "emptyText": "They'll show up here once schools publish their schedules.",
+    "status": {
+      "open": "Open now",
+      "upcoming": "Coming up",
+      "unknown": "Dates not announced",
+      "ended": "Ended"
+    }
+  },
+  "scholarshipsPage": {
+    "title": "Scholarships and discounts",
+    "description": "Compare what each scholarship covers, its requirements and its deadline, and apply in time for the ones that fit you.",
+    "error": "Couldn't load scholarships",
+    "emptyTitle": "No scholarships have been added yet",
+    "emptyText": "They'll show up here once schools add scholarship information.",
+    "count": "{count, plural, one {# scholarship} other {# scholarships}}",
+    "expired": "Closed",
+    "open": "Open",
+    "coverage": "Covers:",
+    "requirements": "Requirements:",
+    "deadline": "Deadline: {date}",
+    "deadlineUnknown": "Not announced"
+  },
+  "universityPage": {
+    "founded": "Founded",
+    "foundedYear": "{year}",
+    "majors": "Majors",
+    "cutOff": "Entrance exam cut-off",
+    "tuition": "Tuition per year",
+    "coverAlt": "{name} cover photo",
+    "about": "About the school",
+    "scholarships": "Scholarships and opportunities",
+    "scholarshipCount": "{count, plural, one {# scholarship} other {# scholarships}}",
+    "requirements": "Requirements:",
+    "deadline": "Deadline: {date}",
+    "dorms": "Student housing",
+    "beds": "{count, plural, one {# bed} other {# beds}}",
+    "perYear": "Per year: {fee}",
+    "perMonth": "Per month: {fee}",
+    "calendar": "Admission calendar",
+    "eventCount": "{count, plural, one {# event} other {# events}}",
+    "signInToSeeAll": "Sign in to see everything",
+    "siteShort": "Website",
+    "officialSite": "Official website",
+    "tuitionFee": "Tuition",
+    "dormitory": "Dorms",
+    "scholarshipShort": "Scholarships",
+    "generalInfo": "Key facts",
+    "phone": "Phone",
+    "email": "Email",
+    "source": "Collected from the <site>school's official website</site> and admission rules. Last updated: {date}.",
+    "report": "Report a mistake"
+  },
+  "schoolCard": {
+    "location": "Location:",
+    "locationUnknown": "Location not listed",
+    "cutOff": "Cut-off <b>{range}</b>",
+    "tuition": "Tuition:",
+    "perYear": "/ year",
+    "hasDorm": "Has dorms",
+    "details": "Details"
+  },
+  "universityPreview": {
+    "majors": "Majors",
+    "programCount": "{count, plural, one {# program} other {# programs}}",
+    "hiddenMajors": "{count, plural, one {# more program is} other {# more programs are}} shown after you sign in.",
+    "unlockTitle": "Sign in to see everything",
+    "unlockText": "It's free. After signing in, you'll come right back to this page.",
+    "locked": {
+      "majors": "The full list of majors",
+      "exams": "Entrance exam subjects, weights and a score calculator",
+      "scholarships": "Scholarships and opportunities",
+      "dorms": "Student housing and how to apply",
+      "save": "Save schools and majors",
+      "compare": "Compare with other schools"
+    },
+    "location": "Location",
+    "defaultLocation": "Ulaanbaatar",
+    "foundedYear": "Founded"
+  },
+  "programs": {
+    "title": "Programs",
+    "pickDegree": "Which degree level are you interested in?",
+    "degreeCounts": "{programs, plural, one {# program} other {# programs}} · {schools, plural, one {# school} other {# schools}}",
+    "schoolsOffering": "Schools with {degree} programs",
+    "programCount": "{count, plural, one {# program} other {# programs}}",
+    "cutOff": "Cut-off: {value}"
+  },
+  "dormGuide": {
+    "title": "How to get a dorm place",
+    "priority": "Priority order",
+    "documents": "Documents you'll need",
+    "rules": "Rules to know",
+    "links": "Regulations and guides"
+  },
+  "explorer": {
+    "schoolSearchPlaceholder": "NUM, muis, shutis…",
+    "schoolSearchLabel": "Search schools by name",
+    "location": "Location",
+    "locationPlaceholder": "e.g. Сүхбаатар (in Mongolian)",
+    "maxTuition": "Max tuition per year (million ₮)",
+    "maxTuitionPlaceholder": "e.g. 5",
+    "extras": "More",
+    "hasDorm": "Has dorms",
+    "hasScholarship": "Offers scholarships",
+    "noSchools": "No matching schools",
+    "noMajors": "No matching majors",
+    "noResultsText": "Try a different search or change your filters.",
+    "clearAll": "Clear all",
+    "schoolCount": "{count, plural, one {# school found} other {# schools found}}",
+    "majorCount": "{count, plural, one {# major found} other {# majors found}}",
+    "clearSearch": "Clear search",
+    "filters": "Filters",
+    "clear": "Clear",
+    "showResults": "Show results",
+    "showResultsCount": "Show results ({count})",
+    "clearFilters": "Clear filters",
+    "pagination": "Pagination",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "searchType": "Search type",
+    "majorSearchPlaceholder": "Major name…",
+    "majorSearchLabel": "Search majors by name",
+    "category": "Field",
+    "categoryPlaceholder": "e.g. Инженерчлэл (in Mongolian)",
+    "minCutOff": "Cut-off score — min",
+    "maxCutOff": "Cut-off score — max (your score)",
+    "example": "e.g. {value}",
+    "scoreBanner": "Your score: <b>{score}</b> · majors with a cut-off at or below it",
+    "remove": "Remove",
+    "cutOffShort": "Cut-off: {value}"
+  },
+  "scoreCheck": {
+    "title": "Check your score",
+    "intro": "Pick a major and enter your entrance exam (ЭЕШ) scores to see whether you meet the cut-off.",
+    "prefilled": "Scores saved in your profile are filled in automatically.",
+    "major": "Major",
+    "optionCutOff": "cut-off: {value}",
+    "needOneScore": "Enter a score for at least one subject.",
+    "cannotScore": "Scores can't be calculated for this program.",
+    "check": "Check",
+    "checking": "Checking..."
+  },
+  "bookmark": {
+    "saveFailed": "Couldn't save",
+    "removeFailed": "Couldn't remove",
+    "saved": "Saved {name}",
+    "removed": "Removed {name} from saved",
+    "majorFallback": "Major",
+    "schoolFallback": "School",
+    "majorSave": "Save major",
+    "majorUnsave": "Remove from saved majors",
+    "schoolSave": "Save school",
+    "schoolUnsave": "Remove from saved schools",
+    "unsave": "Remove from saved"
+  },
+  "compare": {
+    "location": "Location",
+    "tuition": "Tuition",
+    "majorCount": "Number of majors",
+    "dorms": "Dorms",
+    "dormMonthly": "Available · {fee}/month",
+    "dormYearly": "Available · from {fee}/year",
+    "scholarships": "Scholarships",
+    "scholarshipsAvailable": "Available ({count})",
+    "website": "Website",
+    "open": "Open",
+    "school": "School",
+    "field": "Field",
+    "degree": "Degree",
+    "cutOff": "Cut-off score",
+    "examSubjects": "Exam subjects",
+    "scrollHint": "Scroll the table sideways to see more",
+    "tableLabel": "Comparison table",
+    "criteria": "Criteria",
+    "removeFromCompare": "Remove from comparison",
+    "whatToCompare": "What to compare",
+    "selected": "{count}/{max} selected",
+    "clearAll": "Clear all",
+    "comparison": "Comparison",
+    "full": "That's the maximum of {max}. Remove one to pick another.",
+    "hintSchools": "Tap a school to add it, tap again to remove it.",
+    "hintMajors": "Tap a major to add it. You can mix majors from different schools.",
+    "pickedMajors": "Selected majors",
+    "removeItem": "Remove {name}",
+    "emptySchools": "Pick {min}–{max} schools and the comparison will appear here.",
+    "emptyMajors": "Pick {min}–{max} majors and the comparison will appear here.",
+    "oneMoreSchool": "Pick one more school to see the comparison here.",
+    "oneMoreMajor": "Pick one more major to see the comparison here."
+  },
+  "majorPicker": {
+    "placeholderSchool": "Search: программ хангамж, huuli…",
+    "placeholderAll": "Search: muis, программ хангамж…",
+    "searchInSchool": "Search majors at {school}",
+    "searchAll": "Search majors",
+    "clearSearch": "Clear search",
+    "intro": "Pick a school above and choose from its list, or search majors across all schools. Major names are in Mongolian, but you can type them in Latin letters: “muis”, “programm hangamj”.",
+    "notFound": "No results for “{query}”.",
+    "noMajors": "No majors have been added for this school yet.",
+    "count": "{count, plural, one {# major} other {# majors}}",
+    "countFound": "{count, plural, one {# major found} other {# majors found}}",
+    "selected": "Selected",
+    "add": "Add",
+    "showMore": "Show more ({count} left)",
+    "bySchool": "Browse by school",
+    "allSchools": "All schools"
+  }
+}

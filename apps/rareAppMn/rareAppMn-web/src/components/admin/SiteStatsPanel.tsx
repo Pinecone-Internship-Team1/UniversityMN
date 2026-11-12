@@ -12,27 +12,31 @@ import {
   type SiteStatsVariables,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
+import { useTranslations } from "next-intl";
 import type { DailyVisits, PageVisits } from "@/lib/graphql/types";
 import { UNIVERSITIES } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
 
 const RANGES = [
-  { days: 7, label: "7 хоног" },
-  { days: 30, label: "30 хоног" },
-  { days: 90, label: "90 хоног" },
+  { days: 7 },
+  { days: 30 },
+  { days: 90 },
 ];
 
-const PAGE_LABELS: Record<string, string> = {
-  "/": "Нүүр хуудас",
-  "/schools": "Сургуулиуд",
-  "/scholarships": "Тэтгэлэг",
-  "/admissions": "Элсэлт",
-  "/compare": "Харьцуулах",
-  "/profile": "Миний профайл",
-  "/profile/account": "Бүртгэлийн тохиргоо",
-  "/sign-in": "Нэвтрэх",
-  "/sign-up": "Бүртгүүлэх",
-};
+/** Message keys "admin.stats.pages.<key>" for the site's fixed pages. */
+const PAGE_LABELS = {
+  "/": "home",
+  "/schools": "schools",
+  "/scholarships": "scholarships",
+  "/admissions": "admissions",
+  "/compare": "compare",
+  "/profile": "profile",
+  "/profile/account": "account",
+  "/sign-in": "signIn",
+  "/sign-up": "signUp",
+} as const;
+
+type StatsT = ReturnType<typeof useTranslations<"admin.stats">>;
 
 const PLOT_HEIGHT = 220;
 
@@ -45,11 +49,11 @@ function shortDay(day: string): string {
   return `${day.slice(5, 7)}.${day.slice(8, 10)}`;
 }
 
-function pageLabel(path: string): string {
-  const known = PAGE_LABELS[path];
-  if (known) return known;
+function pageLabel(t: StatsT, path: string): string {
+  const known = PAGE_LABELS[path as keyof typeof PAGE_LABELS];
+  if (known) return t(`pages.${known}`);
   const university = /^\/university\/([^/]+)$/.exec(path);
-  if (university?.[1]) return UNIVERSITIES[university[1]]?.short ?? "Сургуулийн хуудас";
+  if (university?.[1]) return UNIVERSITIES[university[1]]?.short ?? t("pages.schoolPage");
   return path;
 }
 
@@ -75,6 +79,7 @@ function StatTile({ label, value, note }: { label: string; value: string; note: 
 }
 
 function DailyVisitsChart({ daily }: { daily: DailyVisits[] }) {
+  const t = useTranslations("admin.stats");
   const [active, setActive] = useState<number | null>(null);
   const { top, ticks } = yScale(Math.max(0, ...daily.map((d) => d.views)));
   const count = daily.length;
@@ -117,7 +122,7 @@ function DailyVisitsChart({ daily }: { daily: DailyVisits[] }) {
                 onMouseEnter={() => setActive(index)}
                 onFocus={() => setActive(index)}
                 onBlur={() => setActive(null)}
-                aria-label={`${formatDateMn(day.day)}: ${day.views} хандалт, ${day.visitors} зочин`}
+                aria-label={t("barLabel", { date: formatDateMn(day.day) ?? day.day, views: day.views, visitors: day.visitors })}
                 className="flex h-full min-w-0 flex-1 items-end justify-center outline-none"
               >
                 <span
@@ -144,10 +149,10 @@ function DailyVisitsChart({ daily }: { daily: DailyVisits[] }) {
               style={{ left: `${((active + 0.5) / count) * 100}%` }}
             >
               <p className="whitespace-nowrap text-sm font-bold text-ink">
-                {formatCount(activeDay.views)} хандалт
+                {t("views", { count: formatCount(activeDay.views) })}
               </p>
               <p className="whitespace-nowrap text-xs text-ink/70">
-                {formatCount(activeDay.visitors)} зочин
+                {t("visitors", { count: formatCount(activeDay.visitors) })}
               </p>
               <p className="mt-0.5 whitespace-nowrap text-[11px] text-ink/50">
                 {formatDateMn(activeDay.day)}
@@ -177,16 +182,17 @@ function DailyVisitsChart({ daily }: { daily: DailyVisits[] }) {
 }
 
 function TopPagesChart({ pages }: { pages: PageVisits[] }) {
+  const t = useTranslations("admin.stats");
   const max = pages[0]?.views ?? 0;
   if (pages.length === 0) {
-    return <EmptyState className="mt-4" title="Хандалт бүртгэгдээгүй байна" />;
+    return <EmptyState className="mt-4" title={t("noVisits")} />;
   }
   return (
     <ul className="mt-4 space-y-3">
       {pages.map((page) => (
         <li key={page.path} className="grid grid-cols-[minmax(0,10rem)_1fr] items-center gap-4 sm:grid-cols-[minmax(0,14rem)_1fr]">
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-ink">{pageLabel(page.path)}</p>
+            <p className="truncate text-sm font-semibold text-ink">{pageLabel(t, page.path)}</p>
             <p className="truncate text-[11px] text-ink/50">{page.path}</p>
           </div>
           <div className="flex min-w-0 items-center gap-2">
@@ -206,6 +212,8 @@ function TopPagesChart({ pages }: { pages: PageVisits[] }) {
 
 /** Admin panel "Хандалт": page views and visitors from the site's own page_views table. */
 export function SiteStatsPanel() {
+  const t = useTranslations("admin.stats");
+  const tErrors = useTranslations("errors");
   const [days, setDays] = useState(30);
   const [{ data, fetching, error }, reexecute] = useQuery<SiteStatsResult, SiteStatsVariables>({
     query: SITE_STATS_QUERY,
@@ -218,7 +226,7 @@ export function SiteStatsPanel() {
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center gap-3">
-        <div role="group" aria-label="Хугацаа" className="inline-flex rounded-full bg-ink/5 p-1">
+        <div role="group" aria-label={t("range")} className="inline-flex rounded-full bg-ink/5 p-1">
           {RANGES.map((range) => (
             <button
               key={range.days}
@@ -231,7 +239,7 @@ export function SiteStatsPanel() {
                   : "rounded-full px-3.5 py-1.5 text-xs font-semibold text-ink/60 hover:text-ink max-lg:tap-target"
               }
             >
-              {range.label}
+              {t("days", { count: range.days })}
             </button>
           ))}
         </div>
@@ -244,8 +252,8 @@ export function SiteStatsPanel() {
 
       {error ? (
         <ErrorState
-          title="Хандалтын мэдээллийг ачааллаж чадсангүй"
-          description={getErrorMessage(error)}
+          title={t("loadError")}
+          description={getErrorMessage(tErrors, error)}
           onRetry={() => reexecute({ requestPolicy: "network-only" })}
         />
       ) : !stats ? (
@@ -260,43 +268,43 @@ export function SiteStatsPanel() {
       ) : (
         <div className={cn("space-y-6 transition-opacity", fetching && "opacity-60")}>
           <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-            <StatTile label="Хандалт" value={formatCount(stats.views)} note="Нээгдсэн хуудасны тоо" />
-            <StatTile label="Зочин" value={formatCount(stats.visitors)} note="Давхардаагүй хөтөч" />
+            <StatTile label={t("viewsLabel")} value={formatCount(stats.views)} note={t("viewsNote")} />
+            <StatTile label={t("visitorsLabel")} value={formatCount(stats.visitors)} note={t("visitorsNote")} />
             <StatTile
-              label="Өнөөдөр"
+              label={t("today")}
               value={formatCount(stats.todayViews)}
-              note={`${formatCount(stats.todayVisitors)} зочин`}
+              note={t("visitors", { count: formatCount(stats.todayVisitors) })}
             />
             <StatTile
-              label="Нэвтэрсэн хэрэглэгч"
+              label={t("signedIn")}
               value={`${signedInShare}%`}
-              note={`${formatCount(stats.signedInViews)} хандалт`}
+              note={t("views", { count: formatCount(stats.signedInViews) })}
             />
           </div>
 
           <section className="rounded-2xl border border-ink/10 bg-card p-5 sm:p-6">
-            <h3 className="text-base font-bold text-ink">Өдөр бүрийн хандалт</h3>
+            <h3 className="text-base font-bold text-ink">{t("dailyTitle")}</h3>
             <p className="mt-1 text-xs text-ink/50">
-              Багана дээр хулганаа аваачиж тухайн өдрийн хандалт, зочныг харна.
+              {t("dailyHint")}
             </p>
             <div className="mt-5">
               <DailyVisitsChart daily={stats.daily} />
             </div>
             {stats.views === 0 && (
               <p className="mt-3 text-xs text-ink/50">
-                Хандалт бүртгэгдэж эхлэхэд энд харагдана.
+                {t("dailyEmpty")}
               </p>
             )}
             <details className="mt-4">
               <summary className="cursor-pointer text-xs font-semibold text-ink/60 hover:text-ink max-lg:tap-target">
-                Хүснэгтээр харах
+                {t("asTable")}
               </summary>
               <table className="mt-3 w-full max-w-md text-left text-xs">
                 <thead className="text-ink/50">
                   <tr>
-                    <th className="py-1.5 font-semibold">Өдөр</th>
-                    <th className="py-1.5 text-right font-semibold">Хандалт</th>
-                    <th className="py-1.5 text-right font-semibold">Зочин</th>
+                    <th className="py-1.5 font-semibold">{t("day")}</th>
+                    <th className="py-1.5 text-right font-semibold">{t("viewsLabel")}</th>
+                    <th className="py-1.5 text-right font-semibold">{t("visitorsLabel")}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-ink/[0.07] tabular-nums text-ink/80">
@@ -313,8 +321,8 @@ export function SiteStatsPanel() {
           </section>
 
           <section className="rounded-2xl border border-ink/10 bg-card p-5 sm:p-6">
-            <h3 className="text-base font-bold text-ink">Их үзсэн хуудсууд</h3>
-            <p className="mt-1 text-xs text-ink/50">Сонгосон хугацаанд хамгийн их нээгдсэн 10 хуудас.</p>
+            <h3 className="text-base font-bold text-ink">{t("topPages")}</h3>
+            <p className="mt-1 text-xs text-ink/50">{t("topPagesHint")}</p>
             <TopPagesChart pages={stats.topPages} />
           </section>
         </div>

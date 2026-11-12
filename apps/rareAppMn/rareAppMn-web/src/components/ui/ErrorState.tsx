@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { AlertTriangle, RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
@@ -12,11 +13,14 @@ export interface ErrorStateProps {
 }
 
 export function ErrorState({
-  title = "Мэдээллийг ачаалж чадсангүй",
-  description = "Холболт түр тасарсан байж магадгүй. Хэсэг хүлээгээд дахин оролдоно уу.",
+  title,
+  description,
   onRetry,
   className,
 }: ErrorStateProps) {
+  const t = useTranslations("common");
+  title ??= t("loadErrorTitle");
+  description ??= t("loadErrorText");
   return (
     <div
       role="alert"
@@ -35,7 +39,7 @@ export function ErrorState({
       {onRetry && (
         <Button variant="secondary" size="sm" onClick={onRetry} className="mt-2">
           <RotateCcw />
-          Дахин оролдох
+          {t("retry")}
         </Button>
       )}
     </div>

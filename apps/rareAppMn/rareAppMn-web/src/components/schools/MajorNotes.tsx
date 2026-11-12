@@ -1,4 +1,4 @@
-import { CUT_OFF_NOTE } from "@/lib/format";
+import { useTranslations } from "next-intl";
 import type { Major } from "@/lib/graphql/types";
 
 export interface MajorNotesProps {
@@ -9,11 +9,12 @@ export interface MajorNotesProps {
 export function MajorNotes({ majors }: MajorNotesProps) {
   const showsCutOff = majors.some((major) => major.cutOffScore != null);
   const showsEstimate = majors.some((major) => major.tuitionFee != null && major.tuitionIsEstimate);
+  const t = useTranslations("format");
   if (!showsCutOff && !showsEstimate) return null;
   return (
     <div className="mt-5 space-y-1.5 text-sm leading-relaxed text-ink-3">
-      {showsCutOff && <p>{CUT_OFF_NOTE}</p>}
-      {showsEstimate && <p>≈ тэмдэгтэй төлбөр нь жилийн ойролцоо тооцоо, албан ёсны дүн биш.</p>}
+      {showsCutOff && <p>{t("cutOffNote")}</p>}
+      {showsEstimate && <p>{t("estimateNote")}</p>}
     </div>
   );
 }

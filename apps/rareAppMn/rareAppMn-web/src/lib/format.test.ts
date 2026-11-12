@@ -1,5 +1,11 @@
 import { describe, expect, test } from "bun:test";
+import { createTranslator } from "next-intl";
+import en from "../../messages/en.json";
+import mn from "../../messages/mn.json";
 import { formatAimag, formatDateMn, formatDateRange, formatMajorPlace, parseExamScore } from "./format";
+
+const t = createTranslator({ locale: "mn", messages: mn, namespace: "format" });
+const tEn = createTranslator({ locale: "en", messages: en, namespace: "format" });
 
 describe("formatDateMn", () => {
   test("a stored date in Mongolian order, read from the string", () => {
@@ -28,20 +34,22 @@ describe("formatDateMn", () => {
 
 describe("formatDateRange", () => {
   test("start and end", () => {
-    expect(formatDateRange("2026-10-01", "2026-11-23")).toBe("2026.10.01 – 2026.11.23");
+    expect(formatDateRange(t, "2026-10-01", "2026-11-23")).toBe("2026.10.01 – 2026.11.23");
   });
 
   test("only an end", () => {
-    expect(formatDateRange(null, "2026-11-27")).toBe("2026.11.27 хүртэл");
+    expect(formatDateRange(t, null, "2026-11-27")).toBe("2026.11.27 хүртэл");
+    expect(formatDateRange(tEn, null, "2026-11-27")).toBe("until 2026.11.27");
   });
 
   test("only a start, or the same day twice", () => {
-    expect(formatDateRange("2026-07-02", null)).toBe("2026.07.02");
-    expect(formatDateRange("2026-07-02", "2026-07-02")).toBe("2026.07.02");
+    expect(formatDateRange(t, "2026-07-02", null)).toBe("2026.07.02");
+    expect(formatDateRange(t, "2026-07-02", "2026-07-02")).toBe("2026.07.02");
   });
 
   test("neither", () => {
-    expect(formatDateRange(null, null)).toBe("Хугацаа тодорхойгүй");
+    expect(formatDateRange(t, null, null)).toBe("Хугацаа тодорхойгүй");
+    expect(formatDateRange(tEn, null, null)).toBe("Dates not announced");
   });
 });
 

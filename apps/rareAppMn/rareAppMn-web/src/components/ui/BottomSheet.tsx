@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
 import { useEffect, useId, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -20,6 +21,7 @@ export interface BottomSheetProps {
  * background; we add scroll lock and close on backdrop tap.
  */
 export function BottomSheet({ open, onClose, title, children, footer, className }: BottomSheetProps) {
+  const t = useTranslations("common");
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
 
@@ -63,7 +65,7 @@ export function BottomSheet({ open, onClose, title, children, footer, className 
         <button
           type="button"
           onClick={onClose}
-          aria-label="Хаах"
+          aria-label={t("close")}
           className="flex h-11 w-11 items-center justify-center rounded-full text-ink-2 hover:bg-ink/[0.06] active:bg-ink/[0.1]"
         >
           <X className="h-5 w-5" />

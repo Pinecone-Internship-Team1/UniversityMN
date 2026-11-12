@@ -1,4 +1,5 @@
-import { mnMN } from "@clerk/localizations";
+import { enUS, mnMN } from "@clerk/localizations";
+import type { Locale } from "@/i18n/config";
 import type { ClerkProvider } from "@clerk/nextjs";
 import type { ComponentProps } from "react";
 
@@ -201,7 +202,17 @@ const MN_OVERRIDES = {
   },
 } satisfies ClerkLocalization;
 
-/** mnMN with our app name and the overrides above. */
-export const clerkLocalization = withAppName(
-  mergeStrings(mnMN, MN_OVERRIDES),
-) satisfies ClerkLocalization;
+/** enUS's avatar-menu item named like our tab ("Account settings"). */
+const EN_OVERRIDES = {
+  userButton: { action__manageAccount: "Account settings" },
+} satisfies ClerkLocalization;
+
+/**
+ * Clerk's screens in each site language: Clerk's own translation with our
+ * app name and the overrides above. These are Clerk's strings (keyed by
+ * Clerk), so they live here rather than in messages/*.json.
+ */
+export const clerkLocalizations: Record<Locale, ClerkLocalization> = {
+  mn: withAppName(mergeStrings(mnMN, MN_OVERRIDES)),
+  en: withAppName(mergeStrings(enUS, EN_OVERRIDES)),
+};

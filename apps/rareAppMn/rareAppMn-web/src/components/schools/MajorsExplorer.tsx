@@ -3,6 +3,7 @@
 import { X } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import { useQuery } from "urql";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
@@ -77,6 +78,9 @@ export interface MajorsExplorerProps {
 }
 
 export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
+  const t = useTranslations("explorer");
+  const tc = useTranslations("common");
+  const tFormat = useTranslations("format");
   const [filters, setFilters] = useState<FilterState>(() =>
     initialScore != null ? { ...INITIAL_FILTERS, maxCutOffScore: String(initialScore) } : INITIAL_FILTERS,
   );
@@ -124,8 +128,8 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
         <SearchField
           value={filters.search}
           onChange={(value) => updateFilter("search", value)}
-          placeholder="Мэргэжлийн нэр…"
-          label="Мэргэжлийн нэрээр хайх"
+          placeholder={t("majorSearchPlaceholder")}
+          label={t("majorSearchLabel")}
         />
         <Filters
           open={filtersOpen}
@@ -134,15 +138,15 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
           resultCount={pageInfo?.totalCount ?? null}
           onClear={clearFilters}
         >
-          <Field label="Чиглэл" htmlFor="filter-category">
+          <Field label={t("category")} htmlFor="filter-category">
             <Input
               id="filter-category"
               value={filters.category}
               onChange={(event) => updateFilter("category", event.target.value)}
-              placeholder="жишээ: Инженерчлэл"
+              placeholder={t("categoryPlaceholder")}
             />
           </Field>
-          <Field label="Босго оноо — доод" htmlFor="filter-min-score">
+          <Field label={t("minCutOff")} htmlFor="filter-min-score">
             <Input
               id="filter-min-score"
               type="number"
@@ -151,10 +155,10 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
               max={800}
               value={filters.minCutOffScore}
               onChange={(event) => updateFilter("minCutOffScore", event.target.value)}
-              placeholder="жишээ: 450"
+              placeholder={t("example", { value: 450 })}
             />
           </Field>
-          <Field label="Босго оноо — дээд (таны оноо)" htmlFor="filter-max-score">
+          <Field label={t("maxCutOff")} htmlFor="filter-max-score">
             <Input
               id="filter-max-score"
               type="number"
@@ -163,7 +167,7 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
               max={800}
               value={filters.maxCutOffScore}
               onChange={(event) => updateFilter("maxCutOffScore", event.target.value)}
-              placeholder="жишээ: 620"
+              placeholder={t("example", { value: 620 })}
             />
           </Field>
         </Filters>
@@ -172,7 +176,7 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
       {filters.maxCutOffScore && Number.isFinite(scoreFilter) && (
         <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-2xl border border-accent/30 bg-accent-soft px-4 py-3">
           <p className="flex-1 text-[15px] text-ink">
-            Таны оноо: <strong className="font-bold">{scoreFilter}</strong> · босго нь үүнээс ихгүй мэргэжлүүд
+            {t.rich("scoreBanner", { score: scoreFilter, b: (chunks) => <strong className="font-bold">{chunks}</strong> })}
           </p>
           <button
             type="button"
@@ -180,7 +184,7 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
             className="-mr-2 inline-flex min-h-11 items-center gap-1.5 rounded-full px-2 text-[15px] font-bold text-accent-strong"
           >
             <X className="h-4 w-4" aria-hidden="true" />
-            Арилгах
+            {t("remove")}
           </button>
         </div>
       )}
@@ -189,26 +193,26 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
         {error ? (
           <ErrorState onRetry={() => reexecuteQuery({ requestPolicy: "network-only" })} />
         ) : fetching && !data ? (
-          <div className="space-y-3" role="status" aria-label="Ачаалж байна">
+          <div className="space-y-3" role="status" aria-label={tc("loading")}>
             {Array.from({ length: 5 }).map((_, i) => (
               <MajorResultSkeleton key={i} />
             ))}
           </div>
         ) : !data || data.majors.items.length === 0 ? (
           <EmptyState
-            title="Тохирох мэргэжил олдсонгүй"
-            description="Хайлт эсвэл шүүлтүүрээ өөрчилж дахин оролдоно уу."
+            title={t("noMajors")}
+            description={t("noResultsText")}
             action={
               hasActiveFilters ? (
                 <Button variant="secondary" onClick={resetAll}>
-                  Бүгдийг цэвэрлэх
+                  {t("clearAll")}
                 </Button>
               ) : undefined
             }
           />
         ) : (
           <>
-            <ResultCount>{data.majors.pageInfo.totalCount} мэргэжил олдлоо</ResultCount>
+            <ResultCount>{t("majorCount", { count: data.majors.pageInfo.totalCount })}</ResultCount>
             <ul
               className={cn(
                 "grid grid-cols-1 gap-3 transition-opacity duration-200 lg:grid-cols-2",
@@ -218,7 +222,7 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
               {data.majors.items.map((major) => {
                 const university = getUniversityBySchoolId(major.school.id);
                 const slug = getUniversitySlug(major.school.id) ?? major.school.id;
-                const cutOff = formatCutOff(major);
+                const cutOff = formatCutOff(tFormat, major);
                 const place = formatMajorPlace(major.faculty, university?.short ?? major.school.name);
 
                 return (
@@ -243,10 +247,10 @@ export function MajorsExplorer({ initialScore = null }: MajorsExplorerProps) {
                       )}
                       <div className="mt-2.5 flex flex-wrap gap-2 text-sm font-bold text-ink-2">
                         {cutOff != null && (
-                          <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">Босго: {cutOff}</span>
+                          <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">{t("cutOffShort", { value: cutOff })}</span>
                         )}
                         {major.tuitionFee != null && (
-                          <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">{formatMajorTuition(major)}</span>
+                          <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">{formatMajorTuition(tFormat, major)}</span>
                         )}
                       </div>
                     </div>

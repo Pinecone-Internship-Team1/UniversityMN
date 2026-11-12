@@ -26,7 +26,8 @@ import { SchoolCard } from "@/components/schools/SchoolCard";
 import { useClerkUserSync } from "@/components/providers/ClerkUserSync";
 import { buttonClassName } from "@/components/ui/Button";
 import { ACCOUNT_SETTINGS_PATH } from "@/lib/auth-routes";
-import { VERDICT_LABELS, formatMajorPlace, formatTuition, isScoredVerdict } from "@/lib/format";
+import { useTranslations } from "next-intl";
+import { formatMajorPlace, formatTuition, formatVerdict, isScoredVerdict } from "@/lib/format";
 import {
   ME_QUERY,
   PERSONALIZED_RECOMMENDATIONS_QUERY,
@@ -44,14 +45,16 @@ import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-log
 import { parseScoreEntries } from "@/lib/validation";
 
 function SignedOutPrompt() {
+  const t = useTranslations("profile");
+  const tc = useTranslations("common");
   return (
     <EmptyState
-      title="Профайл үзэхийн тулд нэвтэрнэ үү"
-      description="Хадгалсан сургууль, мэргэжлээ хянах, мэдээллээ шинэчлэхийн тулд нэвтэрнэ үү."
+      title={t("signedOutTitle")}
+      description={t("signedOutText")}
       action={
         <SignInButton>
           <Button variant="solid" size="md" className="mt-2">
-            Нэвтрэх
+            {tc("signIn")}
           </Button>
         </SignInButton>
       }
@@ -98,12 +101,11 @@ function universityHref(school: { id: string; name: string }): string {
 
 // Branch schools have lower cut-offs (e.g. 430 vs 490), so ranking them together
 // with Ulaanbaatar would always put branches first; each region is ranked on its own.
-const REGIONS: { value: Region; label: string }[] = [
-  { value: "ULAANBAATAR", label: "Улаанбаатар" },
-  { value: "OUTSIDE_ULAANBAATAR", label: "Орон нутаг" },
-];
+// Labels: messages "profile.region.<value>".
+const REGIONS: Region[] = ["ULAANBAATAR", "OUTSIDE_ULAANBAATAR"];
 
 function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
+  const t = useTranslations("profile");
   const [region, setRegion] = useState<Region>("ULAANBAATAR");
 
   if (!hasScores) {
@@ -111,28 +113,28 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
       <EmptyState
         className="mt-4"
         icon={Sparkles}
-        title="Оноогоо оруулаад танд тохирох мэргэжлүүдийг олоорой"
-        description="Дээрх хэсэгт хичээлийн оноогоо оруулж хадгалсны дараа энд санал болгосон мэргэжлүүд харагдана."
+        title={t("noScoresTitle")}
+        description={t("noScoresText")}
       />
     );
   }
 
   return (
     <div className="mt-4">
-      <div role="group" aria-label="Байршил" className="inline-flex rounded-full bg-ink/5 p-1">
+      <div role="group" aria-label={t("regionLabel")} className="inline-flex rounded-full bg-ink/5 p-1">
         {REGIONS.map((option) => (
           <button
-            key={option.value}
+            key={option}
             type="button"
-            aria-pressed={region === option.value}
-            onClick={() => setRegion(option.value)}
+            aria-pressed={region === option}
+            onClick={() => setRegion(option)}
             className={
-              region === option.value
+              region === option
                 ? "rounded-full bg-card px-3.5 py-1.5 text-[15px] font-semibold text-ink shadow-sm"
                 : "rounded-full px-3.5 py-1.5 text-[15px] font-semibold text-ink-3 hover:text-ink"
             }
           >
-            {option.label}
+            {t(`region.${option}`)}
           </button>
         ))}
       </div>
@@ -142,6 +144,9 @@ function RecommendationsSection({ hasScores }: { hasScores: boolean }) {
 }
 
 function RecommendationList({ region }: { region: Region }) {
+  const t = useTranslations("profile");
+  const tFormat = useTranslations("format");
+  const tErrors = useTranslations("errors");
   const [{ data, fetching, error }, reexecute] = useQuery<
     PersonalizedRecommendationsResult,
     PersonalizedRecommendationsVariables
@@ -165,8 +170,8 @@ function RecommendationList({ region }: { region: Region }) {
     return (
       <ErrorState
         className="mt-4"
-        title="Санал болгосон мэргэжлийг ачааллаж чадсангүй"
-        description={getErrorMessage(error)}
+        title={t("recommendationsError")}
+        description={getErrorMessage(tErrors, error)}
         onRetry={() => reexecute({ requestPolicy: "network-only" })}
       />
     );
@@ -177,8 +182,8 @@ function RecommendationList({ region }: { region: Region }) {
     return (
       <EmptyState
         className="mt-4"
-        title="Тохирох мэргэжил олдсонгүй"
-        description="Таны оруулсан хичээлүүдийг шаарддаг мэргэжил одоогоор бүртгэгдээгүй байна. Хичээлийн нэрийг мэргэжлийн шаардлагатай адил бичсэн эсэхээ шалгана уу."
+        title={t("noMatchesTitle")}
+        description={t("noMatchesText")}
       />
     );
   }
@@ -204,7 +209,7 @@ function RecommendationList({ region }: { region: Region }) {
             >
               {isScoredVerdict(result.verdict)
                 ? `${Math.round(result.matchScore * 100)}%`
-                : VERDICT_LABELS[result.verdict]}
+                : formatVerdict(tFormat, result.verdict)}
             </Badge>
           </div>
           <p className="text-[15px] text-ink-3">
@@ -224,6 +229,12 @@ function RecommendationList({ region }: { region: Region }) {
 
 export function ProfileView() {
   const { isLoaded, isSignedIn } = useAuth();
+  const t = useTranslations("profile");
+  const tc = useTranslations("common");
+  const tFormat = useTranslations("format");
+  const tErrors = useTranslations("errors");
+  const tValidation = useTranslations("validation");
+  const tAdmin = useTranslations("admin");
   const { status: syncStatus, errorMessage: syncError, retry: retrySync } =
     useClerkUserSync();
 
@@ -270,9 +281,9 @@ export function ProfileView() {
   }
 
   async function handleSaveProfile() {
-    const parsedScores = parseScoreEntries(scoreRows);
+    const parsedScores = parseScoreEntries(tValidation, scoreRows);
     if (!parsedScores.ok) {
-      toast.error("Профайл хадгалах боломжгүй", { description: parsedScores.error });
+      toast.error(t("cannotSave"), { description: parsedScores.error });
       return;
     }
 
@@ -283,8 +294,8 @@ export function ProfileView() {
     });
 
     if (result.error) {
-      toast.error("Профайл хадгалахад алдаа гарлаа", {
-        description: getErrorMessage(result.error),
+      toast.error(t("saveFailed"), {
+        description: getErrorMessage(tErrors, result.error),
       });
       return;
     }
@@ -293,7 +304,7 @@ export function ProfileView() {
     if (updated) {
       setScoreRows(scoresToRows(updated.scores));
     }
-    toast.success("Профайл амжилттай хадгаллаа");
+    toast.success(t("saved"));
   }
 
   if (!isLoaded) return <ProfileSkeleton />;
@@ -301,8 +312,8 @@ export function ProfileView() {
   if (error) {
     return (
       <ErrorState
-        title="Профайл ачааллаж чадсангүй"
-        description={getErrorMessage(error)}
+        title={t("loadError")}
+        description={getErrorMessage(tErrors, error)}
         onRetry={() => reexecuteMe({ requestPolicy: "network-only" })}
       />
     );
@@ -311,7 +322,7 @@ export function ProfileView() {
     if (syncStatus === "error") {
       return (
         <ErrorState
-          title="Профайлыг холбож чадсангүй"
+          title={t("syncError")}
           description={syncError ?? undefined}
           onRetry={retrySync}
         />
@@ -320,8 +331,8 @@ export function ProfileView() {
     if (syncStatus === "synced" && !fetching && !stale && data) {
       return (
         <ErrorState
-          title="Профайл олдсонгүй"
-          description="Таны профайл серверт үүсээгүй байна. Дахин оролдоно уу."
+          title={t("notFoundTitle")}
+          description={t("notFoundText")}
           onRetry={retrySync}
         />
       );
@@ -349,10 +360,10 @@ export function ProfileView() {
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-bold text-ink">
-                {me.name ?? "Нэр тодорхойгүй"}
+                {me.name ?? t("noName")}
               </h2>
               <Badge variant={me.role === "ADMIN" ? "accent" : "default"}>
-                {me.role === "ADMIN" ? "Админ" : "Сурагч"}
+                {me.role === "ADMIN" ? t("roleAdmin") : t("roleStudent")}
               </Badge>
             </div>
             <p className="text-sm text-ink-3">{me.email}</p>
@@ -363,13 +374,13 @@ export function ProfileView() {
           {me.role === "ADMIN" && (
             <Link href="/admin" className={buttonClassName({ variant: "solid", size: "sm" })}>
               <ShieldCheck className="h-3.5 w-3.5" />
-              Админ самбар
+              {tAdmin("title")}
             </Link>
           )}
           <SignOutButton>
             <Button variant="outline" size="sm">
               <LogOut className="h-3.5 w-3.5" />
-              Гарах
+              {tc("signOut")}
             </Button>
           </SignOutButton>
         </div>
@@ -377,18 +388,18 @@ export function ProfileView() {
 
       {/* Edit form */}
       <section className="rounded-2xl border border-border-ink bg-card p-5 md:p-8">
-        <h3 className="text-base font-bold text-ink">Мэдээлэл засах</h3>
+        <h3 className="text-base font-bold text-ink">{t("editTitle")}</h3>
 
         {/* Name and photo: read-only here, edited in the account tab */}
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
-            <p className="text-[15px] font-semibold text-ink-2">Нэр</p>
+            <p className="text-[15px] font-semibold text-ink-2">{t("name")}</p>
             <p className="flex h-11 items-center rounded-xl border border-border-ink bg-paper px-4 text-sm text-ink">
-              {me.name ?? <span className="text-ink-3">Нэр оруулаагүй</span>}
+              {me.name ?? <span className="text-ink-3">{t("nameMissing")}</span>}
             </p>
           </div>
           <div className="flex flex-col gap-1.5">
-            <p className="text-[15px] font-semibold text-ink-2">Профайл зураг</p>
+            <p className="text-[15px] font-semibold text-ink-2">{t("photo")}</p>
             <div className="flex h-11 items-center gap-3 rounded-xl border border-border-ink bg-paper px-4 text-sm text-ink-3">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border-ink bg-card text-[10px] font-bold text-ink-3">
                 {me.avatarUrl ? (
@@ -398,20 +409,20 @@ export function ProfileView() {
                   (me.name ?? me.email).slice(0, 2).toUpperCase()
                 )}
               </span>
-              {me.avatarUrl ? "Одоогийн зураг" : "Зураг оруулаагүй"}
+              {me.avatarUrl ? t("currentPhoto") : t("noPhoto")}
             </div>
           </div>
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
           <p className="text-[15px] text-ink-3">
-            Нэр, профайл зургаа «Бүртгэлийн тохиргоо» хэсгээс солино.
+            {t("editHint")}
           </p>
           <Link
             href={ACCOUNT_SETTINGS_PATH}
             className="inline-flex items-center gap-1.5 text-[15px] font-bold text-ink-2 transition-colors hover:text-accent max-lg:tap-target"
           >
             <Settings className="h-3.5 w-3.5" />
-            Бүртгэлийн тохиргоо
+            {tc("accountSettings")}
           </Link>
         </div>
 
@@ -420,12 +431,11 @@ export function ProfileView() {
           <div className="flex items-center gap-2">
             <GraduationCap className="h-4 w-4 text-accent" />
             <h4 className="text-base font-bold text-ink">
-              Миний ЭЕШ-ийн оноо
+              {t("scoresTitle")}
             </h4>
           </div>
           <p className="mt-1 text-[15px] text-ink-3">
-            Хичээл бүрийн нэр болон авсан оноогоо оруулбал танд тохирох
-            мэргэжлүүдийг доор санал болгоно.
+            {t("scoresHint")}
           </p>
           <div className="mt-4 space-y-2.5">
             {scoreRows.map((row) => (
@@ -435,7 +445,7 @@ export function ProfileView() {
                   onChange={(event) =>
                     updateScoreRow(row.key, { subject: event.target.value })
                   }
-                  placeholder="жишээ: Математик"
+                  placeholder={t("subjectPlaceholder")}
                   className="flex-1"
                 />
                 <Input
@@ -446,7 +456,7 @@ export function ProfileView() {
                   onChange={(event) =>
                     updateScoreRow(row.key, { score: event.target.value })
                   }
-                  placeholder="Оноо"
+                  placeholder={t("scorePlaceholder")}
                   className="w-24"
                 />
                 <button
@@ -458,7 +468,7 @@ export function ProfileView() {
                         : rows.filter((r) => r.key !== row.key),
                     )
                   }
-                  aria-label="Мөр хасах"
+                  aria-label={t("removeRow")}
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-ink-3 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
                 >
                   <Trash2 className="h-4 w-4" />
@@ -472,7 +482,7 @@ export function ProfileView() {
             className="mt-3 inline-flex items-center gap-1.5 text-[15px] font-bold text-ink-3 transition-colors hover:text-accent max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-top-3 max-lg:after:-bottom-4"
           >
             <Plus className="h-3.5 w-3.5" />
-            Хичээл нэмэх
+            {t("addSubject")}
           </button>
         </div>
 
@@ -484,7 +494,7 @@ export function ProfileView() {
             disabled={savingProfile}
           >
             <Save className="h-3.5 w-3.5" />
-            {savingProfile ? "Хадгалж байна..." : "Хадгалах"}
+            {savingProfile ? t("saving") : tc("save")}
           </Button>
         </div>
       </section>
@@ -494,7 +504,7 @@ export function ProfileView() {
         <div className="flex items-center gap-2">
           <Sparkles className="h-4 w-4 text-accent" />
           <h3 className="text-base font-bold text-ink">
-            Танд санал болгох мэргэжлүүд
+            {t("recommendationsTitle")}
           </h3>
         </div>
         <RecommendationsSection hasScores={hasSavedScores} />
@@ -503,13 +513,13 @@ export function ProfileView() {
       {/* Saved schools */}
       <section>
         <h3 className="text-base font-bold text-ink">
-          Хадгалсан сургуулиуд ({visibleSavedSchools.length})
+          {t("savedSchools", { count: visibleSavedSchools.length })}
         </h3>
         {visibleSavedSchools.length === 0 ? (
           <EmptyState
             className="mt-4"
-            title="Хадгалсан сургууль байхгүй байна"
-            description="Сургуулиудын хуудсаас хадгалах тэмдгийг дарж хадгалаарай."
+            title={t("noSavedSchools")}
+            description={t("noSavedSchoolsText")}
           />
         ) : (
           <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
@@ -531,13 +541,13 @@ export function ProfileView() {
       {/* Saved majors */}
       <section>
         <h3 className="text-base font-bold text-ink">
-          Хадгалсан мэргэжлүүд ({visibleSavedMajors.length})
+          {t("savedMajors", { count: visibleSavedMajors.length })}
         </h3>
         {visibleSavedMajors.length === 0 ? (
           <EmptyState
             className="mt-4"
-            title="Хадгалсан мэргэжил байхгүй байна"
-            description="Сургуулийн дэлгэрэнгүй хуудаснаас мэргэжил сонгон хадгалаарай."
+            title={t("noSavedMajors")}
+            description={t("noSavedMajorsText")}
           />
         ) : (
           <ul className="mt-4 space-y-2.5">
@@ -557,7 +567,7 @@ export function ProfileView() {
                         getUniversityBySchoolId(major.school.id)?.short ?? major.school.name,
                       ),
                       major.category,
-                      formatTuition(major.tuitionFee),
+                      formatTuition(tFormat, major.tuitionFee),
                     ]
                       .filter(Boolean)
                       .join(" · ")}

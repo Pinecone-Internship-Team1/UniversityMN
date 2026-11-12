@@ -4,6 +4,7 @@ import { ArrowDown, GraduationCap, MoveHorizontal, Scale, School, X } from "luci
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { useQuery } from "urql";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { Skeleton } from "@/components/ui/Skeleton";
@@ -27,6 +28,7 @@ import {
   type CompareSchool,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
+import type { FormatT } from "@/i18n/types";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 import { MajorPicker } from "./MajorPicker";
 import {
@@ -51,10 +53,13 @@ interface CompareRow<T> {
   render: (item: T) => ReactNode;
 }
 
-const MODES: TabItem<CompareMode>[] = [
-  { id: "schools", label: "Сургууль", icon: School },
-  { id: "majors", label: "Мэргэжил", icon: GraduationCap },
-];
+/** Labels are keys in the "nav" messages. */
+const MODES = [
+  { id: "schools", label: "schools", icon: School },
+  { id: "majors", label: "majors", icon: GraduationCap },
+] as const;
+
+type CompareT = ReturnType<typeof useTranslations<"compare">>;
 
 /** The table shows once this many are picked. */
 const MIN_COMPARE_ITEMS = 2;
@@ -67,14 +72,14 @@ function universityHref(school: { id: string }): string {
   return `/university/${getUniversitySlug(school.id) ?? school.id}`;
 }
 
-const SCHOOL_ROWS: CompareRow<CompareSchool>[] = [
-  { label: "Байршил", render: (school) => school.location ?? "—" },
-  { label: "Сургалтын төлбөр", render: (school) => formatSchoolTuition(school) },
-  { label: "Мэргэжлийн тоо", render: (school) => school.majors.length },
+const schoolRows = (t: CompareT, tFormat: FormatT): CompareRow<CompareSchool>[] => [
+  { label: t("location"), render: (school) => school.location ?? "—" },
+  { label: t("tuition"), render: (school) => formatSchoolTuition(tFormat, school) },
+  { label: t("majorCount"), render: (school) => school.majors.length },
   {
-    label: "Дотуур байр",
+    label: t("dorms"),
     render: (school) => {
-      if (!school.dormAvailable) return formatAvailability(school.dormAvailable);
+      if (!school.dormAvailable) return formatAvailability(tFormat, school.dormAvailable);
       const cheapest = (pick: (dormitory: CompareSchool["dormitories"][number]) => number | null) => {
         const fees = school.dormitories
           .filter((dormitory) => !dormitory.currency || dormitory.currency === "MNT")
@@ -83,20 +88,20 @@ const SCHOOL_ROWS: CompareRow<CompareSchool>[] = [
         return fees.length > 0 ? Math.min(...fees) : null;
       };
       const monthly = cheapest((dormitory) => dormitory.feePerMonth);
-      if (monthly != null) return `Боломжтой · ${formatAmount(monthly)}/сар`;
+      if (monthly != null) return t("dormMonthly", { fee: formatAmount(tFormat, monthly) });
       const yearly = cheapest((dormitory) => dormitory.feePerYear);
-      return yearly != null ? `Боломжтой · ${formatAmount(yearly)}/жилээс` : "Боломжтой";
+      return yearly != null ? t("dormYearly", { fee: formatAmount(tFormat, yearly) }) : tFormat("available");
     },
   },
   {
-    label: "Тэтгэлэг",
+    label: t("scholarships"),
     render: (school) =>
       school.scholarshipAvailable
-        ? `Боломжтой (${school.scholarships.length})`
-        : formatAvailability(school.scholarshipAvailable),
+        ? t("scholarshipsAvailable", { count: school.scholarships.length })
+        : formatAvailability(tFormat, school.scholarshipAvailable),
   },
   {
-    label: "Вэбсайт",
+    label: t("website"),
     render: (school) =>
       school.website ? (
         <a
@@ -105,7 +110,7 @@ const SCHOOL_ROWS: CompareRow<CompareSchool>[] = [
           rel="noreferrer"
           className="font-semibold text-accent hover:underline max-lg:tap-target"
         >
-          Нээх
+          {t("open")}
         </a>
       ) : (
         "—"
@@ -113,22 +118,22 @@ const SCHOOL_ROWS: CompareRow<CompareSchool>[] = [
   },
 ];
 
-const MAJOR_ROWS: CompareRow<CompareMajor>[] = [
+const majorRows = (t: CompareT, tFormat: FormatT): CompareRow<CompareMajor>[] => [
   {
-    label: "Сургууль",
+    label: t("school"),
     render: (major) => (
       <Link href={universityHref(major.school)} className="font-semibold hover:text-accent max-lg:tap-target">
         {schoolShortName(major.school)}
       </Link>
     ),
   },
-  { label: "Чиглэл", render: (major) => major.category ?? "—" },
-  { label: "Зэрэг", render: (major) => formatDegreeType(major.degreeType) ?? "—" },
-  { label: "Босго оноо", render: (major) => formatCutOff(major) ?? "—" },
+  { label: t("field"), render: (major) => major.category ?? "—" },
+  { label: t("degree"), render: (major) => formatDegreeType(tFormat, major.degreeType) ?? "—" },
+  { label: t("cutOff"), render: (major) => formatCutOff(tFormat, major) ?? "—" },
   {
-    label: "Шалгалтын хичээл",
+    label: t("examSubjects"),
     render: (major) => {
-      const exams = examSubjectLines(major);
+      const exams = examSubjectLines(tFormat, major);
       if (exams.length === 0 && !major.examNote) return "—";
       return (
         <>
@@ -142,7 +147,7 @@ const MAJOR_ROWS: CompareRow<CompareMajor>[] = [
       );
     },
   },
-  { label: "Сургалтын төлбөр", render: (major) => formatMajorTuition(major) },
+  { label: t("tuition"), render: (major) => formatMajorTuition(tFormat, major) },
 ];
 
 function CompareTable<T extends { id: string }>({
@@ -156,19 +161,20 @@ function CompareTable<T extends { id: string }>({
   title: (item: T) => ReactNode;
   onRemove: (id: string) => void;
 }) {
+  const t = useTranslations("compare");
   return (
     <div>
       {/* The table scrolls inside its frame (never the page); the first column stays put. */}
       <p className="mb-2 flex items-center gap-1.5 text-sm text-ink-3 lg:hidden">
         <MoveHorizontal className="h-4 w-4" aria-hidden="true" />
-        Хүснэгтийг хажуу тийш гүйлгэж харна уу
+        {t("scrollHint")}
       </p>
-      <div className="overflow-x-auto overscroll-x-contain rounded-2xl border border-border-ink bg-card" tabIndex={0} role="region" aria-label="Харьцуулах хүснэгт">
+      <div className="overflow-x-auto overscroll-x-contain rounded-2xl border border-border-ink bg-card" tabIndex={0} role="region" aria-label={t("tableLabel")}>
       <table className="w-full min-w-[560px] border-collapse text-left text-[15px]">
         <thead>
           <tr className="border-b border-border-ink">
             <th className="sticky left-0 z-10 w-28 bg-card p-3 text-sm font-bold text-ink-3 shadow-[1px_0_0_var(--border-ink)] sm:w-40 sm:p-4 lg:static lg:z-auto lg:bg-transparent lg:shadow-none">
-              Үзүүлэлт
+              {t("criteria")}
             </th>
             {items.map((item) => (
               <th key={item.id} className="min-w-40 p-3 align-top sm:p-4">
@@ -177,7 +183,7 @@ function CompareTable<T extends { id: string }>({
                   <button
                     type="button"
                     onClick={() => onRemove(item.id)}
-                    aria-label="Харьцуулалтаас хасах"
+                    aria-label={t("removeFromCompare")}
                     className="-mt-1 -mr-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink-3 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
                   >
                     <X className="h-4 w-4" />
@@ -209,6 +215,10 @@ function CompareTable<T extends { id: string }>({
 
 export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
   const router = useRouter();
+  const t = useTranslations("compare");
+  const tNav = useTranslations("nav");
+  const tFormat = useTranslations("format");
+  const tErrors = useTranslations("errors");
   const [selection, setSelection] = useState<Selection>({ mode, ids });
   const [syncedProps, setSyncedProps] = useState<Selection>({ mode, ids });
   if (syncedProps.mode !== mode || syncedProps.ids.join(",") !== ids.join(",")) {
@@ -219,7 +229,6 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
   const schoolOptions = useSchoolOptions();
   const isFull = selection.ids.length >= MAX_COMPARE_ITEMS;
   const canCompare = selection.ids.length >= MIN_COMPARE_ITEMS;
-  const noun = selection.mode === "schools" ? "сургууль" : "мэргэжил";
 
   const [compareResult, reexecuteCompare] = useQuery<CompareItemsResult, CompareItemsVariables>({
     query: COMPARE_ITEMS_QUERY,
@@ -269,12 +278,12 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
   return (
     <div>
       <Tabs
-        items={MODES}
+        items={MODES.map((item): TabItem<CompareMode> => ({ ...item, label: tNav(item.label) }))}
         value={selection.mode}
         onChange={(next) => {
           if (next !== selection.mode) update({ mode: next, ids: [] });
         }}
-        label="Юуг харьцуулах вэ"
+        label={t("whatToCompare")}
         fullWidth
         className="sm:inline-flex sm:w-auto"
       />
@@ -282,7 +291,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
       <div className="mt-6 rounded-2xl border border-border-ink bg-card p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
           <p className="text-sm font-bold text-ink" aria-live="polite">
-            {selection.ids.length}/{MAX_COMPARE_ITEMS} сонгосон
+            {t("selected", { count: selection.ids.length, max: MAX_COMPARE_ITEMS })}
           </p>
           <div className="flex items-center gap-4">
             {selection.ids.length > 0 && (
@@ -291,7 +300,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                 onClick={() => update({ mode: selection.mode, ids: [] })}
                 className="text-[15px] font-semibold text-ink-3 hover:text-ink max-lg:tap-target"
               >
-                Бүгдийг арилгах
+                {t("clearAll")}
               </button>
             )}
             {canCompare && (
@@ -299,7 +308,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                 href="#compare-table"
                 className="inline-flex items-center gap-1 text-[15px] font-bold text-accent hover:underline max-lg:tap-target lg:hidden"
               >
-                Харьцуулалт
+                {t("comparison")}
                 <ArrowDown className="h-3.5 w-3.5" />
               </a>
             )}
@@ -307,14 +316,14 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
         </div>
         <p className="mt-1 text-[15px] text-ink-3">
           {isFull
-            ? `Дээд тал нь ${MAX_COMPARE_ITEMS}. Өөрийг сонгох бол нэгийг нь хасна уу.`
+            ? t("full", { max: MAX_COMPARE_ITEMS })
             : selection.mode === "schools"
-              ? "Сургуулиа товшиж сонгоно, дахин товшвол хасна."
-              : "Мэргэжлээ товшиж сонгоно, аль ч сургуулиас холиж болно."}
+              ? t("hintSchools")
+              : t("hintMajors")}
         </p>
 
         {selection.mode === "majors" && pickedMajors.length > 0 && (
-          <ul className="mt-3 flex flex-wrap gap-2" aria-label="Сонгосон мэргэжлүүд">
+          <ul className="mt-3 flex flex-wrap gap-2" aria-label={t("pickedMajors")}>
             {pickedMajors.map((major) => (
               <li
                 key={major.id}
@@ -331,7 +340,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
                 <button
                   type="button"
                   onClick={() => remove(major.id)}
-                  aria-label={`${major.name}-г хасах`}
+                  aria-label={t("removeItem", { name: major.name })}
                   className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-ink-3 transition-colors hover:bg-destructive/10 hover:text-destructive max-lg:tap-target"
                 >
                   <X className="h-3.5 w-3.5" />
@@ -372,12 +381,12 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
           <div className="flex items-center gap-3 rounded-2xl border border-dashed border-ink/15 px-5 py-6 text-sm text-ink-3">
             <Scale className="h-5 w-5 shrink-0 text-ink-3" />
             {selection.ids.length === 0
-              ? `${MIN_COMPARE_ITEMS}-${MAX_COMPARE_ITEMS} ${noun} сонгоход харьцуулалт энд гарна.`
-              : `Дахиад нэг ${noun} сонгоход харьцуулалт энд гарна.`}
+              ? t(selection.mode === "schools" ? "emptySchools" : "emptyMajors", { min: MIN_COMPARE_ITEMS, max: MAX_COMPARE_ITEMS })
+              : t(selection.mode === "schools" ? "oneMoreSchool" : "oneMoreMajor")}
           </div>
         ) : compareResult.error ? (
           <ErrorState
-            description={getErrorMessage(compareResult.error)}
+            description={getErrorMessage(tErrors, compareResult.error)}
             onRetry={() => reexecuteCompare({ requestPolicy: "network-only" })}
           />
         ) : compareResult.fetching && compareItems.length === 0 ? (
@@ -385,7 +394,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
         ) : selection.mode === "schools" ? (
           <CompareTable
             items={schools}
-            rows={SCHOOL_ROWS}
+            rows={schoolRows(t, tFormat)}
             onRemove={remove}
             title={(school) => (
               <Link
@@ -399,7 +408,7 @@ export function CompareExplorer({ mode, ids }: CompareExplorerProps) {
         ) : (
           <CompareTable
             items={majors}
-            rows={MAJOR_ROWS}
+            rows={majorRows(t, tFormat)}
             onRemove={remove}
             title={(major) => (
               <>

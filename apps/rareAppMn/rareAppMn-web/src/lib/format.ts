@@ -1,4 +1,11 @@
 import type { ScoreMatchVerdict } from "@/lib/graphql/types";
+import type { FormatT } from "@/i18n/types";
+
+/**
+ * Functions that return text take `t`, a translator for the "format"
+ * namespace of messages/*.json (useTranslations("format") in a component,
+ * await getTranslations("format") in an async one).
+ */
 
 /** A plain MNT amount in millions, to one decimal: 4_520_000 → "4.5". */
 export function formatMillions(amount: number): string {
@@ -13,46 +20,52 @@ export function parseExamScore(value: string | undefined): number | null {
   return Number.isInteger(score) && score >= 200 && score <= 800 ? score : null;
 }
 
-/** Formats a tuition fee (plain MNT amount) as e.g. "4.5 сая ₮". */
-export function formatTuition(fee: number | null | undefined): string {
-  if (fee == null) return "Мэдээлэл удахгүй нэмэгдэнэ";
-  return `${formatMillions(fee)} сая ₮`;
+/** Formats a tuition fee (plain MNT amount) as e.g. "4.5 сая ₮" / "₮4.5M". */
+export function formatTuition(t: FormatT, fee: number | null | undefined): string {
+  if (fee == null) return t("comingSoon");
+  return t("millions", { amount: formatMillions(fee) });
 }
 
 /** A university's yearly tuition: its own text (e.g. a range) when set, else the formatted fee. */
-export function formatSchoolTuition(school: {
-  tuitionFee: number | null;
-  tuitionText: string | null;
-}): string {
-  return school.tuitionText ?? formatTuition(school.tuitionFee);
+export function formatSchoolTuition(
+  t: FormatT,
+  school: {
+    tuitionFee: number | null;
+    tuitionText: string | null;
+  },
+): string {
+  return school.tuitionText ?? formatTuition(t, school.tuitionFee);
 }
 
-/** "Их сургууль" or "Дээд сургууль" (college), read from the official name's ending. */
-export function formatSchoolType(name: string): string | null {
-  if (/дээд сургууль$/i.test(name.trim())) return "Дээд сургууль";
-  if (/их сургууль$/i.test(name.trim())) return "Их сургууль";
+/** University or college, read from the official (Mongolian) name's ending. */
+export function formatSchoolType(t: FormatT, name: string): string | null {
+  if (/дээд сургууль$/i.test(name.trim())) return t("college");
+  if (/их сургууль$/i.test(name.trim())) return t("university");
   return null;
 }
 
 /** A university's yes/no fact, which is null until someone has checked it. */
-export function formatAvailability(available: boolean | null): string {
-  if (available == null) return "Мэдээлэл удахгүй нэмэгдэнэ";
-  return available ? "Боломжтой" : "Боломжгүй";
+export function formatAvailability(t: FormatT, available: boolean | null): string {
+  if (available == null) return t("comingSoon");
+  return available ? t("available") : t("unavailable");
 }
 
 /** A fee in its own currency: "630,000 ₮", or "500 USD". Null currency means MNT. */
-export function formatFee(amount: number, currency: string | null): string {
-  if (!currency || currency === "MNT") return formatAmount(amount);
+export function formatFee(t: FormatT, amount: number, currency: string | null): string {
+  if (!currency || currency === "MNT") return formatAmount(t, amount);
   return `${Math.round(amount).toLocaleString("mn-MN")} ${currency}`;
 }
 
 /** A major's yearly tuition; an estimated upper bound reads "≈ 8.5 сая ₮ хүртэл". */
-export function formatMajorTuition(major: {
-  tuitionFee: number | null;
-  tuitionIsEstimate: boolean;
-}): string {
-  const fee = formatTuition(major.tuitionFee);
-  return major.tuitionFee != null && major.tuitionIsEstimate ? `≈ ${fee} хүртэл` : fee;
+export function formatMajorTuition(
+  t: FormatT,
+  major: {
+    tuitionFee: number | null;
+    tuitionIsEstimate: boolean;
+  },
+): string {
+  const fee = formatTuition(t, major.tuitionFee);
+  return major.tuitionFee != null && major.tuitionIsEstimate ? t("upTo", { fee }) : fee;
 }
 
 interface ExamWeights {
@@ -80,47 +93,42 @@ export function examsWeighEqually(major: ExamWeights): boolean {
  * the same). A second minimum of 0 means it isn't known yet.
  */
 export function formatCutOff(
+  t: FormatT,
   major: {
     cutOffScore: number | null;
     secondaryCutOffScore: number | null;
   } & ExamWeights,
 ): string | null {
   if (major.secondaryCutOffScore != null) {
-    const [first, second] = examsWeighEqually(major)
-      ? ["1-р шалгалт", "2-р шалгалт"]
-      : ["Суурь", "дагалдах"];
-    const primary = `${first} ≥ ${major.cutOffScore ?? "—"}`;
-    return major.secondaryCutOffScore > 0
-      ? `${primary}, ${second} ≥ ${major.secondaryCutOffScore}`
-      : `${primary} (${second}: тодорхойгүй)`;
+    const equal = examsWeighEqually(major);
+    const primary = major.cutOffScore ?? "—";
+    if (major.secondaryCutOffScore > 0) {
+      const values = { primary, secondary: major.secondaryCutOffScore };
+      return equal ? t("cutOffEqual", values) : t("cutOffSplit", values);
+    }
+    return equal ? t("cutOffEqualUnknown", { primary }) : t("cutOffSplitUnknown", { primary });
   }
   return major.cutOffScore != null ? String(major.cutOffScore) : null;
 }
 
 /** How the two exams make the score: "Оноо = 0.7 × суурь + 0.3 × дагалдах." or a plain sum. */
-export function formatExamFormula(major: ExamWeights): string {
+export function formatExamFormula(t: FormatT, major: ExamWeights): string {
   const [primary, secondary] = examWeights(major);
-  if (primary === 1 && secondary === 1) {
-    return "1-р шалгалтын жагсаалтаас нэг, 2-р шалгалтынхаас нэг шалгалт өгнө. Нийлбэр оноо = 1-р шалгалт + 2-р шалгалт.";
-  }
-  return `Суурь жагсаалтаас нэг, дагалдахаас нэг шалгалт өгнө. Оноо = ${primary} × суурь + ${secondary} × дагалдах.`;
+  if (primary === 1 && secondary === 1) return t("formulaSum");
+  return t("formulaWeighted", { primary, secondary });
 }
 
 /** "Жагсаалтаар сонгох (8 хүртэл)" / "Шууд сонгох (1)", or null when the university doesn't say. */
-export function formatSelectionType(selectionType: string | null): string | null {
-  if (selectionType === "list") return "Жагсаалтаар сонгох (8 хүртэл)";
-  if (selectionType === "direct") return "Шууд сонгох (1)";
+export function formatSelectionType(t: FormatT, selectionType: string | null): string | null {
+  if (selectionType === "list") return t("selectionList");
+  if (selectionType === "direct") return t("selectionDirect");
   return null;
 }
 
-/** Shown next to cut-off scores: the threshold only lets a student compete for a place. */
-export const CUT_OFF_NOTE =
-  "Босго оноо нь элсэлтэд өрсөлдөх хамгийн бага оноо. Эрэлттэй хөтөлбөрт элсэхэд үүнээс өндөр оноо хэрэгтэй байж болно.";
-
 /** "Математик эсвэл Физик", "Газарзүй, Нийгэм судлал эсвэл Физик". */
-function formatSubjectChoices(subjects: string[]): string {
+function formatSubjectChoices(t: FormatT, subjects: string[]): string {
   if (subjects.length <= 1) return subjects.join("");
-  return `${subjects.slice(0, -1).join(", ")} эсвэл ${subjects[subjects.length - 1]}`;
+  return t("subjectChoices", { rest: subjects.slice(0, -1).join(", "), last: subjects[subjects.length - 1] });
 }
 
 /**
@@ -128,6 +136,7 @@ function formatSubjectChoices(subjects: string[]): string {
  * student takes one exam from each line; otherwise every listed subject counts.
  */
 export function examSubjectLines(
+  t: FormatT,
   major: {
     requiredSubjects: string[] | null;
     primarySubjects: string[] | null;
@@ -143,15 +152,15 @@ export function examSubjectLines(
     const equal = examsWeighEqually(major);
     return [
       {
-        label: equal ? "1-р шалгалт" : `Суурь (${share(primaryWeight)}%)`,
-        text: formatSubjectChoices(primary),
+        label: equal ? t("examFirst") : t("examPrimary", { share: share(primaryWeight) }),
+        text: formatSubjectChoices(t, primary),
       },
       ...(secondary.length > 0
         ? [
             {
-              label: equal ? "2-р шалгалт" : `Дагалдах (${share(secondaryWeight)}%)`,
-              text: `${formatSubjectChoices(secondary)}${
-                overlaps ? (equal ? " (1-р шалгалтад сонгосноос өөр)" : " (суурьт сонгосноос өөр)") : ""
+              label: equal ? t("examSecond") : t("examSecondary", { share: share(secondaryWeight) }),
+              text: `${formatSubjectChoices(t, secondary)}${
+                overlaps ? (equal ? t("differentFromFirst") : t("differentFromPrimary")) : ""
               }`,
             },
           ]
@@ -159,15 +168,12 @@ export function examSubjectLines(
     ];
   }
   const required = major.requiredSubjects ?? [];
-  return required.length > 0 ? [{ label: "Шалгалт", text: required.join(", ") }] : [];
+  return required.length > 0 ? [{ label: t("exams"), text: required.join(", ") }] : [];
 }
 
-export const VERDICT_LABELS: Record<ScoreMatchVerdict, string> = {
-  ELIGIBLE: "Босго хангаж байна",
-  BELOW_CUT_OFF: "Босго хангахгүй",
-  MISSING_SCORES: "Оноо дутуу",
-  CHECK_WITH_SCHOOL: "Сургуулиас тодруулна уу",
-};
+export function formatVerdict(t: FormatT, verdict: ScoreMatchVerdict): string {
+  return t(`verdict.${verdict}`);
+}
 
 /** Only these verdicts come from an actual score, so only they get a match percentage. */
 export function isScoredVerdict(verdict: ScoreMatchVerdict): boolean {
@@ -196,14 +202,15 @@ export function formatDateMn(value: string | null | undefined): string | null {
 
 /** "2026.10.01 – 2026.11.23"; only an end → "2026.11.27 хүртэл"; only a start → that date. */
 export function formatDateRange(
+  t: FormatT,
   startDate: string | null | undefined,
   endDate: string | null | undefined,
 ): string {
   const start = formatDateMn(startDate);
   const end = formatDateMn(endDate);
   if (start && end) return start === end ? start : `${start} – ${end}`;
-  if (end) return `${end} хүртэл`;
-  return start ?? "Хугацаа тодорхойгүй";
+  if (end) return t("dateUntil", { date: end });
+  return start ?? t("dateUnknown");
 }
 
 /** The aimag of a branch school's location ("Орхон аймаг, Баян-Өндөр сум" → "Орхон аймаг"); null in Ulaanbaatar. */
@@ -230,18 +237,16 @@ export function formatMajorPlace(
 /** Degree types an admin can pick for a program; anything else is a custom program. */
 export const DEGREE_TYPES = ["BACHELOR", "ASSOCIATE", "MASTER", "DOCTORATE", "DIPLOMA"];
 
-const DEGREE_TYPE_LABELS: Record<string, string> = {
-  BACHELOR: "Бакалавр",
-  ASSOCIATE: "Дэд бакалавр",
-  MASTER: "Магистр",
-  DOCTORATE: "Доктор",
-  PHD: "Доктор",
-  DIPLOMA: "Диплом",
-};
+const DEGREE_KEYS = ["BACHELOR", "ASSOCIATE", "MASTER", "DOCTORATE", "DIPLOMA"] as const;
 
-export function formatDegreeType(value: string | null | undefined): string | null {
+/** A known degree's name in the current language; any other value as stored. */
+export function formatDegreeType(t: FormatT, value: string | null | undefined): string | null {
   if (!value) return null;
-  return DEGREE_TYPE_LABELS[value.toUpperCase()] ?? value;
+  const upper = value.toUpperCase();
+  const key = upper === "PHD" ? "DOCTORATE" : upper;
+  return (DEGREE_KEYS as readonly string[]).includes(key)
+    ? t(`degree.${key as (typeof DEGREE_KEYS)[number]}`)
+    : value;
 }
 
 /** Groups majors whose degree is missing or isn't one of `DEGREE_TYPES`. */
@@ -255,12 +260,12 @@ export function degreeKey(degreeType: string | null | undefined): string {
 }
 
 /** Display name for a `degreeKey` result, e.g. "Бакалавр" or "Бусад". */
-export function formatDegreeKey(key: string): string {
-  return key === OTHER_DEGREE ? "Бусад" : (formatDegreeType(key) ?? key);
+export function formatDegreeKey(t: FormatT, key: string): string {
+  return key === OTHER_DEGREE ? t("degree.OTHER") : (formatDegreeType(t, key) ?? key);
 }
 
-export function formatAmount(amount: number | null | undefined): string {
-  if (amount == null) return "Мэдээлэл байхгүй";
+export function formatAmount(t: FormatT, amount: number | null | undefined): string {
+  if (amount == null) return t("noData");
   return `${Math.round(amount).toLocaleString("mn-MN")} ₮`;
 }
 
