@@ -1,6 +1,7 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +11,7 @@ import { cn } from "@/lib/utils";
  * paint, so there is no state to sync and no icon flash on load.
  */
 export function ThemeToggle({ className }: { className?: string }) {
+  const t = useTranslations("theme");
   // Saved only on an explicit click, so the site keeps opening light
   // (white) for anyone who never chose dark.
   function toggleTheme() {
@@ -26,8 +28,8 @@ export function ThemeToggle({ className }: { className?: string }) {
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label="Өнгөний горим солих"
-      title="Өнгөний горим солих"
+      aria-label={t("toggle")}
+      title={t("toggle")}
       className={cn(
         "relative flex h-11 w-11 items-center justify-center rounded-full text-ink-2 transition-colors hover:bg-ink/[0.06] hover:text-ink active:bg-ink/[0.1]",
         className,

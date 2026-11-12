@@ -1,3 +1,4 @@
+import type { FormatT, SeoT } from "@/i18n/types";
 import { degreeKey, formatAimag, formatMillions } from "@/lib/format";
 import { SITE_ALTERNATE_NAMES, SITE_NAME, SITE_URL, SOCIAL_PROFILES, absoluteUrl } from "@/lib/site";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
@@ -6,62 +7,25 @@ import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-log
 export const MAX_TITLE_LENGTH = 60;
 export const MAX_DESCRIPTION_LENGTH = 160;
 
-const BRAND = `${SITE_NAME} (Оюутан MN)`;
-
-/** Title and description of each fixed page, with our name in both alphabets. */
+/**
+ * The fixed pages that have their own title and description. The text is in
+ * messages/*.json under "seo.<key>"; lib/metadata.ts builds each page's
+ * metadata in the visitor's language.
+ */
 export const PAGE_SEO = {
-  home: {
-    path: "/",
-    title: `${BRAND} — их сургуулийн босго оноо, тэтгэлэг`,
-    description: `${BRAND}: МУИС, ШУТИС, СЭЗИС зэрэг их, дээд сургуулийн ЭЕШ босго оноо, мэргэжил, сургалтын төлбөр, тэтгэлэг, элсэлтийн хуанли нэг дороос.`,
-  },
-  schools: {
-    path: "/schools",
-    title: `Их, дээд сургууль, мэргэжил хайх — ${BRAND}`,
-    description:
-      "МУИС, ШУТИС, СЭЗИС, АШУҮИС зэрэг их, дээд сургууль, мэргэжлийг ЭЕШ босго оноо, төлбөр, байршил, дотуур байр, тэтгэлгээр шүүж хайгаарай.",
-  },
-  scholarships: {
-    path: "/scholarships",
-    title: `Их, дээд сургуулийн тэтгэлэг — ${BRAND}`,
-    description: `Монголын их, дээд сургуулиудын тэтгэлэг: хамрах хүрээ, шаардлага, бүртгэлийн эцсийн хугацаа нэг дороос. ${BRAND}.`,
-  },
-  admissions: {
-    path: "/admissions",
-    title: `Элсэлтийн хуанли — ${BRAND}`,
-    description: `Их, дээд сургуулиудын элсэлтийн бүртгэл, шалгалт, үр дүнгийн хугацаа нэг хуанлид. МУИС, ШУТИС, СЭЗИС болон бусад. ${BRAND}.`,
-  },
-  compare: {
-    path: "/compare",
-    title: `Сургууль, мэргэжил харьцуулах — ${BRAND}`,
-    description: `Их, дээд сургууль, мэргэжлийг сургалтын төлбөр, ЭЕШ босго оноо, дотуур байр, тэтгэлгээр нь зэрэгцүүлэн харьцуулаарай. ${BRAND}.`,
-  },
-  signIn: {
-    path: "/sign-in",
-    title: `Нэвтрэх — ${BRAND}`,
-    description: `Сургуулийн дэлгэрэнгүй мэдээллийг үзэхийн тулд ${BRAND}-д нэвтэрнэ үү.`,
-  },
-  signUp: {
-    path: "/sign-up",
-    title: `Бүртгүүлэх — ${BRAND}`,
-    description: `Сургуулийн дэлгэрэнгүй мэдээллийг үзэхийн тулд ${BRAND}-д бүртгүүлээрэй.`,
-  },
-  profile: {
-    path: "/profile",
-    title: `Миний профайл — ${BRAND}`,
-    description: "Профайлын мэдээлэл, хадгалсан сургууль, мэргэжлээ хянах.",
-  },
-  account: {
-    path: "/profile/account",
-    title: `Бүртгэлийн тохиргоо — ${BRAND}`,
-    description: "Нэвтрэх хаяг болон бүртгэлийн тохиргоогоо удирдах.",
-  },
-  admin: {
-    path: "/admin",
-    title: `Админ самбар — ${BRAND}`,
-    description: "Сургууль, мэргэжлийн мэдээлэл болон хэрэглэгчдийг удирдах.",
-  },
+  home: { path: "/" },
+  schools: { path: "/schools" },
+  scholarships: { path: "/scholarships" },
+  admissions: { path: "/admissions" },
+  compare: { path: "/compare" },
+  signIn: { path: "/sign-in" },
+  signUp: { path: "/sign-up" },
+  profile: { path: "/profile" },
+  account: { path: "/profile/account" },
+  admin: { path: "/admin" },
 } as const;
+
+export type PageSeoKey = keyof typeof PAGE_SEO;
 
 /** The fields of a school (with its majors) that its title, description and JSON-LD use. */
 export interface SchoolSeoInput {
@@ -128,15 +92,18 @@ export function formatCutOffRange(school: Pick<SchoolSeoInput, "majors">): strin
  * Yearly tuition from the majors' fees: "6.2–8.5 сая ₮", or the school's own
  * fee ("≈ 9.3 сая ₮") when no major has one; null when neither is known.
  */
-export function formatTuitionRange(school: Pick<SchoolSeoInput, "majors" | "tuitionFee">): string | null {
+export function formatTuitionRange(
+  t: FormatT,
+  school: Pick<SchoolSeoInput, "majors" | "tuitionFee">,
+): string | null {
   const fees = range(
     school.majors.map((major) => major.tuitionFee).filter((fee): fee is number => fee != null && fee > 0),
   );
   if (fees) {
     const [low, high] = fees.map(formatMillions);
-    return low === high ? `${low} сая ₮` : `${low}–${high} сая ₮`;
+    return low === high ? t("millions", { amount: low }) : t("millionsRange", { low, high });
   }
-  return school.tuitionFee ? `≈ ${formatMillions(school.tuitionFee)} сая ₮` : null;
+  return school.tuitionFee ? t("millionsApprox", { amount: formatMillions(school.tuitionFee) }) : null;
 }
 
 /**
@@ -178,15 +145,15 @@ function firstThatFits(candidates: string[], max: number): string {
 }
 
 /** "МУИС (muis) — босго оноо, мэргэжил, төлбөр | Oyutan MN", shortened to fit 60 characters. */
-export function schoolTitle(school: Pick<SchoolSeoInput, "id" | "name" | "aliases">): string {
+export function schoolTitle(t: SeoT, school: Pick<SchoolSeoInput, "id" | "name" | "aliases">): string {
   const short = schoolShortName(school);
   const latin = schoolLatinName(school);
   const name = latin ? `${short} (${latin})` : short;
   return firstThatFits(
     [
-      `${name} — босго оноо, мэргэжил, төлбөр | ${SITE_NAME}`,
-      `${name} — босго оноо, төлбөр | ${SITE_NAME}`,
-      `${name} — босго оноо | ${SITE_NAME}`,
+      t("schoolTitle.full", { name }),
+      t("schoolTitle.medium", { name }),
+      t("schoolTitle.short", { name }),
       `${name} | ${SITE_NAME}`,
       name,
     ],
@@ -199,22 +166,22 @@ export function schoolTitle(school: Pick<SchoolSeoInput, "id" | "name" | "aliase
  * Их Сургууль (МУИС, muis): 330 мэргэжил, ЭЕШ босго оноо 430–490, төлбөр
  * 6.2–8.5 сая ₮/жил. Тэтгэлэг, дотуур байр, элсэлт."
  */
-export function schoolDescription(school: SchoolSeoInput): string {
+export function schoolDescription(t: SeoT, tFormat: FormatT, school: SchoolSeoInput): string {
   const short = schoolShortName(school);
   const latin = schoolLatinName(school);
   const cutOffs = formatCutOffRange(school);
-  const tuition = formatTuitionRange(school);
+  const tuition = formatTuitionRange(tFormat, school);
   const facts = [
-    school.majors.length > 0 ? `${school.majors.length} мэргэжил` : null,
-    cutOffs ? `ЭЕШ босго оноо ${cutOffs}` : null,
-    tuition ? `төлбөр ${tuition}/жил` : null,
+    school.majors.length > 0 ? t("schoolFacts.majors", { count: school.majors.length }) : null,
+    cutOffs ? t("schoolFacts.cutOff", { range: cutOffs }) : null,
+    tuition ? t("schoolFacts.tuition", { range: tuition }) : null,
   ].filter(Boolean);
-  const body = facts.length > 0 ? facts.join(", ") : "босго оноо, мэргэжил, сургалтын төлбөр";
+  const body = facts.length > 0 ? facts.join(", ") : t("schoolFacts.fallback");
   // "Этүгэн Их Сургууль (etugen)": a short name already in the full name isn't repeated.
   const names = [school.name.includes(short) ? null : short, latin].filter(Boolean).join(", ");
   const fullName = names ? `${school.name} (${names})` : school.name;
   const shortName = latin ? `${short} (${latin})` : short;
-  const more = "Тэтгэлэг, дотуур байр, элсэлт.";
+  const more = t("schoolFacts.more");
   return firstThatFits(
     [
       `${fullName}: ${body}. ${more}`,

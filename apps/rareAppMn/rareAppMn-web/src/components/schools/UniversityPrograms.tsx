@@ -2,6 +2,7 @@
 
 import { BookOpen, ChevronRight, GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { MajorBookmarkButton } from "@/components/schools/MajorBookmarkButton";
 import { MajorNotes } from "@/components/schools/MajorNotes";
 import { ComingSoon } from "@/components/ui/ComingSoon";
@@ -33,7 +34,12 @@ interface FacultyGroup {
  * majors of that degree. Majors without a known faculty come last under
  * "Бусад" rather than being dropped.
  */
-function facultiesOffering(degree: string, faculties: Faculty[], majors: Major[]): FacultyGroup[] {
+function facultiesOffering(
+  degree: string,
+  faculties: Faculty[],
+  majors: Major[],
+  otherLabel: string,
+): FacultyGroup[] {
   const ofDegree = majors.filter((major) => degreeKey(major.degreeType) === degree);
   const groups = faculties
     .map((faculty) => ({
@@ -44,12 +50,14 @@ function facultiesOffering(degree: string, faculties: Faculty[], majors: Major[]
     .filter((group) => group.majors.length > 0);
   const facultyIds = new Set(faculties.map((faculty) => faculty.id));
   const unassigned = ofDegree.filter((major) => !major.facultyId || !facultyIds.has(major.facultyId));
-  if (unassigned.length > 0) groups.push({ id: "unassigned", name: "Бусад", majors: unassigned });
+  if (unassigned.length > 0) groups.push({ id: "unassigned", name: otherLabel, majors: unassigned });
   return groups;
 }
 
 function MajorCard({ major }: { major: Major }) {
-  const exams = examSubjectLines(major);
+  const t = useTranslations("programs");
+  const tFormat = useTranslations("format");
+  const exams = examSubjectLines(tFormat, major);
   return (
     <div className="rounded-xl border border-border-ink bg-card p-4">
       <div className="flex items-start justify-between gap-3">
@@ -80,11 +88,11 @@ function MajorCard({ major }: { major: Major }) {
         <div className="mt-3 flex flex-wrap gap-2 text-sm font-semibold text-ink-2">
           {major.cutOffScore != null && (
             <span className="rounded-full bg-ink/5 px-2.5 py-1">
-              Босго оноо: {formatCutOff(major)}
+              {t("cutOff", { value: formatCutOff(tFormat, major) ?? "—" })}
             </span>
           )}
           {major.tuitionFee != null && (
-            <span className="rounded-full bg-ink/5 px-2.5 py-1">{formatMajorTuition(major)}</span>
+            <span className="rounded-full bg-ink/5 px-2.5 py-1">{formatMajorTuition(tFormat, major)}</span>
           )}
         </div>
       )}
@@ -97,12 +105,15 @@ function MajorCard({ major }: { major: Major }) {
  * the schools (faculties) offering it, then a school's programs.
  */
 export function UniversityPrograms({ faculties, majors }: UniversityProgramsProps) {
+  const t = useTranslations("programs");
+  const tFormat = useTranslations("format");
+  const other = tFormat("degree.OTHER");
   const degrees = [...DEGREE_TYPES, OTHER_DEGREE]
     .map((key) => {
       const ofDegree = majors.filter((major) => degreeKey(major.degreeType) === key);
       return {
         key,
-        label: formatDegreeKey(key),
+        label: formatDegreeKey(tFormat, key),
         programCount: ofDegree.length,
         schoolCount: new Set(ofDegree.map((major) => major.facultyId ?? "unassigned")).size,
       };
@@ -112,14 +123,14 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
   // A single level or a lone school leaves nothing to choose, so it opens right away.
   const initialDegree = degrees.length === 1 ? degrees[0].key : null;
   const openedFor = (key: string | null): ReadonlySet<string> => {
-    const offering = key ? facultiesOffering(key, faculties, majors) : [];
+    const offering = key ? facultiesOffering(key, faculties, majors, other) : [];
     return new Set(offering.length === 1 ? [offering[0].id] : []);
   };
   const [selected, setSelected] = useState<string | null>(initialDegree);
   const [openIds, setOpenIds] = useState<ReadonlySet<string>>(() => openedFor(initialDegree));
 
-  const groups = selected ? facultiesOffering(selected, faculties, majors) : [];
-  const selectedLabel = selected ? formatDegreeKey(selected) : null;
+  const groups = selected ? facultiesOffering(selected, faculties, majors, other) : [];
+  const selectedLabel = selected ? formatDegreeKey(tFormat, selected) : null;
 
   function selectDegree(key: string) {
     setSelected(key);
@@ -139,14 +150,14 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
     <section className="rounded-2xl border border-border-ink bg-card p-5 md:p-8">
       <div className="flex items-center gap-2 text-ink">
         <BookOpen className="h-5 w-5 text-accent" />
-        <h2 className="text-xl font-bold tracking-tight">Хөтөлбөрүүд</h2>
+        <h2 className="text-xl font-bold tracking-tight">{t("title")}</h2>
       </div>
 
       {degrees.length === 0 ? (
         <ComingSoon />
       ) : (
         <>
-          <p className="mt-4 text-sm text-ink-2">Ямар зэргийн хөтөлбөр сонирхож байна вэ?</p>
+          <p className="mt-4 text-sm text-ink-2">{t("pickDegree")}</p>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
             {degrees.map((degree) => {
               const active = selected === degree.key;
@@ -174,7 +185,7 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
                   <span className="min-w-0 flex-1">
                     <span className="block text-base font-bold text-ink">{degree.label}</span>{" "}
                     <span className="block text-[15px] text-ink-3">
-                      {degree.programCount} хөтөлбөр · {degree.schoolCount} сургууль
+                      {t("degreeCounts", { programs: degree.programCount, schools: degree.schoolCount })}
                     </span>
                   </span>
                   <ChevronRight
@@ -191,7 +202,7 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
           {selected && (
             <div className="mt-6">
               <p className="text-sm font-semibold text-ink">
-                {selectedLabel} зэргийн хөтөлбөртэй сургуулиуд{" "}
+                {t("schoolsOffering", { degree: selectedLabel ?? "" })}{" "}
                 <span className="font-normal text-ink-3">({groups.length})</span>
               </p>
               <ul className="mt-3 space-y-2">
@@ -215,7 +226,7 @@ export function UniversityPrograms({ faculties, majors }: UniversityProgramsProp
                           {group.name}
                         </span>
                         <span className="shrink-0 rounded-full bg-ink/5 px-2.5 py-0.5 text-sm font-semibold text-ink-3">
-                          {group.majors.length} хөтөлбөр
+                          {t("programCount", { count: group.majors.length })}
                         </span>
                       </button>
                       {open && (

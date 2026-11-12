@@ -3,6 +3,7 @@
 import { SignInButton, useAuth } from "@clerk/nextjs";
 import { Bookmark, BookmarkCheck } from "lucide-react";
 import { useState, type MouseEvent } from "react";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { useMutation } from "urql";
 import {
@@ -49,6 +50,8 @@ export function SchoolBookmarkButton({
   onToggled,
 }: SchoolBookmarkButtonProps) {
   const { isSignedIn } = useAuth();
+  const t = useTranslations("bookmark");
+  const tErrors = useTranslations("errors");
   const [saved, setSaved] = useState(initialSaved);
   const [syncedInitialSaved, setSyncedInitialSaved] = useState(initialSaved);
   if (syncedInitialSaved !== initialSaved) {
@@ -70,8 +73,8 @@ export function SchoolBookmarkButton({
     const result = await toggleSaveSchool({ schoolId }, SCHOOL_BOOKMARK_CACHE);
     if (result.error) {
       setSaved(!optimisticValue);
-      toast.error("Хадгалахад алдаа гарлаа", {
-        description: getErrorMessage(result.error),
+      toast.error(t("saveFailed"), {
+        description: getErrorMessage(tErrors, result.error),
       });
       return;
     }
@@ -79,9 +82,9 @@ export function SchoolBookmarkButton({
       const nowSaved = result.data.toggleSaveSchool;
       setSaved(nowSaved);
       onToggled?.(nowSaved);
-      const label = schoolName ?? "Сургууль";
+      const label = schoolName ?? t("schoolFallback");
       toast.success(
-        nowSaved ? `${label} хадгаллаа` : `${label} хадгалснаас хасав`,
+        nowSaved ? t("saved", { name: label }) : t("removed", { name: label }),
       );
     }
   }
@@ -94,7 +97,7 @@ export function SchoolBookmarkButton({
       // handler only needs to stop the click reaching a parent <Link>.
       onClick={isSignedIn ? handleClick : stopEventPropagation}
       aria-pressed={saved}
-      aria-label={saved ? "Хадгалсан сургуулиас хасах" : "Сургуулийг хадгалах"}
+      aria-label={saved ? t("schoolUnsave") : t("schoolSave")}
       disabled={fetching}
       className={cn(
         "flex shrink-0 items-center justify-center rounded-full border transition-all duration-200 active:scale-90 disabled:cursor-not-allowed disabled:opacity-60 max-lg:tap-target",

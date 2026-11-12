@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useAuth, useUser } from "@clerk/nextjs";
 import {
   createContext,
@@ -60,6 +61,8 @@ export function ClerkUserSyncProvider({ children }: { children: ReactNode }) {
     SyncClerkUserVariables
   >(SYNC_CLERK_USER_MUTATION);
   const [state, setState] = useState<SyncState>(IDLE_STATE);
+  const t = useTranslations("userSync");
+  const tErrors = useTranslations("errors");
   const attemptedSyncKey = useRef<string | null>(null);
 
   const sync = useCallback(async () => {
@@ -72,8 +75,7 @@ export function ClerkUserSyncProvider({ children }: { children: ReactNode }) {
       setState({
         userId,
         status: "error",
-        errorMessage:
-          "Таны бүртгэлд имэйл хаяг байхгүй байна. «Бүртгэлийн тохиргоо» хэсэгт имэйл хаяг нэмнэ үү.",
+        errorMessage: t("noEmail"),
       });
       return;
     }
@@ -87,16 +89,16 @@ export function ClerkUserSyncProvider({ children }: { children: ReactNode }) {
     });
 
     if (result.error) {
-      const errorMessage = getErrorMessage(result.error, {
-        CONFLICT: "Энэ имэйл хаяг өөр бүртгэлтэй холбогдсон байна.",
+      const errorMessage = getErrorMessage(tErrors, result.error, {
+        CONFLICT: t("emailConflict"),
       });
       setState({ userId, status: "error", errorMessage });
-      toast.error("Профайлыг холбоход алдаа гарлаа", { description: errorMessage });
+      toast.error(t("syncFailed"), { description: errorMessage });
       return;
     }
 
     setState({ userId, status: "synced", errorMessage: null });
-  }, [isSignedIn, userId, user, syncClerkUser]);
+  }, [isSignedIn, userId, user, syncClerkUser, t, tErrors]);
 
   const syncKey = user
     ? [

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight, CalendarDays, CheckCircle2, Search, SlidersHorizontal } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { SchoolCard, SchoolLogo } from "@/components/schools/SchoolCard";
 import { Badge } from "@/components/ui/Badge";
 import { Section, SectionHeader } from "@/components/ui/Section";
@@ -65,6 +67,7 @@ function Feature({
 }
 
 function FakeSearch({ text, filter = false }: { text: string; filter?: boolean }) {
+  const t = useTranslations("home.tour");
   return (
     <div className="flex gap-2">
       <div className="flex h-11 flex-1 items-center gap-2.5 rounded-xl border border-border-ink bg-card px-3.5 text-[15px] text-ink-2">
@@ -74,7 +77,7 @@ function FakeSearch({ text, filter = false }: { text: string; filter?: boolean }
       {filter && (
         <div className="flex h-11 items-center gap-2 rounded-xl border border-accent bg-accent-soft px-3.5 text-[15px] font-bold text-accent-strong">
           <SlidersHorizontal className="h-4 w-4" />
-          Шүүлтүүр
+          {t("filter")}
         </div>
       )}
     </div>
@@ -82,11 +85,16 @@ function FakeSearch({ text, filter = false }: { text: string; filter?: boolean }
 }
 
 export async function ProductTour() {
-  const [muis, shutis, { entries: scholarships }, admissions] = await Promise.all([
+  const [muis, shutis, { entries: scholarships }, admissions, t, tc, tNav, tFooter, tFormat] = await Promise.all([
     getSchoolDetail("sch_muis"),
     getSchoolDetail("sch_shutis"),
     getScholarshipDirectory(),
     getUpcomingAdmissions(),
+    getTranslations("home.tour"),
+    getTranslations("common"),
+    getTranslations("nav"),
+    getTranslations("footer"),
+    getTranslations("format"),
   ]);
 
   const today = todayInMongolia();
@@ -113,19 +121,19 @@ export async function ProductTour() {
     .sort((a, b) => (a.scholarship.deadline ?? "").localeCompare(b.scholarship.deadline ?? ""))[0];
   const features = [
     {
-      title: "Сургууль хайх ба шүүх",
-      text: "Байршил, төлбөр, дотуур байр, тэтгэлгээр шүүгээд хэрэгтэй сургуулиа ол.",
-      links: [{ label: "Сургууль хайх", href: "/schools" }],
+      title: t("schoolsTitle"),
+      text: t("schoolsText"),
+      links: [{ label: tc("searchSchools"), href: "/schools" }],
       preview: (
         <div className="space-y-3">
-          <FakeSearch text="Дотуур байртай" filter />
+          <FakeSearch text={t("dormSearch")} filter />
           {dormSchools.map((school) => (
             <SchoolCard
               key={school.id}
               school={school}
               showBookmark={false}
               cutOffRange={formatCutOffRange(school)}
-              tuitionSummary={formatTuitionRange(school)}
+              tuitionSummary={formatTuitionRange(tFormat, school)}
               className="shadow-none"
             />
           ))}
@@ -133,24 +141,24 @@ export async function ProductTour() {
       ),
     },
     {
-      title: "ЭЕШ оноогоор мэргэжил олох",
-      text: "Оноогоо оруулаад босго нь тохирох мэргэжлүүдээ хар.",
-      links: [{ label: "Мэргэжил хайх", href: "/schools?tab=majors" }],
+      title: t("majorsTitle"),
+      text: t("majorsText"),
+      links: [{ label: tFooter("searchMajors"), href: "/schools?tab=majors" }],
       preview: (
         <div className="space-y-2">
           <div className="flex items-center justify-between rounded-xl border border-border-ink bg-card px-4 py-3">
-            <span className="text-[15px] text-ink-2">Таны ЭЕШ оноо</span>
+            <span className="text-[15px] text-ink-2">{t("yourScore")}</span>
             <span className="font-display text-xl font-bold text-ink">{EXAMPLE_SCORE}</span>
           </div>
           {scoreMajors.map((major) => (
             <div key={major.id} className="flex items-center justify-between gap-3 rounded-xl border border-border-ink bg-card px-4 py-3">
               <div className="min-w-0">
                 <p className="truncate text-[15px] font-bold text-ink">{major.name}</p>
-                <p className="text-sm text-ink-3">МУИС · Босго {formatCutOff(major)}</p>
+                <p className="text-sm text-ink-3">{t("majorMeta", { school: "МУИС", cutOff: formatCutOff(tFormat, major) ?? "—" })}</p>
               </div>
               <Badge variant="success">
                 <CheckCircle2 />
-                Тохирно
+                {t("fits")}
               </Badge>
             </div>
           ))}
@@ -158,9 +166,9 @@ export async function ProductTour() {
       ),
     },
     {
-      title: "Сургуулиудыг харьцуулах",
-      text: "Хоёр, гурван сургуулийг төлбөр, босго оноо, тэтгэлгээр нь зэрэгцүүл.",
-      links: [{ label: "Харьцуулах", href: "/compare" }],
+      title: t("compareTitle"),
+      text: t("compareText"),
+      links: [{ label: tNav("compare"), href: "/compare" }],
       preview: (
         <div className="overflow-hidden rounded-2xl border border-border-ink bg-card text-[15px]">
           <div className="grid grid-cols-[1fr_1fr_1fr] border-b border-border-ink">
@@ -173,10 +181,10 @@ export async function ProductTour() {
             ))}
           </div>
           {[
-            { label: "Босго оноо", value: formatCutOffRange },
-            { label: "Төлбөр / жил", value: formatTuitionRange },
-            { label: "Мэргэжил", value: (school: (typeof compared)[number]) => String(school.majors.length) },
-            { label: "Тэтгэлэг", value: (school: (typeof compared)[number]) => String(school.scholarships.length) },
+            { label: t("rowCutOff"), value: formatCutOffRange },
+            { label: t("rowTuition"), value: (school: (typeof compared)[number]) => formatTuitionRange(tFormat, school) },
+            { label: t("rowMajors"), value: (school: (typeof compared)[number]) => String(school.majors.length) },
+            { label: t("rowScholarships"), value: (school: (typeof compared)[number]) => String(school.scholarships.length) },
           ].map((row) => (
             <div key={row.label} className="grid grid-cols-[1fr_1fr_1fr] border-b border-border-ink last:border-b-0">
               <span className="px-3 py-3 text-ink-3">{row.label}</span>
@@ -191,21 +199,21 @@ export async function ProductTour() {
       ),
     },
     {
-      title: "Тэтгэлэг ба элсэлтийн хуанли",
-      text: "Нээлттэй тэтгэлэг, ойртож буй хугацааг алдалгүй хяна.",
+      title: t("calendarTitle"),
+      text: t("calendarText"),
       links: [
-        { label: "Тэтгэлэг", href: "/scholarships" },
-        { label: "Элсэлтийн хуанли", href: "/admissions" },
+        { label: tFooter("scholarships"), href: "/scholarships" },
+        { label: tFooter("admissionCalendar"), href: "/admissions" },
       ],
       preview: (
         <div className="space-y-3">
           {openScholarship && (
             <div className="rounded-2xl border border-border-ink bg-card p-4">
-              <Badge variant="accent">Нээлттэй</Badge>
+              <Badge variant="accent">{t("open")}</Badge>
               <p className="mt-2 line-clamp-2 text-base font-bold text-ink">{openScholarship.scholarship.name}</p>
               <p className="mt-1 text-sm text-ink-3">
-                {getUniversityBySchoolId(openScholarship.school.id)?.short ?? openScholarship.school.name} · Эцсийн хугацаа{" "}
-                {formatDateMn(openScholarship.scholarship.deadline)}
+                {getUniversityBySchoolId(openScholarship.school.id)?.short ?? openScholarship.school.name} ·{" "}
+                {t("deadline", { date: formatDateMn(openScholarship.scholarship.deadline) ?? "" })}
               </p>
             </div>
           )}
@@ -216,7 +224,7 @@ export async function ProductTour() {
                 <p className="truncate text-[15px] font-bold text-ink">{schedule.eventName}</p>
                 <p className="text-sm text-ink-3">
                   {getUniversityBySchoolId(school.id)?.short ?? school.name} ·{" "}
-                  {formatDateRange(schedule.startDate, schedule.endDate)}
+                  {formatDateRange(tFormat, schedule.startDate, schedule.endDate)}
                 </p>
               </div>
             </div>
@@ -229,9 +237,9 @@ export async function ProductTour() {
   return (
     <Section id="features">
       <SectionHeader
-        eyebrow="Платформ"
-        title="Юу хийж болох вэ?"
-        description="Элсэлтэд хэрэгтэй бүх мэдээллийг сургуулиудын албан ёсны эх сурвалжаас цуглуулж, нэг загвараар харуулна."
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        description={t("description")}
       />
       <ol className="mt-12 space-y-16 md:mt-16 md:space-y-24">
         {features.map((feature, index) => (

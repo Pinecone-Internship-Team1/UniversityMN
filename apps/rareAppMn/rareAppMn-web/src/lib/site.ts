@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { SiteT } from "@/i18n/types";
 
 export const SITE_URL = "https://oyutanmn.site";
 export const SITE_NAME = "Oyutan MN";
@@ -19,19 +20,19 @@ export const CONTACT_EMAIL = "oyutanmn@gmail.com";
 /** When the admission data was last checked against the schools' sources. */
 export const DATA_UPDATED_AT = "2026.10.31";
 
-/** A mailto link for reporting wrong data, with the page or school in the subject. */
-export function reportHref(about?: string): string {
-  const subject = about ? `Мэдээллийн алдаа: ${about}` : "Мэдээллийн алдаа";
+/**
+ * A mailto link for reporting wrong data, with the page or school in the
+ * subject; `t` = useTranslations("site").
+ */
+export function reportHref(t: SiteT, about?: string): string {
+  const subject = about ? t("reportSubjectAbout", { about }) : t("reportSubject");
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`;
 }
 
-/** public/brand/og-image.png: the 1200×630 card shown when a link is shared. */
-export const OG_IMAGE = {
-  url: "/brand/og-image.png",
-  width: 1200,
-  height: 630,
-  alt: "Oyutan MN (Оюутан MN) — их, дээд сургуулиудыг нэг дороос",
-};
+/** public/brand/og-image.png: the 1200×630 card shown when a link is shared; alt in the page's language. */
+export function ogImage(alt: string) {
+  return { url: "/brand/og-image.png", width: 1200, height: 630, alt };
+}
 
 export function absoluteUrl(path: string): string {
   return new URL(path, SITE_URL).toString();
@@ -45,11 +46,17 @@ export function pageMetadata({
   title,
   description,
   path,
+  ogLocale,
+  imageAlt,
 }: {
   title: string;
   description: string;
   path: string;
+  /** "mn_MN" or "en_US". */
+  ogLocale: string;
+  imageAlt: string;
 }): Metadata {
+  const image = ogImage(imageAlt);
   return {
     title,
     description,
@@ -57,17 +64,17 @@ export function pageMetadata({
     openGraph: {
       type: "website",
       siteName: SITE_NAME,
-      locale: "mn_MN",
+      locale: ogLocale,
       url: path,
       title,
       description,
-      images: [OG_IMAGE],
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [OG_IMAGE],
+      images: [image],
     },
   };
 }

@@ -3,11 +3,13 @@ import { CompareExplorer } from "@/components/compare/CompareExplorer";
 import { PageShell } from "@/components/layout/PageShell";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/Section";
+import { getTranslations } from "next-intl/server";
 import { MAX_COMPARE_ITEMS, type CompareMode } from "@/lib/compare";
-import { PAGE_SEO } from "@/lib/seo";
-import { pageMetadata } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = pageMetadata(PAGE_SEO.compare);
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("compare");
+}
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -18,7 +20,7 @@ function firstValue(value: string | string[] | undefined): string | undefined {
 }
 
 export default async function ComparePage({ searchParams }: PageProps) {
-  const params = await searchParams;
+  const [params, t] = await Promise.all([searchParams, getTranslations("comparePage")]);
   const mode: CompareMode = firstValue(params["type"]) === "majors" ? "majors" : "schools";
   const ids = [
     ...new Set(
@@ -34,8 +36,8 @@ export default async function ComparePage({ searchParams }: PageProps) {
       <Container className="py-6 md:py-12">
         <SectionHeader
           as="h1"
-          title="Сургууль, мэргэжлээ зэрэгцүүлэн харьцуул"
-          description={<>Хамгийн ихдээ {MAX_COMPARE_ITEMS} сургууль эсвэл мэргэжлийг сонгоод төлбөр, босго оноо, дотуур байр, тэтгэлгийг нь нэг дор хараарай.</>}
+          title={t("title")}
+          description={t("description", { max: MAX_COMPARE_ITEMS })}
         />
 
         <div className="mt-6 md:mt-8">

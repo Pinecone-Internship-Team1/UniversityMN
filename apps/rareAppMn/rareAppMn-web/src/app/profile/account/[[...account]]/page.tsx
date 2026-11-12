@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { UserProfile } from "@clerk/nextjs";
 import { ACCOUNT_SETTINGS_PATH } from "@/lib/auth-routes";
-import { PAGE_SEO } from "@/lib/seo";
-import { pageMetadata } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  ...pageMetadata(PAGE_SEO.account),
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return { ...(await staticPageMetadata("account")), robots: { index: false, follow: false } };
+}
 
 // Clerk's account screens (name, photo, email, Google account,
 // devices) on their own sub-routes, e.g. /profile/account/security.

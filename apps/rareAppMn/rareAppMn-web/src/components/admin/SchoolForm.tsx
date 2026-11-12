@@ -19,6 +19,10 @@ import {
   type UpdateSchoolResult,
 } from "@/lib/graphql/documents";
 import { getErrorMessageWithDetail } from "@/lib/graphql/errors";
+import { useTranslations } from "next-intl";
+import type { ValidationT } from "@/i18n/types";
+
+type SchoolFormT = ReturnType<typeof useTranslations<"admin.schoolForm">>;
 import type { SchoolInput } from "@/lib/graphql/types";
 import {
   MAX_LONG_TEXT_LENGTH,
@@ -81,28 +85,33 @@ function toFormValues(school: AdminSchool | null): SchoolFormValues {
   };
 }
 
-function parseSchoolForm(values: SchoolFormValues): ValidationResult<SchoolInput> {
-  const name = parseRequiredText(values.name, "Их, дээд сургуулийн нэр");
+/** `t` names each field in error messages ("admin.schoolForm.fields.<field>"). */
+function parseSchoolForm(
+  tv: ValidationT,
+  t: SchoolFormT,
+  values: SchoolFormValues,
+): ValidationResult<SchoolInput> {
+  const name = parseRequiredText(tv, values.name, t("fields.name"));
   if (!name.ok) return name;
-  const location = parseOptionalText(values.location, "Байршил");
+  const location = parseOptionalText(tv, values.location, t("fields.location"));
   if (!location.ok) return location;
-  const tuitionFee = parseOptionalNumber(values.tuitionFee, "Сургалтын төлбөр");
+  const tuitionFee = parseOptionalNumber(tv, values.tuitionFee, t("fields.tuitionFee"));
   if (!tuitionFee.ok) return tuitionFee;
-  const tuitionText = parseOptionalText(values.tuitionText, "Сургалтын төлбөр (текст)");
+  const tuitionText = parseOptionalText(tv, values.tuitionText, t("fields.tuitionText"));
   if (!tuitionText.ok) return tuitionText;
-  const website = parseOptionalUrl(values.website, "Вэбсайт");
+  const website = parseOptionalUrl(tv, values.website, t("fields.website"));
   if (!website.ok) return website;
-  const email = parseOptionalEmail(values.email, "И-мэйл");
+  const email = parseOptionalEmail(tv, values.email, t("fields.email"));
   if (!email.ok) return email;
-  const phones = parsePhoneList(values.phones);
+  const phones = parsePhoneList(tv, values.phones);
   if (!phones.ok) return phones;
-  const logoUrl = parseOptionalUrl(values.logoUrl, "Лого");
+  const logoUrl = parseOptionalUrl(tv, values.logoUrl, t("fields.logo"));
   if (!logoUrl.ok) return logoUrl;
-  const coverUrl = parseOptionalUrl(values.coverUrl, "Нүүр зураг");
+  const coverUrl = parseOptionalUrl(tv, values.coverUrl, t("fields.cover"));
   if (!coverUrl.ok) return coverUrl;
-  const overview = parseOptionalText(values.overview, "Танилцуулга", MAX_LONG_TEXT_LENGTH);
+  const overview = parseOptionalText(tv, values.overview, t("fields.overview"), MAX_LONG_TEXT_LENGTH);
   if (!overview.ok) return overview;
-  const aliases = parseAliasList(values.aliases);
+  const aliases = parseAliasList(tv, values.aliases);
   if (!aliases.ok) return aliases;
 
   return {
@@ -131,6 +140,10 @@ export interface SchoolFormProps {
 }
 
 export function SchoolForm({ school, onSaved }: SchoolFormProps) {
+  const t = useTranslations("admin.schoolForm");
+  const tv = useTranslations("validation");
+  const tErrors = useTranslations("errors");
+  const tFormat = useTranslations("format");
   const [values, setValues] = useState<SchoolFormValues>(() => toFormValues(school));
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [uploading, setUploading] = useState({ logo: false, cover: false });
@@ -151,7 +164,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
 
   async function handleSubmit() {
     setErrorMessage(null);
-    const parsed = parseSchoolForm(values);
+    const parsed = parseSchoolForm(tv, t, values);
     if (!parsed.ok) {
       setErrorMessage(parsed.error);
       return;
@@ -162,9 +175,9 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
       : await createSchool({ input: parsed.value }, CATALOG_CACHE);
 
     if (result.error) {
-      const message = getErrorMessageWithDetail(result.error);
+      const message = getErrorMessageWithDetail(tErrors, result.error);
       setErrorMessage(message);
-      toast.error("Их, дээд сургуулийг хадгалж чадсангүй", { description: message });
+      toast.error(t("saveFailed"), { description: message });
       return;
     }
 
@@ -176,7 +189,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
           : null;
     if (!saved) return;
     setValues(toFormValues(saved));
-    toast.success(school ? "Их, дээд сургуулийн мэдээлэл шинэчлэгдлээ" : "Шинэ их, дээд сургууль нэмэгдлээ");
+    toast.success(school ? t("updated") : t("created"));
     onSaved(saved);
   }
 
@@ -188,56 +201,56 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
         void handleSubmit();
       }}
     >
-      <p className="text-[11px] text-ink/50">* — заавал бөглөх талбар</p>
+      <p className="text-[11px] text-ink/50">{t("requiredNote")}</p>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Их, дээд сургуулийн нэр *
+          {t("nameLabel")}
           <Input
             value={values.name}
             onChange={(event) => set("name", event.target.value)}
-            placeholder="жишээ: Монгол Улсын Их Сургууль"
+            placeholder={t("namePlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Хайлтын нэрс (товч нэр, англи нэр — таслалаар)
+          {t("aliasesLabel")}
           <Input
             value={values.aliases}
             onChange={(event) => set("aliases", event.target.value)}
-            placeholder="жишээ: МУИС, muis, NUM, National University of Mongolia"
+            placeholder={t("aliasesPlaceholder")}
           />
           <span className="font-normal text-ink/50">
-            Хайлтад эдгээр нэрээр ч олдоно. Латин үсгээр бичсэн хайлт (muis, huree) автоматаар таарна.
+            {t("aliasesHint")}
           </span>
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Байршил
+          {t("fields.location")}
           <Input
             value={values.location}
             onChange={(event) => set("location", event.target.value)}
-            placeholder="жишээ: Сүхбаатар дүүрэг, Улаанбаатар"
+            placeholder={t("locationPlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Жилийн сургалтын төлбөр (₮)
+          {t("tuitionFeeLabel")}
           <Input
             type="number"
             min={0}
             inputMode="numeric"
             value={values.tuitionFee}
             onChange={(event) => set("tuitionFee", event.target.value)}
-            placeholder="жишээ: 4500000"
+            placeholder={t("tuitionFeePlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Сургалтын төлбөр (сайтад харагдах текст, заавал биш)
+          {t("tuitionTextLabel")}
           <Input
             value={values.tuitionText}
             onChange={(event) => set("tuitionText", event.target.value)}
-            placeholder="жишээ: ≈ 5.8–8.5 сая ₮/жил (хөтөлбөрөөс хамаарна)"
+            placeholder={t("tuitionTextPlaceholder")}
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          Вэбсайт
+          {t("fields.website")}
           <Input
             value={values.website}
             onChange={(event) => set("website", event.target.value)}
@@ -245,16 +258,16 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
           />
         </label>
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
-          И-мэйл
+          {t("fields.email")}
           <Input
             type="email"
             value={values.email}
             onChange={(event) => set("email", event.target.value)}
-            placeholder="жишээ: info@num.edu.mn"
+            placeholder={t("emailPlaceholder")}
           />
         </label>
         <div className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Утасны дугаар
+          {t("phones")}
           <div className="space-y-2">
             {values.phones.map((phone, index) => (
               <div key={index} className="flex items-center gap-2">
@@ -268,8 +281,8 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
                       values.phones.map((current, i) => (i === index ? event.target.value : current)),
                     )
                   }
-                  placeholder="жишээ: +976 7730-7730"
-                  aria-label={`Утасны дугаар ${index + 1}`}
+                  placeholder={t("phonePlaceholder")}
+                  aria-label={t("phoneN", { n: index + 1 })}
                 />
                 <button
                   type="button"
@@ -279,7 +292,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
                       values.phones.length > 1 ? values.phones.filter((_, i) => i !== index) : [""],
                     )
                   }
-                  aria-label={`Утасны дугаар ${index + 1}-г хасах`}
+                  aria-label={t("removePhoneN", { n: index + 1 })}
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-ink/[0.06] hover:text-ink max-lg:tap-target"
                 >
                   <X className="h-4 w-4" />
@@ -295,12 +308,12 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
               onClick={() => set("phones", [...values.phones, ""])}
             >
               <Plus className="h-3.5 w-3.5" />
-              Утас нэмэх
+              {t("addPhone")}
             </Button>
           )}
         </div>
         <ImageUploadField
-          label="Лого"
+          label={t("fields.logo")}
           variant="logo"
           maxSize={512}
           value={values.logoUrl}
@@ -308,7 +321,7 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
           onUploadingChange={(logo) => setUploading((current) => ({ ...current, logo }))}
         />
         <ImageUploadField
-          label="Нүүр зураг"
+          label={t("fields.cover")}
           variant="cover"
           maxSize={1600}
           value={values.coverUrl}
@@ -316,11 +329,11 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
           onUploadingChange={(cover) => setUploading((current) => ({ ...current, cover }))}
         />
         <label className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70 sm:col-span-2">
-          Танилцуулга
+          {t("fields.overview")}
           <Textarea
             value={values.overview}
             onChange={(event) => set("overview", event.target.value)}
-            placeholder="Их, дээд сургуулийн товч танилцуулга"
+            placeholder={t("overviewPlaceholder")}
           />
         </label>
       </div>
@@ -328,8 +341,8 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
       <div className="grid gap-4 sm:grid-cols-2">
         {(
           [
-            ["dormAvailable", "Дотуур байр"],
-            ["scholarshipAvailable", "Тэтгэлэг"],
+            ["dormAvailable", t("dorm")],
+            ["scholarshipAvailable", t("scholarship")],
           ] as const
         ).map(([key, label]) => (
           <label key={key} className="flex flex-col gap-1.5 text-xs font-semibold text-ink/70">
@@ -338,9 +351,9 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
               value={values[key]}
               onChange={(event) => set(key, event.target.value as Availability)}
             >
-              <option value="unknown">Тодорхойгүй (Мэдээлэл удахгүй нэмэгдэнэ)</option>
-              <option value="yes">Боломжтой</option>
-              <option value="no">Боломжгүй</option>
+              <option value="unknown">{t("unknownOption")}</option>
+              <option value="yes">{tFormat("available")}</option>
+              <option value="no">{tFormat("unavailable")}</option>
             </Select>
           </label>
         ))}
@@ -351,12 +364,12 @@ export function SchoolForm({ school, onSaved }: SchoolFormProps) {
       <Button type="submit" variant="solid" size="md" disabled={saving || uploadingImage}>
         <Save className="h-3.5 w-3.5" />
         {saving
-          ? "Хадгалж байна..."
+          ? t("saving")
           : uploadingImage
-            ? "Зураг оруулж байна..."
+            ? t("uploadingImage")
             : school
-              ? "Өөрчлөлтийг хадгалах"
-              : "Их, дээд сургууль нэмэх"}
+              ? t("saveChanges")
+              : t("create")}
       </Button>
     </form>
   );

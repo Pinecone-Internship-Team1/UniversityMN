@@ -1,32 +1,29 @@
 import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { LegalPage } from "@/components/layout/LegalPage";
 import { SITE_NAME } from "@/lib/site";
 
 // A draft: kept out of search results until the final text is written.
-export const metadata: Metadata = {
-  title: `Үйлчилгээний нөхцөл — ${SITE_NAME}`,
-  robots: { index: false },
-  alternates: { canonical: "/terms" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("legal.terms");
+  return {
+    title: `${t("title")} — ${SITE_NAME}`,
+    robots: { index: false },
+    alternates: { canonical: "/terms" },
+  };
+}
 
+/** Text in messages "legal.terms": an intro, then sections of a heading and paragraphs. */
 export default function TermsPage() {
+  const t = useTranslations("legal.terms");
   return (
-    <LegalPage title="Үйлчилгээний нөхцөл">
-      <p>
-        Энэ бол үйлчилгээний нөхцөлийн урьдчилсан төсөл. Эцсийн хувилбар гарахаас
-        өмнө агуулга нь өөрчлөгдөж болно.
-      </p>
-      <h2>Oyutan MN гэж юу вэ</h2>
-      <p>
-        Oyutan MN нь их, дээд сургуулиудын элсэлтийн мэдээллийг нэг дор цуглуулсан,
-        үнэгүй, бие даасан платформ. Бид аль ч сургуулийн албан ёсны сайт биш.
-      </p>
-      <h2>Мэдээллийн үнэн зөв байдал</h2>
-      <p>
-        Мэдээллийг сургуулиудын албан ёсны сайт, элсэлтийн журмаас цуглуулдаг ч
-        алдаа, хоцрогдол гарч болно. Босго оноо нь элсэлтийн баталгаа биш. Бүртгүүлэхээсээ
-        өмнө эцсийн мэдээллийг сургуулийн сайтаас шалгаарай.
-      </p>
+    <LegalPage title={t("title")}>
+      <p>{t("intro")}</p>
+      <h2>{t("whatTitle")}</h2>
+      <p>{t("what1")}</p>
+      <h2>{t("accuracyTitle")}</h2>
+      <p>{t("accuracy1")}</p>
     </LegalPage>
   );
 }

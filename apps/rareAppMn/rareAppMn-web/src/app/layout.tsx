@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, PT_Sans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { GraphqlProvider } from "@/components/providers/GraphqlProvider";
 import { ClerkUserSyncProvider } from "@/components/providers/ClerkUserSync";
 import { AppToaster } from "@/components/providers/AppToaster";
@@ -11,9 +13,9 @@ import {
   SIGN_IN_PATH,
   SIGN_UP_PATH,
 } from "@/lib/auth-routes";
-import { clerkAppearance, clerkLocalization } from "@/lib/clerk-ui";
-import { PAGE_SEO } from "@/lib/seo";
-import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/site";
+import { OG_LOCALES } from "@/i18n/config";
+import { clerkAppearance, clerkLocalizations } from "@/lib/clerk-ui";
+import { ogImage, SITE_NAME, SITE_URL } from "@/lib/site";
 import { LEGACY_THEME_STORAGE_KEY, THEME_STORAGE_KEY } from "@/lib/theme";
 import "./global.css";
 
@@ -36,19 +38,27 @@ const ptSans = PT_Sans({
 
 // Pages without their own metadata (e.g. 404) fall back to the home page's
 // title and share card. No canonical here: each page sets its own.
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: PAGE_SEO.home.title,
-  description: PAGE_SEO.home.description,
-  applicationName: SITE_NAME,
-  openGraph: {
-    type: "website",
-    siteName: SITE_NAME,
-    locale: "mn_MN",
-    images: [OG_IMAGE],
-  },
-  twitter: { card: "summary_large_image", images: [OG_IMAGE] },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const [locale, seo, site] = await Promise.all([
+    getLocale(),
+    getTranslations("seo"),
+    getTranslations("site"),
+  ]);
+  const image = ogImage(site("ogImageAlt"));
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: seo("home.title"),
+    description: seo("home.description"),
+    applicationName: SITE_NAME,
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      locale: OG_LOCALES[locale],
+      images: [image],
+    },
+    twitter: { card: "summary_large_image", images: [image] },
+  };
+}
 
 // viewport-fit=cover lets the footer, menus and sticky bars pad themselves
 // with env(safe-area-inset-*) on phones with a notch or home indicator.
@@ -72,11 +82,14 @@ const THEME_INIT_SCRIPT = `
 })();
 `;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // From the NEXT_LOCALE cookie (src/i18n/request.ts); Mongolian when unset.
+  // LanguageSwitcher changes it and refreshes, which re-renders this layout.
+  const locale = await getLocale();
   return (
     <ClerkProvider
       signInUrl={SIGN_IN_PATH}
@@ -84,11 +97,11 @@ export default function RootLayout({
       signInFallbackRedirectUrl={AFTER_SIGN_IN_PATH}
       signUpFallbackRedirectUrl={AFTER_SIGN_IN_PATH}
       afterSignOutUrl={AFTER_SIGN_OUT_PATH}
-      localization={clerkLocalization}
+      localization={clerkLocalizations[locale]}
       appearance={clerkAppearance}
     >
       <html
-        lang="mn"
+        lang={locale}
         className={`${montserrat.variable} ${ptSans.variable}`}
         suppressHydrationWarning
       >
@@ -100,11 +113,13 @@ export default function RootLayout({
           />
         </head>
         <body>
-          <GraphqlProvider>
-            <ClerkUserSyncProvider>{children}</ClerkUserSyncProvider>
-            <AppToaster />
-            <PageViewTracker />
-          </GraphqlProvider>
+          <NextIntlClientProvider>
+            <GraphqlProvider>
+              <ClerkUserSyncProvider>{children}</ClerkUserSyncProvider>
+              <AppToaster />
+              <PageViewTracker />
+            </GraphqlProvider>
+          </NextIntlClientProvider>
         </body>
       </html>
     </ClerkProvider>

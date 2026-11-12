@@ -3,6 +3,7 @@
 import { useAuth } from "@clerk/nextjs";
 import { ImagePlus, Loader2, X } from "lucide-react";
 import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/Button";
 import {
@@ -35,6 +36,8 @@ export function ImageUploadField({
   maxSize,
 }: ImageUploadFieldProps) {
   const { getToken } = useAuth();
+  const t = useTranslations("admin.upload");
+  const tErrors = useTranslations("errors");
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -49,10 +52,12 @@ export function ImageUploadField({
     } catch (error) {
       const message =
         error instanceof ImageUploadError
-          ? error.message
-          : "Зургийг оруулж чадсангүй. Дахин оролдоно уу.";
+          ? error.code === "network"
+            ? tErrors("network")
+            : tErrors(`image.${error.code}`)
+          : t("failedText");
       setErrorMessage(message);
-      toast.error("Зураг оруулж чадсангүй", { description: message });
+      toast.error(t("failed"), { description: message });
     } finally {
       setUploading(false);
       onUploadingChange(false);
@@ -95,12 +100,12 @@ export function ImageUploadField({
             onClick={() => inputRef.current?.click()}
           >
             <ImagePlus className="h-3.5 w-3.5" />
-            {uploading ? "Оруулж байна..." : value ? "Солих" : "Зураг оруулах"}
+            {uploading ? t("uploading") : value ? t("replace") : t("upload")}
           </Button>
           {value && (
             <Button variant="ghost" size="sm" disabled={uploading} onClick={() => onChange("")}>
               <X className="h-3.5 w-3.5" />
-              Арилгах
+              {t("remove")}
             </Button>
           )}
         </div>

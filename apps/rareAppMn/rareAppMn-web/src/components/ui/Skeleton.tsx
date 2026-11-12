@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import type { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
@@ -48,8 +49,9 @@ export function SchoolCardSkeletonRow({ count = 4 }: { count?: number }) {
 }
 
 export function SchoolCardSkeletonGrid({ count = 6 }: { count?: number }) {
+  const t = useTranslations("common");
   return (
-    <div role="status" aria-label="Ачаалж байна" className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div role="status" aria-label={t("loading")} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {Array.from({ length: count }).map((_, index) => (
         <SchoolCardSkeleton key={index} />
       ))}

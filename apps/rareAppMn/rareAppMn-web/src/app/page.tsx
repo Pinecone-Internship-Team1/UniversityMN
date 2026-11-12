@@ -12,10 +12,13 @@ import { TeamSection } from "@/components/home/TeamSection";
 import { Trust } from "@/components/home/Trust";
 import { Faq } from "@/components/home/Faq";
 import { FinalCta } from "@/components/home/FinalCta";
-import { PAGE_SEO, siteJsonLd } from "@/lib/seo";
-import { jsonLdHtml, pageMetadata } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/metadata";
+import { siteJsonLd } from "@/lib/seo";
+import { jsonLdHtml } from "@/lib/site";
 
-export const metadata: Metadata = pageMetadata(PAGE_SEO.home);
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("home");
+}
 
 /**
  * The homepage tells the story in order: the hook, proof, the problem, our

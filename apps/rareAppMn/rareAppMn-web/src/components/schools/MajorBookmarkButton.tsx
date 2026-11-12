@@ -3,6 +3,7 @@
 import { SignInButton, useAuth } from "@clerk/nextjs";
 import { Bookmark, BookmarkCheck } from "lucide-react";
 import { useState, type MouseEvent } from "react";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { useMutation } from "urql";
 import {
@@ -48,6 +49,8 @@ export function MajorBookmarkButton({
   onToggled,
 }: MajorBookmarkButtonProps) {
   const { isSignedIn } = useAuth();
+  const t = useTranslations("bookmark");
+  const tErrors = useTranslations("errors");
   const [saved, setSaved] = useState(initialSaved);
   const [syncedInitialSaved, setSyncedInitialSaved] = useState(initialSaved);
   if (syncedInitialSaved !== initialSaved) {
@@ -69,8 +72,8 @@ export function MajorBookmarkButton({
     const result = await toggleSaveMajor({ majorId }, MAJOR_BOOKMARK_CACHE);
     if (result.error) {
       setSaved(!optimisticValue);
-      toast.error("Хадгалахад алдаа гарлаа", {
-        description: getErrorMessage(result.error),
+      toast.error(t("saveFailed"), {
+        description: getErrorMessage(tErrors, result.error),
       });
       return;
     }
@@ -78,9 +81,9 @@ export function MajorBookmarkButton({
       const nowSaved = result.data.toggleSaveMajor;
       setSaved(nowSaved);
       onToggled?.(nowSaved);
-      const label = majorName ?? "Мэргэжил";
+      const label = majorName ?? t("majorFallback");
       toast.success(
-        nowSaved ? `${label} хадгаллаа` : `${label} хадгалснаас хасав`,
+        nowSaved ? t("saved", { name: label }) : t("removed", { name: label }),
       );
     }
   }
@@ -90,7 +93,7 @@ export function MajorBookmarkButton({
       type="button"
       onClick={isSignedIn ? handleClick : stopEventPropagation}
       aria-pressed={saved}
-      aria-label={saved ? "Хадгалсан мэргэжлээс хасах" : "Мэргэжлийг хадгалах"}
+      aria-label={saved ? t("majorUnsave") : t("majorSave")}
       disabled={fetching}
       className={cn(
         "flex shrink-0 items-center justify-center rounded-full border transition-all duration-200 active:scale-90 disabled:cursor-not-allowed disabled:opacity-60 max-lg:tap-target",

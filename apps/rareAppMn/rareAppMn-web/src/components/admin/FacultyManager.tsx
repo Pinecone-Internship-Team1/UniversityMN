@@ -48,11 +48,7 @@ import {
 import type { Faculty } from "@/lib/graphql/types";
 import { cn } from "@/lib/utils";
 import { parseOptionalText, parseRequiredText } from "@/lib/validation";
-
-const DUPLICATE_FACULTY_MESSAGE =
-  "Энэ нэртэй сургууль энэ их, дээд сургуульд аль хэдийн бүртгэгдсэн байна.";
-const FACULTY_HAS_MAJORS_MESSAGE =
-  "Энэ сургуульд мэргэжил байгаа тул устгах боломжгүй. Эхлээд мэргэжлүүдийг устгах эсвэл өөр сургууль руу шилжүүлнэ үү.";
+import { useTranslations } from "next-intl";
 
 /** A compact editor for a faculty's name and, for branch schools, its location. */
 function FacultyForm({
@@ -64,6 +60,10 @@ function FacultyForm({
   faculty: Faculty | null;
   onDone: (saved?: Faculty) => void;
 }) {
+  const t = useTranslations("admin.faculties");
+  const tc = useTranslations("common");
+  const tv = useTranslations("validation");
+  const tErrors = useTranslations("errors");
   const [name, setName] = useState(faculty?.name ?? "");
   const [location, setLocation] = useState(faculty?.location ?? "");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -79,13 +79,13 @@ function FacultyForm({
 
   async function handleSubmit() {
     setErrorMessage(null);
-    const parsedName = parseRequiredText(name, "Сургуулийн нэр");
+    const parsedName = parseRequiredText(tv, name, t("nameField"));
     if (!parsedName.ok) {
       setErrorMessage(parsedName.error);
       return;
     }
 
-    const parsedLocation = parseOptionalText(location, "Байршил");
+    const parsedLocation = parseOptionalText(tv, location, t("locationField"));
     if (!parsedLocation.ok) {
       setErrorMessage(parsedLocation.error);
       return;
@@ -99,14 +99,14 @@ function FacultyForm({
     if (result.error) {
       const message =
         getErrorCode(result.error) === "CONFLICT"
-          ? DUPLICATE_FACULTY_MESSAGE
-          : getErrorMessageWithDetail(result.error);
+          ? t("duplicate")
+          : getErrorMessageWithDetail(tErrors, result.error);
       setErrorMessage(message);
-      toast.error("Сургуулийг хадгалж чадсангүй", { description: message });
+      toast.error(t("saveFailed"), { description: message });
       return;
     }
     toast.success(
-      faculty ? "Сургууль шинэчлэгдлээ" : "Шинэ сургууль нэмэгдлээ",
+      faculty ? t("updated") : t("created"),
     );
     const saved =
       result.data && "createFaculty" in result.data
@@ -129,22 +129,22 @@ function FacultyForm({
         <Input
           value={name}
           onChange={(event) => setName(event.target.value)}
-          placeholder="Сургуулийн нэр, жишээ: Хууль зүйн сургууль"
-          aria-label="Сургуулийн нэр"
+          placeholder={t("namePlaceholder")}
+          aria-label={t("nameField")}
           autoFocus
           className="sm:flex-1"
         />
         <Input
           value={location}
           onChange={(event) => setLocation(event.target.value)}
-          placeholder="Байршил (өөр аймагт бол), жишээ: Ховд аймаг"
-          aria-label="Байршил"
+          placeholder={t("locationPlaceholder")}
+          aria-label={t("locationField")}
           className="sm:w-64"
         />
         <div className="flex gap-1.5">
           <Button type="submit" variant="solid" size="sm" disabled={saving}>
             <Save className="h-3.5 w-3.5" />
-            {saving ? "Хадгалж байна..." : faculty ? "Хадгалах" : "Нэмэх"}
+            {saving ? t("saving") : faculty ? tc("save") : t("add")}
           </Button>
           <Button
             variant="ghost"
@@ -152,7 +152,7 @@ function FacultyForm({
             onClick={() => onDone()}
             disabled={saving}
           >
-            Болих
+            {tc("cancel")}
           </Button>
         </div>
       </div>
@@ -188,6 +188,11 @@ function groupMajorsByFaculty(
  * so a school comes first.
  */
 export function FacultyManager({ schoolId }: { schoolId: string }) {
+  const t = useTranslations("admin.faculties");
+  const tc = useTranslations("common");
+  const tFormat = useTranslations("format");
+  const tErrors = useTranslations("errors");
+  const tPicker = useTranslations("majorPicker");
   const [editing, setEditing] = useState<Faculty | "new" | null>(null);
   const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(
     null,
@@ -226,16 +231,16 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
   async function handleDelete(faculty: Faculty) {
     const result = await deleteFaculty({ id: faculty.id }, CATALOG_CACHE);
     if (result.error) {
-      toast.error("Сургуулийг устгаж чадсангүй", {
-        description: getErrorMessage(result.error, {
-          CONFLICT: FACULTY_HAS_MAJORS_MESSAGE,
+      toast.error(t("deleteFailed"), {
+        description: getErrorMessage(tErrors, result.error, {
+          CONFLICT: t("hasMajors"),
         }),
       });
       return;
     }
     setConfirmingDeleteId(null);
     if (editing !== "new" && editing?.id === faculty.id) setEditing(null);
-    toast.success(`${faculty.name} устгагдлаа`);
+    toast.success(t("deleted", { name: faculty.name }));
   }
 
   const faculties = data?.school?.faculties ?? [];
@@ -249,12 +254,12 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
     degreeCounts.set(key, (degreeCounts.get(key) ?? 0) + 1);
   }
   const degreeOptions = [
-    { key: ALL_DEGREES, label: "Бүгд", count: allMajors.length },
+    { key: ALL_DEGREES, label: t("allDegrees"), count: allMajors.length },
     ...[...DEGREE_TYPES, OTHER_DEGREE]
       .filter((key) => PINNED_DEGREES.includes(key) || degreeCounts.has(key))
       .map((key) => ({
         key,
-        label: formatDegreeKey(key),
+        label: formatDegreeKey(tFormat, key),
         count: degreeCounts.get(key) ?? 0,
       })),
   ];
@@ -294,9 +299,9 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h3 className="text-base font-bold text-ink">Сургуулиуд</h3>
+          <h3 className="text-base font-bold text-ink">{t("title")}</h3>
           <p className="text-xs text-ink/55">
-            {faculties.length} сургууль · {allMajors.length} мэргэжил
+            {t("counts", { faculties: faculties.length, majors: allMajors.length })}
           </p>
         </div>
         <Button
@@ -308,7 +313,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
           }}
         >
           <Plus className="h-3.5 w-3.5" />
-          Сургууль нэмэх
+          {t("addFaculty")}
         </Button>
       </div>
 
@@ -333,15 +338,15 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
             <Input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Хайх: программ хангамж, huuli…"
-              aria-label="Мэргэжил эсвэл сургууль хайх"
+              placeholder={tPicker("placeholderSchool")}
+              aria-label={t("searchLabel")}
               className="pl-11 pr-10"
             />
             {search && (
               <button
                 type="button"
                 onClick={() => setSearch("")}
-                aria-label="Хайлтыг цэвэрлэх"
+                aria-label={tPicker("clearSearch")}
                 className="absolute right-3 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-ink/40 hover:bg-ink/[0.06] hover:text-ink max-lg:tap-area"
               >
                 <X className="h-3.5 w-3.5" />
@@ -350,7 +355,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
           </div>
           <div
             role="radiogroup"
-            aria-label="Зэргээр шүүх"
+            aria-label={t("degreeFilter")}
             className="flex flex-wrap gap-1.5"
           >
             {degreeOptions.map((option) => {
@@ -382,7 +387,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
 
       {error ? (
         <ErrorState
-          description={getErrorMessage(error)}
+          description={getErrorMessage(tErrors, error)}
           onRetry={() => reexecute({ requestPolicy: "network-only" })}
         />
       ) : fetching && !data ? (
@@ -394,12 +399,12 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
       ) : faculties.length === 0 ? (
         <EmptyState
           icon={Building2}
-          title="Сургууль бүртгэгдээгүй байна"
-          description="Мэргэжил нэмэхийн өмнө “Сургууль нэмэх” товчоор энэ их, дээд сургуулийн сургуулийг үүсгэнэ үү."
+          title={t("emptyTitle")}
+          description={t("emptyText")}
           className="py-10"
         />
       ) : rows.length === 0 ? (
-        <p className="px-1 text-sm text-ink/60">“{search.trim()}” олдсонгүй.</p>
+        <p className="px-1 text-sm text-ink/60">{tPicker("notFound", { query: search.trim() })}</p>
       ) : (
         <ul className="space-y-2">
           {rows.map(({ faculty, total, majors }) => {
@@ -451,10 +456,10 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                       </span>
                     </button>
                     <DropdownMenu
-                      label={`${faculty.name}: үйлдлүүд`}
+                      label={t("actions", { name: faculty.name })}
                       items={[
                         {
-                          label: "Засах",
+                          label: tc("edit"),
                           icon: Pencil,
                           onSelect: () => {
                             setConfirmingDeleteId(null);
@@ -462,7 +467,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                           },
                         },
                         {
-                          label: "Устгах",
+                          label: tc("delete"),
                           icon: Trash2,
                           destructive: true,
                           onSelect: () => setConfirmingDeleteId(faculty.id),
@@ -475,22 +480,20 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                   (total > 0 ? (
                     <div className="mx-3 mb-3 flex flex-wrap items-center justify-between gap-2 rounded-lg border border-ink/10 bg-card px-3 py-2">
                       <p className="text-xs text-ink/70">
-                        “{faculty.name}”-д {total} мэргэжил байгаа тул устгах
-                        боломжгүй. Эхлээд мэргэжлүүдийг устгах эсвэл өөр
-                        сургууль руу шилжүүлнэ үү.
+                        {t("cannotDelete", { name: faculty.name, count: total })}
                       </p>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => setConfirmingDeleteId(null)}
                       >
-                        Ойлголоо
+                        {t("gotIt")}
                       </Button>
                     </div>
                   ) : (
                     <InlineConfirm
                       className="mx-3 mb-3"
-                      message={`“${faculty.name}” сургуулийг устгах уу?`}
+                      message={t("confirmDelete", { name: faculty.name })}
                       busy={deleting}
                       onConfirm={() => handleDelete(faculty)}
                       onCancel={() => setConfirmingDeleteId(null)}
@@ -508,7 +511,7 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
                       }
                       emptyMessage={
                         filteringByDegree
-                          ? `Энэ сургуульд ${degreeLabel ?? ""} зэргийн мэргэжил алга.`
+                          ? t("noDegreeMajors", { degree: degreeLabel ?? "" })
                           : undefined
                       }
                     />
@@ -522,9 +525,9 @@ export function FacultyManager({ schoolId }: { schoolId: string }) {
 
       {unassignedMajors.length > 0 && !query && !filteringByDegree && (
         <section className="rounded-xl border border-dashed border-ink/20 bg-paper p-3">
-          <h4 className="text-sm font-bold text-ink">Сургуульгүй мэргэжлүүд</h4>
+          <h4 className="text-sm font-bold text-ink">{t("unassignedTitle")}</h4>
           <p className="mb-2 mt-0.5 text-xs text-ink/60">
-            Эдгээр мэргэжлийг “Засах” товчоор аль нэг сургуульд оноогоорой.
+            {t("unassignedHint")}
           </p>
           <MajorList
             faculties={faculties}

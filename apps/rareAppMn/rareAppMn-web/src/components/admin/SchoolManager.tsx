@@ -26,6 +26,7 @@ import {
   type SchoolsQueryVariables,
 } from "@/lib/graphql/documents";
 import { getErrorMessage } from "@/lib/graphql/errors";
+import { useTranslations } from "next-intl";
 import { getUniversitySlug } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
 
@@ -33,12 +34,13 @@ const PAGE_SIZE = 10;
 
 type PanelTab = "faculties" | "details";
 
-const PANEL_TABS: { id: PanelTab; label: string }[] = [
-  { id: "faculties", label: "Сургууль, мэргэжил" },
-  { id: "details", label: "Ерөнхий мэдээлэл" },
-];
+/** Labels: messages "admin.schools.tabs.<id>". */
+const PANEL_TABS: { id: PanelTab }[] = [{ id: "faculties" }, { id: "details" }];
 
 export function SchoolManager() {
+  const t = useTranslations("admin.schools");
+  const tx = useTranslations("explorer");
+  const tErrors = useTranslations("errors");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [selected, setSelected] = useState<AdminSchool | "new" | null>(null);
@@ -72,12 +74,12 @@ export function SchoolManager() {
   async function handleDelete(school: AdminSchool) {
     const result = await deleteSchool({ id: school.id }, CATALOG_CACHE);
     if (result.error) {
-      toast.error("Их, дээд сургуулийг устгаж чадсангүй", { description: getErrorMessage(result.error) });
+      toast.error(t("deleteFailed"), { description: getErrorMessage(tErrors, result.error) });
       return;
     }
     setSelected(null);
     setConfirmingDelete(false);
-    toast.success(`${school.name} устгагдлаа`);
+    toast.success(t("deleted", { name: school.name }));
   }
 
   function select(school: AdminSchool | "new") {
@@ -97,20 +99,20 @@ export function SchoolManager() {
                 setSearch(event.target.value);
                 setPage(1);
               }}
-              placeholder="Хайх: muis, shutis, Хүрээ…"
+              placeholder={t("searchPlaceholder")}
               className="pl-11"
-              aria-label="Их, дээд сургууль хайх"
+              aria-label={t("searchLabel")}
             />
           </div>
           <Button variant="outline" size="md" onClick={() => select("new")}>
             <Plus className="h-3.5 w-3.5" />
-            Шинэ
+            {t("new")}
           </Button>
         </div>
 
         {error ? (
           <ErrorState
-            description={getErrorMessage(error)}
+            description={getErrorMessage(tErrors, error)}
             onRetry={() => reexecute({ requestPolicy: "network-only" })}
           />
         ) : fetching && !data ? (
@@ -120,7 +122,7 @@ export function SchoolManager() {
             ))}
           </div>
         ) : schools.length === 0 ? (
-          <EmptyState title="Их, дээд сургууль олдсонгүй" />
+          <EmptyState title={t("noSchools")} />
         ) : (
           <>
             <ul className="divide-y divide-ink/[0.07] overflow-hidden rounded-xl border border-ink/10 bg-card">
@@ -141,7 +143,7 @@ export function SchoolManager() {
                     >
                       <p className="truncate text-sm font-semibold text-ink">{school.name}</p>
                       <p className="truncate text-[11px] text-ink/55">
-                        {school.location ?? "Байршил тодорхойгүй"}
+                        {school.location ?? t("locationUnknown")}
                       </p>
                     </button>
                   </li>
@@ -154,7 +156,7 @@ export function SchoolManager() {
                   type="button"
                   onClick={() => setPage((current) => Math.max(1, current - 1))}
                   disabled={page <= 1}
-                  aria-label="Өмнөх хуудас"
+                  aria-label={tx("prevPage")}
                   className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
                 >
                   <ChevronLeft className="h-4 w-4" />
@@ -166,7 +168,7 @@ export function SchoolManager() {
                   type="button"
                   onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
                   disabled={page >= totalPages}
-                  aria-label="Дараагийн хуудас"
+                  aria-label={tx("nextPage")}
                   className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 max-lg:tap-target"
                 >
                   <ChevronRight className="h-4 w-4" />
@@ -180,12 +182,12 @@ export function SchoolManager() {
       <section className="lg:col-span-8">
         {selected === null ? (
           <EmptyState
-            title="Их, дээд сургууль сонгоно уу"
-            description="Зүүн талын жагсаалтаас их, дээд сургууль сонгож засах, эсвэл шинээр нэмнэ үү."
+            title={t("pickTitle")}
+            description={t("pickText")}
           />
         ) : selected === "new" ? (
           <div className="rounded-2xl border border-ink/10 bg-card p-5 sm:p-6">
-            <h2 className="mb-5 text-lg font-bold text-ink">Шинэ их, дээд сургууль</h2>
+            <h2 className="mb-5 text-lg font-bold text-ink">{t("newTitle")}</h2>
             <SchoolForm
               key="new"
               school={null}
@@ -201,7 +203,7 @@ export function SchoolManager() {
               <div className="min-w-0">
                 <h2 className="truncate text-lg font-bold text-ink">{selected.name}</h2>
                 <p className="truncate text-xs text-ink/55">
-                  {selected.location ?? "Байршил тодорхойгүй"}
+                  {selected.location ?? t("locationUnknown")}
                 </p>
               </div>
               <div className="flex shrink-0 items-center gap-1">
@@ -210,13 +212,13 @@ export function SchoolManager() {
                   className="inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-[11px] font-bold uppercase tracking-wider text-ink/60 transition-colors max-lg:tap-target hover:bg-ink/[0.06] hover:text-ink"
                 >
                   <ExternalLink className="h-3.5 w-3.5" />
-                  Хуудас
+                  {t("page")}
                 </Link>
                 <DropdownMenu
-                  label={`${selected.name}: үйлдлүүд`}
+                  label={t("actions", { name: selected.name })}
                   items={[
                     {
-                      label: "Их, дээд сургуулийг устгах",
+                      label: t("delete"),
                       icon: Trash2,
                       destructive: true,
                       onSelect: () => setConfirmingDelete(true),
@@ -229,7 +231,7 @@ export function SchoolManager() {
             {confirmingDelete && (
               <InlineConfirm
                 className="mx-5 mt-4 sm:mx-6"
-                message={`“${selected.name}” болон түүний бүх сургууль, мэргэжлийг устгах уу?`}
+                message={t("confirmDelete", { name: selected.name })}
                 busy={deleting}
                 onConfirm={() => handleDelete(selected)}
                 onCancel={() => setConfirmingDelete(false)}
@@ -253,7 +255,7 @@ export function SchoolManager() {
                         : "border-transparent text-ink/50 hover:text-ink",
                     )}
                   >
-                    {tab.label}
+                    {t(`tabs.${tab.id}`)}
                   </button>
                 );
               })}

@@ -7,6 +7,7 @@ import { SectionHeader } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
+import { getTranslations } from "next-intl/server";
 import { formatDateMn, todayInMongolia } from "@/lib/format";
 import {
   SCHOLARSHIP_DIRECTORY_QUERY,
@@ -15,20 +16,22 @@ import {
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { fetchAllSchools } from "@/lib/graphql/fetch-all-schools";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
-import { PAGE_SEO } from "@/lib/seo";
-import { pageMetadata } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/metadata";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = pageMetadata(PAGE_SEO.scholarships);
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("scholarships");
+}
 
 type DirectorySchool = ScholarshipDirectoryResult["schools"]["items"][number];
 
 export default async function ScholarshipsPage() {
-  const { items: schools, error } = await fetchAllSchools<DirectorySchool>(
-    createServerGraphqlClient(),
-    SCHOLARSHIP_DIRECTORY_QUERY,
-  );
+  const [{ items: schools, error }, t, tErrors] = await Promise.all([
+    fetchAllSchools<DirectorySchool>(createServerGraphqlClient(), SCHOLARSHIP_DIRECTORY_QUERY),
+    getTranslations("scholarshipsPage"),
+    getTranslations("errors"),
+  ]);
 
   const today = todayInMongolia();
   const entries = schools
@@ -53,25 +56,25 @@ export default async function ScholarshipsPage() {
       <Container className="py-6 md:py-12">
         <SectionHeader
           as="h1"
-          title="Сургуулиудын тэтгэлэг, хөнгөлөлт"
-          description="Тэтгэлэг бүрийн хамрах хүрээ, шаардлага болон эцсийн хугацааг харьцуулж, өөрт тохирохыг нь цагтаа бүртгүүлээрэй."
+          title={t("title")}
+          description={t("description")}
         />
 
         <div className="mt-6 md:mt-8">
           {error ? (
             <ErrorState
-              title="Тэтгэлгийн мэдээллийг ачааллаж чадсангүй"
-              description={getErrorMessage(error)}
+              title={t("error")}
+              description={getErrorMessage(tErrors, error)}
             />
           ) : entries.length === 0 ? (
             <EmptyState
               icon={Award}
-              title="Одоогоор тэтгэлэг бүртгэгдээгүй байна"
-              description="Сургуулиуд тэтгэлгийн мэдээлэл нэмэх үед энд харагдана."
+              title={t("emptyTitle")}
+              description={t("emptyText")}
             />
           ) : (
             <>
-              <p className="mb-4 text-[15px] font-bold text-ink-2">{entries.length} тэтгэлэг</p>
+              <p className="mb-4 text-[15px] font-bold text-ink-2">{t("count", { count: entries.length })}</p>
               <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
                 {entries.map(({ scholarship, school, expired }) => {
                   const university = getUniversityBySchoolId(school.id);
@@ -85,7 +88,7 @@ export default async function ScholarshipsPage() {
                     >
                       <div className="flex flex-wrap items-center gap-2">
                         <Badge variant={expired ? "outline" : "success"}>
-                          {expired ? "Хугацаа дууссан" : "Нээлттэй"}
+                          {expired ? t("expired") : t("open")}
                         </Badge>
                         <Link
                           href={`/university/${getUniversitySlug(school.id) ?? school.id}`}
@@ -99,19 +102,19 @@ export default async function ScholarshipsPage() {
                       </h2>
                       {scholarship.coverage && (
                         <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-                          <span className="font-bold text-ink">Хамрах хүрээ: </span>
+                          <span className="font-bold text-ink">{t("coverage")} </span>
                           {scholarship.coverage}
                         </p>
                       )}
                       {scholarship.requirements && (
                         <p className="mt-2 line-clamp-4 text-[15px] leading-relaxed text-ink-2">
-                          <span className="font-bold text-ink">Шаардлага: </span>
+                          <span className="font-bold text-ink">{t("requirements")} </span>
                           {scholarship.requirements}
                         </p>
                       )}
                       <p className="mt-auto flex items-center gap-2 border-t border-border-ink pt-3 text-[15px] font-bold text-ink [&:not(:first-child)]:mt-4">
                         <CalendarDays className="h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
-                        Эцсийн хугацаа: {formatDateMn(scholarship.deadline) ?? "Тодорхойгүй"}
+                        {t("deadline", { date: formatDateMn(scholarship.deadline) ?? t("deadlineUnknown") })}
                       </p>
                     </li>
                   );

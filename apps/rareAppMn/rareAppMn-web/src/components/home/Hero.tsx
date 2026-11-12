@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowDown, Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { buttonClassName } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { HeroCursorTrail } from "./HeroCursorTrail";
@@ -15,6 +16,8 @@ import { ScoreForm } from "./ScoreForm";
  * devices that have one.
  */
 export function Hero() {
+  const t = useTranslations("home.hero");
+  const tc = useTranslations("common");
   return (
     <section id="top" className="relative isolate overflow-hidden">
       <div
@@ -26,12 +29,11 @@ export function Hero() {
       <Container className="grid grid-cols-1 items-center gap-10 pt-8 pb-14 md:grid-cols-[minmax(0,1fr)_auto] md:pt-14 md:pb-20 lg:gap-16 lg:pt-20 lg:pb-24">
         <div>
           <h1 className="text-[1.75rem] leading-[1.15] text-ink min-[390px]:text-[1.9rem] sm:text-5xl lg:text-[3.4rem]">
-            Сургууль бүрийн сайтаар тэнэх хэрэггүй.{" "}
-            <span className="text-accent">Бүгд нэг дор.</span>
+            {t("titleLead")}{" "}
+            <span className="text-accent">{t("titleAccent")}</span>
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-2 sm:text-lg">
-            Oyutan MN бол Монголын их, дээд сургуулиудын босго оноо, мэргэжил, төлбөр,
-            тэтгэлэг, элсэлтийн хуанлийг нэг дор цуглуулсан үнэгүй платформ.
+            {t("lead")}
           </p>
 
           <ScoreForm className="mt-6 max-w-xl" />
@@ -39,13 +41,13 @@ export function Hero() {
           <div className="mt-4 flex flex-col gap-3 min-[400px]:flex-row">
             <Link href="/schools" className={buttonClassName({ size: "lg", className: "min-[400px]:flex-1 sm:flex-none" })}>
               <Search />
-              Сургууль хайх
+              {tc("searchSchools")}
             </Link>
             <a
               href="#story"
               className={buttonClassName({ variant: "secondary", size: "lg", className: "min-[400px]:flex-1 sm:flex-none" })}
             >
-              Бидний тухай
+              {tc("aboutUs")}
               <ArrowDown />
             </a>
           </div>

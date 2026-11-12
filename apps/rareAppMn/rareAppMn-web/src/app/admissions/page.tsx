@@ -7,6 +7,7 @@ import { SectionHeader } from "@/components/ui/Section";
 import { Badge, type BadgeVariant } from "@/components/ui/Badge";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ErrorState } from "@/components/ui/ErrorState";
+import { getTranslations } from "next-intl/server";
 import { formatDateRange, todayInMongolia } from "@/lib/format";
 import {
   ADMISSION_DIRECTORY_QUERY,
@@ -15,13 +16,14 @@ import {
 import { getErrorMessage } from "@/lib/graphql/errors";
 import { fetchAllSchools } from "@/lib/graphql/fetch-all-schools";
 import { createServerGraphqlClient } from "@/lib/graphql-server";
-import { PAGE_SEO } from "@/lib/seo";
-import { pageMetadata } from "@/lib/site";
+import { staticPageMetadata } from "@/lib/metadata";
 import { getUniversityBySchoolId, getUniversitySlug } from "@/lib/university-logos";
 import { cn } from "@/lib/utils";
 import { SchoolLogo } from "@/components/schools/SchoolCard";
 
-export const metadata: Metadata = pageMetadata(PAGE_SEO.admissions);
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("admissions");
+}
 
 type DirectorySchool = AdmissionDirectoryResult["schools"]["items"][number];
 type ScheduleStatus = "open" | "upcoming" | "ended" | "unknown";
@@ -33,11 +35,12 @@ const STATUS_ORDER: Record<ScheduleStatus, number> = {
   ended: 3,
 };
 
-const STATUS_BADGES: Record<ScheduleStatus, { label: string; variant: BadgeVariant }> = {
-  open: { label: "Явагдаж байна", variant: "success" },
-  upcoming: { label: "Удахгүй", variant: "accent" },
-  unknown: { label: "Хугацаа тодорхойгүй", variant: "outline" },
-  ended: { label: "Дууссан", variant: "outline" },
+/** Labels: messages "admissionsPage.status.<status>". */
+const STATUS_VARIANTS: Record<ScheduleStatus, BadgeVariant> = {
+  open: "success",
+  upcoming: "accent",
+  unknown: "outline",
+  ended: "outline",
 };
 
 function scheduleStatus(
@@ -54,10 +57,12 @@ function scheduleStatus(
 }
 
 export default async function AdmissionsPage() {
-  const { items: schools, error } = await fetchAllSchools<DirectorySchool>(
-    createServerGraphqlClient(),
-    ADMISSION_DIRECTORY_QUERY,
-  );
+  const [{ items: schools, error }, t, tFormat, tErrors] = await Promise.all([
+    fetchAllSchools<DirectorySchool>(createServerGraphqlClient(), ADMISSION_DIRECTORY_QUERY),
+    getTranslations("admissionsPage"),
+    getTranslations("format"),
+    getTranslations("errors"),
+  ]);
 
   const today = todayInMongolia();
   const entries = schools
@@ -80,27 +85,26 @@ export default async function AdmissionsPage() {
       <Container className="py-6 md:py-12">
         <SectionHeader
           as="h1"
-          title="Элсэлтийн хуанли"
-          description="Сургууль бүрийн элсэлтийн бүртгэл болон бусад чухал үйл явдлын хугацааг нэг дороос хянаарай."
+          title={t("title")}
+          description={t("description")}
         />
 
         <div className="mt-6 md:mt-8">
           {error ? (
             <ErrorState
-              title="Элсэлтийн мэдээллийг ачааллаж чадсангүй"
-              description={getErrorMessage(error)}
+              title={t("error")}
+              description={getErrorMessage(tErrors, error)}
             />
           ) : entries.length === 0 ? (
             <EmptyState
               icon={CalendarDays}
-              title="Одоогоор элсэлтийн хуваарь бүртгэгдээгүй байна"
-              description="Сургуулиуд элсэлтийн хуваариа нэмэх үед энд харагдана."
+              title={t("emptyTitle")}
+              description={t("emptyText")}
             />
           ) : (
             <ul className="grid grid-cols-1 gap-3 lg:grid-cols-2">
               {entries.map(({ schedule, school, status }) => {
                 const university = getUniversityBySchoolId(school.id);
-                const badge = STATUS_BADGES[status];
                 return (
                   <li
                     key={schedule.id}
@@ -112,9 +116,9 @@ export default async function AdmissionsPage() {
                     <SchoolLogo school={{ id: school.id, name: school.name, logoUrl: null }} size={44} className="mt-0.5 hidden min-[400px]:flex" />
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                        <Badge variant={badge.variant}>{badge.label}</Badge>
+                        <Badge variant={STATUS_VARIANTS[status]}>{t(`status.${status}`)}</Badge>
                         <span className="text-[15px] font-bold text-ink tabular-nums">
-                          {formatDateRange(schedule.startDate, schedule.endDate)}
+                          {formatDateRange(tFormat, schedule.startDate, schedule.endDate)}
                         </span>
                       </div>
                       <h2 className="mt-2 font-sans text-base leading-snug font-bold tracking-normal text-ink md:text-lg">

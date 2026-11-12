@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -21,11 +22,14 @@ export function InlineConfirm({
   onConfirm,
   onCancel,
   busy,
-  confirmLabel = "Устгах",
-  busyLabel = "Устгаж байна...",
+  confirmLabel,
+  busyLabel,
   tone = "danger",
   className,
 }: InlineConfirmProps) {
+  const t = useTranslations("common");
+  confirmLabel ??= t("delete");
+  busyLabel ??= t("deleting");
   return (
     <div
       role="alertdialog"
@@ -49,7 +53,7 @@ export function InlineConfirm({
           {busy ? busyLabel : confirmLabel}
         </Button>
         <Button variant="ghost" size="sm" disabled={busy} onClick={onCancel}>
-          Болих
+          {t("cancel")}
         </Button>
       </div>
     </div>

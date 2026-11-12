@@ -1,4 +1,7 @@
 import { describe, expect, test } from "bun:test";
+import { createTranslator } from "next-intl";
+import en from "../../messages/en.json";
+import mn from "../../messages/mn.json";
 import {
   MAX_DESCRIPTION_LENGTH,
   MAX_TITLE_LENGTH,
@@ -16,6 +19,11 @@ import {
   shortOverview,
   siteJsonLd,
 } from "./seo";
+
+const tSeo = createTranslator({ locale: "mn", messages: mn, namespace: "seo" });
+const tFormat = createTranslator({ locale: "mn", messages: mn, namespace: "format" });
+const tSeoEn = createTranslator({ locale: "en", messages: en, namespace: "seo" });
+const tFormatEn = createTranslator({ locale: "en", messages: en, namespace: "format" });
 
 /** `count` bachelor majors whose cut-offs and fees run from the first value to the second. */
 function majors(
@@ -126,28 +134,45 @@ function liveSchool(id: string): SchoolSeoInput {
 
 describe("fixed pages", () => {
   test("titles carry our name in both alphabets and stay short", () => {
-    for (const page of Object.values(PAGE_SEO)) {
-      expect(page.title).toContain("Oyutan MN");
-      expect(page.title).toContain("Оюутан MN");
-      expect(page.title.length).toBeLessThanOrEqual(MAX_TITLE_LENGTH);
-      expect(page.description.length).toBeLessThanOrEqual(MAX_DESCRIPTION_LENGTH);
+    for (const key of Object.keys(PAGE_SEO) as (keyof typeof PAGE_SEO)[]) {
+      const title = tSeo(`${key}.title`);
+      expect(title).toContain("Oyutan MN");
+      expect(title).toContain("Оюутан MN");
+      expect(title.length).toBeLessThanOrEqual(MAX_TITLE_LENGTH);
+      expect(tSeo(`${key}.description`).length).toBeLessThanOrEqual(MAX_DESCRIPTION_LENGTH);
+    }
+  });
+
+  test("English titles and descriptions fit too", () => {
+    for (const key of Object.keys(PAGE_SEO) as (keyof typeof PAGE_SEO)[]) {
+      const title = tSeoEn(`${key}.title`);
+      expect(title).toContain("Oyutan MN");
+      expect(title.length).toBeLessThanOrEqual(MAX_TITLE_LENGTH);
+      expect(tSeoEn(`${key}.description`).length).toBeLessThanOrEqual(MAX_DESCRIPTION_LENGTH);
     }
   });
 
   test("the home title is the one asked for", () => {
-    expect(PAGE_SEO.home.title).toBe("Oyutan MN (Оюутан MN) — их сургуулийн босго оноо, тэтгэлэг");
+    expect(tSeo("home.title")).toBe("Oyutan MN (Оюутан MN) — их сургуулийн босго оноо, тэтгэлэг");
   });
 });
 
 describe("school pages", () => {
+  test("English title and description", () => {
+    expect(schoolTitle(tSeoEn, LIVE_SCHOOLS[0])).toBe("МУИС (muis) — cut-off scores, majors, tuition | Oyutan MN");
+    const description = schoolDescription(tSeoEn, tFormatEn, LIVE_SCHOOLS[0]);
+    expect(description.length).toBeLessThanOrEqual(MAX_DESCRIPTION_LENGTH);
+    expect(description).toContain("entrance exam cut-off");
+  });
+
   test("title: short name in Cyrillic, then in Latin letters", () => {
-    expect(schoolTitle(LIVE_SCHOOLS[0])).toBe("МУИС (muis) — босго оноо, мэргэжил, төлбөр | Oyutan MN");
+    expect(schoolTitle(tSeo, LIVE_SCHOOLS[0])).toBe("МУИС (muis) — босго оноо, мэргэжил, төлбөр | Oyutan MN");
   });
 
   test("every live school's title and description fit", () => {
     for (const live of LIVE_SCHOOLS) {
-      const title = schoolTitle(live);
-      const description = schoolDescription(live);
+      const title = schoolTitle(tSeo, live);
+      const description = schoolDescription(tSeo, tFormat, live);
       expect(title.length).toBeLessThanOrEqual(MAX_TITLE_LENGTH);
       expect(title).toContain(schoolShortName(live));
       expect(title).toContain(schoolLatinName(live) ?? "");
@@ -158,14 +183,14 @@ describe("school pages", () => {
   });
 
   test("a long short name drops words from the title, not the names", () => {
-    expect(schoolTitle(liveSchool("sch_otgontenger"))).toBe("Отгонтэнгэр (otgontenger) — босго оноо, төлбөр | Oyutan MN");
+    expect(schoolTitle(tSeo, liveSchool("sch_otgontenger"))).toBe("Отгонтэнгэр (otgontenger) — босго оноо, төлбөр | Oyutan MN");
   });
 
   test("description from the real numbers", () => {
-    expect(schoolDescription(LIVE_SCHOOLS[0])).toBe(
+    expect(schoolDescription(tSeo, tFormat, LIVE_SCHOOLS[0])).toBe(
       "Монгол Улсын Их Сургууль (МУИС, muis): 330 мэргэжил, ЭЕШ босго оноо 430–490, төлбөр 6.2–8.5 сая ₮/жил. Тэтгэлэг, дотуур байр, элсэлт.",
     );
-    expect(schoolDescription(liveSchool("sch_etugen"))).toBe(
+    expect(schoolDescription(tSeo, tFormat, liveSchool("sch_etugen"))).toBe(
       "Этүгэн Их Сургууль (etugen): 29 мэргэжил, ЭЕШ босго оноо 410–490. Тэтгэлэг, дотуур байр, элсэлт.",
     );
   });
@@ -199,11 +224,11 @@ describe("ranges", () => {
   });
 
   test("tuition from the majors, else the school's own fee", () => {
-    expect(formatTuitionRange({ tuitionFee: null, majors: majors(3, [400, 400], [4_520_000, 7_080_000]) })).toBe(
+    expect(formatTuitionRange(tFormat, { tuitionFee: null, majors: majors(3, [400, 400], [4_520_000, 7_080_000]) })).toBe(
       "4.5–7.1 сая ₮",
     );
-    expect(formatTuitionRange({ tuitionFee: 9_300_000, majors: [] })).toBe("≈ 9.3 сая ₮");
-    expect(formatTuitionRange({ tuitionFee: null, majors: [] })).toBeNull();
+    expect(formatTuitionRange(tFormat, { tuitionFee: 9_300_000, majors: [] })).toBe("≈ 9.3 сая ₮");
+    expect(formatTuitionRange(tFormat, { tuitionFee: null, majors: [] })).toBeNull();
   });
 
   test("the preview takes bachelor programs, one per faculty in turn, each name once", () => {

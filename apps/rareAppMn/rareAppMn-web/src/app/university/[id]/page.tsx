@@ -18,6 +18,8 @@ import {
   Scale,
 } from "lucide-react";
 import { auth } from "@clerk/nextjs/server";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { PageShell } from "@/components/layout/PageShell";
 import { BackLink } from "@/components/schools/BackLink";
 import { InfoSection } from "@/components/schools/InfoSection";
@@ -58,7 +60,8 @@ import {
   schoolPath,
   schoolTitle,
 } from "@/lib/seo";
-import { DATA_UPDATED_AT, jsonLdHtml, pageMetadata, reportHref } from "@/lib/site";
+import { localizedPageMetadata } from "@/lib/metadata";
+import { DATA_UPDATED_AT, jsonLdHtml, reportHref } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { UNIVERSITIES, getUniversityBySchoolId } from "@/lib/university-logos";
 
@@ -89,11 +92,15 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const school = await resolveSchool(id);
+  const [school, tSeo, tFormat] = await Promise.all([
+    resolveSchool(id),
+    getTranslations("seo"),
+    getTranslations("format"),
+  ]);
   if (!school) notFound();
-  return pageMetadata({
-    title: schoolTitle(school),
-    description: schoolDescription(school),
+  return localizedPageMetadata({
+    title: schoolTitle(tSeo, school),
+    description: schoolDescription(tSeo, tFormat, school),
     path: schoolPath(school.id),
   });
 }
@@ -108,17 +115,21 @@ export default async function UniversityDetailPage({ params }: PageProps) {
 
   // Signed-out visitors and search engines get the same public preview; the
   // full page (programs, exams, scholarships, dorms, save, compare) needs sign-in.
-  const { userId } = await auth();
+  const [{ userId }, t, tFormat] = await Promise.all([
+    auth(),
+    getTranslations("universityPage"),
+    getTranslations("format"),
+  ]);
   const signedIn = userId != null;
 
   const university = getUniversityBySchoolId(school.id);
   const shortName = university?.short ?? school.name;
-  const schoolType = formatSchoolType(school.name);
+  const schoolType = formatSchoolType(tFormat, school.name);
   const facts = [
-    { label: "Байгуулагдсан", value: university?.founded ? `${university.founded} он` : null },
-    { label: "Мэргэжил", value: school.majors.length > 0 ? String(school.majors.length) : null },
-    { label: "ЭЕШ босго оноо", value: formatCutOffRange(school) },
-    { label: "Жилийн төлбөр", value: formatTuitionRange(school) },
+    { label: t("founded"), value: university?.founded ? t("foundedYear", { year: university.founded }) : null },
+    { label: t("majors"), value: school.majors.length > 0 ? String(school.majors.length) : null },
+    { label: t("cutOff"), value: formatCutOffRange(school) },
+    { label: t("tuition"), value: formatTuitionRange(tFormat, school) },
   ];
 
   return (
@@ -135,7 +146,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
           <div className="relative mt-3 h-40 overflow-hidden rounded-3xl border border-border-ink bg-card sm:h-64">
             <Image
               src={school.coverUrl}
-              alt={`${shortName} нүүр зураг`}
+              alt={t("coverAlt", { name: shortName })}
               fill
               sizes="(max-width: 1200px) 100vw, 1200px"
               unoptimized
@@ -183,7 +194,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
         {signedIn ? (
           <div className="mt-6 grid grid-cols-1 gap-6 md:mt-8 md:grid-cols-12 md:gap-8">
             <div className="space-y-4 md:col-span-8">
-              <InfoSection icon={Info} title="Сургуулийн тухай" collapsible={false}>
+              <InfoSection icon={Info} title={t("about")} collapsible={false}>
                 {school.overview ? (
                   <p className="text-base leading-relaxed text-ink-2">{school.overview}</p>
                 ) : (
@@ -199,8 +210,8 @@ export default async function UniversityDetailPage({ params }: PageProps) {
 
               <InfoSection
                 icon={Award}
-                title="Тэтгэлэг ба боломжууд"
-                meta={school.scholarships.length > 0 ? `${school.scholarships.length} тэтгэлэг` : undefined}
+                title={t("scholarships")}
+                meta={school.scholarships.length > 0 ? t("scholarshipCount", { count: school.scholarships.length }) : undefined}
               >
                 {school.scholarships.length === 0 ? (
                   <ComingSoon className="mt-0" />
@@ -214,13 +225,13 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                         )}
                         {scholarship.requirements && (
                           <p className="mt-1 whitespace-pre-line text-[15px] text-ink-2">
-                            <span className="font-bold text-ink">Шаардлага: </span>
+                            <span className="font-bold text-ink">{t("requirements")} </span>
                             {scholarship.requirements}
                           </p>
                         )}
                         {scholarship.deadline && (
                           <p className="mt-2 text-[15px] font-bold text-ink">
-                            Эцсийн хугацаа: {formatDateMn(scholarship.deadline)}
+                            {t("deadline", { date: formatDateMn(scholarship.deadline) ?? "" })}
                           </p>
                         )}
                       </li>
@@ -229,7 +240,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                 )}
               </InfoSection>
 
-              <InfoSection icon={BedDouble} title="Оюутны байр">
+              <InfoSection icon={BedDouble} title={t("dorms")}>
                 {school.dormitories.length === 0 && !school.dormGuide ? (
                   <ComingSoon className="mt-0" />
                 ) : (
@@ -244,17 +255,17 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                             <div className="flex flex-wrap gap-2 text-sm font-bold text-ink-2">
                               {dormitory.capacity != null && (
                                 <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">
-                                  {dormitory.capacity.toLocaleString("mn-MN")} ор
+                                  {t("beds", { count: dormitory.capacity })}
                                 </span>
                               )}
                               {dormitory.feePerYear != null && (
                                 <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">
-                                  Жилд: {formatFee(dormitory.feePerYear, dormitory.currency)}
+                                  {t("perYear", { fee: formatFee(tFormat, dormitory.feePerYear, dormitory.currency) })}
                                 </span>
                               )}
                               {dormitory.feePerMonth != null && (
                                 <span className="rounded-lg bg-ink/[0.06] px-2.5 py-1">
-                                  Сард: {formatFee(dormitory.feePerMonth, dormitory.currency)}
+                                  {t("perMonth", { fee: formatFee(tFormat, dormitory.feePerMonth, dormitory.currency) })}
                                 </span>
                               )}
                             </div>
@@ -274,8 +285,8 @@ export default async function UniversityDetailPage({ params }: PageProps) {
 
               <InfoSection
                 icon={CalendarDays}
-                title="Элсэлтийн хуанли"
-                meta={school.admissionSchedules.length > 0 ? `${school.admissionSchedules.length} үйл явдал` : undefined}
+                title={t("calendar")}
+                meta={school.admissionSchedules.length > 0 ? t("eventCount", { count: school.admissionSchedules.length }) : undefined}
               >
                 {school.admissionSchedules.length === 0 ? (
                   <ComingSoon className="mt-0" />
@@ -288,7 +299,7 @@ export default async function UniversityDetailPage({ params }: PageProps) {
                       >
                         <span className="text-base font-bold text-ink">{schedule.eventName}</span>
                         <span className="shrink-0 text-[15px] text-ink-2 tabular-nums">
-                          {formatDateRange(schedule.startDate, schedule.endDate)}
+                          {formatDateRange(tFormat, schedule.startDate, schedule.endDate)}
                         </span>
                       </li>
                     ))}
@@ -335,11 +346,13 @@ function SchoolActions({
   signedIn: boolean;
   compact?: boolean;
 }) {
+  const t = useTranslations("universityPage");
+  const tNav = useTranslations("nav");
   if (!signedIn) {
     return (
       <Link href={signInHref(school.id)} className={buttonClassName({ className: compact ? "flex-1" : "" })}>
         <LogIn />
-        Нэвтэрч бүгдийг хар
+        {t("signInToSeeAll")}
       </Link>
     );
   }
@@ -356,7 +369,7 @@ function SchoolActions({
         className={buttonClassName({ variant: "secondary", className: compact ? "flex-1 px-3" : "" })}
       >
         <Scale />
-        Харьцуулах
+        {tNav("compare")}
       </Link>
       {school.website && (
         <a
@@ -366,7 +379,7 @@ function SchoolActions({
           className={buttonClassName({ className: compact ? "flex-1 px-3" : "" })}
         >
           <Globe />
-          {compact ? "Сайт" : "Албан ёсны сайт"}
+          {compact ? t("siteShort") : t("officialSite")}
         </a>
       )}
     </>
@@ -374,15 +387,17 @@ function SchoolActions({
 }
 
 function ContactCard({ school }: { school: SchoolDetail }) {
+  const t = useTranslations("universityPage");
+  const tFormat = useTranslations("format");
   const rows = [
-    { icon: Banknote, label: "Сургалтын төлбөр", value: formatSchoolTuition(school) },
-    { icon: BedDouble, label: "Дотуур байр", value: formatAvailability(school.dormAvailable) },
-    { icon: Award, label: "Тэтгэлэг", value: formatAvailability(school.scholarshipAvailable) },
+    { icon: Banknote, label: t("tuitionFee"), value: formatSchoolTuition(tFormat, school) },
+    { icon: BedDouble, label: t("dormitory"), value: formatAvailability(tFormat, school.dormAvailable) },
+    { icon: Award, label: t("scholarshipShort"), value: formatAvailability(tFormat, school.scholarshipAvailable) },
   ];
   return (
     <section aria-labelledby="contact-title" className="rounded-2xl border border-border-ink bg-card p-5">
       <h2 id="contact-title" className="font-sans text-lg font-bold tracking-normal text-ink">
-        Ерөнхий мэдээлэл
+        {t("generalInfo")}
       </h2>
       <ul className="mt-3 divide-y divide-border-ink text-[15px]">
         {rows.map(({ icon: Icon, label, value }) => (
@@ -398,7 +413,7 @@ function ContactCard({ school }: { school: SchoolDetail }) {
           <li className="flex gap-3 py-3">
             <Phone className="mt-0.5 h-5 w-5 shrink-0 text-ink-3" aria-hidden="true" />
             <div className="min-w-0">
-              <p className="font-bold text-ink">Утас</p>
+              <p className="font-bold text-ink">{t("phone")}</p>
               {school.phones.map((phone) => (
                 <p key={phone}>
                   <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className="inline-flex min-h-9 items-center text-ink-2 hover:text-accent">
@@ -413,7 +428,7 @@ function ContactCard({ school }: { school: SchoolDetail }) {
           <li className="flex gap-3 py-3">
             <Mail className="mt-0.5 h-5 w-5 shrink-0 text-ink-3" aria-hidden="true" />
             <div className="min-w-0">
-              <p className="font-bold text-ink">И-мэйл</p>
+              <p className="font-bold text-ink">{t("email")}</p>
               <p>
                 <a href={`mailto:${school.email}`} className="inline-flex min-h-9 items-center break-all text-ink-2 hover:text-accent">
                   {school.email}
@@ -437,20 +452,24 @@ function SourceLine({
   website: string | null;
   className?: string;
 }) {
+  const t = useTranslations("universityPage");
+  const tSite = useTranslations("site");
   return (
     <p className={cn("text-[15px] leading-relaxed text-ink-3", className)}>
-      Мэдээллийг{" "}
-      {website ? (
-        <a href={website} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-accent">
-          сургуулийн албан ёсны сайт
-        </a>
-      ) : (
-        "сургуулийн албан ёсны сайт"
-      )}
-      , элсэлтийн журмаас цуглуулав. Сүүлд шинэчилсэн: {DATA_UPDATED_AT}.{" "}
-      <a href={reportHref(schoolName)} className="inline-flex min-h-11 items-center gap-1 font-bold text-accent-strong underline-offset-4 hover:underline">
+      {t.rich("source", {
+        date: DATA_UPDATED_AT,
+        site: (chunks) =>
+          website ? (
+            <a href={website} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-accent">
+              {chunks}
+            </a>
+          ) : (
+            chunks
+          ),
+      })}{" "}
+      <a href={reportHref(tSite, schoolName)} className="inline-flex min-h-11 items-center gap-1 font-bold text-accent-strong underline-offset-4 hover:underline">
         <Flag className="h-4 w-4" aria-hidden="true" />
-        Мэдэгдэх
+        {t("report")}
       </a>
     </p>
   );

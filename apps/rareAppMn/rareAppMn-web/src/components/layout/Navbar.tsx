@@ -4,6 +4,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Menu, Search, Settings, UserCircle, X } from "lucide-react";
 import { Show, SignOutButton, UserButton } from "@clerk/nextjs";
+import { useTranslations } from "next-intl";
 import {
   ACCOUNT_SETTINGS_PATH,
   PROFILE_PATH,
@@ -14,16 +15,18 @@ import { cn } from "@/lib/utils";
 import { buttonClassName } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "./Logo";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
 import Link from "next/link";
 
+/** `label` is a key in the "nav" messages. */
 const NAV_LINKS = [
-  { label: "Сургууль", href: "/schools" },
-  { label: "Мэргэжил", href: "/schools?tab=majors" },
-  { label: "Тэтгэлэг", href: "/scholarships" },
-  { label: "Элсэлт", href: "/admissions" },
-  { label: "Харьцуулах", href: "/compare" },
-];
+  { label: "schools", href: "/schools" },
+  { label: "majors", href: "/schools?tab=majors" },
+  { label: "scholarships", href: "/scholarships" },
+  { label: "admissions", href: "/admissions" },
+  { label: "compare", href: "/compare" },
+] as const;
 
 /** Which nav link the current URL belongs to (/schools vs its majors tab, school pages count as schools). */
 function isActive(href: string, pathname: string, tab: string | null): boolean {
@@ -42,11 +45,12 @@ function isActive(href: string, pathname: string, tab: string | null): boolean {
  * Clerk's pop-up; its label comes from lib/clerk-ui.ts) plus sign-out.
  */
 function AccountButton() {
+  const t = useTranslations("common");
   return (
     <UserButton userProfileUrl={ACCOUNT_SETTINGS_PATH} userProfileMode="navigation">
       <UserButton.MenuItems>
         <UserButton.Link
-          label="Миний профайл"
+          label={t("myProfile")}
           labelIcon={<UserCircle className="h-4 w-4" strokeWidth={1.8} />}
           href={PROFILE_PATH}
         />
@@ -73,6 +77,7 @@ function NavLinkList({
   onNavigate,
   isCurrent,
 }: NavLinksProps & { isCurrent: (href: string) => boolean }) {
+  const t = useTranslations("nav");
   return NAV_LINKS.map((link) => {
     const active = isCurrent(link.href);
     return (
@@ -93,7 +98,7 @@ function NavLinkList({
               )
         }
       >
-        {link.label}
+        {t(link.label)}
       </Link>
     );
   });
@@ -109,6 +114,8 @@ function NavLinks(props: NavLinksProps) {
 }
 
 export function Navbar() {
+  const t = useTranslations("nav");
+  const tc = useTranslations("common");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -169,18 +176,19 @@ export function Navbar() {
       <Container className="flex h-14 items-center justify-between gap-3 lg:h-16">
         <Link
           href="/"
-          aria-label="Oyutan MN — нүүр хуудас"
+          aria-label={tc("homeAria")}
           className="flex h-11 shrink-0 items-center rounded-lg"
         >
           <Logo eager className="h-4 min-[390px]:h-[18px] sm:h-5" />
         </Link>
 
-        <nav aria-label="Үндсэн цэс" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label={t("mainMenu")} className="hidden items-center gap-6 lg:flex">
           <NavLinks variant="desktop" />
         </nav>
 
         <div className="flex items-center gap-1.5 sm:gap-2">
           <ThemeToggle className="hidden lg:flex" />
+          <LanguageSwitcher className="hidden lg:flex" />
 
           <Link
             href="/schools"
@@ -190,7 +198,7 @@ export function Navbar() {
             })}
           >
             <Search />
-            Сургууль хайх
+            {tc("searchSchools")}
           </Link>
 
           {/* Plain links (no redirect_url), so signing in from here lands on /schools */}
@@ -199,7 +207,7 @@ export function Navbar() {
               href={SIGN_IN_PATH}
               className={buttonClassName({ variant: "ghost", size: "sm", className: "hidden lg:inline-flex" })}
             >
-              Нэвтрэх
+              {tc("signIn")}
             </Link>
           </Show>
 
@@ -213,7 +221,7 @@ export function Navbar() {
             ref={toggleRef}
             type="button"
             onClick={() => setOpen((value) => !value)}
-            aria-label={open ? "Цэсийг хаах" : "Цэсийг нээх"}
+            aria-label={open ? t("closeMenu") : t("openMenu")}
             aria-expanded={open}
             aria-controls="mobile-menu"
             className="-mr-2 flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors active:bg-ink/[0.08] lg:hidden"
@@ -230,27 +238,32 @@ export function Navbar() {
         hidden={!open}
         className="fixed inset-x-0 top-14 bottom-0 overflow-y-auto overscroll-contain border-t border-border-ink bg-paper motion-safe:animate-[fade-in_150ms_ease-out] lg:hidden"
       >
-        <nav aria-label="Үндсэн цэс" className="flex flex-col gap-1 px-4 pt-4 pb-safe">
+        <nav aria-label={t("mainMenu")} className="flex flex-col gap-1 px-4 pt-4 pb-safe">
           <Link href="/schools" onClick={close} className={buttonClassName({ size: "lg", className: "mb-3 w-full" })}>
             <Search />
-            Сургууль хайх
+            {tc("searchSchools")}
           </Link>
 
           <NavLinks variant="mobile" onNavigate={close} />
 
           <div className="mt-3 flex min-h-14 items-center justify-between rounded-xl px-4">
-            <span className="text-[17px] font-bold text-ink">Өнгөний горим</span>
+            <span className="text-[17px] font-bold text-ink">{t("colorMode")}</span>
             <ThemeToggle className="-mr-2" />
+          </div>
+
+          <div className="flex min-h-14 items-center justify-between rounded-xl px-4">
+            <span className="text-[17px] font-bold text-ink">{t("language")}</span>
+            <LanguageSwitcher className="-mr-2" />
           </div>
 
           <div className="mt-2 border-t border-border-ink pt-4">
             <Show when="signed-out">
               <div className="grid grid-cols-2 gap-3">
                 <Link href={SIGN_IN_PATH} onClick={close} className={buttonClassName({ variant: "secondary" })}>
-                  Нэвтрэх
+                  {tc("signIn")}
                 </Link>
                 <Link href={SIGN_UP_PATH} onClick={close} className={buttonClassName({ variant: "solid" })}>
-                  Бүртгүүлэх
+                  {tc("signUp")}
                 </Link>
               </div>
             </Show>
@@ -261,7 +274,7 @@ export function Navbar() {
                 className="flex min-h-14 items-center gap-3 rounded-xl px-4 text-[17px] font-bold text-ink active:bg-ink/[0.08]"
               >
                 <UserCircle className="h-5 w-5 text-ink-2" aria-hidden="true" />
-                Миний профайл
+                {tc("myProfile")}
               </Link>
               <Link
                 href={ACCOUNT_SETTINGS_PATH}
@@ -269,14 +282,14 @@ export function Navbar() {
                 className="flex min-h-14 items-center gap-3 rounded-xl px-4 text-[17px] font-bold text-ink active:bg-ink/[0.08]"
               >
                 <Settings className="h-5 w-5 text-ink-2" aria-hidden="true" />
-                Бүртгэлийн тохиргоо
+                {tc("accountSettings")}
               </Link>
               <SignOutButton>
                 <button
                   type="button"
                   className={buttonClassName({ variant: "secondary", className: "mt-3 w-full" })}
                 >
-                  Гарах
+                  {tc("signOut")}
                 </button>
               </SignOutButton>
             </Show>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useQuery } from "urql";
 import { Skeleton } from "@/components/ui/Skeleton";
 import {
@@ -51,6 +52,7 @@ function Stat({ label, value, loading }: { label: string; value: number | string
  * in the browser, with a skeleton meanwhile, so a card never just disappears.
  */
 export function StatGrid({ initial }: { initial: StatCounts }) {
+  const t = useTranslations("home.numbers");
   const [schools] = useQuery<SchoolsQueryResult, SchoolsQueryVariables>({
     query: SCHOOLS_QUERY,
     variables: { filter: { limit: 1 } },
@@ -78,23 +80,24 @@ export function StatGrid({ initial }: { initial: StatCounts }) {
 
   return (
     <dl className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-      <Stat label="их, дээд сургууль" value={schoolCount} loading={schoolCount == null && !schools.error} />
-      <Stat label="мэргэжил, хөтөлбөр" value={majorCount} loading={majorCount == null && !majors.error} />
+      <Stat label={t("schools")} value={schoolCount} loading={schoolCount == null && !schools.error} />
+      <Stat label={t("majors")} value={majorCount} loading={majorCount == null && !majors.error} />
       <Stat
-        label="тэтгэлэг"
+        label={t("scholarships")}
         value={scholarshipCount}
         loading={scholarshipCount == null && !scholarships.error}
       />
-      <Stat label="оны элсэлтийн мэдээлэл" value="2026–27" />
+      <Stat label={t("admissionYear")} value="2026–27" />
     </dl>
   );
 }
 
 /** Same footprint as StatGrid, for the Suspense fallback. */
 export function StatGridSkeleton() {
+  const t = useTranslations("home.numbers");
   return (
     <dl className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4" aria-busy="true">
-      {["их, дээд сургууль", "мэргэжил, хөтөлбөр", "тэтгэлэг", "оны элсэлтийн мэдээлэл"].map((label) => (
+      {[t("schools"), t("majors"), t("scholarships"), t("admissionYear")].map((label) => (
         <Stat key={label} label={label} value={null} loading />
       ))}
     </dl>
